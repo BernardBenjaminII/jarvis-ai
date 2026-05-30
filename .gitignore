@@ -1,33 +1,54 @@
-# 🔐 Virtual environment
+# Virtual Environments
+
 jarvis-venv/
 venv/
+core/venv/
 
-# 🐍 Python
-__pycache__/
+# Ollama
+
+.ollama/
+
+# Models
+
+models/
+*.gguf
+
+# Runtime Data
+
+logs/
+*.log
+knowledge/
+memory/*.db
+memory/*.sqlite
+memory/session_state.json
+
+# Secrets
+
+.env
+credentials.json
+token.pickle
+*.pem
+*.key
+
+# Python
+
+**pycache**/
 *.pyc
 *.pyo
 *.pyd
 
-# 🔑 Environment variables / secrets
-.env
+# Linux / OS Junk
 
-# 📦 Local data (don’t commit runtime data)
-knowledge/
-logs/
-*.log
-
-# 🧠 Models / large files (handled by Ollama, not Git)
-models/
-*.gguf
-
-# 🧪 OS junk
+lost+found/
 .DS_Store
 Thumbs.db
 
-# 🧰 Editor / IDE
+# Editors
+
 .vscode/
 .idea/
 
-# 🧾 Temporary files
+# Temporary Files
+
 *.tmp
 *.swp
