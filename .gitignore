@@ -1,0 +1,46 @@
+# Virtual Environments
+
+venv/
+core/venv/
+
+# Ollama
+
+.ollama/
+
+# Models
+
+models/
+
+# Runtime Data
+
+logs/
+memory/*.db
+memory/session_state.json
+
+# Secrets
+
+credentials.json
+token.pickle
+.env
+*.pem
+*.key
+
+# Python
+
+**pycache**/
+*.pyc
+*.pyo
+
+# Linux
+
+lost+found/
+
+# IDE
+
+.vscode/
+.idea/
+
+# Temporary
+
+*.tmp
+*.swp

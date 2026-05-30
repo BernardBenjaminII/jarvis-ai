@@ -1,0 +1,13 @@
+name: hackerone
+domain: hackerone.com
+scope:
+  - hackerone.com
+  - api.hackerone.com
+
+out_of_scope:
+  - "*.corp.hackerone.com"
+
+rate_limit: moderate
+active_scanning: true
+nuclei_allowed: true
+authenticated_testing: false
