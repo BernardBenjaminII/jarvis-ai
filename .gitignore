@@ -1,5 +1,6 @@
 # Virtual Environments
 
+jarvis-venv/
 venv/
 core/venv/
 
@@ -10,18 +11,22 @@ core/venv/
 # Models
 
 models/
+*.gguf
 
 # Runtime Data
 
 logs/
+*.log
+knowledge/
 memory/*.db
+memory/*.sqlite
 memory/session_state.json
 
 # Secrets
 
+.env
 credentials.json
 token.pickle
-.env
 *.pem
 *.key
 
@@ -30,17 +35,20 @@ token.pickle
 **pycache**/
 *.pyc
 *.pyo
+*.pyd
 
-# Linux
+# Linux / OS Junk
 
 lost+found/
+.DS_Store
+Thumbs.db
 
-# IDE
+# Editors
 
 .vscode/
 .idea/
 
-# Temporary
+# Temporary Files
 
 *.tmp
 *.swp
