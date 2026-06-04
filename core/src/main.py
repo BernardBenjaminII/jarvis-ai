@@ -48,5 +48,7 @@ def health():
 @app.get("/ui", response_class=HTMLResponse)
 def ui():
 
-    with open("core/src/static/index.html", "r") as f:
+    with open("core/src/static/index.html",
+    "r",
+    encoding="utf-8") as f:
         return f.read()
