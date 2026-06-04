@@ -46,7 +46,7 @@ def detect_environment():
     # Apple
     # -----------------------------
     elif system == "darwin":
-        return "ios"
+        return "macos"
 
     # -----------------------------
     # Unknown
