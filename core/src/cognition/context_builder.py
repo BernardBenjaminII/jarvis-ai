@@ -1,9 +1,8 @@
-from src.utils.environment import detect_environment
-from src.utils.capabilities import detect_capabilities
-from src.identity.loader import load_mode
-from src.utils.network import is_online
-from src.utils.system_info import get_system_info
-
+from ..utils.environment import detect_environment
+from ..utils.capabilities import detect_capabilities
+from ..identity.loader import load_mode
+from ..utils.network import is_online
+from ..utils.system_info import get_system_info
 
 def build_context():
 

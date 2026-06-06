@@ -1,10 +1,10 @@
-from src.cognition.context_builder import build_context
-from src.cognition.model_selector import select_model
-from src.cognition.prompt_builder import build_prompt
+from .cognition.context_builder import build_context
+from .cognition.model_selector import select_model
+from .cognition.prompt_builder import build_prompt
 
-from src.services.llm_service import query_llm
+from .services.llm_service import query_llm
 
-from src.agents.recon_agent import handle_recon
+from .agents.recon_agent import handle_recon
 
 
 def classify_intent(question: str):

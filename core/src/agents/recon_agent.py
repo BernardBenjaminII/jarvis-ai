@@ -1,4 +1,4 @@
-from src.services.recon.subfinder_service import run_subfinder
+from ..services.recon.subfinder_service import run_subfinder
 
 
 def handle_recon(question):
