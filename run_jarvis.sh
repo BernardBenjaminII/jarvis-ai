@@ -42,12 +42,12 @@ done
 # ---- SETUP PYTHON ENV ----
 echo "🐍 Setting up Python environment..."
 
-if [ ! -d "venv" ]; then
+if [ ! -d ".venv" ]; then
     echo "📦 Creating virtual environment..."
-    python3 -m venv venv
+    python3 -m venv .venv
 fi
 
-source venv/bin/activate
+source .venv/bin/activate
 
 # ---- INSTALL DEPENDENCIES ----
 echo "📦 Installing dependencies..."
