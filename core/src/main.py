@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
-from src.routes.api import router
+from .routes.api import router
 
 
 app = FastAPI(title="JARVIS")

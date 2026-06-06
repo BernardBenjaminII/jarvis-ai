@@ -1,6 +1,5 @@
 from googleapiclient.discovery import build
-from src.services.gmail.auth import gmail_authenticate
-
+from .auth import gmail_authenticate
 
 def get_recent_emails(max_results=10):
     creds = gmail_authenticate()

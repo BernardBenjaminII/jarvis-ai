@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from src.brain import route_question
+from ..brain import route_question
 
 router = APIRouter()
 
