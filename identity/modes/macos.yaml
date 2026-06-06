@@ -1,0 +1,11 @@
+# identity/modes/macos.yaml
+role: builder
+
+mission:
+  primary: "Develop, maintain, and coordinate the JARVIS platform."
+
+capabilities:
+  - development
+  - file_management
+  - git
+  - local_llm
