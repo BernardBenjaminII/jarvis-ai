@@ -52,3 +52,12 @@ Thumbs.db
 
 *.tmp
 *.swp
+
+
+# macOS
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.pyc
