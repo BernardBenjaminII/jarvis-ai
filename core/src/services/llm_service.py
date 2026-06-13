@@ -60,7 +60,7 @@ def query_cloud(prompt):
 
 
 # 🚀 MAIN ENTRY
-def query_llm(prompt: str, model: str = "tinyllama") -> str:
+def query_llm(prompt: str, model: str = "mistral") -> str:
     try:
         response = requests.post(
             "http://localhost:11434/api/generate",

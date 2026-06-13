@@ -1,7 +1,26 @@
 from ..services.recon.subfinder_service import run_subfinder
+from ..services.recon.network_scan_service import scan_local_network
 
 
 def handle_recon(question):
+
+    q = question.lower().strip()
+
+    #
+    # Local network commands
+    #
+
+    if q in [
+        "scan network",
+        "map network",
+        "discover hosts",
+        "host discovery",
+    ]:
+        return scan_local_network()
+
+    #
+    # Domain recon
+    #
 
     words = question.split()
 
@@ -13,7 +32,11 @@ def handle_recon(question):
             domain = word.strip()
 
     if not domain:
-        return "No domain detected."
+        return (
+            "Specify a domain "
+            "(example: recon tesla.com) "
+            "or use 'scan network'."
+        )
 
     results = run_subfinder(domain)
 

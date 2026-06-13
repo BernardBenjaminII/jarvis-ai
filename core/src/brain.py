@@ -17,7 +17,15 @@ def classify_intent(question: str):
         "enumerate",
         "scan",
         "bug bounty",
-        "target"
+        "target",
+	"network",
+	"map network", 
+	"discover hosts",
+	"host discovery",
+	"nmap", 
+	"ports", 
+	"port scan", 
+	"wifi scan", 
     ]
 
     if any(word in q for word in recon_words):

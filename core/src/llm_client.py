@@ -4,7 +4,7 @@ from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def ask_llm(prompt: str, model: str = "tinyllama") -> str:
+def ask_llm(prompt: str, model: str = "mistral") -> str:
     try:
         # ☁️ CLOUD
         if model == "cloud":
