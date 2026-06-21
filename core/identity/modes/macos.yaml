@@ -83,7 +83,7 @@ preferred_tools:
 
 llm:
   primary_model: mistral
-  fallback_model: phi3
+  fallback_model: mistral
 
 memory:
   prioritize:

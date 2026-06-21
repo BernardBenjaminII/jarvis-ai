@@ -8,7 +8,7 @@ def select_model(context, intent):
         return "tinyllama"
 
     if environment == "ubuntu":
-        return "phi3"
+        return "mistral"
 
     if environment == "kali":
         return "mistral"

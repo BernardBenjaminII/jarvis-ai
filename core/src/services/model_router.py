@@ -3,6 +3,6 @@ def choose_model(intent):
         return "tinyllama"
 
     if intent in ["coding", "linux", "git", "python"]:
-        return "phi3"
+        return "mistral"
 
     return "mistral"

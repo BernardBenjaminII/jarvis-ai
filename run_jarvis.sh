@@ -12,7 +12,7 @@ echo "🧠 Starting JARVIS system..."
 
 OLLAMA_HOST="http://127.0.0.1:11434"
 
-JARVIS_RUNTIME="/mnt/jarvis_runtime"
+JARVIS_RUNTIME="/mnt/g"
 
 OLLAMA_MODELS="$JARVIS_RUNTIME/ollama/models"
 LOG_DIR="$JARVIS_RUNTIME/logs"
@@ -33,10 +33,10 @@ export OLLAMA_MODELS
 
 echo "🔍 Verifying runtime storage..."
 
-if ! mountpoint -q "$JARVIS_RUNTIME"; then
-echo "❌ JARVIS runtime drive is not mounted:"
-echo "   $JARVIS_RUNTIME"
-exit 1
+if [ ! mountpoint -q "$JARVIS_RUNTIME" ]; then
+    echo "❌ JARVIS runtime drive is not mounted:"
+    echo "   $JARVIS_RUNTIME"
+    exit 1
 fi
 
 mkdir -p "$OLLAMA_MODELS"
@@ -122,11 +122,17 @@ echo "📦 Creating virtual environment..."
 python3 -m venv "$VENV_DIR"
 fi
 
-source "$VENV_DIR/bin/activate"
+if [ -f "$VENV_DIR/bin/activate" ]; then
+    source "$VENV_DIR/bin/activate"
+else
+    echo "❌ Virtual environment activation script missing"
+    exit 1
+fi
 
 echo "Using Python: $(which python)"
 echo "Using Pip: $(which pip)"
 
+python --version
 # ============================================================
 
 # DEPENDENCIES (ONE-TIME INSTALL)
@@ -165,4 +171,4 @@ echo "🚀 Launching JARVIS API..."
 
 export PYTHONPATH="$PWD/core"
 
-uvicorn core.src.main:app --host 0.0.0.0 --port 5001
+python -m uvicorn core.src.main:app --host 0.0.0.0 --port 5001
