@@ -1,8 +1,5 @@
-def choose_model(intent):
-    if intent in ["status", "classification", "routing"]:
-        return "tinyllama"
+from ..cognition.model_map import MODEL_MAP
 
-    if intent in ["coding", "linux", "git", "python"]:
-        return "mistral"
 
-    return "mistral"
+def choose_model(intent: str) -> str:
+    return MODEL_MAP.get(intent, "mistral")
