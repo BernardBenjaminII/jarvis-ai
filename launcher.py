@@ -5,6 +5,8 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+from core.src.cognition.model_registry import required_models
+from core.src.cognition.capability_registry import detect_capabilities
 
 try:
     import requests
@@ -14,15 +16,25 @@ except ImportError:
     sys.exit(1)
 
 
+def verify_capabilities():
+
+    print("Checking capabilities...")
+
+    capabilities = detect_capabilities()
+
+    for capability, available in capabilities.items():
+
+        status = "✓" if available else "✗"
+
+        print(f"{status} {capability}")
+
+    return capabilities
+
 # ============================================================
 # CONFIGURATION
 # ============================================================
 
 OLLAMA_HOST = "http://127.0.0.1:11434"
-
-REQUIRED_MODELS = [
-    "mistral",
-]
 
 API_HOST = "127.0.0.1"
 API_PORT = "8000"
@@ -185,7 +197,6 @@ def ensure_ollama(paths):
 # ============================================================
 # MODEL VERIFICATION
 # ============================================================
-
 def ensure_models():
     print("Checking models...")
 
@@ -201,18 +212,36 @@ def ensure_models():
         print("✗ Could not read Ollama model list")
         sys.exit(1)
 
-    installed = result.stdout
+    installed = result.stdout.lower()
 
-    for model in REQUIRED_MODELS:
-        if model in installed:
+    missing = []
+
+    for model in required_models():
+
+        if model.lower() in installed:
             print(f"✓ {model} available")
         else:
-            print(f"Pulling model: {model}")
+            print(f"✗ {model} missing")
+            missing.append(model)
 
-            subprocess.run(
-                ["ollama", "pull", model],
-                check=True,
-            )
+    if missing:
+
+        print()
+        print("Missing models:")
+
+        for model in missing:
+            print(f"  - {model}")
+
+        print()
+        print("Install missing models with:")
+
+        for model in missing:
+            print(f"  ollama pull {model}")
+
+        sys.exit(1)
+
+    print("✓ All required models available")
+
 
 
 # ============================================================
@@ -316,6 +345,7 @@ def main():
     ensure_runtime(paths)
     ensure_ollama(paths)
     ensure_models()
+    verify_capabilities()
     ensure_venv()
     ensure_dependencies()
 

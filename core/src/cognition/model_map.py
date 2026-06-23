@@ -1,22 +1,15 @@
 MODEL_MAP = {
-    # General conversation
-    "assistant": "mistral",
+    "assistant": "mistral:latest",
 
-    # Programming / development
-    "coding": "mistral",
+    "coding": "qwen2.5-coder:7b",
 
-    # Linux / Windows / Docker / Ollama
-    "system_admin": "mistral",
+    "system_admin": "qwen2.5-coder:7b",
 
-    # Research and analysis
-    "research": "mistral",
+    "planning": "deepseek-r1:8b",
 
-    # Planning and reasoning
-    "planning": "mistral",
+    "research": "deepseek-r1:8b",
 
-    # Writing
-    "writing": "mistral",
+    "writing": "mistral:latest",
 
-    # Recon agent fallback
-    "recon": "mistral",
+    "recon": "mistral:latest",
 }

@@ -49,6 +49,11 @@ INTENT_KEYWORDS = {
         "plan", "roadmap", "steps", "timeline", "strategy",
         "organize", "schedule", "prioritize", "workflow",
         "next step", "path forward", "route forward",
+        "project", "project status", "status",
+        "current state", "current priorities",
+        "milestone", "milestones", "architecture",
+        "design", "implementation", "progress", "development",
+        "jarvis",
     ],
     "research": [
         "find", "search", "compare", "recommend", "best",

@@ -94,18 +94,26 @@ def query_cloud(prompt: str):
 
 def query_llm(
     prompt: str,
-    model: str = "mistral:latest"
+    model: str = "mistral:latest",
+    max_tokens: int = 1024,
+    temperature: float = 0.3,
 ) -> str:
 
     try:
 
         print(f"[DEBUG] MODEL={model}")
+        print(f"[DEBUG] MAX_TOKENS={max_tokens}")
+        print(f"[DEBUG] TEMPERATURE={temperature}")
         print(f"[DEBUG] PROMPT={prompt}")
 
         payload = {
             "model": model,
             "prompt": prompt,
-            "stream": False
+            "stream": False,
+            "options": {
+                "num_predict": max_tokens,
+                "temperature": temperature,
+            }
         }
 
         print(f"[DEBUG] PAYLOAD={payload}")
@@ -113,7 +121,7 @@ def query_llm(
         response = requests.post(
             "http://127.0.0.1:11434/api/generate",
             json=payload,
-            timeout=120
+            timeout=300
         )
 
         print(f"[DEBUG] STATUS={response.status_code}")
@@ -153,6 +161,7 @@ def query_llm(
         ]
 
         for block in kill_blocks:
+
             if block in raw:
                 raw = raw.split(block)[0]
 
@@ -169,6 +178,7 @@ def query_llm(
         lines = []
 
         for line in raw.splitlines():
+
             line = line.strip()
 
             if line:
@@ -176,7 +186,11 @@ def query_llm(
 
         raw = "\n".join(lines)
 
-        return raw[:600]
+        #
+        # NO TRUNCATION
+        #
+
+        return raw
 
     except Exception as e:
 
