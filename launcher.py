@@ -1,20 +1,16 @@
 import os
 import platform
 import shutil
+import os
+import platform
+import shutil
 import subprocess
 import sys
 import time
 from pathlib import Path
+
 from core.src.cognition.model_registry import required_models
 from core.src.cognition.capability_registry import detect_capabilities
-
-try:
-    import requests
-except ImportError:
-    print("ERROR: requests is not installed.")
-    print("Run: pip install requests")
-    sys.exit(1)
-
 
 def verify_capabilities():
 
@@ -39,6 +35,38 @@ OLLAMA_HOST = "http://127.0.0.1:11434"
 API_HOST = "127.0.0.1"
 API_PORT = "8000"
 
+PLATFORM_INFO = {
+
+    "windows": {
+        "venv": "windows",
+        "python": "Scripts/python.exe",
+        "pip": "Scripts/pip.exe",
+    },
+
+    "ubuntu": {
+        "venv": "ubuntu",
+        "python": "bin/python",
+        "pip": "bin/pip",
+    },
+
+    "kali": {
+        "venv": "kali",
+        "python": "bin/python",
+        "pip": "bin/pip",
+    },
+
+    "macos": {
+        "venv": "macos",
+        "python": "bin/python",
+        "pip": "bin/pip",
+    },
+
+    "linux": {
+        "venv": "linux",
+        "python": "bin/python",
+        "pip": "bin/pip",
+    },
+}
 
 # ============================================================
 # PLATFORM DETECTION
@@ -77,31 +105,107 @@ def detect_platform():
 # ============================================================
 
 def get_runtime_root(env):
+
+    import json
+
     env_override = os.environ.get("JARVIS_RUNTIME")
 
     if env_override:
         return Path(env_override)
 
+    username = (
+        os.environ.get("USER")
+        or os.environ.get("USERNAME")
+        or ""
+    )
+
     if env == "windows":
-        return Path("H:/JARVIS_HOME")
 
-    if env == "macos":
-        return Path("/Volumes/JARVISDATA")
+        candidates = [
+            Path("H:/"),
+            Path("G:/"),
+        ]
 
-    return Path("/mnt/g")
+        expected_runtime = "windows"
 
+    else:
+
+        candidates = [
+            Path("/mnt/g"),
+            Path("/mnt/jarvis_runtime"),
+
+            Path(f"/media/{username}/JARVIS_RUNTIME_L"),
+            Path(f"/media/{username}/JARVIS_RUNTIME"),
+
+            Path(f"/run/media/{username}/JARVIS_RUNTIME_L"),
+            Path(f"/run/media/{username}/JARVIS_RUNTIME"),
+
+            # Fallback if the filesystem label isn't used
+            Path(f"/media/{username}/JARVIS_RUNTIME1"),
+            Path(f"/run/media/{username}/JARVIS_RUNTIME1"),
+        ]
+
+
+        expected_runtime = "unix"
+
+    for candidate in candidates:
+
+        marker = candidate / ".jarvis_runtime"
+
+        if not marker.exists():
+            continue
+
+        try:
+
+            info = json.loads(marker.read_text())
+
+            if info.get("runtime_type") == expected_runtime:
+
+                print(f"✓ Runtime discovered: {candidate}")
+
+                return candidate
+
+        except Exception:
+
+            continue
+
+    print()
+    print("ERROR: No compatible JARVIS runtime found.")
+    print()
+
+    print("Expected runtime:", expected_runtime)
+
+    print()
+
+    print("Checked:")
+
+    for candidate in candidates:
+        print(f"   {candidate}")
+
+    sys.exit(1)
 
 def get_paths(env):
+
     runtime = get_runtime_root(env)
+
+    if env not in PLATFORM_INFO:
+        raise RuntimeError(f"Unsupported platform: {env}")
+
+    info = PLATFORM_INFO[env]
+
+    venv = runtime / "venvs" / info["venv"]
 
     return {
         "runtime": runtime,
+        "venv": venv,
+        "python": venv / info["python"],
+        "pip": venv / info["pip"],
+
         "models": runtime / "ollama" / "models",
         "logs": runtime / "logs",
         "vector_db": runtime / "vector_db",
-        "venvs": runtime / "venvs",
+        "projects": runtime / "projects",
     }
-
 
 # ============================================================
 # RUNTIME VERIFICATION
@@ -116,15 +220,26 @@ def ensure_runtime(paths):
         print(f"Runtime path does not exist yet: {runtime}")
         print("Creating runtime directories...")
 
-    for path in paths.values():
-        path.mkdir(parents=True, exist_ok=True)
+    directories = [
+        paths["runtime"],
+        paths["models"],
+        paths["logs"],
+        paths["vector_db"],
+        paths["projects"],
+        paths["venv"],
+    ]
+
+    for directory in directories:
+        directory.mkdir(parents=True, exist_ok=True)
 
     os.environ["OLLAMA_MODELS"] = str(paths["models"])
 
-    print(f"Runtime: {paths['runtime']}")
-    print(f"Models : {paths['models']}")
+    print(f"Python  : {paths['python']}")
+    print(f"Pip     : {paths['pip']}")
+    print(f"Runtime : {paths['runtime']}")
+    print(f"Models  : {paths['models']}")
+    print(f"Venv    : {paths['venv']}")
     print("✓ Runtime storage available")
-
 
 # ============================================================
 # COMMAND CHECKS
@@ -248,24 +363,46 @@ def ensure_models():
 # VIRTUAL ENVIRONMENT
 # ============================================================
 
-def ensure_venv():
-    print("Checking virtual environment...")
+def ensure_venv(paths):
+    print("Checking runtime virtual environment...")
 
-    if sys.prefix == sys.base_prefix:
-        print()
-        print("WARNING: Not running inside a virtual environment")
-        print("Activate with:")
-        print("  .\\.venv\\Scripts\\Activate.ps1")
-        print()
-    else:
-        print("✓ Virtual environment active")
+    python = paths["python"]
 
+    #
+    # Create the venv if it doesn't exist
+    #
 
+    if not python.exists():
+
+        print("Creating runtime virtual environment...")
+
+        subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "venv",
+                str(paths["venv"]),
+            ],
+            check=True,
+        )
+
+    #
+    # Are we already running from this venv?
+    #
+    current = Path(sys.executable)
+    target = python
+
+    print("Current:", current)
+    print("Target :", target)
+
+    if current != target:
+        print("Switching to runtime Python...")
+        os.execv(str(target), [str(target)] + sys.argv)
 # ============================================================
 # DEPENDENCIES
 # ============================================================
 
-def ensure_dependencies():
+def ensure_dependencies(paths):
     print("Checking Python dependencies...")
 
     requirements = Path("requirements.txt")
@@ -308,10 +445,20 @@ def ensure_dependencies():
 # API
 # ============================================================
 
-def launch_api():
+def launch_api(paths):
     print("Launching JARVIS API...")
 
     os.environ["PYTHONPATH"] = str(Path.cwd())
+
+    print("=" * 60)
+    print("Launcher sys.executable:", sys.executable)
+
+    import uvicorn
+    import openai
+
+    print("Launcher uvicorn :", uvicorn.__file__)
+    print("Launcher openai  :", openai.__file__)
+    print("=" * 60)
 
     subprocess.run(
         [
@@ -323,7 +470,6 @@ def launch_api():
             API_HOST,
             "--port",
             API_PORT,
-            "--reload",
         ]
     )
 
@@ -331,7 +477,6 @@ def launch_api():
 # ============================================================
 # MAIN
 # ============================================================
-
 def main():
     print("=" * 50)
     print("JARVIS INITIALIZATION")
@@ -342,16 +487,46 @@ def main():
 
     print(f"Environment: {env}")
 
+    #
+    # Runtime discovery
+    #
+
     ensure_runtime(paths)
+
+    #
+    # Switch into the OS-specific runtime venv
+    #
+
+    ensure_venv(paths)
+
+    #
+    # Install/update dependencies if necessary
+    #
+
+    ensure_dependencies(paths)
+
+    #
+    # Third-party imports
+    #
+
+    global requests
+    import requests
+
+    #
+    # Startup verification
+    #
+
     ensure_ollama(paths)
     ensure_models()
     verify_capabilities()
-    ensure_venv()
-    ensure_dependencies()
 
     print("✓ Startup checks complete")
 
-    launch_api()
+    #
+    # Launch API
+    #
+
+    launch_api(paths)
 
 
 if __name__ == "__main__":
