@@ -1,7 +1,6 @@
 # core/src/cognition/prompt_builder.py
 
 from .personas import PERSONAS
-from ..memory.project_context import PROJECT_CONTEXT
 
 
 def build_prompt(context, question, intent="assistant"):
@@ -48,9 +47,6 @@ Capabilities:
 
 System Information:
 {context['system_info']}
-
-Project Memory:
-{PROJECT_CONTEXT}
 
 Instructions:
 - Follow the specialist persona above.
