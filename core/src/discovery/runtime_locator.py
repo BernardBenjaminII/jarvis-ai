@@ -1,65 +1,102 @@
+"""
+runtime_locator.py
+
+Responsible for discovering the JARVIS runtime directory.
+
+This class searches a list of known locations for a valid
+JARVIS runtime by looking for a .jarvis_runtime marker file.
+"""
+
+from pathlib import Path
 import json
 import os
-import platform
-from pathlib import Path
 
 
-CONFIG_DIR = Path(__file__).resolve().parents[3] / "config"
+class RuntimeLocator:
+    """Locate the JARVIS runtime directory."""
 
+    def __init__(self, environment: str):
+        self.environment = environment
 
-def detect_platform():
+    def locate(self) -> Path | None:
+        """
+        Locate the correct runtime directory.
 
-    system = platform.system()
+        Returns:
+            Path: Runtime directory if found.
+            None: If no valid runtime is discovered.
+        """
 
-    if system == "Windows":
-        return "windows"
+        # Environment override always wins
+        env_override = os.environ.get("JARVIS_RUNTIME")
+        if env_override:
+            runtime = Path(env_override)
 
-    if system == "Darwin":
-        return "macos"
+            if runtime.exists():
+                print(f"✓ Runtime override: {runtime}")
+                return runtime
 
-    with open("/etc/os-release") as f:
-        data = f.read().lower()
+        username = (
+            os.environ.get("USER")
+            or os.environ.get("USERNAME")
+            or ""
+        )
 
-    if "kali" in data:
-        return "kali"
+        # ------------------------------------------------------
+        # Candidate locations
+        # ------------------------------------------------------
 
-    return "ubuntu"
+        if self.environment == "windows":
 
+            candidates = [
+                Path("H:/"),
+                Path("G:/"),
+            ]
 
-def load_platform_config():
+            expected_runtime = "windows"
 
-    platform_name = detect_platform()
+        else:
 
-    config_file = CONFIG_DIR / f"{platform_name}.json"
+            candidates = [
+                Path("/mnt/g"),
+                Path("/mnt/jarvis_runtime"),
 
-    with open(config_file, encoding="utf-8") as f:
-        config = json.load(f)
+                Path(f"/media/{username}/JARVIS_RUNTIME_L"),
+                Path(f"/media/{username}/JARVIS_RUNTIME"),
 
-    username = os.getenv("USER") or os.getenv("USERNAME")
+                Path(f"/run/media/{username}/JARVIS_RUNTIME_L"),
+                Path(f"/run/media/{username}/JARVIS_RUNTIME"),
 
-    def expand(value):
-        return value.replace("%USER%", username)
+                # Fallback names
+                Path(f"/media/{username}/JARVIS_RUNTIME1"),
+                Path(f"/run/media/{username}/JARVIS_RUNTIME1"),
+            ]
 
-    if "runtime_candidates" in config:
+            expected_runtime = "unix"
 
-        for path in config["runtime_candidates"]:
+        # ------------------------------------------------------
+        # Search each candidate
+        # ------------------------------------------------------
 
-            path = expand(path)
+        for candidate in candidates:
 
-            if Path(path).exists():
+            marker = candidate / ".jarvis_runtime"
 
-                config["runtime"] = path
-                break
+            if not marker.exists():
+                continue
 
-    if "project_candidates" in config:
+            try:
 
-        for path in config["project_candidates"]:
+                info = json.loads(marker.read_text())
 
-            path = expand(path)
+                if info.get("runtime_type") == expected_runtime:
 
-            if Path(path).exists():
+                    print(f"✓ Runtime discovered: {candidate}")
 
-                config["project"] = path
-                break
+                    return candidate
 
-    return config
+            except Exception as exc:
+                print(f"Warning: Failed reading {marker}: {exc}")
+
+        # Nothing found
+        return None

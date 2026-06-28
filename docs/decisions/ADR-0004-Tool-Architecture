@@ -1,0 +1,12 @@
+ADR-0004 Tool Architecture
+
+Decision:
+Filesystem operations will be executed by native Python tools rather than by LLM reasoning.
+
+Reason:
+Filesystem state is objective and should be measured, not inferred.
+
+Consequences:
+- Eliminates hallucinated directory contents.
+- Makes behavior cross-platform.
+- Establishes the contract for future tools.

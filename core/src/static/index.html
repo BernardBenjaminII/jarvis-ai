@@ -144,7 +144,12 @@ async function ask() {
 
     const data = await res.json();
 
-    typeWriter(`JARVIS: ${data.response}`, chat);
+    const reply =
+      typeof data.response === "object"
+        ? JSON.stringify(data.response, null, 2)
+        : data.response;
+
+    typeWriter(`JARVIS: ${reply}`, chat);
 }
 
 function typeWriter(text, container) {

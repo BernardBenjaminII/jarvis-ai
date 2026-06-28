@@ -9,6 +9,8 @@ import sys
 import time
 from pathlib import Path
 
+from core.src.discovery.runtime_locator import RuntimeLocator
+
 from core.src.cognition.model_registry import required_models
 from core.src.cognition.capability_registry import detect_capabilities
 
@@ -104,89 +106,85 @@ def detect_platform():
 # RUNTIME PATHS
 # ============================================================
 
-def get_runtime_root(env):
-
-    import json
-
-    env_override = os.environ.get("JARVIS_RUNTIME")
-
-    if env_override:
-        return Path(env_override)
-
-    username = (
-        os.environ.get("USER")
-        or os.environ.get("USERNAME")
-        or ""
-    )
-
-    if env == "windows":
-
-        candidates = [
-            Path("H:/"),
-            Path("G:/"),
-        ]
-
-        expected_runtime = "windows"
-
-    else:
-
-        candidates = [
-            Path("/mnt/g"),
-            Path("/mnt/jarvis_runtime"),
-
-            Path(f"/media/{username}/JARVIS_RUNTIME_L"),
-            Path(f"/media/{username}/JARVIS_RUNTIME"),
-
-            Path(f"/run/media/{username}/JARVIS_RUNTIME_L"),
-            Path(f"/run/media/{username}/JARVIS_RUNTIME"),
-
-            # Fallback if the filesystem label isn't used
-            Path(f"/media/{username}/JARVIS_RUNTIME1"),
-            Path(f"/run/media/{username}/JARVIS_RUNTIME1"),
-        ]
+import json
+import os
+from pathlib import Path
 
 
-        expected_runtime = "unix"
+class RuntimeLocator:
 
-    for candidate in candidates:
+    def __init__(self, environment: str):
+        self.environment = environment
 
-        marker = candidate / ".jarvis_runtime"
+    def locate(self):
 
-        if not marker.exists():
-            continue
+        env_override = os.environ.get("JARVIS_RUNTIME")
 
-        try:
+        if env_override:
+            return Path(env_override)
 
-            info = json.loads(marker.read_text())
+        username = (
+            os.environ.get("USER")
+            or os.environ.get("USERNAME")
+            or ""
+        )
 
-            if info.get("runtime_type") == expected_runtime:
+        if self.environment == "windows":
 
-                print(f"✓ Runtime discovered: {candidate}")
+            candidates = [
+                Path("H:/"),
+                Path("G:/"),
+            ]
 
-                return candidate
+            expected_runtime = "windows"
 
-        except Exception:
+        else:
 
-            continue
+            candidates = [
+                Path("/mnt/g"),
+                Path("/mnt/jarvis_runtime"),
 
-    print()
-    print("ERROR: No compatible JARVIS runtime found.")
-    print()
+                Path(f"/media/{username}/JARVIS_RUNTIME_L"),
+                Path(f"/media/{username}/JARVIS_RUNTIME"),
 
-    print("Expected runtime:", expected_runtime)
+                Path(f"/run/media/{username}/JARVIS_RUNTIME_L"),
+                Path(f"/run/media/{username}/JARVIS_RUNTIME"),
 
-    print()
+                Path(f"/media/{username}/JARVIS_RUNTIME1"),
+                Path(f"/run/media/{username}/JARVIS_RUNTIME1"),
+            ]
 
-    print("Checked:")
+            expected_runtime = "unix"
 
-    for candidate in candidates:
-        print(f"   {candidate}")
+        for candidate in candidates:
 
-    sys.exit(1)
+            marker = candidate / ".jarvis_runtime"
+
+            if not marker.exists():
+                continue
+
+            try:
+
+                info = json.loads(marker.read_text())
+
+                if info.get("runtime_type") == expected_runtime:
+
+                    print(f"✓ Runtime discovered: {candidate}")
+
+                    return candidate
+
+            except Exception:
+                continue
+
+        return None
 
 def get_paths(env):
 
-    runtime = get_runtime_root(env)
+    locator = RuntimeLocator(env)
+    runtime = locator.locate()
+
+    if runtime is None:
+        raise RuntimeError("No compatible JARVIS runtime found.")
 
     if env not in PLATFORM_INFO:
         raise RuntimeError(f"Unsupported platform: {env}")

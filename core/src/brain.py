@@ -10,6 +10,8 @@ from .services.llm_service import query_llm
 
 from .agents.recon_agent import handle_recon
 
+from .planner.tool_planner import planner
+from .runtime.executor import executor
 
 def route_question(question: str):
 
@@ -27,6 +29,15 @@ def route_question(question: str):
 
     intent = classification["intent"]
     task_type = classification["task_type"]
+
+    #
+    # Tool planning
+    #
+
+    execution_plan = planner.plan(question)
+
+    if execution_plan is not None:
+        return executor.execute(execution_plan)
 
     #
     # JARVIS-specific intent overrides
