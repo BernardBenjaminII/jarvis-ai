@@ -4,8 +4,10 @@ JARVIS Doctor Report Renderer
 Responsible only for presenting health check results.
 """
 
+from collections import defaultdict
+
 from .check import CheckResult
-from collections import defaultdict 
+
 
 class Report:
     def __init__(self):
@@ -27,32 +29,54 @@ class Report:
         total_score = 0
         max_score = 0
 
+        # ----------------------------------------------------------
+        # Group results by category
+        # ----------------------------------------------------------
+
+        groups = defaultdict(list)
+
         for result in self.results:
-	    groups[result.category].append(result)
-            symbol = "✓" if result.passed else "✗"
+            groups[result.category].append(result)
+
+        # ----------------------------------------------------------
+        # Print categories
+        # ----------------------------------------------------------
+
+        for category in sorted(groups):
 
             print()
-            print(f"{symbol} {result.name}")
+            print(category)
+            print("-" * len(category))
 
-            # Details
-            for line in result.details:
-                print(f"    {line}")
+            for result in groups[category]:
 
-            # Warnings
-            for line in result.warnings:
-                print(f"    Warning: {line}")
+                symbol = "✓" if result.passed else "✗"
 
-            # Errors
-            for line in result.errors:
-                print(f"    Error: {line}")
+                print()
+                print(f"{symbol} {result.name}")
 
-            if result.passed:
-                passed += 1
-            else:
-                failed += 1
+                if result.details:
+                    print("    Details:")
+                    for line in result.details:
+                        print(f"        • {line}")
 
-            total_score += result.score
-            max_score += result.max_score
+                if result.warnings:
+                    print("    Warnings:")
+                    for line in result.warnings:
+                        print(f"        • {line}")
+
+                if result.errors:
+                    print("    Errors:")
+                    for line in result.errors:
+                        print(f"        • {line}")
+
+                if result.passed:
+                    passed += 1
+                else:
+                    failed += 1
+
+                total_score += result.score
+                max_score += result.max_score
 
         print()
         print("=" * 70)
@@ -63,20 +87,20 @@ class Report:
         print(f"Checks Failed : {failed}")
 
         if max_score:
+
             health = round((total_score / max_score) * 100)
 
             print(f"Overall Health: {health}%")
 
             if health >= 95:
-                print("Status        : EXCELLENT")
-
+                status = "EXCELLENT"
             elif health >= 85:
-                print("Status        : GOOD")
-
+                status = "GOOD"
             elif health >= 70:
-                print("Status        : FAIR")
-
+                status = "FAIR"
             else:
-                print("Status        : NEEDS ATTENTION")
+                status = "NEEDS ATTENTION"
+
+            print(f"Status        : {status}")
 
         print("=" * 70)
