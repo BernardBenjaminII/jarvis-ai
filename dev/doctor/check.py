@@ -39,15 +39,19 @@ class HealthCheck(ABC):
     Base class for every JARVIS Doctor health check.
     """
 
-    # Display name
     name = "Unnamed Check"
 
-    # Grouping used in reports
+    description = ""
+
     category = "General"
 
     order = 100
-    # If True, failure should be considered release-blocking
+
     critical = False
+
+    fix_hint = ""
+
+    documentation = ""
 
     @abstractmethod
     def run(self) -> CheckResult:
