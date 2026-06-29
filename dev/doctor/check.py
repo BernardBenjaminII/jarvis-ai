@@ -45,6 +45,7 @@ class HealthCheck(ABC):
     # Grouping used in reports
     category = "General"
 
+    order = 100
     # If True, failure should be considered release-blocking
     critical = False
 

@@ -8,8 +8,8 @@ def main():
 
     report = Report()
 
-    for check in discover():
-        report.add(check.run())
+    for check_cls in discover():
+        report.add(check_cls().run())
 
     report.print()
 
