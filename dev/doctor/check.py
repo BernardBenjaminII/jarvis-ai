@@ -14,6 +14,8 @@ class CheckResult:
     Result returned by every HealthCheck.
     """
 
+    category: str = "General"
+
     # Human-readable name of the check
     name: str
 

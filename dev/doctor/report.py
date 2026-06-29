@@ -5,7 +5,7 @@ Responsible only for presenting health check results.
 """
 
 from .check import CheckResult
-
+from collections import defaultdict 
 
 class Report:
     def __init__(self):
@@ -28,7 +28,7 @@ class Report:
         max_score = 0
 
         for result in self.results:
-
+	    groups[result.category].append(result)
             symbol = "✓" if result.passed else "✗"
 
             print()
