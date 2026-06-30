@@ -1,0 +1,3 @@
+# Python recon dependencies go here.
+# Most recon tools are installed through apt or external binaries:
+# nmap, amass, subfinder, ffuf, gobuster, nikto, etc.
