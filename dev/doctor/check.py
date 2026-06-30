@@ -66,6 +66,9 @@ class HealthCheck(ABC):
     def detail(self, text: str):
         self._result.details.append(text)
 
+    def ok(self, text: str):
+        self.detail(text)
+
     def warn(self, text: str):
         self._result.warnings.append(text)
 
@@ -79,6 +82,7 @@ class HealthCheck(ABC):
 
     def result(self):
         return self._result
+
 
     @abstractmethod
     def run(self):

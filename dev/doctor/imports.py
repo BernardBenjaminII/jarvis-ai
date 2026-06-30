@@ -1,7 +1,6 @@
 import importlib
 
 from .check import HealthCheck
-from .check import CheckResult
 
 
 MODULES = [
@@ -17,6 +16,16 @@ class ImportCheck(HealthCheck):
 
     name = "Python Dependencies"
 
+    category = "Dependencies"
+
+    order = 30
+
+    description = "Verifies required Python modules."
+
+    fix_hint = "Install missing packages into the active virtual environment."
+
+    documentation = "docs/development/python_environment.md"
+
     def run(self):
 
         missing = []
@@ -25,20 +34,19 @@ class ImportCheck(HealthCheck):
 
             try:
                 importlib.import_module(module)
-            except Exception:
+            except ImportError:
                 missing.append(module)
 
         if missing:
 
-            return CheckResult(
-                name=self.name,
-                passed=False,
-                score=0,
-                errors=missing,
-            )
+            for module in missing:
+                self.fail(f"Missing module: {module}")
 
-        return CheckResult(
-            name=self.name,
-            passed=True,
-            score=100,
-        )
+            self.score(0)
+
+        else:
+
+            self.ok("All required modules installed.")
+            self.score(100)
+
+        return self.result()
