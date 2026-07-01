@@ -8,7 +8,7 @@ Provider
 A component that supplies data to an engine.
 
 Asset
-The canonical representation of a unit of knowledge.
+The canonical representation of a unit of knowledge_engine.
 
 Runtime
 Persistent state outside the repository.

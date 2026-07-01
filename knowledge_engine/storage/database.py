@@ -79,6 +79,68 @@ class KnowledgeDatabase:
                     created_at TEXT DEFAULT CURRENT_TIMESTAMP
                 );
 
+		CREATE TABLE IF NOT EXISTS document_pages (
+    		    id INTEGER PRIMARY KEY AUTOINCREMENT,
+		    document_path TEXT NOT NULL,
+		    page_number INTEGER NOT NULL,
+		    text TEXT NOT NULL,
+		    extracted_at TEXT DEFAULT CURRENT_TIMESTAMP,
+		    UNIQUE(document_path, page_number)
+		);
+
+		CREATE VIRTUAL TABLE IF NOT EXISTS document_pages_fts
+		USING fts5(
+		    document_path,
+		    page_number UNINDEXED,
+		    text
+		);
+
+		CREATE TABLE IF NOT EXISTS knowledge_index (
+
+		    document_path TEXT PRIMARY KEY,
+
+		    filename TEXT NOT NULL,
+
+		    extension TEXT NOT NULL,
+
+		    category TEXT,
+
+		    provider TEXT,
+
+		    title TEXT,
+
+		    author TEXT,
+
+		    subject TEXT,
+
+		    keywords TEXT,
+
+		    pages INTEGER,
+
+		    toc_entries INTEGER DEFAULT 0,
+
+		    structure_terms TEXT,
+
+		    language TEXT,
+
+		    fingerprint TEXT NOT NULL,
+
+		    indexed_at TEXT DEFAULT CURRENT_TIMESTAMP
+
+		);
+
+		CREATE INDEX IF NOT EXISTS idx_knowledge_index_category
+		ON knowledge_index(category);
+
+		CREATE INDEX IF NOT EXISTS idx_knowledge_index_extension
+		ON knowledge_index(extension);
+
+		CREATE INDEX IF NOT EXISTS idx_knowledge_index_title
+		ON knowledge_index(title);
+
+		CREATE INDEX IF NOT EXISTS idx_knowledge_index_provider
+		ON knowledge_index(provider);
+
                 CREATE INDEX IF NOT EXISTS idx_documents_sha256 ON documents(sha256);
                 CREATE INDEX IF NOT EXISTS idx_documents_extension ON documents(extension);
                 CREATE INDEX IF NOT EXISTS idx_documents_category ON documents(category);
@@ -86,5 +148,16 @@ class KnowledgeDatabase:
                 CREATE INDEX IF NOT EXISTS idx_structure_title ON document_structure(title);
                 CREATE INDEX IF NOT EXISTS idx_chunks_document ON chunks(document_path);
                 CREATE INDEX IF NOT EXISTS idx_concepts_name ON concepts(name);
+		CREATE INDEX IF NOT EXISTS idx_document_pages_document
+		ON document_pages(document_path);
+
+		CREATE INDEX IF NOT EXISTS idx_document_pages_page
+		ON document_pages(page_number);
+
+		CREATE INDEX IF NOT EXISTS idx_structure_document_page
+		ON document_structure(document_path, page);
+
+		CREATE INDEX IF NOT EXISTS idx_documents_filename
+		ON documents(filename);
                 """
             )

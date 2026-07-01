@@ -9,23 +9,11 @@ from knowledge_engine.processing.catalog_stage import CatalogStage
 from knowledge_engine.processing.inspect_stage import InspectStage
 from knowledge_engine.processing.structure_stage import StructureStage
 
+from knowledge_engine.index import KnowledgeIndexBuilder
+from knowledge_engine.index import KnowledgeIndexStore
+
 
 class ProcessingEngine:
-    """
-    Runs the staged document processing pipeline.
-
-    Current stages:
-    1. Catalog files
-    2. Inspect supported formats
-    3. Extract document structure
-
-    Future stages:
-    4. Extract text
-    5. Chunk text
-    6. Extract concepts
-    7. Build retrieval indexes
-    """
-
     def __init__(self, db_path: Path):
         self.db = KnowledgeDatabase(db_path)
         self.db.initialize()
@@ -33,6 +21,7 @@ class ProcessingEngine:
         self.catalog_store = CatalogStore(self.db)
         self.inspection_store = InspectionStore(self.db)
         self.structure_store = StructureStore(self.db)
+        self.index_store = KnowledgeIndexStore(self.db)
 
     def run_foundation(self, root: Path) -> dict:
         root = root.expanduser().resolve()
@@ -43,6 +32,11 @@ class ProcessingEngine:
         inspection_result = InspectStage(self.inspection_store).run(paths)
         structure_result = StructureStage(self.structure_store).run(paths)
 
+        index_result = KnowledgeIndexBuilder(
+            self.db,
+            self.index_store,
+        ).build()
+
         summary = self.catalog_store.summary()
 
         return {
@@ -50,4 +44,6 @@ class ProcessingEngine:
             **catalog_result,
             **inspection_result,
             **structure_result,
+            **index_result,
+            **self.index_store.summary(),
         }

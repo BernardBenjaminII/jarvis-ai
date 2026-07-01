@@ -14,11 +14,11 @@ Artificial intelligence will continue to evolve.
 
 Knowledge should not have to.
 
-JARVIS is designed so that models, embedding engines, vector databases, and AI frameworks can all be upgraded without requiring users to rebuild or migrate their accumulated knowledge.
+JARVIS is designed so that models, embedding engines, vector databases, and AI frameworks can all be upgraded without requiring users to rebuild or migrate their accumulated knowledge_engine.
 
 Knowledge belongs to the user.
 
-Intelligence is a service provided to that knowledge.
+Intelligence is a service provided to that knowledge_engine.
 
 ---
 

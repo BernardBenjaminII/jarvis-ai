@@ -222,7 +222,7 @@ Allows efficient rescanning.
 
 ## KnowledgeAsset
 
-Represents every searchable unit of knowledge.
+Represents every searchable unit of knowledge_engine.
 
 Examples:
 
@@ -254,7 +254,7 @@ Fields include:
 
 ## KnowledgeProvider
 
-Responsible for discovering knowledge.
+Responsible for discovering knowledge_engine.
 
 Functions:
 
