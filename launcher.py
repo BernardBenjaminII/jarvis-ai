@@ -14,6 +14,8 @@ from core.src.discovery.runtime_locator import RuntimeLocator
 from core.src.cognition.model_registry import required_models
 from core.src.cognition.capability_registry import detect_capabilities
 
+from core.bootstrap.dependencies import DependencyBootstrap
+
 def verify_capabilities():
 
     print("Checking capabilities...")
@@ -356,7 +358,6 @@ def ensure_models():
     print("✓ All required models available")
 
 
-
 # ============================================================
 # VIRTUAL ENVIRONMENT
 # ============================================================
@@ -396,52 +397,6 @@ def ensure_venv(paths):
     if current != target:
         print("Switching to runtime Python...")
         os.execv(str(target), [str(target)] + sys.argv)
-# ============================================================
-# DEPENDENCIES
-# ============================================================
-
-def ensure_dependencies(paths):
-    print("Checking Python dependencies...")
-
-    requirements = Path("requirements.txt")
-
-    if not requirements.exists():
-        print("No requirements.txt found. Skipping dependency install.")
-        return
-
-    marker = Path(".venv") / ".deps_installed"
-
-    if marker.exists():
-        print("✓ Dependencies already installed")
-        return
-
-    print("Installing dependencies...")
-
-    subprocess.run(
-        [sys.executable, "-m", "pip", "install", "--upgrade", "pip"],
-        check=True,
-    )
-
-    subprocess.run(
-        [
-            sys.executable,
-            "-m",
-            "pip",
-            "install",
-            "-r",
-            str(requirements),
-        ],
-        check=True,
-    )
-
-    marker.write_text("installed\n", encoding="utf-8")
-
-    print("✓ Dependencies installed")
-
-
-# ============================================================
-# API
-# ============================================================
 
 def launch_api(paths):
     print("Launching JARVIS API...")
@@ -501,7 +456,7 @@ def main():
     # Install/update dependencies if necessary
     #
 
-    ensure_dependencies(paths)
+    DependencyBootstrap().prepare(env)
 
     #
     # Third-party imports

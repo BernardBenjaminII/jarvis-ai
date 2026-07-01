@@ -1,0 +1,191 @@
+# ADR-0005: Knowledge Import Framework
+
+## Status
+
+Proposed
+
+## Context
+
+JARVIS is intended to work with many knowledge formats, including PDFs, ZIM archives, Markdown files, plain text files, HTML, DOCX, source code repositories, CSV files, SQLite databases, and future formats that may not yet be known.
+
+The original goal was for JARVIS to read and interpret a knowledge catalog, not merely search a folder of documents. As the project grows, hardcoding individual readers directly into the main knowledge system would create a fragile and difficult-to-maintain architecture.
+
+Each file format has different parsing requirements, metadata conventions, limitations, and dependencies. However, once content has been extracted, the rest of the knowledge pipeline should not need to care whether the source was a PDF, ZIM archive, Markdown file, or any other format.
+
+## Decision
+
+JARVIS will use a plugin-based Knowledge Import Framework.
+
+Each supported source format will be handled by an importer plugin that implements a common interface.
+
+Importers are responsible for:
+
+* Detecting whether they can handle a source
+* Extracting readable content
+* Extracting available metadata
+* Preserving provenance
+* Returning a normalized document object
+
+Importers are not responsible for:
+
+* Chunking
+* Embeddings
+* Vector search
+* Long-term memory
+* Reasoning
+* Chat responses
+* User interaction
+
+After import, all sources will be represented as normalized documents and passed into the common knowledge pipeline.
+
+The knowledge pipeline will be responsible for:
+
+* Catalog registration
+* Chunking
+* Indexing
+* Embedding
+* Search
+* Retrieval
+* Citation
+* Reasoning support
+
+## Architecture
+
+The ingestion flow will follow this model:
+
+```text
+Raw Source
+    ↓
+Importer Plugin
+    ↓
+Normalized Document
+    ↓
+Catalog
+    ↓
+Chunker
+    ↓
+Embeddings
+    ↓
+Search / Retrieval
+    ↓
+Reasoning
+```
+
+Example importers may include:
+
+```text
+knowledge/importers/pdf.py
+knowledge/importers/zim.py
+knowledge/importers/markdown.py
+knowledge/importers/text.py
+knowledge/importers/html.py
+knowledge/importers/docx.py
+knowledge/importers/git.py
+knowledge/importers/csv.py
+knowledge/importers/sqlite.py
+```
+
+The importer framework should use automatic discovery where practical, following the same design direction as the Doctor framework.
+
+## Rationale
+
+A plugin-based ingestion system keeps the Knowledge service extensible.
+
+Adding support for a new format should not require rewriting the catalog, search system, chunker, or reasoning layer. It should require adding a new importer plugin.
+
+This supports JARVIS's long-term goals:
+
+* Format independence
+* Open knowledge storage
+* Offline-first knowledge access
+* Easier maintenance
+* Clear separation of responsibilities
+* Support for uncommon formats such as ZIM archives
+* Future expansion without destabilizing the core system
+
+## Consequences
+
+### Positive
+
+* New formats can be added incrementally.
+* The knowledge pipeline remains format-agnostic.
+* Parsing logic stays isolated.
+* The catalog can reason over all sources consistently.
+* JARVIS can support PDFs, ZIM archives, Markdown, source code, and future formats through the same architecture.
+* Importers can be tested independently.
+
+### Negative
+
+* Requires upfront design before individual readers are implemented.
+* Each importer must conform to the shared interface.
+* Some formats may require optional dependencies.
+* Metadata quality will vary by source type.
+* ZIM and PDF support may require more complex parsing logic than plain text or Markdown.
+
+## Boundaries
+
+The Knowledge Import Framework does not decide what information should become Memory.
+
+Memory and Knowledge remain separate services.
+
+Knowledge manages external reference material.
+
+Memory manages persistent user-specific context, decisions, summaries, and continuity.
+
+The importer framework also does not decide what answer JARVIS gives to the user. It only prepares knowledge so that other systems can retrieve, cite, and reason over it.
+
+## Initial Implementation Plan
+
+The first implementation should be minimal.
+
+Milestone 1:
+
+* Create the knowledge package structure.
+* Define a normalized `Document` model.
+* Define a base `Importer` interface.
+* Implement importer discovery.
+
+Milestone 2:
+
+* Implement a plain text importer.
+* Validate the pipeline with `.txt` files.
+
+Milestone 3:
+
+* Implement a Markdown importer.
+
+Milestone 4:
+
+* Implement a PDF importer.
+
+Milestone 5:
+
+* Implement a ZIM importer.
+
+Milestone 6:
+
+* Register imported documents in the knowledge catalog.
+
+Milestone 7:
+
+* Add chunking, embeddings, and retrieval.
+
+## Open Questions
+
+* Should the knowledge package live at the repository root or under `core/src`?
+* Which metadata fields are required for every document?
+* Which dependencies should be mandatory versus optional?
+* Should importers return one document or multiple documents per source?
+* How should very large sources such as ZIM archives be streamed or indexed?
+* How should duplicate sources be detected?
+* How should provenance and citation data be stored?
+* Should importers be enabled or disabled through configuration?
+* How should JARVIS handle encrypted, corrupted, or partially readable sources?
+
+## Decision Summary
+
+JARVIS will treat knowledge ingestion as a plugin-based framework.
+
+Each source format will have an importer responsible only for converting that source into normalized documents.
+
+The rest of the Knowledge service will operate on normalized documents and remain independent of file format.
