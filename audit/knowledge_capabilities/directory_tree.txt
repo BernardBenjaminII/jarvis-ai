@@ -1,0 +1,293 @@
+core/knowledge_catalog
+├── backfill.py
+├── classifiers
+│   ├── __init__.py
+│   ├── keyword_classifier.py
+│   ├── __pycache__
+│   └── subject_assignment.py
+├── cli.py
+├── collections.py
+├── config.py
+├── database.py
+├── digest.py
+├── __init__.py
+├── models.py
+├── paths.py
+├── __pycache__
+│   ├── backfill.cpython-310.pyc
+│   ├── backfill.cpython-312.pyc
+│   ├── cli.cpython-310.pyc
+│   ├── cli.cpython-312.pyc
+│   ├── collections.cpython-310.pyc
+│   ├── collections.cpython-312.pyc
+│   ├── config.cpython-310.pyc
+│   ├── config.cpython-312.pyc
+│   ├── database.cpython-310.pyc
+│   ├── database.cpython-312.pyc
+│   ├── digest.cpython-310.pyc
+│   ├── digest.cpython-312.pyc
+│   ├── __init__.cpython-310.pyc
+│   ├── __init__.cpython-312.pyc
+│   ├── models.cpython-310.pyc
+│   ├── models.cpython-312.pyc
+│   ├── paths.cpython-310.pyc
+│   ├── registrar.cpython-310.pyc
+│   ├── registrar.cpython-312.pyc
+│   ├── repository.cpython-310.pyc
+│   ├── repository.cpython-312.pyc
+│   ├── schema.cpython-310.pyc
+│   ├── schema.cpython-312.pyc
+│   ├── search.cpython-310.pyc
+│   ├── search.cpython-312.pyc
+│   ├── seed.cpython-310.pyc
+│   ├── seed.cpython-312.pyc
+│   ├── service.cpython-310.pyc
+│   └── service.cpython-312.pyc
+├── registrar.py
+├── repository.py
+├── schema.py
+├── search.py
+├── seed.py
+└── service.py
+core/knowledge_graph
+├── catalog_mapper.py
+├── cli.py
+├── coverage.py
+├── gap_analysis.py
+├── graph.py
+├── __init__.py
+├── models.py
+├── ontology.py
+└── __pycache__
+    ├── cli.cpython-310.pyc
+    ├── cli.cpython-312.pyc
+    ├── gap_analysis.cpython-310.pyc
+    ├── gap_analysis.cpython-312.pyc
+    ├── __init__.cpython-310.pyc
+    ├── __init__.cpython-312.pyc
+    ├── ontology.cpython-310.pyc
+    └── ontology.cpython-312.pyc
+core/knowledge_mapper
+├── cli.py
+├── indexer.py
+├── __init__.py
+├── mapper.py
+├── models.py
+├── __pycache__
+│   ├── cli.cpython-312.pyc
+│   ├── indexer.cpython-312.pyc
+│   ├── __init__.cpython-310.pyc
+│   ├── __init__.cpython-312.pyc
+│   ├── mapper.cpython-310.pyc
+│   ├── mapper.cpython-312.pyc
+│   ├── report.cpython-312.pyc
+│   ├── rules.cpython-310.pyc
+│   └── rules.cpython-312.pyc
+├── report.py
+└── rules.py
+core/semantic_digest
+├── analyzer.py
+├── cli.py
+├── __init__.py
+├── inspector.py
+├── pipeline.py
+├── __pycache__
+│   ├── analyzer.cpython-312.pyc
+│   ├── __init__.cpython-312.pyc
+│   ├── inspector.cpython-312.pyc
+│   ├── pipeline.cpython-312.pyc
+│   └── readers.cpython-312.pyc
+├── readers.py
+└── structural.py
+knowledge_engine
+├── catalog
+│   └── __init__.py
+├── catalog.py
+├── chunking
+│   ├── chunker.py
+│   ├── __init__.py
+│   └── __pycache__
+├── cli.py
+├── collections
+│   ├── __init__.py
+│   ├── models.py
+│   ├── __pycache__
+│   └── store.py
+├── concepts
+│   └── __init__.py
+├── constants.py
+├── discovery
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── scanner.py
+├── document.py
+├── embeddings
+│   ├── engine.py
+│   ├── __init__.py
+│   └── __pycache__
+├── extraction
+│   ├── extractors
+│   ├── __init__.py
+│   └── __pycache__
+├── index
+│   ├── builder.py
+│   ├── __init__.py
+│   ├── models.py
+│   ├── __pycache__
+│   ├── search.py
+│   ├── statistics.py
+│   └── store.py
+├── __init__.py
+├── inspection
+│   └── __init__.py
+├── inspectors
+│   ├── base.py
+│   ├── docx.py
+│   ├── epub.py
+│   ├── html.py
+│   ├── image.py
+│   ├── __init__.py
+│   ├── markdown.py
+│   ├── pdf.py
+│   ├── __pycache__
+│   ├── registry.py
+│   ├── text.py
+│   └── zim.py
+├── library
+│   ├── builder.py
+│   ├── __init__.py
+│   ├── models.py
+│   ├── __pycache__
+│   └── store.py
+├── metadata
+│   ├── fingerprints.py
+│   ├── __init__.py
+│   └── __pycache__
+├── pages
+│   ├── __init__.py
+│   ├── models.py
+│   └── store.py
+├── pipeline.py
+├── processing
+│   ├── catalog_stage.py
+│   ├── chunk_stage.py
+│   ├── concept_stage.py
+│   ├── discover.py
+│   ├── extract_stage.py
+│   ├── extract_text_stage.py
+│   ├── __init__.py
+│   ├── inspect_stage.py
+│   ├── processor.py
+│   ├── __pycache__
+│   ├── retrieve_stage.py
+│   └── structure_stage.py
+├── providers
+│   ├── base.py
+│   ├── faa.py
+│   ├── __init__.py
+│   ├── local.py
+│   ├── nasa.py
+│   ├── noaa.py
+│   ├── provider.py
+│   ├── __pycache__
+│   ├── registry.py
+│   ├── us_army.py
+│   └── who.py
+├── __pycache__
+│   ├── catalog.cpython-310.pyc
+│   ├── catalog.cpython-312.pyc
+│   ├── cli.cpython-310.pyc
+│   ├── cli.cpython-312.pyc
+│   ├── constants.cpython-310.pyc
+│   ├── constants.cpython-312.pyc
+│   ├── document.cpython-310.pyc
+│   ├── document.cpython-312.pyc
+│   ├── __init__.cpython-310.pyc
+│   ├── __init__.cpython-312.pyc
+│   ├── __init__.py
+│   ├── pipeline.cpython-310.pyc
+│   ├── pipeline.cpython-312.pyc
+│   ├── readers.cpython-310.pyc
+│   ├── types.cpython-310.pyc
+│   └── types.cpython-312.pyc
+├── queue
+│   ├── builder.py
+│   ├── __init__.py
+│   ├── models.py
+│   └── priorities.py
+├── readers.py
+├── reports
+│   ├── duplicates.py
+│   ├── __init__.py
+│   └── __pycache__
+├── retrieval
+│   └── __init__.py
+├── search
+│   ├── __init__.py
+│   ├── local_search.py
+│   ├── __pycache__
+│   └── retrieval.py
+├── storage
+│   ├── catalog_store.py
+│   ├── chunk_store.py
+│   ├── concept_store.py
+│   ├── database.py
+│   ├── __init__.py
+│   ├── inspection_store.py
+│   ├── page_store.py
+│   ├── __pycache__
+│   ├── structure_store.py
+│   └── text_store.py
+├── structure
+│   ├── base.py
+│   ├── __init__.py
+│   ├── pdf.py
+│   ├── __pycache__
+│   └── registry.py
+├── tests
+│   └── __init__.py
+└── types.py
+dev/librarian
+├── acquire_pipeline.py
+├── acquisition
+│   ├── archive.py
+│   ├── filter.py
+│   ├── __init__.py
+│   ├── manifest.py
+│   ├── metadata.py
+│   ├── normalize.py
+│   ├── pipeline.py
+│   └── __pycache__
+├── cko
+│   ├── database.py
+│   ├── __init__.py
+│   ├── mit_cko_builder.py
+│   └── __pycache__
+├── discover.py
+├── discovery
+│   ├── engine.py
+│   ├── __init__.py
+│   ├── models.py
+│   ├── __pycache__
+│   └── sources
+├── __init__.py
+├── integration
+│   ├── __init__.py
+│   └── __pycache__
+├── inventory
+│   ├── __init__.py
+│   ├── inventory.py
+│   └── __pycache__
+├── librarian.py
+├── mit_miner.py
+├── mit_targeted_miner.py
+├── pdf_hunter.py
+├── __pycache__
+│   ├── acquire_pipeline.cpython-312.pyc
+│   ├── discover.cpython-312.pyc
+│   ├── __init__.cpython-310.pyc
+│   ├── __init__.cpython-312.pyc
+│   └── librarian.cpython-310.pyc
+└── run_pipeline.py
+
+63 directories, 228 files

@@ -1,0 +1,51 @@
+core/knowledge_catalog/cli.py:8:from core.knowledge_catalog.search import search_catalog
+core/knowledge_catalog/cli.py:68:def cmd_search(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:69:    rows = search_catalog(args.query, limit=args.limit)
+core/knowledge_catalog/cli.py:72:    print(f"JARVIS KNOWLEDGE CATALOG SEARCH: {args.query}")
+core/knowledge_catalog/cli.py:124:    p_search = sub.add_parser("search")
+core/knowledge_catalog/cli.py:125:    p_search.add_argument("query")
+core/knowledge_catalog/cli.py:126:    p_search.add_argument("--limit", type=int, default=25)
+core/knowledge_catalog/cli.py:127:    p_search.set_defaults(func=cmd_search)
+core/knowledge_catalog/search.py:10:def search_catalog(query: str, db_path: Path = DEFAULT_CATALOG_DB, limit: int = 25) -> list[sqlite3.Row]:
+core/knowledge_catalog/search.py:12:    q = f"%{query.lower()}%"
+core/src/brain.py:9:from .services.llm_service import query_llm
+core/src/brain.py:112:    response = query_llm(
+core/src/cognition/intent_classifier.py:21:    "research",
+core/src/cognition/intent_classifier.py:58:    "research": [
+core/src/cognition/intent_classifier.py:59:        "find", "search", "compare", "recommend", "best",
+core/src/cognition/intent_classifier.py:61:        "research", "look up",
+core/src/cognition/intent_classifier.py:84:    "retrieve": [
+core/src/cognition/intent_classifier.py:85:        "find", "search", "look up", "show me", "get",
+core/src/cognition/intent_classifier.py:102:        if re.search(pattern, text):
+core/src/cognition/model_map.py:10:    "research": "deepseek-r1:8b",
+core/src/cognition/personas.py:64:    "research": """
+core/src/cognition/personas.py:65:You are JARVIS Research Mode.
+core/src/cognition/prompt_builder.py:64:- If the user requests research, provide analysis and comparisons.
+core/src/cognition/response_profiles.py:23:    "research": {
+core/src/discovery/runtime_locator.py:6:This class searches a list of known locations for a valid
+core/src/services/llm_service.py:24:def query_local(prompt: str):
+core/src/services/llm_service.py:72:def query_cloud(prompt: str):
+core/src/services/llm_service.py:95:def query_llm(
+core/src/services/llm_service.py:171:            "(preparing for user query)",
+core/src/services/macos/system.py:251:def macos_find(query: str) -> str:
+core/src/services/macos/system.py:254:        query
+core/src/runtime/execution_plan.py:14:        llm     -> query an LLM
+core/README.md:25:- Natural language query processing using LLMs
+core/gmail_cleanup_strategy.txt:209:- Offline searchable email archive
+core/identity/modes/ios.yaml:10:  lightweight research, situational awareness, maps, notes,
+core/identity/modes/ios.yaml:23:    - light_research
+core/identity/modes/kali.yaml:10:  wireless auditing, SDR operations, and vulnerability research.
+core/identity/modes/macos.yaml:8:  project management, research, writing, productivity,
+core/identity/modes/macos.yaml:17:    - research
+core/identity/modes/macos.yaml:55:  research: true
+core/identity/modes/macos.yaml:93:    - research_notes
+core/identity/modes/windows.yaml:8:  organization, research, and administrative assistance.
+core/identity/modes/windows.yaml:18:    - research
+core/requirements.txt:110:elasticsearch==9.3.0
+knowledge_engine/inspectors/pdf.py:37:            "searchable": text_length > 0,
+knowledge_engine/__init__.py:4:Responsible for ingesting, indexing, searching, and retrieving
+knowledge_engine/storage/page_store.py:49:    def search(self, query: str, limit: int = 8) -> list[dict]:
+knowledge_engine/storage/page_store.py:61:                (query, limit),
+knowledge_engine/index/__init__.py:3:from knowledge_engine.index.search import KnowledgeIndexSearch
+knowledge_engine/index/search.py:5:    def search(self, query: str, limit: int = 10) -> list[dict]:
+knowledge_engine/index/search.py:6:        like = f"%{query.lower()}%"

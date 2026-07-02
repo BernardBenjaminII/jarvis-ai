@@ -1,0 +1,57 @@
+capabilities:
+
+  acquisition:
+    owner: dev/librarian
+    role: Find, download, stage, verify, and normalize external knowledge.
+
+  discovery:
+    owner: dev/librarian
+    role: Identify trusted sources and acquisition candidates.
+
+  normalization:
+    owner: dev/librarian
+    role: Prepare downloaded files for ingestion.
+
+  inspection:
+    owner: knowledge_engine
+    role: Detect true file type and processing strategy.
+
+  reading:
+    owner: knowledge_engine
+    role: Read supported document formats.
+
+  extraction:
+    owner: knowledge_engine
+    role: Extract text and structure from documents.
+
+  chunking:
+    owner: knowledge_engine
+    role: Split extracted text into usable chunks.
+
+  embedding:
+    owner: knowledge_engine
+    role: Generate/search vector representations.
+
+  catalog:
+    owner: core/knowledge_catalog
+    role: Single source of truth for documents, subjects, metadata, collections, and search.
+
+  classification:
+    owner: core/knowledge_catalog
+    role: Assign documents to domains, disciplines, subjects, and collections.
+
+  storage:
+    owner: core/knowledge_catalog
+    role: Store semantic catalog state in catalog.sqlite.
+
+  search:
+    owner: core/knowledge_catalog
+    role: Search known documents and semantic metadata.
+
+  graph:
+    owner: core/knowledge_graph
+    role: Coverage, ontology, gap analysis, and reasoning over catalog data.
+
+  cko:
+    owner: dev/librarian
+    role: Build canonical knowledge objects from acquired material.

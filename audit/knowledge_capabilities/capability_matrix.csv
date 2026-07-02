@@ -1,0 +1,160 @@
+package,module,path,capabilities,classes,functions,cli,database,imports
+core/knowledge_catalog,core.knowledge_catalog.__init__,core/knowledge_catalog/__init__.py,catalog,,,,,
+core/knowledge_catalog,core.knowledge_catalog.backfill,core/knowledge_catalog/backfill.py,"catalog, classification, extraction, storage",,main,yes,yes,"__future__, core.knowledge_catalog.classifiers.subject_assignment, core.knowledge_catalog.config, core.knowledge_catalog.database, datetime, pathlib"
+core/knowledge_catalog,core.knowledge_catalog.classifiers.__init__,core/knowledge_catalog/classifiers/__init__.py,"catalog, classification",,,,,
+core/knowledge_catalog,core.knowledge_catalog.classifiers.keyword_classifier,core/knowledge_catalog/classifiers/keyword_classifier.py,"catalog, classification, extraction, graph",,"load_keyword_rules, classify_text",,,"__future__, pathlib, yaml"
+core/knowledge_catalog,core.knowledge_catalog.classifiers.subject_assignment,core/knowledge_catalog/classifiers/subject_assignment.py,"catalog, classification, extraction",,assign_subject,,,"__future__, core.knowledge_catalog.classifiers.keyword_classifier, core.knowledge_mapper.mapper, pathlib"
+core/knowledge_catalog,core.knowledge_catalog.cli,core/knowledge_catalog/cli.py,"acquisition, catalog, classification, collections, search, storage",,"cmd_init, cmd_stats, cmd_topics, cmd_sources, cmd_collections_build, cmd_collections_list, cmd_semantic_backfill, cmd_search, cmd_register_file, cmd_register_tree, main",yes,yes,"__future__, argparse, core.knowledge_catalog.backfill, core.knowledge_catalog.collections, core.knowledge_catalog.config, core.knowledge_catalog.database, core.knowledge_catalog.registrar, core.knowledge_catalog.repository, core.knowledge_catalog.search, core.knowledge_catalog.service, pathlib"
+core/knowledge_catalog,core.knowledge_catalog.collections,core/knowledge_catalog/collections.py,"catalog, classification, collections, extraction, graph, normalization, storage",CollectionCandidate,"utc_now, humanize, classify_folder, count_assets, discover_collections, upsert_collections, print_collections",,yes,"__future__, collections, core.knowledge_catalog.config, core.knowledge_catalog.database, dataclasses, datetime, pathlib, sqlite3"
+core/knowledge_catalog,core.knowledge_catalog.config,core/knowledge_catalog/config.py,"acquisition, catalog, normalization, storage",,,,,pathlib
+core/knowledge_catalog,core.knowledge_catalog.database,core/knowledge_catalog/database.py,"catalog, classification, collections, extraction, inspection, storage",,"connect, migrate",,yes,"__future__, core.knowledge_catalog.config, core.knowledge_catalog.schema, pathlib, sqlite3"
+core/knowledge_catalog,core.knowledge_catalog.digest,core/knowledge_catalog/digest.py,"catalog, chunking, classification, extraction, graph, normalization",,"sha256_file, load_keyword_rules, normalize_text, digest_path",,,"__future__, core.knowledge_catalog.classifiers.subject_assignment, hashlib, pathlib, yaml"
+core/knowledge_catalog,core.knowledge_catalog.models,core/knowledge_catalog/models.py,"acquisition, catalog, inspection","Source, Topic, Document, FileAsset",utc_now,,,"__future__, dataclasses, datetime, pathlib"
+core/knowledge_catalog,core.knowledge_catalog.paths,core/knowledge_catalog/paths.py,"catalog, storage",,,,,pathlib
+core/knowledge_catalog,core.knowledge_catalog.registrar,core/knowledge_catalog/registrar.py,"acquisition, catalog, classification, collections, extraction, inspection, storage",,"utc_now, infer_collection_id, register_file, register_tree",,yes,"__future__, core.knowledge_catalog.config, core.knowledge_catalog.database, core.semantic_digest.pipeline, datetime, pathlib"
+core/knowledge_catalog,core.knowledge_catalog.repository,core/knowledge_catalog/repository.py,"acquisition, catalog, inspection, storage",CatalogRepository,"upsert_source, upsert_topic, create_document, add_file_asset, link_document_topic, stats",,yes,"__future__, core.knowledge_catalog.models, sqlite3"
+core/knowledge_catalog,core.knowledge_catalog.schema,core/knowledge_catalog/schema.py,"acquisition, catalog, classification, collections, embedding, extraction, inspection",,,,yes,
+core/knowledge_catalog,core.knowledge_catalog.search,core/knowledge_catalog/search.py,"catalog, classification, search, storage",,search_catalog,,yes,"__future__, core.knowledge_catalog.config, core.knowledge_catalog.database, pathlib, sqlite3"
+core/knowledge_catalog,core.knowledge_catalog.seed,core/knowledge_catalog/seed.py,"acquisition, catalog, embedding, extraction, graph, storage",,seed_catalog,,,"__future__, core.knowledge_catalog.models, core.knowledge_catalog.repository"
+core/knowledge_catalog,core.knowledge_catalog.service,core/knowledge_catalog/service.py,"acquisition, catalog, inspection, storage",,"initialize_catalog, register_file",,yes,"__future__, core.knowledge_catalog.database, core.knowledge_catalog.models, core.knowledge_catalog.repository, core.knowledge_catalog.seed, pathlib"
+core/knowledge_graph,core.knowledge_graph.__init__,core/knowledge_graph/__init__.py,graph,,,,,
+core/knowledge_graph,core.knowledge_graph.catalog_mapper,core/knowledge_graph/catalog_mapper.py,"catalog, classification, graph",,,,,
+core/knowledge_graph,core.knowledge_graph.cli,core/knowledge_graph/cli.py,"classification, extraction, graph",,"cmd_summary, cmd_gaps, main",yes,,"__future__, argparse, core.knowledge_graph.gap_analysis, core.knowledge_graph.ontology"
+core/knowledge_graph,core.knowledge_graph.coverage,core/knowledge_graph/coverage.py,graph,,,,,
+core/knowledge_graph,core.knowledge_graph.gap_analysis,core/knowledge_graph/gap_analysis.py,"catalog, classification, extraction, graph, storage",SubjectCoverage,"status_from_count, iter_subjects, load_subject_counts, analyze_gaps, summarize, write_reports",,yes,"__future__, core.knowledge_catalog.paths, core.knowledge_graph.ontology, dataclasses, json, pathlib, sqlite3"
+core/knowledge_graph,core.knowledge_graph.graph,core/knowledge_graph/graph.py,graph,,,,,
+core/knowledge_graph,core.knowledge_graph.models,core/knowledge_graph/models.py,graph,,,,,
+core/knowledge_graph,core.knowledge_graph.ontology,core/knowledge_graph/ontology.py,"classification, graph",KnowledgeOntology,load_ontology,,,"dataclasses, pathlib, yaml"
+core/knowledge_mapper,core.knowledge_mapper.__init__,core/knowledge_mapper/__init__.py,classification,,,,,
+core/knowledge_mapper,core.knowledge_mapper.cli,core/knowledge_mapper/cli.py,classification,,,yes,,"argparse, core.knowledge_mapper.mapper, core.knowledge_mapper.report, pathlib"
+core/knowledge_mapper,core.knowledge_mapper.indexer,core/knowledge_mapper/indexer.py,"classification, collections, extraction",,build_subject_index,,,"collections, core.knowledge_mapper.mapper, pathlib"
+core/knowledge_mapper,core.knowledge_mapper.mapper,core/knowledge_mapper/mapper.py,classification,,map_path,,,"core.knowledge_mapper.rules, pathlib"
+core/knowledge_mapper,core.knowledge_mapper.models,core/knowledge_mapper/models.py,classification,,,,,
+core/knowledge_mapper,core.knowledge_mapper.report,core/knowledge_mapper/report.py,classification,,print_summary,,,"core.knowledge_mapper.indexer, pathlib"
+core/knowledge_mapper,core.knowledge_mapper.rules,core/knowledge_mapper/rules.py,classification,,load_rules,,,"pathlib, yaml"
+core/semantic_digest,core.semantic_digest.__init__,core/semantic_digest/__init__.py,classification,,,,,
+core/semantic_digest,core.semantic_digest.analyzer,core/semantic_digest/analyzer.py,"classification, extraction, graph, normalization",,"load_rules, normalize, analyze_semantics",,,"__future__, core.semantic_digest.structural, pathlib, re, yaml"
+core/semantic_digest,core.semantic_digest.cli,core/semantic_digest/cli.py,"catalog, classification, inspection",,"cmd_inspect, cmd_digest, main",yes,,"__future__, argparse, core.semantic_digest.inspector, core.semantic_digest.pipeline, pathlib"
+core/semantic_digest,core.semantic_digest.inspector,core/semantic_digest/inspector.py,"catalog, classification, extraction, inspection",DocumentInspection,inspect_document,,,"__future__, dataclasses, pathlib"
+core/semantic_digest,core.semantic_digest.pipeline,core/semantic_digest/pipeline.py,"catalog, classification, extraction, inspection",,process_document,,,"__future__, core.knowledge_catalog.digest, core.semantic_digest.analyzer, core.semantic_digest.inspector, core.semantic_digest.readers, pathlib"
+core/semantic_digest,core.semantic_digest.readers,core/semantic_digest/readers.py,"catalog, chunking, classification, extraction, inspection",,"read_text_file, read_pdf, read_document",,,"__future__, contextlib, core.semantic_digest.inspector, io, pathlib, pypdf"
+core/semantic_digest,core.semantic_digest.structural,core/semantic_digest/structural.py,"classification, collections, extraction",,"clean_line, extract_headings, extract_terms, extract_structure",,,"__future__, collections, pathlib, re"
+knowledge_engine,knowledge_engine.__init__,knowledge_engine/__init__.py,search,,,,,
+knowledge_engine,knowledge_engine.catalog.__init__,knowledge_engine/catalog/__init__.py,catalog,,,,,
+knowledge_engine,knowledge_engine.catalog,knowledge_engine/catalog.py,"acquisition, catalog, extraction, inspection, normalization, storage",KnowledgeCatalog,"connect, initialize, upsert_document, upsert_inspection, summary, duplicate_groups, replace_structure, structure_summary",,yes,"knowledge_engine.document, pathlib, sqlite3"
+knowledge_engine,knowledge_engine.chunking.__init__,knowledge_engine/chunking/__init__.py,chunking,,,,,
+knowledge_engine,knowledge_engine.chunking.chunker,knowledge_engine/chunking/chunker.py,chunking,,,,,
+knowledge_engine,knowledge_engine.cli,knowledge_engine/cli.py,"acquisition, catalog, extraction, inspection, storage",,"section, main",yes,,"argparse, knowledge_engine.pipeline, pathlib"
+knowledge_engine,knowledge_engine.collections.__init__,knowledge_engine/collections/__init__.py,collections,,,,,
+knowledge_engine,knowledge_engine.collections.models,knowledge_engine/collections/models.py,collections,,,,,
+knowledge_engine,knowledge_engine.collections.store,knowledge_engine/collections/store.py,"collections, storage",,,,,
+knowledge_engine,knowledge_engine.concepts.__init__,knowledge_engine/concepts/__init__.py,classification,,,,,
+knowledge_engine,knowledge_engine.constants,knowledge_engine/constants.py,,,,,,
+knowledge_engine,knowledge_engine.discovery.__init__,knowledge_engine/discovery/__init__.py,,,,,,
+knowledge_engine,knowledge_engine.discovery.scanner,knowledge_engine/discovery/scanner.py,,,discover_files,,,"pathlib, typing"
+knowledge_engine,knowledge_engine.document,knowledge_engine/document.py,catalog,DocumentRecord,relative_path,,,"dataclasses, pathlib, typing"
+knowledge_engine,knowledge_engine.embeddings.__init__,knowledge_engine/embeddings/__init__.py,embedding,,,,,
+knowledge_engine,knowledge_engine.embeddings.engine,knowledge_engine/embeddings/engine.py,embedding,,,,,
+knowledge_engine,knowledge_engine.extraction.__init__,knowledge_engine/extraction/__init__.py,extraction,,,,,
+knowledge_engine,knowledge_engine.extraction.extractors.__init__,knowledge_engine/extraction/extractors/__init__.py,extraction,,,,,
+knowledge_engine,knowledge_engine.extraction.extractors.base,knowledge_engine/extraction/extractors/base.py,extraction,BaseExtractor,"supports, extract",,,abc
+knowledge_engine,knowledge_engine.extraction.extractors.pdf,knowledge_engine/extraction/extractors/pdf.py,"catalog, extraction",PDFExtractor,"supports, extract",,,"fitz, knowledge_engine.extraction.extractors.base"
+knowledge_engine,knowledge_engine.index.__init__,knowledge_engine/index/__init__.py,"search, storage",,,,,"knowledge_engine.index.builder, knowledge_engine.index.search, knowledge_engine.index.statistics, knowledge_engine.index.store"
+knowledge_engine,knowledge_engine.index.builder,knowledge_engine/index/builder.py,"catalog, classification, inspection, normalization, storage",KnowledgeIndexBuilder,build,,yes,"json, knowledge_engine.index.models"
+knowledge_engine,knowledge_engine.index.models,knowledge_engine/index/models.py,"catalog, classification",IndexRecord,,,,dataclasses
+knowledge_engine,knowledge_engine.index.search,knowledge_engine/index/search.py,"catalog, classification, search, storage",KnowledgeIndexSearch,search,,yes,
+knowledge_engine,knowledge_engine.index.statistics,knowledge_engine/index/statistics.py,storage,KnowledgeIndexStatistics,top_categories,,yes,
+knowledge_engine,knowledge_engine.index.store,knowledge_engine/index/store.py,"catalog, classification, storage",KnowledgeIndexStore,"upsert, summary",,yes,knowledge_engine.index.models
+knowledge_engine,knowledge_engine.inspection.__init__,knowledge_engine/inspection/__init__.py,inspection,,,,,
+knowledge_engine,knowledge_engine.inspectors.__init__,knowledge_engine/inspectors/__init__.py,inspection,,,,,registry
+knowledge_engine,knowledge_engine.inspectors.base,knowledge_engine/inspectors/base.py,"catalog, extraction, inspection, normalization",BaseInspector,"inspect, extract_text",,,"__future__, abc, pathlib"
+knowledge_engine,knowledge_engine.inspectors.docx,knowledge_engine/inspectors/docx.py,"catalog, extraction, graph, inspection",DocxInspector,inspect,,,"base, docx, pathlib"
+knowledge_engine,knowledge_engine.inspectors.epub,knowledge_engine/inspectors/epub.py,"extraction, inspection, normalization",EpubInspector,inspect,,,"base, ebooklib"
+knowledge_engine,knowledge_engine.inspectors.html,knowledge_engine/inspectors/html.py,"extraction, inspection",HtmlInspector,inspect,,,"base, bs4, pathlib"
+knowledge_engine,knowledge_engine.inspectors.image,knowledge_engine/inspectors/image.py,inspection,ImageInspector,inspect,,,"PIL, base, pathlib"
+knowledge_engine,knowledge_engine.inspectors.markdown,knowledge_engine/inspectors/markdown.py,"extraction, inspection",MarkdownInspector,,,,text
+knowledge_engine,knowledge_engine.inspectors.pdf,knowledge_engine/inspectors/pdf.py,"extraction, inspection, normalization, search",PDFInspector,inspect,,,"base, fitz, pathlib"
+knowledge_engine,knowledge_engine.inspectors.registry,knowledge_engine/inspectors/registry.py,"catalog, extraction, inspection",InspectorRegistry,"register, get",,,"docx, epub, html, image, markdown, pathlib, pdf, text, zim"
+knowledge_engine,knowledge_engine.inspectors.text,knowledge_engine/inspectors/text.py,"extraction, inspection",TextInspector,inspect,,,"base, pathlib"
+knowledge_engine,knowledge_engine.inspectors.zim,knowledge_engine/inspectors/zim.py,"extraction, inspection",ZimInspector,inspect,,,"base, pathlib"
+knowledge_engine,knowledge_engine.library.__init__,knowledge_engine/library/__init__.py,"catalog, storage",,,,,"knowledge_engine.library.builder, knowledge_engine.library.store"
+knowledge_engine,knowledge_engine.library.builder,knowledge_engine/library/builder.py,"acquisition, catalog, classification, inspection, normalization, storage",LibraryCatalogBuilder,build,,yes,"json, knowledge_engine.library.models"
+knowledge_engine,knowledge_engine.library.models,knowledge_engine/library/models.py,"acquisition, catalog, classification",LibraryRecord,,,,dataclasses
+knowledge_engine,knowledge_engine.library.store,knowledge_engine/library/store.py,"acquisition, catalog, classification, storage",LibraryCatalogStore,"upsert, summary",,yes,knowledge_engine.library.models
+knowledge_engine,knowledge_engine.metadata.__init__,knowledge_engine/metadata/__init__.py,normalization,,,,,
+knowledge_engine,knowledge_engine.metadata.fingerprints,knowledge_engine/metadata/fingerprints.py,"chunking, normalization",,sha256_file,,,"hashlib, pathlib"
+knowledge_engine,knowledge_engine.pages.__init__,knowledge_engine/pages/__init__.py,,,,,,
+knowledge_engine,knowledge_engine.pages.models,knowledge_engine/pages/models.py,"catalog, extraction",Page,,,,dataclasses
+knowledge_engine,knowledge_engine.pages.store,knowledge_engine/pages/store.py,"catalog, extraction, storage",PageStore,replace_pages,,yes,
+knowledge_engine,knowledge_engine.pipeline,knowledge_engine/pipeline.py,"catalog, inspection",,run_inventory,,,"knowledge_engine.processing, pathlib"
+knowledge_engine,knowledge_engine.processing.__init__,knowledge_engine/processing/__init__.py,,,,,,knowledge_engine.processing.processor
+knowledge_engine,knowledge_engine.processing.catalog_stage,knowledge_engine/processing/catalog_stage.py,"catalog, normalization, storage",CatalogStage,"category_from_path, build_record, run",,,"knowledge_engine.discovery.scanner, knowledge_engine.document, knowledge_engine.metadata.fingerprints, pathlib"
+knowledge_engine,knowledge_engine.processing.chunk_stage,knowledge_engine/processing/chunk_stage.py,chunking,,,,,
+knowledge_engine,knowledge_engine.processing.concept_stage,knowledge_engine/processing/concept_stage.py,classification,,,,,
+knowledge_engine,knowledge_engine.processing.discover,knowledge_engine/processing/discover.py,,,,,,
+knowledge_engine,knowledge_engine.processing.extract_stage,knowledge_engine/processing/extract_stage.py,extraction,,,,,
+knowledge_engine,knowledge_engine.processing.extract_text_stage,knowledge_engine/processing/extract_text_stage.py,"catalog, extraction, storage",ExtractTextStage,run,,,"knowledge_engine.readers, pathlib"
+knowledge_engine,knowledge_engine.processing.inspect_stage,knowledge_engine/processing/inspect_stage.py,"catalog, inspection, normalization, storage",InspectStage,run,,,"json, knowledge_engine.inspectors"
+knowledge_engine,knowledge_engine.processing.processor,knowledge_engine/processing/processor.py,"catalog, inspection, storage",ProcessingEngine,run_foundation,,,"knowledge_engine.index, knowledge_engine.processing.catalog_stage, knowledge_engine.processing.inspect_stage, knowledge_engine.processing.structure_stage, knowledge_engine.storage.catalog_store, knowledge_engine.storage.database, knowledge_engine.storage.inspection_store, knowledge_engine.storage.structure_store, pathlib"
+knowledge_engine,knowledge_engine.processing.retrieve_stage,knowledge_engine/processing/retrieve_stage.py,search,,,,,
+knowledge_engine,knowledge_engine.processing.structure_stage,knowledge_engine/processing/structure_stage.py,"catalog, extraction, storage",StructureStage,run,,,knowledge_engine.structure
+knowledge_engine,knowledge_engine.providers.__init__,knowledge_engine/providers/__init__.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.base,knowledge_engine/providers/base.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.faa,knowledge_engine/providers/faa.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.local,knowledge_engine/providers/local.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.nasa,knowledge_engine/providers/nasa.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.noaa,knowledge_engine/providers/noaa.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.provider,knowledge_engine/providers/provider.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.registry,knowledge_engine/providers/registry.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.us_army,knowledge_engine/providers/us_army.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.providers.who,knowledge_engine/providers/who.py,acquisition,,,,,
+knowledge_engine,knowledge_engine.queue.__init__,knowledge_engine/queue/__init__.py,,,,,,
+knowledge_engine,knowledge_engine.queue.builder,knowledge_engine/queue/builder.py,catalog,ProcessingQueueBuilder,build,,,"knowledge_engine.queue.models, knowledge_engine.queue.priorities"
+knowledge_engine,knowledge_engine.queue.models,knowledge_engine/queue/models.py,catalog,QueueItem,,,,dataclasses
+knowledge_engine,knowledge_engine.queue.priorities,knowledge_engine/queue/priorities.py,"graph, normalization",,,,,
+knowledge_engine,knowledge_engine.readers,knowledge_engine/readers.py,extraction,,read_pdf_pages,,,"fitz, pathlib"
+knowledge_engine,knowledge_engine.reports.__init__,knowledge_engine/reports/__init__.py,,,,,,
+knowledge_engine,knowledge_engine.reports.duplicates,knowledge_engine/reports/duplicates.py,,,"write_duplicates_csv, write_duplicates_markdown",,,"csv, pathlib"
+knowledge_engine,knowledge_engine.retrieval.__init__,knowledge_engine/retrieval/__init__.py,,,,,,
+knowledge_engine,knowledge_engine.search.__init__,knowledge_engine/search/__init__.py,search,,,,,
+knowledge_engine,knowledge_engine.search.local_search,knowledge_engine/search/local_search.py,search,,,,,
+knowledge_engine,knowledge_engine.search.retrieval,knowledge_engine/search/retrieval.py,search,,,,,
+knowledge_engine,knowledge_engine.storage.__init__,knowledge_engine/storage/__init__.py,storage,,,,,
+knowledge_engine,knowledge_engine.storage.catalog_store,knowledge_engine/storage/catalog_store.py,"catalog, storage",CatalogStore,"upsert_document, summary",,yes,knowledge_engine.document
+knowledge_engine,knowledge_engine.storage.chunk_store,knowledge_engine/storage/chunk_store.py,"chunking, storage",,,,,
+knowledge_engine,knowledge_engine.storage.concept_store,knowledge_engine/storage/concept_store.py,"classification, storage",,,,,
+knowledge_engine,knowledge_engine.storage.database,knowledge_engine/storage/database.py,"acquisition, catalog, chunking, classification, extraction, inspection, normalization, storage",KnowledgeDatabase,"connect, initialize",,yes,"pathlib, sqlite3"
+knowledge_engine,knowledge_engine.storage.inspection_store,knowledge_engine/storage/inspection_store.py,"catalog, inspection, normalization, storage",InspectionStore,upsert,,yes,
+knowledge_engine,knowledge_engine.storage.page_store,knowledge_engine/storage/page_store.py,"catalog, extraction, search, storage",PageStore,"replace_pages, search",,yes,
+knowledge_engine,knowledge_engine.storage.structure_store,knowledge_engine/storage/structure_store.py,"acquisition, catalog, storage",StructureStore,"replace, summary",,yes,
+knowledge_engine,knowledge_engine.storage.text_store,knowledge_engine/storage/text_store.py,"catalog, extraction, storage",TextStore,upsert,,yes,
+knowledge_engine,knowledge_engine.structure.__init__,knowledge_engine/structure/__init__.py,,,,,,"knowledge_engine.structure.base, knowledge_engine.structure.registry"
+knowledge_engine,knowledge_engine.structure.base,knowledge_engine/structure/base.py,"acquisition, catalog",StructureNode,,,,"dataclasses, typing"
+knowledge_engine,knowledge_engine.structure.pdf,knowledge_engine/structure/pdf.py,"acquisition, catalog, extraction",PDFStructureExtractor,extract,,,"fitz, knowledge_engine.structure.base, pathlib"
+knowledge_engine,knowledge_engine.structure.registry,knowledge_engine/structure/registry.py,"catalog, extraction",StructureRegistry,"register, get",,,"knowledge_engine.structure.pdf, pathlib"
+knowledge_engine,knowledge_engine.tests.__init__,knowledge_engine/tests/__init__.py,,,,,,
+knowledge_engine,knowledge_engine.types,knowledge_engine/types.py,,,,,,
+dev/librarian,dev.librarian.__init__,dev/librarian/__init__.py,,,,,,
+dev/librarian,dev.librarian.acquire_pipeline,dev/librarian/acquire_pipeline.py,"acquisition, catalog, extraction, normalization",,"process_zip, main",yes,,"__future__, argparse, dev.librarian.acquisition.normalize, pathlib"
+dev/librarian,dev.librarian.acquisition.__init__,dev/librarian/acquisition/__init__.py,,,,,,
+dev/librarian,dev.librarian.acquisition.archive,dev/librarian/acquisition/archive.py,normalization,,archive,,,"pathlib, shutil"
+dev/librarian,dev.librarian.acquisition.filter,dev/librarian/acquisition/filter.py,"acquisition, extraction",,should_keep,,,pathlib
+dev/librarian,dev.librarian.acquisition.manifest,dev/librarian/acquisition/manifest.py,"acquisition, chunking, normalization",,"sha256_file, append_manifest",,,"__future__, csv, hashlib, pathlib"
+dev/librarian,dev.librarian.acquisition.metadata,dev/librarian/acquisition/metadata.py,"extraction, normalization",,"load_json, extract_course_metadata, write_metadata",,,"__future__, json, pathlib"
+dev/librarian,dev.librarian.acquisition.normalize,dev/librarian/acquisition/normalize.py,"acquisition, catalog, classification, extraction, normalization",,"extract_zip, classify_kind, copy_useful_assets",,,"__future__, dev.librarian.acquisition.filter, dev.librarian.acquisition.manifest, dev.librarian.acquisition.metadata, pathlib, shutil, zipfile"
+dev/librarian,dev.librarian.acquisition.pipeline,dev/librarian/acquisition/pipeline.py,"acquisition, extraction, normalization",,process,,,"filter, metadata, normalize, pathlib"
+dev/librarian,dev.librarian.cko.__init__,dev/librarian/cko/__init__.py,cko,,,,,
+dev/librarian,dev.librarian.cko.database,dev/librarian/cko/database.py,"acquisition, cko, extraction, inspection, storage",,"connect, migrate",,yes,"__future__, pathlib, sqlite3"
+dev/librarian,dev.librarian.cko.mit_cko_builder,dev/librarian/cko/mit_cko_builder.py,"acquisition, chunking, cko, extraction, inspection, normalization, search, storage",,"utc_now, sha256_file, safe_name, load_json, guess_type, find_course_root, extract_title, collect_static_pdfs, find_pdf_for_resource, add_cko, add_representation, materialize_representation, build_course, main",yes,yes,"__future__, argparse, datetime, dev.librarian.cko.database, hashlib, json, pathlib, re, shutil, sqlite3, uuid"
+dev/librarian,dev.librarian.discover,dev/librarian/discover.py,"acquisition, search",,main,yes,,"__future__, argparse, dev.librarian.discovery.engine"
+dev/librarian,dev.librarian.discovery.__init__,dev/librarian/discovery/__init__.py,,,,,,
+dev/librarian,dev.librarian.discovery.engine,dev/librarian/discovery/engine.py,"acquisition, extraction, graph, normalization, search",,"normalize_topic, human_topic, slugify, load_sources, source_matches_topic, score_candidate, discover, write_discovery_plan",,,"__future__, dev.librarian.discovery.models, json, pathlib, re"
+dev/librarian,dev.librarian.discovery.models,dev/librarian/discovery/models.py,"acquisition, search","TrustedSource, DiscoveryCandidate","utc_now, to_dict",,,"__future__, dataclasses, datetime"
+dev/librarian,dev.librarian.integration.__init__,dev/librarian/integration/__init__.py,,,,,,
+dev/librarian,dev.librarian.inventory.__init__,dev/librarian/inventory/__init__.py,,,,,,
+dev/librarian,dev.librarian.inventory.inventory,dev/librarian/inventory/inventory.py,"catalog, collections, extraction",,,,,"collections, csv, pathlib"
+dev/librarian,dev.librarian.librarian,dev/librarian/librarian.py,catalog,,register,yes,,"__future__, argparse, core.knowledge_catalog.paths, core.knowledge_catalog.registrar, pathlib"
+dev/librarian,dev.librarian.mit_miner,dev/librarian/mit_miner.py,"acquisition, chunking, extraction, normalization, search",,"sha256, search, mine_course, download, main",yes,,"bs4, csv, hashlib, pathlib, re, requests, time, urllib.parse"
+dev/librarian,dev.librarian.mit_targeted_miner,dev/librarian/mit_targeted_miner.py,"acquisition, chunking, extraction, inspection, normalization",Links,"fetch, text_from_html, sha256_file, safe_name, write_manifest, download, mine_ocw_course_zip, mine_mit_press_books, main, handle_starttag",yes,,"__future__, argparse, csv, hashlib, html.parser, pathlib, re, time, urllib.parse, urllib.request, zipfile"
+dev/librarian,dev.librarian.pdf_hunter,dev/librarian/pdf_hunter.py,"acquisition, chunking, collections, extraction, normalization, search, storage",LinkParser,"sha256_file, fetch, safe_filename, same_domain, robots_allowed, crawl, main, handle_starttag",yes,,"__future__, argparse, collections, csv, hashlib, html.parser, pathlib, re, time, urllib.parse, urllib.request, urllib.robotparser"
+dev/librarian,dev.librarian.run_pipeline,dev/librarian/run_pipeline.py,"acquisition, normalization",,,,,"acquisition.pipeline, pathlib"

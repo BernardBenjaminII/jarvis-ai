@@ -1,0 +1,207 @@
+core/knowledge_catalog/schema.py:175:ALTER TABLE catalog_documents ADD COLUMN inspection_reason TEXT;
+core/knowledge_catalog/database.py:18:    "ALTER TABLE catalog_documents ADD COLUMN inspection_reason TEXT",
+core/knowledge_catalog/cli.py:9:from core.knowledge_catalog.registrar import register_file, register_tree
+core/knowledge_catalog/cli.py:91:def cmd_register_tree(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:92:    result = register_tree(Path(args.root))
+core/knowledge_catalog/cli.py:135:    p_reg_tree.set_defaults(func=cmd_register_tree)
+core/knowledge_catalog/digest.py:17:        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+core/knowledge_catalog/digest.py:18:            h.update(chunk)
+core/knowledge_catalog/registrar.py:8:from core.semantic_digest.pipeline import process_document
+core/knowledge_catalog/registrar.py:37:    digest = process_document(path)
+core/knowledge_catalog/registrar.py:47:                detected_type, inspection_reason, readable, content_chars
+core/knowledge_catalog/registrar.py:58:                inspection_reason=excluded.inspection_reason,
+core/knowledge_catalog/registrar.py:65:                now, now, digest.get("detected_type"), digest.get("inspection_reason"),
+core/knowledge_catalog/registrar.py:89:                    digest.get("confidence", 0.0), digest.get("assigned_by", "semantic_extraction"), now,
+core/knowledge_catalog/registrar.py:102:                    digest.get("confidence", 0.0), digest.get("assigned_by", "semantic_extraction"), now,
+core/knowledge_catalog/registrar.py:113:                (digest["file_path"], keyword, digest.get("confidence", 0.0), digest.get("assigned_by", "semantic_extraction"), now),
+core/knowledge_catalog/registrar.py:141:def register_tree(root: Path, db_path: Path = DEFAULT_CATALOG_DB) -> dict:
+core/semantic_digest/readers.py:7:from core.semantic_digest.inspector import inspect_document
+core/semantic_digest/readers.py:27:            chunks = []
+core/semantic_digest/readers.py:31:                    text = page.extract_text() or ""
+core/semantic_digest/readers.py:36:                    chunks.append(text)
+core/semantic_digest/readers.py:38:                if sum(len(x) for x in chunks) >= MAX_CHARS:
+core/semantic_digest/readers.py:41:        return "\n".join(chunks)[:MAX_CHARS]
+core/semantic_digest/readers.py:47:    inspection = inspect_document(path)
+core/semantic_digest/readers.py:49:    if not inspection.readable:
+core/semantic_digest/readers.py:52:    if inspection.detected_type == "pdf":
+core/semantic_digest/readers.py:55:    if inspection.detected_type in {"txt", "md", "csv", "json", "xml", "html", "htm"}:
+core/semantic_digest/analyzer.py:7:from core.semantic_digest.structural import extract_structure
+core/semantic_digest/analyzer.py:29:    structure = extract_structure(path, content)
+core/semantic_digest/analyzer.py:76:    # Add frequent extracted terms as low-level keywords.
+core/semantic_digest/analyzer.py:88:        "assigned_by": "semantic_extraction",
+core/semantic_digest/pipeline.py:7:from core.semantic_digest.inspector import inspect_document
+core/semantic_digest/pipeline.py:11:def process_document(path: Path) -> dict:
+core/semantic_digest/pipeline.py:13:    inspection = inspect_document(path)
+core/semantic_digest/pipeline.py:22:        "detected_type": inspection.detected_type,
+core/semantic_digest/pipeline.py:23:        "inspection_reason": inspection.reason,
+core/semantic_digest/pipeline.py:24:        "readable": inspection.readable,
+core/semantic_digest/pipeline.py:32:        "assigned_by": semantic.get("assigned_by", "semantic_extraction"),
+core/semantic_digest/inspector.py:17:def inspect_document(path: Path) -> DocumentInspection:
+core/semantic_digest/cli.py:6:from core.semantic_digest.inspector import inspect_document
+core/semantic_digest/cli.py:7:from core.semantic_digest.pipeline import process_document
+core/semantic_digest/cli.py:10:def cmd_inspect(path: str) -> None:
+core/semantic_digest/cli.py:11:    result = inspect_document(Path(path))
+core/semantic_digest/cli.py:16:    result = process_document(Path(path))
+core/semantic_digest/cli.py:24:        "inspection_reason",
+core/semantic_digest/cli.py:48:    p_inspect = sub.add_parser("inspect")
+core/semantic_digest/cli.py:49:    p_inspect.add_argument("path")
+core/semantic_digest/cli.py:56:    if args.command == "inspect":
+core/semantic_digest/cli.py:57:        cmd_inspect(args.path)
+core/semantic_digest/structural.py:15:def extract_headings(text: str, limit: int = 80) -> list[str]:
+core/semantic_digest/structural.py:33:def extract_terms(text: str, limit: int = 80) -> list[str]:
+core/semantic_digest/structural.py:47:def extract_structure(path: Path, text: str) -> dict:
+core/semantic_digest/structural.py:48:    headings = extract_headings(text)
+core/semantic_digest/structural.py:49:    terms = extract_terms(text)
+core/src/runtime/execution_plan.py:16:        pipeline-> execute multiple plans
+core/requirements.txt:471:tldextract==5.3.1
+core/requirements.txt:679:typing-inspection==0.4.2
+knowledge_engine/inspectors/base.py:9:    Base class for all document inspectors.
+knowledge_engine/inspectors/base.py:15:    def inspect(self, path: Path) -> dict:
+knowledge_engine/inspectors/base.py:21:    def extract_text(self, path: Path) -> str:
+knowledge_engine/inspectors/base.py:26:            f"{self.__class__.__name__} does not implement text extraction."
+knowledge_engine/inspectors/text.py:13:    def inspect(self, path: Path):
+knowledge_engine/inspectors/pdf.py:12:    def inspect(self, path: Path) -> dict:
+knowledge_engine/inspectors/html.py:15:    def inspect(self, path: Path):
+knowledge_engine/inspectors/docx.py:12:    def inspect(self, path: Path):
+knowledge_engine/inspectors/epub.py:10:    def inspect(self, path):
+knowledge_engine/inspectors/image.py:21:    def inspect(self, path: Path):
+knowledge_engine/inspectors/zim.py:10:    def inspect(self, path: Path):
+knowledge_engine/inspectors/zim.py:18:            "status": "inspection_not_implemented",
+knowledge_engine/inspectors/registry.py:17:        self._inspectors = {}
+knowledge_engine/inspectors/registry.py:28:    def register(self, inspector):
+knowledge_engine/inspectors/registry.py:30:        for ext in inspector.extensions:
+knowledge_engine/inspectors/registry.py:31:            self._inspectors[ext.lower()] = inspector
+knowledge_engine/inspectors/registry.py:35:        return self._inspectors.get(path.suffix.lower())
+knowledge_engine/catalog.py:23:CREATE TABLE IF NOT EXISTS inspections (
+knowledge_engine/catalog.py:25:    inspector TEXT NOT NULL,
+knowledge_engine/catalog.py:29:    inspected_at TEXT DEFAULT CURRENT_TIMESTAMP
+knowledge_engine/catalog.py:62:CREATE INDEX IF NOT EXISTS idx_inspections_status
+knowledge_engine/catalog.py:63:ON inspections(status);
+knowledge_engine/catalog.py:65:CREATE INDEX IF NOT EXISTS idx_inspections_inspector
+knowledge_engine/catalog.py:66:ON inspections(inspector);
+knowledge_engine/catalog.py:122:    def upsert_inspection(
+knowledge_engine/catalog.py:125:        inspector: str,
+knowledge_engine/catalog.py:133:                INSERT INTO inspections (
+knowledge_engine/catalog.py:135:                    inspector,
+knowledge_engine/catalog.py:142:                    inspector = excluded.inspector,
+knowledge_engine/catalog.py:146:                    inspected_at = CURRENT_TIMESTAMP
+knowledge_engine/catalog.py:150:                    inspector,
+knowledge_engine/catalog.py:190:            inspection_summary = conn.execute(
+knowledge_engine/catalog.py:192:                SELECT inspector, status, COUNT(*)
+knowledge_engine/catalog.py:193:                FROM inspections
+knowledge_engine/catalog.py:194:                GROUP BY inspector, status
+knowledge_engine/catalog.py:195:                ORDER BY inspector, status
+knowledge_engine/catalog.py:204:            "inspection_summary": inspection_summary,
+knowledge_engine/cli.py:4:from knowledge_engine.pipeline import run_inventory
+knowledge_engine/cli.py:55:    print(f"Documents         : {summary['inspected']}")
+knowledge_engine/cli.py:57:    print(f"Inspection Errors : {len(summary['inspection_errors'])}")
+knowledge_engine/cli.py:88:        ("Inspection Errors", "inspection_errors"),
+knowledge_engine/metadata/fingerprints.py:5:def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
+knowledge_engine/metadata/fingerprints.py:9:        for chunk in iter(lambda: file.read(chunk_size), b""):
+knowledge_engine/metadata/fingerprints.py:10:            digest.update(chunk)
+knowledge_engine/structure/pdf.py:10:    def extract(self, path: Path) -> list[StructureNode]:
+knowledge_engine/structure/registry.py:8:        self._extractors = {}
+knowledge_engine/structure/registry.py:12:    def register(self, extractor):
+knowledge_engine/structure/registry.py:13:        for ext in extractor.extensions:
+knowledge_engine/structure/registry.py:14:            self._extractors[ext.lower()] = extractor
+knowledge_engine/structure/registry.py:17:        return self._extractors.get(path.suffix.lower())
+knowledge_engine/pipeline.py:12:    catalog -> inspect -> structure.
+knowledge_engine/storage/database.py:32:                CREATE TABLE IF NOT EXISTS inspections (
+knowledge_engine/storage/database.py:34:                    inspector TEXT NOT NULL,
+knowledge_engine/storage/database.py:38:                    inspected_at TEXT DEFAULT CURRENT_TIMESTAMP
+knowledge_engine/storage/database.py:55:                    extractor TEXT NOT NULL,
+knowledge_engine/storage/database.py:60:                    extracted_at TEXT DEFAULT CURRENT_TIMESTAMP
+knowledge_engine/storage/database.py:63:                CREATE TABLE IF NOT EXISTS chunks (
+knowledge_engine/storage/database.py:66:                    chunk_index INTEGER NOT NULL,
+knowledge_engine/storage/database.py:77:                    chunk_id INTEGER,
+knowledge_engine/storage/database.py:87:		    extracted_at TEXT DEFAULT CURRENT_TIMESTAMP,
+knowledge_engine/storage/database.py:198:                CREATE INDEX IF NOT EXISTS idx_chunks_document ON chunks(document_path);
+knowledge_engine/storage/inspection_store.py:5:    def upsert(self, document_path, inspector, status, metadata_json=None, error=None):
+knowledge_engine/storage/inspection_store.py:9:                INSERT INTO inspections (
+knowledge_engine/storage/inspection_store.py:10:                    document_path, inspector, status, metadata_json, error
+knowledge_engine/storage/inspection_store.py:14:                    inspector = excluded.inspector,
+knowledge_engine/storage/inspection_store.py:18:                    inspected_at = CURRENT_TIMESTAMP
+knowledge_engine/storage/inspection_store.py:20:                (document_path, inspector, status, metadata_json, error),
+knowledge_engine/storage/text_store.py:5:    def upsert(self, document_path, extractor, text, checksum, status, error=None):
+knowledge_engine/storage/text_store.py:10:                    document_path, extractor, text, checksum, status, error
+knowledge_engine/storage/text_store.py:14:                    extractor = excluded.extractor,
+knowledge_engine/storage/text_store.py:19:                    extracted_at = CURRENT_TIMESTAMP
+knowledge_engine/storage/text_store.py:21:                (document_path, extractor, text, checksum, status, error),
+knowledge_engine/processing/processor.py:5:from knowledge_engine.storage.inspection_store import InspectionStore
+knowledge_engine/processing/processor.py:9:from knowledge_engine.processing.inspect_stage import InspectStage
+knowledge_engine/processing/processor.py:22:        self.inspection_store = InspectionStore(self.db)
+knowledge_engine/processing/processor.py:32:        inspection_result = InspectStage(self.inspection_store).run(paths)
+knowledge_engine/processing/processor.py:45:            **inspection_result,
+knowledge_engine/processing/structure_stage.py:14:            extractor = self.registry.get(path)
+knowledge_engine/processing/structure_stage.py:16:            if extractor is None:
+knowledge_engine/processing/structure_stage.py:20:                nodes = extractor.extract(path)
+knowledge_engine/processing/inspect_stage.py:3:from knowledge_engine.inspectors import InspectorRegistry
+knowledge_engine/processing/inspect_stage.py:7:    def __init__(self, inspection_store):
+knowledge_engine/processing/inspect_stage.py:9:        self.inspection_store = inspection_store
+knowledge_engine/processing/inspect_stage.py:12:        inspected = 0
+knowledge_engine/processing/inspect_stage.py:17:            inspector = self.registry.get(path)
+knowledge_engine/processing/inspect_stage.py:19:            if inspector is None:
+knowledge_engine/processing/inspect_stage.py:24:                metadata = inspector.inspect(path)
+knowledge_engine/processing/inspect_stage.py:26:                self.inspection_store.upsert(
+knowledge_engine/processing/inspect_stage.py:28:                    inspector=inspector.__class__.__name__,
+knowledge_engine/processing/inspect_stage.py:33:                inspected += 1
+knowledge_engine/processing/inspect_stage.py:36:                self.inspection_store.upsert(
+knowledge_engine/processing/inspect_stage.py:38:                    inspector=inspector.__class__.__name__,
+knowledge_engine/processing/inspect_stage.py:46:            "inspected": inspected,
+knowledge_engine/processing/inspect_stage.py:48:            "inspection_errors": errors,
+knowledge_engine/processing/extract_text_stage.py:11:        extracted = 0
+knowledge_engine/processing/extract_text_stage.py:29:                extracted += 1
+knowledge_engine/processing/extract_text_stage.py:35:            "text_extracted": extracted,
+knowledge_engine/index/builder.py:61:                FROM inspections
+knowledge_engine/extraction/extractors/base.py:13:    def extract(self, path):
+knowledge_engine/extraction/extractors/pdf.py:3:from knowledge_engine.extraction.extractors.base import BaseExtractor
+knowledge_engine/extraction/extractors/pdf.py:11:    def extract(self, path):
+knowledge_engine/library/builder.py:138:                FROM inspections
+dev/librarian/librarian.py:5:from core.knowledge_catalog.registrar import register_file, register_tree
+dev/librarian/librarian.py:13:        return register_tree(path, db_path=CATALOG_DB)
+dev/librarian/pdf_hunter.py:30:        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+dev/librarian/pdf_hunter.py:31:            h.update(chunk)
+dev/librarian/mit_targeted_miner.py:63:        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+dev/librarian/mit_targeted_miner.py:64:            h.update(chunk)
+dev/librarian/mit_targeted_miner.py:131:        print("[MISS] no zip link found; saving HTML for inspection")
+dev/librarian/mit_targeted_miner.py:144:                extract_dir = dest.parent / "extracted"
+dev/librarian/mit_targeted_miner.py:145:                extract_dir.mkdir(exist_ok=True)
+dev/librarian/mit_targeted_miner.py:147:                    z.extractall(extract_dir)
+dev/librarian/mit_targeted_miner.py:148:                print(f"[UNZIP] {extract_dir}")
+dev/librarian/mit_targeted_miner.py:150:                print(f"[WARN] zip saved but extract failed: {e}")
+dev/librarian/mit_miner.py:81:            chunk = f.read(1024 * 1024)
+dev/librarian/mit_miner.py:83:            if not chunk:
+dev/librarian/mit_miner.py:86:            h.update(chunk)
+dev/librarian/acquisition/normalize.py:9:from dev.librarian.acquisition.metadata import extract_course_metadata, write_metadata
+dev/librarian/acquisition/normalize.py:12:def extract_zip(zip_path: Path, extract_root: Path) -> Path:
+dev/librarian/acquisition/normalize.py:13:    course_extract_dir = extract_root / zip_path.stem
+dev/librarian/acquisition/normalize.py:15:    if course_extract_dir.exists():
+dev/librarian/acquisition/normalize.py:16:        shutil.rmtree(course_extract_dir)
+dev/librarian/acquisition/normalize.py:18:    course_extract_dir.mkdir(parents=True, exist_ok=True)
+dev/librarian/acquisition/normalize.py:21:        z.extractall(course_extract_dir)
+dev/librarian/acquisition/normalize.py:23:    return course_extract_dir
+dev/librarian/acquisition/normalize.py:50:    extracted_root: Path,
+dev/librarian/acquisition/normalize.py:58:    metadata = extract_course_metadata(extracted_root)
+dev/librarian/acquisition/normalize.py:63:    for src in extracted_root.rglob("*"):
+dev/librarian/acquisition/normalize.py:70:        rel = src.relative_to(extracted_root)
+dev/librarian/acquisition/metadata.py:14:def extract_course_metadata(extracted_root: Path) -> dict:
+dev/librarian/acquisition/metadata.py:23:        p = extracted_root / name
+dev/librarian/acquisition/pipeline.py:5:from metadata import extract_json_metadata
+dev/librarian/acquisition/pipeline.py:10:    extracted = normalize(
+dev/librarian/acquisition/pipeline.py:15:    metadata = extract_json_metadata(extracted)
+dev/librarian/acquisition/pipeline.py:19:    for f in extracted.rglob("*"):
+dev/librarian/acquisition/manifest.py:11:        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+dev/librarian/acquisition/manifest.py:12:            h.update(chunk)
+dev/librarian/acquire_pipeline.py:7:from dev.librarian.acquisition.normalize import copy_useful_assets, extract_zip
+dev/librarian/acquire_pipeline.py:15:    "/media/abdullah/JARVISDATA/Jarvis_Downloaded_Knowledge/work/mit_ocw_extracted"
+dev/librarian/acquire_pipeline.py:32:    extracted = extract_zip(zip_path, work_root / course_name)
+dev/librarian/acquire_pipeline.py:33:    print(f"[EXTRACTED] {extracted}")
+dev/librarian/acquire_pipeline.py:38:        extracted_root=extracted,
+dev/librarian/acquire_pipeline.py:47:    ap = argparse.ArgumentParser(description="JARVIS knowledge acquisition normalization pipeline")
+dev/librarian/run_pipeline.py:3:from acquisition.pipeline import process
+dev/librarian/cko/mit_cko_builder.py:18:    "/media/abdullah/JARVISDATA/Jarvis_Downloaded_Knowledge/work/mit_ocw_extracted"
+dev/librarian/cko/mit_cko_builder.py:33:        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+dev/librarian/cko/mit_cko_builder.py:34:            h.update(chunk)
+dev/librarian/cko/mit_cko_builder.py:83:def extract_title(data: dict, fallback: str) -> str:
+dev/librarian/cko/mit_cko_builder.py:229:            title = extract_title(data, resource.name.replace("-", " ").title())
+dev/librarian/cko/mit_cko_builder.py:288:    ap = argparse.ArgumentParser(description="Build Canonical Knowledge Objects from MIT OCW extracted courses")

@@ -1,0 +1,61 @@
+core/knowledge_catalog/cli.py:3:import argparse
+core/knowledge_catalog/cli.py:16:def cmd_init(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:23:def cmd_stats(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:37:def cmd_topics(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:46:def cmd_sources(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:55:def cmd_collections_build(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:60:def cmd_collections_list(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:64:def cmd_semantic_backfill(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:68:def cmd_search(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:82:def cmd_register_file(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:91:def cmd_register_tree(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:97:def main() -> None:
+core/knowledge_catalog/cli.py:98:    parser = argparse.ArgumentParser(description="JARVIS Knowledge Catalog")
+core/knowledge_catalog/cli.py:141:if __name__ == "__main__":
+core/knowledge_catalog/backfill.py:16:def main() -> None:
+core/knowledge_catalog/backfill.py:81:if __name__ == "__main__":
+core/knowledge_graph/cli.py:3:import argparse
+core/knowledge_graph/cli.py:63:def main() -> None:
+core/knowledge_graph/cli.py:64:    parser = argparse.ArgumentParser(description="JARVIS Knowledge Graph CLI")
+core/knowledge_graph/cli.py:80:if __name__ == "__main__":
+core/knowledge_mapper/cli.py:1:import argparse
+core/knowledge_mapper/cli.py:7:parser = argparse.ArgumentParser()
+core/semantic_digest/cli.py:3:import argparse
+core/semantic_digest/cli.py:44:def main() -> None:
+core/semantic_digest/cli.py:45:    parser = argparse.ArgumentParser(description="JARVIS Semantic Digest CLI")
+core/semantic_digest/cli.py:62:if __name__ == "__main__":
+core/src/cognition/intent_classifier.py:174:if __name__ == "__main__":
+core/gmail_archive_candidates.py:10:def main():
+core/gmail_archive_candidates.py:89:if __name__ == "__main__":
+core/gmail_cleanup_report.py:11:def main():
+core/gmail_cleanup_report.py:104:if __name__ == "__main__":
+core/requirements.txt:415:rich-argparse==1.6.0
+knowledge_engine/cli.py:2:import argparse
+knowledge_engine/cli.py:22:def main() -> None:
+knowledge_engine/cli.py:23:    parser = argparse.ArgumentParser(
+knowledge_engine/cli.py:106:if __name__ == "__main__":
+dev/librarian/librarian.py:18:if __name__ == "__main__":
+dev/librarian/librarian.py:19:    import argparse
+dev/librarian/librarian.py:21:    parser = argparse.ArgumentParser(description="JARVIS Librarian → Knowledge Catalog bridge")
+dev/librarian/pdf_hunter.py:4:import argparse, csv, hashlib, re, time
+dev/librarian/pdf_hunter.py:154:def main():
+dev/librarian/pdf_hunter.py:155:    ap = argparse.ArgumentParser(description="Simple reputable PDF crawler for JARVIS")
+dev/librarian/pdf_hunter.py:173:if __name__ == "__main__":
+dev/librarian/mit_targeted_miner.py:4:import argparse, csv, hashlib, re, time, zipfile
+dev/librarian/mit_targeted_miner.py:206:def main():
+dev/librarian/mit_targeted_miner.py:207:    ap = argparse.ArgumentParser(description="Targeted MIT miner for JARVIS")
+dev/librarian/mit_targeted_miner.py:228:if __name__ == "__main__":
+dev/librarian/mit_miner.py:186:def main():
+dev/librarian/mit_miner.py:209:if __name__ == "__main__":
+dev/librarian/acquire_pipeline.py:4:import argparse
+dev/librarian/acquire_pipeline.py:46:def main() -> None:
+dev/librarian/acquire_pipeline.py:47:    ap = argparse.ArgumentParser(description="JARVIS knowledge acquisition normalization pipeline")
+dev/librarian/acquire_pipeline.py:81:if __name__ == "__main__":
+dev/librarian/cko/mit_cko_builder.py:4:import argparse
+dev/librarian/cko/mit_cko_builder.py:287:def main() -> None:
+dev/librarian/cko/mit_cko_builder.py:288:    ap = argparse.ArgumentParser(description="Build Canonical Knowledge Objects from MIT OCW extracted courses")
+dev/librarian/cko/mit_cko_builder.py:311:if __name__ == "__main__":
+dev/librarian/discover.py:4:import argparse
+dev/librarian/discover.py:9:def main() -> None:
+dev/librarian/discover.py:10:    ap = argparse.ArgumentParser(description="JARVIS Knowledge Discovery Engine")
+dev/librarian/discover.py:34:if __name__ == "__main__":

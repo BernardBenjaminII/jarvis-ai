@@ -1,0 +1,68 @@
+core/knowledge_catalog/database.py:3:import sqlite3
+core/knowledge_catalog/database.py:24:def connect(db_path: Path = DEFAULT_CATALOG_DB) -> sqlite3.Connection:
+core/knowledge_catalog/database.py:26:    conn = sqlite3.connect(db_path)
+core/knowledge_catalog/database.py:27:    conn.row_factory = sqlite3.Row
+core/knowledge_catalog/database.py:33:    with connect(db_path) as conn:
+core/knowledge_catalog/database.py:43:            except sqlite3.OperationalError as exc:
+core/knowledge_catalog/repository.py:3:import sqlite3
+core/knowledge_catalog/repository.py:9:    def __init__(self, conn: sqlite3.Connection):
+core/knowledge_catalog/service.py:13:    with connect(db_path) as conn:
+core/knowledge_catalog/service.py:37:    with connect(db_path) as conn:
+core/knowledge_catalog/cli.py:25:    with connect(Path(args.db)) as conn:
+core/knowledge_catalog/cli.py:39:    with connect(Path(args.db)) as conn:
+core/knowledge_catalog/cli.py:48:    with connect(Path(args.db)) as conn:
+core/knowledge_catalog/collections.py:3:import sqlite3
+core/knowledge_catalog/collections.py:132:    with connect(db_path) as conn:
+core/knowledge_catalog/collections.py:170:    with connect(db_path) as conn:
+core/knowledge_catalog/backfill.py:23:    with connect(DEFAULT_CATALOG_DB) as conn:
+core/knowledge_catalog/search.py:3:import sqlite3
+core/knowledge_catalog/search.py:10:def search_catalog(query: str, db_path: Path = DEFAULT_CATALOG_DB, limit: int = 25) -> list[sqlite3.Row]:
+core/knowledge_catalog/search.py:14:    with sqlite3.connect(db_path) as conn:
+core/knowledge_catalog/search.py:15:        conn.row_factory = sqlite3.Row
+core/knowledge_catalog/registrar.py:41:    with connect(db_path) as conn:
+core/knowledge_graph/gap_analysis.py:4:import sqlite3
+core/knowledge_graph/gap_analysis.py:58:    with sqlite3.connect(CATALOG_DB) as conn:
+core/.gitignore:31:*.sqlite3
+knowledge_engine/catalog.py:2:import sqlite3
+knowledge_engine/catalog.py:75:    def connect(self):
+knowledge_engine/catalog.py:76:        return sqlite3.connect(self.db_path)
+knowledge_engine/catalog.py:79:        with self.connect() as conn:
+knowledge_engine/catalog.py:83:        with self.connect() as conn:
+knowledge_engine/catalog.py:130:        with self.connect() as conn:
+knowledge_engine/catalog.py:158:        with self.connect() as conn:
+knowledge_engine/catalog.py:208:        with self.connect() as conn:
+knowledge_engine/catalog.py:229:        with self.connect() as conn:
+knowledge_engine/catalog.py:263:        with self.connect() as conn:
+knowledge_engine/storage/database.py:2:import sqlite3
+knowledge_engine/storage/database.py:10:    def connect(self):
+knowledge_engine/storage/database.py:11:        return sqlite3.connect(self.db_path)
+knowledge_engine/storage/database.py:14:        with self.connect() as conn:
+knowledge_engine/storage/page_store.py:6:        with self.db.connect() as conn:
+knowledge_engine/storage/page_store.py:50:        with self.db.connect() as conn:
+knowledge_engine/storage/inspection_store.py:6:        with self.db.connect() as conn:
+knowledge_engine/storage/structure_store.py:6:        with self.db.connect() as conn:
+knowledge_engine/storage/structure_store.py:35:        with self.db.connect() as conn:
+knowledge_engine/storage/text_store.py:6:        with self.db.connect() as conn:
+knowledge_engine/storage/catalog_store.py:9:        with self.db.connect() as conn:
+knowledge_engine/storage/catalog_store.py:42:        with self.db.connect() as conn:
+knowledge_engine/index/builder.py:15:        with self.db.connect() as conn:
+knowledge_engine/index/builder.py:57:        with self.db.connect() as conn:
+knowledge_engine/index/builder.py:78:        with self.db.connect() as conn:
+knowledge_engine/index/store.py:9:        with self.db.connect() as conn:
+knowledge_engine/index/store.py:61:        with self.db.connect() as conn:
+knowledge_engine/index/search.py:8:        with self.db.connect() as conn:
+knowledge_engine/index/statistics.py:6:        with self.db.connect() as conn:
+knowledge_engine/pages/store.py:12:        with self.db.connect() as conn:
+knowledge_engine/library/store.py:15:        with self.db.connect() as conn:
+knowledge_engine/library/store.py:139:        with self.db.connect() as conn:
+knowledge_engine/library/builder.py:28:        with self.db.connect() as conn:
+knowledge_engine/library/builder.py:130:        with self.db.connect() as conn:
+dev/librarian/cko/database.py:3:import sqlite3
+dev/librarian/cko/database.py:39:def connect(db_path: Path = DEFAULT_CKO_DB) -> sqlite3.Connection:
+dev/librarian/cko/database.py:41:    conn = sqlite3.connect(db_path)
+dev/librarian/cko/database.py:42:    conn.row_factory = sqlite3.Row
+dev/librarian/cko/database.py:47:    with connect(db_path) as conn:
+dev/librarian/cko/mit_cko_builder.py:9:import sqlite3
+dev/librarian/cko/mit_cko_builder.py:130:    conn: sqlite3.Connection,
+dev/librarian/cko/mit_cko_builder.py:156:    conn: sqlite3.Connection,
+dev/librarian/cko/mit_cko_builder.py:217:    with connect(db_path) as conn:

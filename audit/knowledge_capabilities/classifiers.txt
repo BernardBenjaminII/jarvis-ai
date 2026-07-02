@@ -1,0 +1,256 @@
+core/knowledge_catalog/schema.py:91:    subject TEXT,
+core/knowledge_catalog/schema.py:108:CREATE TABLE IF NOT EXISTS document_subjects (
+core/knowledge_catalog/schema.py:111:    subject TEXT NOT NULL,
+core/knowledge_catalog/schema.py:115:    PRIMARY KEY(file_path, subject)
+core/knowledge_catalog/schema.py:118:CREATE INDEX IF NOT EXISTS idx_document_subjects_subject
+core/knowledge_catalog/schema.py:119:ON document_subjects(subject);
+core/knowledge_catalog/schema.py:126:CREATE TABLE IF NOT EXISTS document_concepts (
+core/knowledge_catalog/schema.py:129:    concept TEXT NOT NULL,
+core/knowledge_catalog/schema.py:133:    PRIMARY KEY(file_path, concept)
+core/knowledge_catalog/schema.py:136:CREATE INDEX IF NOT EXISTS idx_document_concepts_concept
+core/knowledge_catalog/schema.py:137:ON document_concepts(concept);
+core/knowledge_catalog/schema.py:154:CREATE TABLE IF NOT EXISTS document_keywords (
+core/knowledge_catalog/schema.py:156:    keyword TEXT NOT NULL,
+core/knowledge_catalog/schema.py:160:    PRIMARY KEY(file_path, keyword)
+core/knowledge_catalog/schema.py:169:CREATE INDEX IF NOT EXISTS idx_document_keywords_keyword
+core/knowledge_catalog/schema.py:170:ON document_keywords(keyword);
+core/knowledge_catalog/cli.py:80:        print(f"{row['subject']:<25} {row['confidence']:.2f} {row['file_path']}")
+core/knowledge_catalog/cli.py:86:    print(f"subject : {result.get('subject')}")
+core/knowledge_catalog/cli.py:87:    print(f"concepts: {', '.join(result.get('concepts', []))}")
+core/knowledge_catalog/cli.py:88:    print(f"keywords: {', '.join(result.get('keywords', []))}")
+core/knowledge_catalog/collections.py:27:    subject: str | None
+core/knowledge_catalog/collections.py:39:def classify_folder(path: Path, root: Path) -> tuple[str, str | None, str | None, str]:
+core/knowledge_catalog/collections.py:44:    subject = rel_parts[2] if len(rel_parts) >= 3 else discipline
+core/knowledge_catalog/collections.py:53:    return domain, discipline, subject, collection_type
+core/knowledge_catalog/collections.py:107:        domain, discipline, subject, collection_type = classify_folder(folder, root)
+core/knowledge_catalog/collections.py:119:                subject=subject,
+core/knowledge_catalog/collections.py:137:                    id, name, collection_type, domain, discipline, subject,
+core/knowledge_catalog/collections.py:146:                    subject=excluded.subject,
+core/knowledge_catalog/collections.py:155:                    c.subject,
+core/knowledge_catalog/collections.py:173:            SELECT id, collection_type, domain, discipline, subject
+core/knowledge_catalog/collections.py:175:            ORDER BY domain, discipline, subject, id
+core/knowledge_catalog/collections.py:189:            f"{row['subject'] or '-'}"
+core/knowledge_catalog/classifiers/keyword_classifier.py:7:RULE_FILE = Path("knowledge/ontology/keyword_rules.yaml")
+core/knowledge_catalog/classifiers/keyword_classifier.py:10:def load_keyword_rules() -> dict:
+core/knowledge_catalog/classifiers/keyword_classifier.py:18:def classify_text(text: str) -> dict:
+core/knowledge_catalog/classifiers/keyword_classifier.py:20:    rules = load_keyword_rules()
+core/knowledge_catalog/classifiers/keyword_classifier.py:23:        "subject": None,
+core/knowledge_catalog/classifiers/keyword_classifier.py:24:        "concepts": [],
+core/knowledge_catalog/classifiers/keyword_classifier.py:26:        "method": "keyword_rules",
+core/knowledge_catalog/classifiers/keyword_classifier.py:34:        for keyword in rule.get("keywords", []):
+core/knowledge_catalog/classifiers/keyword_classifier.py:35:            if keyword.lower() in text_l:
+core/knowledge_catalog/classifiers/keyword_classifier.py:41:                "subject": rule.get("subject"),
+core/knowledge_catalog/classifiers/keyword_classifier.py:42:                "concepts": rule.get("concepts", []),
+core/knowledge_catalog/classifiers/keyword_classifier.py:44:                "method": "keyword_rules",
+core/knowledge_catalog/classifiers/subject_assignment.py:6:from core.knowledge_catalog.classifiers.keyword_classifier import classify_text
+core/knowledge_catalog/classifiers/subject_assignment.py:9:def assign_subject(path: Path) -> dict:
+core/knowledge_catalog/classifiers/subject_assignment.py:11:    folder_subject = folder_result.get("subject")
+core/knowledge_catalog/classifiers/subject_assignment.py:13:    if folder_subject and folder_subject != "unknown":
+core/knowledge_catalog/classifiers/subject_assignment.py:15:            "subject": folder_subject,
+core/knowledge_catalog/classifiers/subject_assignment.py:16:            "concepts": [],
+core/knowledge_catalog/classifiers/subject_assignment.py:21:    keyword_result = classify_text(str(path))
+core/knowledge_catalog/classifiers/subject_assignment.py:23:    if keyword_result.get("subject"):
+core/knowledge_catalog/classifiers/subject_assignment.py:24:        return keyword_result
+core/knowledge_catalog/classifiers/subject_assignment.py:27:        "subject": "unknown",
+core/knowledge_catalog/classifiers/subject_assignment.py:28:        "concepts": [],
+core/knowledge_catalog/classifiers/subject_assignment.py:30:        "method": "unclassified",
+core/knowledge_catalog/backfill.py:6:from core.knowledge_catalog.classifiers.subject_assignment import assign_subject
+core/knowledge_catalog/backfill.py:19:    inserted_subjects = 0
+core/knowledge_catalog/backfill.py:20:    inserted_concepts = 0
+core/knowledge_catalog/backfill.py:31:            result = assign_subject(file)
+core/knowledge_catalog/backfill.py:32:            subject = result.get("subject")
+core/knowledge_catalog/backfill.py:34:            if not subject or subject == "unknown":
+core/knowledge_catalog/backfill.py:42:                INSERT OR REPLACE INTO document_subjects
+core/knowledge_catalog/backfill.py:43:                (file_path, subject, confidence, assigned_by, created_at)
+core/knowledge_catalog/backfill.py:48:                    subject,
+core/knowledge_catalog/backfill.py:54:            inserted_subjects += 1
+core/knowledge_catalog/backfill.py:56:            for concept in result.get("concepts", []):
+core/knowledge_catalog/backfill.py:59:                    INSERT OR REPLACE INTO document_concepts
+core/knowledge_catalog/backfill.py:60:                    (file_path, concept, confidence, assigned_by, created_at)
+core/knowledge_catalog/backfill.py:65:                        concept,
+core/knowledge_catalog/backfill.py:71:                inserted_concepts += 1
+core/knowledge_catalog/backfill.py:76:    print(f"Subjects inserted : {inserted_subjects}")
+core/knowledge_catalog/backfill.py:77:    print(f"Concepts inserted : {inserted_concepts}")
+core/knowledge_catalog/search.py:19:                ds.subject,
+core/knowledge_catalog/search.py:23:            FROM document_subjects ds
+core/knowledge_catalog/search.py:24:            WHERE lower(ds.subject) LIKE ?
+core/knowledge_catalog/digest.py:8:from core.knowledge_catalog.classifiers.subject_assignment import assign_subject
+core/knowledge_catalog/digest.py:11:RULE_FILE = Path("knowledge/ontology/keyword_rules.yaml")
+core/knowledge_catalog/digest.py:22:def load_keyword_rules() -> dict:
+core/knowledge_catalog/digest.py:42:    rules = load_keyword_rules()
+core/knowledge_catalog/digest.py:44:    subject_result = assign_subject(path)
+core/knowledge_catalog/digest.py:45:    subject = subject_result.get("subject")
+core/knowledge_catalog/digest.py:46:    concepts = set(subject_result.get("concepts", []))
+core/knowledge_catalog/digest.py:47:    keywords = set()
+core/knowledge_catalog/digest.py:49:    best_keyword_subject = None
+core/knowledge_catalog/digest.py:56:        for kw in rule.get("keywords", []):
+core/knowledge_catalog/digest.py:59:                keywords.add(kw.lower())
+core/knowledge_catalog/digest.py:63:            best_keyword_subject = rule.get("subject")
+core/knowledge_catalog/digest.py:66:    if best_keyword_subject and (not subject or subject == "unknown"):
+core/knowledge_catalog/digest.py:67:        subject = best_keyword_subject
+core/knowledge_catalog/digest.py:70:        for concept in best_rule.get("concepts", []):
+core/knowledge_catalog/digest.py:71:            concepts.add(concept)
+core/knowledge_catalog/digest.py:73:    confidence = subject_result.get("confidence", 0.0)
+core/knowledge_catalog/digest.py:84:        "subject": subject if subject and subject != "unknown" else None,
+core/knowledge_catalog/digest.py:85:        "concepts": sorted(concepts),
+core/knowledge_catalog/digest.py:86:        "keywords": sorted(keywords),
+core/knowledge_catalog/digest.py:88:        "assigned_by": "folder_rules+keyword_rules" if best_hits else subject_result.get("method", "folder_rules"),
+core/knowledge_catalog/registrar.py:80:        if digest.get("subject"):
+core/knowledge_catalog/registrar.py:83:                INSERT OR REPLACE INTO document_subjects
+core/knowledge_catalog/registrar.py:84:                (file_path, sha256, subject, confidence, assigned_by, created_at)
+core/knowledge_catalog/registrar.py:88:                    digest["file_path"], digest["sha256"], digest["subject"],
+core/knowledge_catalog/registrar.py:93:        for concept in digest.get("concepts", []):
+core/knowledge_catalog/registrar.py:96:                INSERT OR REPLACE INTO document_concepts
+core/knowledge_catalog/registrar.py:97:                (file_path, sha256, concept, confidence, assigned_by, created_at)
+core/knowledge_catalog/registrar.py:101:                    digest["file_path"], digest["sha256"], concept,
+core/knowledge_catalog/registrar.py:106:        for keyword in digest.get("keywords", []):
+core/knowledge_catalog/registrar.py:109:                INSERT OR REPLACE INTO document_keywords
+core/knowledge_catalog/registrar.py:110:                (file_path, keyword, confidence, assigned_by, created_at)
+core/knowledge_catalog/registrar.py:113:                (digest["file_path"], keyword, digest.get("confidence", 0.0), digest.get("assigned_by", "semantic_extraction"), now),
+core/knowledge_graph/ontology.py:19:    concepts: dict
+core/knowledge_graph/ontology.py:29:        concepts=_load_yaml("concepts"),
+core/knowledge_graph/cli.py:23:    print(len(ontology.concepts["concepts"]))
+core/knowledge_graph/cli.py:54:            f"{row.domain}/{row.discipline}/{row.subject} "
+core/knowledge_graph/gap_analysis.py:19:    subject: str
+core/knowledge_graph/gap_analysis.py:35:def iter_subjects() -> list[tuple[str, str, str]]:
+core/knowledge_graph/gap_analysis.py:39:    subjects: list[tuple[str, str, str]] = []
+core/knowledge_graph/gap_analysis.py:46:            subject_map = discipline_body.get("subjects", {}) or {}
+core/knowledge_graph/gap_analysis.py:48:            for subject_name in subject_map.keys():
+core/knowledge_graph/gap_analysis.py:49:                subjects.append((domain_name, discipline_name, subject_name))
+core/knowledge_graph/gap_analysis.py:51:    return subjects
+core/knowledge_graph/gap_analysis.py:54:def load_subject_counts() -> dict[str, int]:
+core/knowledge_graph/gap_analysis.py:61:            SELECT subject, COUNT(DISTINCT file_path) AS count
+core/knowledge_graph/gap_analysis.py:62:            FROM document_subjects
+core/knowledge_graph/gap_analysis.py:63:            GROUP BY subject
+core/knowledge_graph/gap_analysis.py:67:    return {subject: count for subject, count in rows}
+core/knowledge_graph/gap_analysis.py:72:    subject_counts = load_subject_counts()
+core/knowledge_graph/gap_analysis.py:75:    print(f"[Gap Analysis] Loaded {len(subject_counts)} mapped subjects")
+core/knowledge_graph/gap_analysis.py:77:    for domain, discipline, subject in iter_subjects():
+core/knowledge_graph/gap_analysis.py:78:        count = subject_counts.get(subject, 0)
+core/knowledge_graph/gap_analysis.py:85:                subject=subject,
+core/knowledge_graph/gap_analysis.py:92:    rows.sort(key=lambda r: (r.score, r.domain, r.discipline, r.subject))
+core/knowledge_graph/gap_analysis.py:101:        "total_subjects": total,
+core/knowledge_graph/gap_analysis.py:121:        "subjects": [asdict(r) for r in rows],
+core/knowledge_graph/gap_analysis.py:132:    lines.append(f"Subjects analyzed: {summary['total_subjects']}")
+core/knowledge_graph/gap_analysis.py:147:                f"{row.domain}/{row.discipline}/{row.subject} "
+core/knowledge_mapper/mapper.py:25:        "subject": "unknown"
+core/knowledge_mapper/indexer.py:19:def build_subject_index(root: Path):
+core/knowledge_mapper/indexer.py:21:    subject_index = defaultdict(list)
+core/knowledge_mapper/indexer.py:33:        subject = mapping["subject"]
+core/knowledge_mapper/indexer.py:35:        subject_index[subject].append(path)
+core/knowledge_mapper/indexer.py:37:    return subject_index
+core/knowledge_mapper/report.py:3:from core.knowledge_mapper.indexer import build_subject_index
+core/knowledge_mapper/report.py:8:    index = build_subject_index(root)
+core/knowledge_mapper/report.py:18:    for subject in sorted(index):
+core/knowledge_mapper/report.py:20:        print(f"{subject:30} {len(index[subject]):5d}")
+core/semantic_digest/analyzer.py:10:RULE_FILE = Path("knowledge/ontology/keyword_rules.yaml")
+core/semantic_digest/analyzer.py:45:    subject_scores: dict[str, int] = {}
+core/semantic_digest/analyzer.py:46:    concept_scores: dict[str, int] = {}
+core/semantic_digest/analyzer.py:47:    keyword_scores: dict[str, int] = {}
+core/semantic_digest/analyzer.py:50:        subject = rule.get("subject")
+core/semantic_digest/analyzer.py:51:        concepts = rule.get("concepts", [])
+core/semantic_digest/analyzer.py:52:        keywords = rule.get("keywords", [])
+core/semantic_digest/analyzer.py:55:        for keyword in keywords:
+core/semantic_digest/analyzer.py:56:            kw = normalize(keyword)
+core/semantic_digest/analyzer.py:59:                keyword_scores[kw] = keyword_scores.get(kw, 0) + 1
+core/semantic_digest/analyzer.py:61:        if hits and subject:
+core/semantic_digest/analyzer.py:62:            subject_scores[subject] = subject_scores.get(subject, 0) + hits
+core/semantic_digest/analyzer.py:63:            for concept in concepts:
+core/semantic_digest/analyzer.py:64:                concept_scores[concept] = concept_scores.get(concept, 0) + hits
+core/semantic_digest/analyzer.py:66:    best_subject = None
+core/semantic_digest/analyzer.py:69:    if subject_scores:
+core/semantic_digest/analyzer.py:70:        best_subject, best_hits = max(subject_scores.items(), key=lambda x: x[1])
+core/semantic_digest/analyzer.py:73:    concepts = [x[0] for x in sorted(concept_scores.items(), key=lambda x: x[1], reverse=True)[:40]]
+core/semantic_digest/analyzer.py:74:    keywords = [x[0] for x in sorted(keyword_scores.items(), key=lambda x: x[1], reverse=True)[:80]]
+core/semantic_digest/analyzer.py:76:    # Add frequent extracted terms as low-level keywords.
+core/semantic_digest/analyzer.py:78:        if term not in keywords:
+core/semantic_digest/analyzer.py:79:            keywords.append(term)
+core/semantic_digest/analyzer.py:82:        "subject": best_subject,
+core/semantic_digest/analyzer.py:83:        "concepts": concepts,
+core/semantic_digest/analyzer.py:84:        "keywords": keywords,
+core/semantic_digest/pipeline.py:26:        "subject": semantic.get("subject"),
+core/semantic_digest/pipeline.py:27:        "concepts": semantic.get("concepts", []),
+core/semantic_digest/pipeline.py:28:        "keywords": semantic.get("keywords", []),
+core/semantic_digest/cli.py:27:        "subject",
+core/semantic_digest/cli.py:35:    for c in result.get("concepts", []):
+core/semantic_digest/cli.py:40:    for k in result.get("keywords", []):
+core/src/brain.py:1:from .cognition.intent_classifier import classify_intent
+core/src/brain.py:25:    # Intent classification
+core/src/brain.py:28:    classification = classify_intent(question)
+core/src/brain.py:30:    intent = classification["intent"]
+core/src/brain.py:31:    task_type = classification["task_type"]
+core/src/brain.py:90:        classification,
+core/src/brain.py:95:    print(f"[DEBUG] CLASSIFICATION={classification}")
+core/src/cognition/intent_classifier.py:1:# core/src/cognition/intent_classifier.py
+core/src/cognition/intent_classifier.py:13:    matched_keywords: Dict[str, List[str]]
+core/src/cognition/intent_classifier.py:93:def _score_keywords(text: str, keywords: List[str]) -> tuple[int, List[str]]:
+core/src/cognition/intent_classifier.py:98:    for keyword in keywords:
+core/src/cognition/intent_classifier.py:100:        pattern = r"\b" + re.escape(keyword) + r"\b"
+core/src/cognition/intent_classifier.py:103:            matches.append(keyword)
+core/src/cognition/intent_classifier.py:107:def classify_task_type(text: str) -> str:
+core/src/cognition/intent_classifier.py:113:    for task_type, keywords in TASK_TYPE_KEYWORDS.items():
+core/src/cognition/intent_classifier.py:114:        score, _ = _score_keywords(text, keywords)
+core/src/cognition/intent_classifier.py:123:def classify_intent(user_input: str) -> dict:
+core/src/cognition/intent_classifier.py:127:    matched_keywords = {}
+core/src/cognition/intent_classifier.py:129:    for intent, keywords in INTENT_KEYWORDS.items():
+core/src/cognition/intent_classifier.py:130:        score, matches = _score_keywords(text, keywords)
+core/src/cognition/intent_classifier.py:132:        matched_keywords[intent] = matches
+core/src/cognition/intent_classifier.py:158:        task_type=classify_task_type(text),
+core/src/cognition/intent_classifier.py:161:        matched_keywords=matched_keywords,
+core/src/cognition/intent_classifier.py:167:def classify(user_input: str) -> dict:
+core/src/cognition/intent_classifier.py:171:    return classify_intent(user_input)
+core/src/cognition/intent_classifier.py:189:        print(classify_intent(test))
+core/src/cognition/response_planner.py:5:    classification,
+core/src/cognition/response_planner.py:9:    intent = classification["intent"]
+core/src/services/gmail/classifier.py:1:def classify_email(sender: str, subject: str) -> dict:
+core/src/services/gmail/classifier.py:2:    text = f"{sender} {subject}".lower()
+core/src/services/gmail/reader.py:25:        subject = ""
+core/src/services/gmail/reader.py:30:                subject = h['value']
+core/src/services/gmail/reader.py:37:            "subject": subject,
+core/gmail_archive_candidates.py:4:from src.services.gmail.classifier import classify_email
+core/gmail_archive_candidates.py:43:            subject = "(no subject)"
+core/gmail_archive_candidates.py:49:                    subject = h.get("value", "(no subject)")
+core/gmail_archive_candidates.py:54:            result = classify_email(sender, subject)
+core/gmail_archive_candidates.py:68:                    "subject": subject,
+core/gmail_archive_candidates.py:82:        print(f"SUBJECT: {email['subject']}")
+core/gmail_cleanup_report.py:5:from src.services.gmail.classifier import classify_email
+core/gmail_cleanup_report.py:47:            subject = "(no subject)"
+core/gmail_cleanup_report.py:53:                    subject = h.get("value", "(no subject)")
+core/gmail_cleanup_report.py:59:            print("DEBUG SUBJECT:", subject)
+core/gmail_cleanup_report.py:61:            result = classify_email(sender, subject)
+core/gmail_cleanup_strategy.txt:12:- Local classification engine operational
+core/gmail_cleanup_strategy.txt:47:[X] Email classification
+core/gmail_reader_test.py:2:from src.services.gmail.classifier import classify_email
+core/gmail_reader_test.py:7:    result = classify_email(email["from"], email["subject"])
+core/gmail_reader_test.py:11:    print("SUBJECT:", email["subject"])
+knowledge_engine/storage/database.py:73:                CREATE TABLE IF NOT EXISTS concepts (
+knowledge_engine/storage/database.py:124:		    subject TEXT,
+knowledge_engine/storage/database.py:126:		    keywords TEXT,
+knowledge_engine/storage/database.py:163:		    subject TEXT,
+knowledge_engine/storage/database.py:165:		    keywords TEXT,
+knowledge_engine/storage/database.py:199:                CREATE INDEX IF NOT EXISTS idx_concepts_name ON concepts(name);
+knowledge_engine/index/builder.py:36:                    subject=metadata.get("subject"),
+knowledge_engine/index/builder.py:37:                    keywords=metadata.get("keywords"),
+knowledge_engine/index/models.py:12:    subject: str | None
+knowledge_engine/index/models.py:13:    keywords: str | None
+knowledge_engine/index/store.py:19:                    subject,
+knowledge_engine/index/store.py:20:                    keywords,
+knowledge_engine/index/store.py:34:                    subject = excluded.subject,
+knowledge_engine/index/store.py:35:                    keywords = excluded.keywords,
+knowledge_engine/index/store.py:50:                    record.subject,
+knowledge_engine/index/store.py:51:                    record.keywords,
+knowledge_engine/index/search.py:24:                    OR lower(keywords) LIKE ?
+knowledge_engine/index/search.py:25:                    OR lower(subject) LIKE ?
+knowledge_engine/library/models.py:31:    subject: str | None
+knowledge_engine/library/models.py:33:    keywords: str | None
+knowledge_engine/library/store.py:45:                    subject,
+knowledge_engine/library/store.py:47:                    keywords,
+knowledge_engine/library/store.py:85:                    subject=excluded.subject,
+knowledge_engine/library/store.py:87:                    keywords=excluded.keywords,
+knowledge_engine/library/store.py:124:                    record.subject,
+knowledge_engine/library/store.py:126:                    record.keywords,
+knowledge_engine/library/builder.py:84:                    subject=metadata.get("subject"),
+knowledge_engine/library/builder.py:86:                    keywords=metadata.get("keywords"),
+dev/librarian/acquisition/normalize.py:26:def classify_kind(path: Path) -> str:
+dev/librarian/acquisition/normalize.py:89:                "kind": classify_kind(dest),
+dev/librarian/discovery/sources/trusted_sources.json:89:    "base_url": "https://openstax.org/subjects",
