@@ -1,0 +1,381 @@
+# ADR-0007: Knowledge Verification and Collection Integrity
+
+## Status
+
+Accepted
+
+## Date
+
+2026-07-01
+
+## Context
+
+During the first JARVIS Librarian audit, several collection quality issues were discovered:
+
+* Multiple zero-byte files shared the known SHA-256 hash of an empty file.
+* Several files with `.pdf` extensions were only 755 bytes and shared the same hash.
+* These files appeared in the duplicate report even though they were not meaningful document duplicates.
+* The small `.pdf` files are likely failed downloads, redirects, access-denied pages, HTML error pages, or placeholder responses.
+
+This revealed that file extension alone is not enough to determine whether a document is valid. A file named `.pdf` may not actually be a usable PDF. A file may exist but be empty. A downloaded file may be corrupted, incomplete, unreadable, or semantically useless.
+
+JARVIS needs a verification layer before promotion, ingestion, chunking, embedding, or citation.
+
+## Decision
+
+JARVIS will include a **Knowledge Verification and Collection Integrity** layer as part of the Librarian subsystem.
+
+No document should be promoted into the permanent `Knowledge/` collection or queued for ingestion until it passes basic verification.
+
+Verification will check:
+
+* File exists
+* File is non-empty
+* File size is plausible
+* File extension matches actual content
+* Magic bytes are valid
+* File can be opened or parsed by the appropriate extractor
+* Basic metadata can be extracted where possible
+* Broken, empty, fake, or suspicious files are flagged separately from true duplicates
+
+## Goals
+
+The verification layer should help JARVIS answer:
+
+* Is this file real?
+* Is this file empty?
+* Is this actually a PDF, ZIM, JSON, EPUB, HTML, or text file?
+* Is this file readable?
+* Is this file corrupted?
+* Is this download likely an HTML error page renamed as a PDF?
+* Should this file be accepted, quarantined, redownloaded, reviewed, or deleted?
+* Is this file safe to pass into the ingestion pipeline?
+
+## Non-Goals
+
+This ADR does not require JARVIS to initially:
+
+* Perform malware analysis.
+* Guarantee medical, legal, or technical correctness.
+* Fully validate every possible file format.
+* Detect all near-duplicate documents.
+* Repair corrupted files automatically.
+* Permanently delete suspicious files without user approval.
+
+## Verification Categories
+
+Each file will receive a verification status.
+
+```text
+verified
+empty_file
+fake_pdf
+invalid_extension
+unreadable
+corrupt
+suspicious_small_file
+unsupported_type
+needs_review
+```
+
+## Core Rules
+
+### Empty Files
+
+Any file with size `0` bytes is marked:
+
+```text
+empty_file
+```
+
+Empty files should not appear in duplicate reports.
+
+### Fake PDFs
+
+Any `.pdf` file that does not begin with:
+
+```text
+%PDF-
+```
+
+is marked:
+
+```text
+fake_pdf
+```
+
+Common fake PDF causes:
+
+* HTML redirect
+* 404 page
+* access-denied page
+* login page
+* failed download
+* blocked crawler response
+
+### Suspicious Small PDFs
+
+Any `.pdf` smaller than a configured threshold should be flagged.
+
+Initial threshold:
+
+```text
+1024 bytes
+```
+
+A PDF under this size is almost certainly not a meaningful document.
+
+Status:
+
+```text
+suspicious_small_file
+```
+
+If it also fails magic-byte verification, it becomes:
+
+```text
+fake_pdf
+```
+
+### JSON
+
+A `.json` file must parse as valid JSON.
+
+If not, it is marked:
+
+```text
+corrupt
+```
+
+### Markdown / Text
+
+A `.txt` or `.md` file must be non-empty and decodable as text.
+
+If not, it is marked:
+
+```text
+unreadable
+```
+
+### ZIM
+
+A `.zim` file must be non-empty and should eventually pass ZIM-specific verification.
+
+Initial ZIM validation may check only:
+
+* non-empty file
+* plausible size
+* `.zim` extension
+
+Later validation should use a proper ZIM library or Kiwix tooling.
+
+### EPUB
+
+A `.epub` file should be treated as a ZIP-based document and should open as a valid archive.
+
+## Proposed Module
+
+```text
+dev/librarian/
+├── verify.py
+├── integrity.py
+└── quarantine.py
+```
+
+## Database Changes
+
+The `documents` table should track verification fields.
+
+```sql
+ALTER TABLE documents ADD COLUMN verification_status TEXT;
+ALTER TABLE documents ADD COLUMN verification_message TEXT;
+ALTER TABLE documents ADD COLUMN verified_at TEXT;
+ALTER TABLE documents ADD COLUMN magic_type TEXT;
+ALTER TABLE documents ADD COLUMN page_count INTEGER;
+```
+
+A new table should track collection issues.
+
+```sql
+CREATE TABLE IF NOT EXISTS collection_issues (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    file_path TEXT NOT NULL,
+    issue_type TEXT NOT NULL,
+    severity TEXT NOT NULL,
+    message TEXT,
+    detected_at TEXT
+);
+```
+
+## Severity Levels
+
+```text
+info
+warning
+error
+critical
+```
+
+Suggested mappings:
+
+```text
+empty_file              error
+fake_pdf                error
+corrupt                 error
+unreadable              error
+suspicious_small_file   warning
+unsupported_type        info
+needs_review            warning
+```
+
+## Audit Output
+
+The Librarian audit should produce a collection health report.
+
+Example:
+
+```text
+JARVIS Librarian Integrity Report
+
+Documents scanned:         104
+Verified:                   91
+Empty files:                 5
+Fake PDFs:                   4
+Suspicious small files:      4
+Unreadable files:            0
+Unsupported files:           0
+Duplicate groups:            3
+
+Collection health:        87.5%
+```
+
+## Doctor Command
+
+A future command should be added:
+
+```bash
+jarvis librarian doctor
+```
+
+Initial equivalent:
+
+```bash
+python -m dev.librarian.librarian verify
+```
+
+Expected behavior:
+
+```text
+✓ verified: MIT_Linear_Algebra.pdf
+✓ verified: ifixit.zim
+⚠ empty_file: README.md
+✗ fake_pdf: WHO_Household_Water_Treatment.pdf
+✗ fake_pdf: WHO_Emergency_Response_Framework.pdf
+```
+
+## Quarantine Workflow
+
+Bad files should not be silently deleted.
+
+They should be moved into a quarantine location only after user approval.
+
+Suggested structure:
+
+```text
+Jarvis_Downloaded_Knowledge/
+└── quarantine/
+    ├── empty_files/
+    ├── fake_pdfs/
+    ├── corrupt/
+    ├── unreadable/
+    └── needs_review/
+```
+
+Original path information should be preserved in metadata.
+
+Example sidecar:
+
+```json
+{
+  "original_path": "/media/abdullah/JARVISDATA/Knowledge/medical/public_health/WHO_Emergency_Response_Framework.pdf",
+  "issue_type": "fake_pdf",
+  "detected_at": "2026-07-01T00:00:00Z",
+  "recommended_action": "redownload"
+}
+```
+
+## Consequences
+
+### Positive
+
+* Prevents broken documents from entering ingestion.
+* Separates empty files from real duplicates.
+* Detects failed downloads early.
+* Reduces garbage embeddings.
+* Improves citation trustworthiness.
+* Makes collection health measurable.
+* Gives JARVIS a stronger foundation for medical, technical, and emergency references.
+
+### Negative
+
+* Adds additional complexity.
+* Requires format-specific validators over time.
+* May initially flag some unusual but valid files.
+* Requires decisions about quarantine and redownload behavior.
+
+## Implementation Plan
+
+### Phase 1: Basic Verification
+
+Add file checks for:
+
+* size
+* extension
+* PDF magic bytes
+* JSON parsing
+* text readability
+* EPUB ZIP validity
+* suspicious small files
+
+### Phase 2: Database Integration
+
+Add verification fields to `documents`.
+
+Add `collection_issues`.
+
+### Phase 3: Updated Dedupe Logic
+
+Exclude empty files and invalid documents from the normal duplicate report.
+
+Create separate issue reports for:
+
+* empty files
+* fake PDFs
+* corrupt files
+* suspicious files
+
+### Phase 4: Doctor Report
+
+Add a command that prints a clear integrity report.
+
+### Phase 5: Quarantine
+
+Add a user-approved quarantine command.
+
+### Phase 6: Parser-Level Verification
+
+Use document-specific parsers:
+
+* PDF parser for page count and metadata
+* ZIM reader or Kiwix tooling for ZIM validation
+* EPUB metadata extractor
+* HTML parser
+* text encoding detector
+
+## Final Decision
+
+JARVIS will not treat file presence as proof of knowledge.
+
+A document is not considered usable knowledge until it passes verification.
+
+The Knowledge Verification and Collection Integrity layer will protect the catalog, ingestion pipeline, embeddings, and future answers from empty files, failed downloads, fake PDFs, corrupt documents, and other collection pollution.

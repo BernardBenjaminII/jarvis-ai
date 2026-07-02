@@ -1,0 +1,43 @@
+rules:
+
+  computing/programming:
+    subject: programming
+
+  computing/linux:
+    subject: operating_systems
+
+  computing/networking:
+    subject: networking
+
+  computing/databases:
+    subject: databases
+
+  computing/cybersecurity:
+    subject: cybersecurity
+
+  computing/ai:
+    subject: artificial_intelligence
+
+  engineering/mechanical:
+    subject: mechanical
+
+  engineering/electrical:
+    subject: electrical
+
+  engineering/materials:
+    subject: materials
+
+  medical/field_medicine:
+    subject: field_medicine
+
+  medical/emergency:
+    subject: emergency_medicine
+
+  medical/anatomy:
+    subject: anatomy
+
+  aviation/maintenance:
+    subject: maintenance
+
+  aviation/navigation:
+    subject: navigation
