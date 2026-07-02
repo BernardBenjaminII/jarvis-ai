@@ -95,6 +95,55 @@ class KnowledgeDatabase:
 		    text
 		);
 
+		CREATE TABLE IF NOT EXISTS library_catalog (
+
+		    document_path TEXT PRIMARY KEY,
+
+		    filename TEXT NOT NULL,
+
+		    extension TEXT NOT NULL,
+
+		    category TEXT,
+
+		    provider TEXT,
+
+		    title TEXT,
+
+		    subtitle TEXT,
+
+		    author TEXT,
+
+		    publisher TEXT,
+
+		    publication_year TEXT,
+
+		    edition TEXT,
+
+		    isbn TEXT,
+
+		    subject TEXT,
+
+		    keywords TEXT,
+
+		    language TEXT,
+
+		    pages INTEGER,
+
+		    fingerprint TEXT NOT NULL,
+
+		    cataloged_at TEXT DEFAULT CURRENT_TIMESTAMP
+
+		);
+
+		CREATE INDEX IF NOT EXISTS idx_library_category
+		ON library_catalog(category);
+
+		CREATE INDEX IF NOT EXISTS idx_library_author
+		ON library_catalog(author);
+
+		CREATE INDEX IF NOT EXISTS idx_library_title
+		ON library_catalog(title);
+
 		CREATE TABLE IF NOT EXISTS knowledge_index (
 
 		    document_path TEXT PRIMARY KEY,

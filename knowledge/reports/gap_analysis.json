@@ -1,0 +1,540 @@
+{
+  "summary": {
+    "total_subjects": 66,
+    "average_score": 0.9090909090909091,
+    "missing": 65,
+    "weak": 0,
+    "developing": 1,
+    "strong": 0
+  },
+  "subjects": [
+    {
+      "domain": "computer_science",
+      "discipline": "artificial_intelligence",
+      "subject": "computer_vision",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "artificial_intelligence",
+      "subject": "deep_learning",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "artificial_intelligence",
+      "subject": "machine_learning",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "artificial_intelligence",
+      "subject": "natural_language_processing",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "artificial_intelligence",
+      "subject": "reasoning",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "artificial_intelligence",
+      "subject": "reinforcement_learning",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "cybersecurity",
+      "subject": "cryptography",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "cybersecurity",
+      "subject": "defensive_security",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "cybersecurity",
+      "subject": "digital_forensics",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "cybersecurity",
+      "subject": "offensive_security",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "cybersecurity",
+      "subject": "reverse_engineering",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "software",
+      "subject": "algorithms",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "software",
+      "subject": "compilers",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "software",
+      "subject": "data_structures",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "software",
+      "subject": "programming",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "systems",
+      "subject": "databases",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "systems",
+      "subject": "distributed_systems",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "systems",
+      "subject": "networking",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "systems",
+      "subject": "operating_systems",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "aerospace",
+      "subject": "aerodynamics",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "aerospace",
+      "subject": "flight_mechanics",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "aerospace",
+      "subject": "propulsion",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "aerospace",
+      "subject": "structures",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "electrical",
+      "subject": "circuits",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "electrical",
+      "subject": "control_systems",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "electrical",
+      "subject": "signals",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "manufacturing",
+      "subject": "additive_manufacturing",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "manufacturing",
+      "subject": "machining",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "manufacturing",
+      "subject": "welding",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "mechanical",
+      "subject": "dynamics",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "mechanical",
+      "subject": "fluid_mechanics",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "mechanical",
+      "subject": "heat_transfer",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "mechanical",
+      "subject": "machine_design",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "mechanical",
+      "subject": "statics",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "mechanical",
+      "subject": "thermodynamics",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "algebra",
+      "subject": "abstract_algebra",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "algebra",
+      "subject": "group_theory",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "algebra",
+      "subject": "linear_algebra",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "algebra",
+      "subject": "ring_theory",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "differential_equations",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "graph_theory",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "numerical_analysis",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "optimization",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "probability",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "statistics",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "topology",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "calculus",
+      "subject": "differential_calculus",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "calculus",
+      "subject": "integral_calculus",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "calculus",
+      "subject": "multivariable_calculus",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "calculus",
+      "subject": "vector_calculus",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "anatomy",
+      "subject": "cardiovascular",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "anatomy",
+      "subject": "musculoskeletal",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "anatomy",
+      "subject": "nervous_system",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "emergency_medicine",
+      "subject": "shock",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "emergency_medicine",
+      "subject": "toxicology",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "emergency_medicine",
+      "subject": "trauma",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "emergency_medicine",
+      "subject": "triage",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "public_health",
+      "subject": "epidemiology",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "public_health",
+      "subject": "infectious_disease",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "public_health",
+      "subject": "sanitation",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "public_health",
+      "subject": "water_safety",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "surgery",
+      "subject": "burn_surgery",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "surgery",
+      "subject": "orthopedic_surgery",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "surgery",
+      "subject": "trauma_surgery",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "medicine",
+      "discipline": "surgery",
+      "subject": "vascular_surgery",
+      "file_count": 0,
+      "status": "missing",
+      "score": 0
+    },
+    {
+      "domain": "engineering",
+      "discipline": "electrical",
+      "subject": "electronics",
+      "file_count": 3,
+      "status": "developing",
+      "score": 60
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+rules:
+
+  programming:
+    subject: programming
+    concepts:
+      - programming
+      - software_development
+    keywords:
+      - programming
+      - python
+      - java
+      - c++
+      - javascript
+      - code
+      - coding
+      - software development
+
+  algorithms:
+    subject: algorithms
+    concepts:
+      - sorting
+      - searching
+      - complexity
+    keywords:
+      - algorithm
+      - algorithms
+      - sorting
+      - searching
+      - complexity
+      - big o
+
+  data_structures:
+    subject: data_structures
+    concepts:
+      - arrays
+      - linked_lists
+      - trees
+      - graphs
+    keywords:
+      - data structures
+      - array
+      - linked list
+      - tree
+      - graph
+      - stack
+      - queue
+
+  operating_systems:
+    subject: operating_systems
+    concepts:
+      - linux
+      - kernels
+      - filesystems
+      - processes
+    keywords:
+      - linux
+      - operating system
+      - ubuntu
+      - kali
+      - kernel
+      - filesystem
+      - bash
+      - shell
+      - systemd
+
+  networking:
+    subject: networking
+    concepts:
+      - tcp_ip
+      - routing
+      - dns
+      - subnetting
+    keywords:
+      - networking
+      - tcp
+      - ip
+      - tcp/ip
+      - subnet
+      - subnetting
+      - router
+      - routing
+      - dns
+      - packet
+
+  databases:
+    subject: databases
+    concepts:
+      - sql
+      - relational_databases
+      - database_design
+    keywords:
+      - database
+      - databases
+      - sql
+      - sqlite
+      - mysql
+      - mariadb
+      - postgres
+      - oracle
+      - relational
+
+  cybersecurity:
+    subject: cybersecurity
+    concepts:
+      - offensive_security
+      - defensive_security
+      - reconnaissance
+    keywords:
+      - cybersecurity
+      - cyber security
+      - penetration testing
+      - network security
+      - offensive security
+      - defensive security
+      - security
+      - vulnerability
+
+  reverse_engineering:
+    subject: reverse_engineering
+    concepts:
+      - binaries
+      - disassembly
+      - malware_analysis
+    keywords:
+      - reverse engineering
+      - reversing
+      - disassembly
+      - malware
+      - binary analysis
+
+  artificial_intelligence:
+    subject: machine_learning
+    concepts:
+      - ai
+      - machine_learning
+      - neural_networks
+      - llm
+    keywords:
+      - artificial intelligence
+      - ai
+      - machine learning
+      - deep learning
+      - neural network
+      - transformer
+      - llm
+      - language model
+
+  linear_algebra:
+    subject: linear_algebra
+    concepts:
+      - matrices
+      - vectors
+      - determinants
+      - eigenvalues
+    keywords:
+      - linear algebra
+      - matrix
+      - matrices
+      - vector
+      - vectors
+      - determinant
+      - eigenvalue
+      - eigenvector
+
+  calculus:
+    subject: differential_calculus
+    concepts:
+      - derivatives
+      - limits
+    keywords:
+      - calculus
+      - derivative
+      - derivatives
+      - limits
+      - differentiation
+
+  integral_calculus:
+    subject: integral_calculus
+    concepts:
+      - integrals
+      - area_under_curve
+    keywords:
+      - integral
+      - integrals
+      - integration
+      - antiderivative
+
+  probability_statistics:
+    subject: statistics
+    concepts:
+      - probability
+      - statistics
+      - distributions
+    keywords:
+      - probability
+      - statistics
+      - statistical
+      - distribution
+      - variance
+      - standard deviation
+
+  electronics:
+    subject: electronics
+    concepts:
+      - circuits
+      - components
+      - troubleshooting
+    keywords:
+      - electronics
+      - circuit
+      - circuits
+      - resistor
+      - capacitor
+      - transistor
+      - diode
+      - voltage
+      - current
+
+  circuits:
+    subject: circuits
+    concepts:
+      - ohms_law
+      - resistance
+      - voltage
+    keywords:
+      - circuit
+      - circuits
+      - ohm
+      - resistance
+      - voltage
+      - current
+
+  mechanical:
+    subject: mechanical
+    concepts:
+      - mechanics
+      - machine_design
+      - repair
+    keywords:
+      - mechanical
+      - machinery
+      - machine
+      - mechanics
+      - improvised engineering
+
+  thermodynamics:
+    subject: thermodynamics
+    concepts:
+      - heat
+      - energy
+      - entropy
+    keywords:
+      - thermodynamics
+      - heat
+      - entropy
+      - temperature
+      - energy
+
+  fluid_mechanics:
+    subject: fluid_mechanics
+    concepts:
+      - fluids
+      - pressure
+      - flow
+    keywords:
+      - fluid mechanics
+      - fluid
+      - fluids
+      - flow
+      - pressure
+      - bernoulli
+
+  aerodynamics:
+    subject: aerodynamics
+    concepts:
+      - lift
+      - drag
+      - airflow
+    keywords:
+      - aerodynamics
+      - lift
+      - drag
+      - airflow
+      - airfoil
+
+  field_medicine:
+    subject: field_medicine
+    concepts:
+      - triage
+      - hemorrhage_control
+      - airway_management
+      - shock
+    keywords:
+      - tccc
+      - tactical combat casualty care
+      - field medicine
+      - combat casualty
+      - prolonged field care
+      - emergency war surgery
+      - war surgery
+
+  emergency_medicine:
+    subject: emergency_medicine
+    concepts:
+      - triage
+      - shock
+      - airway_management
+    keywords:
+      - emergency medicine
+      - first responder
+      - triage
+      - shock
+      - resuscitation
+      - emergency
+
+  trauma:
+    subject: trauma
+    concepts:
+      - hemorrhage
+      - shock
+      - airway
+      - burns
+    keywords:
+      - trauma
+      - hemorrhage
+      - bleeding
+      - airway
+      - burn
+      - burns
+      - shock
+      - blast injury
+      - casualty
+
+  public_health:
+    subject: public_health
+    concepts:
+      - epidemiology
+      - sanitation
+      - water_safety
+      - infectious_disease
+    keywords:
+      - public health
+      - sanitation
+      - epidemiology
+      - infectious disease
+      - water treatment
+      - water purification
+      - emergency response framework
+
+  infectious_disease:
+    subject: infectious_disease
+    concepts:
+      - infection
+      - disease_prevention
+      - outbreak
+    keywords:
+      - infectious disease
+      - infection
+      - outbreak
+      - epidemic
+      - pandemic
+      - disease prevention
+
+  sanitation:
+    subject: sanitation
+    concepts:
+      - hygiene
+      - waste
+      - water_safety
+    keywords:
+      - sanitation
+      - hygiene
+      - waste
+      - latrine
+      - water treatment
+
+  water_safety:
+    subject: water_safety
+    concepts:
+      - filtration
+      - purification
+      - household_water_treatment
+    keywords:
+      - water treatment
+      - water purification
+      - household water
+      - slow sand filtration
+      - filtration
+
+  anatomy:
+    subject: musculoskeletal
+    concepts:
+      - anatomy
+      - bones
+      - muscles
+    keywords:
+      - anatomy
+      - musculoskeletal
+      - bones
+      - muscles
+
+  surgery:
+    subject: trauma_surgery
+    concepts:
+      - surgery
+      - emergency_surgery
+      - field_surgery
+    keywords:
+      - surgery
+      - surgical
+      - emergency war surgery
+      - trauma surgery

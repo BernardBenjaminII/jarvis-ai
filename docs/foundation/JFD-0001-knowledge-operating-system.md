@@ -1,5 +1,9 @@
 # JFD-0001: JARVIS as a Knowledge Operating System
 
+JARVIS does not aspire to know everything. JARVIS aspires to know what it 
+knows, recognize what it does not know, and deliberately grow its 
+understanding through trustworthy evidence.
+
 ## Status
 
 Draft

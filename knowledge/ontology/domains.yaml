@@ -1,0 +1,160 @@
+version: 2
+
+domains:
+
+  mathematics:
+
+    disciplines:
+
+      algebra:
+
+        subjects:
+
+          linear_algebra:
+          abstract_algebra:
+          group_theory:
+          ring_theory:
+
+      calculus:
+
+        subjects:
+
+          differential_calculus:
+          integral_calculus:
+          multivariable_calculus:
+          vector_calculus:
+
+      applied_mathematics:
+
+        subjects:
+
+          differential_equations:
+          numerical_analysis:
+          optimization:
+          graph_theory:
+          topology:
+          probability:
+          statistics:
+
+  computer_science:
+
+    disciplines:
+
+      software:
+
+        subjects:
+
+          programming:
+          algorithms:
+          data_structures:
+          compilers:
+
+      systems:
+
+        subjects:
+
+          operating_systems:
+          networking:
+          databases:
+          distributed_systems:
+
+      artificial_intelligence:
+
+        subjects:
+
+          machine_learning:
+          deep_learning:
+          reinforcement_learning:
+          computer_vision:
+          natural_language_processing:
+          reasoning:
+
+      cybersecurity:
+
+        subjects:
+
+          cryptography:
+          offensive_security:
+          defensive_security:
+          reverse_engineering:
+          digital_forensics:
+
+  engineering:
+
+    disciplines:
+
+      mechanical:
+
+        subjects:
+
+          statics:
+          dynamics:
+          thermodynamics:
+          heat_transfer:
+          fluid_mechanics:
+          machine_design:
+
+      electrical:
+
+        subjects:
+
+          circuits:
+          electronics:
+          signals:
+          control_systems:
+
+      aerospace:
+
+        subjects:
+
+          aerodynamics:
+          propulsion:
+          flight_mechanics:
+          structures:
+
+      manufacturing:
+
+        subjects:
+
+          machining:
+          welding:
+          additive_manufacturing:
+
+  medicine:
+
+    disciplines:
+
+      anatomy:
+
+        subjects:
+
+          musculoskeletal:
+          cardiovascular:
+          nervous_system:
+
+      emergency_medicine:
+
+        subjects:
+
+          trauma:
+          triage:
+          shock:
+          toxicology:
+
+      surgery:
+
+        subjects:
+
+          trauma_surgery:
+          orthopedic_surgery:
+          burn_surgery:
+          vascular_surgery:
+
+      public_health:
+
+        subjects:
+
+          epidemiology:
+          sanitation:
+          water_safety:
+          infectious_disease:

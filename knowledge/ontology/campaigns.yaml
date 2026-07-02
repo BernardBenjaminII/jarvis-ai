@@ -1,0 +1,35 @@
+campaigns:
+
+  undergraduate_mathematics:
+
+    targets:
+      - mathematics
+
+  physician:
+
+    targets:
+      - medicine
+
+  aerospace_engineer:
+
+    targets:
+      - mathematics
+      - physics
+      - engineering
+
+  blackhawk_mechanic:
+
+    targets:
+      - aviation
+      - engineering
+      - mechanical
+      - electronics
+      - hydraulics
+      - maintenance
+
+  cybersecurity_engineer:
+
+    targets:
+      - computer_science
+      - cybersecurity
+      - networking

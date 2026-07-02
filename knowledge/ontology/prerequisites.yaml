@@ -1,0 +1,38 @@
+prerequisites:
+
+  machine_learning:
+
+    requires:
+      - linear_algebra
+      - probability
+      - statistics
+      - optimization
+
+  deep_learning:
+
+    requires:
+      - machine_learning
+
+  fluid_mechanics:
+
+    requires:
+      - calculus
+      - differential_equations
+      - physics
+
+  heat_transfer:
+
+    requires:
+      - thermodynamics
+
+  trauma_surgery:
+
+    requires:
+      - anatomy
+      - emergency_medicine
+
+  aerodynamics:
+
+    requires:
+      - fluid_mechanics
+      - calculus
