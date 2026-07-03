@@ -1,0 +1,213 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+
+class KnowledgeWorker:
+    def __init__(self, db):
+        self.db = db
+
+    def run_once(self) -> dict:
+        with self.db.connect() as conn:
+            row = conn.execute(
+                """
+                SELECT object_uuid, object_path, object_type
+                FROM knowledge_assimilation_queue
+                WHERE queue_state='queued'
+                ORDER BY priority DESC, queued_at ASC
+                LIMIT 1
+                """
+            ).fetchone()
+
+            if row is None:
+                return {"processed": 0, "message": "no queued work found"}
+
+            object_uuid = row["object_uuid"]
+            object_path = row["object_path"]
+            object_type = row["object_type"]
+
+            if object_type != "single_document":
+                return self._defer_unsupported(conn, object_uuid, object_path, object_type)
+
+            return self._process_single_document(conn, object_uuid, object_path, object_type)
+
+    def _defer_unsupported(self, conn, object_uuid: str, object_path: str, object_type: str) -> dict:
+        conn.execute(
+            """
+            UPDATE knowledge_assimilation_queue
+            SET queue_state='deferred',
+                reason='unsupported object type for current worker',
+                updated_at=CURRENT_TIMESTAMP
+            WHERE object_uuid=?
+            """,
+            (object_uuid,),
+        )
+
+        conn.execute(
+            """
+            UPDATE knowledge_registry
+            SET lifecycle_state='deferred',
+                assimilation_state='deferred',
+                notes='worker does not yet support this object type',
+                updated_at=CURRENT_TIMESTAMP
+            WHERE object_uuid=?
+            """,
+            (object_uuid,),
+        )
+
+        conn.commit()
+
+        return {
+            "processed": 0,
+            "deferred": 1,
+            "object_uuid": object_uuid,
+            "object_type": object_type,
+            "object_path": object_path,
+        }
+
+    def _process_single_document(
+        self,
+        conn,
+        object_uuid: str,
+        object_path: str,
+        object_type: str,
+    ) -> dict:
+        path = Path(object_path)
+
+        if not path.exists():
+            return self._fail(conn, object_uuid, object_path, "file does not exist")
+
+        stat = path.stat()
+
+        conn.execute(
+            """
+            UPDATE knowledge_assimilation_queue
+            SET queue_state='processing',
+                updated_at=CURRENT_TIMESTAMP
+            WHERE object_uuid=?
+            """,
+            (object_uuid,),
+        )
+
+        conn.execute(
+            """
+            UPDATE knowledge_registry
+            SET lifecycle_state='processing',
+                assimilation_state='processing',
+                updated_at=CURRENT_TIMESTAMP
+            WHERE object_uuid=?
+            """,
+            (object_uuid,),
+        )
+
+        conn.execute(
+            """
+            INSERT INTO catalog_documents (
+                file_path,
+                filename,
+                extension,
+                size_bytes,
+                modified_time,
+                status
+            )
+            VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT(file_path) DO UPDATE SET
+                filename=excluded.filename,
+                extension=excluded.extension,
+                size_bytes=excluded.size_bytes,
+                modified_time=excluded.modified_time,
+                status=excluded.status
+            """,
+            (
+                str(path),
+                path.name,
+                path.suffix.lower(),
+                stat.st_size,
+                stat.st_mtime,
+                "cataloged_from_knowledge_worker",
+            ),
+        )
+
+        conn.execute(
+            """
+            INSERT INTO document_assimilation (
+                file_path,
+                subject,
+                status
+            )
+            VALUES (?, ?, ?)
+            ON CONFLICT(file_path) DO UPDATE SET
+                subject=excluded.subject,
+                status=excluded.status
+            """,
+            (
+                str(path),
+                object_type,
+                "ready_for_extraction",
+            ),
+        )
+
+        conn.execute(
+            """
+            UPDATE knowledge_assimilation_queue
+            SET queue_state='completed',
+                updated_at=CURRENT_TIMESTAMP
+            WHERE object_uuid=?
+            """,
+            (object_uuid,),
+        )
+
+        conn.execute(
+            """
+            UPDATE knowledge_registry
+            SET lifecycle_state='cataloged',
+                assimilation_state='ready_for_extraction',
+                updated_at=CURRENT_TIMESTAMP
+            WHERE object_uuid=?
+            """,
+            (object_uuid,),
+        )
+
+        conn.commit()
+
+        return {
+            "processed": 1,
+            "object_uuid": object_uuid,
+            "object_type": object_type,
+            "object_path": str(path),
+            "status": "ready_for_extraction",
+        }
+
+    def _fail(self, conn, object_uuid: str, object_path: str, reason: str) -> dict:
+        conn.execute(
+            """
+            UPDATE knowledge_assimilation_queue
+            SET queue_state='failed',
+                reason=?,
+                updated_at=CURRENT_TIMESTAMP
+            WHERE object_uuid=?
+            """,
+            (reason, object_uuid),
+        )
+
+        conn.execute(
+            """
+            UPDATE knowledge_registry
+            SET lifecycle_state='failed',
+                assimilation_state='failed',
+                notes=?,
+                updated_at=CURRENT_TIMESTAMP
+            WHERE object_uuid=?
+            """,
+            (reason, object_uuid),
+        )
+
+        conn.commit()
+
+        return {
+            "processed": 0,
+            "failed": 1,
+            "object_uuid": object_uuid,
+            "object_path": object_path,
+            "reason": reason,
+        }
