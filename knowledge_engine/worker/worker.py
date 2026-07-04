@@ -4,6 +4,8 @@ import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 
+from knowledge_engine.worker.extraction import checksum_text, extract_text
+
 
 class KnowledgeWorker:
     def __init__(self, db):
@@ -29,27 +31,11 @@ class KnowledgeWorker:
             object_type = row["object_type"]
 
             if object_type != "single_document":
-                return self._defer_unsupported(
-                    conn,
-                    object_uuid,
-                    object_path,
-                    object_type,
-                )
+                return self._defer_unsupported(conn, object_uuid, object_path, object_type)
 
-            return self._process_single_document(
-                conn,
-                object_uuid,
-                object_path,
-                object_type,
-            )
+            return self._process_single_document(conn, object_uuid, object_path, object_type)
 
-    def _process_single_document(
-        self,
-        conn,
-        object_uuid: str,
-        object_path: str,
-        object_type: str,
-    ) -> dict:
+    def _process_single_document(self, conn, object_uuid: str, object_path: str, object_type: str) -> dict:
         original_path = Path(object_path)
 
         if not original_path.exists():
@@ -58,15 +44,10 @@ class KnowledgeWorker:
         resolved_path = self._resolve_primary_file(original_path)
 
         if resolved_path is None:
-            return self._fail(
-                conn,
-                object_uuid,
-                object_path,
-                "no processable file found",
-            )
+            return self._fail(conn, object_uuid, object_path, "no processable file found")
 
-        stat = resolved_path.stat()
         timestamp = datetime.now(timezone.utc).isoformat()
+        stat = resolved_path.stat()
         sha256 = self._sha256_file(resolved_path)
 
         self._mark_processing(conn, object_uuid)
@@ -74,19 +55,9 @@ class KnowledgeWorker:
         conn.execute(
             """
             INSERT INTO catalog_documents(
-                file_path,
-                sha256,
-                title,
-                file_type,
-                size_bytes,
-                source_name,
-                collection_id,
-                created_at,
-                updated_at,
-                detected_type,
-                inspection_reason,
-                readable,
-                content_chars
+                file_path, sha256, title, file_type, size_bytes,
+                source_name, collection_id, created_at, updated_at,
+                detected_type, inspection_reason, readable, content_chars
             )
             VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)
             ON CONFLICT(file_path)
@@ -102,37 +73,47 @@ class KnowledgeWorker:
                 content_chars=excluded.content_chars
             """,
             (
-                str(resolved_path),
-                sha256,
-                resolved_path.stem,
-                resolved_path.suffix.lstrip("."),
-                stat.st_size,
-                "knowledge_worker",
-                None,
-                timestamp,
-                timestamp,
-                resolved_path.suffix.lstrip("."),
-                f"knowledge_object:{object_type}",
-                1,
-                0,
+                str(resolved_path), sha256, resolved_path.stem,
+                resolved_path.suffix.lstrip("."), stat.st_size,
+                "knowledge_worker", None, timestamp, timestamp,
+                resolved_path.suffix.lstrip("."), f"knowledge_object:{object_type}",
+                1, 0,
+            ),
+        )
+
+        text, extractor, extraction_status, extraction_error = extract_text(resolved_path)
+        text_checksum = checksum_text(text)
+        content_chars = len(text)
+
+        conn.execute(
+            """
+            INSERT INTO document_text(
+                file_path, text, extractor, content_chars, checksum,
+                status, error, extracted_at
+            )
+            VALUES(?,?,?,?,?,?,?,?)
+            ON CONFLICT(file_path)
+            DO UPDATE SET
+                text=excluded.text,
+                extractor=excluded.extractor,
+                content_chars=excluded.content_chars,
+                checksum=excluded.checksum,
+                status=excluded.status,
+                error=excluded.error,
+                extracted_at=excluded.extracted_at
+            """,
+            (
+                str(resolved_path), text, extractor, content_chars,
+                text_checksum, extraction_status, extraction_error, timestamp,
             ),
         )
 
         conn.execute(
             """
             INSERT INTO document_assimilation(
-                file_path,
-                sha256,
-                title,
-                domain,
-                discipline,
-                subject,
-                collection_id,
-                confidence,
-                evidence_json,
-                content_chars,
-                assigned_by,
-                updated_at
+                file_path, sha256, title, domain, discipline, subject,
+                collection_id, confidence, evidence_json, content_chars,
+                assigned_by, updated_at
             )
             VALUES(?,?,?,?,?,?,?,?,?,?,?,?)
             ON CONFLICT(file_path)
@@ -149,19 +130,19 @@ class KnowledgeWorker:
                 updated_at=excluded.updated_at
             """,
             (
-                str(resolved_path),
-                sha256,
-                resolved_path.stem,
-                None,
-                None,
-                object_type,
-                None,
-                1.0,
-                "{}",
-                0,
-                "knowledge_worker_v2",
-                timestamp,
+                str(resolved_path), sha256, resolved_path.stem,
+                None, None, object_type, None, 1.0, "{}",
+                content_chars, "knowledge_worker_v2", timestamp,
             ),
+        )
+
+        conn.execute(
+            """
+            UPDATE catalog_documents
+            SET content_chars=?, readable=?
+            WHERE file_path=?
+            """,
+            (content_chars, 1 if content_chars > 0 else 0, str(resolved_path)),
         )
 
         conn.execute(
@@ -174,15 +155,24 @@ class KnowledgeWorker:
             (object_uuid,),
         )
 
+        if extraction_status == "processed" and content_chars > 0:
+            lifecycle_state = "extracted"
+            assimilation_state = "ready_for_chunking"
+            final_status = "ready_for_chunking"
+        else:
+            lifecycle_state = "extraction_failed"
+            assimilation_state = "needs_review"
+            final_status = "needs_review"
+
         conn.execute(
             """
             UPDATE knowledge_registry
-            SET lifecycle_state='cataloged',
-                assimilation_state='ready_for_extraction',
+            SET lifecycle_state=?,
+                assimilation_state=?,
                 updated_at=CURRENT_TIMESTAMP
             WHERE object_uuid=?
             """,
-            (object_uuid,),
+            (lifecycle_state, assimilation_state, object_uuid),
         )
 
         conn.commit()
@@ -193,7 +183,11 @@ class KnowledgeWorker:
             "object_type": object_type,
             "object_path": object_path,
             "resolved_file": str(resolved_path),
-            "status": "ready_for_extraction",
+            "extractor": extractor,
+            "extraction_status": extraction_status,
+            "extraction_error": extraction_error,
+            "content_chars": content_chars,
+            "status": final_status,
         }
 
     def _resolve_primary_file(self, path: Path) -> Path | None:
@@ -203,21 +197,11 @@ class KnowledgeWorker:
         if not path.is_dir():
             return None
 
-        preferred_extensions = [
-            ".pdf",
-            ".epub",
-            ".docx",
-            ".md",
-            ".txt",
-            ".html",
-            ".htm",
-            ".zim",
-        ]
+        preferred_extensions = [".pdf", ".epub", ".docx", ".md", ".txt", ".rtf"]
 
         files = [
             p for p in path.rglob("*")
-            if p.is_file()
-            and not self._is_ignored_path(p)
+            if p.is_file() and not self._is_ignored_path(p)
         ]
 
         if not files:
@@ -231,32 +215,20 @@ class KnowledgeWorker:
             if matches:
                 return matches[0]
 
-        return sorted(
-            files,
-            key=lambda p: (len(p.parts), str(p).lower()),
-        )[0]
+        return sorted(files, key=lambda p: (len(p.parts), str(p).lower()))[0]
 
     def _is_ignored_path(self, path: Path) -> bool:
         ignored_parts = {
-            ".git",
-            ".venv",
-            "venv",
-            "__pycache__",
-            ".idea",
-            ".vscode",
-            "node_modules",
-            "site-packages",
+            ".git", ".venv", "venv", "__pycache__", ".idea",
+            ".vscode", "node_modules", "site-packages",
         }
-
         return bool(set(path.parts) & ignored_parts)
 
     def _sha256_file(self, path: Path, chunk_size: int = 1024 * 1024) -> str:
         digest = hashlib.sha256()
-
         with path.open("rb") as f:
             while chunk := f.read(chunk_size):
                 digest.update(chunk)
-
         return digest.hexdigest()
 
     def _mark_processing(self, conn, object_uuid: str) -> None:
@@ -281,13 +253,7 @@ class KnowledgeWorker:
             (object_uuid,),
         )
 
-    def _defer_unsupported(
-        self,
-        conn,
-        object_uuid: str,
-        object_path: str,
-        object_type: str,
-    ) -> dict:
+    def _defer_unsupported(self, conn, object_uuid: str, object_path: str, object_type: str) -> dict:
         conn.execute(
             """
             UPDATE knowledge_assimilation_queue
@@ -320,13 +286,7 @@ class KnowledgeWorker:
             "object_path": object_path,
         }
 
-    def _fail(
-        self,
-        conn,
-        object_uuid: str,
-        object_path: str,
-        reason: str,
-    ) -> dict:
+    def _fail(self, conn, object_uuid: str, object_path: str, reason: str) -> dict:
         conn.execute(
             """
             UPDATE knowledge_assimilation_queue
