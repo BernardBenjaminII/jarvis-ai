@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+JARVIS_PY="${JARVIS_PY:-/media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu/bin/python}"
+JARVIS_DB="${JARVIS_DB:-/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite}"
+
+cmd="${1:-}"
+
+if [[ -z "$cmd" ]]; then
+  echo "Usage:"
+  echo "  ./jarvis assimilate /path/to/library"
+  echo "  ./jarvis doctor"
+  echo "  ./jarvis graph stats"
+  echo "  ./jarvis capability list"
+  exit 1
+fi
+
+shift || true
+
+case "$cmd" in
+  assimilate)
+    if [[ $# -lt 1 ]]; then
+      echo "Usage: ./jarvis assimilate /path/to/library"
+      exit 1
+    fi
+
+    "$JARVIS_PY" -m knowledge_engine.mass_assimilation_cli "$1" --db "$JARVIS_DB" "${@:2}"
+    ;;
+
+  doctor)
+    "$JARVIS_PY" -m knowledge_engine.doctor_cli --db "$JARVIS_DB" "$@"
+    ;;
+
+  graph)
+    "$JARVIS_PY" -m knowledge_engine.knowledge_graph_cli "$@" --db "$JARVIS_DB"
+    ;;
+
+  capability)
+    "$JARVIS_PY" -m core.capability_runtime_cli "$@"
+    ;;
+
+  *)
+    echo "Unknown command: $cmd"
+    echo "Usage:"
+    echo "  ./jarvis assimilate /path/to/library"
+    echo "  ./jarvis doctor"
+    echo "  ./jarvis graph stats"
+    echo "  ./jarvis capability list"
+    exit 1
+    ;;
+esac
