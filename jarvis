@@ -9,6 +9,7 @@ cmd="${1:-}"
 if [[ -z "$cmd" ]]; then
   echo "Usage:"
   echo "  ./jarvis assimilate /path/to/library"
+  echo "  ./jarvis promote --staging-root PATH --knowledge-root PATH [--execute]"
   echo "  ./jarvis doctor"
   echo "  ./jarvis graph stats"
   echo "  ./jarvis capability list"
@@ -19,12 +20,15 @@ shift || true
 
 case "$cmd" in
   assimilate)
-    if [[ $# -lt 1 ]]; then
+    if [[ $# -lt 1 || -z "${1:-}" ]]; then
       echo "Usage: ./jarvis assimilate /path/to/library"
       exit 1
     fi
-
     "$JARVIS_PY" -m knowledge_engine.mass_assimilation_cli "$1" --db "$JARVIS_DB" "${@:2}"
+    ;;
+
+  promote)
+    "$JARVIS_PY" -m knowledge_engine.promotion_cli --db "$JARVIS_DB" "$@"
     ;;
 
   doctor)
@@ -41,11 +45,6 @@ case "$cmd" in
 
   *)
     echo "Unknown command: $cmd"
-    echo "Usage:"
-    echo "  ./jarvis assimilate /path/to/library"
-    echo "  ./jarvis doctor"
-    echo "  ./jarvis graph stats"
-    echo "  ./jarvis capability list"
     exit 1
     ;;
 esac
