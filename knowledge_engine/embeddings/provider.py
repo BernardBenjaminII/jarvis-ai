@@ -1,40 +1,42 @@
 from __future__ import annotations
 
-import hashlib
-import math
-import re
+import os
+from functools import cached_property
+from pathlib import Path
+
+from sentence_transformers import SentenceTransformer
 
 
-class LocalHashEmbeddingProvider:
-    provider_name = "local_hash"
-    model_name = "hashing_vector_v1"
+RUNTIME_MODEL_DIR = Path(
+    os.environ.get(
+        "JARVIS_EMBEDDING_CACHE",
+        "/media/abdullah/JARVIS_RUNTIME_L/models/embeddings",
+    )
+)
 
-    def __init__(self, dimensions: int = 384) -> None:
-        self.dimensions = dimensions
+
+class LocalEmbeddingProvider:
+    provider_name = "sentence_transformers"
+    model_name = "all-MiniLM-L6-v2"
+
+    @cached_property
+    def model(self) -> SentenceTransformer:
+        RUNTIME_MODEL_DIR.mkdir(parents=True, exist_ok=True)
+
+        return SentenceTransformer(
+            self.model_name,
+            cache_folder=str(RUNTIME_MODEL_DIR),
+        )
+
+    @property
+    def dimensions(self) -> int:
+        return self.model.get_sentence_embedding_dimension()
 
     def embed(self, text: str) -> list[float]:
-        vector = [0.0] * self.dimensions
+        vector = self.model.encode(
+            text,
+            normalize_embeddings=True,
+            convert_to_numpy=True,
+        )
 
-        tokens = self._tokens(text)
-
-        if not tokens:
-            return vector
-
-        for token in tokens:
-            digest = hashlib.sha256(token.encode("utf-8")).digest()
-            index = int.from_bytes(digest[:4], "big") % self.dimensions
-            sign = 1.0 if digest[4] % 2 == 0 else -1.0
-            vector[index] += sign
-
-        return self._normalize(vector)
-
-    def _tokens(self, text: str) -> list[str]:
-        return re.findall(r"[A-Za-z0-9_]+", text.lower())
-
-    def _normalize(self, vector: list[float]) -> list[float]:
-        norm = math.sqrt(sum(x * x for x in vector))
-
-        if norm == 0:
-            return vector
-
-        return [x / norm for x in vector]
+        return vector.tolist()

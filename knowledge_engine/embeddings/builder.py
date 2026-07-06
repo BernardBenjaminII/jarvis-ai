@@ -1,14 +1,14 @@
 from __future__ import annotations
 
 from knowledge_engine.embeddings.models import ChunkEmbedding
-from knowledge_engine.embeddings.provider import LocalHashEmbeddingProvider
+from knowledge_engine.embeddings.provider import LocalEmbeddingProvider
 from knowledge_engine.embeddings.store import ChunkEmbeddingStore, init_embeddings
 
 
 class ChunkEmbeddingBuilder:
-    def __init__(self, db, provider: LocalHashEmbeddingProvider | None = None):
+    def __init__(self, db, provider: LocalEmbeddingProvider | None = None):
         self.db = db
-        self.provider = provider or LocalHashEmbeddingProvider()
+        self.provider = provider or LocalEmbeddingProvider()
         self.store = ChunkEmbeddingStore(db)
 
     def build_pending_embeddings(
