@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from knowledge_engine.promotion.duplicate_detector import DuplicateDetector
 from knowledge_engine.promotion.models import PromotionPlanItem
 from knowledge_engine.promotion.organizer import destination_for
 
@@ -7,6 +8,7 @@ from knowledge_engine.promotion.organizer import destination_for
 class PromotionPlanner:
     def __init__(self, db):
         self.db = db
+        self.duplicates = DuplicateDetector(db)
 
     def plan(
         self,
@@ -40,9 +42,9 @@ class PromotionPlanner:
 
         for row in rows:
             title = row["display_title"] or row["object_path"]
-            source_path = row["object_path"]
-            object_type = row["object_type"]
             subject = row["subject"]
+            object_type = row["object_type"]
+            source_path = row["object_path"]
 
             destination = destination_for(
                 knowledge_root=knowledge_root,
@@ -52,12 +54,28 @@ class PromotionPlanner:
                 source_path=source_path,
             )
 
-            if row["quality_score"] is not None and float(row["quality_score"]) < 0.4:
+            duplicate_state, duplicate_reason = self.duplicates.classify_duplicate_risk(
+                object_uuid=row["object_uuid"],
+                title=title,
+                subject=subject,
+                object_type=object_type,
+                destination_path=destination,
+            )
+
+            quality = float(row["quality_score"] or 0)
+
+            if quality < 0.4:
                 action = "skip"
                 reason = "quality score below promotion threshold"
+            elif duplicate_state == "duplicate_destination":
+                action = "skip"
+                reason = duplicate_reason
+            elif duplicate_state == "possible_duplicate":
+                action = "review"
+                reason = duplicate_reason
             else:
                 action = "promote"
-                reason = "cataloged, enriched, and eligible for promotion"
+                reason = "cataloged, enriched, unique, and eligible for promotion"
 
             items.append(
                 PromotionPlanItem(
