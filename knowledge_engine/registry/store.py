@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sqlite3
+
 from knowledge_engine.registry.models import RegistryRecord
 
 
@@ -94,8 +95,10 @@ class KnowledgeRegistryStore:
                     notes
                 )
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(object_uuid) DO UPDATE SET
-                    object_path = excluded.object_path,
+
+                ON CONFLICT(object_path)
+                DO UPDATE SET
+                    object_uuid = excluded.object_uuid,
                     object_type = excluded.object_type,
                     title = excluded.title,
                     status = excluded.status,
@@ -124,6 +127,8 @@ class KnowledgeRegistryStore:
                 ),
             )
 
+            conn.commit()
+
     def summary(self) -> dict[str, int]:
         with self.db.connect() as conn:
             init_registry(conn)
@@ -132,4 +137,6 @@ class KnowledgeRegistryStore:
                 "SELECT COUNT(*) FROM knowledge_registry"
             ).fetchone()[0]
 
-            return {"registry_records": total}
+            return {
+                "registry_records": total,
+            }

@@ -1,29 +1,43 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 
-from knowledge_engine.registry.builder import KnowledgeRegistryBuilder
+from core.capabilities.models import CapabilityContext
+
+from knowledge_engine.capabilities.registry import RegistryCapability
 from knowledge_engine.storage.database import KnowledgeDatabase
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Build JARVIS Knowledge Registry")
-    parser.add_argument("--db", required=True, help="SQLite database path")
-    parser.add_argument("--root-filter", default=None, help="Only register object paths matching this text")
+def main():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("--db", required=True)
+
+    parser.add_argument("--root-filter")
 
     args = parser.parse_args()
 
     db = KnowledgeDatabase(args.db)
-    builder = KnowledgeRegistryBuilder(db)
 
-    result = builder.build(root_filter=args.root_filter)
+    context = CapabilityContext(
+        root=(
+            Path(args.root_filter).expanduser().resolve()
+            if args.root_filter
+            else None
+        ),
+        database=db,
+    )
 
-    print("\nKnowledge Registry complete:")
-    for key, value in result.items():
-        if key.endswith("errors"):
-            print(f"{key}: {len(value)}")
-        else:
-            print(f"{key}: {value}")
+    result = RegistryCapability().execute(context)
+
+    print()
+
+    print("Knowledge Registry complete:")
+
+    for key, value in sorted(result.metrics.items()):
+        print(f"{key}: {value}")
 
 
 if __name__ == "__main__":
