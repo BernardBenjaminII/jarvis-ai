@@ -1,0 +1,169 @@
+rules:
+
+  linear_algebra:
+    domain: mathematics
+    discipline: algebra
+    subject: linear_algebra
+    keywords: [linear algebra, matrix, matrices, vector, eigenvalue, eigenvector, determinant, orthogonal, least squares]
+
+  calculus:
+    domain: mathematics
+    discipline: calculus
+    subject: differential_calculus
+    keywords: [calculus, derivative, limit, differentiation]
+
+  integral_calculus:
+    domain: mathematics
+    discipline: calculus
+    subject: integral_calculus
+    keywords: [integral, integration, antiderivative]
+
+  statistics:
+    domain: mathematics
+    discipline: applied_mathematics
+    subject: statistics
+    keywords: [statistics, statistical, variance, standard deviation, regression]
+
+  probability:
+    domain: mathematics
+    discipline: applied_mathematics
+    subject: probability
+    keywords: [probability, random variable, distribution, bayes]
+
+  programming:
+    domain: computer_science
+    discipline: software
+    subject: programming
+    keywords: [programming, python, java, c++, javascript, coding, software development]
+
+  algorithms:
+    domain: computer_science
+    discipline: software
+    subject: algorithms
+    keywords: [algorithm, algorithms, complexity, big o, sorting, searching]
+
+  data_structures:
+    domain: computer_science
+    discipline: software
+    subject: data_structures
+    keywords: [data structure, data structures, stack, queue, tree, graph, linked list, array]
+
+  operating_systems:
+    domain: computer_science
+    discipline: systems
+    subject: operating_systems
+    keywords: [linux, ubuntu, kali, kernel, operating system, filesystem, bash, shell, systemd]
+
+  networking:
+    domain: computer_science
+    discipline: systems
+    subject: networking
+    keywords: [networking, tcp, ip, tcp/ip, subnet, routing, router, dns, packet]
+
+  databases:
+    domain: computer_science
+    discipline: systems
+    subject: databases
+    keywords: [database, sql, sqlite, mysql, postgres, oracle, relational]
+
+  cybersecurity:
+    domain: computer_science
+    discipline: cybersecurity
+    subject: defensive_security
+    keywords: [cybersecurity, cyber security, network security, defensive security, vulnerability, hardening]
+
+  offensive_security:
+    domain: computer_science
+    discipline: cybersecurity
+    subject: offensive_security
+    keywords: [penetration testing, offensive security, exploit, recon, reconnaissance, metasploit]
+
+  reverse_engineering:
+    domain: computer_science
+    discipline: cybersecurity
+    subject: reverse_engineering
+    keywords: [reverse engineering, disassembly, binary analysis, malware analysis]
+
+  machine_learning:
+    domain: computer_science
+    discipline: artificial_intelligence
+    subject: machine_learning
+    keywords: [machine learning, neural network, deep learning, transformer, artificial intelligence, ai]
+
+  electronics:
+    domain: engineering
+    discipline: electrical
+    subject: electronics
+    keywords: [electronics, resistor, capacitor, transistor, diode, voltage, current, circuit]
+
+  circuits:
+    domain: engineering
+    discipline: electrical
+    subject: circuits
+    keywords: [circuit, circuits, ohm, resistance, voltage, current, kirchhoff]
+
+  mechanical:
+    domain: engineering
+    discipline: mechanical
+    subject: machine_design
+    keywords: [mechanical, machine, machinery, machine design, mechanisms]
+
+  thermodynamics:
+    domain: engineering
+    discipline: mechanical
+    subject: thermodynamics
+    keywords: [thermodynamics, entropy, heat transfer, temperature, energy]
+
+  fluid_mechanics:
+    domain: engineering
+    discipline: mechanical
+    subject: fluid_mechanics
+    keywords: [fluid mechanics, fluid, pressure, flow, bernoulli]
+
+  aerodynamics:
+    domain: engineering
+    discipline: aerospace
+    subject: aerodynamics
+    keywords: [aerodynamics, lift, drag, airfoil, airflow]
+
+  field_medicine:
+    domain: medicine
+    discipline: emergency_medicine
+    subject: trauma
+    keywords: [field medicine, combat casualty, tccc, tactical combat casualty care, prolonged field care, emergency war surgery]
+
+  trauma:
+    domain: medicine
+    discipline: emergency_medicine
+    subject: trauma
+    keywords: [trauma, hemorrhage, bleeding, shock, airway, blast injury, casualty, tourniquet]
+
+  surgery:
+    domain: medicine
+    discipline: surgery
+    subject: trauma_surgery
+    keywords: [surgery, surgical, trauma surgery, emergency surgery, war surgery]
+
+  public_health:
+    domain: medicine
+    discipline: public_health
+    subject: epidemiology
+    keywords: [public health, epidemiology, outbreak, disease surveillance]
+
+  infectious_disease:
+    domain: medicine
+    discipline: public_health
+    subject: infectious_disease
+    keywords: [infectious disease, infection, epidemic, pandemic, disease prevention]
+
+  sanitation:
+    domain: medicine
+    discipline: public_health
+    subject: sanitation
+    keywords: [sanitation, hygiene, waste, latrine]
+
+  water_safety:
+    domain: medicine
+    discipline: public_health
+    subject: water_safety
+    keywords: [water treatment, water purification, slow sand filtration, household water, potable water]
