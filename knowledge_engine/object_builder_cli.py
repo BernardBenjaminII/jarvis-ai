@@ -1,26 +1,48 @@
 from __future__ import annotations
 
 import argparse
-from knowledge_engine.objects.builder import build_objects
+from pathlib import Path
+
+from core.capabilities.models import CapabilityContext
+
+from knowledge_engine.capabilities.objects import ObjectCapability
+from knowledge_engine.storage.database import KnowledgeDatabase
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="JARVIS Knowledge Object Builder")
-    parser.add_argument("--db", required=True, help="SQLite database path")
-    parser.add_argument("--root-filter", default=None, help="Only build objects from paths matching this text")
-    parser.add_argument("--dry-run", action="store_true", help="Preview object build without writing")
+def main():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("--db", required=True)
+
+    parser.add_argument("--root-filter")
+
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+    )
 
     args = parser.parse_args()
 
-    counts = build_objects(
-        db_path=args.db,
-        root_filter=args.root_filter,
-        dry_run=args.dry_run,
+    db = KnowledgeDatabase(args.db)
+
+    context = CapabilityContext(
+        root=Path(args.root_filter).expanduser().resolve()
+        if args.root_filter
+        else None,
+        database=db,
     )
 
-    print("\nKnowledge Object Builder complete:")
-    for key, value in sorted(counts.items()):
-        print(f"{key}: {value}")
+    result = ObjectCapability(
+        dry_run=args.dry_run
+    ).execute(context)
+
+    print()
+
+    print("Knowledge Object Builder complete:")
+
+    for k, v in sorted(result.metrics.items()):
+        print(f"{k}: {v}")
 
 
 if __name__ == "__main__":

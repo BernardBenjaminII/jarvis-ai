@@ -7,8 +7,6 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
-from knowledge_engine.resources import ResourceGuess, detect_resource
-
 
 DOCUMENT_EXTENSIONS = {
     ".pdf", ".epub", ".doc", ".docx", ".txt", ".md", ".rtf",
@@ -25,7 +23,23 @@ WEB_EXTENSIONS = {
     ".jpeg", ".gif", ".svg", ".webp", ".ico",
 }
 
+SOURCE_EXTENSIONS = {
+    ".py", ".c", ".cpp", ".h", ".hpp", ".java", ".js", ".ts",
+    ".rs", ".go", ".sh", ".sql", ".yml", ".yaml", ".json",
+}
+
+PROJECT_MARKERS = {
+    ".git", "pyproject.toml", "setup.py", "requirements.txt",
+    "package.json", "Cargo.toml", "CMakeLists.txt", "Makefile",
+    "pom.xml", "build.gradle",
+}
+
 WEBSITE_MARKERS = {"index.html", "index.htm"}
+
+COMMON_WEB_DIRS = {
+    "css", "js", "images", "img", "assets", "fonts", "static",
+    "media", "gfx",
+}
 
 
 @dataclass(frozen=True)
@@ -40,6 +54,16 @@ class KnowledgeObject:
     total_size_bytes: int
     content_fingerprint: str
     status: str
+    confidence: float
+    reason: str
+
+
+@dataclass(frozen=True)
+class ResourceGuess:
+    object_path: Path
+    object_name: str
+    object_type_hint: str | None
+    primary_file_path: str | None
     confidence: float
     reason: str
 
@@ -82,32 +106,20 @@ def init_db(conn: sqlite3.Connection) -> None:
     )
 
     conn.execute(
-        """
-        CREATE INDEX IF NOT EXISTS idx_knowledge_objects_type
-        ON knowledge_objects(object_type)
-        """
+        "CREATE INDEX IF NOT EXISTS idx_knowledge_objects_type ON knowledge_objects(object_type)"
     )
-
     conn.execute(
-        """
-        CREATE INDEX IF NOT EXISTS idx_knowledge_objects_status
-        ON knowledge_objects(status)
-        """
+        "CREATE INDEX IF NOT EXISTS idx_knowledge_objects_status ON knowledge_objects(status)"
     )
-
     conn.execute(
-        """
-        CREATE INDEX IF NOT EXISTS idx_knowledge_object_files_object_uuid
-        ON knowledge_object_files(object_uuid)
-        """
+        "CREATE INDEX IF NOT EXISTS idx_knowledge_object_files_object_uuid ON knowledge_object_files(object_uuid)"
     )
 
     conn.commit()
 
 
 def stable_uuid(object_path: str, fingerprint: str) -> str:
-    seed = f"{object_path}|{fingerprint}"
-    return str(uuid.uuid5(uuid.NAMESPACE_URL, seed))
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, f"{object_path}|{fingerprint}"))
 
 
 def fingerprint_files(files: list[sqlite3.Row]) -> str:
@@ -122,16 +134,186 @@ def fingerprint_files(files: list[sqlite3.Row]) -> str:
 
 def path_has_ignored_parts(path: Path) -> bool:
     ignored = {
-        ".git",
-        ".venv",
-        "venv",
-        "site-packages",
-        "__pycache__",
-        ".idea",
-        ".vscode",
-        "node_modules",
+        ".git", ".venv", "venv", "site-packages", "__pycache__",
+        ".idea", ".vscode", "node_modules",
     }
     return bool(set(path.parts) & ignored)
+
+
+def safe_iterdir(path: Path) -> list[Path]:
+    try:
+        if not path.is_dir():
+            return []
+        return list(path.iterdir())
+    except OSError:
+        return []
+
+
+def safe_child_names(path: Path) -> set[str]:
+    return {p.name.lower() for p in safe_iterdir(path)}
+
+
+def safe_child_dirs(path: Path) -> set[str]:
+    return {p.name.lower() for p in safe_iterdir(path) if p.is_dir()}
+
+
+def clean_object_name(path: Path) -> str:
+    name = path.name
+
+    if name.lower().endswith((".html", ".htm")):
+        name = Path(name).stem
+
+    return name.replace("_", " ").replace("-", " ").strip() or path.name
+
+
+def index_file_for(root: Path) -> str | None:
+    for marker in WEBSITE_MARKERS:
+        candidate = root / marker
+        if candidate.exists():
+            return str(candidate)
+    return None
+
+
+def find_enclosing_website_bundle(path: Path) -> ResourceGuess | None:
+    """
+    Detect mirrored/static website resources.
+
+    Key fix:
+    If a file is under a directory named like `something.html/`,
+    the whole directory is treated as ONE website object.
+
+    Example:
+    afg-war-diary.html/afg/sort/severity/high_1000.html
+    becomes:
+    afg-war-diary.html
+    """
+
+    current = path.parent if path.suffix else path
+    best: ResourceGuess | None = None
+
+    while current != current.parent:
+        name = current.name.lower()
+        child_names = safe_child_names(current)
+        child_dirs = safe_child_dirs(current)
+
+        if name.endswith((".html", ".htm")) and current.is_dir():
+            return ResourceGuess(
+                object_path=current,
+                object_name=clean_object_name(current),
+                object_type_hint="website_archive",
+                primary_file_path=index_file_for(current),
+                confidence=0.99,
+                reason="resource detector: enclosing website bundle directory",
+            )
+
+        if WEBSITE_MARKERS & child_names:
+            best = ResourceGuess(
+                object_path=current,
+                object_name=clean_object_name(current),
+                object_type_hint="website_archive",
+                primary_file_path=index_file_for(current),
+                confidence=0.96,
+                reason="resource detector: website root with index page",
+            )
+
+        elif COMMON_WEB_DIRS & child_dirs:
+            best = ResourceGuess(
+                object_path=current,
+                object_name=clean_object_name(current),
+                object_type_hint="website_archive",
+                primary_file_path=None,
+                confidence=0.88,
+                reason="resource detector: website root with web asset directories",
+            )
+
+        current = current.parent
+
+    return best
+
+
+def find_project_root(path: Path) -> ResourceGuess | None:
+    current = path.parent if path.suffix else path
+
+    while current != current.parent:
+        names = {p.name for p in safe_iterdir(current)}
+        marker = next((m for m in PROJECT_MARKERS if m in names), None)
+
+        if marker:
+            return ResourceGuess(
+                object_path=current,
+                object_name=clean_object_name(current),
+                object_type_hint="codebase",
+                primary_file_path=None,
+                confidence=0.95,
+                reason=f"resource detector: project marker {marker}",
+            )
+
+        current = current.parent
+
+    return None
+
+
+def detect_resource(row: sqlite3.Row) -> ResourceGuess:
+    file_path = Path(row["file_path"])
+    relative = Path(row["relative_path"])
+    ext = file_path.suffix.lower()
+
+    website = find_enclosing_website_bundle(file_path)
+    if website is not None and ext in WEB_EXTENSIONS:
+        return website
+
+    if ext in DOCUMENT_EXTENSIONS:
+        return ResourceGuess(
+            object_path=file_path,
+            object_name=clean_object_name(file_path),
+            object_type_hint="single_document",
+            primary_file_path=str(file_path),
+            confidence=0.90,
+            reason=f"resource detector: standalone document {ext}",
+        )
+
+    project = find_project_root(file_path)
+    if project is not None:
+        return project
+
+    if ext in IMAGE_EXTENSIONS:
+        return ResourceGuess(
+            object_path=file_path,
+            object_name=clean_object_name(file_path),
+            object_type_hint="single_image",
+            primary_file_path=str(file_path),
+            confidence=0.70,
+            reason=f"resource detector: standalone image {ext}",
+        )
+
+    if ext in SOURCE_EXTENSIONS and len(relative.parts) > 1:
+        return ResourceGuess(
+            object_path=file_path.parent,
+            object_name=clean_object_name(file_path.parent),
+            object_type_hint="source_collection",
+            primary_file_path=None,
+            confidence=0.70,
+            reason="resource detector: source file grouped by parent folder",
+        )
+
+    if len(relative.parts) > 1:
+        return ResourceGuess(
+            object_path=file_path.parent,
+            object_name=clean_object_name(file_path.parent),
+            object_type_hint=None,
+            primary_file_path=None,
+            confidence=0.60,
+            reason="fallback: grouped by parent folder",
+        )
+
+    return ResourceGuess(
+        object_path=file_path,
+        object_name=clean_object_name(file_path),
+        object_type_hint=None,
+        primary_file_path=str(file_path),
+        confidence=0.50,
+        reason="fallback: single loose file",
+    )
 
 
 def detect_object_type(
@@ -145,9 +327,6 @@ def detect_object_type(
 
     if hint and hint.object_type_hint:
         primary = hint.primary_file_path
-
-        if primary and not any(row["file_path"] == primary for row in files):
-            primary = None
 
         if primary is None and hint.object_type_hint == "website_archive":
             primary = next(
@@ -227,6 +406,7 @@ def load_discovered_files(
             status
         FROM discovered_files
     """
+
     params: list[str] = []
 
     if root_filter:
@@ -272,7 +452,6 @@ def build_objects(
 
             try:
                 guess = detect_resource(row)
-
                 grouped[guess.object_path].append(row)
 
                 existing = hints.get(guess.object_path)
@@ -310,7 +489,7 @@ def build_objects(
                     hint=hint,
                 )
 
-                object_name = hint.object_name if hint else object_path.name
+                object_name = hint.object_name if hint else clean_object_name(object_path)
 
                 obj = KnowledgeObject(
                     object_uuid=object_uuid,

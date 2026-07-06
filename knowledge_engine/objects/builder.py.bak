@@ -7,25 +7,15 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
-from knowledge_engine.resources import ResourceGuess, detect_resource
 
-
-DOCUMENT_EXTENSIONS = {
-    ".pdf", ".epub", ".doc", ".docx", ".txt", ".md", ".rtf",
-    ".odt", ".ods", ".odp", ".ppt", ".pptx", ".xls", ".xlsx",
-    ".csv", ".zim",
+OBJECT_MARKERS = {
+    "git_repository": [".git"],
+    "python_project": ["pyproject.toml", "setup.py", "requirements.txt"],
+    "node_project": ["package.json"],
+    "epub_extracted_book": ["content.opf", "toc.ncx"],
+    "website_archive": ["index.html", "index.htm"],
+    "academic_project": ["Code Files", "Screenshots", "Report.pdf", "README.md"],
 }
-
-IMAGE_EXTENSIONS = {
-    ".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".ico",
-}
-
-WEB_EXTENSIONS = {
-    ".html", ".htm", ".css", ".js", ".json", ".png", ".jpg",
-    ".jpeg", ".gif", ".svg", ".webp", ".ico",
-}
-
-WEBSITE_MARKERS = {"index.html", "index.htm"}
 
 
 @dataclass(frozen=True)
@@ -134,32 +124,10 @@ def path_has_ignored_parts(path: Path) -> bool:
     return bool(set(path.parts) & ignored)
 
 
-def detect_object_type(
-    object_path: Path,
-    files: list[sqlite3.Row],
-    hint: ResourceGuess | None = None,
-) -> tuple[str, float, str, str | None]:
+def detect_object_type(object_path: Path, files: list[sqlite3.Row]) -> tuple[str, float, str, str | None]:
     names = {Path(row["file_path"]).name for row in files}
     suffixes = {Path(row["file_path"]).suffix.lower() for row in files}
     parts = set(object_path.parts)
-
-    if hint and hint.object_type_hint:
-        primary = hint.primary_file_path
-
-        if primary and not any(row["file_path"] == primary for row in files):
-            primary = None
-
-        if primary is None and hint.object_type_hint == "website_archive":
-            primary = next(
-                (
-                    row["file_path"]
-                    for row in files
-                    if Path(row["file_path"]).name.lower() in WEBSITE_MARKERS
-                ),
-                None,
-            )
-
-        return hint.object_type_hint, hint.confidence, hint.reason, primary
 
     if ".git" in names or ".git" in parts:
         return "git_repository", 0.98, "contains .git marker", None
@@ -171,19 +139,12 @@ def detect_object_type(
         return "node_project", 0.90, "contains Node project marker", None
 
     if {"content.opf", "toc.ncx"} & names:
-        primary = next(
-            (row["file_path"] for row in files if Path(row["file_path"]).name == "content.opf"),
-            None,
-        )
+        primary = next((row["file_path"] for row in files if Path(row["file_path"]).name == "content.opf"), None)
         return "epub_extracted_book", 0.95, "contains EPUB metadata marker", primary
 
     if {"index.html", "index.htm"} & names and ({".css", ".js"} & suffixes):
         primary = next(
-            (
-                row["file_path"]
-                for row in files
-                if Path(row["file_path"]).name.lower() in WEBSITE_MARKERS
-            ),
+            (row["file_path"] for row in files if Path(row["file_path"]).name in {"index.html", "index.htm"}),
             None,
         )
         return "website_archive", 0.90, "contains index page plus web assets", primary
@@ -195,18 +156,35 @@ def detect_object_type(
         row = files[0]
         ext = Path(row["file_path"]).suffix.lower()
 
-        if ext in DOCUMENT_EXTENSIONS:
+        if ext in {".pdf", ".epub", ".docx", ".txt", ".md", ".zim"}:
             return "single_document", 0.80, f"single supported document {ext}", row["file_path"]
 
-        if ext in IMAGE_EXTENSIONS:
+        if ext in {".png", ".jpg", ".jpeg", ".gif", ".webp"}:
             return "single_image", 0.70, f"single image {ext}", row["file_path"]
 
         return "single_file", 0.50, "single loose file", row["file_path"]
 
-    if suffixes <= WEB_EXTENSIONS:
+    if suffixes <= {".html", ".htm", ".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".json"}:
         return "web_or_html_collection", 0.75, "directory contains mostly web assets", None
 
     return "folder_collection", 0.60, "directory grouped as folder collection", None
+
+
+def choose_group_key(row: sqlite3.Row, root: Path) -> Path:
+    file_path = Path(row["file_path"])
+    relative = Path(row["relative_path"])
+    parent = file_path.parent
+
+    # Single real book/document files should usually be objects themselves.
+    ext = file_path.suffix.lower()
+    if ext in {".pdf", ".epub", ".docx", ".zim"}:
+        return file_path
+
+    # HTML trees, source projects, extracted folders, and mixed directories should group by parent.
+    if len(relative.parts) > 1:
+        return parent
+
+    return file_path
 
 
 def load_discovered_files(
@@ -261,7 +239,6 @@ def build_objects(
         counts["files_seen"] = len(rows)
 
         grouped: dict[Path, list[sqlite3.Row]] = defaultdict(list)
-        hints: dict[Path, ResourceGuess] = {}
 
         for row in rows:
             path = Path(row["file_path"])
@@ -271,16 +248,10 @@ def build_objects(
                 continue
 
             try:
-                guess = detect_resource(row)
-
-                grouped[guess.object_path].append(row)
-
-                existing = hints.get(guess.object_path)
-                if existing is None or guess.confidence > existing.confidence:
-                    hints[guess.object_path] = guess
-
+                root = Path(row["root_path"])
+                key = choose_group_key(row, root)
+                grouped[key].append(row)
                 counts["files_grouped"] += 1
-
             except Exception as exc:
                 counts["errors"] += 1
                 print(f"[WARN] Failed grouping {row['file_path']}: {exc}")
@@ -288,12 +259,6 @@ def build_objects(
         if dry_run:
             print(f"[DRY-RUN] Would build {len(grouped)} knowledge objects.")
             counts["objects_built"] = len(grouped)
-
-            for key, files in sorted(grouped.items(), key=lambda item: str(item[0]))[:75]:
-                hint = hints.get(key)
-                kind = hint.object_type_hint if hint else "unknown"
-                print(f"[DRY-RUN] {kind}: {key} ({len(files)} files)")
-
             return counts
 
         for object_path, files in grouped.items():
@@ -302,21 +267,14 @@ def build_objects(
                 total_size = sum(int(row["size_bytes"]) for row in files)
                 fingerprint = fingerprint_files(files)
                 object_uuid = stable_uuid(str(object_path), fingerprint)
-                hint = hints.get(object_path)
 
-                object_type, confidence, reason, primary_file = detect_object_type(
-                    object_path=object_path,
-                    files=files,
-                    hint=hint,
-                )
-
-                object_name = hint.object_name if hint else object_path.name
+                object_type, confidence, reason, primary_file = detect_object_type(object_path, files)
 
                 obj = KnowledgeObject(
                     object_uuid=object_uuid,
                     root_path=root_path,
                     object_path=str(object_path),
-                    object_name=object_name,
+                    object_name=object_path.name,
                     object_type=object_type,
                     primary_file_path=primary_file,
                     file_count=len(files),
