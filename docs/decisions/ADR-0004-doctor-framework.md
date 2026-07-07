@@ -19,3 +19,13 @@ Positive:
 Negative:
 - Slightly more startup complexity
 ____________________________________________________________________________
+
+> **Legacy ADR**
+>
+> This ADR was created before the JARVIS ADR governance policy was established.
+>
+> Duplicate ADR numbers from this era are preserved intentionally for historical continuity.
+>
+> Beginning with **ADR-0017**, all Architecture Decision Records use unique,
+> immutable numbering.
+

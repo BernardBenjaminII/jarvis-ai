@@ -35,3 +35,13 @@ As additional startup responsibilities are introduced—including knowledge init
 Introduce a dedicated Bootstrap subsystem.
 
 The launcher becomes a thin entry point whose only responsibility is to invoke the bootstrap process.
+
+> **Legacy ADR**
+>
+> This ADR was created before the JARVIS ADR governance policy was established.
+>
+> Duplicate ADR numbers from this era are preserved intentionally for historical continuity.
+>
+> Beginning with **ADR-0017**, all Architecture Decision Records use unique,
+> immutable numbering.
+
