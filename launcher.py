@@ -15,6 +15,8 @@ from core.src.discovery.runtime_locator import RuntimeLocator
 from core.bootstrap.services.api import launch_api
 from core.bootstrap.services.venv import ensure_venv
 from core.bootstrap.dependencies import DependencyBootstrap
+from core.bootstrap.services.ollama import ensure_ollama
+from core.bootstrap.services.models import ensure_models
 
 from core.src.cognition.model_registry import required_models
 from core.src.cognition.capability_registry import detect_capabilities
@@ -253,115 +255,6 @@ def ensure_command(command_name):
     if shutil.which(command_name) is None:
         print(f"✗ Required command not found in PATH: {command_name}")
         sys.exit(1)
-
-
-# ============================================================
-# OLLAMA
-# ============================================================
-
-def ollama_running():
-    try:
-        response = requests.get(
-            f"{OLLAMA_HOST}/api/tags",
-            timeout=2,
-        )
-        return response.status_code == 200
-
-    except Exception:
-        return False
-
-
-def ensure_ollama(paths):
-    print("Checking Ollama...")
-
-    ensure_command("ollama")
-
-    if ollama_running():
-        print("✓ Ollama already running")
-        return
-
-    print("Starting Ollama...")
-
-    log_file = paths["logs"] / "ollama.log"
-
-    try:
-        if platform.system() == "Windows":
-            subprocess.Popen(
-                ["ollama", "serve"],
-                stdout=open(log_file, "a", encoding="utf-8"),
-                stderr=subprocess.STDOUT,
-                creationflags=subprocess.CREATE_NO_WINDOW,
-            )
-        else:
-            subprocess.Popen(
-                ["ollama", "serve"],
-                stdout=open(log_file, "a", encoding="utf-8"),
-                stderr=subprocess.STDOUT,
-            )
-
-    except Exception as exc:
-        print(f"✗ Failed to start Ollama: {exc}")
-        sys.exit(1)
-
-    time.sleep(5)
-
-    if not ollama_running():
-        print("✗ Ollama failed to start")
-        print(f"Check log: {log_file}")
-        sys.exit(1)
-
-    print("✓ Ollama online")
-
-
-# ============================================================
-# MODEL VERIFICATION
-# ============================================================
-def ensure_models():
-    print("Checking models...")
-
-    try:
-        result = subprocess.run(
-            ["ollama", "list"],
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-
-    except subprocess.CalledProcessError:
-        print("✗ Could not read Ollama model list")
-        sys.exit(1)
-
-    installed = result.stdout.lower()
-
-    missing = []
-
-    for model in required_models():
-
-        if model.lower() in installed:
-            print(f"✓ {model} available")
-        else:
-            print(f"✗ {model} missing")
-            missing.append(model)
-
-    if missing:
-
-        print()
-        print("Missing models:")
-
-        for model in missing:
-            print(f"  - {model}")
-
-        print()
-        print("Install missing models with:")
-
-        for model in missing:
-            print(f"  ollama pull {model}")
-
-        sys.exit(1)
-
-    print("✓ All required models available")
-
-
 
 # ============================================================
 # MAIN
