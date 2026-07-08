@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from core.bootstrap.dependencies import DependencyBootstrap
-from core.bootstrap.services.capabilities import verify_capabilities
-from core.bootstrap.services.models import ensure_models
-from core.bootstrap.services.ollama import ensure_ollama
-from core.bootstrap.services.runtime import ensure_runtime
-from core.bootstrap.services.venv import ensure_venv
+from core.bootstrap.lifecycle.preflight import run as preflight
 
+from core.bootstrap.lifecycle.startup import run as startup
+
+from core.bootstrap.lifecycle.postflight import run as postflight
 
 class BootstrapRunner:
     """
@@ -21,32 +19,14 @@ class BootstrapRunner:
         self.paths = paths
 
     def run(self):
-        #
-        # Runtime
-        #
 
-        ensure_runtime(self.paths)
+        print("========== PRE-FLIGHT ==========")
+        preflight(self.env, self.paths)
 
-        #
-        # Virtual Environment
-        #
+        print("========== STARTUP ==========")
+        startup(self.paths)
 
-        ensure_venv(self.paths)
-
-        #
-        # Dependencies
-        #
-
-        DependencyBootstrap().prepare(self.env)
-
-        #
-        # Services
-        #
-
-        ensure_ollama(self.paths)
-
-        ensure_models()
-
-        verify_capabilities()
+        print("========== POST-FLIGHT ==========")
+        postflight()
 
         print("✓ Bootstrap complete")
