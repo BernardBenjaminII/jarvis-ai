@@ -1,0 +1,7 @@
+JARVIS Phase II-C integration sample.
+
+This file exists to verify that the Knowledge Engine can discover, inspect,
+extract, process, chunk, embed, register, and retrieve basic text content.
+
+If this file moves through the pipeline successfully, the integration harness
+is working.
