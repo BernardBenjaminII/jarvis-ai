@@ -1,9 +1,6 @@
 import os
 import platform
 import shutil
-import os
-import platform
-import shutil
 import subprocess
 import sys
 import time
@@ -13,34 +10,16 @@ from pathlib import Path
 from core.src.discovery.runtime_locator import RuntimeLocator
 
 from core.bootstrap.services.api import launch_api
-from core.bootstrap.services.venv import ensure_venv
-from core.bootstrap.dependencies import DependencyBootstrap
-from core.bootstrap.services.ollama import ensure_ollama
-from core.bootstrap.services.models import ensure_models
+from core.bootstrap.bootstrap_runner import BootstrapRunner
 
 from core.src.cognition.model_registry import required_models
 from core.src.cognition.capability_registry import detect_capabilities
 
 
-def verify_capabilities():
-
-    print("Checking capabilities...")
-
-    capabilities = detect_capabilities()
-
-    for capability, available in capabilities.items():
-
-        status = "✓" if available else "✗"
-
-        print(f"{status} {capability}")
-
-    return capabilities
-
 # ============================================================
 # CONFIGURATION
 # ============================================================
 
-OLLAMA_HOST = "http://127.0.0.1:11434"
 
 API_HOST = "127.0.0.1"
 API_PORT = "8000"
@@ -213,48 +192,6 @@ def get_paths(env):
         "projects": runtime / "projects",
     }
 
-# ============================================================
-# RUNTIME VERIFICATION
-# ============================================================
-
-def ensure_runtime(paths):
-    print("Verifying runtime storage...")
-
-    runtime = paths["runtime"]
-
-    if not runtime.exists():
-        print(f"Runtime path does not exist yet: {runtime}")
-        print("Creating runtime directories...")
-
-    directories = [
-        paths["runtime"],
-        paths["models"],
-        paths["logs"],
-        paths["vector_db"],
-        paths["projects"],
-        paths["venv"],
-    ]
-
-    for directory in directories:
-        directory.mkdir(parents=True, exist_ok=True)
-
-    os.environ["OLLAMA_MODELS"] = str(paths["models"])
-
-    print(f"Python  : {paths['python']}")
-    print(f"Pip     : {paths['pip']}")
-    print(f"Runtime : {paths['runtime']}")
-    print(f"Models  : {paths['models']}")
-    print(f"Venv    : {paths['venv']}")
-    print("✓ Runtime storage available")
-
-# ============================================================
-# COMMAND CHECKS
-# ============================================================
-
-def ensure_command(command_name):
-    if shutil.which(command_name) is None:
-        print(f"✗ Required command not found in PATH: {command_name}")
-        sys.exit(1)
 
 # ============================================================
 # MAIN
@@ -269,39 +206,8 @@ def main():
 
     print(f"Environment: {env}")
 
-    #
-    # Runtime discovery
-    #
 
-    ensure_runtime(paths)
-
-    #
-    # Switch into the OS-specific runtime venv
-    #
-
-
-    #
-    # Install/update dependencies if necessary
-    #
-
-    DependencyBootstrap().prepare(env)
-
-    #
-    # Third-party imports
-    #
-
-    global requests
-    import requests
-
-    #
-    # Startup verification
-    #
-
-    ensure_ollama(paths)
-    ensure_models()
-    verify_capabilities()
-
-    print("✓ Startup checks complete")
+    BootstrapRunner(env, paths).run()
 
     #
     # Launch API
