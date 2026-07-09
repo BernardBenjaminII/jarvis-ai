@@ -1,0 +1,2 @@
+knowledge_engine/__init__.py:4:Responsible for ingesting, indexing, searching, and retrieving
+knowledge_engine/cli.py:4:from knowledge_engine.pipeline import run_inventory

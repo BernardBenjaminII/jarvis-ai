@@ -1,0 +1,27 @@
+from __future__ import annotations
+
+import argparse
+from knowledge_engine.discovery.filesystem import discover
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="JARVIS filesystem discovery engine")
+    parser.add_argument("--root", required=True, help="Root folder to discover")
+    parser.add_argument("--db", required=True, help="SQLite database path")
+    parser.add_argument("--limit", type=int, default=None, help="Optional scan limit for testing")
+
+    args = parser.parse_args()
+
+    counts = discover(
+        root_path=args.root,
+        db_path=args.db,
+        limit=args.limit,
+    )
+
+    print("\nDiscovery complete:")
+    for key, value in sorted(counts.items()):
+        print(f"{key}: {value}")
+
+
+if __name__ == "__main__":
+    main()

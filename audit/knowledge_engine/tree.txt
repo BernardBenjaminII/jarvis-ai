@@ -1,0 +1,290 @@
+knowledge_engine
+├── catalog
+│   └── __init__.py
+├── catalog.py
+├── chunking
+│   ├── chunker.py
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── chunker.cpython-310.pyc
+│       ├── chunker.cpython-312.pyc
+│       ├── __init__.cpython-310.pyc
+│       ├── __init__.cpython-312.pyc
+│       └── __init__.py
+├── cli.py
+├── collections
+│   ├── __init__.py
+│   ├── models.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.py
+│   │   ├── models.cpython-310.pyc
+│   │   └── store.cpython-310.pyc
+│   └── store.py
+├── concepts
+│   └── __init__.py
+├── constants.py
+├── discovery
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   ├── scanner.cpython-310.pyc
+│   │   └── scanner.cpython-312.pyc
+│   └── scanner.py
+├── document.py
+├── embeddings
+│   ├── engine.py
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── engine.cpython-310.pyc
+│       ├── engine.cpython-312.pyc
+│       ├── __init__.cpython-310.pyc
+│       ├── __init__.cpython-312.pyc
+│       └── __init__.py
+├── extraction
+│   ├── extractors
+│   │   ├── base.py
+│   │   ├── __init__.py
+│   │   ├── pdf.py
+│   │   └── __pycache__
+│   ├── __init__.py
+│   └── __pycache__
+│       └── __init__.cpython-312.pyc
+├── index
+│   ├── builder.py
+│   ├── __init__.py
+│   ├── models.py
+│   ├── __pycache__
+│   │   ├── builder.cpython-310.pyc
+│   │   ├── builder.cpython-312.pyc
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   ├── models.cpython-310.pyc
+│   │   ├── models.cpython-312.pyc
+│   │   ├── search.cpython-310.pyc
+│   │   ├── search.cpython-312.pyc
+│   │   ├── statistics.cpython-310.pyc
+│   │   ├── statistics.cpython-312.pyc
+│   │   ├── store.cpython-310.pyc
+│   │   └── store.cpython-312.pyc
+│   ├── search.py
+│   ├── statistics.py
+│   └── store.py
+├── __init__.py
+├── inspection
+│   └── __init__.py
+├── inspectors
+│   ├── base.py
+│   ├── docx.py
+│   ├── epub.py
+│   ├── html.py
+│   ├── image.py
+│   ├── __init__.py
+│   ├── markdown.py
+│   ├── pdf.py
+│   ├── __pycache__
+│   │   ├── base.cpython-310.pyc
+│   │   ├── base.cpython-312.pyc
+│   │   ├── docx.cpython-310.pyc
+│   │   ├── docx.cpython-312.pyc
+│   │   ├── epub.cpython-310.pyc
+│   │   ├── epub.cpython-312.pyc
+│   │   ├── html.cpython-310.pyc
+│   │   ├── html.cpython-312.pyc
+│   │   ├── image.cpython-310.pyc
+│   │   ├── image.cpython-312.pyc
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   ├── markdown.cpython-310.pyc
+│   │   ├── markdown.cpython-312.pyc
+│   │   ├── pdf.cpython-310.pyc
+│   │   ├── pdf.cpython-312.pyc
+│   │   ├── registry.cpython-310.pyc
+│   │   ├── registry.cpython-312.pyc
+│   │   ├── text.cpython-310.pyc
+│   │   ├── text.cpython-312.pyc
+│   │   ├── zim.cpython-310.pyc
+│   │   └── zim.cpython-312.pyc
+│   ├── registry.py
+│   ├── text.py
+│   └── zim.py
+├── library
+│   ├── builder.py
+│   ├── __init__.py
+│   ├── models.py
+│   ├── __pycache__
+│   │   ├── builder.cpython-310.pyc
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── models.cpython-310.pyc
+│   │   └── store.cpython-310.pyc
+│   └── store.py
+├── metadata
+│   ├── fingerprints.py
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── fingerprints.cpython-310.pyc
+│       ├── fingerprints.cpython-312.pyc
+│       ├── __init__.cpython-310.pyc
+│       ├── __init__.cpython-312.pyc
+│       └── __init__.py
+├── pages
+│   ├── __init__.py
+│   ├── models.py
+│   └── store.py
+├── pipeline.py
+├── processing
+│   ├── catalog_stage.py
+│   ├── chunk_stage.py
+│   ├── concept_stage.py
+│   ├── discover.py
+│   ├── extract_stage.py
+│   ├── extract_text_stage.py
+│   ├── __init__.py
+│   ├── inspect_stage.py
+│   ├── processor.py
+│   ├── __pycache__
+│   │   ├── catalog_stage.cpython-310.pyc
+│   │   ├── catalog_stage.cpython-312.pyc
+│   │   ├── chunk_stage.cpython-310.pyc
+│   │   ├── chunk_stage.cpython-312.pyc
+│   │   ├── concept_stage.cpython-310.pyc
+│   │   ├── concept_stage.cpython-312.pyc
+│   │   ├── discover.cpython-310.pyc
+│   │   ├── discover.cpython-312.pyc
+│   │   ├── extract_stage.cpython-310.pyc
+│   │   ├── extract_stage.cpython-312.pyc
+│   │   ├── extract_text_stage.cpython-310.pyc
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   ├── inspect_stage.cpython-310.pyc
+│   │   ├── inspect_stage.cpython-312.pyc
+│   │   ├── processor.cpython-310.pyc
+│   │   ├── processor.cpython-312.pyc
+│   │   ├── retrieve_stage.cpython-310.pyc
+│   │   ├── retrieve_stage.cpython-312.pyc
+│   │   ├── structure_stage.cpython-310.pyc
+│   │   └── structure_stage.cpython-312.pyc
+│   ├── retrieve_stage.py
+│   └── structure_stage.py
+├── providers
+│   ├── base.py
+│   ├── faa.py
+│   ├── __init__.py
+│   ├── local.py
+│   ├── nasa.py
+│   ├── noaa.py
+│   ├── provider.py
+│   ├── __pycache__
+│   │   ├── base.cpython-310.pyc
+│   │   ├── faa.cpython-310.pyc
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.py
+│   │   ├── local.cpython-310.pyc
+│   │   ├── nasa.cpython-310.pyc
+│   │   ├── noaa.cpython-310.pyc
+│   │   ├── provider.cpython-310.pyc
+│   │   ├── registry.cpython-310.pyc
+│   │   ├── us_army.cpython-310.pyc
+│   │   └── who.cpython-310.pyc
+│   ├── registry.py
+│   ├── us_army.py
+│   └── who.py
+├── __pycache__
+│   ├── catalog.cpython-310.pyc
+│   ├── catalog.cpython-312.pyc
+│   ├── cli.cpython-310.pyc
+│   ├── cli.cpython-312.pyc
+│   ├── constants.cpython-310.pyc
+│   ├── constants.cpython-312.pyc
+│   ├── document.cpython-310.pyc
+│   ├── document.cpython-312.pyc
+│   ├── __init__.cpython-310.pyc
+│   ├── __init__.cpython-312.pyc
+│   ├── __init__.py
+│   ├── pipeline.cpython-310.pyc
+│   ├── pipeline.cpython-312.pyc
+│   ├── readers.cpython-310.pyc
+│   ├── types.cpython-310.pyc
+│   └── types.cpython-312.pyc
+├── queue
+│   ├── builder.py
+│   ├── __init__.py
+│   ├── models.py
+│   └── priorities.py
+├── readers.py
+├── reports
+│   ├── duplicates.py
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── duplicates.cpython-310.pyc
+│       ├── duplicates.cpython-312.pyc
+│       ├── __init__.cpython-310.pyc
+│       ├── __init__.cpython-312.pyc
+│       └── __init__.py
+├── retrieval
+│   └── __init__.py
+├── search
+│   ├── __init__.py
+│   ├── local_search.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   ├── local_search.cpython-310.pyc
+│   │   ├── retrieval.cpython-310.pyc
+│   │   └── retrieval.cpython-312.pyc
+│   └── retrieval.py
+├── storage
+│   ├── catalog_store.py
+│   ├── chunk_store.py
+│   ├── concept_store.py
+│   ├── database.py
+│   ├── __init__.py
+│   ├── inspection_store.py
+│   ├── page_store.py
+│   ├── __pycache__
+│   │   ├── catalog_store.cpython-310.pyc
+│   │   ├── catalog_store.cpython-312.pyc
+│   │   ├── chunk_store.cpython-310.pyc
+│   │   ├── chunk_store.cpython-312.pyc
+│   │   ├── concept_store.cpython-310.pyc
+│   │   ├── concept_store.cpython-312.pyc
+│   │   ├── database.cpython-310.pyc
+│   │   ├── database.cpython-312.pyc
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   ├── inspection_store.cpython-310.pyc
+│   │   ├── inspection_store.cpython-312.pyc
+│   │   ├── page_store.cpython-310.pyc
+│   │   ├── structure_store.cpython-310.pyc
+│   │   ├── structure_store.cpython-312.pyc
+│   │   ├── text_store.cpython-310.pyc
+│   │   └── text_store.cpython-312.pyc
+│   ├── structure_store.py
+│   └── text_store.py
+├── structure
+│   ├── base.py
+│   ├── __init__.py
+│   ├── pdf.py
+│   ├── __pycache__
+│   │   ├── base.cpython-310.pyc
+│   │   ├── base.cpython-312.pyc
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── __init__.py
+│   │   ├── pdf.cpython-310.pyc
+│   │   ├── pdf.cpython-312.pyc
+│   │   ├── registry.cpython-310.pyc
+│   │   └── registry.cpython-312.pyc
+│   └── registry.py
+├── tests
+│   └── __init__.py
+└── types.py
+
+41 directories, 247 files

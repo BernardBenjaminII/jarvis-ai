@@ -3,3 +3,10 @@
 sentence-transformers
 torch
 numpy
+
+# Knowledge ingestion dependencies
+beautifulsoup4
+EbookLib
+faiss-cpu
+pillow
+pypdf

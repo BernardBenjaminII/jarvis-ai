@@ -4,9 +4,11 @@ from pathlib import Path
 
 from knowledge_engine.workflows.core.context import KnowledgeContext
 from knowledge_engine.workflows.core.runner import WorkflowRunner
+
+from knowledge_engine.workflows.stages.receiving import ReceivingStage
+from knowledge_engine.workflows.stages.extraction import ExtractionStage
+
 from knowledge_engine.workflows.core.simple_stages import (
-    ReceiveTextStage,
-    ExtractTextStage,
     ChunkTextStage,
     MockEmbeddingStage,
     MockRegistryStage,
@@ -18,8 +20,8 @@ def build_fixture_ingest_workflow() -> WorkflowRunner:
     return WorkflowRunner(
         name="Fixture Knowledge Ingest Workflow",
         stages=[
-            ReceiveTextStage(),
-            ExtractTextStage(),
+            ReceivingStage(),
+            ExtractionStage(),
             ChunkTextStage(),
             MockEmbeddingStage(),
             MockRegistryStage(),

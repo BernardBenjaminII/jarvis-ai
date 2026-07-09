@@ -1,13 +1,197 @@
 {
   "summary": {
     "total_subjects": 66,
-    "average_score": 0.9090909090909091,
-    "missing": 65,
-    "weak": 0,
-    "developing": 1,
-    "strong": 0
+    "average_score": 22.424242424242426,
+    "missing": 43,
+    "weak": 4,
+    "developing": 13,
+    "strong": 6
   },
   "subjects": [
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "statistics",
+      "file_count": 3271,
+      "status": "strong",
+      "score": 100
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "software",
+      "subject": "data_structures",
+      "file_count": 87,
+      "status": "strong",
+      "score": 100
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "systems",
+      "subject": "networking",
+      "file_count": 68,
+      "status": "strong",
+      "score": 100
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "calculus",
+      "subject": "differential_calculus",
+      "file_count": 41,
+      "status": "strong",
+      "score": 100
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "artificial_intelligence",
+      "subject": "machine_learning",
+      "file_count": 21,
+      "status": "strong",
+      "score": 100
+    },
+    {
+      "domain": "medicine",
+      "discipline": "emergency_medicine",
+      "subject": "trauma",
+      "file_count": 11,
+      "status": "strong",
+      "score": 100
+    },
+    {
+      "domain": "medicine",
+      "discipline": "public_health",
+      "subject": "epidemiology",
+      "file_count": 9,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "applied_mathematics",
+      "subject": "probability",
+      "file_count": 7,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "medicine",
+      "discipline": "public_health",
+      "subject": "sanitation",
+      "file_count": 7,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "software",
+      "subject": "algorithms",
+      "file_count": 6,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "engineering",
+      "discipline": "mechanical",
+      "subject": "fluid_mechanics",
+      "file_count": 6,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "cybersecurity",
+      "subject": "offensive_security",
+      "file_count": 5,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "systems",
+      "subject": "operating_systems",
+      "file_count": 5,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "engineering",
+      "discipline": "electrical",
+      "subject": "circuits",
+      "file_count": 5,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "engineering",
+      "discipline": "electrical",
+      "subject": "electronics",
+      "file_count": 4,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "medicine",
+      "discipline": "public_health",
+      "subject": "water_safety",
+      "file_count": 4,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "engineering",
+      "discipline": "aerospace",
+      "subject": "aerodynamics",
+      "file_count": 3,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "engineering",
+      "discipline": "mechanical",
+      "subject": "machine_design",
+      "file_count": 3,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "calculus",
+      "subject": "integral_calculus",
+      "file_count": 3,
+      "status": "developing",
+      "score": 60
+    },
+    {
+      "domain": "medicine",
+      "discipline": "public_health",
+      "subject": "infectious_disease",
+      "file_count": 2,
+      "status": "weak",
+      "score": 25
+    },
+    {
+      "domain": "medicine",
+      "discipline": "surgery",
+      "subject": "trauma_surgery",
+      "file_count": 2,
+      "status": "weak",
+      "score": 25
+    },
+    {
+      "domain": "computer_science",
+      "discipline": "software",
+      "subject": "programming",
+      "file_count": 1,
+      "status": "weak",
+      "score": 25
+    },
+    {
+      "domain": "mathematics",
+      "discipline": "algebra",
+      "subject": "linear_algebra",
+      "file_count": 1,
+      "status": "weak",
+      "score": 25
+    },
     {
       "domain": "computer_science",
       "discipline": "artificial_intelligence",
@@ -20,14 +204,6 @@
       "domain": "computer_science",
       "discipline": "artificial_intelligence",
       "subject": "deep_learning",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "computer_science",
-      "discipline": "artificial_intelligence",
-      "subject": "machine_learning",
       "file_count": 0,
       "status": "missing",
       "score": 0
@@ -83,14 +259,6 @@
     {
       "domain": "computer_science",
       "discipline": "cybersecurity",
-      "subject": "offensive_security",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "computer_science",
-      "discipline": "cybersecurity",
       "subject": "reverse_engineering",
       "file_count": 0,
       "status": "missing",
@@ -99,31 +267,7 @@
     {
       "domain": "computer_science",
       "discipline": "software",
-      "subject": "algorithms",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "computer_science",
-      "discipline": "software",
       "subject": "compilers",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "computer_science",
-      "discipline": "software",
-      "subject": "data_structures",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "computer_science",
-      "discipline": "software",
-      "subject": "programming",
       "file_count": 0,
       "status": "missing",
       "score": 0
@@ -140,30 +284,6 @@
       "domain": "computer_science",
       "discipline": "systems",
       "subject": "distributed_systems",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "computer_science",
-      "discipline": "systems",
-      "subject": "networking",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "computer_science",
-      "discipline": "systems",
-      "subject": "operating_systems",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "engineering",
-      "discipline": "aerospace",
-      "subject": "aerodynamics",
       "file_count": 0,
       "status": "missing",
       "score": 0
@@ -188,14 +308,6 @@
       "domain": "engineering",
       "discipline": "aerospace",
       "subject": "structures",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "engineering",
-      "discipline": "electrical",
-      "subject": "circuits",
       "file_count": 0,
       "status": "missing",
       "score": 0
@@ -251,23 +363,7 @@
     {
       "domain": "engineering",
       "discipline": "mechanical",
-      "subject": "fluid_mechanics",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "engineering",
-      "discipline": "mechanical",
       "subject": "heat_transfer",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "engineering",
-      "discipline": "mechanical",
-      "subject": "machine_design",
       "file_count": 0,
       "status": "missing",
       "score": 0
@@ -300,14 +396,6 @@
       "domain": "mathematics",
       "discipline": "algebra",
       "subject": "group_theory",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "mathematics",
-      "discipline": "algebra",
-      "subject": "linear_algebra",
       "file_count": 0,
       "status": "missing",
       "score": 0
@@ -355,39 +443,7 @@
     {
       "domain": "mathematics",
       "discipline": "applied_mathematics",
-      "subject": "probability",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "mathematics",
-      "discipline": "applied_mathematics",
-      "subject": "statistics",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "mathematics",
-      "discipline": "applied_mathematics",
       "subject": "topology",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "mathematics",
-      "discipline": "calculus",
-      "subject": "differential_calculus",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "mathematics",
-      "discipline": "calculus",
-      "subject": "integral_calculus",
       "file_count": 0,
       "status": "missing",
       "score": 0
@@ -451,47 +507,7 @@
     {
       "domain": "medicine",
       "discipline": "emergency_medicine",
-      "subject": "trauma",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "medicine",
-      "discipline": "emergency_medicine",
       "subject": "triage",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "medicine",
-      "discipline": "public_health",
-      "subject": "epidemiology",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "medicine",
-      "discipline": "public_health",
-      "subject": "infectious_disease",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "medicine",
-      "discipline": "public_health",
-      "subject": "sanitation",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "medicine",
-      "discipline": "public_health",
-      "subject": "water_safety",
       "file_count": 0,
       "status": "missing",
       "score": 0
@@ -515,26 +531,10 @@
     {
       "domain": "medicine",
       "discipline": "surgery",
-      "subject": "trauma_surgery",
-      "file_count": 0,
-      "status": "missing",
-      "score": 0
-    },
-    {
-      "domain": "medicine",
-      "discipline": "surgery",
       "subject": "vascular_surgery",
       "file_count": 0,
       "status": "missing",
       "score": 0
-    },
-    {
-      "domain": "engineering",
-      "discipline": "electrical",
-      "subject": "electronics",
-      "file_count": 3,
-      "status": "developing",
-      "score": 60
     }
   ]
 }

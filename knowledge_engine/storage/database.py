@@ -15,6 +15,7 @@ class KnowledgeDatabase:
 
     def initialize(self) -> None:
         with self.connect() as conn:
+            self._repair_schema(conn)
             conn.executescript(
                 """
                 CREATE TABLE IF NOT EXISTS documents (
@@ -213,6 +214,46 @@ class KnowledgeDatabase:
 		ON documents(filename);
                 """
             )
+
+    def _column_exists(self, conn: sqlite3.Connection, table: str, column: str) -> bool:
+        rows = conn.execute(f"PRAGMA table_info({table})").fetchall()
+        return any(row["name"] == column for row in rows)
+
+    def _table_exists(self, conn: sqlite3.Connection, table: str) -> bool:
+        row = conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+            (table,),
+        ).fetchone()
+        return row is not None
+
+    def _repair_schema(self, conn: sqlite3.Connection) -> None:
+        """
+        Non-destructive compatibility repairs for older runtime databases.
+
+        This keeps existing data intact while adding columns/index prerequisites
+        expected by newer Knowledge Engine code.
+        """
+
+        if self._table_exists(conn, "documents"):
+            additions = [
+                ("sha256", "TEXT DEFAULT ''"),
+                ("relative_path", "TEXT DEFAULT ''"),
+                ("filename", "TEXT DEFAULT ''"),
+                ("extension", "TEXT DEFAULT ''"),
+                ("size_bytes", "INTEGER DEFAULT 0"),
+                ("modified_time", "REAL DEFAULT 0"),
+                ("status", "TEXT DEFAULT 'known'"),
+                ("category", "TEXT"),
+                ("first_seen", "TEXT DEFAULT CURRENT_TIMESTAMP"),
+                ("last_seen", "TEXT DEFAULT CURRENT_TIMESTAMP"),
+            ]
+
+            for column, ddl in additions:
+                if not self._column_exists(conn, "documents", column):
+                    conn.execute(f"ALTER TABLE documents ADD COLUMN {column} {ddl}")
+
+        conn.commit()
+
 def connect(db_path: str | Path) -> sqlite3.Connection:
     return KnowledgeDatabase(Path(db_path)).connect()
 

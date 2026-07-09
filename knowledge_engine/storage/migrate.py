@@ -1,12 +1,16 @@
 from __future__ import annotations
 
+import argparse
 import importlib
 import pkgutil
 
 from knowledge_engine.storage.database import KnowledgeDatabase
 
 
-def ensure_migration_table(conn):
+MIGRATION_PACKAGE = "knowledge_engine.storage.migrations"
+
+
+def ensure_schema_table(conn):
     conn.execute(
         """
         CREATE TABLE IF NOT EXISTS schema_migrations(
@@ -17,7 +21,7 @@ def ensure_migration_table(conn):
     )
 
 
-def applied_versions(conn):
+def applied(conn):
     return {
         row[0]
         for row in conn.execute(
@@ -26,54 +30,102 @@ def applied_versions(conn):
     }
 
 
-def discover_migrations():
-    import knowledge_engine.storage.migrations as migrations
+def discover():
+    package = importlib.import_module(MIGRATION_PACKAGE)
 
-    modules = []
+    migrations = []
 
-    for info in pkgutil.iter_modules(migrations.__path__):
-        if info.name[0].isdigit():
-            modules.append(info.name)
+    for module in pkgutil.iter_modules(package.__path__):
+        name = module.name
 
-    return sorted(modules)
+        if name[:4].isdigit():
+            migrations.append(name)
+
+    return sorted(migrations)
+
+
+def already_exists(conn, migration_module):
+    """
+    Optional helper.
+
+    A migration may define:
+
+        TABLES = [
+            "document_text",
+            "knowledge_registry",
+            ...
+        ]
+
+    If every listed table already exists,
+    the migration is recorded as applied
+    without running it.
+    """
+
+    if not hasattr(migration_module, "TABLES"):
+        return False
+
+    existing = {
+        row[0]
+        for row in conn.execute(
+            """
+            SELECT name
+            FROM sqlite_master
+            WHERE type='table'
+            """
+        )
+    }
+
+    return all(
+        table in existing
+        for table in migration_module.TABLES
+    )
 
 
 def migrate(db_path):
+
     db = KnowledgeDatabase(db_path)
 
     with db.connect() as conn:
 
-        ensure_migration_table(conn)
+        ensure_schema_table(conn)
 
-        applied = applied_versions(conn)
+        complete = applied(conn)
 
-        for module_name in discover_migrations():
+        for version in discover():
 
-            if module_name in applied:
+            if version in complete:
                 continue
 
             module = importlib.import_module(
-                f"knowledge_engine.storage.migrations.{module_name}"
+                f"{MIGRATION_PACKAGE}.{version}"
             )
 
-            print(f"Applying {module_name}")
+            if already_exists(conn, module):
 
-            module.up(conn)
+                print(
+                    f"Adopting existing schema for {version}"
+                )
+
+            else:
+
+                print(
+                    f"Applying {version}"
+                )
+
+                module.up(conn)
 
             conn.execute(
                 """
                 INSERT INTO schema_migrations(version)
                 VALUES(?)
                 """,
-                (module_name,),
+                (version,),
             )
 
         conn.commit()
 
 
-if __name__ == "__main__":
-
-    import argparse
+def main():
 
     parser = argparse.ArgumentParser()
 
@@ -85,3 +137,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     migrate(args.db)
+
+
+if __name__ == "__main__":
+    main()

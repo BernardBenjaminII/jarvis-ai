@@ -9,7 +9,7 @@ from pathlib import Path
 
 from core.bootstrap.services.api import launch_api
 from core.bootstrap.discovery.paths import get_paths
-from core.bootstrap.bootstrap_runner import BootstrapRunner
+from core.bootstrap.runner import BootstrapRunner
 from core.bootstrap.discovery.platform import detect_platform
 from core.src.cognition.model_registry import required_models
 from core.src.cognition.capability_registry import detect_capabilities

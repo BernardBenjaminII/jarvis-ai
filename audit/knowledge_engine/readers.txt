@@ -1,0 +1,6 @@
+knowledge_engine/inspectors/text.py:        text = path.read_text(
+knowledge_engine/inspectors/html.py:            path.read_text(errors="ignore"),
+knowledge_engine/inspectors/epub.py:        book = epub.read_epub(str(path))
+knowledge_engine/readers.py:def read_pdf_pages(path: Path) -> list[dict]:
+knowledge_engine/processing/extract_text_stage.py:from knowledge_engine.readers import read_pdf_pages
+knowledge_engine/processing/extract_text_stage.py:                pages = read_pdf_pages(path)

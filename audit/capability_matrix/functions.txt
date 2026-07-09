@@ -1,0 +1,214 @@
+core/knowledge_catalog/models.py:def utc_now() -> str:
+core/knowledge_catalog/database.py:def connect(db_path: Path = DEFAULT_CATALOG_DB) -> sqlite3.Connection:
+core/knowledge_catalog/database.py:def migrate(db_path: Path = DEFAULT_CATALOG_DB) -> None:
+core/knowledge_catalog/seed.py:def seed_catalog(repo: CatalogRepository) -> None:
+core/knowledge_catalog/service.py:def initialize_catalog(db_path: Path) -> dict[str, int]:
+core/knowledge_catalog/service.py:def register_file(
+core/knowledge_catalog/cli.py:def cmd_init(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_stats(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_topics(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_sources(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_collections_build(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_collections_list(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_semantic_backfill(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_search(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_register_file(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def cmd_register_tree(args: argparse.Namespace) -> None:
+core/knowledge_catalog/cli.py:def main() -> None:
+core/knowledge_catalog/collections.py:def utc_now() -> str:
+core/knowledge_catalog/collections.py:def humanize(text: str) -> str:
+core/knowledge_catalog/collections.py:def classify_folder(path: Path, root: Path) -> tuple[str, str | None, str | None, str]:
+core/knowledge_catalog/collections.py:def count_assets(path: Path) -> Counter:
+core/knowledge_catalog/collections.py:def discover_collections(root: Path = DEFAULT_KNOWLEDGE_ROOT) -> list[CollectionCandidate]:
+core/knowledge_catalog/collections.py:def upsert_collections(db_path: Path = DEFAULT_CATALOG_DB, root: Path = DEFAULT_KNOWLEDGE_ROOT) -> int:
+core/knowledge_catalog/collections.py:def print_collections(db_path: Path = DEFAULT_CATALOG_DB) -> None:
+core/knowledge_catalog/classifiers/keyword_classifier.py:def load_keyword_rules() -> dict:
+core/knowledge_catalog/classifiers/keyword_classifier.py:def classify_text(text: str) -> dict:
+core/knowledge_catalog/classifiers/subject_assignment.py:def assign_subject(path: Path) -> dict:
+core/knowledge_catalog/backfill.py:def main() -> None:
+core/knowledge_catalog/search.py:def search_catalog(query: str, db_path: Path = DEFAULT_CATALOG_DB, limit: int = 25) -> list[sqlite3.Row]:
+core/knowledge_catalog/digest.py:def sha256_file(path: Path) -> str:
+core/knowledge_catalog/digest.py:def load_keyword_rules() -> dict:
+core/knowledge_catalog/digest.py:def normalize_text(path: Path) -> str:
+core/knowledge_catalog/digest.py:def digest_path(path: Path) -> dict:
+core/knowledge_catalog/registrar.py:def utc_now() -> str:
+core/knowledge_catalog/registrar.py:def infer_collection_id(file_path: Path) -> str | None:
+core/knowledge_catalog/registrar.py:def register_file(path: Path, db_path: Path = DEFAULT_CATALOG_DB) -> dict:
+core/knowledge_catalog/registrar.py:def register_tree(root: Path, db_path: Path = DEFAULT_CATALOG_DB) -> dict:
+core/knowledge_graph/ontology.py:def _load_yaml(name: str):
+core/knowledge_graph/ontology.py:def load_ontology() -> KnowledgeOntology:
+core/knowledge_graph/cli.py:def cmd_summary() -> None:
+core/knowledge_graph/cli.py:def cmd_gaps() -> None:
+core/knowledge_graph/cli.py:def main() -> None:
+core/knowledge_graph/gap_analysis.py:def status_from_count(count: int) -> tuple[str, int]:
+core/knowledge_graph/gap_analysis.py:def iter_subjects() -> list[tuple[str, str, str]]:
+core/knowledge_graph/gap_analysis.py:def load_subject_counts() -> dict[str, int]:
+core/knowledge_graph/gap_analysis.py:def analyze_gaps() -> list[SubjectCoverage]:
+core/knowledge_graph/gap_analysis.py:def summarize(rows: list[SubjectCoverage]) -> dict:
+core/knowledge_graph/gap_analysis.py:def write_reports(
+core/knowledge_mapper/rules.py:def load_rules():
+core/knowledge_mapper/mapper.py:def map_path(path: str):
+core/knowledge_mapper/indexer.py:def build_subject_index(root: Path):
+core/knowledge_mapper/report.py:def print_summary(root: Path):
+core/semantic_digest/readers.py:def read_text_file(path: Path) -> str:
+core/semantic_digest/readers.py:def read_pdf(path: Path) -> str:
+core/semantic_digest/readers.py:def read_document(path: Path) -> str:
+core/semantic_digest/analyzer.py:def load_rules() -> dict:
+core/semantic_digest/analyzer.py:def normalize(text: str) -> str:
+core/semantic_digest/analyzer.py:def analyze_semantics(path: Path, content: str) -> dict:
+core/semantic_digest/pipeline.py:def process_document(path: Path) -> dict:
+core/semantic_digest/inspector.py:def inspect_document(path: Path) -> DocumentInspection:
+core/semantic_digest/cli.py:def cmd_inspect(path: str) -> None:
+core/semantic_digest/cli.py:def cmd_digest(path: str) -> None:
+core/semantic_digest/cli.py:def main() -> None:
+core/semantic_digest/structural.py:def clean_line(line: str) -> str:
+core/semantic_digest/structural.py:def extract_headings(text: str, limit: int = 80) -> list[str]:
+core/semantic_digest/structural.py:def extract_terms(text: str, limit: int = 80) -> list[str]:
+core/semantic_digest/structural.py:def extract_structure(path: Path, text: str) -> dict:
+core/src/agents/recon_agent.py:def handle_recon(question):
+core/src/brain.py:def route_question(question: str):
+core/src/cognition/capability_registry.py:def detect_capabilities():
+core/src/cognition/context_builder.py:def build_context():
+core/src/cognition/intent_classifier.py:def _score_keywords(text: str, keywords: List[str]) -> tuple[int, List[str]]:
+core/src/cognition/intent_classifier.py:def classify_task_type(text: str) -> str:
+core/src/cognition/intent_classifier.py:def classify_intent(user_input: str) -> dict:
+core/src/cognition/intent_classifier.py:def classify(user_input: str) -> dict:
+core/src/cognition/model_registry.py:def required_models():
+core/src/cognition/model_selector.py:def select_model(context, intent):
+core/src/cognition/prompt_builder.py:def build_prompt(context, question, intent="assistant"):
+core/src/cognition/response_planner.py:def build_response_plan(
+core/src/discovery/runtime_context.py:def get_runtime_paths() -> RuntimePaths:
+core/src/identity/loader.py:def load_mode(mode_name: str):
+core/src/routes/api.py:def ask(q: Query):
+core/src/services/gmail/auth.py:def gmail_authenticate():
+core/src/services/gmail/classifier.py:def classify_email(sender: str, subject: str) -> dict:
+core/src/services/gmail/reader.py:def get_recent_emails(max_results=10):
+core/src/services/model_router.py:def choose_model(intent: str) -> str:
+core/src/services/recon/network_scan_service.py:def scan_local_network():
+core/src/services/recon/subfinder_service.py:def run_subfinder(domain):
+core/src/services/llm_service.py:def is_ollama_available():
+core/src/services/llm_service.py:def query_local(prompt: str):
+core/src/services/llm_service.py:def query_cloud(prompt: str):
+core/src/services/llm_service.py:def query_llm(
+core/src/services/macos/system.py:def is_macos() -> bool:
+core/src/services/macos/system.py:def run_cmd(cmd: list[str], input_text: str | None = None) -> str:
+core/src/services/macos/system.py:def macos_system_profile() -> str:
+core/src/services/macos/system.py:def macos_system_status() -> str:
+core/src/services/macos/system.py:def macos_battery_status() -> str:
+core/src/services/macos/system.py:def macos_wifi_status() -> str:
+core/src/services/macos/system.py:def macos_wifi_summary() -> str:
+core/src/services/macos/system.py:def macos_open_app(app_name: str) -> str:
+core/src/services/macos/system.py:def macos_open_path(path: str) -> str:
+core/src/services/macos/system.py:def macos_say(text: str) -> str:
+core/src/services/macos/system.py:def macos_say_voice(
+core/src/services/macos/system.py:def macos_clipboard_read() -> str:
+core/src/services/macos/system.py:def macos_clipboard_write(text: str) -> str:
+core/src/services/macos/system.py:def macos_notify(
+core/src/services/macos/system.py:def macos_screenshot(
+core/src/services/macos/system.py:def macos_find(query: str) -> str:
+core/src/services/tools.py:def get_cpu_info():
+core/src/services/tools.py:def get_time():
+core/src/services/tools.py:def get_date():
+core/src/services/tools.py:def get_identity():
+core/src/services/tools.py:def get_system_status():
+core/src/services/tools.py:def get_ip():
+core/src/services/tools.py:def list_processes():
+core/src/services/tools.py:def kill_process(name):
+core/src/services/tools.py:def scan_network():
+core/src/services/tools.py:def ping(host):
+core/src/services/tools.py:def get_network_status():
+core/src/services/tools.py:def find_file(name, path="."):
+core/src/services/tools.py:def read_file(path):
+core/src/services/tools.py:def run_safe_command(command):
+core/src/services/tools.py:def get_processor_info():
+core/src/services/tools.py:def get_cpu_usage():
+core/src/services/tools.py:def get_memory_info():
+core/src/services/tools.py:def get_disk_info():
+core/src/services/tools.py:def run_tool(command: str) -> str:
+core/src/tools/macos_tools.py:def run_macos_tool(command: str, argument: str = "") -> str:
+core/src/runtime/runtime_context.py:def get_runtime_context() -> RuntimeContext:
+core/src/runtime/runtime_context.py:def context() -> RuntimeContext:
+core/src/runtime/tool_registry.py:def registry():
+core/src/utils/capabilities.py:def detect_capabilities():
+core/src/utils/environment.py:def detect_environment():
+core/src/utils/network.py:def is_online():
+core/src/utils/system_info.py:def get_system_info():
+core/src/llm_client.py:def ask_llm(prompt: str, model: str = "mistral") -> str:
+core/src/main.py:def root():
+core/src/main.py:def health():
+core/src/main.py:def ui():
+core/src/memory.py:def save_interaction(question: str, response: str):
+core/src/memory.py:def get_recent_context(limit: int = 3):
+core/gmail_archive_candidates.py:def main():
+core/gmail_cleanup_report.py:def main():
+knowledge_engine/cli.py:def section(title: str) -> None:
+knowledge_engine/cli.py:def main() -> None:
+knowledge_engine/discovery/scanner.py:def discover_files(root: Path) -> Iterable[Path]:
+knowledge_engine/metadata/fingerprints.py:def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
+knowledge_engine/readers.py:def read_pdf_pages(path: Path) -> list[dict]:
+knowledge_engine/reports/duplicates.py:def write_duplicates_csv(duplicates, output: Path):
+knowledge_engine/reports/duplicates.py:def write_duplicates_markdown(duplicates, output: Path):
+knowledge_engine/pipeline.py:def run_inventory(knowledge_root: Path, catalog_path: Path) -> dict:
+knowledge_engine/processing/catalog_stage.py:def category_from_path(root: Path, path: Path) -> str | None:
+knowledge_engine/processing/catalog_stage.py:def build_record(root: Path, path: Path) -> DocumentRecord:
+dev/librarian/librarian.py:def register(path: str | Path) -> dict:
+dev/librarian/pdf_hunter.py:def sha256_file(path: Path) -> str:
+dev/librarian/pdf_hunter.py:def fetch(url: str, timeout: int = 20) -> tuple[bytes, str]:
+dev/librarian/pdf_hunter.py:def safe_filename(url: str) -> str:
+dev/librarian/pdf_hunter.py:def same_domain(url: str, root: str) -> bool:
+dev/librarian/pdf_hunter.py:def robots_allowed(url: str, cache: dict[str, RobotFileParser]) -> bool:
+dev/librarian/pdf_hunter.py:def crawl(seed: str, out_dir: Path, max_pages: int, max_pdfs: int, delay: float, stay_domain: bool):
+dev/librarian/pdf_hunter.py:def main():
+dev/librarian/mit_targeted_miner.py:def fetch(url: str, timeout=45) -> tuple[bytes, str]:
+dev/librarian/mit_targeted_miner.py:def text_from_html(raw: bytes) -> str:
+dev/librarian/mit_targeted_miner.py:def sha256_file(p: Path) -> str:
+dev/librarian/mit_targeted_miner.py:def safe_name(url: str, fallback="download") -> str:
+dev/librarian/mit_targeted_miner.py:def write_manifest(path: Path, row: list[str]) -> None:
+dev/librarian/mit_targeted_miner.py:def download(url: str, out: Path, kind: str, manifest: Path, require_magic: bytes | None = None) -> bool:
+dev/librarian/mit_targeted_miner.py:def mine_ocw_course_zip(course_url: str, out_root: Path, manifest: Path) -> None:
+dev/librarian/mit_targeted_miner.py:def mine_mit_press_books(out_root: Path, manifest: Path, max_books: int) -> None:
+dev/librarian/mit_targeted_miner.py:def main():
+dev/librarian/mit_miner.py:def sha256(path):
+dev/librarian/mit_miner.py:def search(query):
+dev/librarian/mit_miner.py:def mine_course(course):
+dev/librarian/mit_miner.py:def download(pdf):
+dev/librarian/mit_miner.py:def main():
+dev/librarian/acquisition/normalize.py:def extract_zip(zip_path: Path, extract_root: Path) -> Path:
+dev/librarian/acquisition/normalize.py:def classify_kind(path: Path) -> str:
+dev/librarian/acquisition/normalize.py:def copy_useful_assets(
+dev/librarian/acquisition/filter.py:def should_keep(path: Path) -> bool:
+dev/librarian/acquisition/metadata.py:def load_json(path: Path):
+dev/librarian/acquisition/metadata.py:def extract_course_metadata(extracted_root: Path) -> dict:
+dev/librarian/acquisition/metadata.py:def write_metadata(out_path: Path, metadata: dict) -> None:
+dev/librarian/acquisition/archive.py:def archive(original: Path, archive_root: Path):
+dev/librarian/acquisition/pipeline.py:def process(download):
+dev/librarian/acquisition/manifest.py:def sha256_file(path: Path) -> str:
+dev/librarian/acquisition/manifest.py:def append_manifest(manifest_path: Path, row: dict[str, str]) -> None:
+dev/librarian/acquire_pipeline.py:def process_zip(zip_path: Path, work_root: Path, normalized_root: Path, manifest_path: Path) -> None:
+dev/librarian/acquire_pipeline.py:def main() -> None:
+dev/librarian/cko/database.py:def connect(db_path: Path = DEFAULT_CKO_DB) -> sqlite3.Connection:
+dev/librarian/cko/database.py:def migrate(db_path: Path = DEFAULT_CKO_DB) -> None:
+dev/librarian/cko/mit_cko_builder.py:def utc_now() -> str:
+dev/librarian/cko/mit_cko_builder.py:def sha256_file(path: Path) -> str:
+dev/librarian/cko/mit_cko_builder.py:def safe_name(text: str) -> str:
+dev/librarian/cko/mit_cko_builder.py:def load_json(path: Path) -> dict:
+dev/librarian/cko/mit_cko_builder.py:def guess_type(title: str, slug: str) -> str:
+dev/librarian/cko/mit_cko_builder.py:def find_course_root(course_dir: Path) -> Path | None:
+dev/librarian/cko/mit_cko_builder.py:def extract_title(data: dict, fallback: str) -> str:
+dev/librarian/cko/mit_cko_builder.py:def collect_static_pdfs(course_root: Path) -> dict[str, Path]:
+dev/librarian/cko/mit_cko_builder.py:def find_pdf_for_resource(resource_dir: Path, static_pdfs: dict[str, Path]) -> Path | None:
+dev/librarian/cko/mit_cko_builder.py:def add_cko(
+dev/librarian/cko/mit_cko_builder.py:def add_representation(
+dev/librarian/cko/mit_cko_builder.py:def materialize_representation(src: Path, dest_dir: Path, rep_type: str, clean_title: str) -> Path:
+dev/librarian/cko/mit_cko_builder.py:def build_course(course_dir: Path, cko_root: Path, db_path: Path) -> None:
+dev/librarian/cko/mit_cko_builder.py:def main() -> None:
+dev/librarian/discovery/models.py:def utc_now() -> str:
+dev/librarian/discovery/engine.py:def normalize_topic(topic: str) -> str:
+dev/librarian/discovery/engine.py:def human_topic(topic: str) -> str:
+dev/librarian/discovery/engine.py:def slugify(text: str) -> str:
+dev/librarian/discovery/engine.py:def load_sources(path: Path = DEFAULT_SOURCE_REGISTRY) -> list[TrustedSource]:
+dev/librarian/discovery/engine.py:def source_matches_topic(source: TrustedSource, topic: str) -> bool:
+dev/librarian/discovery/engine.py:def score_candidate(source: TrustedSource, topic: str) -> int:
+dev/librarian/discovery/engine.py:def discover(topic: str, max_candidates: int = 50) -> list[DiscoveryCandidate]:
+dev/librarian/discovery/engine.py:def write_discovery_plan(topic: str, candidates: list[DiscoveryCandidate], out_root: Path = DEFAULT_DISCOVERY_ROOT) -> Path:
+dev/librarian/discover.py:def main() -> None:

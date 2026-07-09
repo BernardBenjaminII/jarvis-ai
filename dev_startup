@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+cd /media/abdullah/JARVISDATA/Projects/jarvis-ai || exit 1
+
+source /media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu/bin/activate
+
+echo
+echo "=========================================="
+echo "JARVIS Development Environment Ready"
+echo "Project : $(pwd)"
+echo "Python  : $(which python)"
+echo "Venv    : $VIRTUAL_ENV"
+echo "=========================================="
+echo

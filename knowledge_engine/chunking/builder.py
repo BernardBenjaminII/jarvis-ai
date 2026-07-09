@@ -6,13 +6,14 @@ from datetime import datetime, timezone
 
 from knowledge_engine.chunking.models import DocumentChunk
 from knowledge_engine.chunking.store import DocumentChunkStore
-from knowledge_engine.chunking.strategies import chunk_text
+from knowledge_engine.chunking.chunker import DocumentChunker
 
 
 class DocumentChunkBuilder:
     def __init__(self, db):
         self.db = db
         self.store = DocumentChunkStore(db)
+        self.chunker = DocumentChunker()
 
     def build_ready_documents(self, limit: int = 5) -> dict:
         built = 0
@@ -45,10 +46,10 @@ class DocumentChunkBuilder:
                 file_path = row["file_path"]
                 text = row["text"] or ""
 
-                raw_chunks = chunk_text(text)
+                result = self.chunker.chunk(text, file_path=file_path)
                 chunks = [
-                    self._make_chunk(file_path, i, chunk)
-                    for i, chunk in enumerate(raw_chunks)
+                    self._make_chunk(file_path, i, chunk, result.strategy)
+                    for i, chunk in enumerate(result.chunks)
                 ]
 
                 count = self.store.replace_chunks(file_path, chunks)
@@ -81,7 +82,7 @@ class DocumentChunkBuilder:
             "chunk_errors": errors,
         }
 
-    def _make_chunk(self, file_path: str, index: int, text: str) -> DocumentChunk:
+    def _make_chunk(self, file_path: str, index: int, text: str, chunk_type: str) -> DocumentChunk:
         checksum = hashlib.sha256(
             text.encode("utf-8", errors="ignore")
         ).hexdigest()
@@ -97,7 +98,7 @@ class DocumentChunkBuilder:
             chunk_uuid=chunk_uuid,
             file_path=file_path,
             chunk_index=index,
-            chunk_type="paragraph_window",
+            chunk_type=chunk_type,
             heading=None,
             text=text,
             char_count=len(text),

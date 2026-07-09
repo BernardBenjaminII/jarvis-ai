@@ -1,0 +1,76 @@
+{
+  "tables": {
+    "discovered_files": true,
+    "knowledge_objects": true,
+    "knowledge_object_files": true,
+    "knowledge_registry": true,
+    "document_text": true,
+    "document_chunks": true,
+    "chunk_embeddings": true,
+    "librarian_catalog": true,
+    "catalog_enrichment": true
+  },
+  "counts": {
+    "discovered_files": 90003,
+    "knowledge_objects": 544,
+    "knowledge_object_files": 89997,
+    "knowledge_registry": 543,
+    "document_text": 14,
+    "document_chunks": 19,
+    "chunk_embeddings": 9,
+    "librarian_catalog": 544,
+    "catalog_enrichment": 544,
+    "resource_inspections": 544,
+    "objects_without_members": 0,
+    "uncataloged_objects": 0,
+    "unenriched_catalog_entries": 0,
+    "chunks_without_object": 0,
+    "embedded_chunks": 9,
+    "embedding_rows": 9,
+    "empty_enrichment_rows": 0
+  },
+  "states": {
+    "registry": [
+      [
+        "not_queued",
+        543
+      ]
+    ],
+    "chunks": [
+      [
+        "embedded",
+        9
+      ],
+      [
+        "not_embedded",
+        9
+      ],
+      [
+        "skipped_too_small",
+        1
+      ]
+    ],
+    "resource_inspections": [
+      [
+        "inspected",
+        544
+      ]
+    ],
+    "catalog_enrichment": [
+      [
+        "enriched",
+        544
+      ]
+    ]
+  },
+  "issues": [],
+  "warnings": [],
+  "faiss": {
+    "index_path": "/media/abdullah/JARVIS_RUNTIME_L/vector_db/faiss/chunks.faiss",
+    "map_path": "/media/abdullah/JARVIS_RUNTIME_L/vector_db/faiss/chunks_map.json",
+    "index_exists": true,
+    "map_exists": true,
+    "mapped_vectors": 9
+  },
+  "health_score": 100
+}

@@ -1,0 +1,149 @@
+==============================================================================
+JARVIS DEPENDENCY MANAGER REPORT
+==============================================================================
+
+SUMMARY
+------------------------------------------------------------------------------
+Python files scanned        : 3389
+Unique imports found        : 67
+Standard-library imports    : 38
+Local JARVIS imports        : 9
+Third-party imports         : 20
+Declared requirement pkgs   : 22
+Installed packages          : 149
+
+THIRD-PARTY IMPORT STATUS
+------------------------------------------------------------------------------
+bs4                          -> beautifulsoup4                   4.15.0         installed / NOT DECLARED
+                                requirements: -
+ebooklib                     -> EbookLib                         0.20           installed / NOT DECLARED
+                                requirements: -
+faiss                        -> faiss-cpu                        1.14.3         installed / NOT DECLARED
+                                requirements: -
+fastapi                      -> fastapi                          0.138.1        installed / declared
+                                requirements: requirements/base.txt, requirements/legacy.txt
+google                       -> google                           -              NOT INSTALLED / NOT DECLARED
+                                requirements: -
+googleapiclient              -> google-api-python-client         2.198.0        installed / declared
+                                requirements: requirements/legacy.txt
+google_auth_oauthlib         -> google-auth-oauthlib             1.4.0          installed / declared
+                                requirements: requirements/legacy.txt
+numpy                        -> numpy                            2.5.0          installed / declared
+                                requirements: requirements/knowledge.txt
+openai                       -> openai                           2.44.0         installed / declared
+                                requirements: requirements/legacy.txt
+PIL                          -> Pillow                           12.2.0         installed / NOT DECLARED
+                                requirements: -
+psutil                       -> psutil                           7.2.2          installed / declared
+                                requirements: requirements/legacy.txt
+pydantic                     -> pydantic                         2.13.4         installed / declared
+                                requirements: requirements/legacy.txt
+fitz                         -> PyMuPDF                          1.27.2.3       installed / declared
+                                requirements: requirements/legacy.txt
+pypdf                        -> pypdf                            6.14.2         installed / NOT DECLARED
+                                requirements: -
+PyPDF2                       -> PyPDF2                           -              NOT INSTALLED / NOT DECLARED
+                                requirements: -
+yaml                         -> PyYAML                           6.0.3          installed / declared
+                                requirements: requirements/base.txt, requirements/legacy.txt
+requests                     -> requests                         2.34.2         installed / declared
+                                requirements: requirements/base.txt, requirements/legacy.txt
+sentence_transformers        -> sentence-transformers            5.6.0          installed / declared
+                                requirements: requirements/knowledge.txt
+src                          -> src                              -              NOT INSTALLED / NOT DECLARED
+                                requirements: -
+uvicorn                      -> uvicorn                          0.49.0         installed / declared
+                                requirements: requirements/base.txt, requirements/legacy.txt
+
+IMPORTED BUT NOT DECLARED
+------------------------------------------------------------------------------
+  beautifulsoup4
+  ebooklib
+  faiss-cpu
+  google
+  pillow
+  pypdf
+  pypdf2
+  src
+
+IMPORTED BUT NOT INSTALLED
+------------------------------------------------------------------------------
+  google
+  pypdf2
+  src
+
+DECLARED BUT NOT DIRECTLY IMPORTED
+------------------------------------------------------------------------------
+  black                        requirements/dev.txt
+  google-auth                  requirements/legacy.txt
+  httpx                        requirements/legacy.txt
+  mypy                         requirements/dev.txt
+  ollama                       requirements/legacy.txt
+  pytest                       requirements/dev.txt
+  python-dotenv                requirements/base.txt, requirements/legacy.txt
+  python-multipart             requirements/legacy.txt
+  ruff                         requirements/dev.txt
+  torch                        requirements/knowledge.txt
+
+UNRESOLVED POSSIBLE LOCAL IMPORTS
+------------------------------------------------------------------------------
+  google
+      core/src/services/gmail/auth.py
+  src
+      core/gmail_archive_candidates.py
+      core/gmail_cleanup_report.py
+      core/gmail_reader_test.py
+      core/gmail_test.py
+
+LOCAL JARVIS IMPORTS
+------------------------------------------------------------------------------
+  acquisition
+  core
+  dev
+  docx
+  filter
+  knowledge_engine
+  metadata
+  normalize
+  tools
+
+STANDARD LIBRARY IMPORTS
+------------------------------------------------------------------------------
+  __future__
+  abc
+  argparse
+  ast
+  collections
+  contextlib
+  csv
+  dataclasses
+  datetime
+  functools
+  hashlib
+  html
+  importlib
+  inspect
+  io
+  json
+  math
+  mimetypes
+  os
+  pathlib
+  pickle
+  pkgutil
+  platform
+  pprint
+  re
+  shutil
+  socket
+  sqlite3
+  subprocess
+  sys
+  tempfile
+  time
+  types
+  typing
+  urllib
+  uuid
+  xml
+  zipfile

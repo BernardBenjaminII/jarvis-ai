@@ -1,0 +1,68 @@
+JARVIS Knowledge Engine Doctor
+================================
+
+Health score: 100%
+
+Tables
+------
+PASS  discovered_files
+PASS  knowledge_objects
+PASS  knowledge_object_files
+PASS  knowledge_registry
+PASS  document_text
+PASS  document_chunks
+PASS  chunk_embeddings
+PASS  librarian_catalog
+PASS  catalog_enrichment
+
+Counts
+------
+catalog_enrichment: 544
+chunk_embeddings: 9
+chunks_without_object: 0
+discovered_files: 90003
+document_chunks: 19
+document_text: 14
+embedded_chunks: 9
+embedding_rows: 9
+empty_enrichment_rows: 0
+knowledge_object_files: 89997
+knowledge_objects: 544
+knowledge_registry: 543
+librarian_catalog: 544
+objects_without_members: 0
+resource_inspections: 544
+uncataloged_objects: 0
+unenriched_catalog_entries: 0
+
+States
+------
+[registry]
+  not_queued: 543
+
+[chunks]
+  embedded: 9
+  not_embedded: 9
+  skipped_too_small: 1
+
+[resource_inspections]
+  inspected: 544
+
+[catalog_enrichment]
+  enriched: 544
+
+FAISS
+-----
+index_path: /media/abdullah/JARVIS_RUNTIME_L/vector_db/faiss/chunks.faiss
+map_path: /media/abdullah/JARVIS_RUNTIME_L/vector_db/faiss/chunks_map.json
+index_exists: True
+map_exists: True
+mapped_vectors: 9
+
+Issues
+------
+PASS  No critical issues found
+
+Warnings
+--------
+PASS  No warnings

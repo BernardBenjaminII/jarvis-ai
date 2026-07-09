@@ -1,0 +1,41 @@
+knowledge_engine/inspectors/base.py:17:        Return metadata about a document.
+knowledge_engine/inspectors/pdf.py:16:        metadata = pdf.metadata or {}
+knowledge_engine/inspectors/pdf.py:27:            "title": metadata.get("title"),
+knowledge_engine/inspectors/pdf.py:29:            "author": metadata.get("author"),
+knowledge_engine/inspectors/pdf.py:31:            "producer": metadata.get("producer"),
+knowledge_engine/inspectors/epub.py:17:                book.get_metadata(
+knowledge_engine/inspectors/epub.py:23:                book.get_metadata(
+knowledge_engine/catalog.py:27:    metadata_json TEXT,
+knowledge_engine/catalog.py:127:        metadata_json: str | None = None,
+knowledge_engine/catalog.py:137:                    metadata_json,
+knowledge_engine/catalog.py:144:                    metadata_json = excluded.metadata_json,
+knowledge_engine/catalog.py:152:                    metadata_json,
+knowledge_engine/storage/database.py:36:                    metadata_json TEXT,
+knowledge_engine/storage/inspection_store.py:5:    def upsert(self, document_path, inspector, status, metadata_json=None, error=None):
+knowledge_engine/storage/inspection_store.py:10:                    document_path, inspector, status, metadata_json, error
+knowledge_engine/storage/inspection_store.py:16:                    metadata_json = excluded.metadata_json,
+knowledge_engine/storage/inspection_store.py:20:                (document_path, inspector, status, metadata_json, error),
+knowledge_engine/processing/catalog_stage.py:5:from knowledge_engine.metadata.fingerprints import sha256_file
+knowledge_engine/processing/inspect_stage.py:24:                metadata = inspector.inspect(path)
+knowledge_engine/processing/inspect_stage.py:30:                    metadata_json=json.dumps(metadata, default=str),
+knowledge_engine/index/builder.py:26:                metadata = self._metadata(path)
+knowledge_engine/index/builder.py:34:                    title=metadata.get("title") or filename,
+knowledge_engine/index/builder.py:35:                    author=metadata.get("author"),
+knowledge_engine/index/builder.py:36:                    subject=metadata.get("subject"),
+knowledge_engine/index/builder.py:37:                    keywords=metadata.get("keywords"),
+knowledge_engine/index/builder.py:38:                    pages=metadata.get("pages"),
+knowledge_engine/index/builder.py:41:                    language=metadata.get("language"),
+knowledge_engine/index/builder.py:56:    def _metadata(self, document_path: str) -> dict:
+knowledge_engine/index/builder.py:60:                SELECT metadata_json
+knowledge_engine/library/builder.py:56:                metadata = self._metadata(path)
+knowledge_engine/library/builder.py:70:                    title=metadata.get("title") or filename,
+knowledge_engine/library/builder.py:72:                    subtitle=metadata.get("subtitle"),
+knowledge_engine/library/builder.py:74:                    author=metadata.get("author"),
+knowledge_engine/library/builder.py:76:                    publisher=metadata.get("producer"),
+knowledge_engine/library/builder.py:78:                    publication_year=metadata.get("creationDate"),
+knowledge_engine/library/builder.py:84:                    subject=metadata.get("subject"),
+knowledge_engine/library/builder.py:86:                    keywords=metadata.get("keywords"),
+knowledge_engine/library/builder.py:88:                    language=metadata.get("language"),
+knowledge_engine/library/builder.py:90:                    pages=metadata.get("pages"),
+knowledge_engine/library/builder.py:122:    def _metadata(
+knowledge_engine/library/builder.py:136:                SELECT metadata_json

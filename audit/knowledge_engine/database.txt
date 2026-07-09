@@ -1,0 +1,17 @@
+knowledge_engine/catalog.py:import sqlite3
+knowledge_engine/catalog.py:CREATE TABLE IF NOT EXISTS documents (
+knowledge_engine/catalog.py:CREATE TABLE IF NOT EXISTS inspections (
+knowledge_engine/catalog.py:CREATE TABLE IF NOT EXISTS document_structure (
+knowledge_engine/catalog.py:        return sqlite3.connect(self.db_path)
+knowledge_engine/cli.py:    "/media/abdullah/JARVISDATA/Knowledge/.jarvis/catalog.sqlite"
+knowledge_engine/storage/database.py:import sqlite3
+knowledge_engine/storage/database.py:        return sqlite3.connect(self.db_path)
+knowledge_engine/storage/database.py:                CREATE TABLE IF NOT EXISTS documents (
+knowledge_engine/storage/database.py:                CREATE TABLE IF NOT EXISTS inspections (
+knowledge_engine/storage/database.py:                CREATE TABLE IF NOT EXISTS document_structure (
+knowledge_engine/storage/database.py:                CREATE TABLE IF NOT EXISTS document_text (
+knowledge_engine/storage/database.py:                CREATE TABLE IF NOT EXISTS chunks (
+knowledge_engine/storage/database.py:                CREATE TABLE IF NOT EXISTS concepts (
+knowledge_engine/storage/database.py:		CREATE TABLE IF NOT EXISTS document_pages (
+knowledge_engine/storage/database.py:		CREATE TABLE IF NOT EXISTS library_catalog (
+knowledge_engine/storage/database.py:		CREATE TABLE IF NOT EXISTS knowledge_index (

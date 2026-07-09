@@ -1,0 +1,7 @@
+knowledge_engine/inspectors/base.py:    def extract_text(self, path: Path) -> str:
+knowledge_engine/structure/pdf.py:class PDFStructureExtractor:
+knowledge_engine/structure/registry.py:from knowledge_engine.structure.pdf import PDFStructureExtractor
+knowledge_engine/structure/registry.py:        self.register(PDFStructureExtractor())
+knowledge_engine/extraction/extractors/base.py:class BaseExtractor(ABC):
+knowledge_engine/extraction/extractors/pdf.py:from knowledge_engine.extraction.extractors.base import BaseExtractor
+knowledge_engine/extraction/extractors/pdf.py:class PDFExtractor(BaseExtractor):

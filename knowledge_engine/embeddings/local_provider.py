@@ -24,6 +24,9 @@ class LocalEmbeddingProvider:
     def __post_init__(self) -> None:
         self.model = SentenceTransformer(self.model_name)
 
+    def embed(self, text: str) -> list[float]:
+        return self.embed_text(text)
+
     def embed_text(self, text: str) -> list[float]:
         if not text or not text.strip():
             raise ValueError("Cannot embed empty text.")

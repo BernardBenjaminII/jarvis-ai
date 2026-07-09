@@ -1,0 +1,4 @@
+knowledge_engine/structure/pdf.py:10:    def extract(self, path: Path) -> list[StructureNode]:
+knowledge_engine/processing/structure_stage.py:20:                nodes = extractor.extract(path)
+knowledge_engine/extraction/extractors/base.py:13:    def extract(self, path):
+knowledge_engine/extraction/extractors/pdf.py:11:    def extract(self, path):

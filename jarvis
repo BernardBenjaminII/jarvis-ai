@@ -1,50 +1,132 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-JARVIS_PY="${JARVIS_PY:-/media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu/bin/python}"
-JARVIS_DB="${JARVIS_DB:-/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite}"
+###############################################################################
+# JARVIS Runtime
+###############################################################################
 
-cmd="${1:-}"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [[ -z "$cmd" ]]; then
-  echo "Usage:"
-  echo "  ./jarvis assimilate /path/to/library"
-  echo "  ./jarvis promote --staging-root PATH --knowledge-root PATH [--execute]"
-  echo "  ./jarvis doctor"
-  echo "  ./jarvis graph stats"
-  echo "  ./jarvis capability list"
-  exit 1
-fi
+JARVIS_RUNTIME="${JARVIS_RUNTIME:-/media/abdullah/JARVIS_RUNTIME_L}"
 
-shift || true
+JARVIS_DB="${JARVIS_DB:-$JARVIS_RUNTIME/knowledge/catalog.sqlite}"
 
-case "$cmd" in
-  assimilate)
-    if [[ $# -lt 1 || -z "${1:-}" ]]; then
-      echo "Usage: ./jarvis assimilate /path/to/library"
-      exit 1
-    fi
-    "$JARVIS_PY" -m knowledge_engine.mass_assimilation_cli "$1" --db "$JARVIS_DB" "${@:2}"
-    ;;
+JARVIS_PY="${JARVIS_PY:-$JARVIS_RUNTIME/venvs/ubuntu/bin/python}"
 
-  promote)
-    "$JARVIS_PY" -m knowledge_engine.promotion_cli --db "$JARVIS_DB" "$@"
-    ;;
+###############################################################################
+# Usage
+###############################################################################
 
-  doctor)
-    "$JARVIS_PY" -m knowledge_engine.doctor_cli --db "$JARVIS_DB" "$@"
-    ;;
+usage() {
 
-  graph)
-    "$JARVIS_PY" -m knowledge_engine.knowledge_graph_cli "$@" --db "$JARVIS_DB"
-    ;;
+cat <<EOF
 
-  capability)
-    "$JARVIS_PY" -m core.capability_runtime_cli "$@"
-    ;;
+JARVIS
 
-  *)
-    echo "Unknown command: $cmd"
+Usage
+
+    ./jarvis <command> [arguments]
+
+Commands
+
+    doctor
+    capability
+    workflow
+    graph
+    assimilate
+
+EOF
+
+}
+
+[[ $# -ge 1 ]] || {
+    usage
     exit 1
-    ;;
+}
+
+COMMAND="$1"
+shift
+
+###############################################################################
+# Dispatcher
+###############################################################################
+
+case "$COMMAND" in
+
+###############################################################################
+# Doctor
+###############################################################################
+
+doctor)
+
+    exec "$JARVIS_PY" \
+        -m knowledge_engine.doctor_cli \
+        --db "$JARVIS_DB" \
+        "$@"
+
+;;
+
+###############################################################################
+# Capability Runtime
+###############################################################################
+
+capability)
+
+    exec "$JARVIS_PY" \
+        -m core.capability_runtime_cli \
+        "$@"
+
+;;
+
+###############################################################################
+# Workflow Engine
+###############################################################################
+
+workflow)
+
+    exec "$JARVIS_PY" \
+        -m knowledge_engine.workflow_cli \
+        "$@" \
+        --db "$JARVIS_DB"
+
+;;
+
+###############################################################################
+# Knowledge Graph
+###############################################################################
+
+graph)
+
+    exec "$JARVIS_PY" \
+        -m knowledge_engine.knowledge_graph_cli \
+        "$@" \
+        --db "$JARVIS_DB"
+
+;;
+
+###############################################################################
+# Assimilation Pipeline
+###############################################################################
+
+assimilate)
+
+    exec "$JARVIS_PY" \
+        -m knowledge_engine.mass_assimilation_cli \
+        "$@" \
+        --db "$JARVIS_DB"
+
+;;
+
+###############################################################################
+
+*)
+
+    echo
+    echo "Unknown command: $COMMAND"
+    echo
+    usage
+    exit 1
+
+;;
+
 esac

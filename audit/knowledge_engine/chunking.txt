@@ -1,0 +1,7 @@
+knowledge_engine/metadata/fingerprints.py:5:def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
+knowledge_engine/metadata/fingerprints.py:9:        for chunk in iter(lambda: file.read(chunk_size), b""):
+knowledge_engine/metadata/fingerprints.py:10:            digest.update(chunk)
+knowledge_engine/storage/database.py:63:                CREATE TABLE IF NOT EXISTS chunks (
+knowledge_engine/storage/database.py:66:                    chunk_index INTEGER NOT NULL,
+knowledge_engine/storage/database.py:77:                    chunk_id INTEGER,
+knowledge_engine/storage/database.py:198:                CREATE INDEX IF NOT EXISTS idx_chunks_document ON chunks(document_path);

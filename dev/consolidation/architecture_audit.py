@@ -4,16 +4,47 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-
+# ------------------------------------------------------------------
+# Bootstrap Architecture
+#
+# Entry Points
+#     Public interfaces into the Bootstrap subsystem.
+#
+# Orchestrators
+#     High-level coordination components.
+#
+# Execution
+#     Runtime execution pipeline.
+#
+# Services
+#     Individual bootstrap service implementations.
+# ------------------------------------------------------------------
 GROUPS = {
     "bootstrap_entrypoints": [
+    "core/bootstrap/main.py",
+    "core/bootstrap/runner.py",
+    ],
+
+    "bootstrap_orchestrators": [
         "core/bootstrap/bootstrap.py",
-        "core/bootstrap/bootstrap_runner.py",
-        "core/bootstrap/runner.py",
-        "core/bootstrap/main.py",
+    ],
+
+    "bootstrap_execution": [
+        "core/bootstrap/preflight_runner.py",
+        "core/bootstrap/lifecycle_runner.py",
+    ],
+
+    "bootstrap_services": [
         "core/bootstrap/runtime.py",
         "core/bootstrap/runtime_check.py",
+        "core/bootstrap/api.py",
+        "core/bootstrap/capabilities.py",
+        "core/bootstrap/dependencies.py",
+        "core/bootstrap/models.py",
+        "core/bootstrap/ollama.py",
+        "core/bootstrap/venv.py",
     ],
+
     "workflow_layers": [
         "knowledge_engine/workflow",
         "knowledge_engine/workflows",

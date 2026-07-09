@@ -1,0 +1,10 @@
+knowledge_engine/cli.py:def section(title: str) -> None:
+knowledge_engine/cli.py:def main() -> None:
+knowledge_engine/discovery/scanner.py:def discover_files(root: Path) -> Iterable[Path]:
+knowledge_engine/metadata/fingerprints.py:def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
+knowledge_engine/readers.py:def read_pdf_pages(path: Path) -> list[dict]:
+knowledge_engine/reports/duplicates.py:def write_duplicates_csv(duplicates, output: Path):
+knowledge_engine/reports/duplicates.py:def write_duplicates_markdown(duplicates, output: Path):
+knowledge_engine/pipeline.py:def run_inventory(knowledge_root: Path, catalog_path: Path) -> dict:
+knowledge_engine/processing/catalog_stage.py:def category_from_path(root: Path, path: Path) -> str | None:
+knowledge_engine/processing/catalog_stage.py:def build_record(root: Path, path: Path) -> DocumentRecord:

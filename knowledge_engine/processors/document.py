@@ -121,7 +121,9 @@ class DocumentProcessor(BaseProcessor):
             xml = zf.read("word/document.xml")
 
         root = ET.fromstring(xml)
-        ns = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+        ns = {
+            "w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+        }
 
         for node in root.findall(".//w:t", ns):
             if node.text:
@@ -134,7 +136,8 @@ class DocumentProcessor(BaseProcessor):
 
         with zipfile.ZipFile(path) as zf:
             names = sorted(
-                name for name in zf.namelist()
+                name
+                for name in zf.namelist()
                 if name.lower().endswith((".html", ".htm", ".xhtml"))
             )
 
@@ -152,27 +155,33 @@ class DocumentProcessor(BaseProcessor):
         return "\n\n".join(texts)
 
     def _read_pdf(self, path: Path) -> str:
+        """
+        Preferred extraction path:
+            1. PDFExtractor (PyMuPDF-based)
+            2. pypdf fallback
+        """
+
         try:
             from knowledge_engine.extraction.extractors.pdf import PDFExtractor
 
             pages = PDFExtractor().extract(path)
             text = "\n\n".join(str(page) for page in pages)
+
             if text.strip():
                 return text
+
         except Exception:
             pass
 
         try:
             from pypdf import PdfReader
-        except Exception:
-            try:
-                from PyPDF2 import PdfReader
-            except Exception as exc:
-                raise RuntimeError(
-                    "No PDF extractor available. Install pypdf or fix PDFExtractor."
-                ) from exc
+        except Exception as exc:
+            raise RuntimeError(
+                "No PDF extractor available. Install pypdf or fix PDFExtractor."
+            ) from exc
 
         reader = PdfReader(str(path))
+
         pages = []
 
         for page in reader.pages:

@@ -2,62 +2,50 @@ JARVIS Gap Analysis Report
 ============================================================
 
 Subjects analyzed: 66
-Average score:     0.9
-Missing:           65
-Weak:              0
-Developing:        1
-Strong:            0
+Average score:     22.4
+Missing:           43
+Weak:              4
+Developing:        13
+Strong:            6
 
 Priority Gaps
 ------------------------------------------------------------
+WEAK       medicine/public_health/infectious_disease files=2
+WEAK       medicine/surgery/trauma_surgery files=2
+WEAK       computer_science/software/programming files=1
+WEAK       mathematics/algebra/linear_algebra files=1
 MISSING    computer_science/artificial_intelligence/computer_vision files=0
 MISSING    computer_science/artificial_intelligence/deep_learning files=0
-MISSING    computer_science/artificial_intelligence/machine_learning files=0
 MISSING    computer_science/artificial_intelligence/natural_language_processing files=0
 MISSING    computer_science/artificial_intelligence/reasoning files=0
 MISSING    computer_science/artificial_intelligence/reinforcement_learning files=0
 MISSING    computer_science/cybersecurity/cryptography files=0
 MISSING    computer_science/cybersecurity/defensive_security files=0
 MISSING    computer_science/cybersecurity/digital_forensics files=0
-MISSING    computer_science/cybersecurity/offensive_security files=0
 MISSING    computer_science/cybersecurity/reverse_engineering files=0
-MISSING    computer_science/software/algorithms files=0
 MISSING    computer_science/software/compilers files=0
-MISSING    computer_science/software/data_structures files=0
-MISSING    computer_science/software/programming files=0
 MISSING    computer_science/systems/databases files=0
 MISSING    computer_science/systems/distributed_systems files=0
-MISSING    computer_science/systems/networking files=0
-MISSING    computer_science/systems/operating_systems files=0
-MISSING    engineering/aerospace/aerodynamics files=0
 MISSING    engineering/aerospace/flight_mechanics files=0
 MISSING    engineering/aerospace/propulsion files=0
 MISSING    engineering/aerospace/structures files=0
-MISSING    engineering/electrical/circuits files=0
 MISSING    engineering/electrical/control_systems files=0
 MISSING    engineering/electrical/signals files=0
 MISSING    engineering/manufacturing/additive_manufacturing files=0
 MISSING    engineering/manufacturing/machining files=0
 MISSING    engineering/manufacturing/welding files=0
 MISSING    engineering/mechanical/dynamics files=0
-MISSING    engineering/mechanical/fluid_mechanics files=0
 MISSING    engineering/mechanical/heat_transfer files=0
-MISSING    engineering/mechanical/machine_design files=0
 MISSING    engineering/mechanical/statics files=0
 MISSING    engineering/mechanical/thermodynamics files=0
 MISSING    mathematics/algebra/abstract_algebra files=0
 MISSING    mathematics/algebra/group_theory files=0
-MISSING    mathematics/algebra/linear_algebra files=0
 MISSING    mathematics/algebra/ring_theory files=0
 MISSING    mathematics/applied_mathematics/differential_equations files=0
 MISSING    mathematics/applied_mathematics/graph_theory files=0
 MISSING    mathematics/applied_mathematics/numerical_analysis files=0
 MISSING    mathematics/applied_mathematics/optimization files=0
-MISSING    mathematics/applied_mathematics/probability files=0
-MISSING    mathematics/applied_mathematics/statistics files=0
 MISSING    mathematics/applied_mathematics/topology files=0
-MISSING    mathematics/calculus/differential_calculus files=0
-MISSING    mathematics/calculus/integral_calculus files=0
 MISSING    mathematics/calculus/multivariable_calculus files=0
 MISSING    mathematics/calculus/vector_calculus files=0
 MISSING    medicine/anatomy/cardiovascular files=0
@@ -65,13 +53,7 @@ MISSING    medicine/anatomy/musculoskeletal files=0
 MISSING    medicine/anatomy/nervous_system files=0
 MISSING    medicine/emergency_medicine/shock files=0
 MISSING    medicine/emergency_medicine/toxicology files=0
-MISSING    medicine/emergency_medicine/trauma files=0
 MISSING    medicine/emergency_medicine/triage files=0
-MISSING    medicine/public_health/epidemiology files=0
-MISSING    medicine/public_health/infectious_disease files=0
-MISSING    medicine/public_health/sanitation files=0
-MISSING    medicine/public_health/water_safety files=0
 MISSING    medicine/surgery/burn_surgery files=0
 MISSING    medicine/surgery/orthopedic_surgery files=0
-MISSING    medicine/surgery/trauma_surgery files=0
 MISSING    medicine/surgery/vascular_surgery files=0

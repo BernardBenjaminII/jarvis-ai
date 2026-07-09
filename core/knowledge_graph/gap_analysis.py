@@ -89,9 +89,24 @@ def analyze_gaps() -> list[SubjectCoverage]:
             )
         )
 
-    rows.sort(key=lambda r: (r.score, r.domain, r.discipline, r.subject))
-    return rows
+    STATUS_ORDER = {
+        "strong": 0,
+        "developing": 1,
+        "weak": 2,
+        "missing": 3,
+    }
 
+    rows.sort(
+        key=lambda r: (
+            STATUS_ORDER.get(r.status.lower(), 99),
+            -r.file_count,
+            r.domain,
+            r.discipline,
+            r.subject,
+        )
+    )
+
+    return rows
 
 def summarize(rows: list[SubjectCoverage]) -> dict:
     total = len(rows)

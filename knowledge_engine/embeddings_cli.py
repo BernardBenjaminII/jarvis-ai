@@ -1,34 +1,33 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 
-from knowledge_engine.embeddings.builder import ChunkEmbeddingBuilder
-from knowledge_engine.storage.database import KnowledgeDatabase
+from knowledge_engine.embeddings.engine import EmbeddingEngine
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build chunk embeddings")
-    parser.add_argument("--db", required=True)
-    parser.add_argument("--limit", type=int, default=25)
-    parser.add_argument("--min-chars", type=int, default=200)
+    parser = argparse.ArgumentParser(description="Build local embeddings for document chunks.")
+    parser.add_argument(
+        "--db",
+        required=True,
+        help="Path to JARVIS knowledge SQLite database.",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Optional maximum number of chunks to embed.",
+    )
 
     args = parser.parse_args()
 
-    db = KnowledgeDatabase(args.db)
+    result = EmbeddingEngine(Path(args.db)).build_missing(limit=args.limit)
 
-    result = ChunkEmbeddingBuilder(db).build_pending_embeddings(
-        limit=args.limit,
-        min_chars=args.min_chars,
-    )
-
-    print("\nEmbedding complete:")
-    for key, value in result.items():
-        if key.endswith("errors"):
-            print(f"{key}: {len(value)}")
-            for item, error in value[:10]:
-                print(f"  - {item}: {error}")
-        else:
-            print(f"{key}: {value}")
+    print("Embedding build complete")
+    print(f"Model    : {result['model']}")
+    print(f"Embedded : {result['embedded']}")
+    print(f"Skipped  : {result['skipped']}")
 
 
 if __name__ == "__main__":
