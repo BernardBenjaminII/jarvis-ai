@@ -8,13 +8,13 @@ from knowledge_engine.workflows.core.runner import WorkflowRunner
 from knowledge_engine.workflows.stages.receiving import ReceivingStage
 from knowledge_engine.workflows.stages.extraction import ExtractionStage
 
+from knowledge_engine.workflows.stages.chunking import ChunkingStage
+from knowledge_engine.workflows.stages.embeddings import EmbeddingStage
+from knowledge_engine.workflows.stages.registry import RegistryStage
+
 from knowledge_engine.workflows.core.simple_stages import (
-    ChunkTextStage,
-    MockEmbeddingStage,
-    MockRegistryStage,
     MockRetrievalStage,
 )
-
 
 def build_fixture_ingest_workflow() -> WorkflowRunner:
     return WorkflowRunner(
@@ -22,9 +22,9 @@ def build_fixture_ingest_workflow() -> WorkflowRunner:
         stages=[
             ReceivingStage(),
             ExtractionStage(),
-            ChunkTextStage(),
-            MockEmbeddingStage(),
-            MockRegistryStage(),
+            ChunkingStage(),
+            EmbeddingStage(),
+            RegistryStage(),
             MockRetrievalStage(),
         ],
     )
