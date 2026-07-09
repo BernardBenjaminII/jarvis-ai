@@ -25,7 +25,7 @@ class RegistryStage(WorkflowStage):
             context.chunks
         )
 
-        context.metadata["registry_count"] = len(
+        context.registry_count = len(
             context.registry_ids
         )
 

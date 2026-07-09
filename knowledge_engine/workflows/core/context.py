@@ -13,6 +13,18 @@ class KnowledgeContext:
     raw_text: str = ""
     extracted_text: str = ""
 
+    processor: str = ""
+    processor_status: str = ""
+
+    chunk_strategy: str = ""
+
+    embedding_model: str = ""
+    embedding_count: int = 0
+
+    registry_count: int = 0
+    retrieval_verified: bool = False
+    retrieval_service: str = ""
+
     metadata: dict[str, Any] = field(default_factory=dict)
     chunks: list[str] = field(default_factory=list)
     embeddings: list[Any] = field(default_factory=list)

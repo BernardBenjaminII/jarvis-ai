@@ -28,6 +28,6 @@ class ChunkingStage(WorkflowStage):
 
         context.chunks = result.chunks
 
-        context.metadata["chunk_strategy"] = result.strategy
+        context.chunk_strategy = result.strategy
 
         return context

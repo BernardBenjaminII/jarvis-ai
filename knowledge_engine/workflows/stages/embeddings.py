@@ -25,7 +25,7 @@ class EmbeddingStage(WorkflowStage):
             context.chunks
         )
 
-        context.metadata["embedding_count"] = len(
+        context.embedding_count = len(
             context.embeddings
         )
 

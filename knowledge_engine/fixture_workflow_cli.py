@@ -21,11 +21,14 @@ def main() -> int:
         print("Context Summary")
         print("-" * 70)
         print(f"Content type : {context.content_type}")
+        print(f"Processor    : {context.processor}")
+        print(f"Status       : {context.processor_status}")
         print(f"Text length  : {len(context.extracted_text)}")
         print(f"Chunks       : {len(context.chunks)}")
+        print(f"Strategy     : {context.chunk_strategy}")
         print(f"Embeddings   : {len(context.embeddings)}")
         print(f"Registry IDs : {len(context.registry_ids)}")
-        print(f"Retrieval OK : {context.metadata.get('retrieval_verified', False)}")
+        print(f"Retrieval OK : {context.retrieval_verified}")
 
     return 0 if report.passed and context.ok else 1
 

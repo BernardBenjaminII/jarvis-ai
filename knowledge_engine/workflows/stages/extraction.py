@@ -13,8 +13,8 @@ class ExtractionStage(WorkflowStage):
             context.source_path
         )
 
-        context.metadata["processor"] = processor
-        context.metadata["status"] = status
+        context.processor = processor
+        context.processor_status = status
 
         if error:
             context.fail(error)
