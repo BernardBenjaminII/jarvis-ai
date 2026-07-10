@@ -12,7 +12,7 @@ from typing import Any
 
 from knowledge_engine.services.quality import QualityService
 from knowledge_engine.services.ranking import RankingService
-from knowledge_engine.services.retrieval import RetrievalService
+from knowledge_engine.retrieval_intelligence import RetrievalDirector
 
 
 DEFAULT_CANDIDATE_MULTIPLIER = 4
@@ -71,7 +71,7 @@ class SearchService:
 
     def __init__(self, database) -> None:
 
-        self.retrieval = RetrievalService(database)
+        self.retrieval = RetrievalDirector(database)
 
         self.ranking = RankingService()
 
