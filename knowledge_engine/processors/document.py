@@ -26,6 +26,7 @@ class _HTMLTextExtractor(HTMLParser):
     def handle_data(self, data):
         if not self.skip:
             cleaned = data.strip()
+
             if cleaned:
                 self.parts.append(cleaned)
 
@@ -84,7 +85,10 @@ class DocumentProcessor(BaseProcessor):
         ext = path.suffix.lower()
 
         if ext in {".txt", ".md"}:
-            return path.read_text(encoding="utf-8", errors="ignore")
+            return path.read_text(
+                encoding="utf-8",
+                errors="ignore",
+            )
 
         if ext == ".rtf":
             return self._read_rtf(path)
@@ -104,14 +108,35 @@ class DocumentProcessor(BaseProcessor):
         return ""
 
     def _read_rtf(self, path: Path) -> str:
-        raw = path.read_text(encoding="utf-8", errors="ignore")
-        raw = re.sub(r"{\\.*?}|\\[a-z]+\d* ?", " ", raw)
+        raw = path.read_text(
+            encoding="utf-8",
+            errors="ignore",
+        )
+
+        raw = re.sub(
+            r"{\\.*?}|\\[a-z]+\d* ?",
+            " ",
+            raw,
+        )
+
         raw = raw.replace("{", " ").replace("}", " ")
-        return re.sub(r"\s+", " ", raw).strip()
+
+        return re.sub(
+            r"\s+",
+            " ",
+            raw,
+        ).strip()
 
     def _read_html(self, path: Path) -> str:
         parser = _HTMLTextExtractor()
-        parser.feed(path.read_text(encoding="utf-8", errors="ignore"))
+
+        parser.feed(
+            path.read_text(
+                encoding="utf-8",
+                errors="ignore",
+            )
+        )
+
         return parser.text()
 
     def _read_docx(self, path: Path) -> str:
@@ -121,11 +146,15 @@ class DocumentProcessor(BaseProcessor):
             xml = zf.read("word/document.xml")
 
         root = ET.fromstring(xml)
-        ns = {
-            "w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+
+        namespace = {
+            "w": (
+                "http://schemas.openxmlformats.org/"
+                "wordprocessingml/2006/main"
+            )
         }
 
-        for node in root.findall(".//w:t", ns):
+        for node in root.findall(".//w:t", namespace):
             if node.text:
                 texts.append(node.text)
 
@@ -138,17 +167,30 @@ class DocumentProcessor(BaseProcessor):
             names = sorted(
                 name
                 for name in zf.namelist()
-                if name.lower().endswith((".html", ".htm", ".xhtml"))
+                if name.lower().endswith(
+                    (
+                        ".html",
+                        ".htm",
+                        ".xhtml",
+                    )
+                )
             )
 
             for name in names:
                 try:
-                    raw = zf.read(name).decode("utf-8", errors="ignore")
+                    raw = zf.read(name).decode(
+                        "utf-8",
+                        errors="ignore",
+                    )
+
                     parser = _HTMLTextExtractor()
                     parser.feed(raw)
+
                     chunk = parser.text()
+
                     if chunk:
                         texts.append(chunk)
+
                 except Exception:
                     continue
 
@@ -156,35 +198,86 @@ class DocumentProcessor(BaseProcessor):
 
     def _read_pdf(self, path: Path) -> str:
         """
-        Preferred extraction path:
-            1. PDFExtractor (PyMuPDF-based)
-            2. pypdf fallback
+        Extract plain PDF page text.
+
+        Preferred path:
+            PDFExtractor (PyMuPDF)
+
+        Fallback:
+            pypdf
+
+        PDFExtractor currently returns:
+
+            (file_path, page_number, page_text)
+
+        Only page_text belongs in the processor result.
         """
 
         try:
-            from knowledge_engine.extraction.extractors.pdf import PDFExtractor
+            from knowledge_engine.extraction.extractors.pdf import (
+                PDFExtractor,
+            )
 
             pages = PDFExtractor().extract(path)
-            text = "\n\n".join(str(page) for page in pages)
+            page_texts: list[str] = []
 
-            if text.strip():
-                return text
+            for page in pages:
+                text = self._pdf_page_text(page)
+
+                if text.strip():
+                    page_texts.append(text.strip())
+
+            extracted = "\n\n".join(page_texts)
+
+            if extracted.strip():
+                return extracted
 
         except Exception:
+            # Continue to the pypdf fallback.
             pass
 
         try:
             from pypdf import PdfReader
+
         except Exception as exc:
             raise RuntimeError(
-                "No PDF extractor available. Install pypdf or fix PDFExtractor."
+                "No PDF extractor is available. "
+                "Install pypdf or repair PDFExtractor."
             ) from exc
 
         reader = PdfReader(str(path))
-
-        pages = []
+        page_texts = []
 
         for page in reader.pages:
-            pages.append(page.extract_text() or "")
+            text = page.extract_text() or ""
 
-        return "\n\n".join(pages)
+            if text.strip():
+                page_texts.append(text.strip())
+
+        return "\n\n".join(page_texts)
+
+    def _pdf_page_text(self, page) -> str:
+        """
+        Normalize supported PDF extractor page results.
+
+        Supported values:
+
+        - tuple: (path, page_number, text)
+        - string: text
+        - object exposing .text
+        """
+
+        if isinstance(page, tuple):
+            if len(page) < 3:
+                return ""
+
+            value = page[2]
+
+            return value if isinstance(value, str) else str(value or "")
+
+        if isinstance(page, str):
+            return page
+
+        value = getattr(page, "text", "")
+
+        return value if isinstance(value, str) else str(value or "")
