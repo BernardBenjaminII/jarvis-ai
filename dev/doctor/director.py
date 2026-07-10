@@ -9,17 +9,49 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class KnowledgeDirectorCheck(HealthCheck):
+
     name = "Knowledge Director"
     category = "Knowledge"
     order = 50
 
-    description = "Verifies the Knowledge Director can route a fixture ingest request."
-    documentation = "docs/architecture/architecture_blueprint.md"
+    description = (
+        "Verifies the Knowledge Director and Workflow Registry."
+    )
+
+    documentation = (
+        "docs/architecture/architecture_blueprint.md"
+    )
 
     def run(self):
-        fixture = ROOT / "dev/integration/fixtures/phase_ii_c_sample.txt"
 
-        response = KnowledgeDirector().handle(
+        fixture = (
+            ROOT
+            / "dev/integration/fixtures/phase_ii_c_sample.txt"
+        )
+
+        director = KnowledgeDirector()
+
+        #
+        # Verify registered workflows
+        #
+
+        intents = director.registry.intents()
+
+        if not intents:
+            self.fail("Workflow registry is empty.")
+            self.score(0)
+            return self.result()
+
+        self.detail("Registered Workflows:")
+
+        for intent in intents:
+            self.detail(f"  ✓ {intent}")
+
+        #
+        # Verify routing
+        #
+
+        response = director.handle(
             DirectorRequest(
                 intent="ingest_fixture",
                 source_path=fixture,
@@ -27,15 +59,33 @@ class KnowledgeDirectorCheck(HealthCheck):
         )
 
         if response.passed:
-            self.detail(f"workflow={response.workflow}")
-            self.detail(f"chunks={response.metadata.get('chunks')}")
-            self.detail(f"embeddings={response.metadata.get('embeddings')}")
-            self.detail(f"retrieval_verified={response.metadata.get('retrieval_verified')}")
+
+            self.detail(
+                f"workflow={response.workflow}"
+            )
+
+            self.detail(
+                f"chunks={response.metadata.get('chunks')}"
+            )
+
+            self.detail(
+                f"embeddings={response.metadata.get('embeddings')}"
+            )
+
+            self.detail(
+                "retrieval_verified="
+                f"{response.metadata.get('retrieval_verified')}"
+            )
+
             self.score(100)
+
         else:
+
             self.fail(response.message)
+
             for error in response.errors:
                 self.fail(error)
+
             self.score(0)
 
         return self.result()
