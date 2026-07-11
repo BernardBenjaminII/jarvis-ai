@@ -18,8 +18,18 @@ from knowledge_engine.assimilation.mission import (
     MissionItemStatus,
     MissionStatus,
 )
+from knowledge_engine.assimilation.mission_store import (
+    AssimilationMissionStore,
+    MissionNotFoundError,
+)
 from knowledge_engine.assimilation.planner import AssimilationPlanner
-from knowledge_engine.assimilation.runner import AssimilationRunner
+from knowledge_engine.assimilation.runner import (
+    AssimilationRunner,
+    ClaimedDocument,
+)
+from knowledge_engine.assimilation.schema import (
+    ensure_assimilation_runtime_schema,
+)
 from knowledge_engine.assimilation.single_document import (
     checksum,
     chunk_text,
@@ -32,13 +42,17 @@ __all__ = [
     "AssimilationHandlerSpec",
     "AssimilationMission",
     "AssimilationMissionItem",
+    "AssimilationMissionStore",
     "AssimilationPlanner",
     "AssimilationRunner",
+    "ClaimedDocument",
     "HandlerReadiness",
     "MissionItemStatus",
+    "MissionNotFoundError",
     "MissionStatus",
     "checksum",
     "chunk_text",
+    "ensure_assimilation_runtime_schema",
     "get_handler_spec",
     "read_text",
     "registered_handler_specs",

@@ -1,9 +1,5 @@
 """
 Object-type dispatch registry for JARVIS controlled assimilation.
-
-The dispatch registry describes which handler owns each knowledge object type.
-Phase VI-A2 uses this information for planning only. Handler readiness controls
-whether an object may eventually be executed.
 """
 
 from __future__ import annotations
@@ -30,7 +26,7 @@ class AssimilationHandlerSpec:
     handler_kind: str
     readiness: HandlerReadiness
     description: str
-    executable_in_phase_vi_a2: bool = False
+    executable: bool = False
 
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)
@@ -45,10 +41,10 @@ _HANDLER_SPECS: dict[str, AssimilationHandlerSpec] = {
         handler_kind="document",
         readiness=HandlerReadiness.AVAILABLE,
         description=(
-            "Extract text, calculate checksums, create chunks, and update "
-            "document assimilation state."
+            "Failure-safe text extraction, checksumming, chunk creation, "
+            "retry accounting, recovery, and state transitions."
         ),
-        executable_in_phase_vi_a2=False,
+        executable=True,
     ),
     "source_collection": AssimilationHandlerSpec(
         object_type="source_collection",
@@ -77,7 +73,7 @@ _HANDLER_SPECS: dict[str, AssimilationHandlerSpec] = {
         readiness=HandlerReadiness.PLANNED,
         description=(
             "Analyze a structured academic or software project while "
-            "preserving its file relationships."
+            "preserving file relationships."
         ),
     ),
     "single_image": AssimilationHandlerSpec(
@@ -86,8 +82,7 @@ _HANDLER_SPECS: dict[str, AssimilationHandlerSpec] = {
         handler_kind="image",
         readiness=HandlerReadiness.PLANNED,
         description=(
-            "Extract image metadata and later dispatch visual interpretation "
-            "to a vision-capable specialist."
+            "Extract image metadata and dispatch visual interpretation."
         ),
     ),
     "web_or_html_collection": AssimilationHandlerSpec(
@@ -96,8 +91,8 @@ _HANDLER_SPECS: dict[str, AssimilationHandlerSpec] = {
         handler_kind="web",
         readiness=HandlerReadiness.PLANNED,
         description=(
-            "Process HTML and web-resource collections while preserving links "
-            "and source provenance."
+            "Process HTML and web-resource collections while preserving "
+            "links and source provenance."
         ),
     ),
     "website_archive": AssimilationHandlerSpec(
@@ -106,8 +101,7 @@ _HANDLER_SPECS: dict[str, AssimilationHandlerSpec] = {
         handler_kind="web",
         readiness=HandlerReadiness.PLANNED,
         description=(
-            "Expand and analyze an offline website archive as a structured "
-            "web knowledge source."
+            "Expand and analyze an offline website archive."
         ),
     ),
     "single_file": AssimilationHandlerSpec(
@@ -116,19 +110,14 @@ _HANDLER_SPECS: dict[str, AssimilationHandlerSpec] = {
         handler_kind="generic",
         readiness=HandlerReadiness.PLANNED,
         description=(
-            "Classify a generic file and route it to a more specific handler."
+            "Classify a generic file and route it to a specific handler."
         ),
     ),
 }
 
 
 def get_handler_spec(object_type: str) -> AssimilationHandlerSpec:
-    """
-    Return the handler specification for an object type.
-
-    Unknown object types receive an explicit unsupported specification rather
-    than being silently ignored.
-    """
+    """Return the handler specification for an object type."""
 
     normalized = str(object_type).strip()
 
@@ -142,7 +131,7 @@ def get_handler_spec(object_type: str) -> AssimilationHandlerSpec:
         handler_kind="unsupported",
         readiness=HandlerReadiness.UNSUPPORTED,
         description="No assimilation handler has been registered.",
-        executable_in_phase_vi_a2=False,
+        executable=False,
     )
 
 

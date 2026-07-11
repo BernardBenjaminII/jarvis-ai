@@ -275,7 +275,7 @@ class AssimilationPlanner:
             handler_kind=spec.handler_kind,
             handler_readiness=spec.readiness.value,
             handler_description=spec.description,
-            executable_in_current_phase=spec.executable_in_phase_vi_a2,
+            executable_in_current_phase=spec.executable,
             path_exists=exists,
             path_is_file=is_file,
             path_is_directory=is_directory,
