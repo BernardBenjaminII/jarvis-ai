@@ -24,6 +24,9 @@ from typing import Any
 from knowledge_engine.assimilation.schema import (
     ensure_assimilation_runtime_schema,
 )
+from knowledge_engine.assimilation.services.persistence import (
+    DocumentPersistenceService,
+)
 from knowledge_engine.assimilation.services.state import (
     AssimilationStateService,
 )
@@ -57,6 +60,7 @@ class AssimilationRunner:
         *,
         default_max_attempts: int = 3,
         state_service: AssimilationStateService | None = None,
+        persistence_service: DocumentPersistenceService | None = None,
     ):
         if default_max_attempts < 1:
             raise ValueError("default_max_attempts must be at least 1")
@@ -64,6 +68,10 @@ class AssimilationRunner:
         self.db = db
         self.default_max_attempts = default_max_attempts
         self.state_service = state_service or AssimilationStateService()
+        self.persistence_service = (
+            persistence_service
+            or DocumentPersistenceService()
+        )
 
     def run_one_single_document(
         self,
@@ -441,58 +449,18 @@ class AssimilationRunner:
             ensure_assimilation_runtime_schema(conn)
             conn.execute("BEGIN IMMEDIATE")
 
-            conn.execute(
-                """
-                INSERT INTO document_text (
-                    document_path,
-                    extractor,
-                    text,
-                    checksum,
-                    status,
-                    error
-                )
-                VALUES (?, ?, ?, ?, 'extracted', NULL)
-                ON CONFLICT(document_path) DO UPDATE SET
-                    extractor=excluded.extractor,
-                    text=excluded.text,
-                    checksum=excluded.checksum,
-                    status=excluded.status,
-                    error=NULL,
-                    extracted_at=CURRENT_TIMESTAMP
-                """,
-                (
-                    claim.object_path,
-                    "single_document_assimilation",
-                    text,
-                    text_checksum,
-                ),
+            persistence = self.persistence_service.persist_document(
+                conn=conn,
+                document_path=claim.object_path,
+                text=text,
+                checksum=text_checksum,
+                chunks=chunks,
             )
 
-            conn.execute(
-                """
-                DELETE FROM chunks
-                WHERE document_path=?
-                """,
-                (claim.object_path,),
-            )
-
-            for index, chunk in enumerate(chunks):
-                conn.execute(
-                    """
-                    INSERT INTO chunks (
-                        document_path,
-                        chunk_index,
-                        text,
-                        source_page,
-                        structure_title
-                    )
-                    VALUES (?, ?, ?, NULL, NULL)
-                    """,
-                    (
-                        claim.object_path,
-                        index,
-                        chunk,
-                    ),
+            if not persistence.persisted:
+                raise RuntimeError(
+                    "Document persistence produced an incomplete result for "
+                    f"{claim.object_uuid}"
                 )
 
             transition = (

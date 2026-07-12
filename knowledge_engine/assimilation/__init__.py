@@ -35,6 +35,10 @@ from knowledge_engine.assimilation.runner import (
 from knowledge_engine.assimilation.schema import (
     ensure_assimilation_runtime_schema,
 )
+from knowledge_engine.assimilation.services.persistence import (
+    DocumentPersistenceResult,
+    DocumentPersistenceService,
+)
 from knowledge_engine.assimilation.services.state import (
     AssimilationStateService,
     StateTransitionResult,
@@ -56,6 +60,8 @@ __all__ = [
     "AssimilationRunner",
     "AssimilationStateService",
     "ClaimedDocument",
+    "DocumentPersistenceResult",
+    "DocumentPersistenceService",
     "CollectionChildPlan",
     "CollectionExpansionPlan",
     "CollectionExpansionPlanner",
