@@ -35,6 +35,10 @@ from knowledge_engine.assimilation.runner import (
 from knowledge_engine.assimilation.schema import (
     ensure_assimilation_runtime_schema,
 )
+from knowledge_engine.assimilation.services.state import (
+    AssimilationStateService,
+    StateTransitionResult,
+)
 from knowledge_engine.assimilation.single_document import (
     checksum,
     chunk_text,
@@ -50,6 +54,7 @@ __all__ = [
     "AssimilationMissionStore",
     "AssimilationPlanner",
     "AssimilationRunner",
+    "AssimilationStateService",
     "ClaimedDocument",
     "CollectionChildPlan",
     "CollectionExpansionPlan",
@@ -58,6 +63,7 @@ __all__ = [
     "MissionItemStatus",
     "MissionNotFoundError",
     "MissionStatus",
+    "StateTransitionResult",
     "checksum",
     "chunk_text",
     "ensure_assimilation_runtime_schema",

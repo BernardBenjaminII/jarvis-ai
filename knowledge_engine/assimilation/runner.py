@@ -1,15 +1,16 @@
 """
 Failure-safe execution engine for JARVIS document assimilation.
 
-The runner performs four distinct operations:
+The runner currently coordinates:
 
-1. Atomically claim one validated and queued document.
-2. Extract and chunk outside the database transaction.
-3. Atomically persist successful results.
-4. Record failures and retry state without leaving silent processing records.
+1. Work selection and atomic claim transactions
+2. Text extraction and chunking
+3. Document and chunk persistence
+4. Attempt-journal bookkeeping
+5. Stale-work and retry recovery
 
-The AssimilationDirector decides which object should be processed. The runner
-owns the low-level execution and state-transition contract.
+Lifecycle and queue transitions are delegated to AssimilationStateService.
+Later VI-E milestones will extract the remaining responsibilities.
 """
 
 from __future__ import annotations
@@ -22,6 +23,9 @@ from typing import Any
 
 from knowledge_engine.assimilation.schema import (
     ensure_assimilation_runtime_schema,
+)
+from knowledge_engine.assimilation.services.state import (
+    AssimilationStateService,
 )
 from knowledge_engine.assimilation.single_document import (
     checksum,
@@ -52,24 +56,21 @@ class AssimilationRunner:
         db: Any,
         *,
         default_max_attempts: int = 3,
+        state_service: AssimilationStateService | None = None,
     ):
         if default_max_attempts < 1:
             raise ValueError("default_max_attempts must be at least 1")
 
         self.db = db
         self.default_max_attempts = default_max_attempts
+        self.state_service = state_service or AssimilationStateService()
 
     def run_one_single_document(
         self,
         *,
         expected_object_uuid: str | None = None,
     ) -> dict[str, Any]:
-        """
-        Claim and process one validated, queued single document.
-
-        When expected_object_uuid is supplied, no other document may be
-        claimed. This protects Director mission execution from queue drift.
-        """
+        """Claim and process one validated and queued document."""
 
         claim = self._claim_single_document(
             expected_object_uuid=expected_object_uuid,
@@ -145,12 +146,7 @@ class AssimilationRunner:
         *,
         stale_after_minutes: int = 30,
     ) -> dict[str, Any]:
-        """
-        Recover processing records whose last update is older than the limit.
-
-        Recoverable records are returned to validated/queued. Records that have
-        exhausted their attempt limit become permanently failed.
-        """
+        """Recover document records left in stale processing states."""
 
         if stale_after_minutes < 1:
             raise ValueError("stale_after_minutes must be at least 1")
@@ -184,7 +180,9 @@ class AssimilationRunner:
                         OR q.queue_state='processing'
                   )
                   AND COALESCE(q.updated_at, r.updated_at) < ?
-                ORDER BY COALESCE(q.updated_at, r.updated_at) ASC
+                ORDER BY
+                    COALESCE(q.updated_at, r.updated_at) ASC,
+                    r.object_uuid ASC
                 """,
                 (
                     self.default_max_attempts,
@@ -198,17 +196,44 @@ class AssimilationRunner:
                 max_attempts = int(row["max_attempts"])
 
                 if attempt_count >= max_attempts:
-                    self._mark_exhausted_stale(
+                    transition = (
+                        self.state_service.fail_stale_exhausted_document(
+                            conn=conn,
+                            object_uuid=object_uuid,
+                        )
+                    )
+
+                    if not transition.applied:
+                        raise RuntimeError(
+                            "Failed exhausted stale transition for "
+                            f"{object_uuid}"
+                        )
+
+                    self._fail_processing_attempts_as_stale_exhausted(
                         conn=conn,
                         object_uuid=object_uuid,
                     )
+
                     exhausted += 1
                     exhausted_uuids.append(object_uuid)
+
                 else:
-                    self._requeue_stale(
+                    transition = self.state_service.recover_stale_document(
                         conn=conn,
                         object_uuid=object_uuid,
                     )
+
+                    if not transition.applied:
+                        raise RuntimeError(
+                            "Failed stale recovery transition for "
+                            f"{object_uuid}"
+                        )
+
+                    self._abandon_processing_attempts(
+                        conn=conn,
+                        object_uuid=object_uuid,
+                    )
+
                     recovered += 1
                     recovered_uuids.append(object_uuid)
 
@@ -229,12 +254,7 @@ class AssimilationRunner:
         limit: int = 25,
         reset_attempts: bool = False,
     ) -> dict[str, Any]:
-        """
-        Requeue failed documents that remain below their retry limit.
-
-        reset_attempts is intentionally explicit because clearing retry history
-        changes the operational meaning of the queue record.
-        """
+        """Requeue failed documents that satisfy the retry policy."""
 
         if limit < 1:
             raise ValueError("limit must be at least 1")
@@ -282,41 +302,15 @@ class AssimilationRunner:
             for row in rows:
                 object_uuid = str(row["object_uuid"])
 
-                conn.execute(
-                    """
-                    UPDATE knowledge_registry
-                    SET lifecycle_state='validated',
-                        assimilation_state='queued',
-                        updated_at=CURRENT_TIMESTAMP
-                    WHERE object_uuid=?
-                    """,
-                    (object_uuid,),
+                transition = self.state_service.requeue_failed_document(
+                    conn=conn,
+                    object_uuid=object_uuid,
+                    reset_attempts=reset_attempts,
                 )
 
-                if reset_attempts:
-                    conn.execute(
-                        """
-                        UPDATE knowledge_assimilation_queue
-                        SET queue_state='queued',
-                            attempt_count=0,
-                            last_error=NULL,
-                            last_attempt_at=NULL,
-                            completed_at=NULL,
-                            updated_at=CURRENT_TIMESTAMP
-                        WHERE object_uuid=?
-                        """,
-                        (object_uuid,),
-                    )
-                else:
-                    conn.execute(
-                        """
-                        UPDATE knowledge_assimilation_queue
-                        SET queue_state='queued',
-                            completed_at=NULL,
-                            updated_at=CURRENT_TIMESTAMP
-                        WHERE object_uuid=?
-                        """,
-                        (object_uuid,),
+                if not transition.applied:
+                    raise RuntimeError(
+                        f"Failed to requeue document {object_uuid}"
                     )
 
                 requeued.append(object_uuid)
@@ -338,7 +332,10 @@ class AssimilationRunner:
             ensure_assimilation_runtime_schema(conn)
             conn.execute("BEGIN IMMEDIATE")
 
-            parameters: list[Any] = [self.default_max_attempts]
+            parameters: list[Any] = [
+                self.default_max_attempts,
+                self.default_max_attempts,
+            ]
 
             query = """
                 SELECT
@@ -357,8 +354,6 @@ class AssimilationRunner:
                   AND COALESCE(q.attempt_count, 0)
                       < COALESCE(q.max_attempts, ?)
             """
-
-            parameters.append(self.default_max_attempts)
 
             if expected_object_uuid is not None:
                 query += " AND r.object_uuid=?"
@@ -381,53 +376,23 @@ class AssimilationRunner:
             object_uuid = str(row["object_uuid"])
             object_path = str(row["object_path"])
             object_type = str(row["object_type"])
+
             previous_attempts = int(row["attempt_count"])
             attempt_number = previous_attempts + 1
 
-            # A newly added queue column receives the schema default of 3.
-            # Before the first attempt, initialize the object's retry policy
-            # from this runner's configured default. Once attempts have begun,
-            # preserve the object's stored limit so policy does not change
-            # halfway through processing.
             if previous_attempts == 0:
                 max_attempts = self.default_max_attempts
             else:
                 max_attempts = int(row["max_attempts"])
 
-            registry_update = conn.execute(
-                """
-                UPDATE knowledge_registry
-                SET lifecycle_state='extracting',
-                    assimilation_state='processing',
-                    updated_at=CURRENT_TIMESTAMP
-                WHERE object_uuid=?
-                  AND lifecycle_state='validated'
-                  AND assimilation_state='queued'
-                """,
-                (object_uuid,),
+            transition = self.state_service.claim_document(
+                conn=conn,
+                object_uuid=object_uuid,
+                attempt_number=attempt_number,
+                max_attempts=max_attempts,
             )
 
-            queue_update = conn.execute(
-                """
-                UPDATE knowledge_assimilation_queue
-                SET queue_state='processing',
-                    attempt_count=?,
-                    max_attempts=?,
-                    last_attempt_at=CURRENT_TIMESTAMP,
-                    last_error=NULL,
-                    completed_at=NULL,
-                    updated_at=CURRENT_TIMESTAMP
-                WHERE object_uuid=?
-                  AND queue_state='queued'
-                """,
-                (
-                    attempt_number,
-                    max_attempts,
-                    object_uuid,
-                ),
-            )
-
-            if registry_update.rowcount != 1 or queue_update.rowcount != 1:
+            if not transition.applied:
                 conn.rollback()
                 return None
 
@@ -530,34 +495,16 @@ class AssimilationRunner:
                     ),
                 )
 
-            registry_update = conn.execute(
-                """
-                UPDATE knowledge_registry
-                SET lifecycle_state='chunked',
-                    assimilation_state='ready_for_embedding',
-                    updated_at=CURRENT_TIMESTAMP
-                WHERE object_uuid=?
-                  AND assimilation_state='processing'
-                """,
-                (claim.object_uuid,),
+            transition = (
+                self.state_service.mark_document_ready_for_embedding(
+                    conn=conn,
+                    object_uuid=claim.object_uuid,
+                )
             )
 
-            queue_update = conn.execute(
-                """
-                UPDATE knowledge_assimilation_queue
-                SET queue_state='completed',
-                    last_error=NULL,
-                    completed_at=CURRENT_TIMESTAMP,
-                    updated_at=CURRENT_TIMESTAMP
-                WHERE object_uuid=?
-                  AND queue_state='processing'
-                """,
-                (claim.object_uuid,),
-            )
-
-            if registry_update.rowcount != 1 or queue_update.rowcount != 1:
+            if not transition.applied:
                 raise RuntimeError(
-                    "Assimilation success state transition was rejected for "
+                    "Success transition rejected for "
                     f"{claim.object_uuid}"
                 )
 
@@ -595,47 +542,18 @@ class AssimilationRunner:
             ensure_assimilation_runtime_schema(conn)
             conn.execute("BEGIN IMMEDIATE")
 
-            if exhausted:
-                lifecycle_state = "assimilation_failed"
-                assimilation_state = "failed"
-                queue_state = "failed"
-                message = "retry limit exhausted"
-            else:
-                lifecycle_state = "validated"
-                assimilation_state = "queued"
-                queue_state = "queued"
-                message = "failure recorded; object returned to queue"
-
-            conn.execute(
-                """
-                UPDATE knowledge_registry
-                SET lifecycle_state=?,
-                    assimilation_state=?,
-                    updated_at=CURRENT_TIMESTAMP
-                WHERE object_uuid=?
-                """,
-                (
-                    lifecycle_state,
-                    assimilation_state,
-                    claim.object_uuid,
-                ),
+            transition = self.state_service.mark_document_failure(
+                conn=conn,
+                object_uuid=claim.object_uuid,
+                error_text=f"{error_type}: {error_message}",
+                retry_exhausted=exhausted,
             )
 
-            conn.execute(
-                """
-                UPDATE knowledge_assimilation_queue
-                SET queue_state=?,
-                    last_error=?,
-                    completed_at=CURRENT_TIMESTAMP,
-                    updated_at=CURRENT_TIMESTAMP
-                WHERE object_uuid=?
-                """,
-                (
-                    queue_state,
-                    f"{error_type}: {error_message}",
-                    claim.object_uuid,
-                ),
-            )
+            if not transition.applied:
+                raise RuntimeError(
+                    "Failure transition rejected for "
+                    f"{claim.object_uuid}"
+                )
 
             conn.execute(
                 """
@@ -657,8 +575,12 @@ class AssimilationRunner:
 
         return {
             "retry_exhausted": exhausted,
-            "queue_state": queue_state,
-            "message": message,
+            "queue_state": "failed" if exhausted else "queued",
+            "message": (
+                "retry limit exhausted"
+                if exhausted
+                else "failure recorded; object returned to queue"
+            ),
             "error_type": error_type,
             "error": error_message,
         }
@@ -666,7 +588,9 @@ class AssimilationRunner:
     @staticmethod
     def _validate_source_path(path: Path) -> None:
         if not path.exists():
-            raise FileNotFoundError(f"Source document does not exist: {path}")
+            raise FileNotFoundError(
+                f"Source document does not exist: {path}"
+            )
 
         if not path.is_file():
             raise RuntimeError(
@@ -674,34 +598,11 @@ class AssimilationRunner:
             )
 
     @staticmethod
-    def _requeue_stale(
+    def _abandon_processing_attempts(
         *,
         conn: sqlite3.Connection,
         object_uuid: str,
     ) -> None:
-        conn.execute(
-            """
-            UPDATE knowledge_registry
-            SET lifecycle_state='validated',
-                assimilation_state='queued',
-                updated_at=CURRENT_TIMESTAMP
-            WHERE object_uuid=?
-            """,
-            (object_uuid,),
-        )
-
-        conn.execute(
-            """
-            UPDATE knowledge_assimilation_queue
-            SET queue_state='queued',
-                last_error='Recovered stale processing claim',
-                completed_at=CURRENT_TIMESTAMP,
-                updated_at=CURRENT_TIMESTAMP
-            WHERE object_uuid=?
-            """,
-            (object_uuid,),
-        )
-
         conn.execute(
             """
             UPDATE knowledge_assimilation_attempts
@@ -716,34 +617,11 @@ class AssimilationRunner:
         )
 
     @staticmethod
-    def _mark_exhausted_stale(
+    def _fail_processing_attempts_as_stale_exhausted(
         *,
         conn: sqlite3.Connection,
         object_uuid: str,
     ) -> None:
-        conn.execute(
-            """
-            UPDATE knowledge_registry
-            SET lifecycle_state='assimilation_failed',
-                assimilation_state='failed',
-                updated_at=CURRENT_TIMESTAMP
-            WHERE object_uuid=?
-            """,
-            (object_uuid,),
-        )
-
-        conn.execute(
-            """
-            UPDATE knowledge_assimilation_queue
-            SET queue_state='failed',
-                last_error='Stale processing claim exhausted retry limit',
-                completed_at=CURRENT_TIMESTAMP,
-                updated_at=CURRENT_TIMESTAMP
-            WHERE object_uuid=?
-            """,
-            (object_uuid,),
-        )
-
         conn.execute(
             """
             UPDATE knowledge_assimilation_attempts
