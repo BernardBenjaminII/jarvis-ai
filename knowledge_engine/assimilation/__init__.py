@@ -35,6 +35,11 @@ from knowledge_engine.assimilation.runner import (
 from knowledge_engine.assimilation.schema import (
     ensure_assimilation_runtime_schema,
 )
+from knowledge_engine.assimilation.services.attempts import (
+    AttemptJournalService,
+    AttemptStartResult,
+    AttemptUpdateResult,
+)
 from knowledge_engine.assimilation.services.persistence import (
     DocumentPersistenceResult,
     DocumentPersistenceService,
@@ -59,6 +64,9 @@ __all__ = [
     "AssimilationPlanner",
     "AssimilationRunner",
     "AssimilationStateService",
+    "AttemptJournalService",
+    "AttemptStartResult",
+    "AttemptUpdateResult",
     "ClaimedDocument",
     "DocumentPersistenceResult",
     "DocumentPersistenceService",

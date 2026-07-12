@@ -24,6 +24,9 @@ from typing import Any
 from knowledge_engine.assimilation.schema import (
     ensure_assimilation_runtime_schema,
 )
+from knowledge_engine.assimilation.services.attempts import (
+    AttemptJournalService,
+)
 from knowledge_engine.assimilation.services.persistence import (
     DocumentPersistenceService,
 )
@@ -61,6 +64,7 @@ class AssimilationRunner:
         default_max_attempts: int = 3,
         state_service: AssimilationStateService | None = None,
         persistence_service: DocumentPersistenceService | None = None,
+        attempt_service: AttemptJournalService | None = None,
     ):
         if default_max_attempts < 1:
             raise ValueError("default_max_attempts must be at least 1")
@@ -71,6 +75,10 @@ class AssimilationRunner:
         self.persistence_service = (
             persistence_service
             or DocumentPersistenceService()
+        )
+        self.attempt_service = (
+            attempt_service
+            or AttemptJournalService()
         )
 
     def run_one_single_document(
@@ -217,7 +225,7 @@ class AssimilationRunner:
                             f"{object_uuid}"
                         )
 
-                    self._fail_processing_attempts_as_stale_exhausted(
+                    self.attempt_service.fail_stale_exhausted_attempts(
                         conn=conn,
                         object_uuid=object_uuid,
                     )
@@ -237,7 +245,7 @@ class AssimilationRunner:
                             f"{object_uuid}"
                         )
 
-                    self._abandon_processing_attempts(
+                    self.attempt_service.abandon_processing_attempts(
                         conn=conn,
                         object_uuid=object_uuid,
                     )
@@ -404,28 +412,16 @@ class AssimilationRunner:
                 conn.rollback()
                 return None
 
-            cursor = conn.execute(
-                """
-                INSERT INTO knowledge_assimilation_attempts (
-                    object_uuid,
-                    object_path,
-                    object_type,
-                    handler_name,
-                    attempt_number,
-                    attempt_state
-                )
-                VALUES (?, ?, ?, ?, ?, 'processing')
-                """,
-                (
-                    object_uuid,
-                    object_path,
-                    object_type,
-                    self.HANDLER_NAME,
-                    attempt_number,
-                ),
+            attempt = self.attempt_service.start_attempt(
+                conn=conn,
+                object_uuid=object_uuid,
+                object_path=object_path,
+                object_type=object_type,
+                handler_name=self.HANDLER_NAME,
+                attempt_number=attempt_number,
             )
 
-            attempt_id = int(cursor.lastrowid)
+            attempt_id = attempt.attempt_id
             conn.commit()
 
         return ClaimedDocument(
@@ -476,23 +472,19 @@ class AssimilationRunner:
                     f"{claim.object_uuid}"
                 )
 
-            conn.execute(
-                """
-                UPDATE knowledge_assimilation_attempts
-                SET attempt_state='completed',
-                    completed_at=CURRENT_TIMESTAMP,
-                    text_chars=?,
-                    chunk_count=?,
-                    checksum=?
-                WHERE attempt_id=?
-                """,
-                (
-                    len(text),
-                    len(chunks),
-                    text_checksum,
-                    claim.attempt_id,
-                ),
+            attempt_update = self.attempt_service.complete_attempt(
+                conn=conn,
+                attempt_id=claim.attempt_id,
+                text_chars=len(text),
+                chunk_count=len(chunks),
+                checksum=text_checksum,
             )
+
+            if not attempt_update.applied:
+                raise RuntimeError(
+                    "Attempt completion update was rejected for "
+                    f"{claim.object_uuid}"
+                )
 
             conn.commit()
 
@@ -523,21 +515,18 @@ class AssimilationRunner:
                     f"{claim.object_uuid}"
                 )
 
-            conn.execute(
-                """
-                UPDATE knowledge_assimilation_attempts
-                SET attempt_state='failed',
-                    completed_at=CURRENT_TIMESTAMP,
-                    error_type=?,
-                    error_message=?
-                WHERE attempt_id=?
-                """,
-                (
-                    error_type,
-                    error_message,
-                    claim.attempt_id,
-                ),
+            attempt_update = self.attempt_service.fail_attempt(
+                conn=conn,
+                attempt_id=claim.attempt_id,
+                error_type=error_type,
+                error_message=error_message,
             )
+
+            if not attempt_update.applied:
+                raise RuntimeError(
+                    "Attempt failure update was rejected for "
+                    f"{claim.object_uuid}"
+                )
 
             conn.commit()
 
@@ -564,43 +553,3 @@ class AssimilationRunner:
             raise RuntimeError(
                 f"Source document is not a regular file: {path}"
             )
-
-    @staticmethod
-    def _abandon_processing_attempts(
-        *,
-        conn: sqlite3.Connection,
-        object_uuid: str,
-    ) -> None:
-        conn.execute(
-            """
-            UPDATE knowledge_assimilation_attempts
-            SET attempt_state='abandoned',
-                completed_at=CURRENT_TIMESTAMP,
-                error_type='StaleProcessingRecovery',
-                error_message='Recovered stale processing claim'
-            WHERE object_uuid=?
-              AND attempt_state='processing'
-            """,
-            (object_uuid,),
-        )
-
-    @staticmethod
-    def _fail_processing_attempts_as_stale_exhausted(
-        *,
-        conn: sqlite3.Connection,
-        object_uuid: str,
-    ) -> None:
-        conn.execute(
-            """
-            UPDATE knowledge_assimilation_attempts
-            SET attempt_state='failed',
-                completed_at=CURRENT_TIMESTAMP,
-                error_type='StaleProcessingRetryExhausted',
-                error_message=(
-                    'Stale processing claim exhausted retry limit'
-                )
-            WHERE object_uuid=?
-              AND attempt_state='processing'
-            """,
-            (object_uuid,),
-        )

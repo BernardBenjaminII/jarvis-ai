@@ -75,6 +75,7 @@ run_suite ./dev/verify_phase_6c.sh
  run_suite ./dev/verify_phase_6d2.sh
 run_suite ./dev/verify_phase_6e1.sh
 run_suite ./dev/verify_phase_6e2.sh
+run_suite ./dev/verify_phase_6e3.sh
 
 ###############################################################################
 # Future subsystems
