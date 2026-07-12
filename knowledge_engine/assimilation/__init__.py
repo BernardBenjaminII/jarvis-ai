@@ -6,6 +6,11 @@ from knowledge_engine.assimilation.director import (
     AssimilationDirector,
     AssimilationExecutionLockedError,
 )
+from knowledge_engine.assimilation.collection_plan import (
+    CollectionChildPlan,
+    CollectionExpansionPlan,
+    CollectionExpansionPlanner,
+)
 from knowledge_engine.assimilation.dispatch import (
     AssimilationHandlerSpec,
     HandlerReadiness,
@@ -46,6 +51,9 @@ __all__ = [
     "AssimilationPlanner",
     "AssimilationRunner",
     "ClaimedDocument",
+    "CollectionChildPlan",
+    "CollectionExpansionPlan",
+    "CollectionExpansionPlanner",
     "HandlerReadiness",
     "MissionItemStatus",
     "MissionNotFoundError",

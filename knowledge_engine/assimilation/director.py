@@ -24,7 +24,9 @@ from knowledge_engine.assimilation.mission_store import (
 )
 from knowledge_engine.assimilation.planner import AssimilationPlanner
 from knowledge_engine.assimilation.runner import AssimilationRunner
-
+from knowledge_engine.assimilation.registry_builder import (
+    build_handler_registry,
+)
 
 class AssimilationExecutionLockedError(RuntimeError):
     """Raised when a mission contains no safely executable handler."""
@@ -45,6 +47,9 @@ class AssimilationDirector:
         self.runner = runner or AssimilationRunner(db)
         self.planner = planner or AssimilationPlanner(db)
         self.mission_store = mission_store or AssimilationMissionStore(db)
+        self.handler_registry = build_handler_registry(
+            self.runner,
+        )
 
     def inventory(self) -> list[dict[str, Any]]:
         return self.planner.inventory()
@@ -160,15 +165,21 @@ class AssimilationDirector:
                 )
                 continue
 
-            if item.handler_name != AssimilationRunner.HANDLER_NAME:
+            try:
+                handler = self.handler_registry.get(
+                    item.object_type,
+                )
+            except LookupError:
                 item.mark_terminal(
                     status=MissionItemStatus.BLOCKED,
                     message=(
-                        f"Executable handler {item.handler_name!r} has no "
-                        "Director executor."
+                        f"No handler registered for "
+                        f"{item.object_type!r}."
                     ),
                 )
+
                 mission.recalculate_counts()
+
                 self.mission_store.checkpoint(
                     mission,
                     item=item,
@@ -179,6 +190,7 @@ class AssimilationDirector:
 
                 continue
 
+
             item.mark_processing()
             self.mission_store.checkpoint(
                 mission,
@@ -186,9 +198,10 @@ class AssimilationDirector:
             )
 
             try:
-                result = self.runner.run_one_single_document(
-                    expected_object_uuid=item.object_uuid,
+                result = handler.execute(
+                    object_uuid=item.object_uuid,
                 )
+
             except Exception as exc:
                 item.mark_terminal(
                     status=MissionItemStatus.FAILED,

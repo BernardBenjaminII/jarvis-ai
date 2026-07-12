@@ -50,11 +50,12 @@ _HANDLER_SPECS: dict[str, AssimilationHandlerSpec] = {
         object_type="source_collection",
         handler_name="collection_expansion",
         handler_kind="collection",
-        readiness=HandlerReadiness.PLANNED,
+        readiness=HandlerReadiness.AVAILABLE,
         description=(
-            "Inspect a source collection and register its individual child "
-            "knowledge objects."
+            "Create a deterministic read-only direct-child expansion plan. "
+            "Registry creation and recursive execution remain deferred."
         ),
+        executable=False,
     ),
     "folder_collection": AssimilationHandlerSpec(
         object_type="folder_collection",
