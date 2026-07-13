@@ -27,16 +27,17 @@ from knowledge_engine.assimilation.schema import (
 from knowledge_engine.assimilation.services.attempts import (
     AttemptJournalService,
 )
+from knowledge_engine.assimilation.services.extraction import (
+    ExtractionService,
+)
 from knowledge_engine.assimilation.services.persistence import (
     DocumentPersistenceService,
 )
 from knowledge_engine.assimilation.services.state import (
     AssimilationStateService,
 )
-from knowledge_engine.assimilation.single_document import (
-    checksum,
-    chunk_text,
-    read_text,
+from knowledge_engine.assimilation.services.extraction import (
+    ExtractionService,
 )
 
 
@@ -65,6 +66,7 @@ class AssimilationRunner:
         state_service: AssimilationStateService | None = None,
         persistence_service: DocumentPersistenceService | None = None,
         attempt_service: AttemptJournalService | None = None,
+        extraction_service: ExtractionService | None = None,
     ):
         if default_max_attempts < 1:
             raise ValueError("default_max_attempts must be at least 1")
@@ -79,6 +81,10 @@ class AssimilationRunner:
         self.attempt_service = (
             attempt_service
             or AttemptJournalService()
+        )
+        self.extraction_service = (
+            extraction_service
+            or ExtractionService()
         )
 
     def run_one_single_document(
@@ -106,27 +112,21 @@ class AssimilationRunner:
         try:
             self._validate_source_path(path)
 
-            text = read_text(path)
-            normalized_text = text.strip()
+            extraction = self.extraction_service.extract(
+                document_path=str(path),
+            )
 
-            if not normalized_text:
-                raise RuntimeError(
-                    f"Document extraction produced no usable text: {path}"
-                )
-
-            text_checksum = checksum(normalized_text)
-            chunks = chunk_text(normalized_text)
-
-            if not chunks:
+            if extraction.chunk_count == 0:
                 raise RuntimeError(
                     f"Document chunking produced no usable chunks: {path}"
-                )
+               )
 
             self._complete_success(
                 claim=claim,
-                text=normalized_text,
-                text_checksum=text_checksum,
-                chunks=chunks,
+                text=extraction.normalized_text,
+                text_checksum=extraction.checksum,
+                chunks=extraction.chunks,
+                extractor=extraction.extractor,
             )
 
         except Exception as exc:
@@ -152,9 +152,9 @@ class AssimilationRunner:
             "document_path": claim.object_path,
             "attempt_number": claim.attempt_number,
             "max_attempts": claim.max_attempts,
-            "text_chars": len(normalized_text),
-            "chunks": len(chunks),
-            "checksum": text_checksum,
+            "text_chars": extraction.text_chars,
+            "chunks": extraction.chunk_count,
+            "checksum": extraction.checksum,
         }
 
     def recover_stale_processing(
@@ -439,7 +439,8 @@ class AssimilationRunner:
         claim: ClaimedDocument,
         text: str,
         text_checksum: str,
-        chunks: list[str],
+        chunks: list[str] | tuple[str, ...],
+        extractor: str,
     ) -> None:
         with self.db.connect() as conn:
             ensure_assimilation_runtime_schema(conn)
@@ -451,6 +452,7 @@ class AssimilationRunner:
                 text=text,
                 checksum=text_checksum,
                 chunks=chunks,
+                extractor=extractor,
             )
 
             if not persistence.persisted:
