@@ -189,6 +189,17 @@ VERIFICATION_SUITES: tuple[SuiteDefinition, ...] = (
         ),
     ),
 
+    SuiteDefinition(
+        suite_id="7a6",
+        name="Phase VII-A6 Assimilation Handoff",
+        script_path="dev/verify_phase_7a6.sh",
+        category="acquisition",
+        description=(
+            "Accepted-only durable handoff queue and strict "
+            "acquisition-to-assimilation boundary."
+        ),
+    ),
+
 )
 
 
