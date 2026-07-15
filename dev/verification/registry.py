@@ -178,6 +178,17 @@ VERIFICATION_SUITES: tuple[SuiteDefinition, ...] = (
     ),
 
 
+    SuiteDefinition(
+        suite_id="7a5",
+        name="Phase VII-A5 Acquisition Missions",
+        script_path="dev/verify_phase_7a5.sh",
+        category="acquisition",
+        description=(
+            "Durable mission construction and complete "
+            "candidate-outcome accounting."
+        ),
+    ),
+
 )
 
 
