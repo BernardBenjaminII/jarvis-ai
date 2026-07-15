@@ -146,6 +146,38 @@ VERIFICATION_SUITES: tuple[SuiteDefinition, ...] = (
         ),
     ),
 
+    SuiteDefinition(
+        suite_id="7a2",
+        name="Phase VII-A2 Admission Engine",
+        script_path="dev/verify_phase_7a2.sh",
+        category="acquisition",
+        description=(
+            "Deterministic admission policies, ordered "
+            "evaluation, and admission decisions."
+        ),
+    ),
+    SuiteDefinition(
+        suite_id="7a3",
+        name="Phase VII-A3 Provenance Persistence",
+        script_path="dev/verify_phase_7a3.sh",
+        category="acquisition",
+        description=(
+            "Durable source identity, sightings, checksum "
+            "inventory, and admission-decision history."
+        ),
+    ),
+    SuiteDefinition(
+        suite_id="7a4",
+        name="Phase VII-A4 Durable Admission Workflow",
+        script_path="dev/verify_phase_7a4.sh",
+        category="acquisition",
+        description=(
+            "Provenance-backed duplicate lookup, admission "
+            "evaluation, and durable decision recording."
+        ),
+    ),
+
+
 )
 
 
