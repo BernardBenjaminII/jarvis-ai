@@ -1,0 +1,22 @@
+{
+  "completed_at": null,
+  "created_at": "2026-07-11T10:36:22.535687+00:00",
+  "database_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+  "fingerprint": "f0829ba13d85cb24480c0848fd2b40e80d3446bd74d3abdb7dad8f5d26d5c668",
+  "items": [],
+  "mission_id": "assim-08ad71457f82725d",
+  "planning_notes": [
+    "No queued single_document registry objects were available."
+  ],
+  "requested_limit": 25,
+  "started_at": null,
+  "status": "planned",
+  "summary": {
+    "blocked": 0,
+    "executable_items": 0,
+    "failed": 0,
+    "processed": 0,
+    "skipped": 0,
+    "total_items": 0
+  }
+}

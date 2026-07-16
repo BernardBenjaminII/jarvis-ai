@@ -200,6 +200,30 @@ VERIFICATION_SUITES: tuple[SuiteDefinition, ...] = (
         ),
     ),
 
+    SuiteDefinition(
+        suite_id="7a7",
+        name="Phase VII-A7 Assimilation Dispatch",
+        script_path="dev/verify_phase_7a7.sh",
+        category="acquisition",
+        description=(
+            "Canonical acquisition dispatcher, "
+            "Phase VI orchestration, retry "
+            "contracts, and architecture isolation."
+        ),
+    ),
+
+
+    SuiteDefinition(
+        suite_id="7a8",
+        name="Phase VII-A8 Acquisition Integration Freeze",
+        script_path="dev/verify_phase_7a8.sh",
+        category="acquisition",
+        description=(
+            "Public API freeze, dependency direction, "
+            "Phase VI isolation, and architecture fingerprint."
+        ),
+    ),
+
 )
 
 

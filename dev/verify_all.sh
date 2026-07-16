@@ -6,7 +6,7 @@
 #
 # Master Verification Suite
 #
-# Executes every available verification suite in dependency order.
+# Executes every verification suite in architectural dependency order.
 #
 ###############################################################################
 
@@ -16,7 +16,6 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "${REPO_ROOT}"
 
 PYTHON_BIN="${PYTHON_BIN:-python}"
-
 export PYTHON_BIN
 
 echo
@@ -42,7 +41,7 @@ run_suite() {
     echo "----------------------------------------------------------------------"
 
     if [[ ! -x "${script}" ]]; then
-        echo "[SKIP] ${script} (not found or not executable)"
+        echo "[SKIP] ${script} (missing or not executable)"
         FAILED=$((FAILED + 1))
         return
     fi
@@ -60,47 +59,63 @@ run_suite() {
 }
 
 ###############################################################################
-# Assimilation
+# Phase VI — Assimilation
 ###############################################################################
 
 run_suite ./dev/verify_phase_6b.sh
 run_suite ./dev/verify_phase_6c.sh
 
 ###############################################################################
-# Future phases
+# Phase VI-D
 ###############################################################################
 
- run_suite ./dev/verify_phase_6d0.sh
- run_suite ./dev/verify_phase_6d1.sh
- run_suite ./dev/verify_phase_6d2.sh
- run_suite ./dev/verify_phase_6e1.sh
- run_suite ./dev/verify_phase_6e2.sh
- run_suite ./dev/verify_phase_6e3.sh
- run_suite ./dev/verify_phase_6e4.sh
- run_suite ./dev/verify_phase_6f2.sh
- run_suite ./dev/verify_phase_6f3.sh
- run_suite ./dev/verify_phase_6f4.sh
- run_suite ./dev/verify_phase_6f5.sh
-
+run_suite ./dev/verify_phase_6d0.sh
+run_suite ./dev/verify_phase_6d1.sh
+run_suite ./dev/verify_phase_6d2.sh
 
 ###############################################################################
-# Acquisition
+# Phase VI-E
 ###############################################################################
 
- run_suite ./dev/verify_phase_7a1.sh
- run_suite ./dev/verify_phase_7a2.sh
+run_suite ./dev/verify_phase_6e1.sh
+run_suite ./dev/verify_phase_6e2.sh
+run_suite ./dev/verify_phase_6e3.sh
+run_suite ./dev/verify_phase_6e4.sh
 
 ###############################################################################
-# Future subsystems
+# Phase VI-F
 ###############################################################################
 
-# run_suite ./dev/verify_search.sh
-# run_suite ./dev/verify_embeddings.sh
-# run_suite ./dev/verify_director.sh
-# run_suite ./dev/verify_agents.sh
-# run_suite ./dev/verify_memory.sh
-# run_suite ./dev/verify_security.sh
-# run_suite ./dev/verify_recon.sh
+run_suite ./dev/verify_phase_6f2.sh
+run_suite ./dev/verify_phase_6f3.sh
+run_suite ./dev/verify_phase_6f4.sh
+run_suite ./dev/verify_phase_6f5.sh
+run_suite ./dev/verify_phase_6f7.sh
+
+###############################################################################
+# Phase VII-A — Acquisition Foundation
+###############################################################################
+
+run_suite ./dev/verify_phase_7a1.sh
+run_suite ./dev/verify_phase_7a2.sh
+run_suite ./dev/verify_phase_7a3.sh
+run_suite ./dev/verify_phase_7a4.sh
+run_suite ./dev/verify_phase_7a5.sh
+run_suite ./dev/verify_phase_7a6.sh
+run_suite ./dev/verify_phase_7a7.sh
+run_suite ./dev/verify_phase_7a8.sh
+
+###############################################################################
+# Future Phases
+###############################################################################
+
+# run_suite ./dev/verify_phase_7b1.sh
+# run_suite ./dev/verify_phase_7b2.sh
+# run_suite ./dev/verify_phase_7b3.sh
+# run_suite ./dev/verify_phase_7b4.sh
+# run_suite ./dev/verify_phase_7b5.sh
+# run_suite ./dev/verify_phase_7b6.sh
+# run_suite ./dev/verify_phase_7b7.sh
 
 END_TIME=$(date +%s)
 ELAPSED=$((END_TIME - START_TIME))
@@ -111,14 +126,13 @@ echo "MASTER VERIFICATION SUMMARY"
 echo "======================================================================"
 
 printf "%-24s %6d\n" "Suites Executed:" "${TOTAL}"
-printf "%-24s %6d\n" "Suites Passed:"   "${PASSED}"
-printf "%-24s %6d\n" "Suites Failed:"   "${FAILED}"
+printf "%-24s %6d\n" "Suites Passed:" "${PASSED}"
+printf "%-24s %6d\n" "Suites Failed:" "${FAILED}"
 printf "%-24s %6d sec\n" "Elapsed Time:" "${ELAPSED}"
 
 echo
 
-if [[ "${FAILED}" -eq 0 ]]
-then
+if [[ "${FAILED}" -eq 0 ]]; then
     echo "Overall Status : EXCELLENT"
     echo
     echo "JARVIS Gen 2 verification PASSED."
@@ -129,3 +143,4 @@ else
     echo "One or more verification suites failed."
     exit 1
 fi
+

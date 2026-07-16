@@ -1,0 +1,2184 @@
+{
+  "assimilation_root": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation",
+  "candidate_entry_points": [
+    {
+      "docstring": "Execute queued mission items with a checkpoint before and after each.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.director",
+      "name": "execute",
+      "owner": "AssimilationDirector",
+      "signature": "(self, mission: 'AssimilationMission', *, stop_on_error: 'bool' = True, max_items: 'int | None' = None) -> 'AssimilationMission'"
+    },
+    {
+      "docstring": null,
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.director",
+      "name": "plan_and_execute",
+      "owner": "AssimilationDirector",
+      "signature": "(self, *, limit: 'int' = 25, object_types: 'Sequence[str] | None' = None, stop_on_error: 'bool' = True, max_items: 'int | None' = None) -> 'AssimilationMission'"
+    },
+    {
+      "docstring": "Load and resume a persistent mission.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.director",
+      "name": "resume",
+      "owner": "AssimilationDirector",
+      "signature": "(self, mission_id: 'str', *, stop_on_error: 'bool' = True, max_items: 'int | None' = None, recover_stale_minutes: 'int' = 30) -> 'AssimilationMission'"
+    },
+    {
+      "docstring": "Execute assimilation.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.handlers.base",
+      "name": "execute",
+      "owner": "AssimilationHandler",
+      "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+    },
+    {
+      "docstring": "Execute assimilation.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.handlers.single_document",
+      "name": "execute",
+      "owner": "SingleDocumentHandler",
+      "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+    },
+    {
+      "docstring": "Create a deterministic read-only direct-child expansion plan.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.handlers.source_collection",
+      "name": "execute",
+      "owner": "SourceCollectionHandler",
+      "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+    },
+    {
+      "docstring": "Build a mission identifier from content and creation time.",
+      "kind": "function",
+      "module": "knowledge_engine.assimilation.mission",
+      "name": "build_mission_id",
+      "owner": null,
+      "signature": "(database_path: 'str', object_uuids: 'Iterable[str]') -> 'str'"
+    },
+    {
+      "docstring": null,
+      "kind": "property",
+      "module": "knowledge_engine.assimilation.mission",
+      "name": "dispatchable_items",
+      "owner": "AssimilationMission",
+      "signature": "<property>"
+    },
+    {
+      "docstring": null,
+      "kind": "property",
+      "module": "knowledge_engine.assimilation.mission",
+      "name": "dispatchable",
+      "owner": "AssimilationMissionItem",
+      "signature": "<property>"
+    },
+    {
+      "docstring": null,
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.mission",
+      "name": "mark_processing",
+      "owner": "AssimilationMissionItem",
+      "signature": "(self) -> 'None'"
+    },
+    {
+      "docstring": "Return an interrupted item checkpoint to queued.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.mission",
+      "name": "reset_interrupted_processing",
+      "owner": "AssimilationMissionItem",
+      "signature": "(self) -> 'None'"
+    },
+    {
+      "docstring": "Construct the complete assimilation handler registry.",
+      "kind": "function",
+      "module": "knowledge_engine.assimilation.registry_builder",
+      "name": "build_handler_registry",
+      "owner": null,
+      "signature": "(runner: 'AssimilationRunner') -> 'HandlerRegistry'"
+    },
+    {
+      "docstring": "Recover document records left in stale processing states.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.runner",
+      "name": "recover_stale_processing",
+      "owner": "AssimilationRunner",
+      "signature": "(self, *, stale_after_minutes: 'int' = 30) -> 'dict[str, Any]'"
+    },
+    {
+      "docstring": "Claim and process one validated and queued document.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.runner",
+      "name": "run_one_single_document",
+      "owner": "AssimilationRunner",
+      "signature": "(self, *, expected_object_uuid: 'str | None' = None) -> 'dict[str, Any]'"
+    },
+    {
+      "docstring": "Ensure all Phase VI-B and VI-C assimilation tables and columns.",
+      "kind": "function",
+      "module": "knowledge_engine.assimilation.schema",
+      "name": "ensure_assimilation_runtime_schema",
+      "owner": null,
+      "signature": "(connection: 'sqlite3.Connection') -> 'None'"
+    },
+    {
+      "docstring": "Mark all active attempts for one object as abandoned.",
+      "kind": "method",
+      "module": "knowledge_engine.assimilation.services.attempts",
+      "name": "abandon_processing_attempts",
+      "owner": "AttemptJournalService",
+      "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str', reason: 'str' = 'Recovered stale processing claim') -> 'AttemptUpdateResult'"
+    }
+  ],
+  "modules": [
+    {
+      "classes": [],
+      "exports": [
+        "AssimilationDirector",
+        "AssimilationExecutionLockedError",
+        "AssimilationHandlerSpec",
+        "AssimilationMission",
+        "AssimilationMissionItem",
+        "AssimilationMissionStore",
+        "AssimilationPlanner",
+        "AssimilationRunner",
+        "AssimilationStateService",
+        "AttemptJournalService",
+        "AttemptStartResult",
+        "AttemptUpdateResult",
+        "ClaimedDocument",
+        "DocumentPersistenceResult",
+        "DocumentPersistenceService",
+        "CollectionChildPlan",
+        "CollectionExpansionPlan",
+        "CollectionExpansionPlanner",
+        "HandlerReadiness",
+        "MissionItemStatus",
+        "MissionNotFoundError",
+        "MissionStatus",
+        "StateTransitionResult",
+        "checksum",
+        "chunk_text",
+        "ensure_assimilation_runtime_schema",
+        "get_handler_spec",
+        "read_text",
+        "registered_handler_specs"
+      ],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/__init__.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(sequence: 'int', name: 'str', path: 'str', object_type: 'str', entry_kind: 'str', size_bytes: 'int | None', handler_name: 'str', handler_kind: 'str', handler_readiness: 'str', handler_executable: 'bool', supported: 'bool', reason: 'str') -> None",
+          "docstring": "Read-only classification of one direct collection child.",
+          "methods": [
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "to_dict",
+              "owner": "CollectionChildPlan",
+              "signature": "(self) -> 'dict[str, Any]'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.collection_plan",
+          "name": "CollectionChildPlan"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(object_uuid: 'str', collection_path: 'str', children: 'list[CollectionChildPlan]' = <factory>, skipped_entries: 'list[dict[str, str]]' = <factory>, warnings: 'list[str]' = <factory>) -> None",
+          "docstring": "Deterministic, read-only plan for one source collection.",
+          "methods": [
+            {
+              "docstring": "Stable fingerprint of the collection expansion plan.",
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "fingerprint",
+              "owner": "CollectionExpansionPlan",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "handler_counts",
+              "owner": "CollectionExpansionPlan",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "object_type_counts",
+              "owner": "CollectionExpansionPlan",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "supported_children",
+              "owner": "CollectionExpansionPlan",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "to_dict",
+              "owner": "CollectionExpansionPlan",
+              "signature": "(self) -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "total_children",
+              "owner": "CollectionExpansionPlan",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "unsupported_children",
+              "owner": "CollectionExpansionPlan",
+              "signature": "<property>"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.collection_plan",
+          "name": "CollectionExpansionPlan"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "()",
+          "docstring": "Create deterministic plans for direct collection children.",
+          "methods": [
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.collection_plan",
+              "name": "plan",
+              "owner": "CollectionExpansionPlanner",
+              "signature": "(self, *, object_uuid: 'str', collection_path: 'str | Path') -> 'CollectionExpansionPlan'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.collection_plan",
+          "name": "CollectionExpansionPlanner"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/collection_plan.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.collection_plan"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(db: 'Any', *, runner: 'AssimilationRunner | None' = None, planner: 'AssimilationPlanner | None' = None, mission_store: 'AssimilationMissionStore | None' = None)",
+          "docstring": "Coordinate persistent assimilation mission execution.",
+          "methods": [
+            {
+              "docstring": "Execute queued mission items with a checkpoint before and after each.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.director",
+              "name": "execute",
+              "owner": "AssimilationDirector",
+              "signature": "(self, mission: 'AssimilationMission', *, stop_on_error: 'bool' = True, max_items: 'int | None' = None) -> 'AssimilationMission'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.director",
+              "name": "history",
+              "owner": "AssimilationDirector",
+              "signature": "(self, *, limit: 'int' = 25, status: 'str | None' = None) -> 'list[dict[str, Any]]'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.director",
+              "name": "inventory",
+              "owner": "AssimilationDirector",
+              "signature": "(self) -> 'list[dict[str, Any]]'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.director",
+              "name": "load_mission",
+              "owner": "AssimilationDirector",
+              "signature": "(self, mission_id: 'str') -> 'AssimilationMission'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.director",
+              "name": "plan",
+              "owner": "AssimilationDirector",
+              "signature": "(self, *, limit: 'int' = 25, object_types: 'Sequence[str] | None' = None, persist: 'bool' = True) -> 'AssimilationMission'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.director",
+              "name": "plan_and_execute",
+              "owner": "AssimilationDirector",
+              "signature": "(self, *, limit: 'int' = 25, object_types: 'Sequence[str] | None' = None, stop_on_error: 'bool' = True, max_items: 'int | None' = None) -> 'AssimilationMission'"
+            },
+            {
+              "docstring": "Load and resume a persistent mission.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.director",
+              "name": "resume",
+              "owner": "AssimilationDirector",
+              "signature": "(self, mission_id: 'str', *, stop_on_error: 'bool' = True, max_items: 'int | None' = None, recover_stale_minutes: 'int' = 30) -> 'AssimilationMission'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.director",
+          "name": "AssimilationDirector"
+        },
+        {
+          "bases": [
+            "RuntimeError"
+          ],
+          "constructor_signature": "<signature unavailable>",
+          "docstring": "Raised when a mission contains no safely executable handler.",
+          "methods": [],
+          "module": "knowledge_engine.assimilation.director",
+          "name": "AssimilationExecutionLockedError"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/director.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.director"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(object_type: 'str', handler_name: 'str', handler_kind: 'str', readiness: 'HandlerReadiness', description: 'str', executable: 'bool' = False) -> None",
+          "docstring": "Dispatch metadata for one registered knowledge object type.",
+          "methods": [
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.dispatch",
+              "name": "to_dict",
+              "owner": "AssimilationHandlerSpec",
+              "signature": "(self) -> 'dict[str, Any]'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.dispatch",
+          "name": "AssimilationHandlerSpec"
+        },
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "constructor_signature": "(*values)",
+          "docstring": "Current implementation readiness of an assimilation handler.",
+          "methods": [],
+          "module": "knowledge_engine.assimilation.dispatch",
+          "name": "HandlerReadiness"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/dispatch.py",
+      "functions": [
+        {
+          "docstring": "Return the handler specification for an object type.",
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.dispatch",
+          "name": "get_handler_spec",
+          "owner": null,
+          "signature": "(object_type: 'str') -> 'AssimilationHandlerSpec'"
+        },
+        {
+          "docstring": "Return all explicitly registered handler specifications.",
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.dispatch",
+          "name": "registered_handler_specs",
+          "owner": null,
+          "signature": "() -> 'tuple[AssimilationHandlerSpec, ...]'"
+        }
+      ],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.dispatch"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "() -> 'None'",
+          "docstring": "Registry of assimilation handlers.",
+          "methods": [
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handler_registry",
+              "name": "get",
+              "owner": "HandlerRegistry",
+              "signature": "(self, object_type: 'str') -> 'AssimilationHandler'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handler_registry",
+              "name": "object_types",
+              "owner": "HandlerRegistry",
+              "signature": "(self) -> 'list[str]'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handler_registry",
+              "name": "register",
+              "owner": "HandlerRegistry",
+              "signature": "(self, handler: 'AssimilationHandler') -> 'None'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handler_registry",
+              "name": "supports",
+              "owner": "HandlerRegistry",
+              "signature": "(self, object_type: 'str') -> 'bool'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.handler_registry",
+          "name": "HandlerRegistry"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/handler_registry.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.handler_registry"
+    },
+    {
+      "classes": [],
+      "exports": [
+        "AssimilationHandler",
+        "SingleDocumentHandler",
+        "SourceCollectionHandler"
+      ],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/handlers/__init__.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.handlers"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "ABC"
+          ],
+          "constructor_signature": "()",
+          "docstring": "Canonical assimilation handler interface.",
+          "methods": [
+            {
+              "docstring": "Execute assimilation.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.base",
+              "name": "execute",
+              "owner": "AssimilationHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Inspect the object and prepare an execution plan.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.base",
+              "name": "plan",
+              "owner": "AssimilationHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Recover interrupted work.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.base",
+              "name": "recover",
+              "owner": "AssimilationHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Produce a structured execution report.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.base",
+              "name": "report",
+              "owner": "AssimilationHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Verify prerequisites before execution.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.base",
+              "name": "verify",
+              "owner": "AssimilationHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.handlers.base",
+          "name": "AssimilationHandler"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/handlers/base.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.handlers.base"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "AssimilationHandler"
+          ],
+          "constructor_signature": "(runner: 'AssimilationRunner')",
+          "docstring": "Canonical assimilation handler interface.",
+          "methods": [
+            {
+              "docstring": "Execute assimilation.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.single_document",
+              "name": "execute",
+              "owner": "SingleDocumentHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Inspect the object and prepare an execution plan.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.single_document",
+              "name": "plan",
+              "owner": "SingleDocumentHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Recover interrupted work.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.single_document",
+              "name": "recover",
+              "owner": "SingleDocumentHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Produce a structured execution report.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.single_document",
+              "name": "report",
+              "owner": "SingleDocumentHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Verify prerequisites before execution.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.single_document",
+              "name": "verify",
+              "owner": "SingleDocumentHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.handlers.single_document",
+          "name": "SingleDocumentHandler"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/handlers/single_document.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.handlers.single_document"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "AssimilationHandler"
+          ],
+          "constructor_signature": "(db: 'Any', *, planner: 'CollectionExpansionPlanner | None' = None, registry_repository: 'KnowledgeRegistryRepository | None' = None)",
+          "docstring": "Plan the direct children of one registered source collection.",
+          "methods": [
+            {
+              "docstring": "Create a deterministic read-only direct-child expansion plan.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.source_collection",
+              "name": "execute",
+              "owner": "SourceCollectionHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Confirm that the handler is prepared to plan this object.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.source_collection",
+              "name": "plan",
+              "owner": "SourceCollectionHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Report that read-only planning requires no recovery action.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.source_collection",
+              "name": "recover",
+              "owner": "SourceCollectionHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Return a minimal source-collection handler report.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.source_collection",
+              "name": "report",
+              "owner": "SourceCollectionHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Verify that a matching source_collection is registered.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.handlers.source_collection",
+              "name": "verify",
+              "owner": "SourceCollectionHandler",
+              "signature": "(self, *, object_uuid: 'str', **kwargs: 'Any') -> 'dict[str, Any]'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.handlers.source_collection",
+          "name": "SourceCollectionHandler"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/handlers/source_collection.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.handlers.source_collection"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(mission_id: 'str', created_at: 'str', database_path: 'str', requested_limit: 'int', requested_object_types: 'list[str]', status: 'MissionStatus', items: 'list[AssimilationMissionItem]' = <factory>, planning_notes: 'list[str]' = <factory>, started_at: 'str | None' = None, paused_at: 'str | None' = None, completed_at: 'str | None' = None, processed: 'int' = 0, failed: 'int' = 0, skipped: 'int' = 0, blocked: 'int' = 0) -> None",
+          "docstring": "A deterministic, persistent assimilation work plan.",
+          "methods": [
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "dispatchable_items",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "executable_items",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "finalize",
+              "owner": "AssimilationMission",
+              "signature": "(self) -> 'None'"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "fingerprint",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "classmethod",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "from_dict",
+              "owner": "AssimilationMission",
+              "signature": "(cls, payload: 'dict[str, Any]') -> \"'AssimilationMission'\""
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "handler_counts",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "has_work",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "mark_started",
+              "owner": "AssimilationMission",
+              "signature": "(self) -> 'None'"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "object_type_counts",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "pause",
+              "owner": "AssimilationMission",
+              "signature": "(self) -> 'None'"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "pending_items",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "recalculate_counts",
+              "owner": "AssimilationMission",
+              "signature": "(self) -> 'None'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "recover_interrupted_items",
+              "owner": "AssimilationMission",
+              "signature": "(self) -> 'int'"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "remaining_items",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "terminal_items",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "to_dict",
+              "owner": "AssimilationMission",
+              "signature": "(self) -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "total_items",
+              "owner": "AssimilationMission",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "write_json",
+              "owner": "AssimilationMission",
+              "signature": "(self, path: 'str | Path') -> 'Path'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.mission",
+          "name": "AssimilationMission"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(sequence: 'int', object_uuid: 'str', object_path: 'str', object_type: 'str', lifecycle_state: 'str', assimilation_state: 'str', updated_at: 'str | None', handler_name: 'str', handler_kind: 'str', handler_readiness: 'str', handler_description: 'str', executable_in_current_phase: 'bool', path_exists: 'bool', path_is_file: 'bool', path_is_directory: 'bool', size_bytes: 'int | None', status: 'MissionItemStatus' = <MissionItemStatus.QUEUED: 'queued'>, message: 'str | None' = None, result: 'dict[str, Any] | None' = None, started_at: 'str | None' = None, completed_at: 'str | None' = None) -> None",
+          "docstring": "One registry object selected for an assimilation mission.",
+          "methods": [
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "dispatchable",
+              "owner": "AssimilationMissionItem",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "executable",
+              "owner": "AssimilationMissionItem",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "classmethod",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "from_dict",
+              "owner": "AssimilationMissionItem",
+              "signature": "(cls, payload: 'dict[str, Any]') -> \"'AssimilationMissionItem'\""
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "mark_processing",
+              "owner": "AssimilationMissionItem",
+              "signature": "(self) -> 'None'"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "mark_terminal",
+              "owner": "AssimilationMissionItem",
+              "signature": "(self, *, status: 'MissionItemStatus', message: 'str | None' = None, result: 'dict[str, Any] | None' = None) -> 'None'"
+            },
+            {
+              "docstring": "Return an interrupted item checkpoint to queued.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "reset_interrupted_processing",
+              "owner": "AssimilationMissionItem",
+              "signature": "(self) -> 'None'"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "terminal",
+              "owner": "AssimilationMissionItem",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission",
+              "name": "to_dict",
+              "owner": "AssimilationMissionItem",
+              "signature": "(self) -> 'dict[str, Any]'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.mission",
+          "name": "AssimilationMissionItem"
+        },
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "constructor_signature": "(*values)",
+          "docstring": "Execution states for an individual mission item.",
+          "methods": [],
+          "module": "knowledge_engine.assimilation.mission",
+          "name": "MissionItemStatus"
+        },
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "constructor_signature": "(*values)",
+          "docstring": "Lifecycle states for an assimilation mission.",
+          "methods": [],
+          "module": "knowledge_engine.assimilation.mission",
+          "name": "MissionStatus"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/mission.py",
+      "functions": [
+        {
+          "docstring": "Build a mission identifier from content and creation time.",
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.mission",
+          "name": "build_mission_id",
+          "owner": null,
+          "signature": "(database_path: 'str', object_uuids: 'Iterable[str]') -> 'str'"
+        },
+        {
+          "docstring": null,
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.mission",
+          "name": "utc_now",
+          "owner": null,
+          "signature": "() -> 'str'"
+        }
+      ],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.mission"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(db: 'Any')",
+          "docstring": "Persist missions and item-level checkpoints in the catalog.",
+          "methods": [
+            {
+              "docstring": "Persist mission progress and optionally one changed item.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission_store",
+              "name": "checkpoint",
+              "owner": "AssimilationMissionStore",
+              "signature": "(self, mission: 'AssimilationMission', *, item: 'AssimilationMissionItem | None' = None, last_error: 'str | None' = None) -> 'None'"
+            },
+            {
+              "docstring": "Return recent persistent mission summaries.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission_store",
+              "name": "history",
+              "owner": "AssimilationMissionStore",
+              "signature": "(self, *, limit: 'int' = 25, status: 'str | None' = None) -> 'list[dict[str, Any]]'"
+            },
+            {
+              "docstring": "Load a complete mission from its durable JSON checkpoint.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission_store",
+              "name": "load",
+              "owner": "AssimilationMissionStore",
+              "signature": "(self, mission_id: 'str') -> 'AssimilationMission'"
+            },
+            {
+              "docstring": "Return durable item checkpoints for one mission.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission_store",
+              "name": "mission_items",
+              "owner": "AssimilationMissionStore",
+              "signature": "(self, mission_id: 'str') -> 'list[dict[str, Any]]'"
+            },
+            {
+              "docstring": "Persist a newly planned mission and all mission items.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.mission_store",
+              "name": "save_new",
+              "owner": "AssimilationMissionStore",
+              "signature": "(self, mission: 'AssimilationMission') -> 'None'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.mission_store",
+          "name": "AssimilationMissionStore"
+        },
+        {
+          "bases": [
+            "LookupError"
+          ],
+          "constructor_signature": "<signature unavailable>",
+          "docstring": "Raised when a requested persistent mission does not exist.",
+          "methods": [],
+          "module": "knowledge_engine.assimilation.mission_store",
+          "name": "MissionNotFoundError"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/mission_store.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.mission_store"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(db: 'Any')",
+          "docstring": "Build deterministic read-only plans from queued registry objects.",
+          "methods": [
+            {
+              "docstring": "Return aggregate registry state counts without modifying the DB.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.planner",
+              "name": "inventory",
+              "owner": "AssimilationPlanner",
+              "signature": "(self) -> 'list[dict[str, Any]]'"
+            },
+            {
+              "docstring": "Return the next queued registry object without modifying it.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.planner",
+              "name": "peek_next",
+              "owner": "AssimilationPlanner",
+              "signature": "(self, *, object_types: 'Sequence[str] | None' = None) -> 'dict[str, Any] | None'"
+            },
+            {
+              "docstring": "Plan queued knowledge objects across all registered object types.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.planner",
+              "name": "plan",
+              "owner": "AssimilationPlanner",
+              "signature": "(self, *, limit: 'int' = 25, object_types: 'Sequence[str] | None' = None) -> 'AssimilationMission'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.planner",
+          "name": "AssimilationPlanner"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/planner.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.planner"
+    },
+    {
+      "classes": [],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/registry_builder.py",
+      "functions": [
+        {
+          "docstring": "Construct the complete assimilation handler registry.",
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.registry_builder",
+          "name": "build_handler_registry",
+          "owner": null,
+          "signature": "(runner: 'AssimilationRunner') -> 'HandlerRegistry'"
+        }
+      ],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.registry_builder"
+    },
+    {
+      "classes": [],
+      "exports": [
+        "KnowledgeRegistryRepository"
+      ],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/repositories/__init__.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.repositories"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(object_uuid: 'str', object_path: 'str', object_type: 'str', lifecycle_state: 'str', assimilation_state: 'str', updated_at: 'str | None') -> None",
+          "docstring": "Immutable representation of one knowledge_registry record.",
+          "methods": [
+            {
+              "docstring": "Return a JSON-ready representation of the registry object.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.repositories.knowledge_registry",
+              "name": "to_dict",
+              "owner": "KnowledgeRegistryObject",
+              "signature": "(self) -> 'dict[str, Any]'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.repositories.knowledge_registry",
+          "name": "KnowledgeRegistryObject"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(db: 'Any')",
+          "docstring": "Read knowledge objects from the canonical knowledge registry.",
+          "methods": [
+            {
+              "docstring": "Load one registry object by UUID.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.repositories.knowledge_registry",
+              "name": "get_object",
+              "owner": "KnowledgeRegistryRepository",
+              "signature": "(self, *, object_uuid: 'str', object_type: 'str | None' = None) -> 'KnowledgeRegistryObject | None'"
+            },
+            {
+              "docstring": "Load one source_collection registry object.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.repositories.knowledge_registry",
+              "name": "get_source_collection",
+              "owner": "KnowledgeRegistryRepository",
+              "signature": "(self, *, object_uuid: 'str') -> 'KnowledgeRegistryObject | None'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.repositories.knowledge_registry",
+          "name": "KnowledgeRegistryRepository"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/repositories/knowledge_registry.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.repositories.knowledge_registry"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(db: 'Any', *, default_max_attempts: 'int' = 3, state_service: 'AssimilationStateService | None' = None, persistence_service: 'DocumentPersistenceService | None' = None, attempt_service: 'AttemptJournalService | None' = None, extraction_service: 'ExtractionService | None' = None)",
+          "docstring": "Execute failure-safe single-document assimilation work.",
+          "methods": [
+            {
+              "docstring": "Recover document records left in stale processing states.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.runner",
+              "name": "recover_stale_processing",
+              "owner": "AssimilationRunner",
+              "signature": "(self, *, stale_after_minutes: 'int' = 30) -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Requeue failed documents that satisfy the retry policy.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.runner",
+              "name": "requeue_failed_documents",
+              "owner": "AssimilationRunner",
+              "signature": "(self, *, limit: 'int' = 25, reset_attempts: 'bool' = False) -> 'dict[str, Any]'"
+            },
+            {
+              "docstring": "Claim and process one validated and queued document.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.runner",
+              "name": "run_one_single_document",
+              "owner": "AssimilationRunner",
+              "signature": "(self, *, expected_object_uuid: 'str | None' = None) -> 'dict[str, Any]'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.runner",
+          "name": "AssimilationRunner"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(object_uuid: 'str', object_path: 'str', object_type: 'str', attempt_number: 'int', max_attempts: 'int', attempt_id: 'int') -> None",
+          "docstring": "A single registry object atomically claimed for assimilation.",
+          "methods": [],
+          "module": "knowledge_engine.assimilation.runner",
+          "name": "ClaimedDocument"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/runner.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.runner"
+    },
+    {
+      "classes": [],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/schema.py",
+      "functions": [
+        {
+          "docstring": "Resolve a useful database path from a KnowledgeDatabase object.",
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.schema",
+          "name": "database_path_from",
+          "owner": null,
+          "signature": "(db: 'Any') -> 'str'"
+        },
+        {
+          "docstring": "Ensure all Phase VI-B and VI-C assimilation tables and columns.",
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.schema",
+          "name": "ensure_assimilation_runtime_schema",
+          "owner": null,
+          "signature": "(connection: 'sqlite3.Connection') -> 'None'"
+        },
+        {
+          "docstring": "Return knowledge_assimilation_queue column names.",
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.schema",
+          "name": "queue_columns",
+          "owner": null,
+          "signature": "(connection: 'sqlite3.Connection') -> 'set[str]'"
+        }
+      ],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.schema"
+    },
+    {
+      "classes": [],
+      "exports": [
+        "AssimilationStateService",
+        "AttemptJournalService",
+        "AttemptStartResult",
+        "AttemptUpdateResult",
+        "DocumentPersistenceResult",
+        "DocumentPersistenceService",
+        "ExtractionResult",
+        "ExtractionService",
+        "StateTransitionResult"
+      ],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/services/__init__.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.services"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "()",
+          "docstring": "Create and update durable assimilation-attempt records.",
+          "methods": [
+            {
+              "docstring": "Mark all active attempts for one object as abandoned.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.attempts",
+              "name": "abandon_processing_attempts",
+              "owner": "AttemptJournalService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str', reason: 'str' = 'Recovered stale processing claim') -> 'AttemptUpdateResult'"
+            },
+            {
+              "docstring": "Mark one attempt completed and store output statistics.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.attempts",
+              "name": "complete_attempt",
+              "owner": "AttemptJournalService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', attempt_id: 'int', text_chars: 'int', chunk_count: 'int', checksum: 'str') -> 'AttemptUpdateResult'"
+            },
+            {
+              "docstring": "Mark one active attempt failed with structured diagnostics.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.attempts",
+              "name": "fail_attempt",
+              "owner": "AttemptJournalService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', attempt_id: 'int', error_type: 'str', error_message: 'str') -> 'AttemptUpdateResult'"
+            },
+            {
+              "docstring": "Fail all active attempts for a retry-exhausted stale object.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.attempts",
+              "name": "fail_stale_exhausted_attempts",
+              "owner": "AttemptJournalService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str', reason: 'str' = 'Stale processing claim exhausted retry limit') -> 'AttemptUpdateResult'"
+            },
+            {
+              "docstring": "Create one processing attempt and return its durable ID.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.attempts",
+              "name": "start_attempt",
+              "owner": "AttemptJournalService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str', object_path: 'str', object_type: 'str', handler_name: 'str', attempt_number: 'int') -> 'AttemptStartResult'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.services.attempts",
+          "name": "AttemptJournalService"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(attempt_id: 'int', object_uuid: 'str', attempt_number: 'int', attempt_state: 'str' = 'processing') -> None",
+          "docstring": "Result returned when an assimilation attempt is created.",
+          "methods": [],
+          "module": "knowledge_engine.assimilation.services.attempts",
+          "name": "AttemptStartResult"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(rows_updated: 'int', attempt_state: 'str') -> None",
+          "docstring": "Result returned when attempt rows are updated.",
+          "methods": [
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.services.attempts",
+              "name": "applied",
+              "owner": "AttemptUpdateResult",
+              "signature": "<property>"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.services.attempts",
+          "name": "AttemptUpdateResult"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/services/attempts.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.services.attempts"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(document_path: 'str', extractor: 'str', normalized_text: 'str', checksum: 'str', chunks: 'tuple[str, ...]') -> None",
+          "docstring": "Immutable output from one document extraction operation.",
+          "methods": [
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.services.extraction",
+              "name": "chunk_count",
+              "owner": "ExtractionResult",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.services.extraction",
+              "name": "text_chars",
+              "owner": "ExtractionResult",
+              "signature": "<property>"
+            },
+            {
+              "docstring": null,
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.services.extraction",
+              "name": "usable",
+              "owner": "ExtractionResult",
+              "signature": "<property>"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.services.extraction",
+          "name": "ExtractionResult"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(*, chunk_size: 'int' = 2000, chunk_overlap: 'int' = 200, extractor_name: 'str' = 'single_document_assimilation')",
+          "docstring": "Extract and chunk one supported single-document source.",
+          "methods": [
+            {
+              "docstring": "Extract, normalize, checksum, and chunk one source document.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.extraction",
+              "name": "extract",
+              "owner": "ExtractionService",
+              "signature": "(self, *, document_path: 'str') -> 'ExtractionResult'"
+            },
+            {
+              "docstring": "Preserve current assimilation behavior.",
+              "kind": "staticmethod",
+              "module": "knowledge_engine.assimilation.services.extraction",
+              "name": "normalize_text",
+              "owner": "ExtractionService",
+              "signature": "(text: 'str') -> 'str'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.services.extraction",
+          "name": "ExtractionService"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/services/extraction.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.services.extraction"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(document_path: 'str', text_chars: 'int', chunk_count: 'int', checksum: 'str', extractor: 'str') -> None",
+          "docstring": "Summary of one document persistence operation.",
+          "methods": [
+            {
+              "docstring": "Return whether document text and at least one chunk were stored.",
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.services.persistence",
+              "name": "persisted",
+              "owner": "DocumentPersistenceResult",
+              "signature": "<property>"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.services.persistence",
+          "name": "DocumentPersistenceResult"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "()",
+          "docstring": "Persist extracted document text and replace its chunk set.",
+          "methods": [
+            {
+              "docstring": "Upsert extracted text and replace all chunks for one document.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.persistence",
+              "name": "persist_document",
+              "owner": "DocumentPersistenceService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', document_path: 'str', text: 'str', checksum: 'str', chunks: 'Sequence[str]', extractor: 'str' = 'single_document_assimilation') -> 'DocumentPersistenceResult'"
+            },
+            {
+              "docstring": "Replace the complete stored chunk set for one document.",
+              "kind": "staticmethod",
+              "module": "knowledge_engine.assimilation.services.persistence",
+              "name": "replace_chunks",
+              "owner": "DocumentPersistenceService",
+              "signature": "(*, conn: 'sqlite3.Connection', document_path: 'str', chunks: 'Sequence[str]') -> 'None'"
+            },
+            {
+              "docstring": "Insert or refresh the extracted text record for one document.",
+              "kind": "staticmethod",
+              "module": "knowledge_engine.assimilation.services.persistence",
+              "name": "upsert_document_text",
+              "owner": "DocumentPersistenceService",
+              "signature": "(*, conn: 'sqlite3.Connection', document_path: 'str', text: 'str', checksum: 'str', extractor: 'str') -> 'None'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.services.persistence",
+          "name": "DocumentPersistenceService"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/services/persistence.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.services.persistence"
+    },
+    {
+      "classes": [
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "()",
+          "docstring": "Apply canonical assimilation state transitions.",
+          "methods": [
+            {
+              "docstring": "Move one validated and queued document into processing.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.state",
+              "name": "claim_document",
+              "owner": "AssimilationStateService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str', attempt_number: 'int', max_attempts: 'int') -> 'StateTransitionResult'"
+            },
+            {
+              "docstring": "Place an exhausted stale claim in terminal failure state.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.state",
+              "name": "fail_stale_exhausted_document",
+              "owner": "AssimilationStateService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str') -> 'StateTransitionResult'"
+            },
+            {
+              "docstring": "Record a failed document attempt.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.state",
+              "name": "mark_document_failure",
+              "owner": "AssimilationStateService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str', error_text: 'str', retry_exhausted: 'bool') -> 'StateTransitionResult'"
+            },
+            {
+              "docstring": "Complete document chunking and mark it ready for embedding.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.state",
+              "name": "mark_document_ready_for_embedding",
+              "owner": "AssimilationStateService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str') -> 'StateTransitionResult'"
+            },
+            {
+              "docstring": "Return a stale processing claim to validated/queued.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.state",
+              "name": "recover_stale_document",
+              "owner": "AssimilationStateService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str') -> 'StateTransitionResult'"
+            },
+            {
+              "docstring": "Explicitly return a failed document to validated/queued.",
+              "kind": "method",
+              "module": "knowledge_engine.assimilation.services.state",
+              "name": "requeue_failed_document",
+              "owner": "AssimilationStateService",
+              "signature": "(self, *, conn: 'sqlite3.Connection', object_uuid: 'str', reset_attempts: 'bool') -> 'StateTransitionResult'"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.services.state",
+          "name": "AssimilationStateService"
+        },
+        {
+          "bases": [
+            "object"
+          ],
+          "constructor_signature": "(registry_rows: 'int', queue_rows: 'int') -> None",
+          "docstring": "Result of a coordinated registry and queue transition.",
+          "methods": [
+            {
+              "docstring": "Return whether exactly one registry and one queue row changed.",
+              "kind": "property",
+              "module": "knowledge_engine.assimilation.services.state",
+              "name": "applied",
+              "owner": "StateTransitionResult",
+              "signature": "<property>"
+            }
+          ],
+          "module": "knowledge_engine.assimilation.services.state",
+          "name": "StateTransitionResult"
+        }
+      ],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/services/state.py",
+      "functions": [],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.services.state"
+    },
+    {
+      "classes": [],
+      "exports": [],
+      "file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/knowledge_engine/assimilation/single_document.py",
+      "functions": [
+        {
+          "docstring": null,
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.single_document",
+          "name": "checksum",
+          "owner": null,
+          "signature": "(text: 'str') -> 'str'"
+        },
+        {
+          "docstring": null,
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.single_document",
+          "name": "chunk_text",
+          "owner": null,
+          "signature": "(text: 'str', chunk_size: 'int' = 2000, overlap: 'int' = 200) -> 'list[str]'"
+        },
+        {
+          "docstring": null,
+          "kind": "function",
+          "module": "knowledge_engine.assimilation.single_document",
+          "name": "read_text",
+          "owner": null,
+          "signature": "(path: 'Path') -> 'str'"
+        }
+      ],
+      "import_error": null,
+      "imported": true,
+      "module": "knowledge_engine.assimilation.single_document"
+    }
+  ],
+  "repository_root": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+  "source_files": [
+    {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "knowledge_engine.assimilation.collection_plan.CollectionChildPlan",
+        "knowledge_engine.assimilation.collection_plan.CollectionExpansionPlan",
+        "knowledge_engine.assimilation.collection_plan.CollectionExpansionPlanner",
+        "knowledge_engine.assimilation.director.AssimilationDirector",
+        "knowledge_engine.assimilation.director.AssimilationExecutionLockedError",
+        "knowledge_engine.assimilation.dispatch.AssimilationHandlerSpec",
+        "knowledge_engine.assimilation.dispatch.HandlerReadiness",
+        "knowledge_engine.assimilation.dispatch.get_handler_spec",
+        "knowledge_engine.assimilation.dispatch.registered_handler_specs",
+        "knowledge_engine.assimilation.mission.AssimilationMission",
+        "knowledge_engine.assimilation.mission.AssimilationMissionItem",
+        "knowledge_engine.assimilation.mission.MissionItemStatus",
+        "knowledge_engine.assimilation.mission.MissionStatus",
+        "knowledge_engine.assimilation.mission_store.AssimilationMissionStore",
+        "knowledge_engine.assimilation.mission_store.MissionNotFoundError",
+        "knowledge_engine.assimilation.planner.AssimilationPlanner",
+        "knowledge_engine.assimilation.runner.AssimilationRunner",
+        "knowledge_engine.assimilation.runner.ClaimedDocument",
+        "knowledge_engine.assimilation.schema.ensure_assimilation_runtime_schema",
+        "knowledge_engine.assimilation.services.attempts.AttemptJournalService",
+        "knowledge_engine.assimilation.services.attempts.AttemptStartResult",
+        "knowledge_engine.assimilation.services.attempts.AttemptUpdateResult",
+        "knowledge_engine.assimilation.services.persistence.DocumentPersistenceResult",
+        "knowledge_engine.assimilation.services.persistence.DocumentPersistenceService",
+        "knowledge_engine.assimilation.services.state.AssimilationStateService",
+        "knowledge_engine.assimilation.services.state.StateTransitionResult",
+        "knowledge_engine.assimilation.single_document.checksum",
+        "knowledge_engine.assimilation.single_document.chunk_text",
+        "knowledge_engine.assimilation.single_document.read_text"
+      ],
+      "path": "knowledge_engine/assimilation/__init__.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "CollectionChildPlan",
+        "CollectionExpansionPlan",
+        "CollectionExpansionPlanner"
+      ],
+      "functions": [
+        "_classify_child",
+        "fingerprint",
+        "handler_counts",
+        "object_type_counts",
+        "plan",
+        "supported_children",
+        "to_dict",
+        "total_children",
+        "unsupported_children"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.asdict",
+        "dataclasses.dataclass",
+        "dataclasses.field",
+        "hashlib",
+        "json",
+        "knowledge_engine.assimilation.dispatch.get_handler_spec",
+        "pathlib.Path",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/collection_plan.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "AssimilationDirector",
+        "AssimilationExecutionLockedError"
+      ],
+      "functions": [
+        "__init__",
+        "execute",
+        "history",
+        "inventory",
+        "load_mission",
+        "plan",
+        "plan_and_execute",
+        "resume"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "knowledge_engine.assimilation.mission.AssimilationMission",
+        "knowledge_engine.assimilation.mission.MissionItemStatus",
+        "knowledge_engine.assimilation.mission.MissionStatus",
+        "knowledge_engine.assimilation.mission_store.AssimilationMissionStore",
+        "knowledge_engine.assimilation.planner.AssimilationPlanner",
+        "knowledge_engine.assimilation.registry_builder.build_handler_registry",
+        "knowledge_engine.assimilation.runner.AssimilationRunner",
+        "typing.Any",
+        "typing.Sequence"
+      ],
+      "path": "knowledge_engine/assimilation/director.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "AssimilationHandlerSpec",
+        "HandlerReadiness"
+      ],
+      "functions": [
+        "get_handler_spec",
+        "registered_handler_specs",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.asdict",
+        "dataclasses.dataclass",
+        "enum.Enum",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/dispatch.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "HandlerRegistry"
+      ],
+      "functions": [
+        "__init__",
+        "get",
+        "object_types",
+        "register",
+        "supports"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "knowledge_engine.assimilation.handlers.base.AssimilationHandler",
+        "typing.Dict"
+      ],
+      "path": "knowledge_engine/assimilation/handler_registry.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "knowledge_engine.assimilation.handlers.base.AssimilationHandler",
+        "knowledge_engine.assimilation.handlers.single_document.SingleDocumentHandler",
+        "knowledge_engine.assimilation.handlers.source_collection.SourceCollectionHandler"
+      ],
+      "path": "knowledge_engine/assimilation/handlers/__init__.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "AssimilationHandler"
+      ],
+      "functions": [
+        "execute",
+        "plan",
+        "recover",
+        "report",
+        "verify"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "abc.ABC",
+        "abc.abstractmethod",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/handlers/base.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "SingleDocumentHandler"
+      ],
+      "functions": [
+        "__init__",
+        "execute",
+        "plan",
+        "recover",
+        "report",
+        "verify"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "knowledge_engine.assimilation.handlers.base.AssimilationHandler",
+        "knowledge_engine.assimilation.runner.AssimilationRunner",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/handlers/single_document.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "SourceCollectionHandler"
+      ],
+      "functions": [
+        "__init__",
+        "_load_collection",
+        "execute",
+        "plan",
+        "recover",
+        "report",
+        "verify"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "knowledge_engine.assimilation.collection_plan.CollectionExpansionPlanner",
+        "knowledge_engine.assimilation.handlers.base.AssimilationHandler",
+        "knowledge_engine.assimilation.repositories.KnowledgeRegistryRepository",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/handlers/source_collection.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "AssimilationMission",
+        "AssimilationMissionItem",
+        "MissionItemStatus",
+        "MissionStatus"
+      ],
+      "functions": [
+        "build_mission_id",
+        "dispatchable",
+        "dispatchable_items",
+        "executable",
+        "executable_items",
+        "finalize",
+        "fingerprint",
+        "from_dict",
+        "handler_counts",
+        "has_work",
+        "mark_processing",
+        "mark_started",
+        "mark_terminal",
+        "object_type_counts",
+        "pause",
+        "pending_items",
+        "recalculate_counts",
+        "recover_interrupted_items",
+        "remaining_items",
+        "reset_interrupted_processing",
+        "terminal",
+        "terminal_items",
+        "to_dict",
+        "total_items",
+        "utc_now",
+        "write_json"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.asdict",
+        "dataclasses.dataclass",
+        "dataclasses.field",
+        "datetime.datetime",
+        "datetime.timezone",
+        "enum.Enum",
+        "hashlib",
+        "json",
+        "pathlib.Path",
+        "typing.Any",
+        "typing.Iterable"
+      ],
+      "path": "knowledge_engine/assimilation/mission.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "AssimilationMissionStore",
+        "MissionNotFoundError"
+      ],
+      "functions": [
+        "__init__",
+        "_upsert_item_row",
+        "_upsert_mission_row",
+        "checkpoint",
+        "history",
+        "load",
+        "mission_items",
+        "save_new"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "json",
+        "knowledge_engine.assimilation.mission.AssimilationMission",
+        "knowledge_engine.assimilation.mission.AssimilationMissionItem",
+        "knowledge_engine.assimilation.mission.MissionStatus",
+        "knowledge_engine.assimilation.mission.utc_now",
+        "knowledge_engine.assimilation.schema.ensure_assimilation_runtime_schema",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/mission_store.py",
+      "sql_tokens": [
+        "SELECT ",
+        "INSERT ",
+        "UPDATE "
+      ]
+    },
+    {
+      "classes": [
+        "AssimilationPlanner"
+      ],
+      "functions": [
+        "__init__",
+        "_build_item",
+        "_build_planning_notes",
+        "_database_path",
+        "_normalize_object_types",
+        "inventory",
+        "peek_next",
+        "plan"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "knowledge_engine.assimilation.dispatch.get_handler_spec",
+        "knowledge_engine.assimilation.mission.AssimilationMission",
+        "knowledge_engine.assimilation.mission.AssimilationMissionItem",
+        "knowledge_engine.assimilation.mission.MissionStatus",
+        "knowledge_engine.assimilation.mission.build_mission_id",
+        "knowledge_engine.assimilation.mission.utc_now",
+        "pathlib.Path",
+        "typing.Any",
+        "typing.Sequence"
+      ],
+      "path": "knowledge_engine/assimilation/planner.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [],
+      "functions": [
+        "build_handler_registry"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "knowledge_engine.assimilation.handler_registry.HandlerRegistry",
+        "knowledge_engine.assimilation.handlers.single_document.SingleDocumentHandler",
+        "knowledge_engine.assimilation.handlers.source_collection.SourceCollectionHandler",
+        "knowledge_engine.assimilation.runner.AssimilationRunner"
+      ],
+      "path": "knowledge_engine/assimilation/registry_builder.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "knowledge_engine.assimilation.repositories.knowledge_registry.KnowledgeRegistryRepository"
+      ],
+      "path": "knowledge_engine/assimilation/repositories/__init__.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "KnowledgeRegistryObject",
+        "KnowledgeRegistryRepository"
+      ],
+      "functions": [
+        "__init__",
+        "_map_row",
+        "get_object",
+        "get_source_collection",
+        "to_dict"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.asdict",
+        "dataclasses.dataclass",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/repositories/knowledge_registry.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "AssimilationRunner",
+        "ClaimedDocument"
+      ],
+      "functions": [
+        "__init__",
+        "_claim_single_document",
+        "_complete_failure",
+        "_complete_success",
+        "_validate_source_path",
+        "recover_stale_processing",
+        "requeue_failed_documents",
+        "run_one_single_document"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.dataclass",
+        "datetime.datetime",
+        "datetime.timedelta",
+        "datetime.timezone",
+        "knowledge_engine.assimilation.schema.ensure_assimilation_runtime_schema",
+        "knowledge_engine.assimilation.services.attempts.AttemptJournalService",
+        "knowledge_engine.assimilation.services.extraction.ExtractionService",
+        "knowledge_engine.assimilation.services.persistence.DocumentPersistenceService",
+        "knowledge_engine.assimilation.services.state.AssimilationStateService",
+        "pathlib.Path",
+        "sqlite3",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/runner.py",
+      "sql_tokens": [
+        "SELECT ",
+        "UPDATE "
+      ]
+    },
+    {
+      "classes": [],
+      "functions": [
+        "_ensure_attempt_schema",
+        "_ensure_mission_schema",
+        "_ensure_queue_columns",
+        "_quote_identifier",
+        "database_path_from",
+        "ensure_assimilation_runtime_schema",
+        "queue_columns"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "sqlite3",
+        "typing.Any"
+      ],
+      "path": "knowledge_engine/assimilation/schema.py",
+      "sql_tokens": [
+        "DELETE ",
+        "CREATE TABLE"
+      ]
+    },
+    {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "knowledge_engine.assimilation.services.attempts.AttemptJournalService",
+        "knowledge_engine.assimilation.services.attempts.AttemptStartResult",
+        "knowledge_engine.assimilation.services.attempts.AttemptUpdateResult",
+        "knowledge_engine.assimilation.services.extraction.ExtractionResult",
+        "knowledge_engine.assimilation.services.extraction.ExtractionService",
+        "knowledge_engine.assimilation.services.persistence.DocumentPersistenceResult",
+        "knowledge_engine.assimilation.services.persistence.DocumentPersistenceService",
+        "knowledge_engine.assimilation.services.state.AssimilationStateService",
+        "knowledge_engine.assimilation.services.state.StateTransitionResult"
+      ],
+      "path": "knowledge_engine/assimilation/services/__init__.py",
+      "sql_tokens": []
+    },
+    {
+      "classes": [
+        "AttemptJournalService",
+        "AttemptStartResult",
+        "AttemptUpdateResult"
+      ],
+      "functions": [
+        "abandon_processing_attempts",
+        "applied",
+        "complete_attempt",
+        "fail_attempt",
+        "fail_stale_exhausted_attempts",
+        "start_attempt"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.dataclass",
+        "sqlite3"
+      ],
+      "path": "knowledge_engine/assimilation/services/attempts.py",
+      "sql_tokens": [
+        "SELECT ",
+        "INSERT ",
+        "UPDATE "
+      ]
+    },
+    {
+      "classes": [
+        "ExtractionResult",
+        "ExtractionService"
+      ],
+      "functions": [
+        "__init__",
+        "_validate_source_path",
+        "chunk_count",
+        "extract",
+        "normalize_text",
+        "text_chars",
+        "usable"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.dataclass",
+        "knowledge_engine.assimilation.single_document.checksum",
+        "knowledge_engine.assimilation.single_document.chunk_text",
+        "knowledge_engine.assimilation.single_document.read_text",
+        "pathlib.Path"
+      ],
+      "path": "knowledge_engine/assimilation/services/extraction.py",
+      "sql_tokens": [
+        "UPDATE "
+      ]
+    },
+    {
+      "classes": [
+        "DocumentPersistenceResult",
+        "DocumentPersistenceService"
+      ],
+      "functions": [
+        "persist_document",
+        "persisted",
+        "replace_chunks",
+        "upsert_document_text"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.dataclass",
+        "sqlite3",
+        "typing.Sequence"
+      ],
+      "path": "knowledge_engine/assimilation/services/persistence.py",
+      "sql_tokens": [
+        "INSERT ",
+        "UPDATE ",
+        "DELETE "
+      ]
+    },
+    {
+      "classes": [
+        "AssimilationStateService",
+        "StateTransitionResult"
+      ],
+      "functions": [
+        "applied",
+        "claim_document",
+        "fail_stale_exhausted_document",
+        "mark_document_failure",
+        "mark_document_ready_for_embedding",
+        "recover_stale_document",
+        "requeue_failed_document"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "dataclasses.dataclass",
+        "sqlite3"
+      ],
+      "path": "knowledge_engine/assimilation/services/state.py",
+      "sql_tokens": [
+        "SELECT ",
+        "UPDATE "
+      ]
+    },
+    {
+      "classes": [],
+      "functions": [
+        "checksum",
+        "chunk_text",
+        "read_text"
+      ],
+      "imports": [
+        "__future__.annotations",
+        "hashlib",
+        "knowledge_engine.extraction.extractors.pdf.PDFExtractor",
+        "pathlib.Path"
+      ],
+      "path": "knowledge_engine/assimilation/single_document.py",
+      "sql_tokens": []
+    }
+  ]
+}

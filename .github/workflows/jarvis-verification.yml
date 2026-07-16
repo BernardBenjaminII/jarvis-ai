@@ -1,0 +1,68 @@
+name: JARVIS Verification
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+      - "stabilization/**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verification:
+    name: Master Verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install project dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+          if [[ -f requirements/dev.txt ]]; then
+            python -m pip install -r requirements/dev.txt
+          elif [[ -f requirements.txt ]]; then
+            python -m pip install -r requirements.txt
+          else
+            echo "No dependency file found; continuing with standard library."
+          fi
+
+      - name: Compile verification infrastructure
+        run: |
+          python -m py_compile \
+            dev/verification/__init__.py \
+            dev/verification/models.py \
+            dev/verification/registry.py \
+            dev/verification/runner.py \
+            dev/release/__init__.py \
+            dev/release/safe_commit.py
+
+      - name: Run master verification
+        env:
+          PYTHON_BIN: python
+        run: |
+          python -m dev.verification.runner \
+            --json-out \
+            /tmp/jarvis-verification/ci-report.json
+
+      - name: Upload verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jarvis-verification-report
+          path: /tmp/jarvis-verification/ci-report.json
+          if-no-files-found: warn
+          retention-days: 30

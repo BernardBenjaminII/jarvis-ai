@@ -1,0 +1,128 @@
+[
+  {
+    "assimilation_state": "not_queued",
+    "handler_kind": "document",
+    "handler_name": "document_assimilation",
+    "handler_readiness": "available",
+    "lifecycle_state": "registered",
+    "object_type": "single_document",
+    "total": 458
+  },
+  {
+    "assimilation_state": "queued",
+    "handler_kind": "collection",
+    "handler_name": "collection_expansion",
+    "handler_readiness": "planned",
+    "lifecycle_state": "validated",
+    "object_type": "source_collection",
+    "total": 100
+  },
+  {
+    "assimilation_state": "queued",
+    "handler_kind": "document",
+    "handler_name": "document_assimilation",
+    "handler_readiness": "available",
+    "lifecycle_state": "validated",
+    "object_type": "single_document",
+    "total": 99
+  },
+  {
+    "assimilation_state": "not_queued",
+    "handler_kind": "web",
+    "handler_name": "web_assimilation",
+    "handler_readiness": "planned",
+    "lifecycle_state": "registered",
+    "object_type": "web_or_html_collection",
+    "total": 83
+  },
+  {
+    "assimilation_state": "not_queued",
+    "handler_kind": "collection",
+    "handler_name": "folder_expansion",
+    "handler_readiness": "planned",
+    "lifecycle_state": "registered",
+    "object_type": "folder_collection",
+    "total": 43
+  },
+  {
+    "assimilation_state": "not_queued",
+    "handler_kind": "image",
+    "handler_name": "image_assimilation",
+    "handler_readiness": "planned",
+    "lifecycle_state": "registered",
+    "object_type": "single_image",
+    "total": 31
+  },
+  {
+    "assimilation_state": "not_queued",
+    "handler_kind": "collection",
+    "handler_name": "collection_expansion",
+    "handler_readiness": "planned",
+    "lifecycle_state": "registered",
+    "object_type": "source_collection",
+    "total": 30
+  },
+  {
+    "assimilation_state": "not_queued",
+    "handler_kind": "generic",
+    "handler_name": "generic_file_assimilation",
+    "handler_readiness": "planned",
+    "lifecycle_state": "registered",
+    "object_type": "single_file",
+    "total": 22
+  },
+  {
+    "assimilation_state": "queued",
+    "handler_kind": "project",
+    "handler_name": "project_assimilation",
+    "handler_readiness": "planned",
+    "lifecycle_state": "validated",
+    "object_type": "academic_or_code_project",
+    "total": 12
+  },
+  {
+    "assimilation_state": "needs_review",
+    "handler_kind": "document",
+    "handler_name": "document_assimilation",
+    "handler_readiness": "available",
+    "lifecycle_state": "extracted",
+    "object_type": "single_document",
+    "total": 8
+  },
+  {
+    "assimilation_state": "not_queued",
+    "handler_kind": "project",
+    "handler_name": "project_assimilation",
+    "handler_readiness": "planned",
+    "lifecycle_state": "registered",
+    "object_type": "academic_or_code_project",
+    "total": 6
+  },
+  {
+    "assimilation_state": "queued",
+    "handler_kind": "image",
+    "handler_name": "image_assimilation",
+    "handler_readiness": "planned",
+    "lifecycle_state": "validated",
+    "object_type": "single_image",
+    "total": 3
+  },
+  {
+    "assimilation_state": "ready_for_embedding",
+    "handler_kind": "document",
+    "handler_name": "document_assimilation",
+    "handler_readiness": "available",
+    "lifecycle_state": "chunked",
+    "object_type": "single_document",
+    "total": 1
+  },
+  {
+    "assimilation_state": "not_queued",
+    "handler_kind": "web",
+    "handler_name": "website_archive_assimilation",
+    "handler_readiness": "planned",
+    "lifecycle_state": "registered",
+    "object_type": "website_archive",
+    "total": 1
+  }
+]
