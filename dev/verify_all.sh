@@ -106,16 +106,22 @@ run_suite ./dev/verify_phase_7a7.sh
 run_suite ./dev/verify_phase_7a8.sh
 
 ###############################################################################
+# Phase VII-B — Acquisition Control
+###############################################################################
+
+run_suite ./dev/verify_phase_7b1.sh
+run_suite ./dev/verify_phase_7b2.sh
+
+###############################################################################
 # Future Phases
 ###############################################################################
 
-# run_suite ./dev/verify_phase_7b1.sh
-# run_suite ./dev/verify_phase_7b2.sh
 # run_suite ./dev/verify_phase_7b3.sh
 # run_suite ./dev/verify_phase_7b4.sh
 # run_suite ./dev/verify_phase_7b5.sh
 # run_suite ./dev/verify_phase_7b6.sh
 # run_suite ./dev/verify_phase_7b7.sh
+
 
 END_TIME=$(date +%s)
 ELAPSED=$((END_TIME - START_TIME))

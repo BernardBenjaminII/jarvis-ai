@@ -224,6 +224,18 @@ VERIFICATION_SUITES: tuple[SuiteDefinition, ...] = (
         ),
     ),
 
+    SuiteDefinition(
+        suite_id="7b2",
+        name="Phase VII-B2 Persistent Source Registry",
+        script_path="dev/verify_phase_7b2.sh",
+        category="acquisition-control",
+        description=(
+            "Persistent admitted-source registry, "
+            "duplicate detection, lifecycle "
+            "management, and registry persistence."
+        ),
+    ),
+
 )
 
 
