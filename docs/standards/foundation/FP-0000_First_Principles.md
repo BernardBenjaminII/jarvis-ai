@@ -243,5 +243,9 @@ Revisions shall occur only when:
 Architectural convenience alone shall never justify modifying these principles.
 
 ---
+JARVIS is engineered to provide disciplined executive support through evidence-based 
+reasoning, transparent recommendations, and governed decision processes.
 
+It is not engineered to replace human authority, but to enhance human judgment and
+mission effectiveness.
 # End of Standard
