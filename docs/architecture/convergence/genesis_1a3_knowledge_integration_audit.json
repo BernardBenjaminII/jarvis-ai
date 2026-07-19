@@ -1,0 +1,429 @@
+{
+  "architectural_findings": [
+    "Knowledge adaptation is already separated from core inference and reasoning orchestration.",
+    "The adapter is the canonical anti-corruption boundary between retrieval-shaped data and immutable reasoning evidence.",
+    "The pipeline coordinates existing subsystems instead of duplicating their internal responsibilities.",
+    "The pipeline should remain a composition layer and must not become the owner of evidence scoring, inference, or executive policy.",
+    "Future ReasoningSession support should wrap or contextualize this pipeline rather than replace the adapter and engine boundaries.",
+    "Evidence provenance evolution should begin at the adapter boundary because that is where external source metadata becomes canonical reasoning evidence."
+  ],
+  "audit_id": "GENESIS-I-A3",
+  "conclusions": {
+    "adapted_batch_contract_present": true,
+    "canonical_evidence_dependency_present": true,
+    "canonical_reasoning_request_dependency_present": true,
+    "canonical_reasoning_result_dependency_present": true,
+    "expected_knowledge_classes_present": true,
+    "expected_pipeline_classes_present": true,
+    "hypothesis_generator_dependency_present": true,
+    "knowledge_adapter_present": true,
+    "knowledge_pipeline_present": true,
+    "pipeline_outcome_contract_present": true,
+    "reasoning_engine_dependency_present": true
+  },
+  "expected_classes": {
+    "knowledge": [
+      "KnowledgeEvidenceAdapterError",
+      "AdaptedEvidenceBatch",
+      "KnowledgeEvidenceAdapter"
+    ],
+    "pipeline": [
+      "KnowledgeReasoningOutcome",
+      "KnowledgeReasoningPipeline"
+    ]
+  },
+  "integration_flow": [
+    "External knowledge or ranked retrieval results",
+    "KnowledgeEvidenceAdapter",
+    "AdaptedEvidenceBatch",
+    "Canonical EvidenceItem contracts",
+    "DeterministicHypothesisGenerator",
+    "ReasoningRequest",
+    "ReasoningEngine",
+    "ReasoningResult",
+    "KnowledgeReasoningOutcome"
+  ],
+  "migration_constraints": [
+    "Preserve KnowledgeEvidenceAdapter as the single conversion boundary for retrieval results entering reasoning.",
+    "Preserve EvidenceItem as the canonical evidence contract until an explicit compatible migration is approved.",
+    "Preserve deterministic identifiers generated from stable source content and references.",
+    "Do not allow the integration pipeline to retrieve knowledge directly unless retrieval is explicitly delegated through an injected dependency.",
+    "Do not introduce executive governance into the adapter; governance belongs to a future ReasoningSession or Executive integration layer.",
+    "Do not permit pipeline orchestration to mutate knowledge, evidence, hypotheses, or reasoning results."
+  ],
+  "missing_expected_classes": {
+    "knowledge": [],
+    "pipeline": []
+  },
+  "modules": {
+    "knowledge": {
+      "classes": [
+        {
+          "bases": [
+            "ValueError"
+          ],
+          "decorators": [],
+          "docstring": "Raised when knowledge output cannot be adapted.",
+          "fields": [],
+          "frozen": false,
+          "is_dataclass": false,
+          "methods": [],
+          "name": "KnowledgeEvidenceAdapterError",
+          "slots": false
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "docstring": "",
+          "fields": [
+            "query",
+            "evidence",
+            "rejected_count",
+            "source_count"
+          ],
+          "frozen": true,
+          "is_dataclass": true,
+          "methods": [],
+          "name": "AdaptedEvidenceBatch",
+          "slots": true
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "docstring": "Accept production SearchResult objects or ranked dictionaries.",
+          "fields": [],
+          "frozen": false,
+          "is_dataclass": false,
+          "methods": [
+            {
+              "decorators": [],
+              "docstring": "",
+              "name": "adapt",
+              "parameters": [
+                {
+                  "annotation": "",
+                  "has_default": false,
+                  "name": "self"
+                },
+                {
+                  "annotation": "str",
+                  "has_default": false,
+                  "name": "query"
+                },
+                {
+                  "annotation": "Iterable[Any]",
+                  "has_default": false,
+                  "name": "results"
+                },
+                {
+                  "annotation": "EvidenceStance",
+                  "has_default": true,
+                  "name": "stance"
+                },
+                {
+                  "annotation": "int",
+                  "has_default": true,
+                  "name": "minimum_text_length"
+                }
+              ],
+              "return_annotation": "AdaptedEvidenceBatch",
+              "visibility": "public"
+            }
+          ],
+          "name": "KnowledgeEvidenceAdapter",
+          "slots": false
+        }
+      ],
+      "docstring": "Normalize Knowledge Engine results into reasoning evidence.",
+      "functions": [
+        {
+          "decorators": [],
+          "docstring": "",
+          "name": "_get",
+          "parameters": [
+            {
+              "annotation": "Any",
+              "has_default": false,
+              "name": "value"
+            },
+            {
+              "annotation": "tuple[str, ...]",
+              "has_default": false,
+              "name": "names"
+            },
+            {
+              "annotation": "Any",
+              "has_default": true,
+              "name": "default"
+            }
+          ],
+          "return_annotation": "Any",
+          "visibility": "private"
+        },
+        {
+          "decorators": [],
+          "docstring": "",
+          "name": "_probability",
+          "parameters": [
+            {
+              "annotation": "Any",
+              "has_default": false,
+              "name": "value"
+            },
+            {
+              "annotation": "float",
+              "has_default": false,
+              "name": "default"
+            }
+          ],
+          "return_annotation": "float",
+          "visibility": "private"
+        },
+        {
+          "decorators": [],
+          "docstring": "",
+          "name": "_quality",
+          "parameters": [
+            {
+              "annotation": "Any",
+              "has_default": false,
+              "name": "result"
+            }
+          ],
+          "return_annotation": "float",
+          "visibility": "private"
+        },
+        {
+          "decorators": [],
+          "docstring": "",
+          "name": "_ranking",
+          "parameters": [
+            {
+              "annotation": "Any",
+              "has_default": false,
+              "name": "result"
+            }
+          ],
+          "return_annotation": "dict[str, Any]",
+          "visibility": "private"
+        },
+        {
+          "decorators": [],
+          "docstring": "",
+          "name": "_evidence_id",
+          "parameters": [
+            {
+              "annotation": "str",
+              "has_default": false,
+              "name": "source"
+            },
+            {
+              "annotation": "int | None",
+              "has_default": false,
+              "name": "chunk"
+            },
+            {
+              "annotation": "str",
+              "has_default": false,
+              "name": "text"
+            }
+          ],
+          "return_annotation": "str",
+          "visibility": "private"
+        },
+        {
+          "decorators": [],
+          "docstring": "",
+          "name": "_proposition",
+          "parameters": [
+            {
+              "annotation": "str",
+              "has_default": false,
+              "name": "text"
+            }
+          ],
+          "return_annotation": "str",
+          "visibility": "private"
+        }
+      ],
+      "imports": [
+        "__future__.annotations",
+        "collections.abc.Iterable",
+        "collections.abc.Mapping",
+        "core.reasoning.enums.EvidenceKind",
+        "core.reasoning.enums.EvidenceStance",
+        "core.reasoning.models.EvidenceItem",
+        "dataclasses.dataclass",
+        "hashlib",
+        "re",
+        "typing.Any"
+      ],
+      "line_count": 148,
+      "path": "core/reasoning/knowledge.py"
+    },
+    "pipeline": {
+      "classes": [
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "docstring": "",
+          "fields": [
+            "evidence_batch",
+            "generation",
+            "reasoning"
+          ],
+          "frozen": true,
+          "is_dataclass": true,
+          "methods": [],
+          "name": "KnowledgeReasoningOutcome",
+          "slots": true
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "docstring": "Join an injected Knowledge search callable to reasoning.",
+          "fields": [],
+          "frozen": false,
+          "is_dataclass": false,
+          "methods": [
+            {
+              "decorators": [],
+              "docstring": "",
+              "name": "__init__",
+              "parameters": [
+                {
+                  "annotation": "",
+                  "has_default": false,
+                  "name": "self"
+                },
+                {
+                  "annotation": "KnowledgeSearch",
+                  "has_default": false,
+                  "name": "search"
+                },
+                {
+                  "annotation": "KnowledgeEvidenceAdapter | None",
+                  "has_default": true,
+                  "name": "adapter"
+                },
+                {
+                  "annotation": "DeterministicHypothesisGenerator | None",
+                  "has_default": true,
+                  "name": "generator"
+                },
+                {
+                  "annotation": "ReasoningEngine | None",
+                  "has_default": true,
+                  "name": "engine"
+                }
+              ],
+              "return_annotation": "None",
+              "visibility": "dunder"
+            },
+            {
+              "decorators": [],
+              "docstring": "",
+              "name": "reason",
+              "parameters": [
+                {
+                  "annotation": "",
+                  "has_default": false,
+                  "name": "self"
+                },
+                {
+                  "annotation": "str",
+                  "has_default": false,
+                  "name": "goal"
+                },
+                {
+                  "annotation": "str | None",
+                  "has_default": true,
+                  "name": "query"
+                },
+                {
+                  "annotation": "int",
+                  "has_default": true,
+                  "name": "limit"
+                },
+                {
+                  "annotation": "tuple[str, ...]",
+                  "has_default": true,
+                  "name": "constraints"
+                },
+                {
+                  "annotation": "dict[str, Any] | None",
+                  "has_default": true,
+                  "name": "context"
+                }
+              ],
+              "return_annotation": "KnowledgeReasoningOutcome",
+              "visibility": "public"
+            }
+          ],
+          "name": "KnowledgeReasoningPipeline",
+          "slots": false
+        }
+      ],
+      "docstring": "Knowledge-integrated reasoning pipeline.",
+      "functions": [
+        {
+          "decorators": [],
+          "docstring": "",
+          "name": "_request_id",
+          "parameters": [
+            {
+              "annotation": "str",
+              "has_default": false,
+              "name": "goal"
+            },
+            {
+              "annotation": "str",
+              "has_default": false,
+              "name": "query"
+            }
+          ],
+          "return_annotation": "str",
+          "visibility": "private"
+        }
+      ],
+      "imports": [
+        "__future__.annotations",
+        "collections.abc.Callable",
+        "collections.abc.Iterable",
+        "core.reasoning.generation.DeterministicHypothesisGenerator",
+        "core.reasoning.generation.HypothesisGenerationResult",
+        "core.reasoning.knowledge.AdaptedEvidenceBatch",
+        "core.reasoning.knowledge.KnowledgeEvidenceAdapter",
+        "core.reasoning.models.ReasoningRequest",
+        "core.reasoning.models.ReasoningResult",
+        "core.reasoning.service.ReasoningEngine",
+        "dataclasses.dataclass",
+        "hashlib",
+        "typing.Any"
+      ],
+      "line_count": 81,
+      "path": "core/reasoning/pipeline.py"
+    }
+  },
+  "private_helpers": {
+    "KnowledgeEvidenceAdapter": [],
+    "KnowledgeReasoningPipeline": []
+  },
+  "public_interfaces": {
+    "KnowledgeEvidenceAdapter": [
+      "adapt"
+    ],
+    "KnowledgeReasoningPipeline": [
+      "reason"
+    ]
+  },
+  "sources": [
+    "core/reasoning/knowledge.py",
+    "core/reasoning/pipeline.py"
+  ],
+  "title": "Knowledge Integration Audit"
+}
