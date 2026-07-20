@@ -1,8 +1,26 @@
-"""Genesis IV cognition-domain public API.
+"""Genesis IV cognition-domain public API."""
 
-The cognition layer transforms represented knowledge into deterministic,
-immutable cognitive objects without performing planning or execution.
-"""
+from .claim import (
+    GENESIS_IV_A3_SCHEMA_VERSION,
+    ClaimKind,
+    ClaimPolarity,
+    ClaimPredicate,
+    ClaimRecord,
+    ClaimScope,
+    ClaimStatus,
+    make_claim_id,
+)
+from .claim_construction import (
+    ClaimCandidate,
+    ClaimConstructionEngine,
+    ClaimConstructionPolicy,
+    ClaimConstructionResult,
+    construct_claim,
+)
+from .claim_validation import (
+    validate_claim_object,
+    validate_claim_record,
+)
 
 from .confidence import (
     ConfidenceAssessment,
@@ -36,6 +54,24 @@ from .errors import (
     CognitionSerializationError,
     CognitionValidationError,
     UnsupportedCognitiveObjectError,
+)
+from .evidence import (
+    EvidenceDirection,
+    EvidenceKind,
+    EvidenceQuality,
+    EvidenceRecord,
+    make_evidence_id,
+)
+from .evidence_chain import (
+    EvidenceChain,
+    EvidenceChainStatus,
+    make_evidence_chain_id,
+)
+from .evidence_validation import (
+    validate_evidence_chain,
+    validate_evidence_object,
+    validate_evidence_record,
+    validate_provenance_record,
 )
 from .extraction import (
     ExtractionPattern,
@@ -76,6 +112,13 @@ from .observation import (
     build_observation,
     observe_source,
 )
+from .provenance import (
+    GENESIS_IV_A2_SCHEMA_VERSION,
+    AcquisitionMethod,
+    ProvenanceKind,
+    ProvenanceRecord,
+    make_provenance_id,
+)
 from .serialization import (
     canonical_fingerprint,
     canonical_json,
@@ -92,6 +135,7 @@ from .validation import (
 
 __all__ = [
     "GENESIS_IV_A1_SCHEMA_VERSION",
+    "GENESIS_IV_A2_SCHEMA_VERSION",
     "Metadata",
     "Observation",
     "ObservationValue",
@@ -119,6 +163,15 @@ __all__ = [
     "ObservationBatch",
     "ObservationConstruction",
     "ObservationEngine",
+    "AcquisitionMethod",
+    "ProvenanceKind",
+    "ProvenanceRecord",
+    "EvidenceDirection",
+    "EvidenceKind",
+    "EvidenceQuality",
+    "EvidenceRecord",
+    "EvidenceChain",
+    "EvidenceChainStatus",
     "assess_confidence",
     "build_observation",
     "canonical_fingerprint",
@@ -132,6 +185,9 @@ __all__ = [
     "extract_many",
     "infer_value_kind",
     "make_cognition_id",
+    "make_evidence_chain_id",
+    "make_evidence_id",
+    "make_provenance_id",
     "normalize_boolean_text",
     "normalize_concept",
     "normalize_confidence",
@@ -152,8 +208,27 @@ __all__ = [
     "structured_candidate",
     "validate_cognition_id",
     "validate_cognitive_object",
+    "validate_evidence_chain",
+    "validate_evidence_object",
+    "validate_evidence_record",
     "validate_observation",
     "validate_observation_value",
+    "validate_provenance_record",
     "validate_source_reference",
-    "verify_cognition_id",
+    "verify_cognition_id",    "GENESIS_IV_A3_SCHEMA_VERSION",
+    "ClaimKind",
+    "ClaimPolarity",
+    "ClaimPredicate",
+    "ClaimRecord",
+    "ClaimScope",
+    "ClaimStatus",
+    "ClaimCandidate",
+    "ClaimConstructionEngine",
+    "ClaimConstructionPolicy",
+    "ClaimConstructionResult",
+    "construct_claim",
+    "make_claim_id",
+    "validate_claim_object",
+    "validate_claim_record",
+
 ]
