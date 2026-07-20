@@ -1,22 +1,38 @@
-"""Public contracts for managed reasoning sessions.
+"""Public Genesis II reasoning-session contracts and lifecycle."""
 
-Genesis II-A1 introduces immutable session contracts only. Lifecycle services,
-transition policies, persistence, execution, and executive governance belong to
-later Genesis II phases.
-"""
-
-from .contracts import (
+from core.reasoning.session.contracts import (
     ReasoningSession,
     ReasoningSessionId,
     ReasoningSessionMetadata,
     ReasoningSessionState,
     SessionAttribute,
 )
+from core.reasoning.session.errors import (
+    InvalidReasoningSessionTransitionError,
+    ReasoningSessionContractError,
+    ReasoningSessionLifecycleError,
+    TerminalReasoningSessionError,
+)
+from core.reasoning.session.lifecycle import (
+    LifecycleManager,
+    ReasoningSessionLifecycle,
+    TERMINAL_STATES,
+    TRANSITION_MAP,
+)
+
 
 __all__ = [
+    "InvalidReasoningSessionTransitionError",
+    "LifecycleManager",
     "ReasoningSession",
+    "ReasoningSessionContractError",
     "ReasoningSessionId",
+    "ReasoningSessionLifecycle",
+    "ReasoningSessionLifecycleError",
     "ReasoningSessionMetadata",
     "ReasoningSessionState",
     "SessionAttribute",
+    "TERMINAL_STATES",
+    "TRANSITION_MAP",
+    "TerminalReasoningSessionError",
 ]
