@@ -12,3 +12,6 @@ dev/verify_genesis_2a3.sh
 
 # II-A3A certifies the verification architecture itself.
 dev/verify_genesis_2a3a.sh
+dev/verify_genesis_2a3b.sh
+dev/verify_genesis_2a4.sh
+dev/verify_genesis_3a1.sh
