@@ -4,10 +4,9 @@
 #
 # JARVIS GEN 2
 #
-# Master Verification Suite
+# Deterministic Verification Manifest Runner
 #
-# Stable public verification entry point.
-# Delegates verification to architectural domain orchestrators.
+# Executes verifier paths listed in a manifest, in declared order.
 #
 ###############################################################################
 
@@ -19,10 +18,18 @@ cd "${REPO_ROOT}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 export PYTHON_BIN
 
-echo
-echo "======================================================================"
-echo "JARVIS GEN 2 — MASTER VERIFICATION SUITE"
-echo "======================================================================"
+if [[ "$#" -ne 2 ]]; then
+    echo "Usage: $0 <domain-name> <manifest-path>" >&2
+    exit 2
+fi
+
+DOMAIN_NAME="$1"
+MANIFEST_PATH="$2"
+
+if [[ ! -f "${MANIFEST_PATH}" ]]; then
+    echo "[FAIL] Verification manifest not found: ${MANIFEST_PATH}" >&2
+    exit 1
+fi
 
 START_TIME=$(date +%s)
 
@@ -30,14 +37,14 @@ TOTAL=0
 PASSED=0
 FAILED=0
 
-run_domain() {
+run_suite() {
     local script="$1"
 
     TOTAL=$((TOTAL + 1))
 
     echo
     echo "----------------------------------------------------------------------"
-    echo "Running domain orchestrator ${script}"
+    echo "Running ${script}"
     echo "----------------------------------------------------------------------"
 
     if [[ ! -f "${script}" ]]; then
@@ -63,36 +70,52 @@ run_domain() {
     fi
 }
 
-###############################################################################
-# Verification Domains
-###############################################################################
+echo
+echo "======================================================================"
+echo "JARVIS GEN 2 — ${DOMAIN_NAME} VERIFICATION SUITE"
+echo "======================================================================"
 
-run_domain ./dev/verify_knowledge_all.sh
-run_domain ./dev/verify_genesis_all.sh
+while IFS= read -r raw_line || [[ -n "${raw_line}" ]]; do
+    line="${raw_line#"${raw_line%%[![:space:]]*}"}"
+    line="${line%"${line##*[![:space:]]}"}"
+
+    [[ -z "${line}" ]] && continue
+    [[ "${line}" == \#* ]] && continue
+
+    if [[ "${line}" == /* ]]; then
+        echo "[FAIL] Manifest entries must be repository-relative: ${line}"
+        FAILED=$((FAILED + 1))
+        continue
+    fi
+
+    if [[ "${line}" == *".."* ]]; then
+        echo "[FAIL] Manifest entries may not traverse directories: ${line}"
+        FAILED=$((FAILED + 1))
+        continue
+    fi
+
+    run_suite "${line}"
+done < "${MANIFEST_PATH}"
 
 END_TIME=$(date +%s)
 ELAPSED=$((END_TIME - START_TIME))
 
 echo
 echo "======================================================================"
-echo "MASTER VERIFICATION SUMMARY"
+echo "${DOMAIN_NAME} VERIFICATION SUMMARY"
 echo "======================================================================"
 
-printf "%-24s %6d\n" "Domains Executed:" "${TOTAL}"
-printf "%-24s %6d\n" "Domains Passed:" "${PASSED}"
-printf "%-24s %6d\n" "Domains Failed:" "${FAILED}"
+printf "%-24s %6d\n" "Suites Executed:" "${TOTAL}"
+printf "%-24s %6d\n" "Suites Passed:" "${PASSED}"
+printf "%-24s %6d\n" "Suites Failed:" "${FAILED}"
 printf "%-24s %6d sec\n" "Elapsed Time:" "${ELAPSED}"
 
 echo
 
 if [[ "${FAILED}" -eq 0 ]]; then
     echo "Overall Status : EXCELLENT"
-    echo
-    echo "JARVIS Gen 2 verification PASSED."
     exit 0
 fi
 
 echo "Overall Status : FAILED"
-echo
-echo "One or more verification domains failed."
 exit 1

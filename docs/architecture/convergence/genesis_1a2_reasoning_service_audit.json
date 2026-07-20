@@ -7,7 +7,7 @@
     "evolution_policy": "Wrap the service with lifecycle and governance layers rather than absorbing those concerns into ReasoningEngine.",
     "service_present": true
   },
-  "audit_fingerprint": "333587801f6b58a3eadc6dc3d177168b94c5ccef58867dd94b77631b6a1b9936",
+  "audit_fingerprint": "0f60a4a4810338f84ca96a43169e20fc7dbe00c323b2a94ad22e31a1eb57abd1",
   "audit_id": "GENESIS-I-A2",
   "audit_version": "1.0.0",
   "checks": [
@@ -20,7 +20,7 @@
     },
     {
       "check_id": "I-A2-002",
-      "detail": "modules=10",
+      "detail": "modules=19",
       "passed": true,
       "status": "PASS",
       "title": "Reasoning modules discovered"
@@ -62,6 +62,78 @@
     }
   ],
   "classes": [
+    {
+      "line": 30,
+      "module": "core.reasoning.context.context",
+      "name": "ReasoningContextManager",
+      "path": "core/reasoning/context/context.py"
+    },
+    {
+      "line": 19,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningContextId",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 68,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningConstraint",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 100,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningAssumption",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 132,
+      "module": "core.reasoning.context.contracts",
+      "name": "DecisionCriterion",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 157,
+      "module": "core.reasoning.context.contracts",
+      "name": "OpenReasoningQuestion",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 189,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningContextAttribute",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 212,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningContext",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 6,
+      "module": "core.reasoning.context.errors",
+      "name": "ReasoningContextError",
+      "path": "core/reasoning/context/errors.py"
+    },
+    {
+      "line": 10,
+      "module": "core.reasoning.context.errors",
+      "name": "ReasoningContextContractError",
+      "path": "core/reasoning/context/errors.py"
+    },
+    {
+      "line": 14,
+      "module": "core.reasoning.context.errors",
+      "name": "DuplicateReasoningContextKeyError",
+      "path": "core/reasoning/context/errors.py"
+    },
+    {
+      "line": 14,
+      "module": "core.reasoning.context.validators",
+      "name": "KeyedContract",
+      "path": "core/reasoning/context/validators.py"
+    },
     {
       "line": 8,
       "module": "core.reasoning.enums",
@@ -199,6 +271,66 @@
       "module": "core.reasoning.service",
       "name": "ReasoningEngine",
       "path": "core/reasoning/service.py"
+    },
+    {
+      "line": 17,
+      "module": "core.reasoning.session.contracts",
+      "name": "ReasoningSessionState",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 35,
+      "module": "core.reasoning.session.contracts",
+      "name": "SessionAttribute",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 53,
+      "module": "core.reasoning.session.contracts",
+      "name": "ReasoningSessionId",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 89,
+      "module": "core.reasoning.session.contracts",
+      "name": "ReasoningSessionMetadata",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 147,
+      "module": "core.reasoning.session.contracts",
+      "name": "ReasoningSession",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 6,
+      "module": "core.reasoning.session.errors",
+      "name": "ReasoningSessionLifecycleError",
+      "path": "core/reasoning/session/errors.py"
+    },
+    {
+      "line": 10,
+      "module": "core.reasoning.session.errors",
+      "name": "InvalidReasoningSessionTransitionError",
+      "path": "core/reasoning/session/errors.py"
+    },
+    {
+      "line": 14,
+      "module": "core.reasoning.session.errors",
+      "name": "TerminalReasoningSessionError",
+      "path": "core/reasoning/session/errors.py"
+    },
+    {
+      "line": 20,
+      "module": "core.reasoning.session.errors",
+      "name": "ReasoningSessionContractError",
+      "path": "core/reasoning/session/errors.py"
+    },
+    {
+      "line": 76,
+      "module": "core.reasoning.session.lifecycle",
+      "name": "ReasoningSessionLifecycle",
+      "path": "core/reasoning/session/lifecycle.py"
     }
   ],
   "modules": {
@@ -255,6 +387,302 @@
       "module": "core.reasoning.confidence",
       "path": "core/reasoning/confidence.py",
       "sha256": "ffd22d3e3ffed194a64673d95bc8bc94bb0bb5726f91d00a796e25186f15d534"
+    },
+    "core.reasoning.context.__init__": {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "core.reasoning.context.context",
+        "core.reasoning.context.contracts",
+        "core.reasoning.context.errors"
+      ],
+      "module": "core.reasoning.context.__init__",
+      "path": "core/reasoning/context/__init__.py",
+      "sha256": "44f43fa5c8de161d3930d7c860070c6694cd8868667bea20a93efba39099d192"
+    },
+    "core.reasoning.context.context": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 30,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 34,
+              "name": "replace_question",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 47,
+              "name": "add_constraint",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 60,
+              "name": "add_assumption",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 73,
+              "name": "add_decision_criterion",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 86,
+              "name": "add_open_question",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 99,
+              "name": "add_attribute",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 112,
+              "name": "_append_keyed",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 142,
+              "name": "_validate_context",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningContextManager"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "core.reasoning.context.contracts",
+        "core.reasoning.context.errors",
+        "core.reasoning.context.validators",
+        "dataclasses",
+        "typing"
+      ],
+      "module": "core.reasoning.context.context",
+      "path": "core/reasoning/context/context.py",
+      "sha256": "f8f93791b30fba0ab663a0dd818afe61381c3b44b617df2eb52a182b55fe0186"
+    },
+    "core.reasoning.context.contracts": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 19,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 24,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 35,
+              "name": "from_value",
+              "return_annotation": "'ReasoningContextId'"
+            },
+            {
+              "is_async": false,
+              "line": 39,
+              "name": "derive",
+              "return_annotation": "'ReasoningContextId'"
+            },
+            {
+              "is_async": false,
+              "line": 63,
+              "name": "__str__",
+              "return_annotation": "str"
+            }
+          ],
+          "name": "ReasoningContextId"
+        },
+        {
+          "bases": [],
+          "line": 68,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 75,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningConstraint"
+        },
+        {
+          "bases": [],
+          "line": 100,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 107,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningAssumption"
+        },
+        {
+          "bases": [],
+          "line": 132,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 139,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "DecisionCriterion"
+        },
+        {
+          "bases": [],
+          "line": 157,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 164,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "OpenReasoningQuestion"
+        },
+        {
+          "bases": [],
+          "line": 189,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 195,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningContextAttribute"
+        },
+        {
+          "bases": [],
+          "line": 212,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 235,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningContext"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "core.reasoning.context.validators",
+        "core.reasoning.session",
+        "dataclasses",
+        "uuid"
+      ],
+      "module": "core.reasoning.context.contracts",
+      "path": "core/reasoning/context/contracts.py",
+      "sha256": "3675f901b184fe6012b068ce7ed8b33e964c1fe175e193f2104fbddee1860025"
+    },
+    "core.reasoning.context.errors": {
+      "classes": [
+        {
+          "bases": [
+            "Exception"
+          ],
+          "line": 6,
+          "methods": [],
+          "name": "ReasoningContextError"
+        },
+        {
+          "bases": [
+            "ReasoningContextError",
+            "ValueError"
+          ],
+          "line": 10,
+          "methods": [],
+          "name": "ReasoningContextContractError"
+        },
+        {
+          "bases": [
+            "ReasoningContextContractError"
+          ],
+          "line": 14,
+          "methods": [],
+          "name": "DuplicateReasoningContextKeyError"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__"
+      ],
+      "module": "core.reasoning.context.errors",
+      "path": "core/reasoning/context/errors.py",
+      "sha256": "e1f91c883c9ddc2818a967c5e844f89f0f49f3264494d1251941ca45824a9dd2"
+    },
+    "core.reasoning.context.validators": {
+      "classes": [
+        {
+          "bases": [
+            "Protocol"
+          ],
+          "line": 14,
+          "methods": [],
+          "name": "KeyedContract"
+        }
+      ],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 23,
+          "name": "normalize_required_text",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 40,
+          "name": "normalize_optional_text",
+          "return_annotation": "str | None"
+        },
+        {
+          "is_async": false,
+          "line": 59,
+          "name": "normalize_schema_version",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 68,
+          "name": "normalize_keyed_items",
+          "return_annotation": "tuple[TKeyed, ...]"
+        },
+        {
+          "is_async": false,
+          "line": 99,
+          "name": "validate_weight",
+          "return_annotation": "int"
+        }
+      ],
+      "imports": [
+        "__future__",
+        "collections.abc",
+        "core.reasoning.context.errors",
+        "typing"
+      ],
+      "module": "core.reasoning.context.validators",
+      "path": "core/reasoning/context/validators.py",
+      "sha256": "1d2a6af010a4faa849dfbf9e74ed3439db0c5418cd4bbc2833dcadd1b368259f"
     },
     "core.reasoning.enums": {
       "classes": [
@@ -764,6 +1192,232 @@
       "module": "core.reasoning.service",
       "path": "core/reasoning/service.py",
       "sha256": "1154abcd697b894e695ed2498c48ac5cc97cdcd7ff10d3eb0f80c2c61da9d556"
+    },
+    "core.reasoning.session.__init__": {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "core.reasoning.session.contracts",
+        "core.reasoning.session.errors",
+        "core.reasoning.session.lifecycle"
+      ],
+      "module": "core.reasoning.session.__init__",
+      "path": "core/reasoning/session/__init__.py",
+      "sha256": "4c878bd08695f75b41438285db082ba08b550effed6b2cb67f98b174f567a743"
+    },
+    "core.reasoning.session.contracts": {
+      "classes": [
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "line": 17,
+          "methods": [],
+          "name": "ReasoningSessionState"
+        },
+        {
+          "bases": [],
+          "line": 35,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 41,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "SessionAttribute"
+        },
+        {
+          "bases": [],
+          "line": 53,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 58,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 63,
+              "name": "from_value",
+              "return_annotation": "'ReasoningSessionId'"
+            },
+            {
+              "is_async": false,
+              "line": 69,
+              "name": "derive",
+              "return_annotation": "'ReasoningSessionId'"
+            },
+            {
+              "is_async": false,
+              "line": 84,
+              "name": "__str__",
+              "return_annotation": "str"
+            }
+          ],
+          "name": "ReasoningSessionId"
+        },
+        {
+          "bases": [],
+          "line": 89,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 99,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 124,
+              "name": "_normalize_optional",
+              "return_annotation": "str | None"
+            },
+            {
+              "is_async": false,
+              "line": 132,
+              "name": "_normalize_attributes",
+              "return_annotation": "tuple[SessionAttribute, ...]"
+            }
+          ],
+          "name": "ReasoningSessionMetadata"
+        },
+        {
+          "bases": [],
+          "line": 147,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 155,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningSession"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "enum",
+        "typing",
+        "uuid"
+      ],
+      "module": "core.reasoning.session.contracts",
+      "path": "core/reasoning/session/contracts.py",
+      "sha256": "69404fdfa8d3cb395cb7bed0b7876227d7e8f837d98f67db328f8831482df430"
+    },
+    "core.reasoning.session.errors": {
+      "classes": [
+        {
+          "bases": [
+            "ValueError"
+          ],
+          "line": 6,
+          "methods": [],
+          "name": "ReasoningSessionLifecycleError"
+        },
+        {
+          "bases": [
+            "ReasoningSessionLifecycleError"
+          ],
+          "line": 10,
+          "methods": [],
+          "name": "InvalidReasoningSessionTransitionError"
+        },
+        {
+          "bases": [
+            "InvalidReasoningSessionTransitionError"
+          ],
+          "line": 14,
+          "methods": [],
+          "name": "TerminalReasoningSessionError"
+        },
+        {
+          "bases": [
+            "ReasoningSessionLifecycleError"
+          ],
+          "line": 20,
+          "methods": [],
+          "name": "ReasoningSessionContractError"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__"
+      ],
+      "module": "core.reasoning.session.errors",
+      "path": "core/reasoning/session/errors.py",
+      "sha256": "b014d898dbf53fa311157bea50bd0726219f0142a2d265417ef1dcfa9af60b6f"
+    },
+    "core.reasoning.session.lifecycle": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 76,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 83,
+              "name": "allowed_targets",
+              "return_annotation": "tuple[ReasoningSessionState, ...]"
+            },
+            {
+              "is_async": false,
+              "line": 96,
+              "name": "can_transition",
+              "return_annotation": "bool"
+            },
+            {
+              "is_async": false,
+              "line": 106,
+              "name": "is_terminal",
+              "return_annotation": "bool"
+            },
+            {
+              "is_async": false,
+              "line": 111,
+              "name": "transition",
+              "return_annotation": "ReasoningSession"
+            },
+            {
+              "is_async": false,
+              "line": 153,
+              "name": "_validate_state",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 165,
+              "name": "_validate_session",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 192,
+              "name": "_validate_successor",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningSessionLifecycle"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "core.reasoning.session.contracts",
+        "core.reasoning.session.errors",
+        "dataclasses",
+        "types",
+        "typing"
+      ],
+      "module": "core.reasoning.session.lifecycle",
+      "path": "core/reasoning/session/lifecycle.py",
+      "sha256": "3aba5d6608a9907bf2ba24ecd4a51b927c21e2d98338f51f37dd114fe55bb72c"
     }
   },
   "purpose": "Certify the canonical Reasoning Engine service boundary before architecture-baseline synthesis.",
@@ -825,8 +1479,8 @@
   "summary": {
     "checks_failed": 0,
     "checks_passed": 7,
-    "class_count": 23,
-    "module_count": 10,
+    "class_count": 45,
+    "module_count": 19,
     "service_count": 1
   },
   "title": "Reasoning Service Audit"

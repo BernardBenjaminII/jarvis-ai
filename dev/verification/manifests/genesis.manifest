@@ -1,0 +1,14 @@
+# JARVIS Genesis Domain Verification Manifest
+# Entries execute in constitutional dependency order.
+
+dev/verify_genesis_1a1.sh
+dev/verify_genesis_1a2.sh
+dev/verify_genesis_1a3.sh
+
+dev/verify_genesis_2a1.sh
+dev/verify_genesis_2a2.sh
+dev/verify_reasoning_fixtures.sh
+dev/verify_genesis_2a3.sh
+
+# II-A3A certifies the verification architecture itself.
+dev/verify_genesis_2a3a.sh
