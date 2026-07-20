@@ -65,3 +65,48 @@ Thumbs.db
 
 # Checkpoint State
 .jarvis/
+
+###############################################################################
+# JARVIS GENERATED ARTIFACTS
+###############################################################################
+
+# Genesis installers
+.genesis_*
+
+# Generated packages
+Genesis_*.zip
+
+# Delivery packages
+artifacts/packages/
+artifacts/releases/
+
+# Temporary extraction folders
+artifacts/temp/
+
+# Installer backups
+artifacts/backups/
+
+# Verification outputs
+artifacts/verification/
+
+###############################################################################
+# PYTHON
+###############################################################################
+
+__pycache__/
+*.py[cod]
+*.pyo
+
+###############################################################################
+# IDE
+###############################################################################
+
+.vscode/
+.idea/
+
+###############################################################################
+# Operating System
+###############################################################################
+
+.DS_Store
+Thumbs.db
