@@ -15,17 +15,31 @@ from core.cognition.workspace.models import (
     WorkspaceEvent,
     WorkspaceSnapshot,
 )
+from core.cognition.workspace.repository import (
+    CognitiveWorkspaceCodec,
+    CognitiveWorkspaceConflictError,
+    CognitiveWorkspaceNotFoundError,
+    CognitiveWorkspaceRepository,
+    CognitiveWorkspaceRepositoryError,
+    SQLiteCognitiveWorkspaceRepository,
+)
 from core.cognition.workspace.service import CognitiveWorkspaceService
 
 __all__ = [
     "Assumption",
     "CognitiveWorkspace",
+    "CognitiveWorkspaceCodec",
+    "CognitiveWorkspaceConflictError",
     "CognitiveWorkspaceError",
+    "CognitiveWorkspaceNotFoundError",
+    "CognitiveWorkspaceRepository",
+    "CognitiveWorkspaceRepositoryError",
     "CognitiveWorkspaceService",
     "EvidenceReference",
     "Hypothesis",
     "HypothesisStatus",
     "OpenQuestion",
+    "SQLiteCognitiveWorkspaceRepository",
     "WorkspaceEvent",
     "WorkspaceEventKind",
     "WorkspaceSnapshot",
