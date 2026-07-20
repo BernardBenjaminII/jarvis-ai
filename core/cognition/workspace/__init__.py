@@ -1,5 +1,12 @@
 """Public cognitive workspace API."""
 
+from core.cognition.workspace.catalog import (
+    CognitiveWorkspaceCatalog,
+    SortDirection,
+    WorkspaceCatalogEntry,
+    WorkspaceQuery,
+    WorkspaceSortField,
+)
 from core.cognition.workspace.enums import (
     HypothesisStatus,
     WorkspaceEventKind,
@@ -28,6 +35,7 @@ from core.cognition.workspace.service import CognitiveWorkspaceService
 __all__ = [
     "Assumption",
     "CognitiveWorkspace",
+    "CognitiveWorkspaceCatalog",
     "CognitiveWorkspaceCodec",
     "CognitiveWorkspaceConflictError",
     "CognitiveWorkspaceError",
@@ -40,8 +48,12 @@ __all__ = [
     "HypothesisStatus",
     "OpenQuestion",
     "SQLiteCognitiveWorkspaceRepository",
+    "SortDirection",
+    "WorkspaceCatalogEntry",
     "WorkspaceEvent",
     "WorkspaceEventKind",
+    "WorkspaceQuery",
     "WorkspaceSnapshot",
+    "WorkspaceSortField",
     "WorkspaceStatus",
 ]

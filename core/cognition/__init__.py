@@ -3,6 +3,7 @@
 from core.cognition.workspace import (
     Assumption,
     CognitiveWorkspace,
+    CognitiveWorkspaceCatalog,
     CognitiveWorkspaceCodec,
     CognitiveWorkspaceConflictError,
     CognitiveWorkspaceError,
@@ -15,15 +16,20 @@ from core.cognition.workspace import (
     HypothesisStatus,
     OpenQuestion,
     SQLiteCognitiveWorkspaceRepository,
+    SortDirection,
+    WorkspaceCatalogEntry,
     WorkspaceEvent,
     WorkspaceEventKind,
+    WorkspaceQuery,
     WorkspaceSnapshot,
+    WorkspaceSortField,
     WorkspaceStatus,
 )
 
 __all__ = [
     "Assumption",
     "CognitiveWorkspace",
+    "CognitiveWorkspaceCatalog",
     "CognitiveWorkspaceCodec",
     "CognitiveWorkspaceConflictError",
     "CognitiveWorkspaceError",
@@ -36,8 +42,12 @@ __all__ = [
     "HypothesisStatus",
     "OpenQuestion",
     "SQLiteCognitiveWorkspaceRepository",
+    "SortDirection",
+    "WorkspaceCatalogEntry",
     "WorkspaceEvent",
     "WorkspaceEventKind",
+    "WorkspaceQuery",
     "WorkspaceSnapshot",
+    "WorkspaceSortField",
     "WorkspaceStatus",
 ]
