@@ -3,7 +3,7 @@
 **Audit ID:** `GENESIS-I-A2`  
 **Version:** `1.0.0`  
 **Status:** **PASS**  
-**Fingerprint:** `0f60a4a4810338f84ca96a43169e20fc7dbe00c323b2a94ad22e31a1eb57abd1`
+**Fingerprint:** `9f9b6c9806918d5573f2fa9782a52b12c4d30f1aec703332f1832e4000f39624`
 
 ## Purpose
 
@@ -13,8 +13,8 @@ Certify the canonical Reasoning Engine service boundary before architecture-base
 
 | Measure | Value |
 |---|---:|
-| Modules | 19 |
-| Classes | 45 |
+| Modules | 26 |
+| Classes | 77 |
 | Canonical services | 1 |
 | Checks passed | 7 |
 | Checks failed | 0 |
@@ -24,7 +24,7 @@ Certify the canonical Reasoning Engine service boundary before architecture-base
 | Check | Result | Detail |
 |---|---|---|
 | `I-A2-001` Canonical reasoning package exists | **PASS** | core/reasoning |
-| `I-A2-002` Reasoning modules discovered | **PASS** | modules=19 |
+| `I-A2-002` Reasoning modules discovered | **PASS** | modules=26 |
 | `I-A2-003` ReasoningEngine service exists | **PASS** | count=1 |
 | `I-A2-004` ReasoningEngine exposes public execution behavior | **PASS** | reason |
 | `I-A2-005` ReasoningEngine core is synchronous | **PASS** | no async methods |
