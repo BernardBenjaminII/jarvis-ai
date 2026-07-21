@@ -1,23 +1,14 @@
-"""Domain exceptions for the Genesis IV cognition layer."""
+"""
+GENESIS IV-R0-B COMPATIBILITY SHIM
+
+The canonical implementation moved to:
+    core.cognition.common.errors
+
+This module preserves the established import path:
+    core.cognition.errors
+"""
 
 from __future__ import annotations
 
-
-class CognitionError(RuntimeError):
-    """Base exception for cognition-domain failures."""
-
-
-class CognitionValidationError(CognitionError, ValueError):
-    """Raised when a cognition contract violates its invariants."""
-
-
-class CognitionIdentifierError(CognitionValidationError):
-    """Raised when a deterministic cognition identifier is invalid."""
-
-
-class CognitionSerializationError(CognitionError):
-    """Raised when a cognition object cannot be serialized canonically."""
-
-
-class UnsupportedCognitiveObjectError(CognitionValidationError):
-    """Raised when a validator receives an unsupported cognition object."""
+from .common.errors import *  # noqa: F401,F403
+from .common.errors import __all__ as __all__
