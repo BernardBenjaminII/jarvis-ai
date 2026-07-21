@@ -110,3 +110,6 @@ __pycache__/
 
 .DS_Store
 Thumbs.db
+
+# Local migration backups
+.migration_backups/
