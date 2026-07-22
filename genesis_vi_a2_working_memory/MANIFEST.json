@@ -1,0 +1,42 @@
+[
+  {
+    "path": "README.txt",
+    "sha256": "937964b1ffb981540af62c7ec41fa22df7fad81350c869f9a5ae6948cf3c8d7f",
+    "bytes": 732
+  },
+  {
+    "path": "core/cognition/__init__.py",
+    "sha256": "4b5c02caa99cea22645fdbc5466550e42d8e8ec8b8857b104fd3c8b63ee4c4e0",
+    "bytes": 1397
+  },
+  {
+    "path": "core/cognition/working_memory.py",
+    "sha256": "87fac522d14d6ad54982d310c51f6930c74e585b66871ac27a0c98d6aa68bac5",
+    "bytes": 7989
+  },
+  {
+    "path": "dev/install_genesis_vi_a2.sh",
+    "sha256": "806a84fe65fff634c6a15df4aba35643181e48713ab30d842151c7cb2fc7c8f7",
+    "bytes": 1515
+  },
+  {
+    "path": "dev/verification/verify_genesis_vi_a2.py",
+    "sha256": "76872b22c0636dcbbb8a045f62e49677bdd1546d726a7b3096bf0a5ade2a67a3",
+    "bytes": 7452
+  },
+  {
+    "path": "dev/verify_genesis_vi_a2.sh",
+    "sha256": "cfc78d87f05c7888e5b11f2cdaf39288d27d0e12352d237993592bfd0458f47d",
+    "bytes": 214
+  },
+  {
+    "path": "docs/architecture/cognition/genesis_vi_a2_working_memory.md",
+    "sha256": "9aa6053838fd618e9fd273b31d620cf77f015995c3feb85054bee58192fd5614",
+    "bytes": 1830
+  },
+  {
+    "path": "tests/test_genesis_vi_a2_working_memory.py",
+    "sha256": "19c3ac101d6bd080a108ffc9ae12804dec06d98fdf38f8530684553a7f2aa7d5",
+    "bytes": 6473
+  }
+]

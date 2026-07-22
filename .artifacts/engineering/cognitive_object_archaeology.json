@@ -1,0 +1,57 @@
+{
+  "current_file": "core/cognition/common/cognitive_object.py",
+  "current_file_exists": true,
+  "current_source": "\"\"\"Stable compatibility module for the Genesis IV-R1 Cognitive Object Model.\"\"\"\nfrom __future__ import annotations\nfrom .object_model import *  # noqa: F401,F403\nfrom .object_model import __all__ as __all__\n",
+  "decision": "NO_AUTOMATIC_CHANGE: implementation identity is not sufficiently proven.",
+  "schema_version": 1,
+  "searches": [
+    {
+      "command": [
+        "git",
+        "grep",
+        "-n",
+        "-E",
+        "class CognitiveObject|CognitiveObject[[:space:]]*=",
+        "--",
+        "*.py"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "core/cognition/common/object_model.py:11:class CognitiveObjectError(ValueError): pass\ncore/cognition/common/object_model.py:18:class CognitiveObjectKind(str, Enum):\ncore/cognition/common/object_model.py:56:class CognitiveObject:\ncore/cognition/enums.py:8:class CognitiveObjectKind(str, Enum):\ncore/representation/contracts.py:204:class CognitiveObject:"
+    },
+    {
+      "command": [
+        "git",
+        "log",
+        "--all",
+        "--oneline",
+        "--decorate",
+        "-S",
+        "class CognitiveObject",
+        "--",
+        "core"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "e3c4f45 (tag: genesis-iv-r2, tag: cognition-v1, origin/feature/genesis-iv-r0-cognition-consolidation, feature/genesis-iv-r0-cognition-consolidation) Complete Genesis IV-R2 Observation Engine\n51a34f8 (tag: genesis-iv-a1, origin/feature/genesis-iv-a1-observation-engine) Introduce Genesis IV-A1 cognition foundation and deterministic observation engine\n586ed2c Introduce Phase X-C1 cognitive representation foundation"
+    },
+    {
+      "command": [
+        "git",
+        "log",
+        "--all",
+        "--oneline",
+        "--decorate",
+        "-S",
+        "CognitiveObject",
+        "--",
+        "core/cognition",
+        "tests"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "e3c4f45 (tag: genesis-iv-r2, tag: cognition-v1, origin/feature/genesis-iv-r0-cognition-consolidation, feature/genesis-iv-r0-cognition-consolidation) Complete Genesis IV-R2 Observation Engine\n51a34f8 (tag: genesis-iv-a1, origin/feature/genesis-iv-a1-observation-engine) Introduce Genesis IV-A1 cognition foundation and deterministic observation engine"
+    }
+  ],
+  "subject": "core.cognition.common.cognitive_object.CognitiveObject"
+}

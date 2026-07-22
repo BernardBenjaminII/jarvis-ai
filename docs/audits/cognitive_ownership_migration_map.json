@@ -1,0 +1,84 @@
+{
+  "canonical_consumers": [],
+  "canonical_owner": "core.evidence",
+  "duplicate_symbols_touching_core_evidence": {
+    "AssessmentMethod": [
+      "core/evidence/enums.py",
+      "core/reasoning/evidence/enums.py"
+    ],
+    "EvidenceAssessment": [
+      "core/evidence/contracts.py",
+      "core/reasoning/evidence/contracts.py"
+    ],
+    "EvidenceDirection": [
+      "core/cognition/evidence.py",
+      "core/evidence/enums.py"
+    ],
+    "EvidenceError": [
+      "core/evidence/errors.py",
+      "core/reasoning/evidence/errors.py"
+    ],
+    "EvidenceRecord": [
+      "core/cognition/evidence.py",
+      "core/evidence/contracts.py",
+      "core/reasoning/evidence/contracts.py"
+    ],
+    "EvidenceRelationship": [
+      "core/evidence/contracts.py",
+      "core/reasoning/evidence/contracts.py"
+    ],
+    "EvidenceRelationshipError": [
+      "core/evidence/errors.py",
+      "core/reasoning/evidence/errors.py"
+    ],
+    "EvidenceRelationshipType": [
+      "core/evidence/enums.py",
+      "core/reasoning/evidence/enums.py"
+    ],
+    "EvidenceSerializationError": [
+      "core/evidence/errors.py",
+      "core/reasoning/evidence/errors.py"
+    ],
+    "EvidenceStatus": [
+      "core/evidence/enums.py",
+      "core/reasoning/evidence/enums.py"
+    ],
+    "EvidenceValidationError": [
+      "core/evidence/errors.py",
+      "core/reasoning/evidence/errors.py"
+    ],
+    "Proposition": [
+      "core/evidence/contracts.py",
+      "core/representation/contracts.py"
+    ],
+    "StableStringEnum": [
+      "core/evidence/enums.py",
+      "core/reasoning/evidence/enums.py"
+    ],
+    "utc_now": [
+      "core/cognition/common/object_model.py",
+      "core/cognition/layers/observation/models.py",
+      "core/cognition/workspace/models.py",
+      "core/evidence/contracts.py",
+      "core/executive/models.py",
+      "core/executive/planning/models.py",
+      "core/knowledge_catalog/assimilation/engine.py",
+      "core/knowledge_catalog/collections.py",
+      "core/knowledge_catalog/models.py",
+      "core/knowledge_catalog/registrar.py"
+    ]
+  },
+  "legacy_consumers": [],
+  "legacy_package": "core.reasoning.evidence",
+  "legacy_package_files": [
+    "core/reasoning/evidence/__init__.py",
+    "core/reasoning/evidence/contracts.py",
+    "core/reasoning/evidence/enums.py",
+    "core/reasoning/evidence/errors.py",
+    "core/reasoning/evidence/identifiers.py",
+    "core/reasoning/evidence/serialization.py",
+    "core/reasoning/evidence/validation.py"
+  ],
+  "migration_eligible_for_removal": false,
+  "parse_errors": []
+}
