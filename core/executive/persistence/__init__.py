@@ -123,3 +123,11 @@ from .policies import IntegrityPolicy
 from .reports import IntegrityCode, IntegrityDisposition, IntegrityFinding, IntegrityObservation, IntegrityReport, IntegritySeverity
 from .scanner import CheckpointRepositoryProtocol, IntegrityScanner
 
+# BEGIN GENESIS VI-A6.5 RECOVERY EXPORTS
+from .recovery import (
+    CheckpointRepository, ExecutiveRecoveryEngine, RecoveryAuthorization,
+    RecoveryError, RecoveryPointNotFoundError, RecoveryPolicy,
+    RecoveryPolicyKind, RecoveryReconstructionError, RecoveryRefusedError,
+    RecoveryReport, RecoveryResult, RecoveryStatus,
+)
+# END GENESIS VI-A6.5 RECOVERY EXPORTS
