@@ -50,3 +50,11 @@ def ui():
 
     with open("core/src/static/index.html", "r", encoding="utf-8") as f:
         return f.read()
+
+# MC-1001 Operations Interface
+try:
+    from core.src.routes.operations import router as operations_router
+except ModuleNotFoundError:
+    from src.routes.operations import router as operations_router
+
+app.include_router(operations_router)
