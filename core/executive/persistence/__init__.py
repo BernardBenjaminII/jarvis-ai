@@ -116,3 +116,10 @@ del _module_name
 del _prior_exports
 del _public_names
 del _reexport
+# Genesis VI-A6.4 public API
+from .evaluator import IntegrityEvaluator
+from .integrity import ExecutiveIntegrityEngine, IntegrityEngine, verify_session
+from .policies import IntegrityPolicy
+from .reports import IntegrityCode, IntegrityDisposition, IntegrityFinding, IntegrityObservation, IntegrityReport, IntegritySeverity
+from .scanner import CheckpointRepositoryProtocol, IntegrityScanner
+
