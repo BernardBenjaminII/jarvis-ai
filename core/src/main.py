@@ -1,72 +1,76 @@
+"""JARVIS FastAPI application entry point."""
+
+from __future__ import annotations
+
 from pathlib import Path
-from core.src.routes.mission_control import router as mission_control_router
+
 from fastapi import FastAPI
-from fastapi.responses import RedirectResponse, HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
-from .routes.api import router
+from core.src.routes.api import router as api_router
+from core.src.routes.mission_control import router as mission_control_router
+from core.src.routes.operations import router as operations_router
 
+
+BASE_DIR = Path(__file__).resolve().parent
+STATIC_ROOT = BASE_DIR / "static"
+MISSION_CONTROL_STATIC_ROOT = STATIC_ROOT / "mission_control"
+LEGACY_UI_INDEX = STATIC_ROOT / "index.html"
 
 app = FastAPI(title="JARVIS")
-MISSION_CONTROL_STATIC_ROOT = Path(__file__).resolve().parent / "static" / "mission_control"
+
+
+# ---------------------------------------------------------------------------
+# Static assets
+# ---------------------------------------------------------------------------
+
 app.mount(
     "/mission-control/static",
     StaticFiles(directory=MISSION_CONTROL_STATIC_ROOT),
     name="mission-control-static",
 )
 
-# -----------------------------
-# API ROUTES
-# -----------------------------
-app.include_router(mission_control_router)
-app.include_router(observation_router)
-app.include_router(reasoning_router)
-app.include_router(knowledge_router)
-app.include_router(mission_router)
-app.include_router(operations_router)
-app.include_router(router)
-
-# -----------------------------
-# STATIC FILES
-# -----------------------------
 app.mount(
     "/static",
-    StaticFiles(directory="core/src/static"),
-    name="static"
+    StaticFiles(directory=STATIC_ROOT),
+    name="static",
 )
 
 
-# -----------------------------
-# ROOT
-# -----------------------------
-@app.get("/")
-def root():
+# ---------------------------------------------------------------------------
+# Routers
+# ---------------------------------------------------------------------------
+
+app.include_router(mission_control_router)
+app.include_router(operations_router)
+app.include_router(api_router)
+
+
+# ---------------------------------------------------------------------------
+# Core application routes
+# ---------------------------------------------------------------------------
+
+@app.get("/", include_in_schema=False)
+def root() -> RedirectResponse:
+    """Redirect the root URL to Commander's Bridge."""
+
     return RedirectResponse(url="/bridge")
 
 
-# -----------------------------
-# HEALTH CHECK
-# -----------------------------
 @app.get("/health")
-def health():
-    return {
-        "status": "online"
-    }
+def health() -> dict[str, str]:
+    """Return the basic API process health state."""
+
+    return {"status": "online"}
 
 
-# -----------------------------
-# UI
-# -----------------------------
-@app.get("/ui", response_class=HTMLResponse)
-def ui():
+@app.get("/ui", response_class=HTMLResponse, include_in_schema=False)
+def legacy_ui() -> FileResponse:
+    """Serve the legacy JARVIS interface."""
 
-    with open("core/src/static/index.html", "r", encoding="utf-8") as f:
-        return f.read()
-
-# MC-1001 Operations Interface
-try:
-    from core.src.routes.operations import router as operations_router
-except ModuleNotFoundError:
-    from src.routes.operations import router as operations_router
-
-app.include_router(operations_router)
+    return FileResponse(
+        LEGACY_UI_INDEX,
+        media_type="text/html",
+        headers={"Cache-Control": "no-store"},
+    )

@@ -21,6 +21,13 @@ def operations_status() -> dict:
     return get_operations_service().snapshot().to_dict()
 
 
+@router.get("/executive")
+def operations_executive() -> dict:
+    """Return the canonical Executive telemetry projection."""
+
+    return get_operations_service().executive().to_dict()
+
+
 @router.get("/health")
 def operations_health() -> dict:
     return get_operations_service().health().to_dict()
