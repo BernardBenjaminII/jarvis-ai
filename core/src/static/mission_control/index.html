@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090c10">
+  <title>JARVIS — Commander's Bridge</title>
+  <link rel="stylesheet" href="/mission-control/static/styles.css">
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="identity"><b>J</b><span><small>EXECUTIVE COMMAND SYSTEM</small><strong>JARVIS</strong></span></div>
+    <div class="bridge-title">COMMANDER'S BRIDGE <i></i> <time id="clock">--:--:--</time></div>
+    <span id="link" class="pill unknown">CONNECTING</span>
+  </header>
+
+  <nav>
+    <button class="active"><em>01</em>Bridge</button>
+    <button disabled><em>02</em>Operations</button>
+    <button disabled><em>03</em>Intelligence</button>
+    <button disabled><em>04</em>Cognition</button>
+    <button disabled><em>05</em>Planning</button>
+    <button disabled><em>06</em>Engineering</button>
+    <footer><small>MC-1002</small><b>FOUNDATION</b></footer>
+  </nav>
+
+  <main>
+    <div class="brief">
+      <div><small>COMMANDER BRIEF</small><h1>Operational Picture</h1></div>
+      <span id="snapshot-time">Awaiting telemetry</span>
+    </div>
+
+    <section class="executive panel">
+      <div><small>EXECUTIVE STATUS</small><h2 id="status">UNKNOWN</h2><p id="status-detail">Establishing Operations link</p></div>
+      <div class="readiness"><b id="readiness">--</b><small>READINESS</small></div>
+    </section>
+
+    <div class="grid">
+      <section class="panel mission wide">
+        <div class="heading"><div><small>PRIMARY MISSION</small><h3 id="mission">No active mission</h3></div><span id="mission-state" class="pill unknown">UNKNOWN</span></div>
+        <p id="objective">Awaiting mission projection from Operations.</p>
+        <div class="metrics">
+          <div><small>ACTIVE</small><b id="active">0</b></div>
+          <div><small>QUEUED</small><b id="queued">0</b></div>
+          <div><small>COMPLETE</small><b id="complete">0</b></div>
+        </div>
+      </section>
+
+      <section class="panel divisions">
+        <div class="heading"><div><small>EXECUTIVE DIVISIONS</small><h3>Operational Readiness</h3></div></div>
+        <div id="divisions-list"></div>
+      </section>
+
+      <section class="panel timeline wide">
+        <div class="heading"><div><small>OPERATIONAL TIMELINE</small><h3>Recent Activity</h3></div><span id="event-count">0 EVENTS</span></div>
+        <ol id="timeline"><li class="empty">No operational events received.</li></ol>
+      </section>
+
+      <section class="panel resources">
+        <div class="heading"><div><small>RESOURCES</small><h3>Platform Capacity</h3></div></div>
+        <div id="resources-list"></div>
+      </section>
+
+      <section class="panel recommendations wide">
+        <div class="heading"><div><small>COMMANDER ATTENTION</small><h3>Recommendations</h3></div><span id="recommendation-count">0 PENDING</span></div>
+        <div id="recommendations" class="empty">No recommendations require authorization.</div>
+      </section>
+
+      <section class="panel alerts">
+        <div class="heading"><div><small>OPERATIONAL INTEGRITY</small><h3>Alerts</h3></div><span id="alert-count">0 ACTIVE</span></div>
+        <div id="alerts" class="empty">No active operational alerts.</div>
+      </section>
+    </div>
+
+    <section class="command">
+      <div><small>COMMAND INTERFACE</small><p>What are your orders?</p></div>
+      <button id="refresh" class="primary">Refresh Operational Picture</button>
+    </section>
+  </main>
+
+  <aside class="statusline">
+    <span>OPERATIONS API <b id="api">CONNECTING</b></span>
+    <span>LAST SYNC <b id="sync">NEVER</b></span>
+    <span>MODE <b>COMMAND</b></span>
+  </aside>
+</div>
+<script src="/mission-control/static/app.js" defer></script>
+</body>
+</html>

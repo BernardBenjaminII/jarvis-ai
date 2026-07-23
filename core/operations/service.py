@@ -7,8 +7,9 @@ import json
 from collections.abc import Callable
 from datetime import datetime
 
-from .enums import AlertSeverity, HealthState, OperationalState
+from .enums import AlertSeverity, ExecutiveState, HealthState, OperationalState
 from .events import OperationsEvent
+from .executive import ExecutiveTelemetryAdapter
 from .health import HealthAggregator
 from .missions import MissionSnapshotAdapter
 from .models import AlertSnapshot, OperationsSnapshot, Provenance, utc_now
@@ -25,6 +26,7 @@ class OperationsService:
     def __init__(
         self,
         *,
+        executive: ExecutiveTelemetryAdapter | None = None,
         missions: MissionSnapshotAdapter | None = None,
         health: HealthAggregator | None = None,
         resources: ResourceCollector | None = None,
@@ -33,6 +35,7 @@ class OperationsService:
     ) -> None:
         self._clock = clock
         self._registry = registry or OperationsEventRegistry()
+        self._executive = executive or ExecutiveTelemetryAdapter()
         self._missions = missions or MissionSnapshotAdapter()
         self._health = health or HealthAggregator()
         self._resources = resources or ResourceCollector()
@@ -45,6 +48,9 @@ class OperationsService:
     def record_event(self, event: OperationsEvent) -> None:
         self._registry.append(event)
 
+    def executive(self):
+        return self._executive.collect(captured_at=self._clock())
+
     def missions(self):
         return self._missions.collect(captured_at=self._clock())
 
@@ -52,10 +58,11 @@ class OperationsService:
         return self._health.collect(checked_at=self._clock())
 
     def resources(self):
-        missions = self._missions.collect(captured_at=self._clock())
+        now = self._clock()
+        missions = self._missions.collect(captured_at=now)
         return self._resources.collect(
             mission_count=len(missions),
-            measured_at=self._clock(),
+            measured_at=now,
         )
 
     def timeline(self, *, limit: int = 100):
@@ -64,33 +71,11 @@ class OperationsService:
     def alerts(self):
         now = self._clock()
         health = self._health.collect(checked_at=now)
-        alerts: list[AlertSnapshot] = []
-        for component in health.components:
-            if component.state in (HealthState.DEGRADED, HealthState.UNAVAILABLE):
-                severity = (
-                    AlertSeverity.ERROR
-                    if component.state is HealthState.UNAVAILABLE
-                    else AlertSeverity.WARNING
-                )
-                alerts.append(
-                    AlertSnapshot(
-                        alert_id=f"health:{component.component}",
-                        severity=severity,
-                        title=f"{component.component} health",
-                        detail=component.detail,
-                        active=True,
-                        raised_at=now,
-                        provenance=Provenance(
-                            source="health-aggregator",
-                            source_version="mc1001",
-                            captured_at=now,
-                        ),
-                    )
-                )
-        return tuple(alerts)
+        return self._alerts_from_health(health, now)
 
     def snapshot(self) -> OperationsSnapshot:
         now = self._clock()
+        executive = self._executive.collect(captured_at=now)
         missions = self._missions.collect(captured_at=now)
         health = self._health.collect(checked_at=now)
         resources = self._resources.collect(
@@ -99,10 +84,14 @@ class OperationsService:
         )
         timeline = self._timeline.collect(generated_at=now)
         alerts = self._alerts_from_health(health, now)
-        state = self._operational_state(health.state)
+        state = self._operational_state(
+            health_state=health.state,
+            executive_state=executive.state,
+        )
 
         unsigned = {
             "state": state.value,
+            "executive": executive.to_dict(),
             "missions": [mission.to_dict() for mission in missions],
             "health": health.to_dict(),
             "resources": resources.to_dict(),
@@ -120,6 +109,7 @@ class OperationsService:
 
         return OperationsSnapshot(
             state=state,
+            executive=executive,
             missions=missions,
             health=health,
             resources=resources,
@@ -130,12 +120,28 @@ class OperationsService:
         )
 
     @staticmethod
-    def _operational_state(health_state: HealthState) -> OperationalState:
-        if health_state is HealthState.HEALTHY:
-            return OperationalState.READY
-        if health_state in (HealthState.DEGRADED, HealthState.UNKNOWN):
+    def _operational_state(
+        *,
+        health_state: HealthState,
+        executive_state: ExecutiveState,
+    ) -> OperationalState:
+        if executive_state is ExecutiveState.STOPPED:
+            return OperationalState.STOPPED
+        if executive_state is ExecutiveState.PAUSED:
+            return OperationalState.PAUSED
+        if (
+            health_state is HealthState.UNAVAILABLE
+            or executive_state is ExecutiveState.FAILED
+        ):
+            return OperationalState.FAILED
+        if (
+            health_state in (HealthState.DEGRADED, HealthState.UNKNOWN)
+            or executive_state is ExecutiveState.DEGRADED
+        ):
             return OperationalState.DEGRADED
-        return OperationalState.FAILED
+        if executive_state is ExecutiveState.INITIALIZING:
+            return OperationalState.INITIALIZING
+        return OperationalState.READY
 
     @staticmethod
     def _alerts_from_health(health, now):

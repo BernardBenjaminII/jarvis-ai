@@ -7,6 +7,19 @@ from typing import Any, Protocol, runtime_checkable
 
 
 @runtime_checkable
+class ExecutiveProvider(Protocol):
+    """
+    Projects Executive runtime state.
+
+    Providers expose immutable telemetry only.
+    They do NOT expose Executive implementation details.
+    """
+
+    def collect_executive_state(self) -> Mapping[str, Any]:
+        """Return one Executive telemetry record."""
+
+
+@runtime_checkable
 class MissionProvider(Protocol):
     """Produces mission records without exposing Executive internals."""
 

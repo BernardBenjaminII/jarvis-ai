@@ -1,20 +1,29 @@
 """Stable public API for the JARVIS Operations subsystem."""
 
+from .contracts import (
+    ExecutiveProvider,
+    HealthProvider,
+    MissionProvider,
+    ResourceProvider,
+)
 from .enums import (
     ActivityState,
     AlertSeverity,
     EventKind,
+    ExecutiveState,
     HealthState,
     MissionState,
     ObjectiveState,
     OperationalState,
 )
 from .events import OperationsEvent
+from .executive import DefaultExecutiveProvider, ExecutiveTelemetryAdapter
 from .health import HealthAggregator
 from .missions import MissionSnapshotAdapter
 from .models import (
     ActivitySnapshot,
     AlertSnapshot,
+    ExecutiveSnapshot,
     HealthComponentSnapshot,
     HealthSnapshot,
     MissionSnapshot,
@@ -35,11 +44,18 @@ __all__ = [
     "ActivityState",
     "AlertSeverity",
     "AlertSnapshot",
+    "DefaultExecutiveProvider",
     "EventKind",
+    "ExecutiveProvider",
+    "ExecutiveSnapshot",
+    "ExecutiveState",
+    "ExecutiveTelemetryAdapter",
     "HealthAggregator",
     "HealthComponentSnapshot",
+    "HealthProvider",
     "HealthSnapshot",
     "HealthState",
+    "MissionProvider",
     "MissionSnapshot",
     "MissionSnapshotAdapter",
     "MissionState",
@@ -52,6 +68,7 @@ __all__ = [
     "OperationsSnapshot",
     "Provenance",
     "ResourceCollector",
+    "ResourceProvider",
     "ResourceSnapshot",
     "SystemResourceProvider",
     "TimelineAdapter",

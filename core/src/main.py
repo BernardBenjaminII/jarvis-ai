@@ -1,3 +1,5 @@
+from pathlib import Path
+from core.src.routes.mission_control import router as mission_control_router
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -6,13 +8,23 @@ from .routes.api import router
 
 
 app = FastAPI(title="JARVIS")
-
+MISSION_CONTROL_STATIC_ROOT = Path(__file__).resolve().parent / "static" / "mission_control"
+app.mount(
+    "/mission-control/static",
+    StaticFiles(directory=MISSION_CONTROL_STATIC_ROOT),
+    name="mission-control-static",
+)
 
 # -----------------------------
 # API ROUTES
 # -----------------------------
+app.include_router(mission_control_router)
+app.include_router(observation_router)
+app.include_router(reasoning_router)
+app.include_router(knowledge_router)
+app.include_router(mission_router)
+app.include_router(operations_router)
 app.include_router(router)
-
 
 # -----------------------------
 # STATIC FILES
@@ -29,7 +41,7 @@ app.mount(
 # -----------------------------
 @app.get("/")
 def root():
-    return RedirectResponse(url="/ui")
+    return RedirectResponse(url="/bridge")
 
 
 # -----------------------------

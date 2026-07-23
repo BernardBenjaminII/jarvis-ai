@@ -10,6 +10,7 @@ from typing import Any, Mapping
 from .enums import (
     ActivityState,
     AlertSeverity,
+    ExecutiveState,
     HealthState,
     MissionState,
     ObjectiveState,
@@ -58,6 +59,26 @@ class Provenance(SerializableSnapshot):
     source: str
     source_version: str
     captured_at: datetime
+
+
+@dataclass(frozen=True, slots=True)
+class ExecutiveSnapshot(SerializableSnapshot):
+    """Immutable, UI-safe projection of the Executive runtime."""
+
+    state: ExecutiveState
+    readiness: float
+    detail: str
+    active_mission_id: str | None
+    active_objective_id: str | None
+    current_activity: str | None
+    pending_decisions: int
+    pending_recommendations: int
+    observation_count: int
+    inference_count: int
+    plan_count: int
+    last_transition_at: datetime
+    captured_at: datetime
+    provenance: Provenance
 
 
 @dataclass(frozen=True, slots=True)
@@ -150,6 +171,7 @@ class AlertSnapshot(SerializableSnapshot):
 @dataclass(frozen=True, slots=True)
 class OperationsSnapshot(SerializableSnapshot):
     state: OperationalState
+    executive: ExecutiveSnapshot
     missions: tuple[MissionSnapshot, ...]
     health: HealthSnapshot
     resources: ResourceSnapshot
