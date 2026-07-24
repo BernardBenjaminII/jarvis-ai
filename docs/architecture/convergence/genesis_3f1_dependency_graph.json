@@ -1,0 +1,271 @@
+{
+  "allowed_direction": [
+    "core.cognition.workspace -> standard library / lower-level contracts",
+    "core.cognition.integration -> core.cognition.workspace",
+    "executive consumers -> core.cognition.integration"
+  ],
+  "edges": [
+    {
+      "from": "core.cognition.workspace",
+      "to": "core.cognition.workspace.core.cognition.workspace.catalog"
+    },
+    {
+      "from": "core.cognition.workspace",
+      "to": "core.cognition.workspace.core.cognition.workspace.enums"
+    },
+    {
+      "from": "core.cognition.workspace",
+      "to": "core.cognition.workspace.core.cognition.workspace.errors"
+    },
+    {
+      "from": "core.cognition.workspace",
+      "to": "core.cognition.workspace.core.cognition.workspace.models"
+    },
+    {
+      "from": "core.cognition.workspace",
+      "to": "core.cognition.workspace.core.cognition.workspace.repository"
+    },
+    {
+      "from": "core.cognition.workspace",
+      "to": "core.cognition.workspace.core.cognition.workspace.service"
+    },
+    {
+      "from": "core.cognition.workspace.catalog",
+      "to": "core.cognition.workspace.__future__"
+    },
+    {
+      "from": "core.cognition.workspace.catalog",
+      "to": "core.cognition.workspace.core.cognition.workspace.enums"
+    },
+    {
+      "from": "core.cognition.workspace.catalog",
+      "to": "core.cognition.workspace.core.cognition.workspace.models"
+    },
+    {
+      "from": "core.cognition.workspace.catalog",
+      "to": "core.cognition.workspace.core.cognition.workspace.repository"
+    },
+    {
+      "from": "core.cognition.workspace.catalog",
+      "to": "core.cognition.workspace.dataclasses"
+    },
+    {
+      "from": "core.cognition.workspace.catalog",
+      "to": "core.cognition.workspace.datetime"
+    },
+    {
+      "from": "core.cognition.workspace.catalog",
+      "to": "core.cognition.workspace.enum"
+    },
+    {
+      "from": "core.cognition.workspace.catalog",
+      "to": "core.cognition.workspace.typing"
+    },
+    {
+      "from": "core.cognition.workspace.enums",
+      "to": "core.cognition.workspace.__future__"
+    },
+    {
+      "from": "core.cognition.workspace.enums",
+      "to": "core.cognition.workspace.enum"
+    },
+    {
+      "from": "core.cognition.workspace.models",
+      "to": "core.cognition.workspace.__future__"
+    },
+    {
+      "from": "core.cognition.workspace.models",
+      "to": "core.cognition.workspace.core.cognition.workspace.enums"
+    },
+    {
+      "from": "core.cognition.workspace.models",
+      "to": "core.cognition.workspace.core.cognition.workspace.errors"
+    },
+    {
+      "from": "core.cognition.workspace.models",
+      "to": "core.cognition.workspace.dataclasses"
+    },
+    {
+      "from": "core.cognition.workspace.models",
+      "to": "core.cognition.workspace.datetime"
+    },
+    {
+      "from": "core.cognition.workspace.models",
+      "to": "core.cognition.workspace.hashlib"
+    },
+    {
+      "from": "core.cognition.workspace.models",
+      "to": "core.cognition.workspace.typing"
+    },
+    {
+      "from": "core.cognition.workspace.models",
+      "to": "core.cognition.workspace.uuid"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "core.cognition.workspace.__future__"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "core.cognition.workspace.core.cognition.workspace.enums"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "core.cognition.workspace.core.cognition.workspace.errors"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "core.cognition.workspace.core.cognition.workspace.models"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "core.cognition.workspace.dataclasses"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "core.cognition.workspace.datetime"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "core.cognition.workspace.pathlib"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "core.cognition.workspace.typing"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "json"
+    },
+    {
+      "from": "core.cognition.workspace.repository",
+      "to": "sqlite3"
+    },
+    {
+      "from": "core.cognition.workspace.service",
+      "to": "core.cognition.workspace.__future__"
+    },
+    {
+      "from": "core.cognition.workspace.service",
+      "to": "core.cognition.workspace.core.cognition.workspace.enums"
+    },
+    {
+      "from": "core.cognition.workspace.service",
+      "to": "core.cognition.workspace.core.cognition.workspace.errors"
+    },
+    {
+      "from": "core.cognition.workspace.service",
+      "to": "core.cognition.workspace.core.cognition.workspace.models"
+    },
+    {
+      "from": "core.cognition.workspace.service",
+      "to": "core.cognition.workspace.dataclasses"
+    },
+    {
+      "from": "core.cognition.integration",
+      "to": "core.cognition.integration.contracts"
+    },
+    {
+      "from": "core.cognition.integration",
+      "to": "core.cognition.integration.director"
+    },
+    {
+      "from": "core.cognition.integration",
+      "to": "core.cognition.integration.errors"
+    },
+    {
+      "from": "core.cognition.integration",
+      "to": "core.cognition.integration.models"
+    },
+    {
+      "from": "core.cognition.integration",
+      "to": "core.cognition.integration.pipeline"
+    },
+    {
+      "from": "core.cognition.integration",
+      "to": "core.cognition.integration.service"
+    },
+    {
+      "from": "core.cognition.integration.contracts",
+      "to": "core.cognition.integration.__future__"
+    },
+    {
+      "from": "core.cognition.integration.contracts",
+      "to": "core.cognition.integration.dataclasses"
+    },
+    {
+      "from": "core.cognition.integration.contracts",
+      "to": "core.cognition.integration.hashlib"
+    },
+    {
+      "from": "core.cognition.integration.director",
+      "to": "core.cognition.integration.__future__"
+    },
+    {
+      "from": "core.cognition.integration.director",
+      "to": "core.cognition.integration.core.cognition.integration.contracts"
+    },
+    {
+      "from": "core.cognition.integration.director",
+      "to": "core.cognition.integration.core.cognition.integration.models"
+    },
+    {
+      "from": "core.cognition.integration.director",
+      "to": "core.cognition.integration.core.cognition.integration.service"
+    },
+    {
+      "from": "core.cognition.integration.models",
+      "to": "core.cognition.integration.__future__"
+    },
+    {
+      "from": "core.cognition.integration.models",
+      "to": "core.cognition.integration.core.cognition.workspace"
+    },
+    {
+      "from": "core.cognition.integration.models",
+      "to": "core.cognition.integration.dataclasses"
+    },
+    {
+      "from": "core.cognition.integration.pipeline",
+      "to": "core.cognition.integration.__future__"
+    },
+    {
+      "from": "core.cognition.integration.pipeline",
+      "to": "core.cognition.integration.core.cognition.integration.contracts"
+    },
+    {
+      "from": "core.cognition.integration.pipeline",
+      "to": "core.cognition.integration.core.cognition.integration.models"
+    },
+    {
+      "from": "core.cognition.integration.pipeline",
+      "to": "core.cognition.integration.core.cognition.workspace"
+    },
+    {
+      "from": "core.cognition.integration.service",
+      "to": "core.cognition.integration.__future__"
+    },
+    {
+      "from": "core.cognition.integration.service",
+      "to": "core.cognition.integration.core.cognition.integration.contracts"
+    },
+    {
+      "from": "core.cognition.integration.service",
+      "to": "core.cognition.integration.core.cognition.integration.models"
+    },
+    {
+      "from": "core.cognition.integration.service",
+      "to": "core.cognition.integration.core.cognition.integration.pipeline"
+    },
+    {
+      "from": "core.cognition.integration.service",
+      "to": "core.cognition.integration.core.cognition.workspace"
+    },
+    {
+      "from": "core.cognition.integration.service",
+      "to": "core.cognition.integration.dataclasses"
+    }
+  ],
+  "schema": "genesis-3f0/v1",
+  "violations": []
+}

@@ -1,0 +1,268 @@
+{
+  "modules": [
+    {
+      "exports": [
+        "Assumption",
+        "CognitiveWorkspace",
+        "CognitiveWorkspaceCatalog",
+        "CognitiveWorkspaceCodec",
+        "CognitiveWorkspaceConflictError",
+        "CognitiveWorkspaceError",
+        "CognitiveWorkspaceNotFoundError",
+        "CognitiveWorkspaceRepository",
+        "CognitiveWorkspaceRepositoryError",
+        "CognitiveWorkspaceService",
+        "EvidenceReference",
+        "Hypothesis",
+        "HypothesisStatus",
+        "OpenQuestion",
+        "SQLiteCognitiveWorkspaceRepository",
+        "SortDirection",
+        "WorkspaceCatalogEntry",
+        "WorkspaceEvent",
+        "WorkspaceEventKind",
+        "WorkspaceQuery",
+        "WorkspaceSnapshot",
+        "WorkspaceSortField",
+        "WorkspaceStatus"
+      ],
+      "module": "core.cognition.workspace"
+    },
+    {
+      "exports": [
+        "CognitiveWorkspace",
+        "CognitiveWorkspaceCatalog",
+        "CognitiveWorkspaceRepository",
+        "HypothesisStatus",
+        "Iterable",
+        "SortDirection",
+        "StrEnum",
+        "WorkspaceCatalogEntry",
+        "WorkspaceQuery",
+        "WorkspaceSortField",
+        "WorkspaceStatus",
+        "annotations",
+        "dataclass",
+        "datetime"
+      ],
+      "module": "core.cognition.workspace.catalog"
+    },
+    {
+      "exports": [
+        "HypothesisStatus",
+        "StrEnum",
+        "WorkspaceEventKind",
+        "WorkspaceStatus",
+        "annotations"
+      ],
+      "module": "core.cognition.workspace.enums"
+    },
+    {
+      "exports": [
+        "CognitiveWorkspaceError"
+      ],
+      "module": "core.cognition.workspace.errors"
+    },
+    {
+      "exports": [
+        "Assumption",
+        "CognitiveWorkspace",
+        "CognitiveWorkspaceError",
+        "EvidenceReference",
+        "Hypothesis",
+        "HypothesisStatus",
+        "Iterable",
+        "OpenQuestion",
+        "UUID",
+        "WorkspaceEvent",
+        "WorkspaceEventKind",
+        "WorkspaceSnapshot",
+        "WorkspaceStatus",
+        "annotations",
+        "dataclass",
+        "datetime",
+        "field",
+        "replace",
+        "sha256",
+        "timezone",
+        "utc_now",
+        "uuid4"
+      ],
+      "module": "core.cognition.workspace.models"
+    },
+    {
+      "exports": [
+        "Assumption",
+        "CognitiveWorkspace",
+        "CognitiveWorkspaceCodec",
+        "CognitiveWorkspaceConflictError",
+        "CognitiveWorkspaceError",
+        "CognitiveWorkspaceNotFoundError",
+        "CognitiveWorkspaceRepository",
+        "CognitiveWorkspaceRepositoryError",
+        "EvidenceReference",
+        "Hypothesis",
+        "HypothesisStatus",
+        "OpenQuestion",
+        "Path",
+        "Protocol",
+        "SQLiteCognitiveWorkspaceRepository",
+        "WorkspaceEvent",
+        "WorkspaceEventKind",
+        "WorkspaceStatus",
+        "annotations",
+        "asdict",
+        "datetime",
+        "json",
+        "sqlite3"
+      ],
+      "module": "core.cognition.workspace.repository"
+    },
+    {
+      "exports": [
+        "Assumption",
+        "CognitiveWorkspace",
+        "CognitiveWorkspaceError",
+        "CognitiveWorkspaceService",
+        "EvidenceReference",
+        "Hypothesis",
+        "HypothesisStatus",
+        "OpenQuestion",
+        "WorkspaceEvent",
+        "WorkspaceEventKind",
+        "WorkspaceStatus",
+        "annotations",
+        "replace"
+      ],
+      "module": "core.cognition.workspace.service"
+    },
+    {
+      "exports": [
+        "AssumptionSeed",
+        "CognitiveWorkspaceIntegrationDirector",
+        "CognitiveWorkspaceIntegrationError",
+        "CognitiveWorkspaceIntegrationService",
+        "EvidenceSeed",
+        "HypothesisSeed",
+        "IntegrationPersistenceError",
+        "QuestionSeed",
+        "WorkspaceIntegrationPipeline",
+        "WorkspaceIntegrationRequest",
+        "WorkspaceIntegrationResult",
+        "stable_identifier"
+      ],
+      "module": "core.cognition.integration"
+    },
+    {
+      "exports": [
+        "AssumptionSeed",
+        "EvidenceSeed",
+        "HypothesisSeed",
+        "QuestionSeed",
+        "WorkspaceIntegrationRequest",
+        "annotations",
+        "dataclass",
+        "sha256",
+        "stable_identifier"
+      ],
+      "module": "core.cognition.integration.contracts"
+    },
+    {
+      "exports": [
+        "CognitiveWorkspaceIntegrationDirector",
+        "CognitiveWorkspaceIntegrationService",
+        "WorkspaceIntegrationRequest",
+        "WorkspaceIntegrationResult",
+        "annotations"
+      ],
+      "module": "core.cognition.integration.director"
+    },
+    {
+      "exports": [
+        "CognitiveWorkspaceIntegrationError",
+        "IntegrationPersistenceError"
+      ],
+      "module": "core.cognition.integration.errors"
+    },
+    {
+      "exports": [
+        "CognitiveWorkspace",
+        "WorkspaceIntegrationResult",
+        "WorkspaceSnapshot",
+        "annotations",
+        "dataclass"
+      ],
+      "module": "core.cognition.integration.models"
+    },
+    {
+      "exports": [
+        "Assumption",
+        "CognitiveWorkspace",
+        "CognitiveWorkspaceService",
+        "EvidenceReference",
+        "Hypothesis",
+        "OpenQuestion",
+        "WorkspaceIntegrationPipeline",
+        "WorkspaceIntegrationRequest",
+        "WorkspaceIntegrationResult",
+        "annotations",
+        "stable_identifier"
+      ],
+      "module": "core.cognition.integration.pipeline"
+    },
+    {
+      "exports": [
+        "CognitiveWorkspaceIntegrationService",
+        "CognitiveWorkspaceRepository",
+        "WorkspaceIntegrationPipeline",
+        "WorkspaceIntegrationRequest",
+        "WorkspaceIntegrationResult",
+        "annotations",
+        "replace"
+      ],
+      "module": "core.cognition.integration.service"
+    }
+  ],
+  "packages": {
+    "core.cognition.integration": [
+      "AssumptionSeed",
+      "CognitiveWorkspaceIntegrationDirector",
+      "CognitiveWorkspaceIntegrationError",
+      "CognitiveWorkspaceIntegrationService",
+      "EvidenceSeed",
+      "HypothesisSeed",
+      "IntegrationPersistenceError",
+      "QuestionSeed",
+      "WorkspaceIntegrationPipeline",
+      "WorkspaceIntegrationRequest",
+      "WorkspaceIntegrationResult",
+      "stable_identifier"
+    ],
+    "core.cognition.workspace": [
+      "Assumption",
+      "CognitiveWorkspace",
+      "CognitiveWorkspaceCatalog",
+      "CognitiveWorkspaceCodec",
+      "CognitiveWorkspaceConflictError",
+      "CognitiveWorkspaceError",
+      "CognitiveWorkspaceNotFoundError",
+      "CognitiveWorkspaceRepository",
+      "CognitiveWorkspaceRepositoryError",
+      "CognitiveWorkspaceService",
+      "EvidenceReference",
+      "Hypothesis",
+      "HypothesisStatus",
+      "OpenQuestion",
+      "SQLiteCognitiveWorkspaceRepository",
+      "SortDirection",
+      "WorkspaceCatalogEntry",
+      "WorkspaceEvent",
+      "WorkspaceEventKind",
+      "WorkspaceQuery",
+      "WorkspaceSnapshot",
+      "WorkspaceSortField",
+      "WorkspaceStatus"
+    ]
+  },
+  "schema": "genesis-3f0/v1"
+}
