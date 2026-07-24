@@ -1,0 +1,661 @@
+{
+  "approved_extension_points": [
+    {
+      "allowed_responsibilities": [
+        "Lifecycle state",
+        "Mission context",
+        "Reasoning budgets",
+        "Attempt history",
+        "Review state"
+      ],
+      "attaches_to": [
+        "ReasoningRequest",
+        "ReasoningEngine",
+        "ReasoningResult",
+        "KnowledgeReasoningPipeline"
+      ],
+      "compatibility_requirement": "Wrap existing deterministic execution without changing request/result semantics.",
+      "intended_phase": "Genesis II",
+      "name": "ReasoningSession",
+      "prohibited_responsibilities": [
+        "Replacing canonical request or result contracts",
+        "Hidden inference",
+        "Mutating historical results"
+      ],
+      "purpose": "Provide persistent lifecycle and executive context around canonical reasoning executions."
+    },
+    {
+      "allowed_responsibilities": [
+        "Knowledge object identity",
+        "Chunk identity",
+        "Admission state",
+        "Trust state",
+        "Acquisition lineage"
+      ],
+      "attaches_to": [
+        "KnowledgeEvidenceAdapter",
+        "EvidenceItem"
+      ],
+      "compatibility_requirement": "Preserve existing source references during migration.",
+      "intended_phase": "Genesis III",
+      "name": "EvidenceProvenance",
+      "prohibited_responsibilities": [
+        "Inference",
+        "Conclusion selection",
+        "Mutable source rewriting"
+      ],
+      "purpose": "Represent structured origin, admission, trust, and knowledge lineage."
+    },
+    {
+      "allowed_responsibilities": [
+        "Reasoning mode",
+        "Depth budgets",
+        "Minimum confidence",
+        "Independent-source requirements",
+        "Human-review requirements"
+      ],
+      "attaches_to": [
+        "ReasoningSession",
+        "ReasoningEngine"
+      ],
+      "compatibility_requirement": "Governance must be explicit and serialized.",
+      "intended_phase": "Genesis IV",
+      "name": "ExecutiveReasoningGovernance",
+      "prohibited_responsibilities": [
+        "Silently changing evidence",
+        "Overwriting conclusions",
+        "Executing recommendations"
+      ],
+      "purpose": "Apply explicit executive directives and reasoning policy."
+    },
+    {
+      "allowed_responsibilities": [
+        "Alternative generation",
+        "Mutual-exclusion groups",
+        "Assumption discovery",
+        "Counter-hypothesis generation"
+      ],
+      "attaches_to": [
+        "Hypothesis",
+        "ReasoningEngine"
+      ],
+      "compatibility_requirement": "Generated hypotheses remain immutable canonical contracts.",
+      "intended_phase": "Genesis V",
+      "name": "CompetingHypothesisEngine",
+      "prohibited_responsibilities": [
+        "Hidden retrieval",
+        "Mission execution",
+        "Non-auditable selection"
+      ],
+      "purpose": "Expand generation and comparison of alternative explanations."
+    },
+    {
+      "allowed_responsibilities": [
+        "Strategy selection",
+        "Depth escalation",
+        "Early stopping",
+        "Budget accounting"
+      ],
+      "attaches_to": [
+        "ReasoningSession",
+        "ReasoningEngine"
+      ],
+      "compatibility_requirement": "Adaptation decisions remain traceable and deterministic in deterministic mode.",
+      "intended_phase": "Genesis VI",
+      "name": "AdaptiveReasoningController",
+      "prohibited_responsibilities": [
+        "Unbounded recursion",
+        "Unrecorded strategy changes",
+        "Bypassing executive limits"
+      ],
+      "purpose": "Choose approved reasoning strategies and depth within explicit budgets."
+    },
+    {
+      "allowed_responsibilities": [
+        "Calibration metrics",
+        "Confidence error analysis",
+        "Recommendation outcome linkage"
+      ],
+      "attaches_to": [
+        "ReasoningResult",
+        "ReasoningSession"
+      ],
+      "compatibility_requirement": "Calibration references immutable historical results.",
+      "intended_phase": "Genesis VII",
+      "name": "OutcomeCalibration",
+      "prohibited_responsibilities": [
+        "Mutating historical results",
+        "Automatic ungoverned policy changes"
+      ],
+      "purpose": "Compare prior confidence and recommendations against observed outcomes."
+    },
+    {
+      "allowed_responsibilities": [
+        "Improvement proposals",
+        "Trust adjustment proposals",
+        "Regression fixture generation"
+      ],
+      "attaches_to": [
+        "OutcomeCalibration",
+        "ExecutiveReasoningGovernance"
+      ],
+      "compatibility_requirement": "Learning remains reviewable, reversible, and versioned.",
+      "intended_phase": "Genesis VIII",
+      "name": "LearningFeedback",
+      "prohibited_responsibilities": [
+        "Self-modifying production code",
+        "Unapproved policy mutation"
+      ],
+      "purpose": "Propose governed improvements from calibrated historical outcomes."
+    }
+  ],
+  "architectural_decisions": [
+    {
+      "basis": "The audited subsystem already has immutable contracts, deterministic orchestration, explicit knowledge adaptation, and stable fingerprints.",
+      "decision": "Evolve the existing Reasoning Engine rather than replace it."
+    },
+    {
+      "basis": "Lifecycle, budgets, history, review state, and executive directives naturally surround current deterministic execution.",
+      "decision": "Introduce ReasoningSession as an execution envelope."
+    },
+    {
+      "basis": "It is already the anti-corruption boundary between retrieval data and canonical evidence.",
+      "decision": "Preserve KnowledgeEvidenceAdapter as the provenance ingress."
+    },
+    {
+      "basis": "Its architectural value is dependency-injected composition.",
+      "decision": "Keep KnowledgeReasoningPipeline thin."
+    }
+  ],
+  "baseline_fingerprint": "56e8cbe6c922b067b0bf1a1b49b1212d1a7a6e2e8a3c8c1081ad8acaf058b7dc",
+  "baseline_id": "GENESIS-I-A4",
+  "baseline_version": "1.0.0",
+  "canonical_components": [
+    {
+      "extension_policy": "Extend compatibly through structured provenance.",
+      "layer": "Canonical Contracts",
+      "must_not_own": [
+        "Knowledge retrieval",
+        "Hypothesis assessment",
+        "Runtime mutation"
+      ],
+      "name": "EvidenceItem",
+      "owns": [
+        "Evidence identity",
+        "Proposition",
+        "Stance",
+        "Source reference",
+        "Reliability",
+        "Confidence",
+        "Metadata"
+      ],
+      "responsibility": "Represent one immutable attributable item of evidence.",
+      "source_modules": [
+        "core/reasoning/models.py"
+      ],
+      "stability": "Constitutionally stable"
+    },
+    {
+      "extension_policy": "Keep inference results separate from the hypothesis contract.",
+      "layer": "Canonical Contracts",
+      "must_not_own": [
+        "Confidence calculation",
+        "Evidence retrieval",
+        "Conclusion selection"
+      ],
+      "name": "Hypothesis",
+      "owns": [
+        "Identity",
+        "Statement",
+        "Evidence relationships",
+        "Assumptions",
+        "Proposed actions"
+      ],
+      "responsibility": "Represent one immutable candidate explanation.",
+      "source_modules": [
+        "core/reasoning/models.py"
+      ],
+      "stability": "Constitutionally stable"
+    },
+    {
+      "extension_policy": "A future ReasoningSession may create requests but must not replace them.",
+      "layer": "Canonical Contracts",
+      "must_not_own": [
+        "Mutable session lifecycle",
+        "Executive state",
+        "Search execution"
+      ],
+      "name": "ReasoningRequest",
+      "owns": [
+        "Request identity",
+        "Goal",
+        "Evidence",
+        "Hypotheses",
+        "Constraints",
+        "Context"
+      ],
+      "responsibility": "Define the immutable deterministic input to one reasoning execution.",
+      "source_modules": [
+        "core/reasoning/models.py"
+      ],
+      "stability": "Constitutionally stable"
+    },
+    {
+      "extension_policy": "Future provenance enrichment enters through this boundary.",
+      "layer": "Knowledge Boundary",
+      "must_not_own": [
+        "Knowledge retrieval",
+        "Inference",
+        "Executive governance"
+      ],
+      "name": "KnowledgeEvidenceAdapter",
+      "owns": [
+        "Input normalization",
+        "Identifier derivation",
+        "Score normalization",
+        "Rejected-result accounting",
+        "Source metadata capture"
+      ],
+      "responsibility": "Normalize external knowledge results into canonical EvidenceItem objects.",
+      "source_modules": [
+        "core/reasoning/knowledge.py"
+      ],
+      "stability": "Stable extension boundary"
+    },
+    {
+      "extension_policy": "Alternative generators must preserve explicit outputs and traceability.",
+      "layer": "Hypothesis Generation",
+      "must_not_own": [
+        "Evidence retrieval",
+        "Final assessment",
+        "Executive authorization"
+      ],
+      "name": "DeterministicHypothesisGenerator",
+      "owns": [
+        "Generation strategy",
+        "Candidate construction",
+        "Generation result"
+      ],
+      "responsibility": "Generate candidate hypotheses deterministically from goal and evidence.",
+      "source_modules": [
+        "core/reasoning/generation.py"
+      ],
+      "stability": "Stable replaceable strategy"
+    },
+    {
+      "extension_policy": "New context wraps the engine; determinism and explicit inputs remain intact.",
+      "layer": "Inference and Orchestration",
+      "must_not_own": [
+        "Knowledge retrieval",
+        "Tool execution",
+        "Mission mutation",
+        "Persistent session lifecycle"
+      ],
+      "name": "ReasoningEngine",
+      "owns": [
+        "Validation",
+        "Assessment orchestration",
+        "Stable ranking",
+        "Conclusion selection",
+        "Contradiction detection",
+        "Missing-information detection",
+        "Trace construction",
+        "Result fingerprinting"
+      ],
+      "responsibility": "Validate requests, assess hypotheses, rank conclusions, identify gaps, and produce auditable results.",
+      "source_modules": [
+        "core/reasoning/service.py",
+        "core/reasoning/inference.py",
+        "core/reasoning/confidence.py"
+      ],
+      "stability": "Constitutionally stable core"
+    },
+    {
+      "extension_policy": "Planning consumes but does not mutate reasoning output.",
+      "layer": "Planning Bridge",
+      "must_not_own": [
+        "Plan execution",
+        "Mission creation",
+        "Authorization"
+      ],
+      "name": "PlanningRecommendation",
+      "owns": [
+        "Objective",
+        "Rationale",
+        "Recommended actions",
+        "Assumptions",
+        "Constraints",
+        "Risks"
+      ],
+      "responsibility": "Translate the selected conclusion into an immutable advisory planning recommendation.",
+      "source_modules": [
+        "core/reasoning/models.py"
+      ],
+      "stability": "Constitutionally stable bridge"
+    },
+    {
+      "extension_policy": "Compatibility-affecting additions require versioned migration.",
+      "layer": "Canonical Contracts",
+      "must_not_own": [
+        "Mutable runtime state",
+        "Mission execution",
+        "Knowledge acquisition"
+      ],
+      "name": "ReasoningResult",
+      "owns": [
+        "Status",
+        "Assessments",
+        "Selected hypothesis",
+        "Missing information",
+        "Contradictions",
+        "Planning recommendation",
+        "Trace",
+        "Fingerprint"
+      ],
+      "responsibility": "Represent the immutable fingerprinted result of one reasoning execution.",
+      "source_modules": [
+        "core/reasoning/models.py"
+      ],
+      "stability": "Constitutionally stable"
+    },
+    {
+      "extension_policy": "A future session layer may wrap it; it must remain thin.",
+      "layer": "Composition",
+      "must_not_own": [
+        "Search implementation",
+        "Inference algorithms",
+        "Executive policy",
+        "Persistent session state"
+      ],
+      "name": "KnowledgeReasoningPipeline",
+      "owns": [
+        "Composition order",
+        "Dependency injection",
+        "Query normalization",
+        "Context enrichment",
+        "Outcome construction"
+      ],
+      "responsibility": "Coordinate injected search, adaptation, generation, request construction, and reasoning.",
+      "source_modules": [
+        "core/reasoning/pipeline.py"
+      ],
+      "stability": "Stable composition boundary"
+    }
+  ],
+  "change_governance": {
+    "prohibited_without_architecture_revision": [
+      "Hidden knowledge retrieval inside ReasoningEngine",
+      "Mission execution inside core/reasoning",
+      "Mutable canonical reasoning records",
+      "Unversioned fingerprint-semantic changes",
+      "Self-modifying learning behavior"
+    ],
+    "required_for_contract_changes": [
+      "Explicit architecture decision",
+      "Version update",
+      "Migration plan",
+      "Backward-compatibility assessment",
+      "Deterministic regression fixtures"
+    ]
+  },
+  "constitutional_invariants": [
+    {
+      "invariant_id": "RE-C-001",
+      "protected_components": [
+        "EvidenceItem",
+        "Hypothesis",
+        "ReasoningRequest",
+        "PlanningRecommendation",
+        "ReasoningResult"
+      ],
+      "rationale": "Immutability preserves replayability, auditability, and fingerprint integrity.",
+      "rule": "Canonical reasoning inputs and outputs are immutable value objects.",
+      "title": "Immutable Canonical Contracts",
+      "validation": "Canonical contracts remain frozen dataclasses or enforce equivalent immutability."
+    },
+    {
+      "invariant_id": "RE-C-002",
+      "protected_components": [
+        "ReasoningEngine",
+        "ReasoningResult"
+      ],
+      "rationale": "Reasoning must be reproducible and testable.",
+      "rule": "Equivalent canonical requests processed by the same engine version produce equivalent canonical results.",
+      "title": "Deterministic Core",
+      "validation": "Repeated executions produce identical canonical serialization and fingerprints."
+    },
+    {
+      "invariant_id": "RE-C-003",
+      "protected_components": [
+        "ReasoningRequest",
+        "ReasoningEngine",
+        "EvidenceItem"
+      ],
+      "rationale": "Hidden retrieval would compromise explainability.",
+      "rule": "Reasoning may assess only evidence explicitly present in ReasoningRequest.",
+      "title": "Explicit Evidence",
+      "validation": "Core reasoning modules perform no direct retrieval or network access."
+    },
+    {
+      "invariant_id": "RE-C-004",
+      "protected_components": [
+        "KnowledgeEvidenceAdapter",
+        "EvidenceItem"
+      ],
+      "rationale": "The adapter protects the reasoning core from retrieval schema drift.",
+      "rule": "External knowledge enters reasoning through KnowledgeEvidenceAdapter.",
+      "title": "Knowledge Boundary Isolation",
+      "validation": "Pipeline inputs to reasoning are canonical EvidenceItem objects."
+    },
+    {
+      "invariant_id": "RE-C-005",
+      "protected_components": [
+        "KnowledgeReasoningPipeline"
+      ],
+      "rationale": "Thin orchestration preserves replaceability and testability.",
+      "rule": "KnowledgeReasoningPipeline coordinates dedicated components and does not absorb their responsibilities.",
+      "title": "Thin Composition Pipeline",
+      "validation": "Search, adaptation, generation, and reasoning remain delegated."
+    },
+    {
+      "invariant_id": "RE-C-006",
+      "protected_components": [
+        "ReasoningEngine",
+        "PlanningRecommendation",
+        "ReasoningResult"
+      ],
+      "rationale": "Recommendations are advisory outputs, not executive authority.",
+      "rule": "Reasoning may recommend actions but does not create, authorize, or execute operational plans.",
+      "title": "Inference and Planning Separation",
+      "validation": "Core reasoning performs no mission or planning state mutation."
+    },
+    {
+      "invariant_id": "RE-C-007",
+      "protected_components": [
+        "ReasoningEngine",
+        "ReasoningResult"
+      ],
+      "rationale": "Operators require transparent and reviewable reasoning.",
+      "rule": "Completed reasoning results expose an ordered trace of material reasoning stages.",
+      "title": "Auditable Trace",
+      "validation": "Trace ordering is stable and includes validation and conclusion selection."
+    },
+    {
+      "invariant_id": "RE-C-008",
+      "protected_components": [
+        "EvidenceItem",
+        "ReasoningRequest",
+        "ReasoningResult"
+      ],
+      "rationale": "Stable identifiers enable replay and provenance.",
+      "rule": "Derived identifiers use stable canonical inputs.",
+      "title": "Stable Identifier Derivation",
+      "validation": "Identifiers do not depend on time, randomness, memory addresses, or unordered traversal."
+    },
+    {
+      "invariant_id": "RE-C-009",
+      "protected_components": [
+        "ReasoningEngine",
+        "KnowledgeReasoningPipeline"
+      ],
+      "rationale": "Authority boundaries must remain explicit.",
+      "rule": "Reasoning recommends; executive layers authorize; execution occurs elsewhere.",
+      "title": "No Hidden Executive Authority",
+      "validation": "Reasoning modules expose no mission execution side effects."
+    },
+    {
+      "invariant_id": "RE-C-010",
+      "protected_components": [
+        "ReasoningEngine",
+        "ReasoningRequest",
+        "ReasoningResult"
+      ],
+      "rationale": "Historical results must remain interpretable.",
+      "rule": "Compatibility-affecting contract, fingerprint, ranking, or result changes require explicit versioning and migration.",
+      "title": "Versioned Evolution",
+      "validation": "Architecture-impacting changes include regression fixtures and version updates."
+    }
+  ],
+  "current_processing_flow": [
+    "Injected Knowledge Search",
+    "KnowledgeEvidenceAdapter",
+    "EvidenceItem",
+    "DeterministicHypothesisGenerator",
+    "ReasoningRequest",
+    "ReasoningEngine",
+    "PlanningRecommendation",
+    "ReasoningResult",
+    "KnowledgeReasoningOutcome"
+  ],
+  "evolution_sequence": [
+    {
+      "capability": "Reasoning Session",
+      "phase": "Genesis II"
+    },
+    {
+      "capability": "Evidence Provenance",
+      "phase": "Genesis III"
+    },
+    {
+      "capability": "Executive Governance",
+      "phase": "Genesis IV"
+    },
+    {
+      "capability": "Competing Hypotheses",
+      "phase": "Genesis V"
+    },
+    {
+      "capability": "Adaptive Reasoning",
+      "phase": "Genesis VI"
+    },
+    {
+      "capability": "Outcome Calibration",
+      "phase": "Genesis VII"
+    },
+    {
+      "capability": "Governed Learning",
+      "phase": "Genesis VIII"
+    }
+  ],
+  "executive_summary": "The existing Reasoning Engine is a coherent deterministic subsystem. Genesis will evolve it through a ReasoningSession envelope, structured provenance, executive governance, adaptive reasoning, calibration, and governed learning while preserving canonical contracts and authority boundaries.",
+  "next_step": {
+    "deliverable": "Constitutional verification suite",
+    "phase": "Genesis I-A4 Phase 2",
+    "then": "Genesis II \u2014 Reasoning Session Foundation"
+  },
+  "production_code_modified": false,
+  "purpose": "Define the canonical architecture, constitutional invariants, approved extension points, and controlled evolution path for the JARVIS Reasoning Engine.",
+  "responsibility_matrix": [
+    {
+      "component": "EvidenceItem",
+      "layer": "Canonical Contracts",
+      "primary_responsibility": "Represent one immutable attributable item of evidence.",
+      "stability": "Constitutionally stable"
+    },
+    {
+      "component": "Hypothesis",
+      "layer": "Canonical Contracts",
+      "primary_responsibility": "Represent one immutable candidate explanation.",
+      "stability": "Constitutionally stable"
+    },
+    {
+      "component": "ReasoningRequest",
+      "layer": "Canonical Contracts",
+      "primary_responsibility": "Define the immutable deterministic input to one reasoning execution.",
+      "stability": "Constitutionally stable"
+    },
+    {
+      "component": "KnowledgeEvidenceAdapter",
+      "layer": "Knowledge Boundary",
+      "primary_responsibility": "Normalize external knowledge results into canonical EvidenceItem objects.",
+      "stability": "Stable extension boundary"
+    },
+    {
+      "component": "DeterministicHypothesisGenerator",
+      "layer": "Hypothesis Generation",
+      "primary_responsibility": "Generate candidate hypotheses deterministically from goal and evidence.",
+      "stability": "Stable replaceable strategy"
+    },
+    {
+      "component": "ReasoningEngine",
+      "layer": "Inference and Orchestration",
+      "primary_responsibility": "Validate requests, assess hypotheses, rank conclusions, identify gaps, and produce auditable results.",
+      "stability": "Constitutionally stable core"
+    },
+    {
+      "component": "PlanningRecommendation",
+      "layer": "Planning Bridge",
+      "primary_responsibility": "Translate the selected conclusion into an immutable advisory planning recommendation.",
+      "stability": "Constitutionally stable bridge"
+    },
+    {
+      "component": "ReasoningResult",
+      "layer": "Canonical Contracts",
+      "primary_responsibility": "Represent the immutable fingerprinted result of one reasoning execution.",
+      "stability": "Constitutionally stable"
+    },
+    {
+      "component": "KnowledgeReasoningPipeline",
+      "layer": "Composition",
+      "primary_responsibility": "Coordinate injected search, adaptation, generation, request construction, and reasoning.",
+      "stability": "Stable composition boundary"
+    }
+  ],
+  "source_reports": [
+    {
+      "audit_id": "GENESIS-I-A1",
+      "fingerprint": "77e5a7600f01342109bd44785e220ff8585ae53ae3ac51a9758b1b74767a3ffd",
+      "path": "docs/architecture/convergence/genesis_1a1_reasoning_contract_audit.json",
+      "phase": "Genesis I-A1",
+      "title": "Reasoning Contract Audit"
+    },
+    {
+      "audit_id": "GENESIS-I-A2",
+      "fingerprint": "d9746235a837e00522640452a751286753ad2f97a91e981a681c318bb624bb3c",
+      "path": "docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json",
+      "phase": "Genesis I-A2",
+      "title": "Reasoning Service Audit"
+    },
+    {
+      "audit_id": "GENESIS-I-A3",
+      "fingerprint": "35055df0649a5c5d610aff1ec6e91a3734b146670d6348d7ae39f8e07e198a8d",
+      "path": "docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.json",
+      "phase": "Genesis I-A3",
+      "title": "Knowledge Integration Audit"
+    }
+  ],
+  "status": "Foundational architecture baseline",
+  "target_generation_2_flow": [
+    "Executive Director",
+    "ExecutiveReasoningGovernance",
+    "ReasoningSession",
+    "KnowledgeReasoningPipeline",
+    "KnowledgeEvidenceAdapter",
+    "DeterministicHypothesisGenerator",
+    "ReasoningEngine",
+    "ReasoningResult",
+    "OutcomeCalibration",
+    "LearningFeedback"
+  ],
+  "title": "Canonical Reasoning Architecture Baseline"
+}

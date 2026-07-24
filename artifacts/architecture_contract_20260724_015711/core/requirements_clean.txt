@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pydantic
+openai
+requests
+psutil
+PyYAML
+
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2
+
+aiofiles
+python-dotenv

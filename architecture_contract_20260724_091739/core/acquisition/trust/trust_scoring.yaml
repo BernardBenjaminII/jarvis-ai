@@ -1,0 +1,20 @@
+weights:
+
+  government: 30
+  university: 25
+  standards: 35
+  official_documentation: 30
+  peer_reviewed: 35
+  verified_github: 20
+  open_source_foundation: 20
+  wikipedia: 10
+  technical_blog: 6
+  unknown_domain: -15
+  anonymous_pdf: -20
+  malware_flag: -100
+
+minimum_scores:
+
+  auto_accept: 80
+  human_review: 50
+  reject: 49

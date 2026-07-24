@@ -1,0 +1,1288 @@
+core/cognition/__init__.py:2:from .cycle import CognitionCycleController, CognitionCycleSnapshot
+core/cognition/__init__.py:3:from .enums import AttentionReason, CognitiveCycleStatus, CognitiveEventKind, CognitiveState, MemoryEntryKind
+core/cognition/__init__.py:4:from .errors import AttentionAllocationError, CognitionCycleClosedError, CognitionCycleNotActiveError, CognitionError, DuplicateMemoryEntryError, InvalidCognitiveContextError, InvalidCognitiveStateError, InvalidStateTransitionError, WorkingMemoryCapacityError
+core/cognition/__init__.py:5:from .models import AttentionAllocation, AttentionCandidate, CognitiveEvent, ExecutiveContext, MemoryEntry, StateTransition, freeze_mapping, utc_now
+core/cognition/__init__.py:6:from .session import ExecutiveSession, ExecutiveSessionEvent, ExecutiveSessionSnapshot, ExecutiveSessionStatus
+core/cognition/__init__.py:7:from .state_machine import DEFAULT_TRANSITION_POLICY, CognitiveStateMachine, StateMachineSnapshot, TransitionGuard, TransitionPolicy
+core/cognition/__init__.py:8:from .working_memory import WorkingMemory, WorkingMemorySnapshot
+core/cognition/workspace/__init__.py:3:from core.cognition.workspace.catalog import (
+core/cognition/workspace/__init__.py:10:from core.cognition.workspace.enums import (
+core/cognition/workspace/__init__.py:15:from core.cognition.workspace.errors import CognitiveWorkspaceError
+core/cognition/workspace/__init__.py:16:from core.cognition.workspace.models import (
+core/cognition/workspace/__init__.py:25:from core.cognition.workspace.repository import (
+core/cognition/workspace/__init__.py:33:from core.cognition.workspace.service import CognitiveWorkspaceService
+core/cognition/workspace/enums.py:3:from __future__ import annotations
+core/cognition/workspace/enums.py:5:from enum import StrEnum
+core/cognition/workspace/models.py:3:from __future__ import annotations
+core/cognition/workspace/models.py:5:from dataclasses import dataclass, field, replace
+core/cognition/workspace/models.py:6:from datetime import datetime, timezone
+core/cognition/workspace/models.py:7:from hashlib import sha256
+core/cognition/workspace/models.py:8:from typing import Iterable
+core/cognition/workspace/models.py:9:from uuid import UUID, uuid4
+core/cognition/workspace/models.py:11:from core.cognition.workspace.enums import (
+core/cognition/workspace/models.py:16:from core.cognition.workspace.errors import CognitiveWorkspaceError
+core/cognition/workspace/service.py:3:from __future__ import annotations
+core/cognition/workspace/service.py:5:from dataclasses import replace
+core/cognition/workspace/service.py:7:from core.cognition.workspace.enums import (
+core/cognition/workspace/service.py:12:from core.cognition.workspace.errors import CognitiveWorkspaceError
+core/cognition/workspace/service.py:13:from core.cognition.workspace.models import (
+core/cognition/workspace/repository.py:3:from __future__ import annotations
+core/cognition/workspace/repository.py:7:from dataclasses import asdict
+core/cognition/workspace/repository.py:8:from datetime import datetime
+core/cognition/workspace/repository.py:9:from pathlib import Path
+core/cognition/workspace/repository.py:10:from typing import Protocol
+core/cognition/workspace/repository.py:12:from core.cognition.workspace.enums import (
+core/cognition/workspace/repository.py:17:from core.cognition.workspace.errors import CognitiveWorkspaceError
+core/cognition/workspace/repository.py:18:from core.cognition.workspace.models import (
+core/cognition/workspace/catalog.py:3:from __future__ import annotations
+core/cognition/workspace/catalog.py:5:from dataclasses import dataclass
+core/cognition/workspace/catalog.py:6:from datetime import datetime
+core/cognition/workspace/catalog.py:7:from enum import StrEnum
+core/cognition/workspace/catalog.py:8:from typing import Iterable
+core/cognition/workspace/catalog.py:10:from core.cognition.workspace.enums import (
+core/cognition/workspace/catalog.py:14:from core.cognition.workspace.models import CognitiveWorkspace
+core/cognition/workspace/catalog.py:15:from core.cognition.workspace.repository import CognitiveWorkspaceRepository
+core/cognition/errors.py:3:from __future__ import annotations
+core/cognition/enums.py:3:from __future__ import annotations
+core/cognition/enums.py:5:from enum import Enum
+core/cognition/serialization.py:11:from __future__ import annotations
+core/cognition/serialization.py:13:from .common.serialization import *  # noqa: F401,F403
+core/cognition/serialization.py:14:from .common.serialization import __all__ as __all__
+core/cognition/identifiers.py:3:from __future__ import annotations
+core/cognition/identifiers.py:6:from typing import Any
+core/cognition/identifiers.py:8:from .enums import CognitiveObjectKind
+core/cognition/identifiers.py:9:from .errors import CognitionIdentifierError
+core/cognition/identifiers.py:10:from .serialization import canonical_fingerprint
+core/cognition/contracts.py:11:from __future__ import annotations
+core/cognition/contracts.py:13:from .common.contracts import *  # noqa: F401,F403
+core/cognition/contracts.py:14:from .common.contracts import __all__ as __all__
+core/cognition/validation.py:3:from __future__ import annotations
+core/cognition/validation.py:5:from decimal import Decimal
+core/cognition/validation.py:6:from typing import Any
+core/cognition/validation.py:8:from .contracts import (
+core/cognition/validation.py:14:from .enums import CognitiveObjectKind, ObservationValueKind
+core/cognition/validation.py:15:from .errors import (
+core/cognition/validation.py:19:from .identifiers import verify_cognition_id
+core/cognition/normalization.py:11:from __future__ import annotations
+core/cognition/normalization.py:13:from .common.normalization import *  # noqa: F401,F403
+core/cognition/normalization.py:14:from .common.normalization import __all__ as __all__
+core/cognition/confidence.py:7:from __future__ import annotations
+core/cognition/confidence.py:9:from dataclasses import dataclass
+core/cognition/confidence.py:10:from decimal import Decimal
+core/cognition/confidence.py:11:from enum import Enum
+core/cognition/confidence.py:12:from typing import Final
+core/cognition/confidence.py:14:from .contracts import normalize_confidence
+core/cognition/confidence.py:15:from .enums import ConfidenceBand, ObservationOrigin
+core/cognition/confidence.py:16:from .errors import CognitionValidationError
+core/cognition/extraction.py:7:from __future__ import annotations
+core/cognition/extraction.py:10:from dataclasses import dataclass
+core/cognition/extraction.py:11:from decimal import Decimal
+core/cognition/extraction.py:12:from enum import Enum
+core/cognition/extraction.py:13:from typing import Final, Iterable
+core/cognition/extraction.py:15:from .confidence import ExtractionQuality
+core/cognition/extraction.py:16:from .enums import (
+core/cognition/extraction.py:21:from .errors import CognitionValidationError
+core/cognition/extraction.py:22:from .normalization import (
+core/cognition/observation.py:3:from __future__ import annotations
+core/cognition/observation.py:5:from dataclasses import dataclass
+core/cognition/observation.py:6:from decimal import Decimal
+core/cognition/observation.py:7:from typing import Iterable
+core/cognition/observation.py:9:from .confidence import (
+core/cognition/observation.py:16:from .contracts import (
+core/cognition/observation.py:23:from .enums import ObservationValueKind
+core/cognition/observation.py:24:from .errors import CognitionValidationError
+core/cognition/observation.py:25:from .extraction import (
+core/cognition/observation.py:31:from .normalization import (
+core/cognition/observation.py:37:from .validation import validate_observation
+core/cognition/provenance.py:7:from __future__ import annotations
+core/cognition/provenance.py:9:from dataclasses import dataclass
+core/cognition/provenance.py:10:from enum import Enum
+core/cognition/provenance.py:11:from typing import Iterable
+core/cognition/provenance.py:13:from .contracts import Metadata, SourceReference, normalize_metadata
+core/cognition/provenance.py:14:from .errors import CognitionValidationError
+core/cognition/provenance.py:15:from .normalization import normalize_display_text
+core/cognition/provenance.py:16:from .serialization import canonical_fingerprint
+core/cognition/evidence.py:7:from __future__ import annotations
+core/cognition/evidence.py:9:from dataclasses import dataclass
+core/cognition/evidence.py:10:from decimal import Decimal
+core/cognition/evidence.py:11:from enum import Enum
+core/cognition/evidence.py:12:from typing import Iterable
+core/cognition/evidence.py:14:from .contracts import (
+core/cognition/evidence.py:20:from .errors import CognitionValidationError
+core/cognition/evidence.py:21:from .normalization import normalize_display_text
+core/cognition/evidence.py:22:from .provenance import (
+core/cognition/evidence.py:26:from .serialization import canonical_fingerprint
+core/cognition/evidence_chain.py:3:from __future__ import annotations
+core/cognition/evidence_chain.py:5:from dataclasses import dataclass
+core/cognition/evidence_chain.py:6:from decimal import Decimal
+core/cognition/evidence_chain.py:7:from enum import Enum
+core/cognition/evidence_chain.py:8:from typing import Iterable
+core/cognition/evidence_chain.py:10:from .contracts import Metadata, normalize_confidence, normalize_metadata
+core/cognition/evidence_chain.py:11:from .errors import CognitionValidationError
+core/cognition/evidence_chain.py:12:from .evidence import EvidenceDirection, EvidenceRecord
+core/cognition/evidence_chain.py:13:from .normalization import normalize_display_text
+core/cognition/evidence_chain.py:14:from .provenance import GENESIS_IV_A2_SCHEMA_VERSION
+core/cognition/evidence_chain.py:15:from .serialization import canonical_fingerprint
+core/cognition/evidence_validation.py:3:from __future__ import annotations
+core/cognition/evidence_validation.py:5:from .errors import CognitionValidationError
+core/cognition/evidence_validation.py:6:from .evidence import EvidenceRecord, make_evidence_id
+core/cognition/evidence_validation.py:7:from .evidence_chain import (
+core/cognition/evidence_validation.py:12:from .provenance import (
+core/cognition/claim.py:11:from __future__ import annotations
+core/cognition/claim.py:13:from dataclasses import dataclass
+core/cognition/claim.py:14:from decimal import Decimal
+core/cognition/claim.py:15:from enum import Enum
+core/cognition/claim.py:16:from typing import Iterable
+core/cognition/claim.py:18:from .contracts import (
+core/cognition/claim.py:24:from .errors import CognitionValidationError
+core/cognition/claim.py:25:from .evidence_chain import EvidenceChain
+core/cognition/claim.py:26:from .normalization import (
+core/cognition/claim.py:31:from .serialization import canonical_fingerprint
+core/cognition/claim_construction.py:8:from __future__ import annotations
+core/cognition/claim_construction.py:10:from dataclasses import dataclass
+core/cognition/claim_construction.py:11:from decimal import Decimal
+core/cognition/claim_construction.py:12:from typing import Iterable
+core/cognition/claim_construction.py:14:from .claim import (
+core/cognition/claim_construction.py:22:from .contracts import Metadata, Observation, normalize_metadata
+core/cognition/claim_construction.py:23:from .errors import CognitionValidationError
+core/cognition/claim_construction.py:24:from .evidence import EvidenceDirection
+core/cognition/claim_construction.py:25:from .evidence_chain import EvidenceChain, EvidenceChainStatus
+core/cognition/claim_construction.py:26:from .evidence_validation import validate_evidence_chain
+core/cognition/claim_construction.py:27:from .normalization import normalize_display_text
+core/cognition/claim_validation.py:3:from __future__ import annotations
+core/cognition/claim_validation.py:5:from .claim import (
+core/cognition/claim_validation.py:10:from .errors import CognitionValidationError
+core/cognition/claim_validation.py:11:from .evidence_validation import validate_evidence_chain
+core/cognition/layers/observation/__init__.py:5:from __future__ import annotations
+core/cognition/layers/observation/__init__.py:7:from .conflicts import ConflictReport, ObservationConflictDetector
+core/cognition/layers/observation/__init__.py:8:from .director import ObservationDirector
+core/cognition/layers/observation/__init__.py:9:from .duplicates import DuplicateReport, ObservationDuplicateDetector
+core/cognition/layers/observation/__init__.py:10:from .enums import (
+core/cognition/layers/observation/__init__.py:15:from .errors import (
+core/cognition/layers/observation/__init__.py:23:from .factory import ObservationFactory
+core/cognition/layers/observation/__init__.py:24:from .lifecycle import ObservationLifecycleManager
+core/cognition/layers/observation/__init__.py:25:from .merge import MergeResult, ObservationMergeEngine
+core/cognition/layers/observation/__init__.py:26:from .models import (
+core/cognition/layers/observation/__init__.py:33:from .normalization import ObservationNormalizer
+core/cognition/layers/observation/__init__.py:34:from .query import ObservationQuery
+core/cognition/layers/observation/__init__.py:35:from .registry import ObservationRegistry
+core/cognition/layers/observation/__init__.py:36:from .relationships import ObservationRelationshipManager
+core/cognition/layers/observation/__init__.py:37:from .validation import ObservationValidationPolicy, ObservationValidator
+core/cognition/layers/observation/conflicts.py:1:from __future__ import annotations
+core/cognition/layers/observation/conflicts.py:3:from dataclasses import dataclass
+core/cognition/layers/observation/conflicts.py:6:from .models import ObservationRecord
+core/cognition/layers/observation/director.py:1:from __future__ import annotations
+core/cognition/layers/observation/director.py:3:from dataclasses import replace
+core/cognition/layers/observation/director.py:4:from uuid import UUID
+core/cognition/layers/observation/director.py:6:from .conflicts import ConflictReport, ObservationConflictDetector
+core/cognition/layers/observation/director.py:7:from .duplicates import DuplicateReport, ObservationDuplicateDetector
+core/cognition/layers/observation/director.py:8:from .enums import ObservationLifecycleState, ObservationRelationType
+core/cognition/layers/observation/director.py:9:from .factory import ObservationFactory
+core/cognition/layers/observation/director.py:10:from .lifecycle import ObservationLifecycleManager
+core/cognition/layers/observation/director.py:11:from .merge import MergeResult, ObservationMergeEngine
+core/cognition/layers/observation/director.py:12:from .models import ObservationInput, ObservationRecord, ObservationRelation
+core/cognition/layers/observation/director.py:13:from .query import ObservationQuery
+core/cognition/layers/observation/director.py:14:from .registry import ObservationRegistry
+core/cognition/layers/observation/director.py:15:from .relationships import ObservationRelationshipManager
+core/cognition/layers/observation/duplicates.py:1:from __future__ import annotations
+core/cognition/layers/observation/duplicates.py:3:from dataclasses import dataclass
+core/cognition/layers/observation/duplicates.py:4:from difflib import SequenceMatcher
+core/cognition/layers/observation/duplicates.py:6:from .models import ObservationRecord
+core/cognition/layers/observation/enums.py:1:from __future__ import annotations
+core/cognition/layers/observation/enums.py:3:from enum import Enum
+core/cognition/layers/observation/errors.py:1:from __future__ import annotations
+core/cognition/layers/observation/factory.py:1:from __future__ import annotations
+core/cognition/layers/observation/factory.py:3:from dataclasses import replace
+core/cognition/layers/observation/factory.py:4:from uuid import uuid4
+core/cognition/layers/observation/factory.py:6:from .enums import ObservationLifecycleState
+core/cognition/layers/observation/factory.py:7:from .errors import ObservationValidationError
+core/cognition/layers/observation/factory.py:8:from .models import ObservationInput, ObservationRecord, utc_now
+core/cognition/layers/observation/factory.py:9:from .normalization import ObservationNormalizer
+core/cognition/layers/observation/factory.py:10:from .validation import ObservationValidator
+core/cognition/layers/observation/lifecycle.py:1:from __future__ import annotations
+core/cognition/layers/observation/lifecycle.py:3:from dataclasses import replace
+core/cognition/layers/observation/lifecycle.py:5:from .enums import ObservationLifecycleState
+core/cognition/layers/observation/lifecycle.py:6:from .errors import InvalidLifecycleTransitionError
+core/cognition/layers/observation/lifecycle.py:7:from .models import ObservationRecord
+core/cognition/layers/observation/models.py:1:from __future__ import annotations
+core/cognition/layers/observation/models.py:3:from dataclasses import dataclass, field
+core/cognition/layers/observation/models.py:4:from datetime import datetime, timezone
+core/cognition/layers/observation/models.py:7:from types import MappingProxyType
+core/cognition/layers/observation/models.py:8:from typing import Any, Mapping
+core/cognition/layers/observation/models.py:9:from uuid import UUID, uuid4
+core/cognition/layers/observation/models.py:11:from core.cognition.common.object_model import ProvenanceReference
+core/cognition/layers/observation/models.py:13:from .enums import (
+core/cognition/layers/observation/normalization.py:1:from __future__ import annotations
+core/cognition/layers/observation/query.py:1:from __future__ import annotations
+core/cognition/layers/observation/query.py:3:from .enums import ObservationLifecycleState, ObservationSourceMode
+core/cognition/layers/observation/query.py:4:from .models import ObservationRecord
+core/cognition/layers/observation/query.py:5:from .registry import ObservationRegistry
+core/cognition/layers/observation/registry.py:1:from __future__ import annotations
+core/cognition/layers/observation/registry.py:3:from collections import defaultdict
+core/cognition/layers/observation/registry.py:4:from threading import RLock
+core/cognition/layers/observation/registry.py:5:from typing import Iterable
+core/cognition/layers/observation/registry.py:6:from uuid import UUID
+core/cognition/layers/observation/registry.py:8:from .errors import DuplicateObservationError, ObservationNotFoundError
+core/cognition/layers/observation/registry.py:9:from .models import ObservationRecord
+core/cognition/layers/observation/relationships.py:1:from __future__ import annotations
+core/cognition/layers/observation/relationships.py:3:from collections import defaultdict
+core/cognition/layers/observation/relationships.py:4:from threading import RLock
+core/cognition/layers/observation/relationships.py:5:from uuid import UUID
+core/cognition/layers/observation/relationships.py:7:from .models import ObservationRelation
+core/cognition/layers/observation/validation.py:1:from __future__ import annotations
+core/cognition/layers/observation/validation.py:3:from dataclasses import dataclass
+core/cognition/layers/observation/validation.py:4:from datetime import datetime, timezone
+core/cognition/layers/observation/validation.py:6:from .models import (
+core/cognition/layers/observation/merge.py:1:from __future__ import annotations
+core/cognition/layers/observation/merge.py:3:from dataclasses import dataclass, replace
+core/cognition/layers/observation/merge.py:4:from typing import Iterable
+core/cognition/layers/observation/merge.py:5:from uuid import UUID
+core/cognition/layers/observation/merge.py:7:from core.cognition.common.object_model import ProvenanceReference
+core/cognition/layers/observation/merge.py:9:from .duplicates import ObservationDuplicateDetector
+core/cognition/layers/observation/merge.py:10:from .errors import ObservationConflictError
+core/cognition/layers/observation/merge.py:11:from .models import ObservationRecord, utc_now
+core/cognition/layers/evidence/__init__.py:5:from __future__ import annotations
+core/cognition/layers/claims/__init__.py:5:from __future__ import annotations
+core/cognition/layers/relationships/__init__.py:5:from __future__ import annotations
+core/cognition/layers/hypotheses/__init__.py:5:from __future__ import annotations
+core/cognition/layers/interpretation/__init__.py:5:from __future__ import annotations
+core/cognition/layers/reasoning/__init__.py:5:from __future__ import annotations
+core/cognition/layers/justification/__init__.py:5:from __future__ import annotations
+core/cognition/layers/__init__.py:5:from __future__ import annotations
+core/cognition/common/__init__.py:8:from __future__ import annotations
+core/cognition/common/contracts.py:3:from __future__ import annotations
+core/cognition/common/contracts.py:5:from dataclasses import dataclass
+core/cognition/common/contracts.py:6:from decimal import Decimal, InvalidOperation
+core/cognition/common/contracts.py:7:from typing import Iterable, Mapping
+core/cognition/common/contracts.py:9:from ..enums import (
+core/cognition/common/contracts.py:15:from .errors import CognitionValidationError
+core/cognition/common/contracts.py:16:from ..identifiers import make_cognition_id
+core/cognition/common/contracts.py:17:from .serialization import canonical_fingerprint
+core/cognition/common/errors.py:3:from __future__ import annotations
+core/cognition/common/normalization.py:7:from __future__ import annotations
+core/cognition/common/normalization.py:11:from dataclasses import dataclass
+core/cognition/common/normalization.py:12:from decimal import Decimal, InvalidOperation
+core/cognition/common/normalization.py:13:from typing import Final
+core/cognition/common/normalization.py:15:from ..enums import ObservationValueKind
+core/cognition/common/normalization.py:16:from .errors import CognitionValidationError
+core/cognition/common/normalization.py:17:from .serialization import decimal_to_string
+core/cognition/common/serialization.py:3:from __future__ import annotations
+core/cognition/common/serialization.py:8:from decimal import Decimal
+core/cognition/common/serialization.py:9:from enum import Enum
+core/cognition/common/serialization.py:10:from typing import Any, Mapping, Sequence
+core/cognition/common/serialization.py:12:from .errors import CognitionSerializationError
+core/cognition/common/object_model.py:2:from __future__ import annotations
+core/cognition/common/object_model.py:3:from dataclasses import dataclass, field
+core/cognition/common/object_model.py:4:from datetime import datetime, timezone
+core/cognition/common/object_model.py:5:from enum import Enum
+core/cognition/common/object_model.py:7:from types import MappingProxyType
+core/cognition/common/object_model.py:8:from typing import Any, Mapping
+core/cognition/common/object_model.py:9:from uuid import UUID, uuid4
+core/cognition/common/cognitive_object.py:2:from __future__ import annotations
+core/cognition/common/cognitive_object.py:3:from .object_model import *  # noqa: F401,F403
+core/cognition/common/cognitive_object.py:4:from .object_model import __all__ as __all__
+core/cognition/models.py:3:from __future__ import annotations
+core/cognition/models.py:5:from dataclasses import dataclass, field
+core/cognition/models.py:6:from datetime import datetime, timezone
+core/cognition/models.py:7:from types import MappingProxyType
+core/cognition/models.py:8:from typing import Any, Mapping, Tuple
+core/cognition/models.py:10:from .enums import (
+core/cognition/working_memory.py:3:from __future__ import annotations
+core/cognition/working_memory.py:5:from dataclasses import dataclass, replace
+core/cognition/working_memory.py:6:from typing import Dict, Iterable, Iterator, Tuple
+core/cognition/working_memory.py:8:from .enums import MemoryEntryKind
+core/cognition/working_memory.py:9:from .errors import (
+core/cognition/working_memory.py:13:from .models import MemoryEntry
+core/cognition/state_machine.py:3:from __future__ import annotations
+core/cognition/state_machine.py:5:from dataclasses import dataclass
+core/cognition/state_machine.py:6:from datetime import datetime
+core/cognition/state_machine.py:7:from types import MappingProxyType
+core/cognition/state_machine.py:8:from typing import Callable, Iterable, Mapping, Tuple
+core/cognition/state_machine.py:10:from .enums import CognitiveEventKind, CognitiveState
+core/cognition/state_machine.py:11:from .errors import InvalidStateTransitionError
+core/cognition/state_machine.py:12:from .models import CognitiveEvent, StateTransition, utc_now
+core/cognition/cycle.py:2:from __future__ import annotations
+core/cognition/cycle.py:3:from dataclasses import dataclass, replace
+core/cognition/cycle.py:4:from datetime import datetime
+core/cognition/cycle.py:5:from typing import Callable, Iterable
+core/cognition/cycle.py:6:from .enums import CognitiveCycleStatus, CognitiveEventKind, CognitiveState
+core/cognition/cycle.py:7:from .errors import CognitionCycleClosedError, CognitionCycleNotActiveError
+core/cognition/cycle.py:8:from .models import CognitiveEvent, ExecutiveContext, MemoryEntry, utc_now
+core/cognition/cycle.py:9:from .state_machine import DEFAULT_TRANSITION_POLICY, CognitiveStateMachine, StateMachineSnapshot, TransitionPolicy
+core/cognition/cycle.py:10:from .working_memory import WorkingMemory, WorkingMemorySnapshot
+core/cognition/session.py:3:from __future__ import annotations
+core/cognition/session.py:5:from dataclasses import dataclass, field
+core/cognition/session.py:6:from datetime import datetime
+core/cognition/session.py:7:from enum import Enum
+core/cognition/session.py:8:from types import MappingProxyType
+core/cognition/session.py:9:from typing import Callable, Dict, Iterable, Mapping, Tuple
+core/cognition/session.py:11:from .cycle import CognitionCycleController, CognitionCycleSnapshot
+core/cognition/session.py:12:from .enums import CognitiveState
+core/cognition/session.py:13:from .models import ExecutiveContext, MemoryEntry, utc_now
+core/cognition/session.py:14:from .state_machine import DEFAULT_TRANSITION_POLICY, TransitionPolicy
+core/bootstrap/bootstrap.py:1:from .runtime import RuntimeBootstrap
+core/bootstrap/bootstrap.py:2:from .venv import VenvBootstrap
+core/bootstrap/bootstrap.py:3:from .dependencies import DependencyBootstrap
+core/bootstrap/bootstrap.py:4:from .ollama import OllamaBootstrap
+core/bootstrap/bootstrap.py:5:from .models import ModelBootstrap
+core/bootstrap/bootstrap.py:6:from .capabilities import CapabilityBootstrap
+core/bootstrap/bootstrap.py:7:from .api import ApiBootstrap
+core/bootstrap/dependencies.py:1:from pathlib import Path
+core/bootstrap/models.py:1:from __future__ import annotations
+core/bootstrap/models.py:3:from dataclasses import dataclass
+core/bootstrap/preflight/python_check.py:1:from __future__ import annotations
+core/bootstrap/preflight/python_check.py:5:from ..check import BootstrapCheck
+core/bootstrap/preflight/runtime_check.py:1:from __future__ import annotations
+core/bootstrap/preflight/runtime_check.py:4:from pathlib import Path
+core/bootstrap/preflight/runtime_check.py:6:from ..check import BootstrapCheck
+core/bootstrap/runtime_check.py:1:from __future__ import annotations
+core/bootstrap/runtime_check.py:3:from core.bootstrap.main import main
+core/bootstrap/services/venv.py:1:from pathlib import Path
+core/bootstrap/services/capabilities.py:1:from __future__ import annotations
+core/bootstrap/services/capabilities.py:3:from core.src.cognition.capability_registry import detect_capabilities
+core/bootstrap/services/api.py:1:from __future__ import annotations
+core/bootstrap/services/api.py:6:from pathlib import Path
+core/bootstrap/services/ollama.py:1:from __future__ import annotations
+core/bootstrap/services/models.py:1:from __future__ import annotations
+core/bootstrap/services/models.py:6:from core.src.cognition.model_registry import required_models
+core/bootstrap/services/runtime.py:1:from __future__ import annotations
+core/bootstrap/check.py:1:from __future__ import annotations
+core/bootstrap/check.py:4:from abc import ABC, abstractmethod
+core/bootstrap/check.py:6:from .models import CheckResult
+core/bootstrap/main.py:1:from __future__ import annotations
+core/bootstrap/main.py:3:from .runner import BootstrapRunner
+core/bootstrap/lifecycle/preflight.py:1:from core.bootstrap.dependencies import DependencyBootstrap
+core/bootstrap/lifecycle/preflight.py:2:from core.bootstrap.services.runtime import ensure_runtime
+core/bootstrap/lifecycle/preflight.py:3:from core.bootstrap.services.venv import ensure_venv
+core/bootstrap/lifecycle/startup.py:1:from core.bootstrap.services.models import ensure_models
+core/bootstrap/lifecycle/startup.py:2:from core.bootstrap.services.ollama import ensure_ollama
+core/bootstrap/lifecycle/postflight.py:1:from core.bootstrap.services.capabilities import verify_capabilities
+core/bootstrap/lifecycle_runner.py:1:from __future__ import annotations
+core/bootstrap/lifecycle_runner.py:3:from core.bootstrap.lifecycle.preflight import run as preflight
+core/bootstrap/lifecycle_runner.py:5:from core.bootstrap.lifecycle.startup import run as startup
+core/bootstrap/lifecycle_runner.py:7:from core.bootstrap.lifecycle.postflight import run as postflight
+core/bootstrap/discovery/platform.py:1:from __future__ import annotations
+core/bootstrap/discovery/locator.py:1:from __future__ import annotations
+core/bootstrap/discovery/locator.py:5:from pathlib import Path
+core/bootstrap/discovery/paths.py:1:from __future__ import annotations
+core/bootstrap/discovery/paths.py:3:from core.bootstrap.discovery.locator import RuntimeLocator
+core/bootstrap/preflight_runner.py:1:from __future__ import annotations
+core/bootstrap/preflight_runner.py:3:from .preflight.python_check import PythonCheck
+core/bootstrap/preflight_runner.py:4:from .preflight.runtime_check import RuntimeMountCheck
+core/bootstrap/runner.py:1:from __future__ import annotations
+core/bootstrap/runner.py:3:from core.bootstrap.preflight_runner import BootstrapRunner as PreflightRunner
+core/bootstrap/runner.py:4:from core.bootstrap.lifecycle_runner import BootstrapRunner as LifecycleRunner
+core/knowledge_catalog/models.py:1:from __future__ import annotations
+core/knowledge_catalog/models.py:3:from dataclasses import dataclass
+core/knowledge_catalog/models.py:4:from datetime import datetime, timezone
+core/knowledge_catalog/models.py:5:from pathlib import Path
+core/knowledge_catalog/database.py:1:from __future__ import annotations
+core/knowledge_catalog/database.py:4:from pathlib import Path
+core/knowledge_catalog/database.py:6:from core.knowledge_catalog.config import DEFAULT_CATALOG_DB
+core/knowledge_catalog/database.py:7:from core.knowledge_catalog.schema import (
+core/knowledge_catalog/repository.py:1:from __future__ import annotations
+core/knowledge_catalog/repository.py:5:from core.knowledge_catalog.models import Document, FileAsset, Source, Topic, utc_now
+core/knowledge_catalog/seed.py:1:from __future__ import annotations
+core/knowledge_catalog/seed.py:3:from core.knowledge_catalog.models import Source, Topic
+core/knowledge_catalog/seed.py:4:from core.knowledge_catalog.repository import CatalogRepository
+core/knowledge_catalog/service.py:1:from __future__ import annotations
+core/knowledge_catalog/service.py:3:from pathlib import Path
+core/knowledge_catalog/service.py:5:from core.knowledge_catalog.database import connect, migrate
+core/knowledge_catalog/service.py:6:from core.knowledge_catalog.models import Document, FileAsset
+core/knowledge_catalog/service.py:7:from core.knowledge_catalog.repository import CatalogRepository
+core/knowledge_catalog/service.py:8:from core.knowledge_catalog.seed import seed_catalog
+core/knowledge_catalog/cli.py:1:from __future__ import annotations
+core/knowledge_catalog/cli.py:4:from pathlib import Path
+core/knowledge_catalog/cli.py:6:from core.knowledge_catalog.collections import print_collections, upsert_collections
+core/knowledge_catalog/cli.py:7:from core.knowledge_catalog.backfill import main as semantic_backfill
+core/knowledge_catalog/cli.py:8:from core.knowledge_catalog.search import search_catalog
+core/knowledge_catalog/cli.py:9:from core.knowledge_catalog.registrar import register_file, register_tree
+core/knowledge_catalog/cli.py:10:from core.knowledge_catalog.config import DEFAULT_CATALOG_DB
+core/knowledge_catalog/cli.py:11:from core.knowledge_catalog.database import connect, migrate
+core/knowledge_catalog/cli.py:12:from core.knowledge_catalog.repository import CatalogRepository
+core/knowledge_catalog/cli.py:13:from core.knowledge_catalog.service import initialize_catalog
+core/knowledge_catalog/config.py:5:from pathlib import Path
+core/knowledge_catalog/collections.py:1:from __future__ import annotations
+core/knowledge_catalog/collections.py:4:from collections import Counter
+core/knowledge_catalog/collections.py:5:from dataclasses import dataclass
+core/knowledge_catalog/collections.py:6:from datetime import datetime, timezone
+core/knowledge_catalog/collections.py:7:from pathlib import Path
+core/knowledge_catalog/collections.py:9:from core.knowledge_catalog.config import DEFAULT_CATALOG_DB, DEFAULT_KNOWLEDGE_ROOT
+core/knowledge_catalog/collections.py:10:from core.knowledge_catalog.database import connect, migrate
+core/knowledge_catalog/classifiers/keyword_classifier.py:1:from __future__ import annotations
+core/knowledge_catalog/classifiers/keyword_classifier.py:3:from pathlib import Path
+core/knowledge_catalog/classifiers/subject_assignment.py:1:from __future__ import annotations
+core/knowledge_catalog/classifiers/subject_assignment.py:3:from pathlib import Path
+core/knowledge_catalog/classifiers/subject_assignment.py:5:from core.knowledge_mapper.mapper import map_path
+core/knowledge_catalog/classifiers/subject_assignment.py:6:from core.knowledge_catalog.classifiers.keyword_classifier import classify_text
+core/knowledge_catalog/backfill.py:1:from __future__ import annotations
+core/knowledge_catalog/backfill.py:3:from datetime import datetime
+core/knowledge_catalog/backfill.py:4:from pathlib import Path
+core/knowledge_catalog/backfill.py:6:from core.knowledge_catalog.classifiers.subject_assignment import assign_subject
+core/knowledge_catalog/backfill.py:7:from core.knowledge_catalog.config import DEFAULT_CATALOG_DB, DEFAULT_KNOWLEDGE_ROOT
+core/knowledge_catalog/backfill.py:8:from core.knowledge_catalog.database import connect, migrate
+core/knowledge_catalog/search.py:1:from __future__ import annotations
+core/knowledge_catalog/search.py:4:from pathlib import Path
+core/knowledge_catalog/search.py:6:from core.knowledge_catalog.config import DEFAULT_CATALOG_DB
+core/knowledge_catalog/search.py:7:from core.knowledge_catalog.database import migrate
+core/knowledge_catalog/digest.py:1:from __future__ import annotations
+core/knowledge_catalog/digest.py:4:from pathlib import Path
+core/knowledge_catalog/digest.py:8:from core.knowledge_catalog.classifiers.subject_assignment import assign_subject
+core/knowledge_catalog/registrar.py:1:from __future__ import annotations
+core/knowledge_catalog/registrar.py:3:from datetime import datetime, timezone
+core/knowledge_catalog/registrar.py:4:from pathlib import Path
+core/knowledge_catalog/registrar.py:6:from core.knowledge_catalog.config import DEFAULT_CATALOG_DB
+core/knowledge_catalog/registrar.py:7:from core.knowledge_catalog.database import connect, migrate
+core/knowledge_catalog/registrar.py:8:from core.semantic_digest.pipeline import process_document
+core/knowledge_catalog/paths.py:1:from pathlib import Path
+core/knowledge_catalog/assimilation/engine.py:1:from __future__ import annotations
+core/knowledge_catalog/assimilation/engine.py:7:from dataclasses import dataclass
+core/knowledge_catalog/assimilation/engine.py:8:from datetime import datetime, timezone
+core/knowledge_catalog/assimilation/engine.py:9:from pathlib import Path
+core/knowledge_catalog/assimilation/cli.py:1:from __future__ import annotations
+core/knowledge_catalog/assimilation/cli.py:4:from pathlib import Path
+core/knowledge_catalog/assimilation/cli.py:6:from core.knowledge_catalog.assimilation.engine import (
+core/knowledge_graph/ontology.py:1:from pathlib import Path
+core/knowledge_graph/ontology.py:2:from dataclasses import dataclass
+core/knowledge_graph/cli.py:1:from __future__ import annotations
+core/knowledge_graph/cli.py:5:from core.knowledge_graph.gap_analysis import analyze_gaps, write_reports
+core/knowledge_graph/cli.py:6:from core.knowledge_graph.ontology import load_ontology
+core/knowledge_graph/gap_analysis.py:1:from __future__ import annotations
+core/knowledge_graph/gap_analysis.py:5:from dataclasses import asdict, dataclass
+core/knowledge_graph/gap_analysis.py:6:from pathlib import Path
+core/knowledge_graph/gap_analysis.py:8:from core.knowledge_catalog.paths import CATALOG_DB
+core/knowledge_graph/gap_analysis.py:9:from core.knowledge_graph.ontology import load_ontology
+core/knowledge_mapper/rules.py:1:from pathlib import Path
+core/knowledge_mapper/mapper.py:1:from pathlib import Path
+core/knowledge_mapper/mapper.py:3:from core.knowledge_mapper.rules import load_rules
+core/knowledge_mapper/cli.py:2:from pathlib import Path
+core/knowledge_mapper/cli.py:4:from core.knowledge_mapper.report import print_summary
+core/knowledge_mapper/cli.py:5:from core.knowledge_mapper.mapper import map_path
+core/knowledge_mapper/indexer.py:1:from pathlib import Path
+core/knowledge_mapper/indexer.py:2:from collections import defaultdict
+core/knowledge_mapper/indexer.py:4:from core.knowledge_mapper.mapper import map_path
+core/knowledge_mapper/report.py:1:from pathlib import Path
+core/knowledge_mapper/report.py:3:from core.knowledge_mapper.indexer import build_subject_index
+core/semantic_digest/readers.py:1:from __future__ import annotations
+core/semantic_digest/readers.py:5:from pathlib import Path
+core/semantic_digest/readers.py:7:from core.semantic_digest.inspector import inspect_document
+core/semantic_digest/analyzer.py:1:from __future__ import annotations
+core/semantic_digest/analyzer.py:3:from pathlib import Path
+core/semantic_digest/analyzer.py:7:from core.semantic_digest.structural import extract_structure
+core/semantic_digest/pipeline.py:1:from __future__ import annotations
+core/semantic_digest/pipeline.py:3:from pathlib import Path
+core/semantic_digest/pipeline.py:5:from core.knowledge_catalog.digest import sha256_file
+core/semantic_digest/pipeline.py:6:from core.semantic_digest.analyzer import analyze_semantics
+core/semantic_digest/pipeline.py:7:from core.semantic_digest.inspector import inspect_document
+core/semantic_digest/pipeline.py:8:from core.semantic_digest.readers import read_document
+core/semantic_digest/inspector.py:1:from __future__ import annotations
+core/semantic_digest/inspector.py:3:from dataclasses import dataclass
+core/semantic_digest/inspector.py:4:from pathlib import Path
+core/semantic_digest/cli.py:1:from __future__ import annotations
+core/semantic_digest/cli.py:4:from pathlib import Path
+core/semantic_digest/cli.py:6:from core.semantic_digest.inspector import inspect_document
+core/semantic_digest/cli.py:7:from core.semantic_digest.pipeline import process_document
+core/semantic_digest/structural.py:1:from __future__ import annotations
+core/semantic_digest/structural.py:3:from collections import Counter
+core/semantic_digest/structural.py:4:from pathlib import Path
+core/capabilities/__init__.py:3:from core.capabilities.base import Capability
+core/capabilities/__init__.py:4:from core.capabilities.discovery import (
+core/capabilities/__init__.py:8:from core.capabilities.loader import CapabilityLoader
+core/capabilities/__init__.py:9:from core.capabilities.metadata import (
+core/capabilities/__init__.py:15:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/__init__.py:16:from core.capabilities.operations import (
+core/capabilities/__init__.py:20:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/__init__.py:21:from core.capabilities.runner import CapabilityRunner
+core/capabilities/models.py:1:from __future__ import annotations
+core/capabilities/models.py:3:from dataclasses import dataclass, field
+core/capabilities/models.py:4:from pathlib import Path
+core/capabilities/models.py:5:from typing import Any
+core/capabilities/base.py:1:from __future__ import annotations
+core/capabilities/base.py:3:from abc import ABC, abstractmethod
+core/capabilities/base.py:5:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/registry.py:1:from __future__ import annotations
+core/capabilities/registry.py:3:from core.capabilities.base import Capability
+core/capabilities/runner.py:1:from __future__ import annotations
+core/capabilities/runner.py:5:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/runner.py:6:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/report.py:1:from __future__ import annotations
+core/capabilities/report.py:3:from core.capabilities.models import CapabilityResult
+core/capabilities/adapters/__init__.py:1:from core.capabilities.adapters.builder import BuilderCapability
+core/capabilities/adapters/builder.py:1:from __future__ import annotations
+core/capabilities/adapters/builder.py:3:from typing import Any
+core/capabilities/adapters/builder.py:5:from core.capabilities.base import Capability
+core/capabilities/adapters/builder.py:6:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/loader.py:1:from __future__ import annotations
+core/capabilities/loader.py:5:from dataclasses import dataclass
+core/capabilities/loader.py:6:from types import ModuleType
+core/capabilities/loader.py:8:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/discovery.py:3:from __future__ import annotations
+core/capabilities/discovery.py:7:from dataclasses import dataclass
+core/capabilities/discovery.py:8:from types import ModuleType
+core/capabilities/discovery.py:9:from typing import Iterable
+core/capabilities/discovery.py:11:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/metadata.py:3:from __future__ import annotations
+core/capabilities/metadata.py:5:from dataclasses import dataclass, field
+core/capabilities/metadata.py:6:from enum import Enum
+core/capabilities/metadata.py:7:from typing import Any
+core/capabilities/operations.py:3:from __future__ import annotations
+core/capabilities/operations.py:5:from collections.abc import Callable
+core/capabilities/operations.py:6:from typing import Any
+core/capabilities/operations.py:8:from core.capabilities.base import Capability
+core/capabilities/operations.py:9:from core.capabilities.metadata import (
+core/capabilities/operations.py:13:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/operations.py:14:from core.capabilities.registry import CapabilityRegistry
+core/src/agents/recon_agent.py:1:from ..services.recon.subfinder_service import run_subfinder
+core/src/agents/recon_agent.py:2:from ..services.recon.network_scan_service import scan_local_network
+core/src/brain.py:1:from .cognition.intent_classifier import classify_intent
+core/src/brain.py:2:from .cognition.response_planner import build_response_plan
+core/src/brain.py:4:from .services.model_router import choose_model
+core/src/brain.py:6:from .cognition.context_builder import build_context
+core/src/brain.py:7:from .cognition.prompt_builder import build_prompt
+core/src/brain.py:9:from .services.llm_service import query_llm
+core/src/brain.py:11:from .agents.recon_agent import handle_recon
+core/src/brain.py:13:from .planner.tool_planner import planner
+core/src/brain.py:14:from .runtime.executor import executor
+core/src/cognition/context_builder.py:1:from ..utils.environment import detect_environment
+core/src/cognition/context_builder.py:2:from ..utils.capabilities import detect_capabilities
+core/src/cognition/context_builder.py:3:from ..identity.loader import load_mode
+core/src/cognition/context_builder.py:4:from ..utils.network import is_online
+core/src/cognition/context_builder.py:5:from ..utils.system_info import get_system_info
+core/src/cognition/intent_classifier.py:3:from dataclasses import dataclass, asdict
+core/src/cognition/intent_classifier.py:4:from typing import Dict, List
+core/src/cognition/model_registry.py:1:from .model_map import MODEL_MAP
+core/src/cognition/model_selector.py:1:from ..services.model_router import choose_model
+core/src/cognition/prompt_builder.py:3:from .personas import PERSONAS
+core/src/cognition/response_planner.py:1:from .response_profiles import RESPONSE_PROFILES
+core/src/discovery/runtime_context.py:1:from dataclasses import dataclass
+core/src/discovery/runtime_context.py:2:from pathlib import Path
+core/src/discovery/runtime_context.py:5:from core.src.discovery.runtime_locator import RuntimeLocator
+core/src/discovery/runtime_locator.py:10:from pathlib import Path
+core/src/identity/loader.py:2:from pathlib import Path
+core/src/managers/storage_manager.py:1:from pathlib import Path
+core/src/routes/operations.py:3:from __future__ import annotations
+core/src/routes/operations.py:5:from fastapi import APIRouter, Query
+core/src/routes/operations.py:7:from core.operations import OperationsService
+core/src/routes/operations.py:8:from core.integration.bus import get_default_projection_bus
+core/src/routes/api.py:1:from fastapi import APIRouter
+core/src/routes/api.py:2:from pydantic import BaseModel
+core/src/routes/api.py:3:from ..brain import route_question
+core/src/routes/mission_control.py:3:from pathlib import Path
+core/src/routes/mission_control.py:5:from fastapi import APIRouter, HTTPException
+core/src/routes/mission_control.py:6:from fastapi.responses import FileResponse
+core/src/services/gmail/auth.py:1:from google.oauth2.credentials import Credentials
+core/src/services/gmail/auth.py:2:from google_auth_oauthlib.flow import InstalledAppFlow
+core/src/services/gmail/auth.py:3:from google.auth.transport.requests import Request
+core/src/services/gmail/reader.py:1:from googleapiclient.discovery import build
+core/src/services/gmail/reader.py:2:from .auth import gmail_authenticate
+core/src/services/model_router.py:1:from ..cognition.model_map import MODEL_MAP
+core/src/services/recon/subfinder_service.py:2:from pathlib import Path
+core/src/services/llm_service.py:3:from openai import OpenAI
+core/src/services/macos/system.py:5:from pathlib import Path
+core/src/tools/macos_tools.py:2:from core.src.services.macos.system import (
+core/src/planner/execution_plan.py:1:from __future__ import annotations
+core/src/planner/execution_plan.py:3:from dataclasses import dataclass, field
+core/src/planner/execution_plan.py:4:from typing import Any
+core/src/planner/tool_planner.py:1:from __future__ import annotations
+core/src/planner/tool_planner.py:3:from ..runtime.execution_plan import ExecutionPlan
+core/src/runtime/execution_plan.py:1:from __future__ import annotations
+core/src/runtime/execution_plan.py:3:from dataclasses import dataclass, field
+core/src/runtime/execution_plan.py:4:from typing import Any
+core/src/runtime/executor.py:1:from __future__ import annotations
+core/src/runtime/executor.py:3:from typing import Any
+core/src/runtime/executor.py:5:from tools.dispatcher import dispatch
+core/src/runtime/executor.py:7:from .execution_plan import ExecutionPlan
+core/src/runtime/runtime_context.py:13:from pathlib import Path
+core/src/runtime/runtime_context.py:17:from core.src.discovery.runtime_locator import RuntimeLocator
+core/src/runtime/runtime_context.py:18:from core.src.runtime.runtime_models import (
+core/src/runtime/runtime_models.py:1:from dataclasses import dataclass
+core/src/runtime/runtime_models.py:2:from pathlib import Path
+core/src/runtime/tool_registry.py:1:from __future__ import annotations
+core/src/runtime/tool_registry.py:4:from pathlib import Path
+core/src/main.py.backup.20260723T163929Z:1:from pathlib import Path
+core/src/main.py.backup.20260723T163929Z:2:from core.src.routes.mission_control import router as mission_control_router
+core/src/main.py.backup.20260723T163929Z:3:from fastapi import FastAPI
+core/src/main.py.backup.20260723T163929Z:4:from fastapi.responses import RedirectResponse, HTMLResponse
+core/src/main.py.backup.20260723T163929Z:5:from fastapi.staticfiles import StaticFiles
+core/src/main.py.backup.20260723T163929Z:7:from .routes.api import router
+core/src/llm_client.py:3:from openai import OpenAI
+core/src/main.py:3:from __future__ import annotations
+core/src/main.py:5:from pathlib import Path
+core/src/main.py:7:from fastapi import FastAPI
+core/src/main.py:8:from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
+core/src/main.py:9:from fastapi.staticfiles import StaticFiles
+core/src/main.py:11:from core.src.routes.api import router as api_router
+core/src/main.py:12:from core.src.routes.mission_control import router as mission_control_router
+core/src/main.py:13:from core.src.routes.operations import router as operations_router
+core/capability_runtime_cli.py:1:from __future__ import annotations
+core/capability_runtime_cli.py:4:from pathlib import Path
+core/capability_runtime_cli.py:6:from core.capabilities import (
+core/capability_runtime_cli.py:12:from core.capabilities.report import print_capability_report
+core/capability_runtime_cli.py:13:from knowledge_engine.storage.database import KnowledgeDatabase
+core/executive/models.py:3:from __future__ import annotations
+core/executive/models.py:5:from dataclasses import asdict, dataclass, field
+core/executive/models.py:6:from datetime import datetime, timezone
+core/executive/models.py:7:from enum import Enum
+core/executive/models.py:8:from typing import Any
+core/executive/models.py:9:from uuid import uuid4
+core/executive/contracts.py:3:from __future__ import annotations
+core/executive/contracts.py:5:from typing import Protocol
+core/executive/contracts.py:7:from core.executive.models import Mission, MissionTask, TaskExecutionResult
+core/executive/registry.py:3:from __future__ import annotations
+core/executive/registry.py:5:from collections.abc import Iterable
+core/executive/registry.py:6:from dataclasses import replace
+core/executive/registry.py:8:from core.executive.capabilities import (
+core/executive/registry.py:16:from core.executive.contracts import DirectorHandler, DirectorNotRegisteredError
+core/executive/planner.py:3:from __future__ import annotations
+core/executive/planner.py:5:from dataclasses import dataclass
+core/executive/planner.py:7:from core.executive.models import Mission, MissionStatus, MissionTask, utc_now
+core/executive/planner.py:8:from core.executive.registry import DirectorRegistry
+core/executive/store.py:3:from __future__ import annotations
+core/executive/store.py:7:from pathlib import Path
+core/executive/store.py:8:from threading import RLock
+core/executive/store.py:9:from typing import Any
+core/executive/store.py:11:from core.executive.contracts import MissionNotFoundError
+core/executive/store.py:12:from core.executive.models import Mission
+core/executive/handlers.py:3:from __future__ import annotations
+core/executive/handlers.py:5:from collections.abc import Callable
+core/executive/handlers.py:6:from typing import Any
+core/executive/handlers.py:8:from core.executive.models import Mission, MissionTask, TaskExecutionResult
+core/executive/engine.py:3:from __future__ import annotations
+core/executive/engine.py:5:from core.executive.contracts import InvalidMissionPlanError
+core/executive/engine.py:6:from core.executive.models import (
+core/executive/engine.py:13:from core.executive.registry import DirectorRegistry
+core/executive/engine.py:14:from core.executive.store import MissionStore
+core/executive/director.py:3:from __future__ import annotations
+core/executive/director.py:5:from pathlib import Path
+core/executive/director.py:6:from typing import Any
+core/executive/director.py:8:from core.executive.capabilities import DirectorReadiness
+core/executive/director.py:9:from core.executive.engine import MissionEngine
+core/executive/director.py:10:from core.executive.handlers import (
+core/executive/director.py:16:from core.executive.models import Mission, MissionStatus, utc_now
+core/executive/director.py:17:from core.executive.planner import MissionPlanner
+core/executive/director.py:18:from core.executive.registry import DirectorRegistry
+core/executive/director.py:19:from core.executive.store import MissionStore
+core/executive/cli.py:3:from __future__ import annotations
+core/executive/cli.py:8:from pathlib import Path
+core/executive/cli.py:9:from typing import Any
+core/executive/cli.py:11:from core.executive.director import ExecutiveDirector
+core/executive/persistence/__init__.py:7:from __future__ import annotations
+core/executive/persistence/__init__.py:9:from importlib import import_module
+core/executive/persistence/__init__.py:10:from types import ModuleType
+core/executive/persistence/__init__.py:11:from typing import Iterable
+core/executive/persistence/__init__.py:47:from .checkpoint import (
+core/executive/persistence/__init__.py:63:from .repository import (
+core/executive/persistence/__init__.py:72:from .storage import (
+core/executive/persistence/__init__.py:120:from .evaluator import IntegrityEvaluator
+core/executive/persistence/__init__.py:121:from .integrity import ExecutiveIntegrityEngine, IntegrityEngine, verify_session
+core/executive/persistence/__init__.py:122:from .policies import IntegrityPolicy
+core/executive/persistence/__init__.py:123:from .reports import IntegrityCode, IntegrityDisposition, IntegrityFinding, IntegrityObservation, IntegrityReport, IntegritySeverity
+core/executive/persistence/__init__.py:124:from .scanner import CheckpointRepositoryProtocol, IntegrityScanner
+core/executive/persistence/__init__.py:127:from .recovery import (
+core/executive/persistence/contracts.py:7:from __future__ import annotations
+core/executive/persistence/contracts.py:9:from dataclasses import dataclass, field
+core/executive/persistence/contracts.py:10:from datetime import datetime, timezone
+core/executive/persistence/contracts.py:11:from enum import Enum
+core/executive/persistence/contracts.py:12:from types import MappingProxyType
+core/executive/persistence/contracts.py:13:from typing import Any, Mapping, Tuple
+core/executive/persistence/canonical.py:3:from __future__ import annotations
+core/executive/persistence/canonical.py:5:from dataclasses import fields, is_dataclass
+core/executive/persistence/canonical.py:6:from datetime import date, datetime, timezone
+core/executive/persistence/canonical.py:7:from enum import Enum
+core/executive/persistence/canonical.py:8:from pathlib import Path
+core/executive/persistence/canonical.py:9:from typing import Any, Mapping
+core/executive/persistence/canonical.py:10:from uuid import UUID
+core/executive/persistence/serializer.py:3:from __future__ import annotations
+core/executive/persistence/serializer.py:5:from dataclasses import dataclass
+core/executive/persistence/serializer.py:8:from typing import Any
+core/executive/persistence/serializer.py:10:from .canonical import to_canonical_value
+core/executive/persistence/serializer.py:11:from .contracts import (
+core/executive/persistence/storage.py:8:from __future__ import annotations
+core/executive/persistence/storage.py:10:from contextlib import contextmanager
+core/executive/persistence/storage.py:11:from dataclasses import dataclass
+core/executive/persistence/storage.py:12:from pathlib import Path
+core/executive/persistence/storage.py:16:from typing import Iterator
+core/executive/persistence/checkpoint.py:3:from __future__ import annotations
+core/executive/persistence/checkpoint.py:5:from dataclasses import dataclass, field
+core/executive/persistence/checkpoint.py:6:from datetime import datetime, timezone
+core/executive/persistence/checkpoint.py:7:from enum import Enum
+core/executive/persistence/checkpoint.py:11:from types import MappingProxyType
+core/executive/persistence/checkpoint.py:12:from typing import Any, Mapping
+core/executive/persistence/checkpoint.py:13:from uuid import UUID
+core/executive/persistence/repository.py:3:from __future__ import annotations
+core/executive/persistence/repository.py:5:from dataclasses import dataclass
+core/executive/persistence/repository.py:6:from datetime import datetime, timezone
+core/executive/persistence/repository.py:8:from pathlib import Path
+core/executive/persistence/repository.py:11:from typing import Any, Mapping, Protocol, runtime_checkable
+core/executive/persistence/repository.py:13:from .checkpoint import (
+core/executive/persistence/repository.py:24:from .storage import AtomicFileStorage, StorageError, StoragePolicy
+core/executive/persistence/reports.py:1:from __future__ import annotations
+core/executive/persistence/reports.py:2:from dataclasses import dataclass
+core/executive/persistence/reports.py:3:from enum import Enum
+core/executive/persistence/reports.py:4:from hashlib import sha256
+core/executive/persistence/reports.py:6:from typing import Any, Mapping, Sequence
+core/executive/persistence/policies.py:1:from __future__ import annotations
+core/executive/persistence/policies.py:2:from dataclasses import dataclass
+core/executive/persistence/policies.py:3:from .reports import IntegrityCode, IntegrityDisposition, IntegritySeverity
+core/executive/persistence/scanner.py:1:from __future__ import annotations
+core/executive/persistence/scanner.py:2:from dataclasses import asdict, is_dataclass
+core/executive/persistence/scanner.py:3:from hashlib import sha256
+core/executive/persistence/scanner.py:4:from typing import Any, Mapping, Protocol, Sequence
+core/executive/persistence/scanner.py:5:from .policies import IntegrityPolicy
+core/executive/persistence/scanner.py:6:from .reports import IntegrityCode, IntegrityObservation, canonical_json, fingerprint
+core/executive/persistence/evaluator.py:1:from __future__ import annotations
+core/executive/persistence/evaluator.py:2:from .policies import IntegrityPolicy
+core/executive/persistence/evaluator.py:3:from .reports import IntegrityDisposition, IntegrityFinding, IntegritySeverity
+core/executive/persistence/integrity.py:1:from __future__ import annotations
+core/executive/persistence/integrity.py:2:from .evaluator import IntegrityEvaluator
+core/executive/persistence/integrity.py:3:from .policies import IntegrityPolicy
+core/executive/persistence/integrity.py:4:from .reports import build_report
+core/executive/persistence/integrity.py:5:from .scanner import IntegrityScanner
+core/executive/persistence/recovery.py:2:from __future__ import annotations
+core/executive/persistence/recovery.py:4:from dataclasses import dataclass, field
+core/executive/persistence/recovery.py:5:from datetime import datetime, timezone
+core/executive/persistence/recovery.py:6:from enum import Enum
+core/executive/persistence/recovery.py:7:from hashlib import sha256
+core/executive/persistence/recovery.py:9:from typing import Callable, Iterable, Protocol, Sequence
+core/executive/persistence/recovery.py:11:from .integrity import ExecutiveIntegrityEngine
+core/executive/capabilities.py:3:from __future__ import annotations
+core/executive/capabilities.py:5:from dataclasses import asdict, dataclass, field
+core/executive/capabilities.py:6:from enum import Enum
+core/executive/capabilities.py:7:from typing import Any
+core/executive/planning/errors.py:3:from __future__ import annotations
+core/executive/planning/enums.py:3:from __future__ import annotations
+core/executive/planning/enums.py:5:from enum import StrEnum
+core/executive/planning/models.py:7:from __future__ import annotations
+core/executive/planning/models.py:11:from dataclasses import asdict, dataclass, field
+core/executive/planning/models.py:12:from datetime import UTC, datetime
+core/executive/planning/models.py:13:from typing import Any, Mapping
+core/executive/planning/models.py:14:from uuid import uuid4
+core/executive/planning/models.py:16:from core.executive.planning.enums import (
+core/executive/planning/dependencies.py:3:from __future__ import annotations
+core/executive/planning/dependencies.py:5:from collections import defaultdict, deque
+core/executive/planning/dependencies.py:6:from dataclasses import dataclass
+core/executive/planning/dependencies.py:8:from core.executive.planning.errors import (
+core/executive/planning/dependencies.py:13:from core.executive.planning.models import Dependency, Mission
+core/executive/planning/validation.py:3:from __future__ import annotations
+core/executive/planning/validation.py:5:from dataclasses import dataclass
+core/executive/planning/validation.py:7:from core.executive.planning.dependencies import build_dependency_graph
+core/executive/planning/validation.py:8:from core.executive.planning.enums import AuthorizationMode
+core/executive/planning/validation.py:9:from core.executive.planning.errors import (
+core/executive/planning/validation.py:13:from core.executive.planning.models import Mission, PlanVersion
+core/executive/planning/repository.py:3:from __future__ import annotations
+core/executive/planning/repository.py:5:from abc import ABC, abstractmethod
+core/executive/planning/repository.py:6:from threading import RLock
+core/executive/planning/repository.py:8:from core.executive.planning.errors import (
+core/executive/planning/repository.py:13:from core.executive.planning.models import MissionPlan, PlanVersion
+core/executive/planning/service.py:3:from __future__ import annotations
+core/executive/planning/service.py:5:from dataclasses import replace
+core/executive/planning/service.py:7:from core.executive.planning.enums import PlanState
+core/executive/planning/service.py:8:from core.executive.planning.errors import InvalidPlanTransitionError
+core/executive/planning/service.py:9:from core.executive.planning.models import (
+core/executive/planning/service.py:16:from core.executive.planning.repository import PlanRepository
+core/executive/planning/service.py:17:from core.executive.planning.validation import PlanValidator, ValidationReport
+core/executive/planning/__init__.py:3:from core.executive.planning.dependencies import (
+core/executive/planning/__init__.py:8:from core.executive.planning.enums import (
+core/executive/planning/__init__.py:19:from core.executive.planning.errors import (
+core/executive/planning/__init__.py:31:from core.executive.planning.models import (
+core/executive/planning/__init__.py:50:from core.executive.planning.repository import (
+core/executive/planning/__init__.py:54:from core.executive.planning.service import PlanningService
+core/executive/planning/__init__.py:55:from core.executive.planning.validation import PlanValidator, ValidationReport
+core/executive/lifecycle/contracts.py:3:from __future__ import annotations
+core/executive/lifecycle/contracts.py:5:from dataclasses import dataclass, field
+core/executive/lifecycle/contracts.py:6:from datetime import datetime, timezone
+core/executive/lifecycle/contracts.py:7:from enum import Enum
+core/executive/lifecycle/contracts.py:8:from hashlib import sha256
+core/executive/lifecycle/contracts.py:10:from typing import Mapping
+core/executive/lifecycle/manager.py:3:from __future__ import annotations
+core/executive/lifecycle/manager.py:5:from dataclasses import replace
+core/executive/lifecycle/manager.py:6:from typing import Callable, Mapping, Protocol
+core/executive/lifecycle/manager.py:7:from uuid import uuid4
+core/executive/lifecycle/manager.py:9:from .contracts import (
+core/executive/lifecycle/__init__.py:3:from .contracts import (
+core/executive/lifecycle/__init__.py:15:from .manager import (
+core/executive/timeline/contracts.py:2:from __future__ import annotations
+core/executive/timeline/contracts.py:4:from dataclasses import dataclass, field
+core/executive/timeline/contracts.py:5:from datetime import datetime, timezone
+core/executive/timeline/contracts.py:6:from enum import Enum
+core/executive/timeline/contracts.py:7:from hashlib import sha256
+core/executive/timeline/contracts.py:9:from typing import Iterable, Mapping, Sequence
+core/executive/timeline/queries.py:2:from __future__ import annotations
+core/executive/timeline/queries.py:3:from dataclasses import dataclass
+core/executive/timeline/queries.py:4:from datetime import datetime
+core/executive/timeline/queries.py:5:from typing import Iterable
+core/executive/timeline/queries.py:6:from .contracts import TimelineEvent, TimelineEventKind, TimelineSubsystem
+core/executive/timeline/engine.py:2:from __future__ import annotations
+core/executive/timeline/engine.py:3:from collections.abc import Iterable
+core/executive/timeline/engine.py:4:from typing import Callable
+core/executive/timeline/engine.py:5:from uuid import uuid4
+core/executive/timeline/engine.py:6:from .contracts import (
+core/executive/timeline/engine.py:10:from .queries import TimelineQuery, execute_query
+core/executive/timeline/adapters.py:2:from __future__ import annotations
+core/executive/timeline/adapters.py:3:from .contracts import TimelineContext, TimelineEventDraft, TimelineEventKind, TimelineSubsystem
+core/executive/timeline/__init__.py:2:from .adapters import lifecycle_event_to_draft
+core/executive/timeline/__init__.py:3:from .contracts import (
+core/executive/timeline/__init__.py:8:from .engine import ExecutiveTimelineEngine
+core/executive/timeline/__init__.py:9:from .queries import TimelineQuery, execute_query
+core/executive/timeline/__init__.py:33:from .indexes import TimelineRepositoryIndexes
+core/executive/timeline/__init__.py:34:from .repository import ExecutiveTimelineRepository
+core/executive/timeline/__init__.py:35:from .repository_contracts import (
+core/executive/timeline/__init__.py:46:from .serializers import TimelineEventSerializer
+core/executive/timeline/__init__.py:47:from .storage import AppendOnlyTimelineStorage
+core/executive/timeline/__init__.py:51:from .query_engine import (
+core/executive/timeline/__init__.py:60:from .replay_readiness import (
+core/executive/timeline/repository_contracts.py:2:from __future__ import annotations
+core/executive/timeline/repository_contracts.py:4:from dataclasses import dataclass
+core/executive/timeline/repository_contracts.py:5:from enum import Enum
+core/executive/timeline/repository_contracts.py:6:from hashlib import sha256
+core/executive/timeline/repository_contracts.py:8:from typing import Iterable
+core/executive/timeline/serializers.py:2:from __future__ import annotations
+core/executive/timeline/serializers.py:4:from datetime import datetime
+core/executive/timeline/serializers.py:6:from typing import Mapping
+core/executive/timeline/serializers.py:8:from .contracts import (
+core/executive/timeline/serializers.py:14:from .repository_contracts import (
+core/executive/timeline/storage.py:2:from __future__ import annotations
+core/executive/timeline/storage.py:5:from pathlib import Path
+core/executive/timeline/storage.py:6:from typing import Iterable, Iterator
+core/executive/timeline/storage.py:8:from .repository_contracts import TimelineRepositoryStorageError
+core/executive/timeline/indexes.py:2:from __future__ import annotations
+core/executive/timeline/indexes.py:4:from collections import defaultdict
+core/executive/timeline/indexes.py:5:from dataclasses import dataclass
+core/executive/timeline/indexes.py:6:from types import MappingProxyType
+core/executive/timeline/indexes.py:7:from typing import Iterable, Mapping
+core/executive/timeline/indexes.py:9:from .contracts import TimelineEvent, TimelineEventKind, TimelineSubsystem
+core/executive/timeline/indexes.py:10:from .repository_contracts import TimelineRepositoryIntegrityError
+core/executive/timeline/repository.py:2:from __future__ import annotations
+core/executive/timeline/repository.py:4:from collections.abc import Iterable
+core/executive/timeline/repository.py:5:from pathlib import Path
+core/executive/timeline/repository.py:6:from threading import RLock
+core/executive/timeline/repository.py:8:from .contracts import GENESIS_FINGERPRINT, TimelineEvent
+core/executive/timeline/repository.py:9:from .indexes import TimelineRepositoryIndexes
+core/executive/timeline/repository.py:10:from .repository_contracts import (
+core/executive/timeline/repository.py:16:from .serializers import TimelineEventSerializer
+core/executive/timeline/repository.py:17:from .storage import AppendOnlyTimelineStorage
+core/executive/timeline/query_engine.py:2:from __future__ import annotations
+core/executive/timeline/query_engine.py:4:from dataclasses import dataclass, fields, is_dataclass
+core/executive/timeline/query_engine.py:5:from datetime import datetime, timezone
+core/executive/timeline/query_engine.py:6:from enum import Enum
+core/executive/timeline/query_engine.py:7:from hashlib import sha256
+core/executive/timeline/query_engine.py:8:from json import dumps
+core/executive/timeline/query_engine.py:9:from typing import Any, Callable, Iterable, Mapping, Sequence
+core/executive/timeline/replay_readiness.py:2:from __future__ import annotations
+core/executive/timeline/replay_readiness.py:3:from dataclasses import dataclass
+core/executive/timeline/replay_readiness.py:4:from typing import Any
+core/executive/timeline/replay_readiness.py:5:from .query_engine import TimelineQueryEngine, event_sequence, event_timestamp, read_event_value
+core/reasoning/enums.py:3:from __future__ import annotations
+core/reasoning/enums.py:5:from enum import StrEnum
+core/reasoning/errors.py:3:from __future__ import annotations
+core/reasoning/models.py:3:from __future__ import annotations
+core/reasoning/models.py:7:from dataclasses import dataclass, field
+core/reasoning/models.py:8:from enum import Enum
+core/reasoning/models.py:9:from typing import Any, Mapping
+core/reasoning/models.py:11:from core.reasoning.enums import (
+core/reasoning/confidence.py:3:from __future__ import annotations
+core/reasoning/confidence.py:5:from collections.abc import Iterable
+core/reasoning/confidence.py:7:from core.reasoning.enums import HypothesisDisposition
+core/reasoning/confidence.py:8:from core.reasoning.models import EvidenceItem
+core/reasoning/inference.py:3:from __future__ import annotations
+core/reasoning/inference.py:5:from collections.abc import Mapping
+core/reasoning/inference.py:7:from core.reasoning.confidence import (
+core/reasoning/inference.py:12:from core.reasoning.models import (
+core/reasoning/service.py:3:from __future__ import annotations
+core/reasoning/service.py:5:from collections import Counter
+core/reasoning/service.py:7:from core.reasoning.enums import (
+core/reasoning/service.py:12:from core.reasoning.errors import (
+core/reasoning/service.py:17:from core.reasoning.inference import assess_hypothesis
+core/reasoning/service.py:18:from core.reasoning.models import (
+core/reasoning/__init__.py:3:from core.reasoning.enums import (
+core/reasoning/__init__.py:9:from core.reasoning.errors import (
+core/reasoning/__init__.py:15:from core.reasoning.generation import (
+core/reasoning/__init__.py:19:from core.reasoning.knowledge import (
+core/reasoning/__init__.py:24:from core.reasoning.models import (
+core/reasoning/__init__.py:34:from core.reasoning.pipeline import (
+core/reasoning/__init__.py:39:from core.reasoning.service import ENGINE_VERSION, ReasoningEngine
+core/reasoning/context/__init__.py:3:from core.reasoning.context.context import (
+core/reasoning/context/__init__.py:7:from core.reasoning.context.contracts import (
+core/reasoning/context/__init__.py:16:from core.reasoning.context.errors import (
+core/reasoning/context/context.py:3:from __future__ import annotations
+core/reasoning/context/context.py:5:from dataclasses import replace
+core/reasoning/context/context.py:6:from typing import TypeVar
+core/reasoning/context/context.py:8:from core.reasoning.context.contracts import (
+core/reasoning/context/context.py:16:from core.reasoning.context.errors import ReasoningContextContractError
+core/reasoning/context/context.py:17:from core.reasoning.context.validators import normalize_keyed_items
+core/reasoning/context/contracts.py:3:from __future__ import annotations
+core/reasoning/context/contracts.py:5:from dataclasses import dataclass, field
+core/reasoning/context/contracts.py:6:from uuid import NAMESPACE_URL, UUID, uuid5
+core/reasoning/context/contracts.py:8:from core.reasoning.context.validators import (
+core/reasoning/context/contracts.py:15:from core.reasoning.session import ReasoningSessionId
+core/reasoning/context/errors.py:3:from __future__ import annotations
+core/reasoning/context/validators.py:3:from __future__ import annotations
+core/reasoning/context/validators.py:5:from collections.abc import Iterable
+core/reasoning/context/validators.py:6:from typing import Protocol, TypeVar
+core/reasoning/context/validators.py:8:from core.reasoning.context.errors import (
+core/reasoning/knowledge.py:3:from __future__ import annotations
+core/reasoning/knowledge.py:6:from collections.abc import Iterable, Mapping
+core/reasoning/knowledge.py:7:from dataclasses import dataclass
+core/reasoning/knowledge.py:8:from typing import Any
+core/reasoning/knowledge.py:9:from core.reasoning.enums import EvidenceKind, EvidenceStance
+core/reasoning/knowledge.py:10:from core.reasoning.models import EvidenceItem
+core/reasoning/generation.py:3:from __future__ import annotations
+core/reasoning/generation.py:5:from dataclasses import dataclass
+core/reasoning/generation.py:6:from core.reasoning.enums import EvidenceStance
+core/reasoning/generation.py:7:from core.reasoning.models import EvidenceItem, Hypothesis
+core/reasoning/pipeline.py:3:from __future__ import annotations
+core/reasoning/pipeline.py:5:from collections.abc import Callable, Iterable
+core/reasoning/pipeline.py:6:from dataclasses import dataclass
+core/reasoning/pipeline.py:7:from typing import Any
+core/reasoning/pipeline.py:8:from core.reasoning.generation import (
+core/reasoning/pipeline.py:12:from core.reasoning.knowledge import AdaptedEvidenceBatch, KnowledgeEvidenceAdapter
+core/reasoning/pipeline.py:13:from core.reasoning.models import ReasoningRequest, ReasoningResult
+core/reasoning/pipeline.py:14:from core.reasoning.service import ReasoningEngine
+core/reasoning/session/__init__.py:3:from core.reasoning.session.contracts import (
+core/reasoning/session/__init__.py:10:from core.reasoning.session.errors import (
+core/reasoning/session/__init__.py:16:from core.reasoning.session.lifecycle import (
+core/reasoning/session/contracts.py:9:from __future__ import annotations
+core/reasoning/session/contracts.py:11:from dataclasses import dataclass, field
+core/reasoning/session/contracts.py:12:from enum import Enum
+core/reasoning/session/contracts.py:13:from typing import Iterable
+core/reasoning/session/contracts.py:14:from uuid import UUID, uuid5
+core/reasoning/session/errors.py:3:from __future__ import annotations
+core/reasoning/session/lifecycle.py:3:from __future__ import annotations
+core/reasoning/session/lifecycle.py:5:from dataclasses import fields, is_dataclass, replace
+core/reasoning/session/lifecycle.py:6:from types import MappingProxyType
+core/reasoning/session/lifecycle.py:7:from typing import Final, Mapping
+core/reasoning/session/lifecycle.py:9:from core.reasoning.session.contracts import (
+core/reasoning/session/lifecycle.py:13:from core.reasoning.session.errors import (
+core/reasoning/evidence/errors.py:3:from __future__ import annotations
+core/reasoning/evidence/enums.py:3:from __future__ import annotations
+core/reasoning/evidence/enums.py:5:from enum import Enum
+core/reasoning/evidence/validation.py:3:from __future__ import annotations
+core/reasoning/evidence/validation.py:8:from datetime import datetime
+core/reasoning/evidence/validation.py:9:from decimal import Decimal
+core/reasoning/evidence/validation.py:10:from typing import Iterable, TypeVar
+core/reasoning/evidence/validation.py:12:from .errors import EvidenceTemporalError, EvidenceValidationError
+core/reasoning/evidence/serialization.py:3:from __future__ import annotations
+core/reasoning/evidence/serialization.py:6:from dataclasses import fields, is_dataclass
+core/reasoning/evidence/serialization.py:7:from datetime import datetime, timezone
+core/reasoning/evidence/serialization.py:8:from decimal import Decimal
+core/reasoning/evidence/serialization.py:9:from enum import Enum
+core/reasoning/evidence/serialization.py:10:from hashlib import sha256
+core/reasoning/evidence/serialization.py:11:from typing import Any
+core/reasoning/evidence/serialization.py:13:from .errors import EvidenceSerializationError
+core/reasoning/evidence/identifiers.py:3:from __future__ import annotations
+core/reasoning/evidence/identifiers.py:6:from dataclasses import dataclass
+core/reasoning/evidence/identifiers.py:7:from typing import Any, ClassVar, TypeVar
+core/reasoning/evidence/identifiers.py:9:from .errors import EvidenceIdentityError
+core/reasoning/evidence/identifiers.py:10:from .serialization import canonical_sha256
+core/reasoning/evidence/contracts.py:3:from __future__ import annotations
+core/reasoning/evidence/contracts.py:5:from dataclasses import dataclass, replace
+core/reasoning/evidence/contracts.py:6:from datetime import datetime
+core/reasoning/evidence/contracts.py:7:from decimal import Decimal
+core/reasoning/evidence/contracts.py:8:from typing import Any, Iterable
+core/reasoning/evidence/contracts.py:10:from .enums import (
+core/reasoning/evidence/contracts.py:19:from .errors import (
+core/reasoning/evidence/contracts.py:25:from .identifiers import (
+core/reasoning/evidence/contracts.py:32:from .validation import (
+core/reasoning/evidence/__init__.py:3:from .contracts import (
+core/reasoning/evidence/__init__.py:16:from .enums import (
+core/reasoning/evidence/__init__.py:25:from .errors import (
+core/reasoning/evidence/__init__.py:34:from .identifiers import (
+core/reasoning/evidence/__init__.py:42:from .serialization import (
+core/reasoning/evidence/contracts.py.pre_identity_refactor:3:from __future__ import annotations
+core/reasoning/evidence/contracts.py.pre_identity_refactor:5:from dataclasses import dataclass, replace
+core/reasoning/evidence/contracts.py.pre_identity_refactor:6:from datetime import datetime
+core/reasoning/evidence/contracts.py.pre_identity_refactor:7:from decimal import Decimal
+core/reasoning/evidence/contracts.py.pre_identity_refactor:8:from typing import Iterable
+core/reasoning/evidence/contracts.py.pre_identity_refactor:10:from .enums import (
+core/reasoning/evidence/contracts.py.pre_identity_refactor:19:from .errors import (
+core/reasoning/evidence/contracts.py.pre_identity_refactor:25:from .identifiers import (
+core/reasoning/evidence/contracts.py.pre_identity_refactor:32:from .validation import (
+core/representation/__init__.py:3:from .contracts import (
+core/representation/__init__.py:21:from .segmentation import (
+core/representation/contracts.py:7:from __future__ import annotations
+core/representation/contracts.py:9:from dataclasses import dataclass, field
+core/representation/contracts.py:10:from enum import Enum
+core/representation/contracts.py:11:from types import MappingProxyType
+core/representation/contracts.py:12:from typing import Mapping, Sequence
+core/representation/segmentation.py:3:from __future__ import annotations
+core/representation/segmentation.py:7:from dataclasses import dataclass
+core/representation/segmentation.py:8:from typing import Iterator
+core/representation/segmentation.py:10:from .contracts import (
+core/representation/articulation.py:3:from __future__ import annotations
+core/representation/articulation.py:7:from collections.abc import Iterable, Mapping, Sequence
+core/representation/articulation.py:8:from dataclasses import dataclass, field
+core/representation/articulation.py:9:from enum import Enum
+core/representation/articulation.py:10:from types import MappingProxyType
+core/representation/articulation.py:11:from typing import Any
+core/representation/director.py:11:from __future__ import annotations
+core/representation/director.py:13:from dataclasses import dataclass, field
+core/representation/director.py:14:from types import MappingProxyType
+core/representation/director.py:15:from typing import Mapping
+core/representation/director.py:17:from .contracts import (
+core/representation/director.py:21:from .segmentation import (
+core/representation/registry.py:13:from __future__ import annotations
+core/representation/registry.py:15:from dataclasses import dataclass
+core/representation/registry.py:16:from types import MappingProxyType
+core/representation/registry.py:17:from typing import Iterable, Mapping, Protocol, runtime_checkable
+core/representation/registry.py:19:from .contracts import ArtifactKind
+core/representation/context.py:3:from __future__ import annotations
+core/representation/context.py:7:from collections.abc import Iterable, Mapping
+core/representation/context.py:8:from dataclasses import dataclass, field
+core/representation/context.py:9:from types import MappingProxyType
+core/representation/context.py:10:from typing import Any
+core/representation/context.py:12:from .articulation import ArticulatedUnit
+core/evidence/enums.py:10:from __future__ import annotations
+core/evidence/enums.py:12:from enum import Enum
+core/evidence/errors.py:3:from __future__ import annotations
+core/evidence/errors.py:5:from collections.abc import Mapping
+core/evidence/errors.py:6:from types import MappingProxyType
+core/evidence/errors.py:7:from typing import Any
+core/evidence/__init__.py:3:from .contracts import (
+core/evidence/__init__.py:16:from .enums import (
+core/evidence/__init__.py:32:from .errors import (
+core/evidence/contracts.py:11:from __future__ import annotations
+core/evidence/contracts.py:13:from dataclasses import dataclass, field, fields, is_dataclass
+core/evidence/contracts.py:14:from datetime import datetime, timezone
+core/evidence/contracts.py:15:from enum import Enum
+core/evidence/contracts.py:16:from types import MappingProxyType
+core/evidence/contracts.py:17:from typing import Any, Mapping, TypeAlias
+core/evidence/contracts.py:19:from .enums import (
+core/evidence/contracts.py:33:from .errors import EvidenceValidationError, PropositionValidationError
+core/architecture/enums.py:3:from __future__ import annotations
+core/architecture/enums.py:5:from enum import Enum
+core/architecture/errors.py:3:from __future__ import annotations
+core/architecture/fingerprints.py:3:from __future__ import annotations
+core/architecture/fingerprints.py:8:from collections.abc import Mapping, Sequence
+core/architecture/fingerprints.py:9:from enum import Enum
+core/architecture/fingerprints.py:10:from pathlib import Path
+core/architecture/fingerprints.py:11:from typing import Any
+core/architecture/fingerprints.py:13:from .errors import ArchitectureFingerprintError, ArchitectureSerializationError
+core/architecture/contracts.py:3:from __future__ import annotations
+core/architecture/contracts.py:5:from dataclasses import dataclass, field
+core/architecture/contracts.py:6:from types import MappingProxyType
+core/architecture/contracts.py:7:from typing import Any, Mapping
+core/architecture/contracts.py:9:from .enums import (
+core/architecture/contracts.py:19:from .errors import ArchitectureValidationError
+core/architecture/contracts.py:20:from .fingerprints import architecture_fingerprint, canonical_json
+core/architecture/__init__.py:3:from .contracts import (
+core/architecture/__init__.py:17:from .enums import (
+core/architecture/__init__.py:28:from .errors import (
+core/architecture/__init__.py:39:from .fingerprints import (
+core/engineering/enums.py:1:from __future__ import annotations
+core/engineering/enums.py:2:from enum import Enum
+core/engineering/contracts.py:1:from __future__ import annotations
+core/engineering/contracts.py:2:from dataclasses import dataclass, field
+core/engineering/contracts.py:3:from types import MappingProxyType
+core/engineering/contracts.py:4:from typing import Any, Mapping
+core/engineering/contracts.py:6:from core.architecture import architecture_fingerprint, canonical_json
+core/engineering/contracts.py:7:from .enums import (
+core/engineering/contracts.py:11:from .errors import EngineeringValidationError
+core/engineering/constitution.py:1:from __future__ import annotations
+core/engineering/constitution.py:2:from core.architecture import architecture_fingerprint
+core/engineering/constitution.py:3:from .contracts import EngineeringPrinciple
+core/engineering/__init__.py:3:from .api_inventory import (
+core/engineering/__init__.py:13:from .compatibility import (
+core/engineering/__init__.py:22:from .constitution import ENGINEERING_CONSTITUTION, constitution_fingerprint
+core/engineering/__init__.py:23:from .contracts import (
+core/engineering/__init__.py:32:from .enums import (
+core/engineering/__init__.py:41:from .errors import (
+core/engineering/__init__.py:47:from .import_resolution import (
+core/engineering/__init__.py:51:from .inventory_targets import (
+core/engineering/__init__.py:59:from .reporting import (
+core/engineering/__init__.py:63:from .restoration import (
+core/engineering/api_inventory.py:3:from __future__ import annotations
+core/engineering/api_inventory.py:6:from dataclasses import dataclass
+core/engineering/api_inventory.py:7:from pathlib import Path
+core/engineering/api_inventory.py:8:from typing import Iterable, Mapping
+core/engineering/api_inventory.py:10:from core.architecture import architecture_fingerprint, canonical_json
+core/engineering/api_inventory.py:12:from .errors import EngineeringValidationError
+core/engineering/api_inventory.py:13:from .import_resolution import PythonImportResolver
+core/engineering/api_inventory.py:14:from .inventory_targets import InventoryTarget, InventoryTargetKind
+core/engineering/api_inventory.py:15:from .public_surface import evaluate_public_surface
+core/engineering/compatibility.py:3:from __future__ import annotations
+core/engineering/compatibility.py:7:from dataclasses import dataclass
+core/engineering/compatibility.py:8:from pathlib import Path
+core/engineering/compatibility.py:9:from typing import Mapping
+core/engineering/compatibility.py:11:from core.architecture import architecture_fingerprint, canonical_json
+core/engineering/compatibility.py:13:from .api_inventory import TargetAPIInventory
+core/engineering/compatibility.py:14:from .errors import EngineeringValidationError
+core/engineering/restoration.py:3:from __future__ import annotations
+core/engineering/restoration.py:5:from dataclasses import dataclass
+core/engineering/restoration.py:7:from core.architecture import architecture_fingerprint, canonical_json
+core/engineering/restoration.py:9:from .compatibility import CompatibilityFinding, CompatibilityReport
+core/engineering/reporting.py:3:from __future__ import annotations
+core/engineering/reporting.py:5:from pathlib import Path
+core/engineering/reporting.py:7:from .compatibility import CompatibilityReport
+core/engineering/reporting.py:8:from .restoration import RestorationRecommendation
+core/engineering/cli.py:3:from __future__ import annotations
+core/engineering/cli.py:7:from pathlib import Path
+core/engineering/cli.py:9:from .api_inventory import inventory_targets
+core/engineering/cli.py:10:from .compatibility import (
+core/engineering/cli.py:16:from .reporting import write_compatibility_report
+core/engineering/cli.py:17:from .restoration import build_restoration_plan
+core/engineering/inventory_targets.py:3:from __future__ import annotations
+core/engineering/inventory_targets.py:5:from dataclasses import dataclass
+core/engineering/inventory_targets.py:6:from pathlib import Path
+core/engineering/inventory_targets.py:7:from typing import Iterable
+core/engineering/inventory_targets.py:9:from core.architecture import architecture_fingerprint, canonical_json
+core/engineering/inventory_targets.py:10:from .errors import EngineeringValidationError
+core/engineering/import_resolution.py:3:from __future__ import annotations
+core/engineering/import_resolution.py:5:from pathlib import Path
+core/engineering/import_resolution.py:6:from typing import Mapping
+core/engineering/import_resolution.py:8:from .inventory_targets import (
+core/engineering/public_surface.py:3:from __future__ import annotations
+core/engineering/public_surface.py:6:from dataclasses import dataclass
+core/engineering/public_surface.py:7:from typing import Callable, Mapping
+core/operations/enums.py:3:from __future__ import annotations
+core/operations/enums.py:5:from enum import Enum
+core/operations/contracts.py:3:from __future__ import annotations
+core/operations/contracts.py:5:from collections.abc import Iterable, Mapping
+core/operations/contracts.py:6:from typing import Any, Protocol, runtime_checkable
+core/operations/models.py:3:from __future__ import annotations
+core/operations/models.py:5:from dataclasses import dataclass, fields, is_dataclass
+core/operations/models.py:6:from datetime import datetime, timezone
+core/operations/models.py:7:from enum import Enum
+core/operations/models.py:8:from typing import Any, Mapping
+core/operations/models.py:10:from .enums import (
+core/operations/events.py:3:from __future__ import annotations
+core/operations/events.py:5:from dataclasses import dataclass
+core/operations/events.py:6:from datetime import datetime
+core/operations/events.py:7:from typing import Any, Mapping
+core/operations/events.py:8:from uuid import uuid4
+core/operations/events.py:10:from .enums import EventKind
+core/operations/events.py:11:from .models import Provenance, SerializableSnapshot, utc_now
+core/operations/registry.py:3:from __future__ import annotations
+core/operations/registry.py:5:from threading import RLock
+core/operations/registry.py:7:from .events import OperationsEvent
+core/operations/missions.py:3:from __future__ import annotations
+core/operations/missions.py:5:from collections.abc import Iterable, Mapping
+core/operations/missions.py:6:from datetime import datetime
+core/operations/missions.py:7:from typing import Any
+core/operations/missions.py:9:from .contracts import MissionProvider
+core/operations/missions.py:10:from .enums import ActivityState, MissionState, ObjectiveState
+core/operations/missions.py:11:from .models import (
+core/operations/health.py:3:from __future__ import annotations
+core/operations/health.py:5:from collections.abc import Callable, Iterable, Mapping
+core/operations/health.py:6:from datetime import datetime
+core/operations/health.py:7:from typing import Any
+core/operations/health.py:9:from .enums import HealthState
+core/operations/health.py:10:from .models import HealthComponentSnapshot, HealthSnapshot, Provenance, utc_now
+core/operations/resources.py:3:from __future__ import annotations
+core/operations/resources.py:7:from datetime import datetime
+core/operations/resources.py:8:from pathlib import Path
+core/operations/resources.py:9:from typing import Any, Mapping
+core/operations/resources.py:11:from .contracts import ResourceProvider
+core/operations/resources.py:12:from .models import Provenance, ResourceSnapshot, utc_now
+core/operations/timeline.py:3:from __future__ import annotations
+core/operations/timeline.py:5:from datetime import datetime
+core/operations/timeline.py:7:from .models import TimelineEntrySnapshot, TimelineSnapshot, utc_now
+core/operations/timeline.py:8:from .registry import OperationsEventRegistry
+core/operations/service.py:3:from __future__ import annotations
+core/operations/service.py:7:from collections.abc import Callable
+core/operations/service.py:8:from datetime import datetime
+core/operations/service.py:10:from .enums import AlertSeverity, ExecutiveState, HealthState, OperationalState
+core/operations/service.py:11:from .events import OperationsEvent
+core/operations/service.py:12:from .executive import ExecutiveTelemetryAdapter
+core/operations/service.py:13:from .health import HealthAggregator
+core/operations/service.py:14:from .missions import MissionSnapshotAdapter
+core/operations/service.py:15:from .models import AlertSnapshot, OperationsSnapshot, Provenance, utc_now
+core/operations/service.py:16:from .registry import OperationsEventRegistry
+core/operations/service.py:17:from .resources import ResourceCollector
+core/operations/service.py:18:from .timeline import TimelineAdapter
+core/operations/__init__.py:3:from .contracts import (
+core/operations/__init__.py:9:from .enums import (
+core/operations/__init__.py:19:from .events import OperationsEvent
+core/operations/__init__.py:20:from .executive import DefaultExecutiveProvider, ExecutiveTelemetryAdapter
+core/operations/__init__.py:21:from .health import HealthAggregator
+core/operations/__init__.py:22:from .missions import MissionSnapshotAdapter
+core/operations/__init__.py:23:from .models import (
+core/operations/__init__.py:37:from .registry import OperationsEventRegistry
+core/operations/__init__.py:38:from .resources import ResourceCollector, SystemResourceProvider
+core/operations/__init__.py:39:from .service import OperationsService
+core/operations/__init__.py:40:from .timeline import TimelineAdapter
+core/operations/executive.py:2:from __future__ import annotations
+core/operations/executive.py:3:from datetime import datetime
+core/operations/executive.py:4:from typing import Any, Mapping
+core/operations/executive.py:5:from .contracts import ExecutiveProvider
+core/operations/executive.py:6:from .enums import ExecutiveState
+core/operations/executive.py:7:from .models import ExecutiveSnapshot, Provenance, utc_now
+core/integration/__init__.py:2:from __future__ import annotations
+core/integration/__init__.py:3:from core.integration.bootstrap import build_default_integration_runtime, get_default_integration_runtime
+core/integration/__init__.py:4:from core.integration.bus import ExecutiveProjectionBus, ProjectionBusSnapshot, get_default_projection_bus, reset_default_projection_bus
+core/integration/__init__.py:5:from core.integration.readiness import ExecutiveReadiness, ReadinessColor, ReadinessLevel, normalize_projection_readiness
+core/integration/__init__.py:6:from core.integration import contracts as _contracts
+core/integration/__init__.py:7:from core.integration import registry as _registry
+core/integration/__init__.py:8:from core.integration import service as _service
+core/integration/bootstrap.py:3:from __future__ import annotations
+core/integration/bootstrap.py:6:from dataclasses import dataclass
+core/integration/bootstrap.py:8:from core.capabilities.discovery import (
+core/integration/bootstrap.py:12:from core.capabilities.operations import register_operations_capabilities
+core/integration/bootstrap.py:13:from core.capabilities.registry import CapabilityRegistry
+core/integration/bootstrap.py:14:from core.integration.knowledge_inventory import KnowledgeInventoryService
+core/integration/bootstrap.py:15:from core.integration.providers.capabilities import CapabilityProjectionProvider
+core/integration/bootstrap.py:16:from core.integration.providers.knowledge import KnowledgeProjectionProvider
+core/integration/bootstrap.py:17:from core.integration.providers.operations import OperationsProjectionProvider
+core/integration/bootstrap.py:18:from core.integration.registry import ProjectionRegistry
+core/integration/bootstrap.py:19:from core.integration.service import ExecutiveProjectionService
+core/integration/bootstrap.py:20:from core.operations import OperationsService
+core/integration/contracts.py:2:from __future__ import annotations
+core/integration/contracts.py:3:from dataclasses import dataclass, field
+core/integration/contracts.py:4:from datetime import datetime, timezone
+core/integration/contracts.py:5:from enum import Enum
+core/integration/contracts.py:6:from typing import Any
+core/integration/provider.py:1:from __future__ import annotations
+core/integration/provider.py:2:from typing import Protocol, runtime_checkable
+core/integration/provider.py:3:from core.integration.contracts import ProjectionEnvelope, ProjectionHealth
+core/integration/providers/__init__.py:3:from core.integration.providers.capabilities import CapabilityProjectionProvider
+core/integration/providers/__init__.py:4:from core.integration.providers.knowledge import KnowledgeProjectionProvider
+core/integration/providers/__init__.py:5:from core.integration.providers.operations import OperationsProjectionProvider
+core/integration/providers/capabilities.py:3:from __future__ import annotations
+core/integration/providers/capabilities.py:5:from datetime import datetime, timezone
+core/integration/providers/capabilities.py:6:from typing import Any
+core/integration/providers/capabilities.py:8:from core.capabilities.base import Capability
+core/integration/providers/capabilities.py:9:from core.capabilities.metadata import (
+core/integration/providers/capabilities.py:13:from core.capabilities.registry import CapabilityRegistry
+core/integration/providers/capabilities.py:14:from core.integration.contracts import (
+core/integration/providers/operations.py:3:from __future__ import annotations
+core/integration/providers/operations.py:5:from datetime import datetime, timezone
+core/integration/providers/operations.py:6:from typing import Any
+core/integration/providers/operations.py:8:from core.integration.contracts import (
+core/integration/providers/knowledge.py:3:from __future__ import annotations
+core/integration/providers/knowledge.py:5:from datetime import datetime, timezone
+core/integration/providers/knowledge.py:6:from typing import Any
+core/integration/providers/knowledge.py:8:from core.integration.contracts import (
+core/integration/providers/knowledge.py:13:from core.integration.knowledge_inventory import KnowledgeInventoryService
+core/integration/registry.py:1:from __future__ import annotations
+core/integration/registry.py:2:from core.integration.errors import DuplicateProjectionProviderError, ProjectionProviderNotFoundError
+core/integration/registry.py:3:from core.integration.provider import ProjectionProvider
+core/integration/service.py:1:from __future__ import annotations
+core/integration/service.py:2:from datetime import datetime, timezone
+core/integration/service.py:3:from typing import Any
+core/integration/service.py:4:from core.integration.contracts import ProjectionEnvelope, ProjectionStatus
+core/integration/service.py:5:from core.integration.registry import ProjectionRegistry
+core/integration/knowledge_inventory.py:3:from __future__ import annotations
+core/integration/knowledge_inventory.py:10:from dataclasses import dataclass
+core/integration/knowledge_inventory.py:11:from datetime import datetime, timezone
+core/integration/knowledge_inventory.py:12:from pathlib import Path
+core/integration/knowledge_inventory.py:13:from typing import Any
+core/integration/readiness.py:2:from __future__ import annotations
+core/integration/readiness.py:3:from dataclasses import dataclass
+core/integration/readiness.py:4:from datetime import datetime, timezone
+core/integration/readiness.py:5:from enum import Enum
+core/integration/readiness.py:6:from typing import Any, Mapping
+core/integration/bus.py:2:from __future__ import annotations
+core/integration/bus.py:6:from dataclasses import dataclass
+core/integration/bus.py:7:from datetime import datetime, timezone
+core/integration/bus.py:8:from typing import Any, Mapping
+core/integration/bus.py:9:from core.integration.readiness import ExecutiveReadiness, ReadinessColor, ReadinessLevel, normalize_projection_readiness
+core/gmail_archive_candidates.py:1:from googleapiclient.discovery import build
+core/gmail_archive_candidates.py:3:from src.services.gmail.auth import gmail_authenticate
+core/gmail_archive_candidates.py:4:from src.services.gmail.classifier import classify_email
+core/gmail_cleanup_report.py:1:from collections import Counter
+core/gmail_cleanup_report.py:2:from googleapiclient.discovery import build
+core/gmail_cleanup_report.py:4:from src.services.gmail.auth import gmail_authenticate
+core/gmail_cleanup_report.py:5:from src.services.gmail.classifier import classify_email
+core/gmail_reader_test.py:1:from src.services.gmail.reader import get_recent_emails
+core/gmail_reader_test.py:2:from src.services.gmail.classifier import classify_email
+core/gmail_test.py:1:from googleapiclient.discovery import build
+core/gmail_test.py:2:from src.services.gmail.auth import gmail_authenticate

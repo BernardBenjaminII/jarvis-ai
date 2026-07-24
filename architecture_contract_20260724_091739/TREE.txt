@@ -1,0 +1,1295 @@
+architecture_contract_20260724_091739
+├── core
+│   ├── acquisition
+│   │   ├── cache
+│   │   │   └── cache_policy.yaml
+│   │   ├── evaluators
+│   │   │   ├── acceptance_rules.yaml
+│   │   │   ├── duplicate_rules.yaml
+│   │   │   └── rejection_rules.yaml
+│   │   ├── licensing
+│   │   │   ├── copyright_rules.yaml
+│   │   │   ├── licenses.yaml
+│   │   │   └── redistribution.yaml
+│   │   ├── planners
+│   │   │   ├── acquisition_profiles.yaml
+│   │   │   ├── search_depth.yaml
+│   │   │   └── search_templates.yaml
+│   │   ├── policy
+│   │   │   ├── acquisition_policy.yaml
+│   │   │   ├── licensing_policy.yaml
+│   │   │   ├── promotion_policy.yaml
+│   │   │   ├── quality_policy.yaml
+│   │   │   ├── search_policy.yaml
+│   │   │   └── trust_policy.yaml
+│   │   ├── profiles
+│   │   │   ├── academic.yaml
+│   │   │   ├── aviation.yaml
+│   │   │   ├── cybersecurity.yaml
+│   │   │   ├── engineering.yaml
+│   │   │   ├── history.yaml
+│   │   │   ├── languages.yaml
+│   │   │   ├── medical.yaml
+│   │   │   └── software.yaml
+│   │   ├── provenance
+│   │   │   ├── evidence_requirements.yaml
+│   │   │   └── provenance_schema.yaml
+│   │   ├── README.md
+│   │   ├── scheduler
+│   │   │   ├── jobs.yaml
+│   │   │   └── policies.yaml
+│   │   ├── schemas
+│   │   │   ├── acquisition.schema.json
+│   │   │   ├── provenance.schema.json
+│   │   │   └── source.schema.json
+│   │   ├── sources
+│   │   │   ├── approved_sources.yaml
+│   │   │   ├── blocked_sources.yaml
+│   │   │   ├── candidate_sources.yaml
+│   │   │   └── source_categories.yaml
+│   │   └── trust
+│   │       ├── author_reputation.yaml
+│   │       ├── domain_reputation.yaml
+│   │       ├── publisher_reputation.yaml
+│   │       └── trust_scoring.yaml
+│   ├── agents
+│   ├── architecture
+│   │   ├── contracts.py
+│   │   ├── enums.py
+│   │   ├── errors.py
+│   │   ├── fingerprints.py
+│   │   └── __init__.py
+│   ├── bootstrap
+│   │   ├── api.py
+│   │   ├── bootstrap.py
+│   │   ├── capabilities.py
+│   │   ├── check.py
+│   │   ├── dependencies.py
+│   │   ├── discovery
+│   │   │   ├── __init__.py
+│   │   │   ├── locator.py
+│   │   │   ├── paths.py
+│   │   │   └── platform.py
+│   │   ├── __init__.py
+│   │   ├── lifecycle
+│   │   │   ├── __init__.py
+│   │   │   ├── postflight.py
+│   │   │   ├── preflight.py
+│   │   │   └── startup.py
+│   │   ├── lifecycle_runner.py
+│   │   ├── main.py
+│   │   ├── models.py
+│   │   ├── ollama.py
+│   │   ├── postflight
+│   │   │   └── __init__.py
+│   │   ├── preflight
+│   │   │   ├── __init__.py
+│   │   │   ├── python_check.py
+│   │   │   ├── runtime_check.py
+│   │   │   └── venv.py
+│   │   ├── preflight_runner.py
+│   │   ├── runner.py
+│   │   ├── runtime_check.py
+│   │   ├── runtime.py
+│   │   ├── services
+│   │   │   ├── api.py
+│   │   │   ├── capabilities.py
+│   │   │   ├── __init__.py
+│   │   │   ├── models.py
+│   │   │   ├── ollama.py
+│   │   │   ├── runtime.py
+│   │   │   └── venv.py
+│   │   ├── startup
+│   │   │   └── __init__.py
+│   │   └── venv.py
+│   ├── capabilities
+│   │   ├── adapters
+│   │   │   ├── builder.py
+│   │   │   └── __init__.py
+│   │   ├── base.py
+│   │   ├── discovery.py
+│   │   ├── __init__.py
+│   │   ├── loader.py
+│   │   ├── metadata.py
+│   │   ├── models.py
+│   │   ├── operations.py
+│   │   ├── registry.py
+│   │   ├── report.py
+│   │   └── runner.py
+│   ├── capability_runtime_cli.py
+│   ├── catalog
+│   ├── cheatsheat.txt
+│   ├── cognition
+│   │   ├── claim_construction.py
+│   │   ├── claim.py
+│   │   ├── claim_validation.py
+│   │   ├── common
+│   │   │   ├── cognitive_object.py
+│   │   │   ├── contracts.py
+│   │   │   ├── errors.py
+│   │   │   ├── __init__.py
+│   │   │   ├── normalization.py
+│   │   │   ├── object_model.py
+│   │   │   └── serialization.py
+│   │   ├── confidence.py
+│   │   ├── contracts.py
+│   │   ├── cycle.py
+│   │   ├── enums.py
+│   │   ├── errors.py
+│   │   ├── evidence_chain.py
+│   │   ├── evidence.py
+│   │   ├── evidence_validation.py
+│   │   ├── extraction.py
+│   │   ├── identifiers.py
+│   │   ├── __init__.py
+│   │   ├── layers
+│   │   │   ├── claims
+│   │   │   │   └── __init__.py
+│   │   │   ├── evidence
+│   │   │   │   └── __init__.py
+│   │   │   ├── hypotheses
+│   │   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   ├── interpretation
+│   │   │   │   └── __init__.py
+│   │   │   ├── justification
+│   │   │   │   └── __init__.py
+│   │   │   ├── observation
+│   │   │   │   ├── conflicts.py
+│   │   │   │   ├── director.py
+│   │   │   │   ├── duplicates.py
+│   │   │   │   ├── enums.py
+│   │   │   │   ├── errors.py
+│   │   │   │   ├── factory.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── lifecycle.py
+│   │   │   │   ├── merge.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── normalization.py
+│   │   │   │   ├── query.py
+│   │   │   │   ├── registry.py
+│   │   │   │   ├── relationships.py
+│   │   │   │   └── validation.py
+│   │   │   ├── reasoning
+│   │   │   │   └── __init__.py
+│   │   │   └── relationships
+│   │   │       └── __init__.py
+│   │   ├── models.py
+│   │   ├── normalization.py
+│   │   ├── observation.py
+│   │   ├── provenance.py
+│   │   ├── serialization.py
+│   │   ├── session.py
+│   │   ├── state_machine.py
+│   │   ├── validation.py
+│   │   ├── working_memory.py
+│   │   └── workspace
+│   │       ├── catalog.py
+│   │       ├── enums.py
+│   │       ├── errors.py
+│   │       ├── __init__.py
+│   │       ├── models.py
+│   │       ├── repository.py
+│   │       └── service.py
+│   ├── config.py
+│   ├── conversation
+│   │   ├── compiler.py
+│   │   ├── contracts.py
+│   │   ├── grounding.py
+│   │   ├── __init__.py
+│   │   ├── orchestrator.py
+│   │   ├── repository.py
+│   │   └── service.py
+│   ├── discovery
+│   │   └── __init__.py
+│   ├── docs
+│   │   ├── architecture.md
+│   │   └── roadmap.md
+│   ├── engineering
+│   │   ├── api_inventory.py
+│   │   ├── cli.py
+│   │   ├── compatibility.py
+│   │   ├── constitution.py
+│   │   ├── contracts.py
+│   │   ├── enums.py
+│   │   ├── errors.py
+│   │   ├── import_resolution.py
+│   │   ├── __init__.py
+│   │   ├── inventory_targets.py
+│   │   ├── public_surface.py
+│   │   ├── reporting.py
+│   │   └── restoration.py
+│   ├── evidence
+│   │   ├── contracts.py
+│   │   ├── enums.py
+│   │   ├── errors.py
+│   │   └── __init__.py
+│   ├── executive
+│   │   ├── capabilities.py
+│   │   ├── cli.py
+│   │   ├── contracts.py
+│   │   ├── director.py
+│   │   ├── engine.py
+│   │   ├── handlers.py
+│   │   ├── __init__.py
+│   │   ├── lifecycle
+│   │   │   ├── contracts.py
+│   │   │   ├── __init__.py
+│   │   │   └── manager.py
+│   │   ├── models.py
+│   │   ├── persistence
+│   │   │   ├── canonical.py
+│   │   │   ├── checkpoint.py
+│   │   │   ├── contracts.py
+│   │   │   ├── evaluator.py
+│   │   │   ├── __init__.py
+│   │   │   ├── integrity.py
+│   │   │   ├── policies.py
+│   │   │   ├── recovery.py
+│   │   │   ├── reports.py
+│   │   │   ├── repository.py
+│   │   │   ├── scanner.py
+│   │   │   ├── serializer.py
+│   │   │   └── storage.py
+│   │   ├── planner.py
+│   │   ├── planning
+│   │   │   ├── dependencies.py
+│   │   │   ├── enums.py
+│   │   │   ├── errors.py
+│   │   │   ├── __init__.py
+│   │   │   ├── models.py
+│   │   │   ├── repository.py
+│   │   │   ├── service.py
+│   │   │   └── validation.py
+│   │   ├── registry.py
+│   │   ├── routing.py
+│   │   ├── store.py
+│   │   └── timeline
+│   │       ├── adapters.py
+│   │       ├── contracts.py
+│   │       ├── engine.py
+│   │       ├── indexes.py
+│   │       ├── __init__.py
+│   │       ├── queries.py
+│   │       ├── query_engine.py
+│   │       ├── replay_readiness.py
+│   │       ├── repository_contracts.py
+│   │       ├── repository.py
+│   │       ├── serializers.py
+│   │       └── storage.py
+│   ├── gmail_archive_candidates.py
+│   ├── gmail_cleanup_report.py
+│   ├── gmail_cleanup_strategy.txt
+│   ├── gmail_reader_test.py
+│   ├── gmail_test.py
+│   ├── identity
+│   │   └── modes
+│   │       ├── ios.yaml
+│   │       ├── kali.yaml
+│   │       ├── macos.yaml
+│   │       ├── ubuntu.yaml
+│   │       └── windows.yaml
+│   ├── __init__.py
+│   ├── integration
+│   │   ├── bootstrap.py
+│   │   ├── bus.py
+│   │   ├── contracts.py
+│   │   ├── errors.py
+│   │   ├── __init__.py
+│   │   ├── knowledge_inventory.py
+│   │   ├── provider.py
+│   │   ├── providers
+│   │   │   ├── capabilities.py
+│   │   │   ├── __init__.py
+│   │   │   ├── knowledge.py
+│   │   │   └── operations.py
+│   │   ├── readiness.py
+│   │   ├── registry.py
+│   │   └── service.py
+│   ├── knowledge_catalog
+│   │   ├── assimilation
+│   │   │   ├── cli.py
+│   │   │   ├── engine.py
+│   │   │   └── __init__.py
+│   │   ├── backfill.py
+│   │   ├── classifiers
+│   │   │   ├── __init__.py
+│   │   │   ├── keyword_classifier.py
+│   │   │   └── subject_assignment.py
+│   │   ├── cli.py
+│   │   ├── collections.py
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── digest.py
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   ├── paths.py
+│   │   ├── registrar.py
+│   │   ├── repository.py
+│   │   ├── schema.py
+│   │   ├── search.py
+│   │   ├── seed.py
+│   │   └── service.py
+│   ├── knowledge_graph
+│   │   ├── catalog_mapper.py
+│   │   ├── cli.py
+│   │   ├── coverage.py
+│   │   ├── gap_analysis.py
+│   │   ├── graph.py
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   └── ontology.py
+│   ├── knowledge_mapper
+│   │   ├── cli.py
+│   │   ├── indexer.py
+│   │   ├── __init__.py
+│   │   ├── mapper.py
+│   │   ├── models.py
+│   │   ├── report.py
+│   │   └── rules.py
+│   ├── knowledge_system
+│   │   ├── acquisition
+│   │   ├── catalog
+│   │   ├── extraction
+│   │   ├── graph
+│   │   ├── __init__.py
+│   │   ├── inspection
+│   │   ├── ontology
+│   │   ├── reasoning
+│   │   ├── research
+│   │   └── search
+│   ├── managers
+│   ├── operations
+│   │   ├── contracts.py
+│   │   ├── enums.py
+│   │   ├── errors.py
+│   │   ├── events.py
+│   │   ├── executive.py
+│   │   ├── health.py
+│   │   ├── __init__.py
+│   │   ├── missions.py
+│   │   ├── models.py
+│   │   ├── registry.py
+│   │   ├── resources.py
+│   │   ├── service.py
+│   │   └── timeline.py
+│   ├── planner
+│   ├── README_local.md
+│   ├── README.md
+│   ├── reasoning
+│   │   ├── confidence.py
+│   │   ├── context
+│   │   │   ├── context.py
+│   │   │   ├── contracts.py
+│   │   │   ├── errors.py
+│   │   │   ├── __init__.py
+│   │   │   └── validators.py
+│   │   ├── enums.py
+│   │   ├── errors.py
+│   │   ├── evidence
+│   │   │   ├── contracts.py
+│   │   │   ├── contracts.py.pre_identity_refactor
+│   │   │   ├── enums.py
+│   │   │   ├── errors.py
+│   │   │   ├── identifiers.py
+│   │   │   ├── __init__.py
+│   │   │   ├── serialization.py
+│   │   │   └── validation.py
+│   │   ├── generation.py
+│   │   ├── inference.py
+│   │   ├── __init__.py
+│   │   ├── knowledge.py
+│   │   ├── models.py
+│   │   ├── pipeline.py
+│   │   ├── service.py
+│   │   └── session
+│   │       ├── contracts.py
+│   │       ├── errors.py
+│   │       ├── __init__.py
+│   │       └── lifecycle.py
+│   ├── representation
+│   │   ├── articulation.py
+│   │   ├── context.py
+│   │   ├── contracts.py
+│   │   ├── director.py
+│   │   ├── __init__.py
+│   │   ├── registry.py
+│   │   └── segmentation.py
+│   ├── requirements_clean.txt
+│   ├── requirements.txt
+│   ├── runtime
+│   ├── semantic_digest
+│   │   ├── analyzer.py
+│   │   ├── cli.py
+│   │   ├── __init__.py
+│   │   ├── inspector.py
+│   │   ├── pipeline.py
+│   │   ├── readers.py
+│   │   └── structural.py
+│   ├── src
+│   │   ├── adapters
+│   │   ├── agents
+│   │   │   └── recon_agent.py
+│   │   ├── brain.py
+│   │   ├── cognition
+│   │   │   ├── capability_registry.py
+│   │   │   ├── context_builder.py
+│   │   │   ├── intent_classifier.py
+│   │   │   ├── model_map.py
+│   │   │   ├── model_registry.py
+│   │   │   ├── model_selector.py
+│   │   │   ├── personas.py
+│   │   │   ├── prompt_builder.py
+│   │   │   ├── response_planner.py
+│   │   │   └── response_profiles.py
+│   │   ├── discovery
+│   │   │   ├── __init__.py
+│   │   │   ├── runtime_context.py
+│   │   │   └── runtime_locator.py
+│   │   ├── identity
+│   │   │   ├── doctrine.py
+│   │   │   └── loader.py
+│   │   ├── llm_client.py
+│   │   ├── main.py
+│   │   ├── main.py.backup.20260723T163929Z
+│   │   ├── managers
+│   │   │   ├── config_manager.py
+│   │   │   ├── __init__.py
+│   │   │   ├── model_manager.py
+│   │   │   ├── runtime_manager.py
+│   │   │   ├── session_manager.py
+│   │   │   └── storage_manager.py
+│   │   ├── memory.py
+│   │   ├── planner
+│   │   │   ├── execution_plan.py
+│   │   │   └── tool_planner.py
+│   │   ├── routes
+│   │   │   ├── api.py
+│   │   │   ├── mission_control.py
+│   │   │   └── operations.py
+│   │   ├── runtime
+│   │   │   ├── execution_plan.py
+│   │   │   ├── executor.py
+│   │   │   ├── __init__.py
+│   │   │   ├── runtime_context.py
+│   │   │   ├── runtime_models.py
+│   │   │   └── tool_registry.py
+│   │   ├── services
+│   │   │   ├── gmail
+│   │   │   │   ├── auth.py
+│   │   │   │   ├── classifier.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── labels.py
+│   │   │   │   ├── organizer.py
+│   │   │   │   ├── reader.py
+│   │   │   │   ├── summaries.py
+│   │   │   │   └── watcher.py
+│   │   │   ├── llm_service.py
+│   │   │   ├── macos
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── system.py
+│   │   │   ├── model_router.py
+│   │   │   ├── network_guardian.py
+│   │   │   ├── os_commands.py
+│   │   │   ├── recon
+│   │   │   │   ├── network_scan_service.py
+│   │   │   │   └── subfinder_service.py
+│   │   │   └── tools.py
+│   │   ├── static
+│   │   │   ├── assets
+│   │   │   │   └── jarvis-avatar.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── index.html
+│   │   │   └── mission_control
+│   │   │       ├── app.js
+│   │   │       ├── index.html
+│   │   │       └── styles.css
+│   │   ├── tools
+│   │   │   ├── macos_tools.py
+│   │   │   └── tool_registry.py
+│   │   └── utils
+│   │       ├── capabilities.py
+│   │       ├── environment.py
+│   │       ├── helpers.py
+│   │       ├── __init__.py
+│   │       ├── network.py
+│   │       └── system_info.py
+│   └── utils
+│       └── __init__.py
+├── dev
+│   ├── analyze_public_api_compatibility.sh
+│   ├── architecture
+│   │   └── fix_duplicate_adrs.py
+│   ├── audit
+│   │   ├── check_knowledge_ownership.py
+│   │   ├── __init__.py
+│   │   ├── knowledge_architecture_map.py
+│   │   └── knowledge_capability_report.py
+│   ├── audit_cognitive_ownership.py
+│   ├── audit_executive_integration.py
+│   ├── audit_phase_7a7_interfaces.py
+│   ├── bootstrap
+│   │   └── create_adr_template.py
+│   ├── bootstrap_plugins.py
+│   ├── consolidation
+│   │   ├── architecture_audit.py
+│   │   ├── archive_backups.py
+│   │   ├── bootstrap
+│   │   │   ├── bootstrap_call_graph.py
+│   │   │   ├── entrypoints.txt
+│   │   │   └── find_entrypoints.py
+│   │   ├── governance
+│   │   │   ├── __init__.py
+│   │   │   └── verify_architecture_blueprint.py
+│   │   ├── __init__.py
+│   │   └── ownership
+│   │       ├── audit.py
+│   │       └── audit_result.txt
+│   ├── demo_genesis_vi_a64.py
+│   ├── demo_genesis_vi_a65.py
+│   ├── demo_genesis_vi_a66.py
+│   ├── demo_genesis_vi_a67.py
+│   ├── demo_genesis_vi_a68_part_a.py
+│   ├── doctor
+│   │   ├── architecture.py
+│   │   ├── bootstrap.py
+│   │   ├── capabilities.py
+│   │   ├── check.py
+│   │   ├── director.py
+│   │   ├── doctor.py
+│   │   ├── environment.py
+│   │   ├── imports.py
+│   │   ├── __init__.py
+│   │   ├── integration.py
+│   │   ├── integrity.py
+│   │   ├── knowledge.py
+│   │   ├── models.py
+│   │   ├── registry.py
+│   │   ├── report.py
+│   │   ├── router.py
+│   │   ├── runtime.py
+│   │   ├── search.py
+│   │   ├── services.py
+│   │   └── workflow.py
+│   ├── execute_genesis_5e1b_cognition_api_restoration.py
+│   ├── extract_architecture_contract.sh
+│   ├── extract_genesis_vi_a3b_contract.sh
+│   ├── fix_evidence_assessment_create.sh
+│   ├── __init__.py
+│   ├── install_convergence_c1_executive_conversation.sh
+│   ├── install_gen2_phase_1.sh
+│   ├── install_genesis_1a1_reasoning_contract_audit.sh
+│   ├── install_genesis_1a3_knowledge_integration_audit.sh
+│   ├── install_genesis_2a4_phase2.sh
+│   ├── install_genesis_4a1_observation_engine.sh
+│   ├── install_genesis_4a1_observation_foundation.sh
+│   ├── install_genesis_4a2_evidence_foundation.sh
+│   ├── install_genesis_4a3_claim_construction.sh
+│   ├── install_genesis_4r0a_repository_skeleton.sh
+│   ├── install_genesis_4r0b_common_infrastructure.sh
+│   ├── install_genesis_4r1_cognitive_object_model.sh
+│   ├── install_genesis_4r3a_pack1_evidence_foundation.sh
+│   ├── install_genesis_4r3a_pack2a_domain_contracts.sh
+│   ├── install_genesis_4r3a_pack3_architecture_reconciliation.sh
+│   ├── install_genesis_5a1_architecture_foundation.sh
+│   ├── install_genesis_5e0_engineering_os_foundation.sh
+│   ├── install_genesis_5e1a_repository_reality_modeling.sh
+│   ├── install_genesis_5e1b_cognition_api_restoration.sh
+│   ├── install_genesis_5e1c_static_public_surface_engine.sh
+│   ├── install_genesis_5e1_public_api_compatibility.sh
+│   ├── install_genesis_system_inventory.sh
+│   ├── install_genesis_ui_a2_executive_projection_framework.sh
+│   ├── install_genesis_ui_a3_capability_discovery_registration.sh
+│   ├── install_genesis_ui_a41_knowledge_inventory_projection.sh
+│   ├── install_genesis_vi_a1.sh
+│   ├── install_genesis_vi_a64_executive_integrity_engine.sh
+│   ├── install_genesis_vi_a65_executive_recovery_engine.sh
+│   ├── install_genesis_vi_a66_executive_lifecycle_manager.sh
+│   ├── install_genesis_vi_a67_executive_timeline_engine.sh
+│   ├── install_genesis_vi_a68_part_a_timeline_repository_foundation.sh
+│   ├── install_genesis_vi_a68_part_b.sh
+│   ├── install_mc1001.sh
+│   ├── install_mc1002_commanders_bridge.sh
+│   ├── install_phase_9c1.sh
+│   ├── install_phase_xb_hypothesis_knowledge_integration.sh
+│   ├── install_phase_xc1_cognitive_representation_foundation.sh
+│   ├── install_phase_xc2_semantic_articulation.sh
+│   ├── install_phase_x_reasoning_foundation.sh
+│   ├── integration
+│   │   ├── fixtures
+│   │   │   └── phase_ii_c_sample.txt
+│   │   ├── __init__.py
+│   │   └── knowledge_pipeline_check.py
+│   ├── inventory_genesis_system.sh
+│   ├── librarian
+│   │   ├── acquire_pipeline.py
+│   │   ├── acquisition
+│   │   │   ├── archive.py
+│   │   │   ├── filter.py
+│   │   │   ├── __init__.py
+│   │   │   ├── manifest.py
+│   │   │   ├── metadata.py
+│   │   │   ├── normalize.py
+│   │   │   └── pipeline.py
+│   │   ├── cko
+│   │   │   ├── database.py
+│   │   │   ├── __init__.py
+│   │   │   └── mit_cko_builder.py
+│   │   ├── discover.py
+│   │   ├── discovery
+│   │   │   ├── engine.py
+│   │   │   ├── __init__.py
+│   │   │   ├── models.py
+│   │   │   └── sources
+│   │   │       └── trusted_sources.json
+│   │   ├── __init__.py
+│   │   ├── integration
+│   │   │   └── __init__.py
+│   │   ├── inventory
+│   │   │   ├── __init__.py
+│   │   │   └── inventory.py
+│   │   ├── librarian.py
+│   │   ├── mit_miner.py
+│   │   ├── mit_targeted_miner.py
+│   │   ├── pdf_hunter.py
+│   │   ├── run_pipeline.py
+│   │   └── staged_intake
+│   │       ├── __init__.py
+│   │       └── intake.py
+│   ├── migrate_ui_architecture.sh
+│   ├── migration_report_genesis_4r2.py
+│   ├── patch_phase_7a7_debug.sh
+│   ├── patch_phase_7a7_stop_on_error_test.sh
+│   ├── Phase_I_Source_Code_Review.docx
+│   ├── phase_vi
+│   ├── rebuild_genesis_4r3a_pack2a_domain_contracts.sh
+│   ├── register_genesis_2a4.sh
+│   ├── release
+│   │   ├── __init__.py
+│   │   └── safe_commit.py
+│   ├── remove_phase_7a7_debug.sh
+│   ├── repair_genesis_4r0b_relative_imports.sh
+│   ├── rollback_genesis_4r1_cognitive_object_model.sh
+│   ├── rollback_genesis_4r2_observation_engine.sh
+│   ├── run_verification_manifest.sh
+│   ├── safe_commit.sh
+│   ├── stabilization
+│   │   ├── dependency_audit.py
+│   │   ├── dependency_manager.py
+│   │   ├── dependency_manager_report.txt
+│   │   ├── dependency_manager_report_v2.txt
+│   │   ├── dependency_manager_report_v3.txt
+│   │   ├── dependency_manager_report_v4.txt
+│   │   ├── dependency_manager_report_v5.txt
+│   │   ├── dependency_map.json
+│   │   ├── dependency_report.txt
+│   │   ├── import_audit.py
+│   │   ├── __init__.py
+│   │   ├── pip_tree.txt
+│   │   ├── repair_serialized_pdf_text.py
+│   │   └── runtime_packages.txt
+│   ├── tests
+│   │   ├── acquisition
+│   │   │   ├── fixtures.py
+│   │   │   ├── __init__.py
+│   │   │   ├── test_admission_director.py
+│   │   │   ├── test_admission_models.py
+│   │   │   ├── test_admission_policies.py
+│   │   │   ├── test_admission_registry.py
+│   │   │   ├── test_phase_7a2.py
+│   │   │   ├── test_phase_7a3.py
+│   │   │   ├── test_phase_7a4.py
+│   │   │   ├── test_phase_7a5.py
+│   │   │   ├── test_phase_7a6.py
+│   │   │   ├── test_phase_7a7_architecture.py
+│   │   │   ├── test_phase_7a7.py
+│   │   │   ├── test_phase_7a7.py.bak
+│   │   │   └── test_phase_7a8.py
+│   │   ├── __init__.py
+│   │   ├── test_architecture_contracts.py
+│   │   ├── test_handler_interface.py
+│   │   ├── test_handler_registry.py
+│   │   ├── test_performance_contracts.py
+│   │   ├── test_phase_6c.py
+│   │   ├── test_phase_6d2.py
+│   │   ├── test_phase_6e1.py
+│   │   ├── test_phase_6e2.py
+│   │   ├── test_phase_6e3.py
+│   │   ├── test_phase_6e4.py
+│   │   ├── test_phase_7a1.py
+│   │   ├── test_registry_repository.py
+│   │   ├── test_runner_services.py
+│   │   ├── test_safe_commit.py
+│   │   ├── test_services_api.py
+│   │   └── test_verification_framework.py
+│   ├── tools
+│   │   ├── audit_cognitive_convergence.py
+│   │   ├── audit_reasoning_contracts.py
+│   │   ├── audit_reasoning_knowledge_integration.py
+│   │   ├── audit_reasoning_services.py
+│   │   ├── build_reasoning_architecture_baseline.py
+│   │   ├── new_blueprint.py
+│   │   ├── reasoning_architecture
+│   │   │   ├── build.py
+│   │   │   ├── constitution.py
+│   │   │   ├── __init__.py
+│   │   │   ├── loader.py
+│   │   │   ├── models.py
+│   │   │   ├── renderers.py
+│   │   │   └── synthesis.py
+│   │   ├── test_knowledge_catalog.py
+│   │   └── update_standard_paths.sh
+│   ├── verification
+│   │   ├── genesis_manifest.py
+│   │   ├── __init__.py
+│   │   ├── inventory_genesis_system.py
+│   │   ├── manifests
+│   │   │   ├── genesis.manifest
+│   │   │   ├── knowledge.manifest
+│   │   │   └── test_public_api_expectations.json
+│   │   ├── models.py
+│   │   ├── registry.py
+│   │   ├── runner.py
+│   │   ├── verify_cognitive_convergence_inventory.py
+│   │   ├── verify_convergence_c1.py
+│   │   ├── verify_convergence_c2a.py
+│   │   ├── verify_convergence_c2.py
+│   │   ├── verify_convergence_c3.py
+│   │   ├── verify_convergence_c4a.py
+│   │   ├── verify_convergence_c4.py
+│   │   ├── verify_genesis_3a1_cognitive_workspace.py
+│   │   ├── verify_genesis_3a2_persistent_workspace_repository.py
+│   │   ├── verify_genesis_3a3_workspace_catalog_search.py
+│   │   ├── verify_genesis_4a3_claim_construction.py
+│   │   ├── verify_genesis_4r0a_repository_skeleton.py
+│   │   ├── verify_genesis_4r1_cognitive_object_model.py
+│   │   ├── verify_genesis_4r2_observation_engine.py
+│   │   ├── verify_genesis_4r3a_pack1.py
+│   │   ├── verify_genesis_4r3a_pack2a.py
+│   │   ├── verify_genesis_4r3a_pack3_architecture_reconciliation.py
+│   │   ├── verify_genesis_5a1_architecture_foundation.py
+│   │   ├── verify_genesis_5e0_engineering_os_foundation.py
+│   │   ├── verify_genesis_5e1a_repository_reality_modeling.py
+│   │   ├── verify_genesis_5e1b_cognition_api_restoration.py
+│   │   ├── verify_genesis_5e1c_static_public_surface.py
+│   │   ├── verify_genesis_5e1_public_api_compatibility.py
+│   │   ├── verify_genesis_ui_a2_executive_projection_framework.py
+│   │   ├── verify_genesis_ui_a3_capability_discovery_registration.py
+│   │   ├── verify_genesis_ui_a41_knowledge_inventory_projection.py
+│   │   ├── verify_genesis_vi_a1.py
+│   │   ├── verify_genesis_vi_a1_step1.py
+│   │   ├── verify_genesis_vi_a2_executive_mission_control.py
+│   │   ├── verify_genesis_vi_a2.py
+│   │   ├── verify_genesis_vi_a3a_certification_repair.py
+│   │   ├── verify_genesis_vi_a3b_compatibility_finalization.py
+│   │   ├── verify_genesis_vi_a3_executive_projection_bus.py
+│   │   ├── verify_genesis_vi_a3.py
+│   │   ├── verify_genesis_vi_a4.py
+│   │   ├── verify_genesis_vi_a5.py
+│   │   ├── verify_genesis_vi_a61.py
+│   │   ├── verify_genesis_vi_a62.py
+│   │   ├── verify_genesis_vi_a63.py
+│   │   ├── verify_genesis_vi_a64.py
+│   │   ├── verify_genesis_vi_a65.py
+│   │   ├── verify_genesis_vi_a66.py
+│   │   ├── verify_genesis_vi_a67.py
+│   │   ├── verify_genesis_vi_a68_part_a.py
+│   │   ├── verify_genesis_vi_a68_part_b.py
+│   │   ├── verify_mc1001.py
+│   │   ├── verify_mc1002.py
+│   │   ├── verify_phase_xb_hypothesis_knowledge.py
+│   │   ├── verify_phase_xc1_cognitive_representation.py
+│   │   ├── verify_phase_xc2_semantic_articulation.py
+│   │   └── verify_phase_x_reasoning_foundation.py
+│   ├── verify
+│   │   ├── __init__.py
+│   │   ├── verify_capability_framework.py
+│   │   ├── verify_capability_loader.py
+│   │   ├── verify_chunking_pipeline.py
+│   │   ├── verify_discovery_capability.py
+│   │   ├── verify_local_embeddings.py
+│   │   ├── verify_object_capability.py
+│   │   ├── verify_receiving.py
+│   │   └── verify_registry_capability.py
+│   ├── verify_all.sh
+│   ├── verify_architecture_blueprint.sh
+│   ├── verify_convergence_c1.sh
+│   ├── verify_convergence_c2a.sh
+│   ├── verify_convergence_c2.sh
+│   ├── verify_convergence_c3.sh
+│   ├── verify_convergence_c4a.sh
+│   ├── verify_convergence_c4.sh
+│   ├── verify_executive_integration_pack.sh
+│   ├── verify_gen2_phase_1.sh
+│   ├── verify_gen2_phase_2a.sh
+│   ├── verify_genesis_1a1.sh
+│   ├── verify_genesis_1a2.sh
+│   ├── verify_genesis_1a3.sh
+│   ├── verify_genesis_2a1.sh
+│   ├── verify_genesis_2a2.sh
+│   ├── verify_genesis_2a3a.sh
+│   ├── verify_genesis_2a3b.sh
+│   ├── verify_genesis_2a3.sh
+│   ├── verify_genesis_2a4.sh
+│   ├── verify_genesis_3a1.sh
+│   ├── verify_genesis_3a2.sh
+│   ├── verify_genesis_3a3.sh
+│   ├── verify_genesis_4a3.sh
+│   ├── verify_genesis_4r0a.sh
+│   ├── verify_genesis_4r1.sh
+│   ├── verify_genesis_4r2.sh
+│   ├── verify_genesis_4r3a_pack1.sh
+│   ├── verify_genesis_4r3a_pack2a.sh
+│   ├── verify_genesis_4r3a_pack3.sh
+│   ├── verify_genesis_5a1.sh
+│   ├── verify_genesis_5e0.sh
+│   ├── verify_genesis_5e1a.sh
+│   ├── verify_genesis_5e1b.sh
+│   ├── verify_genesis_5e1c.sh
+│   ├── verify_genesis_5e1.sh
+│   ├── verify_genesis_all.sh
+│   ├── verify_genesis_ui_a2_executive_projection_framework.sh
+│   ├── verify_genesis_ui_a3_capability_discovery_registration.sh
+│   ├── verify_genesis_ui_a41_knowledge_inventory_projection.sh
+│   ├── verify_genesis_vi_a1.sh
+│   ├── verify_genesis_vi_a1_step1.sh
+│   ├── verify_genesis_vi_a2_executive_mission_control.sh
+│   ├── verify_genesis_vi_a2.sh
+│   ├── verify_genesis_vi_a3a_certification_repair.sh
+│   ├── verify_genesis_vi_a3b_compatibility_finalization.sh
+│   ├── verify_genesis_vi_a3_executive_projection_bus.sh
+│   ├── verify_genesis_vi_a3.sh
+│   ├── verify_genesis_vi_a4.sh
+│   ├── verify_genesis_vi_a5.sh
+│   ├── verify_genesis_vi_a61.sh
+│   ├── verify_genesis_vi_a62.sh
+│   ├── verify_genesis_vi_a63.sh
+│   ├── verify_genesis_vi_a64.sh
+│   ├── verify_genesis_vi_a65.sh
+│   ├── verify_genesis_vi_a66.sh
+│   ├── verify_genesis_vi_a67.sh
+│   ├── verify_genesis_vi_a68_part_a.sh
+│   ├── verify_genesis_vi_a68_part_b.sh
+│   ├── verify_knowledge_all.sh
+│   ├── verify_mc1001.sh
+│   ├── verify_mc1002.sh
+│   ├── verify_phase_3a.sh
+│   ├── verify_phase_3d.sh
+│   ├── verify_phase_4a.sh
+│   ├── verify_phase_4b.sh
+│   ├── verify_phase_4c.sh
+│   ├── verify_phase_4d4.sh
+│   ├── verify_phase_5a.sh
+│   ├── verify_phase_5b5.sh
+│   ├── verify_phase_6a.sh
+│   ├── verify_phase_6b.sh
+│   ├── verify_phase_6c.sh
+│   ├── verify_phase_6d0.sh
+│   ├── verify_phase_6d1.sh
+│   ├── verify_phase_6d2.sh
+│   ├── verify_phase_6e1.sh
+│   ├── verify_phase_6e2.sh
+│   ├── verify_phase_6e3.sh
+│   ├── verify_phase_6e4.sh
+│   ├── verify_phase_6f2.sh
+│   ├── verify_phase_6f3.sh
+│   ├── verify_phase_6f4.sh
+│   ├── verify_phase_6f5.sh
+│   ├── verify_phase_6f7.sh
+│   ├── verify_phase_7a1.sh
+│   ├── verify_phase_7a2.sh
+│   ├── verify_phase_7a3.sh
+│   ├── verify_phase_7a4.sh
+│   ├── verify_phase_7a5.sh
+│   ├── verify_phase_7a6.sh
+│   ├── verify_phase_7a7.sh
+│   ├── verify_phase_7a8.sh
+│   ├── verify_phase_7b1.sh
+│   ├── verify_phase_7b2.sh
+│   ├── verify_phase_9a.sh
+│   ├── verify_phase_9b.sh
+│   ├── verify_phase_9c1.sh
+│   ├── verify_phase_9c2.sh
+│   ├── verify_phase_ii_c.sh
+│   ├── verify_phase_xb.sh
+│   ├── verify_phase_xc1.sh
+│   ├── verify_phase_xc2.sh
+│   ├── verify_phase_x.sh
+│   └── verify_reasoning_fixtures.sh
+├── docs
+│   ├── architecture
+│   │   ├── 00_JARVIS_ARCHITECTURE.md
+│   │   ├── 11_cognitive_architecture.md
+│   │   ├── 12_reasoning_architecture.md
+│   │   ├── 13_mission_planning_architecture.md
+│   │   ├── api.md
+│   │   ├── architecture_blueprint.md
+│   │   ├── architecture_intelligence.md
+│   │   ├── assimilation_core.md
+│   │   ├── bootstrap_canonical.md
+│   │   ├── bootstrap_refactor_plan.md
+│   │   ├── capability_visibility_contract.md
+│   │   ├── cognition
+│   │   │   ├── 00_overview.md
+│   │   │   ├── 01_cognitive_object_model.md
+│   │   │   ├── 02_observation_engine.md
+│   │   │   ├── genesis_vi_a1_step1_foundation.md
+│   │   │   ├── genesis_vi_a2_working_memory.md
+│   │   │   ├── genesis_vi_a3_cognitive_state_machine.md
+│   │   │   ├── genesis_vi_a4_cognition_cycle_controller.md
+│   │   │   ├── genesis_vi_a5_executive_session.md
+│   │   │   ├── genesis_vi_a61_persistence_contracts.md
+│   │   │   └── genesis_vi_a62_canonical_snapshot_serializer.md
+│   │   ├── cognitive_ownership.md
+│   │   ├── cognitive_representation_architecture.md
+│   │   ├── cognitive_semantic_articulation.md
+│   │   ├── commanders_bridge_foundation.md
+│   │   ├── convergence
+│   │   │   ├── genesis_1a1_reasoning_contract_audit.json
+│   │   │   ├── genesis_1a1_reasoning_contract_audit.md
+│   │   │   ├── genesis_1a2_reasoning_service_audit.json
+│   │   │   ├── genesis_1a2_reasoning_service_audit.md
+│   │   │   ├── genesis_1a3_knowledge_integration_audit.json
+│   │   │   ├── genesis_1a3_knowledge_integration_audit.md
+│   │   │   ├── genesis_1a4_reasoning_architecture_baseline.json
+│   │   │   ├── genesis_1a4_reasoning_architecture_baseline.md
+│   │   │   ├── phase_9c1_inventory.json
+│   │   │   ├── phase_9c1_inventory.md
+│   │   │   ├── phase_9c2_collision_analysis.txt
+│   │   │   └── README.md
+│   │   ├── convergence_c1_executive_conversation.md
+│   │   ├── convergence_c2a_certification_repair.md
+│   │   ├── convergence_c2_director_activation.md
+│   │   ├── convergence_c3_capability_routing.md
+│   │   ├── convergence_c4a_knowledge_compatibility_repair.md
+│   │   ├── convergence_c4_knowledge_grounding.md
+│   │   ├── evidence_engine.md
+│   │   ├── executive_cognitive_lifecycle.md
+│   │   ├── executive_integration_architecture.md
+│   │   ├── executive_projection_bus.md
+│   │   ├── executive_projection_contract.md
+│   │   ├── gen2_capability_routing.md
+│   │   ├── gen2_mission_engine.md
+│   │   ├── gen2_phase_7b1_source_admission.md
+│   │   ├── gen2_phase_7b2_source_registry.md
+│   │   ├── genesis
+│   │   │   ├── execution
+│   │   │   │   └── README.md
+│   │   │   ├── executive
+│   │   │   │   └── README.md
+│   │   │   ├── experience
+│   │   │   │   └── README.md
+│   │   │   ├── GENESIS_LIFECYCLE.md
+│   │   │   ├── knowledge
+│   │   │   │   └── README.md
+│   │   │   ├── memory
+│   │   │   │   └── README.md
+│   │   │   ├── planning
+│   │   │   │   └── README.md
+│   │   │   ├── README.md
+│   │   │   ├── reasoning
+│   │   │   │   ├── GENESIS_II_A1_REASONING_SESSION_CONTRACT.md
+│   │   │   │   ├── GENESIS_II_A2_REASONING_SESSION_LIFECYCLE.md
+│   │   │   │   ├── GENESIS_II_A3A_VERIFICATION_ARCHITECTURE.md
+│   │   │   │   ├── GENESIS_II_A3_CONSTITUTIONAL_REASONING_CONTEXT.md
+│   │   │   │   ├── GENESIS_II_A4_CANONICAL_EVIDENCE_MODEL.md
+│   │   │   │   └── README.md
+│   │   │   └── vision
+│   │   │       └── README.md
+│   │   ├── genesis_cognitive_workspace_catalog_search.md
+│   │   ├── genesis_cognitive_workspace_foundation.md
+│   │   ├── genesis_evolutionary_verification_architecture.md
+│   │   ├── GENESIS_FOUNDATION.md
+│   │   ├── genesis_iv_a2_evidence_association.md
+│   │   ├── genesis_iv_a3_claim_construction.md
+│   │   ├── genesis_persistent_cognitive_workspace_repository.md
+│   │   ├── genesis_ui_a2_executive_projection_framework.md
+│   │   ├── genesis_ui_a3_capability_discovery_registration.md
+│   │   ├── genesis_ui_a41_knowledge_inventory_projection.md
+│   │   ├── genesis_vi_a3a_certification_repair.md
+│   │   ├── genesis_vi_a3b_compatibility_finalization.md
+│   │   ├── genesis_vi_a63_executive_checkpoint_store.md
+│   │   ├── genesis_vi_a64_executive_integrity_engine.md
+│   │   ├── genesis_vi_a65_executive_recovery_engine.md
+│   │   ├── genesis_vi_a66_executive_lifecycle_manager.md
+│   │   ├── genesis_vi_a67_executive_timeline_engine.md
+│   │   ├── genesis_vi_a68_part_b.md
+│   │   ├── genesis_vi_a68_timeline_repository_foundation.md
+│   │   ├── JARVIS_ARCHITECTURE.md
+│   │   ├── jarvis_engineering_standard.md
+│   │   ├── knowledge
+│   │   ├── knowledge_awareness_contract.md
+│   │   ├── knowledge_engine_canonical_owners.md
+│   │   ├── knowledge_engine.md
+│   │   ├── knowledge_lifecycle.md
+│   │   ├── knowledge_system_inventory.txt
+│   │   ├── knowledge_system_migration.md
+│   │   ├── knowledge_system_v2.md
+│   │   ├── launcher.md
+│   │   ├── layers.yaml
+│   │   ├── memory_engine.md
+│   │   ├── milestones
+│   │   │   ├── phase_vi_e4_extraction_service.md
+│   │   │   ├── phase_vi_f2_architecture_contracts.md
+│   │   │   ├── phase_vi_f3_runner_composition.md
+│   │   │   ├── phase_vi_f4_performance_contracts.md
+│   │   │   ├── phase_vi_f5_verification_framework.md
+│   │   │   ├── phase_vi_f7_developer_infrastructure.md
+│   │   │   ├── phase_vii_a1_acquisition_foundation.md
+│   │   │   ├── phase_vii_a2_admission_engine.md
+│   │   │   ├── phase_vii_a3_provenance_persistence.md
+│   │   │   ├── phase_vii_a4_durable_admission_workflow.md
+│   │   │   ├── phase_vii_a5_acquisition_missions.md
+│   │   │   └── phase_vii_a6_assimilation_handoff.md
+│   │   ├── model_routing.md
+│   │   ├── operations_layer.md
+│   │   ├── overview.md
+│   │   ├── phase_ii_a_consolidation.md
+│   │   ├── reasoning_engine_foundation.md
+│   │   ├── reasoning_hypothesis_knowledge_integration.md
+│   │   ├── runtime.md
+│   │   ├── service_architecture.md
+│   │   ├── storage.md
+│   │   ├── subsystem_ownership.md
+│   │   ├── testing
+│   │   │   └── CANONICAL_CONSTITUTIONAL_FIXTURES.md
+│   │   └── ui
+│   │       ├── 00_design_language.md
+│   │       ├── 01_user_experience.md
+│   │       ├── 02_screen_architecture.md
+│   │       ├── 03_navigation_model.md
+│   │       ├── 04_operational_context.md
+│   │       ├── 05_commander_brief.md
+│   │       ├── 06_mission_workspace.md
+│   │       ├── 07_operator_experience.md
+│   │       ├── 08_mission_lifecycle.md
+│   │       ├── 09_sitrep.md
+│   │       ├── 10_mission_journal.md
+│   │       ├── genesis_vi_a2_executive_mission_control.md
+│   │       └── README.md
+│   ├── architecture_blueprint
+│   │   ├── AB-0000-JARVIS-System-Blueprint.md
+│   │   ├── AB-0001-Vision.md
+│   │   ├── AB-0002-Theory-of-Knowledge.md
+│   │   ├── AB-0003-Knowledge-Life-Cycle.md
+│   │   ├── AB-0004-Knowledge-Quality.md
+│   │   ├── AB-0005-Curiosity-Engine.md
+│   │   ├── AB-0006-Teaching-Engine.md
+│   │   ├── AB-0007-Knowledge-Operating-System-Architecture.md
+│   │   ├── AB-0008-Data-Model.md
+│   │   ├── AB-0009-Knowledge-Coverage-Graph.md
+│   │   ├── AB-0010-Long-Term-Roadmap.md
+│   │   └── AB-0011-Knowledge-Mapping-Layer.md
+│   ├── audits
+│   │   ├── cognitive_object_archaeology.md
+│   │   ├── cognitive_ownership_migration_map.json
+│   │   ├── cognitive_ownership_migration_map.md
+│   │   ├── executive_integration_audit.json
+│   │   ├── executive_integration_audit.md
+│   │   ├── executive_integration_matrix.csv
+│   │   ├── genesis_system_inventory.json
+│   │   ├── genesis_system_inventory.md
+│   │   └── public_api_compatibility_report.md
+│   ├── constitution
+│   │   ├── architecture_principles.md
+│   │   ├── ENGINEERING_CONSTITUTION.md
+│   │   ├── execution.md
+│   │   ├── executive.md
+│   │   ├── experience.md
+│   │   ├── knowledge.md
+│   │   ├── memory.md
+│   │   ├── planning.md
+│   │   ├── reasoning.md
+│   │   └── UI-0001-commanders_bridge_constitution.md
+│   ├── decisions
+│   │   ├── ADR-0000.md
+│   │   ├── ADR-0001-runtime-storage.md
+│   │   ├── ADR-0002-knowledge-engine.md
+│   │   ├── ADR-0003-provider-architecture.md
+│   │   ├── ADR-0004-doctor-framework.md
+│   │   ├── ADR-0004-Tool-Architecture
+│   │   ├── ADR-0005-Knowledge-Import-Framework
+│   │   ├── ADR-0006-bootstrap-architecture.md
+│   │   ├── ADR-0006-Jarvis-Librarian-Knowledge-Gap-Analysis.md
+│   │   ├── ADR-0006-knowledge-ontology.md
+│   │   ├── ADR-0007-inspect-early-reuse-forever.md
+│   │   ├── ADR-0007-knowledge-lifecycle.md
+│   │   ├── ADR-0007-knowledge-pipeline-architecture.md
+│   │   ├── ADR-0007-Knowledge-Verification
+│   │   ├── ADR-0008-knowledge-catalog-metadata-model.md
+│   │   ├── ADR-0008-layered-capability-architecture.md
+│   │   ├── ADR-0009-knowledge-acquisition-pipeline.md
+│   │   ├── ADR-0010-canonical-knowledge-objects.md
+│   │   ├── ADR-0011-knowledge-discovery-engine.md
+│   │   ├── ADR-0012-knowledge-coverage-graph.md
+│   │   ├── ADR-0013A-knowledge-mapping-layer.md
+│   │   ├── ADR-0013-gap-analysis-engine.md
+│   │   ├── ADR-0015-semantic-extraction-engine.md
+│   │   ├── ADR-0016-knowledge-capability-ownership.md
+│   │   ├── ADR-0017-progressive-workspace-tools.md
+│   │   ├── ADR-0018-constitutional-first-principles.md
+│   │   ├── ADR-0018-genesis-iv-evidence-constitution.md
+│   │   ├── ADR-0018.md
+│   │   ├── ADR-0018-operational-memory.md
+│   │   ├── ADR-0019-canonical-evidence-model.md
+│   │   ├── ADR-0019-executive-governance.md
+│   │   ├── ADR-0019-genesis-iv-claim-constitution.md
+│   │   ├── ADR-0020-genesis-iv-cognition-architecture-constitution.md
+│   │   ├── ADR-0021-cognitive-object-model.md
+│   │   ├── ADR-0022-observation-engine.md
+│   │   ├── ADR-0023.md
+│   │   ├── ADR-EXEC-0001-canonical-integration-plane.md
+│   │   ├── ADR-EXEC-0002-executive-projection-bus.md
+│   │   ├── ADR-EXEC-0002-projection-provider-architecture.md
+│   │   ├── ADR-EXEC-0003-additive-integration-compatibility.md
+│   │   ├── ADR-EXEC-0003-capability-discovery-registration.md
+│   │   ├── ADR-EXEC-0004-knowledge-inventory-projection.md
+│   │   ├── ADR-EXEC-0004-ui-a2-route-compatibility.md
+│   │   ├── ADR-GENESIS-II-A3B.md
+│   │   ├── ADR-GENESIS-III-A1.md
+│   │   ├── ADR-GENESIS-III-A2.md
+│   │   ├── ADR-GENESIS-III-A3.md
+│   │   ├── archive
+│   │   └── README.md
+│   ├── development
+│   │   ├── coding_standards.md
+│   │   ├── design_principles.md
+│   │   ├── portability.md
+│   │   └── project_structure.md
+│   ├── engineering
+│   │   ├── engineering_os_architecture.md
+│   │   ├── genesis_v_e1a_repository_reality_modeling.md
+│   │   ├── genesis_v_e1b_cognition_api_restoration.md
+│   │   ├── genesis_v_e1c_static_public_surface.md
+│   │   ├── genesis_v_e1_public_api_compatibility.md
+│   │   └── JARVIS_ENGINEERING_STANDARD.md
+│   ├── foundation
+│   │   └── JFD-0001-knowledge-operating-system.md
+│   ├── glossary.md
+│   ├── history
+│   │   └── 0001_genesis_iv_first_major_release.md
+│   ├── plans
+│   │   ├── executive_integration_acceptance_criteria.md
+│   │   ├── genesis_ui_a2_completion_criteria.md
+│   │   ├── genesis_ui_a3_completion_criteria.md
+│   │   ├── genesis_ui_a41_completion_criteria.md
+│   │   └── genesis_ui_a_execution_plan.md
+│   ├── roadmap
+│   │   ├── backlog.md
+│   │   ├── completed.md
+│   │   ├── ii-a4-evidence_model.md
+│   │   ├── milestones.md
+│   │   ├── roadmap.md
+│   │   └── technical_debt.md
+│   ├── specifications
+│   │   ├── decisions_episode.md
+│   │   ├── engine_message_protocol.md
+│   │   ├── execution_contract.md
+│   │   ├── experience_contract.md
+│   │   ├── knowledge_contract.md
+│   │   ├── planning_contract.md
+│   │   ├── reasoning_contract.md
+│   │   └── state_machines.md
+│   ├── specs
+│   │   └── knowledge
+│   │       └── PROCESSING_STATE_MACHINE.md
+│   ├── standards
+│   │   ├── execution
+│   │   ├── foundation
+│   │   │   ├── FP-0000_First_Principles.md
+│   │   │   └── GV-0001_Governance.md
+│   │   ├── interface
+│   │   ├── knowledge
+│   │   ├── operations
+│   │   ├── planning
+│   │   ├── README.md
+│   │   ├── reasoning
+│   │   ├── standards.yaml
+│   │   └── templates
+│   │       └── engineering_standard_template.md
+│   ├── templates
+│   │   └── ADR_TEMPLATE.md
+│   ├── vision.md
+│   └── whitepapers
+│       ├── WP-0001.md
+│       ├── WP-0011-executive-reasoning-principles.md
+│       └── WP-0012-executive-decision-theory.md
+├── README_local.md
+├── README.md
+├── requirements.txt
+├── tests
+│   ├── cognition
+│   │   ├── __init__.py
+│   │   ├── test_genesis_4r0a_repository_skeleton.py
+│   │   ├── test_genesis_4r1_cognitive_object_model.py
+│   │   ├── test_genesis_4r2_observation_analysis.py
+│   │   ├── test_genesis_4r2_observation_director.py
+│   │   ├── test_genesis_4r2_observation_models.py
+│   │   └── test_genesis_4r2_observation_registry.py
+│   ├── fixtures
+│   │   ├── __init__.py
+│   │   ├── README.md
+│   │   └── reasoning.py
+│   ├── __init__.py
+│   ├── test_convergence_c1_executive_conversation.py
+│   ├── test_convergence_c1_http_contract.py
+│   ├── test_convergence_c2a_certification_repair.py
+│   ├── test_convergence_c2_director_activation.py
+│   ├── test_convergence_c2_http_contract.py
+│   ├── test_convergence_c3_capability_routing.py
+│   ├── test_convergence_c4a_knowledge_compatibility.py
+│   ├── test_convergence_c4_knowledge_grounding.py
+│   ├── test_gen2_capability_routing.py
+│   ├── test_gen2_executive.py
+│   ├── test_genesis_2a1_reasoning_session_contract.py
+│   ├── test_genesis_2a2_reasoning_session_lifecycle.py
+│   ├── test_genesis_2a3b_manifest_evolution.py
+│   ├── test_genesis_2a3_reasoning_context.py
+│   ├── test_genesis_2a4_evidence_contracts.py
+│   ├── test_genesis_3a1_cognitive_workspace.py
+│   ├── test_genesis_3a2_persistent_workspace_repository.py
+│   ├── test_genesis_3a3_workspace_catalog_search.py
+│   ├── test_genesis_4a3_claim_construction.py
+│   ├── test_genesis_4r3a_pack1_evidence_foundation.py
+│   ├── test_genesis_4r3a_pack2a_contracts.py
+│   ├── test_genesis_5a1_architecture_foundation.py
+│   ├── test_genesis_5e0_engineering_os_foundation.py
+│   ├── test_genesis_5e1a_repository_reality_modeling.py
+│   ├── test_genesis_5e1c_static_public_surface.py
+│   ├── test_genesis_5e1_public_api_compatibility.py
+│   ├── test_genesis_ui_a2_executive_projection_framework.py
+│   ├── test_genesis_ui_a3_capability_discovery_registration.py
+│   ├── test_genesis_ui_a41_knowledge_inventory_projection.py
+│   ├── test_genesis_vi_a1_executive_telemetry.py
+│   ├── test_genesis_vi_a1_step1_foundation.py
+│   ├── test_genesis_vi_a2_executive_mission_control.py
+│   ├── test_genesis_vi_a2_working_memory.py
+│   ├── test_genesis_vi_a3a_certification_repair.py
+│   ├── test_genesis_vi_a3b_compatibility_finalization.py
+│   ├── test_genesis_vi_a3_cognitive_state_machine.py
+│   ├── test_genesis_vi_a3_executive_projection_bus.py
+│   ├── test_genesis_vi_a4_cognition_cycle_controller.py
+│   ├── test_genesis_vi_a5_executive_session.py
+│   ├── test_genesis_vi_a61_persistence_contracts.py
+│   ├── test_genesis_vi_a62_canonical_serializer.py
+│   ├── test_genesis_vi_a63_checkpoint_store.py
+│   ├── test_genesis_vi_a64_integrity_engine.py
+│   ├── test_genesis_vi_a65_recovery_engine.py
+│   ├── test_genesis_vi_a66_executive_lifecycle.py
+│   ├── test_genesis_vi_a67_executive_timeline.py
+│   ├── test_genesis_vi_a68_part_a_timeline_repository.py
+│   ├── test_genesis_vi_a68_part_b.py
+│   ├── test_mc1001_operations.py
+│   ├── test_mc1002_commanders_bridge.py
+│   ├── test_phase_7b1_source_admission.py
+│   ├── test_phase_7b2_source_registry.py
+│   ├── test_phase_9c2_planning_data_model.py
+│   ├── test_phase_xb_hypothesis_knowledge.py
+│   ├── test_phase_xc1_cognitive_representation.py
+│   ├── test_phase_xc2_semantic_articulation.py
+│   ├── test_phase_x_reasoning_foundation.py
+│   ├── test_reasoning_context_fixtures.py
+│   └── test_reasoning_fixtures.py
+└── TREE.txt
+
+171 directories, 1122 files

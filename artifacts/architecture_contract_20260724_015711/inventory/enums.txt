@@ -1,0 +1,181 @@
+core/cognition/workspace/enums.py:1:"""Enumerations for the cognitive workspace."""
+core/cognition/workspace/enums.py:5:from enum import StrEnum
+core/cognition/workspace/enums.py:8:class WorkspaceStatus(StrEnum):
+core/cognition/workspace/enums.py:17:class HypothesisStatus(StrEnum):
+core/cognition/workspace/enums.py:28:class WorkspaceEventKind(StrEnum):
+core/cognition/workspace/catalog.py:7:from enum import StrEnum
+core/cognition/workspace/catalog.py:18:class WorkspaceSortField(StrEnum):
+core/cognition/workspace/catalog.py:28:class SortDirection(StrEnum):
+core/cognition/enums.py:1:"""Enumerations for the Genesis VI-A1 executive cognition foundation."""
+core/cognition/enums.py:5:from enum import Enum
+core/cognition/enums.py:8:class CognitiveState(str, Enum):
+core/cognition/enums.py:27:class CognitiveCycleStatus(str, Enum):
+core/cognition/enums.py:37:class MemoryEntryKind(str, Enum):
+core/cognition/enums.py:54:class AttentionReason(str, Enum):
+core/cognition/enums.py:68:class CognitiveEventKind(str, Enum):
+core/cognition/confidence.py:11:from enum import Enum
+core/cognition/confidence.py:22:class SourceReliability(str, Enum):
+core/cognition/confidence.py:32:class ExtractionQuality(str, Enum):
+core/cognition/extraction.py:12:from enum import Enum
+core/cognition/extraction.py:117:class ExtractionPattern(str, Enum):
+core/cognition/provenance.py:10:from enum import Enum
+core/cognition/provenance.py:22:class ProvenanceKind(str, Enum):
+core/cognition/provenance.py:34:class AcquisitionMethod(str, Enum):
+core/cognition/evidence.py:11:from enum import Enum
+core/cognition/evidence.py:29:class EvidenceKind(str, Enum):
+core/cognition/evidence.py:40:class EvidenceDirection(str, Enum):
+core/cognition/evidence.py:48:class EvidenceQuality(str, Enum):
+core/cognition/evidence_chain.py:7:from enum import Enum
+core/cognition/evidence_chain.py:18:class EvidenceChainStatus(str, Enum):
+core/cognition/claim.py:15:from enum import Enum
+core/cognition/claim.py:37:class ClaimKind(str, Enum):
+core/cognition/claim.py:50:class ClaimPolarity(str, Enum):
+core/cognition/claim.py:57:class ClaimStatus(str, Enum):
+core/cognition/claim.py:67:class ClaimScope(str, Enum):
+core/cognition/layers/observation/enums.py:3:from enum import Enum
+core/cognition/layers/observation/enums.py:6:class ObservationLifecycleState(str, Enum):
+core/cognition/layers/observation/enums.py:15:class ObservationSourceMode(str, Enum):
+core/cognition/layers/observation/enums.py:24:class ObservationRelationType(str, Enum):
+core/cognition/common/serialization.py:9:from enum import Enum
+core/cognition/common/serialization.py:46:    if isinstance(value, Enum):
+core/cognition/common/object_model.py:5:from enum import Enum
+core/cognition/common/object_model.py:15:class CognitiveLifecycleState(str, Enum):
+core/cognition/common/object_model.py:18:class CognitiveObjectKind(str, Enum):
+core/cognition/common/object_model.py:33:    if isinstance(value, Enum): return value.value
+core/cognition/session.py:7:from enum import Enum
+core/cognition/session.py:17:class ExecutiveSessionStatus(str, Enum):
+core/capabilities/metadata.py:6:from enum import Enum
+core/capabilities/metadata.py:10:class CapabilityBindingState(str, Enum):
+core/executive/models.py:7:from enum import Enum
+core/executive/models.py:16:class MissionStatus(str, Enum):
+core/executive/models.py:26:class TaskStatus(str, Enum):
+core/executive/persistence/contracts.py:11:from enum import Enum
+core/executive/persistence/contracts.py:42:class PersistenceRecordKind(str, Enum):
+core/executive/persistence/contracts.py:51:class PersistenceIntegrityStatus(str, Enum):
+core/executive/persistence/contracts.py:59:class CheckpointReason(str, Enum):
+core/executive/persistence/canonical.py:7:from enum import Enum
+core/executive/persistence/canonical.py:80:    if isinstance(value, Enum):
+core/executive/persistence/checkpoint.py:7:from enum import Enum
+core/executive/persistence/checkpoint.py:39:class CheckpointStatus(str, Enum):
+core/executive/persistence/reports.py:3:from enum import Enum
+core/executive/persistence/reports.py:8:class IntegritySeverity(str, Enum):
+core/executive/persistence/reports.py:10:class IntegrityCode(str, Enum):
+core/executive/persistence/reports.py:12:class IntegrityDisposition(str, Enum):
+core/executive/persistence/recovery.py:6:from enum import Enum
+core/executive/persistence/recovery.py:42:class RecoveryPolicyKind(str, Enum):
+core/executive/persistence/recovery.py:50:class RecoveryStatus(str, Enum):
+core/executive/capabilities.py:6:from enum import Enum
+core/executive/capabilities.py:10:class DirectorReadiness(str, Enum):
+core/executive/planning/enums.py:5:from enum import StrEnum
+core/executive/planning/enums.py:8:class PlanState(StrEnum):
+core/executive/planning/enums.py:29:class MissionPriority(StrEnum):
+core/executive/planning/enums.py:39:class AuthorizationMode(StrEnum):
+core/executive/planning/enums.py:51:class RiskLevel(StrEnum):
+core/executive/planning/enums.py:61:class RiskStatus(StrEnum):
+core/executive/planning/enums.py:73:class ConstraintKind(StrEnum):
+core/executive/planning/enums.py:92:class DependencyType(StrEnum):
+core/executive/planning/enums.py:104:class ResourceKind(StrEnum):
+core/executive/planning/enums.py:121:class PlanElementKind(StrEnum):
+core/executive/lifecycle/contracts.py:7:from enum import Enum
+core/executive/lifecycle/contracts.py:47:class ExecutiveLifecycleState(str, Enum):
+core/executive/lifecycle/contracts.py:59:class ExecutiveSessionStatus(str, Enum):
+core/executive/lifecycle/contracts.py:69:class LifecycleEventKind(str, Enum):
+core/executive/timeline/contracts.py:6:from enum import Enum
+core/executive/timeline/contracts.py:28:class TimelineSubsystem(str, Enum):
+core/executive/timeline/contracts.py:42:class TimelineEventKind(str, Enum):
+core/executive/timeline/repository_contracts.py:5:from enum import Enum
+core/executive/timeline/repository_contracts.py:42:class RepositoryIntegrityStatus(str, Enum):
+core/executive/timeline/query_engine.py:6:from enum import Enum
+core/executive/timeline/query_engine.py:65:    return value.value if isinstance(value, Enum) else value
+core/reasoning/enums.py:1:"""Enumerations for the JARVIS Reasoning Engine foundation."""
+core/reasoning/enums.py:5:from enum import StrEnum
+core/reasoning/enums.py:8:class EvidenceKind(StrEnum):
+core/reasoning/enums.py:19:class EvidenceStance(StrEnum):
+core/reasoning/enums.py:27:class HypothesisDisposition(StrEnum):
+core/reasoning/enums.py:36:class ReasoningStatus(StrEnum):
+core/reasoning/models.py:8:from enum import Enum
+core/reasoning/models.py:32:    if isinstance(value, Enum):
+core/reasoning/session/contracts.py:12:from enum import Enum
+core/reasoning/session/contracts.py:17:class ReasoningSessionState(str, Enum):
+core/reasoning/evidence/enums.py:5:from enum import Enum
+core/reasoning/evidence/enums.py:8:class StableStringEnum(str, Enum):
+core/reasoning/evidence/enums.py:15:class EvidenceSourceType(StableStringEnum):
+core/reasoning/evidence/enums.py:32:class EvidenceModality(StableStringEnum):
+core/reasoning/evidence/enums.py:47:class EvidenceStatus(StableStringEnum):
+core/reasoning/evidence/enums.py:58:class EvidenceRelationshipType(StableStringEnum):
+core/reasoning/evidence/enums.py:76:class UncertaintyKind(StableStringEnum):
+core/reasoning/evidence/enums.py:87:class AssessmentMethod(StableStringEnum):
+core/reasoning/evidence/enums.py:100:class ClassificationLevel(StableStringEnum):
+core/reasoning/evidence/serialization.py:9:from enum import Enum
+core/reasoning/evidence/serialization.py:61:    if isinstance(value, Enum):
+core/representation/contracts.py:10:from enum import Enum
+core/representation/contracts.py:35:class ArtifactKind(str, Enum):
+core/representation/contracts.py:46:class SegmentKind(str, Enum):
+core/representation/contracts.py:186:class PropositionTruth(str, Enum):
+core/representation/contracts.py:195:class ClaimStrength(str, Enum):
+core/representation/articulation.py:9:from enum import Enum
+core/representation/articulation.py:14:class ArticulationKind(str, Enum):
+core/representation/articulation.py:420:    if isinstance(raw, Enum):
+core/evidence/enums.py:12:from enum import Enum
+core/evidence/enums.py:15:class StableStringEnum(str, Enum):
+core/evidence/enums.py:22:class EvidenceDirection(StableStringEnum):
+core/evidence/enums.py:32:class EvidenceStatus(StableStringEnum):
+core/evidence/enums.py:47:class AdmissibilityStatus(StableStringEnum):
+core/evidence/enums.py:56:class AdmissibilityReason(StableStringEnum):
+core/evidence/enums.py:76:class EvidenceRelationshipType(StableStringEnum):
+core/evidence/enums.py:89:class EvidenceDirectness(StableStringEnum):
+core/evidence/enums.py:99:class SourceReliabilityClass(StableStringEnum):
+core/evidence/enums.py:115:class EvidenceGapType(StableStringEnum):
+core/evidence/enums.py:132:class EvidenceSufficiencyStatus(StableStringEnum):
+core/evidence/enums.py:142:class PropositionStatus(StableStringEnum):
+core/evidence/enums.py:153:class PropositionModality(StableStringEnum):
+core/evidence/enums.py:163:class AssessmentMethod(StableStringEnum):
+core/evidence/enums.py:173:class IntegrityStatus(StableStringEnum):
+core/evidence/enums.py:197:    "StableStringEnum",
+core/evidence/__init__.py:30:    StableStringEnum,
+core/evidence/__init__.py:93:    "StableStringEnum",
+core/evidence/contracts.py:15:from enum import Enum
+core/evidence/contracts.py:149:    if isinstance(value, Enum):
+core/architecture/enums.py:5:from enum import Enum
+core/architecture/enums.py:8:class StableStringEnum(str, Enum):
+core/architecture/enums.py:15:class FindingSeverity(StableStringEnum):
+core/architecture/enums.py:22:class FindingCategory(StableStringEnum):
+core/architecture/enums.py:34:class OwnershipStatus(StableStringEnum):
+core/architecture/enums.py:42:class CompatibilityStatus(StableStringEnum):
+core/architecture/enums.py:52:class MigrationStatus(StableStringEnum):
+core/architecture/enums.py:61:class CertificationStatus(StableStringEnum):
+core/architecture/enums.py:68:class SymbolKind(StableStringEnum):
+core/architecture/enums.py:77:class DependencyKind(StableStringEnum):
+core/architecture/enums.py:93:    "StableStringEnum",
+core/architecture/fingerprints.py:9:from enum import Enum
+core/architecture/fingerprints.py:25:    if isinstance(value, Enum):
+core/architecture/__init__.py:25:    StableStringEnum,
+core/architecture/__init__.py:74:    "StableStringEnum",
+core/engineering/enums.py:2:from enum import Enum
+core/engineering/enums.py:4:class StableStringEnum(str, Enum):
+core/engineering/enums.py:8:class ChangeKind(StableStringEnum):
+core/engineering/enums.py:16:class ChangeRisk(StableStringEnum):
+core/engineering/enums.py:22:class DecisionStatus(StableStringEnum):
+core/engineering/enums.py:28:class EvidenceStatus(StableStringEnum):
+core/engineering/enums.py:34:class GateStatus(StableStringEnum):
+core/engineering/enums.py:40:class VerificationKind(StableStringEnum):
+core/engineering/enums.py:52:    "GateStatus", "StableStringEnum", "VerificationKind",
+core/engineering/__init__.py:38:    StableStringEnum,
+core/engineering/__init__.py:103:    "StableStringEnum",
+core/operations/enums.py:1:"""Enumerations for the JARVIS Operations interface."""
+core/operations/enums.py:5:from enum import Enum
+core/operations/enums.py:8:class OperationalState(str, Enum):
+core/operations/enums.py:19:class ExecutiveState(str, Enum):
+core/operations/enums.py:50:class HealthState(str, Enum):
+core/operations/enums.py:62:class MissionState(str, Enum):
+core/operations/enums.py:78:class ObjectiveState(str, Enum):
+core/operations/enums.py:92:class ActivityState(str, Enum):
+core/operations/enums.py:106:class AlertSeverity(str, Enum):
+core/operations/enums.py:118:class EventKind(str, Enum):
+core/operations/models.py:7:from enum import Enum
+core/operations/models.py:30:    if isinstance(value, Enum):
+core/integration/contracts.py:5:from enum import Enum
+core/integration/contracts.py:14:class ProjectionStatus(str, Enum):
+core/integration/readiness.py:5:from enum import Enum
+core/integration/readiness.py:14:class ReadinessLevel(str, Enum):
+core/integration/readiness.py:19:class ReadinessColor(str, Enum):

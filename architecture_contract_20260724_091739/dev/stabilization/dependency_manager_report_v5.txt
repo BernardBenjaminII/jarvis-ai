@@ -1,0 +1,26 @@
+================================================================================
+JARVIS DEPENDENCY MANAGER
+================================================================================
+
+PIL                           pillow                             REQ INSTALLED
+bs4                           beautifulsoup4                     REQ INSTALLED
+ebooklib                      EbookLib                           REQ INSTALLED
+faiss                         faiss-cpu                          REQ INSTALLED
+fastapi                       fastapi                            REQ INSTALLED
+fitz                          PyMuPDF                            REQ INSTALLED
+google_auth_oauthlib          google-auth-oauthlib               REQ INSTALLED
+googleapiclient               google-api-python-client           REQ INSTALLED
+numpy                         numpy                              REQ INSTALLED
+openai                        openai                             REQ INSTALLED
+psutil                        psutil                             REQ INSTALLED
+pydantic                      pydantic                           REQ INSTALLED
+pypdf                         pypdf                              REQ INSTALLED
+requests                      requests                           REQ INSTALLED
+sentence_transformers         sentence-transformers              REQ INSTALLED
+uvicorn                       uvicorn                            REQ INSTALLED
+yaml                          PyYAML                             REQ INSTALLED
+
+================================================================================
+Missing requirements:
+
+Missing packages:

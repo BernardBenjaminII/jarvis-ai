@@ -1,0 +1,223 @@
+============================================================
+JARVIS GMAIL CLEANUP STRATEGY
+============================================================
+
+GOAL:
+Safely reduce inbox clutter WITHOUT deleting important data.
+
+CURRENT STATE:
+- 8,519 emails
+- ~12 GB used
+- Gmail API connected
+- Local classification engine operational
+- JARVIS Gmail modules active
+
+============================================================
+CORE RULES
+============================================================
+
+RULE 1:
+NEVER mass-delete immediately.
+
+RULE 2:
+Archive first.
+Delete later.
+
+RULE 3:
+Security, finance, work, education, military,
+immigration, legal, and tax emails are protected.
+
+RULE 4:
+JARVIS recommends actions.
+Human approves actions.
+
+RULE 5:
+Always maintain recoverable backups before
+large cleanup operations.
+
+============================================================
+CLEANUP PHASES
+============================================================
+
+PHASE 1 — ANALYZE
+STATUS: COMPLETE
+
+Tasks:
+[X] Gmail API authentication
+[X] Email classification
+[X] Sender analysis
+[X] Category analysis
+[X] Priority analysis
+[X] Risk analysis
+
+============================================================
+
+PHASE 2 — SAFE LABELING
+
+Goal:
+Apply labels WITHOUT moving or deleting mail.
+
+Suggested labels:
+- JARVIS/Promotions
+- JARVIS/Finance
+- JARVIS/Security
+- JARVIS/Tech
+- JARVIS/Housing
+- JARVIS/Review
+
+Priority:
+HIGH
+
+============================================================
+
+PHASE 3 — SAFE ARCHIVING
+
+Goal:
+Remove clutter from inbox WITHOUT deleting data.
+
+SAFE ARCHIVE TARGETS:
+- Promotions
+- Newsletters
+- Social notifications
+- Coupons
+- Marketing blasts
+
+Archive Conditions:
+- Older than 90 days
+- Low priority
+- Not starred
+- Not unread important mail
+
+DO NOT ARCHIVE:
+- Security
+- Finance
+- Work
+- School
+- Immigration
+- Military
+- Tax/legal
+- Banking
+
+============================================================
+
+PHASE 4 — STORAGE ANALYSIS
+
+Goal:
+Recover storage safely.
+
+Searches:
+larger:10M
+has:attachment older_than:2y
+category:promotions larger:5M
+
+Targets:
+- Old attachments
+- Duplicate PDFs
+- Marketing images/videos
+
+============================================================
+
+PHASE 5 — RECOMMENDATION ENGINE
+
+JARVIS SHOULD SUGGEST:
+- Archive candidates
+- Bulk senders
+- Dormant newsletters
+- Large storage offenders
+- Duplicate-style notifications
+
+NO AUTO-DELETION.
+
+============================================================
+
+PHASE 6 — OPTIONAL AUTO-ARCHIVE
+
+Possible future automation:
+- Archive promotions after 30 days
+- Archive newsletters after reading
+- Label receipts automatically
+- Flag security emails
+
+Requires:
+- Human approval mode
+- Dry-run testing
+
+============================================================
+HIGH VALUE EMAIL CATEGORIES
+============================================================
+
+PROTECTED CATEGORIES:
+- Work
+- EDUCATION
+- Robinhood
+- OpenAI security
+- Sara Immigration
+- GOV/Military
+- Financial institutions
+- Tax records
+- Housing/legal
+
+============================================================
+LOW VALUE EMAIL CATEGORIES
+============================================================
+
+SAFE REVIEW CANDIDATES:
+- Netflix notifications
+- XDA newsletters
+- Enterprise promotions
+- GOVX promotions
+- Shoe ads
+- Marketing funnels
+- Real estate spam
+- Political campaign blasts
+
+============================================================
+IMPORTANT GMAIL SEARCHES
+============================================================
+
+PROMOTIONS:
+category:promotions older_than:1y
+
+NEWSLETTERS:
+unsubscribe older_than:6m
+
+SOCIAL:
+category:social older_than:1y
+
+LARGE EMAILS:
+larger:10M
+
+OLD ATTACHMENTS:
+has:attachment older_than:2y
+
+UNREAD PROMOTIONS:
+category:promotions is:unread older_than:6m
+
+============================================================
+LONG TERM JARVIS FEATURES
+============================================================
+
+PLANNED FEATURES:
+- Daily inbox digest
+- Sender reputation scoring
+- Phishing detection
+- Attachment indexing
+- Local email memory database
+- Smart archive suggestions
+- Duplicate cleanup detection
+- Local AI summarization
+- Offline searchable email archive
+
+============================================================
+SAFETY PRINCIPLE
+============================================================
+
+ARCHIVE FIRST.
+DELETE LAST.
+
+If uncertain:
+KEEP THE EMAIL.
+
+============================================================
+END OF FILE
+============================================================

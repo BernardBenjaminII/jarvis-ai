@@ -1,0 +1,57 @@
+# 🔐 Virtual environments
+
+jarvis-venv/
+venv/
+
+# 🐍 Python
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+
+# 🔑 Secrets
+
+.env
+credentials.json
+token.pickle
+*.pem
+*.key
+
+# 📦 Runtime data
+
+logs/
+*.log
+
+# Memory databases
+
+memory/
+*.db
+*.sqlite
+*.sqlite3
+
+# Models
+
+models/
+*.gguf
+
+# OS junk
+
+.DS_Store
+Thumbs.db
+
+# Editors
+
+.vscode/
+.idea/
+
+# Temporary files
+
+*.tmp
+*.swp
+
+# Build artifacts
+
+dist/
+build/
+*.egg-info/

@@ -1,0 +1,481 @@
+{
+  "expectations": [
+    {
+      "expected_symbols": [
+        "ArchitectureFinding",
+        "ArchitectureSnapshot",
+        "ArchitectureValidationError",
+        "CertificationRecord",
+        "CertificationStatus",
+        "DependencyEdge",
+        "FindingCategory",
+        "FindingSeverity",
+        "MigrationPlan",
+        "MigrationStatus",
+        "MigrationStep",
+        "ModuleDefinition",
+        "OwnershipDeclaration",
+        "OwnershipStatus",
+        "PublicSymbol",
+        "SubsystemDefinition",
+        "SymbolKind",
+        "architecture_fingerprint",
+        "canonical_json",
+        "canonicalize",
+        "file_fingerprint"
+      ],
+      "package": "core.architecture",
+      "sources": [
+        "tests/test_genesis_5a1_architecture_foundation.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "AcquisitionMethod",
+        "Assumption",
+        "ClaimCandidate",
+        "ClaimConstructionEngine",
+        "ClaimKind",
+        "ClaimStatus",
+        "CognitiveWorkspaceCatalog",
+        "CognitiveWorkspaceCodec",
+        "CognitiveWorkspaceConflictError",
+        "CognitiveWorkspaceNotFoundError",
+        "CognitiveWorkspaceService",
+        "EvidenceChain",
+        "EvidenceChainStatus",
+        "EvidenceDirection",
+        "EvidenceKind",
+        "EvidenceQuality",
+        "EvidenceRecord",
+        "EvidenceReference",
+        "ExtractionSource",
+        "Hypothesis",
+        "ObservationEngine",
+        "OpenQuestion",
+        "ProvenanceKind",
+        "ProvenanceRecord",
+        "SQLiteCognitiveWorkspaceRepository",
+        "SortDirection",
+        "SourceReliability",
+        "WorkspaceQuery",
+        "WorkspaceSortField",
+        "WorkspaceStatus",
+        "canonical_json",
+        "validate_claim_record"
+      ],
+      "package": "core.cognition",
+      "sources": [
+        "tests/test_genesis_3a2_persistent_workspace_repository.py",
+        "tests/test_genesis_3a3_workspace_catalog_search.py",
+        "tests/test_genesis_4a3_claim_construction.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "CognitiveObject"
+      ],
+      "package": "core.cognition.common.cognitive_object",
+      "sources": [
+        "tests/cognition/test_genesis_4r1_cognitive_object_model.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "CognitiveLifecycleState",
+        "CognitiveObject",
+        "CognitiveObjectKind",
+        "InvalidConfidenceError",
+        "ProvenanceReference"
+      ],
+      "package": "core.cognition.common.object_model",
+      "sources": [
+        "tests/cognition/test_genesis_4r1_cognitive_object_model.py",
+        "tests/cognition/test_genesis_4r2_observation_analysis.py",
+        "tests/cognition/test_genesis_4r2_observation_director.py",
+        "tests/cognition/test_genesis_4r2_observation_models.py",
+        "tests/cognition/test_genesis_4r2_observation_registry.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "DuplicateObservationError",
+        "ObservationConflictDetector",
+        "ObservationDirector",
+        "ObservationDuplicateDetector",
+        "ObservationFactory",
+        "ObservationInput",
+        "ObservationLifecycleState",
+        "ObservationMergeEngine",
+        "ObservationQuery",
+        "ObservationRegistry",
+        "ObservationSourceMode",
+        "ObservationValidationError"
+      ],
+      "package": "core.cognition.layers.observation",
+      "sources": [
+        "tests/cognition/test_genesis_4r2_observation_analysis.py",
+        "tests/cognition/test_genesis_4r2_observation_director.py",
+        "tests/cognition/test_genesis_4r2_observation_models.py",
+        "tests/cognition/test_genesis_4r2_observation_registry.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "Assumption",
+        "CognitiveWorkspaceError",
+        "CognitiveWorkspaceService",
+        "EvidenceReference",
+        "Hypothesis",
+        "HypothesisStatus",
+        "OpenQuestion",
+        "WorkspaceStatus"
+      ],
+      "package": "core.cognition.workspace",
+      "sources": [
+        "tests/test_genesis_3a1_cognitive_workspace.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "APIExpectation",
+        "ChangeKind",
+        "ChangeProposal",
+        "ChangeRisk",
+        "DecisionStatus",
+        "ENGINEERING_CONSTITUTION",
+        "EngineeringAssessment",
+        "EngineeringGate",
+        "EngineeringValidationError",
+        "EvidenceStatus",
+        "GateStatus",
+        "GovernanceDecision",
+        "InventoryTargetKind",
+        "PythonImportResolver",
+        "VerificationEvidence",
+        "VerificationKind",
+        "analyze_compatibility",
+        "build_restoration_plan",
+        "constitution_fingerprint",
+        "expectations_from_tests",
+        "inventory_package",
+        "inventory_target"
+      ],
+      "package": "core.engineering",
+      "sources": [
+        "tests/test_genesis_5e0_engineering_os_foundation.py",
+        "tests/test_genesis_5e1_public_api_compatibility.py",
+        "tests/test_genesis_5e1a_repository_reality_modeling.py",
+        "tests/test_genesis_5e1c_static_public_surface.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "evaluate_public_surface"
+      ],
+      "package": "core.engineering.public_surface",
+      "sources": [
+        "tests/test_genesis_5e1c_static_public_surface.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "AdmissibilityDecision",
+        "AdmissibilityReason",
+        "AdmissibilityStatus",
+        "AssessmentMethod",
+        "EvidenceAssessment",
+        "EvidenceDirection",
+        "EvidenceGap",
+        "EvidenceGapType",
+        "EvidenceRecord",
+        "EvidenceRelationship",
+        "EvidenceRelationshipType",
+        "EvidenceSet",
+        "EvidenceStatus",
+        "EvidenceSufficiencyStatus",
+        "IntegrityStatus",
+        "Proposition",
+        "PropositionModality",
+        "PropositionStatus",
+        "SourceReliabilityClass",
+        "WeightBreakdown"
+      ],
+      "package": "core.evidence",
+      "sources": [
+        "tests/test_genesis_4r3a_pack2a_contracts.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "AdmissibilityReason",
+        "AdmissibilityStatus",
+        "AssessmentMethod",
+        "EvidenceDirection",
+        "EvidenceDirectness",
+        "EvidenceGapType",
+        "EvidenceRelationshipType",
+        "EvidenceStatus",
+        "EvidenceSufficiencyStatus",
+        "IntegrityStatus",
+        "PropositionModality",
+        "PropositionStatus",
+        "SourceReliabilityClass",
+        "StableStringEnum"
+      ],
+      "package": "core.evidence.enums",
+      "sources": [
+        "tests/test_genesis_4r3a_pack1_evidence_foundation.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "EvidenceAdmissibilityError",
+        "EvidenceAggregationError",
+        "EvidenceConflictError",
+        "EvidenceConstructionError",
+        "EvidenceError",
+        "EvidenceFingerprintError",
+        "EvidenceIntegrityError",
+        "EvidenceNotFoundError",
+        "EvidencePolicyError",
+        "EvidenceRelationshipError",
+        "EvidenceSerializationError",
+        "EvidenceStateTransitionError",
+        "EvidenceValidationError",
+        "ObservationReferenceError",
+        "PropositionError",
+        "PropositionNotFoundError",
+        "PropositionValidationError",
+        "UnsupportedObservationError"
+      ],
+      "package": "core.evidence.errors",
+      "sources": [
+        "tests/test_genesis_4r3a_pack1_evidence_foundation.py",
+        "tests/test_genesis_4r3a_pack2a_contracts.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "DirectorReadiness"
+      ],
+      "package": "core.executive.capabilities",
+      "sources": [
+        "tests/test_gen2_capability_routing.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "InvalidMissionPlanError"
+      ],
+      "package": "core.executive.contracts",
+      "sources": [
+        "tests/test_gen2_executive.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "ExecutiveDirector"
+      ],
+      "package": "core.executive.director",
+      "sources": [
+        "tests/test_gen2_capability_routing.py",
+        "tests/test_gen2_executive.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "MissionEngine"
+      ],
+      "package": "core.executive.engine",
+      "sources": [
+        "tests/test_gen2_executive.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "Mission",
+        "MissionStatus",
+        "MissionTask",
+        "TaskExecutionResult",
+        "TaskStatus"
+      ],
+      "package": "core.executive.models",
+      "sources": [
+        "tests/test_gen2_capability_routing.py",
+        "tests/test_gen2_executive.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "Activity",
+        "AuthorizationMode",
+        "AuthorizationRequirement",
+        "Command",
+        "Dependency",
+        "DependencyCycleError",
+        "DependencyType",
+        "InMemoryPlanRepository",
+        "InvalidPlanTransitionError",
+        "Mission",
+        "MissionPriority",
+        "Objective",
+        "PlanState",
+        "PlanningService",
+        "Task",
+        "build_dependency_graph"
+      ],
+      "package": "core.executive.planning",
+      "sources": [
+        "tests/test_phase_9c2_planning_data_model.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "DirectorRegistry"
+      ],
+      "package": "core.executive.registry",
+      "sources": [
+        "tests/test_gen2_capability_routing.py",
+        "tests/test_gen2_executive.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "MissionStore"
+      ],
+      "package": "core.executive.store",
+      "sources": [
+        "tests/test_gen2_executive.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "DeterministicHypothesisGenerator",
+        "DuplicateReasoningElementError",
+        "EvidenceItem",
+        "EvidenceKind",
+        "EvidenceStance",
+        "Hypothesis",
+        "HypothesisDisposition",
+        "KnowledgeEvidenceAdapter",
+        "KnowledgeReasoningPipeline",
+        "ReasoningEngine",
+        "ReasoningRequest",
+        "ReasoningStatus",
+        "UnknownEvidenceReferenceError"
+      ],
+      "package": "core.reasoning",
+      "sources": [
+        "tests/test_phase_x_reasoning_foundation.py",
+        "tests/test_phase_xb_hypothesis_knowledge.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "DecisionCriterion",
+        "DuplicateReasoningContextKeyError",
+        "OpenReasoningQuestion",
+        "ReasoningAssumption",
+        "ReasoningConstraint",
+        "ReasoningContext",
+        "ReasoningContextAttribute",
+        "ReasoningContextId",
+        "ReasoningContextManager"
+      ],
+      "package": "core.reasoning.context",
+      "sources": [
+        "tests/fixtures/reasoning.py",
+        "tests/test_genesis_2a3_reasoning_context.py",
+        "tests/test_reasoning_context_fixtures.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "AssessmentMethod",
+        "BeliefMass",
+        "ClassificationLevel",
+        "EvidenceAssessment",
+        "EvidenceContent",
+        "EvidenceModality",
+        "EvidenceOrigin",
+        "EvidenceProvenance",
+        "EvidenceProvenanceStep",
+        "EvidenceRecord",
+        "EvidenceRelationship",
+        "EvidenceRelationshipError",
+        "EvidenceRelationshipType",
+        "EvidenceSourceType",
+        "EvidenceStatus",
+        "EvidenceStatusEvent",
+        "EvidenceTemporalError",
+        "EvidenceTemporalScope",
+        "EvidenceUncertainty",
+        "EvidenceUncertaintyError",
+        "EvidenceValidationError",
+        "UncertaintyKind",
+        "canonical_json"
+      ],
+      "package": "core.reasoning.evidence",
+      "sources": [
+        "tests/test_genesis_2a4_evidence_contracts.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "InvalidReasoningSessionTransitionError",
+        "ReasoningSession",
+        "ReasoningSessionId",
+        "ReasoningSessionLifecycle",
+        "ReasoningSessionMetadata",
+        "ReasoningSessionState",
+        "SessionAttribute",
+        "TERMINAL_STATES",
+        "TRANSITION_MAP",
+        "TerminalReasoningSessionError"
+      ],
+      "package": "core.reasoning.session",
+      "sources": [
+        "tests/fixtures/reasoning.py",
+        "tests/test_genesis_2a1_reasoning_session_contract.py",
+        "tests/test_genesis_2a2_reasoning_session_lifecycle.py",
+        "tests/test_reasoning_fixtures.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "ArtifactKind",
+        "SegmentKind",
+        "segment_text"
+      ],
+      "package": "core.representation",
+      "sources": [
+        "tests/test_phase_xc1_cognitive_representation.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "ArticulationKind",
+        "ArticulationPolicy",
+        "EmptyArticulationInputError",
+        "SemanticArticulator"
+      ],
+      "package": "core.representation.articulation",
+      "sources": [
+        "tests/test_phase_xc2_semantic_articulation.py"
+      ]
+    },
+    {
+      "expected_symbols": [
+        "ContextAssembler",
+        "ContextPolicy",
+        "EmptyContextError"
+      ],
+      "package": "core.representation.context",
+      "sources": [
+        "tests/test_phase_xc2_semantic_articulation.py"
+      ]
+    }
+  ],
+  "schema_version": 1
+}

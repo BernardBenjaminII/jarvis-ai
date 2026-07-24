@@ -1,0 +1,21 @@
+policy:
+
+  require_https: true
+  verify_ssl: true
+
+  preserve_original_url: true
+  preserve_original_filename: true
+  preserve_content_type: true
+  preserve_license: true
+  preserve_metadata: true
+  preserve_provenance: true
+
+  record_sha256: true
+  record_download_time: true
+
+  check_duplicates_before_download: true
+  check_duplicates_after_download: true
+
+  calculate_trust_score: true
+
+  send_to_receiving_pipeline: true

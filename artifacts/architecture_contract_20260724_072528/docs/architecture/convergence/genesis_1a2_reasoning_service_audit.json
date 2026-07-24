@@ -1,0 +1,2324 @@
+{
+  "architecture_findings": {
+    "canonical_service": "ReasoningEngine",
+    "deterministic_core_expected": true,
+    "direct_execution_allowed": false,
+    "direct_retrieval_allowed": false,
+    "evolution_policy": "Wrap the service with lifecycle and governance layers rather than absorbing those concerns into ReasoningEngine.",
+    "service_present": true
+  },
+  "audit_fingerprint": "9f9b6c9806918d5573f2fa9782a52b12c4d30f1aec703332f1832e4000f39624",
+  "audit_id": "GENESIS-I-A2",
+  "audit_version": "1.0.0",
+  "checks": [
+    {
+      "check_id": "I-A2-001",
+      "detail": "core/reasoning",
+      "passed": true,
+      "status": "PASS",
+      "title": "Canonical reasoning package exists"
+    },
+    {
+      "check_id": "I-A2-002",
+      "detail": "modules=26",
+      "passed": true,
+      "status": "PASS",
+      "title": "Reasoning modules discovered"
+    },
+    {
+      "check_id": "I-A2-003",
+      "detail": "count=1",
+      "passed": true,
+      "status": "PASS",
+      "title": "ReasoningEngine service exists"
+    },
+    {
+      "check_id": "I-A2-004",
+      "detail": "reason",
+      "passed": true,
+      "status": "PASS",
+      "title": "ReasoningEngine exposes public execution behavior"
+    },
+    {
+      "check_id": "I-A2-005",
+      "detail": "no async methods",
+      "passed": true,
+      "status": "PASS",
+      "title": "ReasoningEngine core is synchronous"
+    },
+    {
+      "check_id": "I-A2-006",
+      "detail": "none",
+      "passed": true,
+      "status": "PASS",
+      "title": "No direct network or process imports"
+    },
+    {
+      "check_id": "I-A2-007",
+      "detail": "unique",
+      "passed": true,
+      "status": "PASS",
+      "title": "Public reasoning class names are unique"
+    }
+  ],
+  "classes": [
+    {
+      "line": 30,
+      "module": "core.reasoning.context.context",
+      "name": "ReasoningContextManager",
+      "path": "core/reasoning/context/context.py"
+    },
+    {
+      "line": 19,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningContextId",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 68,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningConstraint",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 100,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningAssumption",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 132,
+      "module": "core.reasoning.context.contracts",
+      "name": "DecisionCriterion",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 157,
+      "module": "core.reasoning.context.contracts",
+      "name": "OpenReasoningQuestion",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 189,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningContextAttribute",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 212,
+      "module": "core.reasoning.context.contracts",
+      "name": "ReasoningContext",
+      "path": "core/reasoning/context/contracts.py"
+    },
+    {
+      "line": 6,
+      "module": "core.reasoning.context.errors",
+      "name": "ReasoningContextError",
+      "path": "core/reasoning/context/errors.py"
+    },
+    {
+      "line": 10,
+      "module": "core.reasoning.context.errors",
+      "name": "ReasoningContextContractError",
+      "path": "core/reasoning/context/errors.py"
+    },
+    {
+      "line": 14,
+      "module": "core.reasoning.context.errors",
+      "name": "DuplicateReasoningContextKeyError",
+      "path": "core/reasoning/context/errors.py"
+    },
+    {
+      "line": 14,
+      "module": "core.reasoning.context.validators",
+      "name": "KeyedContract",
+      "path": "core/reasoning/context/validators.py"
+    },
+    {
+      "line": 8,
+      "module": "core.reasoning.enums",
+      "name": "EvidenceKind",
+      "path": "core/reasoning/enums.py"
+    },
+    {
+      "line": 19,
+      "module": "core.reasoning.enums",
+      "name": "EvidenceStance",
+      "path": "core/reasoning/enums.py"
+    },
+    {
+      "line": 27,
+      "module": "core.reasoning.enums",
+      "name": "HypothesisDisposition",
+      "path": "core/reasoning/enums.py"
+    },
+    {
+      "line": 36,
+      "module": "core.reasoning.enums",
+      "name": "ReasoningStatus",
+      "path": "core/reasoning/enums.py"
+    },
+    {
+      "line": 6,
+      "module": "core.reasoning.errors",
+      "name": "ReasoningError",
+      "path": "core/reasoning/errors.py"
+    },
+    {
+      "line": 10,
+      "module": "core.reasoning.errors",
+      "name": "InvalidReasoningRequestError",
+      "path": "core/reasoning/errors.py"
+    },
+    {
+      "line": 14,
+      "module": "core.reasoning.errors",
+      "name": "UnknownEvidenceReferenceError",
+      "path": "core/reasoning/errors.py"
+    },
+    {
+      "line": 18,
+      "module": "core.reasoning.errors",
+      "name": "DuplicateReasoningElementError",
+      "path": "core/reasoning/errors.py"
+    },
+    {
+      "line": 80,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceContent",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 124,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceOrigin",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 193,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceProvenanceStep",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 256,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceProvenance",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 288,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceTemporalScope",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 334,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "BeliefMass",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 369,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceUncertainty",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 589,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceRelationship",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 691,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceRecord",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 860,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceAssessment",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 1027,
+      "module": "core.reasoning.evidence.contracts",
+      "name": "EvidenceStatusEvent",
+      "path": "core/reasoning/evidence/contracts.py"
+    },
+    {
+      "line": 8,
+      "module": "core.reasoning.evidence.enums",
+      "name": "StableStringEnum",
+      "path": "core/reasoning/evidence/enums.py"
+    },
+    {
+      "line": 15,
+      "module": "core.reasoning.evidence.enums",
+      "name": "EvidenceSourceType",
+      "path": "core/reasoning/evidence/enums.py"
+    },
+    {
+      "line": 32,
+      "module": "core.reasoning.evidence.enums",
+      "name": "EvidenceModality",
+      "path": "core/reasoning/evidence/enums.py"
+    },
+    {
+      "line": 47,
+      "module": "core.reasoning.evidence.enums",
+      "name": "EvidenceStatus",
+      "path": "core/reasoning/evidence/enums.py"
+    },
+    {
+      "line": 58,
+      "module": "core.reasoning.evidence.enums",
+      "name": "EvidenceRelationshipType",
+      "path": "core/reasoning/evidence/enums.py"
+    },
+    {
+      "line": 76,
+      "module": "core.reasoning.evidence.enums",
+      "name": "UncertaintyKind",
+      "path": "core/reasoning/evidence/enums.py"
+    },
+    {
+      "line": 87,
+      "module": "core.reasoning.evidence.enums",
+      "name": "AssessmentMethod",
+      "path": "core/reasoning/evidence/enums.py"
+    },
+    {
+      "line": 100,
+      "module": "core.reasoning.evidence.enums",
+      "name": "ClassificationLevel",
+      "path": "core/reasoning/evidence/enums.py"
+    },
+    {
+      "line": 6,
+      "module": "core.reasoning.evidence.errors",
+      "name": "EvidenceError",
+      "path": "core/reasoning/evidence/errors.py"
+    },
+    {
+      "line": 10,
+      "module": "core.reasoning.evidence.errors",
+      "name": "EvidenceValidationError",
+      "path": "core/reasoning/evidence/errors.py"
+    },
+    {
+      "line": 14,
+      "module": "core.reasoning.evidence.errors",
+      "name": "EvidenceIdentityError",
+      "path": "core/reasoning/evidence/errors.py"
+    },
+    {
+      "line": 18,
+      "module": "core.reasoning.evidence.errors",
+      "name": "EvidenceSerializationError",
+      "path": "core/reasoning/evidence/errors.py"
+    },
+    {
+      "line": 22,
+      "module": "core.reasoning.evidence.errors",
+      "name": "EvidenceUncertaintyError",
+      "path": "core/reasoning/evidence/errors.py"
+    },
+    {
+      "line": 26,
+      "module": "core.reasoning.evidence.errors",
+      "name": "EvidenceTemporalError",
+      "path": "core/reasoning/evidence/errors.py"
+    },
+    {
+      "line": 30,
+      "module": "core.reasoning.evidence.errors",
+      "name": "EvidenceRelationshipError",
+      "path": "core/reasoning/evidence/errors.py"
+    },
+    {
+      "line": 18,
+      "module": "core.reasoning.evidence.identifiers",
+      "name": "CanonicalEvidenceIdentifier",
+      "path": "core/reasoning/evidence/identifiers.py"
+    },
+    {
+      "line": 73,
+      "module": "core.reasoning.evidence.identifiers",
+      "name": "EvidenceContentId",
+      "path": "core/reasoning/evidence/identifiers.py"
+    },
+    {
+      "line": 80,
+      "module": "core.reasoning.evidence.identifiers",
+      "name": "EvidenceId",
+      "path": "core/reasoning/evidence/identifiers.py"
+    },
+    {
+      "line": 87,
+      "module": "core.reasoning.evidence.identifiers",
+      "name": "EvidenceAssessmentId",
+      "path": "core/reasoning/evidence/identifiers.py"
+    },
+    {
+      "line": 94,
+      "module": "core.reasoning.evidence.identifiers",
+      "name": "EvidenceStatusEventId",
+      "path": "core/reasoning/evidence/identifiers.py"
+    },
+    {
+      "line": 101,
+      "module": "core.reasoning.evidence.identifiers",
+      "name": "EvidenceRelationshipId",
+      "path": "core/reasoning/evidence/identifiers.py"
+    },
+    {
+      "line": 11,
+      "module": "core.reasoning.generation",
+      "name": "HypothesisGenerationResult",
+      "path": "core/reasoning/generation.py"
+    },
+    {
+      "line": 23,
+      "module": "core.reasoning.generation",
+      "name": "DeterministicHypothesisGenerator",
+      "path": "core/reasoning/generation.py"
+    },
+    {
+      "line": 13,
+      "module": "core.reasoning.knowledge",
+      "name": "KnowledgeEvidenceAdapterError",
+      "path": "core/reasoning/knowledge.py"
+    },
+    {
+      "line": 18,
+      "module": "core.reasoning.knowledge",
+      "name": "AdaptedEvidenceBatch",
+      "path": "core/reasoning/knowledge.py"
+    },
+    {
+      "line": 78,
+      "module": "core.reasoning.knowledge",
+      "name": "KnowledgeEvidenceAdapter",
+      "path": "core/reasoning/knowledge.py"
+    },
+    {
+      "line": 66,
+      "module": "core.reasoning.models",
+      "name": "EvidenceItem",
+      "path": "core/reasoning/models.py"
+    },
+    {
+      "line": 104,
+      "module": "core.reasoning.models",
+      "name": "Hypothesis",
+      "path": "core/reasoning/models.py"
+    },
+    {
+      "line": 143,
+      "module": "core.reasoning.models",
+      "name": "ReasoningRequest",
+      "path": "core/reasoning/models.py"
+    },
+    {
+      "line": 175,
+      "module": "core.reasoning.models",
+      "name": "HypothesisAssessment",
+      "path": "core/reasoning/models.py"
+    },
+    {
+      "line": 207,
+      "module": "core.reasoning.models",
+      "name": "ReasoningTraceStep",
+      "path": "core/reasoning/models.py"
+    },
+    {
+      "line": 227,
+      "module": "core.reasoning.models",
+      "name": "PlanningRecommendation",
+      "path": "core/reasoning/models.py"
+    },
+    {
+      "line": 249,
+      "module": "core.reasoning.models",
+      "name": "ReasoningResult",
+      "path": "core/reasoning/models.py"
+    },
+    {
+      "line": 20,
+      "module": "core.reasoning.pipeline",
+      "name": "KnowledgeReasoningOutcome",
+      "path": "core/reasoning/pipeline.py"
+    },
+    {
+      "line": 33,
+      "module": "core.reasoning.pipeline",
+      "name": "KnowledgeReasoningPipeline",
+      "path": "core/reasoning/pipeline.py"
+    },
+    {
+      "line": 32,
+      "module": "core.reasoning.service",
+      "name": "ReasoningEngine",
+      "path": "core/reasoning/service.py"
+    },
+    {
+      "line": 17,
+      "module": "core.reasoning.session.contracts",
+      "name": "ReasoningSessionState",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 35,
+      "module": "core.reasoning.session.contracts",
+      "name": "SessionAttribute",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 53,
+      "module": "core.reasoning.session.contracts",
+      "name": "ReasoningSessionId",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 89,
+      "module": "core.reasoning.session.contracts",
+      "name": "ReasoningSessionMetadata",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 147,
+      "module": "core.reasoning.session.contracts",
+      "name": "ReasoningSession",
+      "path": "core/reasoning/session/contracts.py"
+    },
+    {
+      "line": 6,
+      "module": "core.reasoning.session.errors",
+      "name": "ReasoningSessionLifecycleError",
+      "path": "core/reasoning/session/errors.py"
+    },
+    {
+      "line": 10,
+      "module": "core.reasoning.session.errors",
+      "name": "InvalidReasoningSessionTransitionError",
+      "path": "core/reasoning/session/errors.py"
+    },
+    {
+      "line": 14,
+      "module": "core.reasoning.session.errors",
+      "name": "TerminalReasoningSessionError",
+      "path": "core/reasoning/session/errors.py"
+    },
+    {
+      "line": 20,
+      "module": "core.reasoning.session.errors",
+      "name": "ReasoningSessionContractError",
+      "path": "core/reasoning/session/errors.py"
+    },
+    {
+      "line": 76,
+      "module": "core.reasoning.session.lifecycle",
+      "name": "ReasoningSessionLifecycle",
+      "path": "core/reasoning/session/lifecycle.py"
+    }
+  ],
+  "modules": {
+    "core.reasoning.__init__": {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "core.reasoning.enums",
+        "core.reasoning.errors",
+        "core.reasoning.generation",
+        "core.reasoning.knowledge",
+        "core.reasoning.models",
+        "core.reasoning.pipeline",
+        "core.reasoning.service"
+      ],
+      "module": "core.reasoning.__init__",
+      "path": "core/reasoning/__init__.py",
+      "sha256": "69c1f551e66eefb0da968fb41b065b8f53737095f9f0d959053d6721380b43f6"
+    },
+    "core.reasoning.confidence": {
+      "classes": [],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 11,
+          "name": "rounded",
+          "return_annotation": "float"
+        },
+        {
+          "is_async": false,
+          "line": 17,
+          "name": "total_weight",
+          "return_annotation": "float"
+        },
+        {
+          "is_async": false,
+          "line": 23,
+          "name": "hypothesis_confidence",
+          "return_annotation": "float"
+        },
+        {
+          "is_async": false,
+          "line": 42,
+          "name": "classify_disposition",
+          "return_annotation": "HypothesisDisposition"
+        }
+      ],
+      "imports": [
+        "__future__",
+        "collections.abc",
+        "core.reasoning.enums",
+        "core.reasoning.models"
+      ],
+      "module": "core.reasoning.confidence",
+      "path": "core/reasoning/confidence.py",
+      "sha256": "ffd22d3e3ffed194a64673d95bc8bc94bb0bb5726f91d00a796e25186f15d534"
+    },
+    "core.reasoning.context.__init__": {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "core.reasoning.context.context",
+        "core.reasoning.context.contracts",
+        "core.reasoning.context.errors"
+      ],
+      "module": "core.reasoning.context.__init__",
+      "path": "core/reasoning/context/__init__.py",
+      "sha256": "44f43fa5c8de161d3930d7c860070c6694cd8868667bea20a93efba39099d192"
+    },
+    "core.reasoning.context.context": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 30,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 34,
+              "name": "replace_question",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 47,
+              "name": "add_constraint",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 60,
+              "name": "add_assumption",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 73,
+              "name": "add_decision_criterion",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 86,
+              "name": "add_open_question",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 99,
+              "name": "add_attribute",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 112,
+              "name": "_append_keyed",
+              "return_annotation": "ReasoningContext"
+            },
+            {
+              "is_async": false,
+              "line": 142,
+              "name": "_validate_context",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningContextManager"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "core.reasoning.context.contracts",
+        "core.reasoning.context.errors",
+        "core.reasoning.context.validators",
+        "dataclasses",
+        "typing"
+      ],
+      "module": "core.reasoning.context.context",
+      "path": "core/reasoning/context/context.py",
+      "sha256": "f8f93791b30fba0ab663a0dd818afe61381c3b44b617df2eb52a182b55fe0186"
+    },
+    "core.reasoning.context.contracts": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 19,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 24,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 35,
+              "name": "from_value",
+              "return_annotation": "'ReasoningContextId'"
+            },
+            {
+              "is_async": false,
+              "line": 39,
+              "name": "derive",
+              "return_annotation": "'ReasoningContextId'"
+            },
+            {
+              "is_async": false,
+              "line": 63,
+              "name": "__str__",
+              "return_annotation": "str"
+            }
+          ],
+          "name": "ReasoningContextId"
+        },
+        {
+          "bases": [],
+          "line": 68,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 75,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningConstraint"
+        },
+        {
+          "bases": [],
+          "line": 100,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 107,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningAssumption"
+        },
+        {
+          "bases": [],
+          "line": 132,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 139,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "DecisionCriterion"
+        },
+        {
+          "bases": [],
+          "line": 157,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 164,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "OpenReasoningQuestion"
+        },
+        {
+          "bases": [],
+          "line": 189,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 195,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningContextAttribute"
+        },
+        {
+          "bases": [],
+          "line": 212,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 235,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningContext"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "core.reasoning.context.validators",
+        "core.reasoning.session",
+        "dataclasses",
+        "uuid"
+      ],
+      "module": "core.reasoning.context.contracts",
+      "path": "core/reasoning/context/contracts.py",
+      "sha256": "3675f901b184fe6012b068ce7ed8b33e964c1fe175e193f2104fbddee1860025"
+    },
+    "core.reasoning.context.errors": {
+      "classes": [
+        {
+          "bases": [
+            "Exception"
+          ],
+          "line": 6,
+          "methods": [],
+          "name": "ReasoningContextError"
+        },
+        {
+          "bases": [
+            "ReasoningContextError",
+            "ValueError"
+          ],
+          "line": 10,
+          "methods": [],
+          "name": "ReasoningContextContractError"
+        },
+        {
+          "bases": [
+            "ReasoningContextContractError"
+          ],
+          "line": 14,
+          "methods": [],
+          "name": "DuplicateReasoningContextKeyError"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__"
+      ],
+      "module": "core.reasoning.context.errors",
+      "path": "core/reasoning/context/errors.py",
+      "sha256": "e1f91c883c9ddc2818a967c5e844f89f0f49f3264494d1251941ca45824a9dd2"
+    },
+    "core.reasoning.context.validators": {
+      "classes": [
+        {
+          "bases": [
+            "Protocol"
+          ],
+          "line": 14,
+          "methods": [],
+          "name": "KeyedContract"
+        }
+      ],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 23,
+          "name": "normalize_required_text",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 40,
+          "name": "normalize_optional_text",
+          "return_annotation": "str | None"
+        },
+        {
+          "is_async": false,
+          "line": 59,
+          "name": "normalize_schema_version",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 68,
+          "name": "normalize_keyed_items",
+          "return_annotation": "tuple[TKeyed, ...]"
+        },
+        {
+          "is_async": false,
+          "line": 99,
+          "name": "validate_weight",
+          "return_annotation": "int"
+        }
+      ],
+      "imports": [
+        "__future__",
+        "collections.abc",
+        "core.reasoning.context.errors",
+        "typing"
+      ],
+      "module": "core.reasoning.context.validators",
+      "path": "core/reasoning/context/validators.py",
+      "sha256": "1d2a6af010a4faa849dfbf9e74ed3439db0c5418cd4bbc2833dcadd1b368259f"
+    },
+    "core.reasoning.enums": {
+      "classes": [
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "line": 8,
+          "methods": [],
+          "name": "EvidenceKind"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "line": 19,
+          "methods": [],
+          "name": "EvidenceStance"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "line": 27,
+          "methods": [],
+          "name": "HypothesisDisposition"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "line": 36,
+          "methods": [],
+          "name": "ReasoningStatus"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "enum"
+      ],
+      "module": "core.reasoning.enums",
+      "path": "core/reasoning/enums.py",
+      "sha256": "c6780f1dae2939da986629a0790086cf9d97f9ef43b84d55221e6f4a619affe5"
+    },
+    "core.reasoning.errors": {
+      "classes": [
+        {
+          "bases": [
+            "RuntimeError"
+          ],
+          "line": 6,
+          "methods": [],
+          "name": "ReasoningError"
+        },
+        {
+          "bases": [
+            "ReasoningError"
+          ],
+          "line": 10,
+          "methods": [],
+          "name": "InvalidReasoningRequestError"
+        },
+        {
+          "bases": [
+            "ReasoningError"
+          ],
+          "line": 14,
+          "methods": [],
+          "name": "UnknownEvidenceReferenceError"
+        },
+        {
+          "bases": [
+            "ReasoningError"
+          ],
+          "line": 18,
+          "methods": [],
+          "name": "DuplicateReasoningElementError"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__"
+      ],
+      "module": "core.reasoning.errors",
+      "path": "core/reasoning/errors.py",
+      "sha256": "aba8b889aeb3fdcf08b868e0eb30ac5c7d51ea4a8dcce7990d0824411ee89037"
+    },
+    "core.reasoning.evidence.__init__": {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        ".contracts",
+        ".enums",
+        ".errors",
+        ".identifiers",
+        ".serialization"
+      ],
+      "module": "core.reasoning.evidence.__init__",
+      "path": "core/reasoning/evidence/__init__.py",
+      "sha256": "a8f53a2f92c4e8c24a6ef41f5ff964f093c24e40ea02fd88898cef29b93fbbb5"
+    },
+    "core.reasoning.evidence.contracts": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 80,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 88,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 117,
+              "name": "content_id",
+              "return_annotation": "EvidenceContentId"
+            }
+          ],
+          "name": "EvidenceContent"
+        },
+        {
+          "bases": [],
+          "line": 124,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 135,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "EvidenceOrigin"
+        },
+        {
+          "bases": [],
+          "line": 193,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 203,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "EvidenceProvenanceStep"
+        },
+        {
+          "bases": [],
+          "line": 256,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 261,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "EvidenceProvenance"
+        },
+        {
+          "bases": [],
+          "line": 288,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 297,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "EvidenceTemporalScope"
+        },
+        {
+          "bases": [],
+          "line": 334,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 340,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "BeliefMass"
+        },
+        {
+          "bases": [],
+          "line": 369,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 380,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 453,
+              "name": "_validate_kind_contract",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "EvidenceUncertainty"
+        },
+        {
+          "bases": [],
+          "line": 589,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 599,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 648,
+              "name": "_identity_payload",
+              "return_annotation": "dict[str, Any]"
+            },
+            {
+              "is_async": false,
+              "line": 660,
+              "name": "create",
+              "return_annotation": "'EvidenceRelationship'"
+            }
+          ],
+          "name": "EvidenceRelationship"
+        },
+        {
+          "bases": [],
+          "line": 691,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 706,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 799,
+              "name": "_identity_payload",
+              "return_annotation": "dict[str, Any]"
+            },
+            {
+              "is_async": false,
+              "line": 819,
+              "name": "create",
+              "return_annotation": "'EvidenceRecord'"
+            }
+          ],
+          "name": "EvidenceRecord"
+        },
+        {
+          "bases": [],
+          "line": 860,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 880,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 954,
+              "name": "_identity_payload",
+              "return_annotation": "dict[str, Any]"
+            },
+            {
+              "is_async": false,
+              "line": 976,
+              "name": "create",
+              "return_annotation": "'EvidenceAssessment'"
+            }
+          ],
+          "name": "EvidenceAssessment"
+        },
+        {
+          "bases": [],
+          "line": 1027,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 1038,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 1115,
+              "name": "_identity_payload",
+              "return_annotation": "dict[str, Any]"
+            },
+            {
+              "is_async": false,
+              "line": 1128,
+              "name": "create",
+              "return_annotation": "'EvidenceStatusEvent'"
+            }
+          ],
+          "name": "EvidenceStatusEvent"
+        }
+      ],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 49,
+          "name": "_placeholder_evidence_id",
+          "return_annotation": "EvidenceId"
+        },
+        {
+          "is_async": false,
+          "line": 55,
+          "name": "_placeholder_assessment_id",
+          "return_annotation": "EvidenceAssessmentId"
+        },
+        {
+          "is_async": false,
+          "line": 63,
+          "name": "_placeholder_relationship_id",
+          "return_annotation": "EvidenceRelationshipId"
+        },
+        {
+          "is_async": false,
+          "line": 71,
+          "name": "_placeholder_status_event_id",
+          "return_annotation": "EvidenceStatusEventId"
+        }
+      ],
+      "imports": [
+        ".enums",
+        ".errors",
+        ".identifiers",
+        ".validation",
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "decimal",
+        "typing"
+      ],
+      "module": "core.reasoning.evidence.contracts",
+      "path": "core/reasoning/evidence/contracts.py",
+      "sha256": "676dd45234628817ad867d68e980e75dacf66fe4d4b110e83351a9b6a84ad074"
+    },
+    "core.reasoning.evidence.enums": {
+      "classes": [
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "line": 8,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 11,
+              "name": "__str__",
+              "return_annotation": "str"
+            }
+          ],
+          "name": "StableStringEnum"
+        },
+        {
+          "bases": [
+            "StableStringEnum"
+          ],
+          "line": 15,
+          "methods": [],
+          "name": "EvidenceSourceType"
+        },
+        {
+          "bases": [
+            "StableStringEnum"
+          ],
+          "line": 32,
+          "methods": [],
+          "name": "EvidenceModality"
+        },
+        {
+          "bases": [
+            "StableStringEnum"
+          ],
+          "line": 47,
+          "methods": [],
+          "name": "EvidenceStatus"
+        },
+        {
+          "bases": [
+            "StableStringEnum"
+          ],
+          "line": 58,
+          "methods": [],
+          "name": "EvidenceRelationshipType"
+        },
+        {
+          "bases": [
+            "StableStringEnum"
+          ],
+          "line": 76,
+          "methods": [],
+          "name": "UncertaintyKind"
+        },
+        {
+          "bases": [
+            "StableStringEnum"
+          ],
+          "line": 87,
+          "methods": [],
+          "name": "AssessmentMethod"
+        },
+        {
+          "bases": [
+            "StableStringEnum"
+          ],
+          "line": 100,
+          "methods": [],
+          "name": "ClassificationLevel"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "enum"
+      ],
+      "module": "core.reasoning.evidence.enums",
+      "path": "core/reasoning/evidence/enums.py",
+      "sha256": "46dc3caaa4ea49931789d786b6308a28ec57a54d93c1225154cd9295ae5ba8ef"
+    },
+    "core.reasoning.evidence.errors": {
+      "classes": [
+        {
+          "bases": [
+            "Exception"
+          ],
+          "line": 6,
+          "methods": [],
+          "name": "EvidenceError"
+        },
+        {
+          "bases": [
+            "EvidenceError",
+            "ValueError"
+          ],
+          "line": 10,
+          "methods": [],
+          "name": "EvidenceValidationError"
+        },
+        {
+          "bases": [
+            "EvidenceValidationError"
+          ],
+          "line": 14,
+          "methods": [],
+          "name": "EvidenceIdentityError"
+        },
+        {
+          "bases": [
+            "EvidenceError"
+          ],
+          "line": 18,
+          "methods": [],
+          "name": "EvidenceSerializationError"
+        },
+        {
+          "bases": [
+            "EvidenceValidationError"
+          ],
+          "line": 22,
+          "methods": [],
+          "name": "EvidenceUncertaintyError"
+        },
+        {
+          "bases": [
+            "EvidenceValidationError"
+          ],
+          "line": 26,
+          "methods": [],
+          "name": "EvidenceTemporalError"
+        },
+        {
+          "bases": [
+            "EvidenceValidationError"
+          ],
+          "line": 30,
+          "methods": [],
+          "name": "EvidenceRelationshipError"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__"
+      ],
+      "module": "core.reasoning.evidence.errors",
+      "path": "core/reasoning/evidence/errors.py",
+      "sha256": "489c1927889b3c3332a20002427c95449ed810665945cb8e2f1eb148db1bae5f"
+    },
+    "core.reasoning.evidence.identifiers": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 18,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 25,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 44,
+              "name": "from_payload",
+              "return_annotation": "IdentifierT"
+            },
+            {
+              "is_async": false,
+              "line": 62,
+              "name": "parse",
+              "return_annotation": "IdentifierT"
+            },
+            {
+              "is_async": false,
+              "line": 65,
+              "name": "canonical_value",
+              "return_annotation": "str"
+            },
+            {
+              "is_async": false,
+              "line": 68,
+              "name": "__str__",
+              "return_annotation": "str"
+            }
+          ],
+          "name": "CanonicalEvidenceIdentifier"
+        },
+        {
+          "bases": [
+            "CanonicalEvidenceIdentifier"
+          ],
+          "line": 73,
+          "methods": [],
+          "name": "EvidenceContentId"
+        },
+        {
+          "bases": [
+            "CanonicalEvidenceIdentifier"
+          ],
+          "line": 80,
+          "methods": [],
+          "name": "EvidenceId"
+        },
+        {
+          "bases": [
+            "CanonicalEvidenceIdentifier"
+          ],
+          "line": 87,
+          "methods": [],
+          "name": "EvidenceAssessmentId"
+        },
+        {
+          "bases": [
+            "CanonicalEvidenceIdentifier"
+          ],
+          "line": 94,
+          "methods": [],
+          "name": "EvidenceStatusEventId"
+        },
+        {
+          "bases": [
+            "CanonicalEvidenceIdentifier"
+          ],
+          "line": 101,
+          "methods": [],
+          "name": "EvidenceRelationshipId"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        ".errors",
+        ".serialization",
+        "__future__",
+        "dataclasses",
+        "re",
+        "typing"
+      ],
+      "module": "core.reasoning.evidence.identifiers",
+      "path": "core/reasoning/evidence/identifiers.py",
+      "sha256": "cea32eb92d67ee4e8eab1744025bb5c26b1d6e950363a2c4caf34415fa70dbd1"
+    },
+    "core.reasoning.evidence.serialization": {
+      "classes": [],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 16,
+          "name": "_canonical_decimal",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 33,
+          "name": "_canonical_datetime",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 44,
+          "name": "to_canonical_primitive",
+          "return_annotation": "Any"
+        },
+        {
+          "is_async": false,
+          "line": 95,
+          "name": "canonical_json",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 109,
+          "name": "canonical_bytes",
+          "return_annotation": "bytes"
+        },
+        {
+          "is_async": false,
+          "line": 115,
+          "name": "canonical_sha256",
+          "return_annotation": "str"
+        }
+      ],
+      "imports": [
+        ".errors",
+        "__future__",
+        "dataclasses",
+        "datetime",
+        "decimal",
+        "enum",
+        "hashlib",
+        "json",
+        "typing"
+      ],
+      "module": "core.reasoning.evidence.serialization",
+      "path": "core/reasoning/evidence/serialization.py",
+      "sha256": "8993bf26a0ac23007f7f77fd03b524e1bc63bbd59bc71e2cfe0567e0b4455274"
+    },
+    "core.reasoning.evidence.validation": {
+      "classes": [],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 24,
+          "name": "normalize_text",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 38,
+          "name": "normalize_optional_text",
+          "return_annotation": "str | None"
+        },
+        {
+          "is_async": false,
+          "line": 46,
+          "name": "validate_identifier_component",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 57,
+          "name": "validate_language_tag",
+          "return_annotation": "str | None"
+        },
+        {
+          "is_async": false,
+          "line": 69,
+          "name": "validate_media_type",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 78,
+          "name": "validate_aware_datetime",
+          "return_annotation": "datetime | None"
+        },
+        {
+          "is_async": false,
+          "line": 100,
+          "name": "validate_unit_decimal",
+          "return_annotation": "Decimal | None"
+        },
+        {
+          "is_async": false,
+          "line": 132,
+          "name": "validate_nonnegative_decimal",
+          "return_annotation": "Decimal | None"
+        },
+        {
+          "is_async": false,
+          "line": 163,
+          "name": "normalize_string_tuple",
+          "return_annotation": "tuple[str, ...]"
+        },
+        {
+          "is_async": false,
+          "line": 186,
+          "name": "normalize_key_value_pairs",
+          "return_annotation": "tuple[tuple[str, str], ...]"
+        },
+        {
+          "is_async": false,
+          "line": 218,
+          "name": "require_nonnegative_integer",
+          "return_annotation": "int"
+        }
+      ],
+      "imports": [
+        ".errors",
+        "__future__",
+        "datetime",
+        "decimal",
+        "math",
+        "re",
+        "typing",
+        "unicodedata"
+      ],
+      "module": "core.reasoning.evidence.validation",
+      "path": "core/reasoning/evidence/validation.py",
+      "sha256": "ca18d55c87319fedabda13820a1f508a6bf0f3d9db51fa58a92f271508b43003"
+    },
+    "core.reasoning.generation": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 11,
+          "methods": [],
+          "name": "HypothesisGenerationResult"
+        },
+        {
+          "bases": [],
+          "line": 23,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 28,
+              "name": "generate",
+              "return_annotation": "HypothesisGenerationResult"
+            }
+          ],
+          "name": "DeterministicHypothesisGenerator"
+        }
+      ],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 18,
+          "name": "_identifier",
+          "return_annotation": "str"
+        }
+      ],
+      "imports": [
+        "__future__",
+        "core.reasoning.enums",
+        "core.reasoning.models",
+        "dataclasses",
+        "hashlib"
+      ],
+      "module": "core.reasoning.generation",
+      "path": "core/reasoning/generation.py",
+      "sha256": "22720e5c6183b46827d998e9e3ace11997638b60d037f7deba7e350a2ddac727"
+    },
+    "core.reasoning.inference": {
+      "classes": [],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 19,
+          "name": "assess_hypothesis",
+          "return_annotation": "HypothesisAssessment"
+        }
+      ],
+      "imports": [
+        "__future__",
+        "collections.abc",
+        "core.reasoning.confidence",
+        "core.reasoning.models"
+      ],
+      "module": "core.reasoning.inference",
+      "path": "core/reasoning/inference.py",
+      "sha256": "acc4d8a11982ccf79d1d33d9a439e2ebd81273d7c50b01d9249cd871e543bb1c"
+    },
+    "core.reasoning.knowledge": {
+      "classes": [
+        {
+          "bases": [
+            "ValueError"
+          ],
+          "line": 13,
+          "methods": [],
+          "name": "KnowledgeEvidenceAdapterError"
+        },
+        {
+          "bases": [],
+          "line": 18,
+          "methods": [],
+          "name": "AdaptedEvidenceBatch"
+        },
+        {
+          "bases": [],
+          "line": 78,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 81,
+              "name": "adapt",
+              "return_annotation": "AdaptedEvidenceBatch"
+            }
+          ],
+          "name": "KnowledgeEvidenceAdapter"
+        }
+      ],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 25,
+          "name": "_get",
+          "return_annotation": "Any"
+        },
+        {
+          "is_async": false,
+          "line": 37,
+          "name": "_probability",
+          "return_annotation": "float"
+        },
+        {
+          "is_async": false,
+          "line": 47,
+          "name": "_quality",
+          "return_annotation": "float"
+        },
+        {
+          "is_async": false,
+          "line": 56,
+          "name": "_ranking",
+          "return_annotation": "dict[str, Any]"
+        },
+        {
+          "is_async": false,
+          "line": 63,
+          "name": "_evidence_id",
+          "return_annotation": "str"
+        },
+        {
+          "is_async": false,
+          "line": 70,
+          "name": "_proposition",
+          "return_annotation": "str"
+        }
+      ],
+      "imports": [
+        "__future__",
+        "collections.abc",
+        "core.reasoning.enums",
+        "core.reasoning.models",
+        "dataclasses",
+        "hashlib",
+        "re",
+        "typing"
+      ],
+      "module": "core.reasoning.knowledge",
+      "path": "core/reasoning/knowledge.py",
+      "sha256": "3a155c63767fb46fe95f8299a2d2797a755fc592ea0f5cc50e1ad09a09fb9660"
+    },
+    "core.reasoning.models": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 66,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 78,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 86,
+              "name": "weight",
+              "return_annotation": "float"
+            },
+            {
+              "is_async": false,
+              "line": 89,
+              "name": "to_dict",
+              "return_annotation": "dict[str, Any]"
+            }
+          ],
+          "name": "EvidenceItem"
+        },
+        {
+          "bases": [],
+          "line": 104,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 115,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 128,
+              "name": "to_dict",
+              "return_annotation": "dict[str, Any]"
+            }
+          ],
+          "name": "Hypothesis"
+        },
+        {
+          "bases": [],
+          "line": 143,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 153,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 160,
+              "name": "fingerprint",
+              "return_annotation": "str"
+            },
+            {
+              "is_async": false,
+              "line": 163,
+              "name": "to_dict",
+              "return_annotation": "dict[str, Any]"
+            }
+          ],
+          "name": "ReasoningRequest"
+        },
+        {
+          "bases": [],
+          "line": 175,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 189,
+              "name": "to_dict",
+              "return_annotation": "dict[str, Any]"
+            }
+          ],
+          "name": "HypothesisAssessment"
+        },
+        {
+          "bases": [],
+          "line": 207,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 216,
+              "name": "to_dict",
+              "return_annotation": "dict[str, Any]"
+            }
+          ],
+          "name": "ReasoningTraceStep"
+        },
+        {
+          "bases": [],
+          "line": 227,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 237,
+              "name": "to_dict",
+              "return_annotation": "dict[str, Any]"
+            }
+          ],
+          "name": "PlanningRecommendation"
+        },
+        {
+          "bases": [],
+          "line": 249,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 264,
+              "name": "to_dict",
+              "return_annotation": "dict[str, Any]"
+            }
+          ],
+          "name": "ReasoningResult"
+        }
+      ],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 19,
+          "name": "_require_text",
+          "return_annotation": "None"
+        },
+        {
+          "is_async": false,
+          "line": 24,
+          "name": "_require_probability",
+          "return_annotation": "None"
+        },
+        {
+          "is_async": false,
+          "line": 29,
+          "name": "canonicalize",
+          "return_annotation": "Any"
+        },
+        {
+          "is_async": false,
+          "line": 53,
+          "name": "canonical_fingerprint",
+          "return_annotation": "str"
+        }
+      ],
+      "imports": [
+        "__future__",
+        "core.reasoning.enums",
+        "dataclasses",
+        "enum",
+        "hashlib",
+        "json",
+        "typing"
+      ],
+      "module": "core.reasoning.models",
+      "path": "core/reasoning/models.py",
+      "sha256": "1cf9afa44a20e9c7e08e46bccdc15791055e6d9bece767a6d062f8799e6c55b1"
+    },
+    "core.reasoning.pipeline": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 20,
+          "methods": [],
+          "name": "KnowledgeReasoningOutcome"
+        },
+        {
+          "bases": [],
+          "line": 33,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 36,
+              "name": "__init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 49,
+              "name": "reason",
+              "return_annotation": "KnowledgeReasoningOutcome"
+            }
+          ],
+          "name": "KnowledgeReasoningPipeline"
+        }
+      ],
+      "functions": [
+        {
+          "is_async": false,
+          "line": 26,
+          "name": "_request_id",
+          "return_annotation": "str"
+        }
+      ],
+      "imports": [
+        "__future__",
+        "collections.abc",
+        "core.reasoning.generation",
+        "core.reasoning.knowledge",
+        "core.reasoning.models",
+        "core.reasoning.service",
+        "dataclasses",
+        "hashlib",
+        "typing"
+      ],
+      "module": "core.reasoning.pipeline",
+      "path": "core/reasoning/pipeline.py",
+      "sha256": "6e04b1ea46e1bed2b7a0e2b5ac90db379537ff9ebffd2389870e7b9537986618"
+    },
+    "core.reasoning.service": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 32,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 41,
+              "name": "reason",
+              "return_annotation": "ReasoningResult"
+            },
+            {
+              "is_async": false,
+              "line": 138,
+              "name": "_validate_request",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 181,
+              "name": "_select_assessment",
+              "return_annotation": "HypothesisAssessment | None"
+            },
+            {
+              "is_async": false,
+              "line": 193,
+              "name": "_collect_contradictions",
+              "return_annotation": "tuple[str, ...]"
+            },
+            {
+              "is_async": false,
+              "line": 212,
+              "name": "_collect_missing_information",
+              "return_annotation": "tuple[str, ...]"
+            },
+            {
+              "is_async": false,
+              "line": 237,
+              "name": "_build_planning_recommendation",
+              "return_annotation": "PlanningRecommendation | None"
+            },
+            {
+              "is_async": false,
+              "line": 282,
+              "name": "_build_trace",
+              "return_annotation": "tuple[ReasoningTraceStep, ...]"
+            }
+          ],
+          "name": "ReasoningEngine"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "collections",
+        "core.reasoning.enums",
+        "core.reasoning.errors",
+        "core.reasoning.inference",
+        "core.reasoning.models"
+      ],
+      "module": "core.reasoning.service",
+      "path": "core/reasoning/service.py",
+      "sha256": "1154abcd697b894e695ed2498c48ac5cc97cdcd7ff10d3eb0f80c2c61da9d556"
+    },
+    "core.reasoning.session.__init__": {
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "core.reasoning.session.contracts",
+        "core.reasoning.session.errors",
+        "core.reasoning.session.lifecycle"
+      ],
+      "module": "core.reasoning.session.__init__",
+      "path": "core/reasoning/session/__init__.py",
+      "sha256": "4c878bd08695f75b41438285db082ba08b550effed6b2cb67f98b174f567a743"
+    },
+    "core.reasoning.session.contracts": {
+      "classes": [
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "line": 17,
+          "methods": [],
+          "name": "ReasoningSessionState"
+        },
+        {
+          "bases": [],
+          "line": 35,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 41,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "SessionAttribute"
+        },
+        {
+          "bases": [],
+          "line": 53,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 58,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 63,
+              "name": "from_value",
+              "return_annotation": "'ReasoningSessionId'"
+            },
+            {
+              "is_async": false,
+              "line": 69,
+              "name": "derive",
+              "return_annotation": "'ReasoningSessionId'"
+            },
+            {
+              "is_async": false,
+              "line": 84,
+              "name": "__str__",
+              "return_annotation": "str"
+            }
+          ],
+          "name": "ReasoningSessionId"
+        },
+        {
+          "bases": [],
+          "line": 89,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 99,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 124,
+              "name": "_normalize_optional",
+              "return_annotation": "str | None"
+            },
+            {
+              "is_async": false,
+              "line": 132,
+              "name": "_normalize_attributes",
+              "return_annotation": "tuple[SessionAttribute, ...]"
+            }
+          ],
+          "name": "ReasoningSessionMetadata"
+        },
+        {
+          "bases": [],
+          "line": 147,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 155,
+              "name": "__post_init__",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningSession"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "enum",
+        "typing",
+        "uuid"
+      ],
+      "module": "core.reasoning.session.contracts",
+      "path": "core/reasoning/session/contracts.py",
+      "sha256": "69404fdfa8d3cb395cb7bed0b7876227d7e8f837d98f67db328f8831482df430"
+    },
+    "core.reasoning.session.errors": {
+      "classes": [
+        {
+          "bases": [
+            "ValueError"
+          ],
+          "line": 6,
+          "methods": [],
+          "name": "ReasoningSessionLifecycleError"
+        },
+        {
+          "bases": [
+            "ReasoningSessionLifecycleError"
+          ],
+          "line": 10,
+          "methods": [],
+          "name": "InvalidReasoningSessionTransitionError"
+        },
+        {
+          "bases": [
+            "InvalidReasoningSessionTransitionError"
+          ],
+          "line": 14,
+          "methods": [],
+          "name": "TerminalReasoningSessionError"
+        },
+        {
+          "bases": [
+            "ReasoningSessionLifecycleError"
+          ],
+          "line": 20,
+          "methods": [],
+          "name": "ReasoningSessionContractError"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__"
+      ],
+      "module": "core.reasoning.session.errors",
+      "path": "core/reasoning/session/errors.py",
+      "sha256": "b014d898dbf53fa311157bea50bd0726219f0142a2d265417ef1dcfa9af60b6f"
+    },
+    "core.reasoning.session.lifecycle": {
+      "classes": [
+        {
+          "bases": [],
+          "line": 76,
+          "methods": [
+            {
+              "is_async": false,
+              "line": 83,
+              "name": "allowed_targets",
+              "return_annotation": "tuple[ReasoningSessionState, ...]"
+            },
+            {
+              "is_async": false,
+              "line": 96,
+              "name": "can_transition",
+              "return_annotation": "bool"
+            },
+            {
+              "is_async": false,
+              "line": 106,
+              "name": "is_terminal",
+              "return_annotation": "bool"
+            },
+            {
+              "is_async": false,
+              "line": 111,
+              "name": "transition",
+              "return_annotation": "ReasoningSession"
+            },
+            {
+              "is_async": false,
+              "line": 153,
+              "name": "_validate_state",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 165,
+              "name": "_validate_session",
+              "return_annotation": "None"
+            },
+            {
+              "is_async": false,
+              "line": 192,
+              "name": "_validate_successor",
+              "return_annotation": "None"
+            }
+          ],
+          "name": "ReasoningSessionLifecycle"
+        }
+      ],
+      "functions": [],
+      "imports": [
+        "__future__",
+        "core.reasoning.session.contracts",
+        "core.reasoning.session.errors",
+        "dataclasses",
+        "types",
+        "typing"
+      ],
+      "module": "core.reasoning.session.lifecycle",
+      "path": "core/reasoning/session/lifecycle.py",
+      "sha256": "3aba5d6608a9907bf2ba24ecd4a51b927c21e2d98338f51f37dd114fe55bb72c"
+    }
+  },
+  "purpose": "Certify the canonical Reasoning Engine service boundary before architecture-baseline synthesis.",
+  "required_service": "ReasoningEngine",
+  "services": [
+    {
+      "line": 32,
+      "methods": [
+        {
+          "is_async": false,
+          "line": 41,
+          "name": "reason",
+          "return_annotation": "ReasoningResult"
+        },
+        {
+          "is_async": false,
+          "line": 138,
+          "name": "_validate_request",
+          "return_annotation": "None"
+        },
+        {
+          "is_async": false,
+          "line": 181,
+          "name": "_select_assessment",
+          "return_annotation": "HypothesisAssessment | None"
+        },
+        {
+          "is_async": false,
+          "line": 193,
+          "name": "_collect_contradictions",
+          "return_annotation": "tuple[str, ...]"
+        },
+        {
+          "is_async": false,
+          "line": 212,
+          "name": "_collect_missing_information",
+          "return_annotation": "tuple[str, ...]"
+        },
+        {
+          "is_async": false,
+          "line": 237,
+          "name": "_build_planning_recommendation",
+          "return_annotation": "PlanningRecommendation | None"
+        },
+        {
+          "is_async": false,
+          "line": 282,
+          "name": "_build_trace",
+          "return_annotation": "tuple[ReasoningTraceStep, ...]"
+        }
+      ],
+      "module": "core.reasoning.service",
+      "name": "ReasoningEngine",
+      "path": "core/reasoning/service.py"
+    }
+  ],
+  "source_root": "core/reasoning",
+  "status": "PASS",
+  "summary": {
+    "checks_failed": 0,
+    "checks_passed": 7,
+    "class_count": 77,
+    "module_count": 26,
+    "service_count": 1
+  },
+  "title": "Reasoning Service Audit"
+}

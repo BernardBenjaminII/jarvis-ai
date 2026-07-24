@@ -1,0 +1,260 @@
+===============================
+JARVIS GIT WORKFLOW CHEATSHEET
+===============================
+
+# -----------------------------
+# SETUP (ONE TIME)
+# -----------------------------
+cd ~/projects/jarvis-core
+
+# Create dev branch
+git checkout -b dev-branch
+git push origin dev-branch
+
+
+# -----------------------------
+# DAILY WORKFLOW (DEV BRANCH)
+# -----------------------------
+# Switch to dev branch
+git checkout dev-branch
+
+# Make changes, then save work
+git add .
+git commit -m "Describe your changes"
+git push origin dev-branch
+
+
+# -----------------------------
+# UPDATE DEV WITH MAIN (IMPORTANT)
+# -----------------------------
+git checkout dev-branch
+git pull origin main
+
+# OR (cleaner history)
+git pull --rebase origin main
+
+
+# -----------------------------
+# MERGE DEV INTO MAIN
+# -----------------------------
+git checkout main
+git pull origin main
+git merge dev-branch
+git push origin main
+
+
+# -----------------------------
+# HANDLE MERGE CONFLICTS
+# -----------------------------
+# Open conflicted files and look for:
+
+<<<<<<< HEAD
+(main version)
+=======
+(dev version)
+>>>>>>> dev-branch
+
+# Edit file → remove markers → keep correct code
+
+git add .
+git commit -m "Resolved merge conflict"
+
+
+# -----------------------------
+# STASH (TEMP SAVE CHANGES)
+# -----------------------------
+git stash
+git pull origin main
+git stash pop
+
+
+# -----------------------------
+# CHECK STATUS / HISTORY
+# -----------------------------
+git status
+git log --oneline -5
+
+
+# -----------------------------
+# OPTIONAL: FEATURE BRANCHES
+# -----------------------------
+git checkout -b feature/memory-system
+git push origin feature/memory-system
+
+# Merge later into dev or main
+
+
+# -----------------------------
+# WHAT NOT TO DO
+# -----------------------------
+# DO NOT clone again if repo already exists:
+# git clone <repo-url>
+# (this creates duplicate folders)
+
+===============================
+END
+===============================
+========================================
+JARVIS MULTI-MACHINE SYNC + RECOVERY
+========================================
+
+# -----------------------------
+# CORE RULE
+# -----------------------------
+# If it's not committed and pushed → it does NOT exist on other machines
+
+
+# -----------------------------
+# ON MAIN DEV MACHINE (ZEPHYRUS)
+# -----------------------------
+# Check for uncommitted changes
+git status
+
+# Review changes before committing (recommended)
+git diff
+
+# Add specific file
+git add src/services/llm_service.py
+
+# OR add everything
+git add .
+
+# Commit changes
+git commit -m "Update JARVIS logic (fallback, LLM, etc.)"
+
+# Push to GitHub
+git push origin main
+
+
+# -----------------------------
+# ON SECOND MACHINE (SYNC CODE)
+# -----------------------------
+# Go to repo
+cd ~/jarvis-core
+
+# Switch to main branch
+git checkout main
+
+# Pull latest code
+git pull origin main
+
+
+# -----------------------------
+# FORCE SYNC (IF THINGS LOOK WRONG)
+# -----------------------------
+# WARNING: deletes local changes
+git fetch origin
+git reset --hard origin/main
+
+
+# -----------------------------
+# VERIFY CODE VERSION
+# -----------------------------
+git log --oneline -5
+
+
+# -----------------------------
+# DAILY SAFE WORKFLOW
+# -----------------------------
+# After coding session:
+git add .
+git commit -m "progress"
+git push
+
+
+# -----------------------------
+# QUICK SAVE ALIAS (OPTIONAL)
+# -----------------------------
+git config --global alias.save '!git add . && git commit -m "quick save" && git push'
+
+# Usage:
+git save
+
+
+# -----------------------------
+# DEBUG: CODE MISMATCH BETWEEN MACHINES
+# -----------------------------
+# On dev machine:
+git status
+
+# If you see "modified" files → NOT pushed yet
+
+# Fix:
+git add .
+git commit -m "sync missing work"
+git push
+
+# Then on other machine:
+git pull origin main
+
+
+# -----------------------------
+# ENVIRONMENT RESET (CLEAN SETUP)
+# -----------------------------
+# Remove old environment
+rm -rf venv
+
+# Create new one
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+
+# -----------------------------
+# START LOCAL LLM (OLLAMA)
+# -----------------------------
+ollama serve
+
+# Verify running
+curl http://localhost:11434
+
+
+# -----------------------------
+# RUN JARVIS
+# -----------------------------
+uvicorn src.main:app --host 0.0.0.0 --port 5001 --reload
+
+
+# -----------------------------
+# TEST JARVIS
+# -----------------------------
+curl -X POST http://127.0.0.1:5001/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "hello"}'
+
+
+# -----------------------------
+# COMMON ERRORS + FIXES
+# -----------------------------
+
+# ERROR: ModuleNotFoundError
+→ Wrong import path or missing dependency
+→ Check structure + reinstall requirements
+
+# ERROR: connection refused (localhost:11434)
+→ Ollama not running
+→ Run: ollama serve
+
+# ERROR: different behavior between machines
+→ Code not pushed OR wrong branch
+→ Run: git status + git pull
+
+
+# -----------------------------
+# STRUCTURE CHECK
+# -----------------------------
+tree -L 2
+
+# Expected:
+jarvis-core/
+ ├── src/
+ │   ├── main.py
+ │   ├── brain.py
+ │   └── services/
+
+
+========================================
+END
+========================================

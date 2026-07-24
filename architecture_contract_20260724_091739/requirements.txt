@@ -1,0 +1,3 @@
+-r requirements/base.txt
+-r requirements/knowledge_engine.txt
+-r requirements/ai.txt

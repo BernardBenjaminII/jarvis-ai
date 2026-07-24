@@ -1,0 +1,22 @@
+name: Aviation
+
+preferred_sources:
+
+  - faa.gov
+  - easa.europa.eu
+  - skybrary.aero
+  - aviationweather.gov
+  - boeing.com
+  - airbus.com
+
+minimum_trust_score: 90
+
+preferred_formats:
+
+  - pdf
+  - html
+
+ignore:
+
+  - blogs
+  - advertisements

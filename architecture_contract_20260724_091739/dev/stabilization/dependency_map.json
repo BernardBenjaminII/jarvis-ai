@@ -1,0 +1,17 @@
+{
+  "bs4": "beautifulsoup4",
+  "docx": "python-docx",
+  "ebooklib": "EbookLib",
+  "faiss": "faiss-cpu",
+  "fitz": "PyMuPDF",
+  "googleapiclient": "google-api-python-client",
+  "google_auth_oauthlib": "google-auth-oauthlib",
+  "PIL": "Pillow",
+  "pil": "Pillow",
+  "pypdf": "pypdf",
+  "PyPDF2": "PyPDF2",
+  "pypdf2": "PyPDF2",
+  "sentence_transformers": "sentence-transformers",
+  "yaml": "PyYAML",
+  "zim": "libzim"
+}

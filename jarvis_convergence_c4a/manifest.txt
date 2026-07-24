@@ -1,0 +1,7 @@
+core/knowledge_catalog/database.py
+dev/verification/verify_convergence_c4a.py
+dev/verify_convergence_c4a.sh
+docs/architecture/convergence_c4a_knowledge_compatibility_repair.md
+tests/test_convergence_c1_http_contract.py
+tests/test_convergence_c2_http_contract.py
+tests/test_convergence_c4a_knowledge_compatibility.py

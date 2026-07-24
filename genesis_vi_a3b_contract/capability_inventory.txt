@@ -1,0 +1,137 @@
+core/bootstrap/bootstrap.py:from .capabilities import CapabilityBootstrap
+core/bootstrap/services/capabilities.py:from core.src.cognition.capability_registry import detect_capabilities
+core/bootstrap/services/capabilities.py:def verify_capabilities():
+core/bootstrap/services/capabilities.py:    print("Checking capabilities...")
+core/bootstrap/services/capabilities.py:    capabilities = detect_capabilities()
+core/bootstrap/services/capabilities.py:    for capability, available in capabilities.items():
+core/bootstrap/services/capabilities.py:    return capabilities
+core/bootstrap/lifecycle/postflight.py:from core.bootstrap.services.capabilities import verify_capabilities
+core/bootstrap/lifecycle/postflight.py:    verify_capabilities()
+core/capabilities/__init__.py:from core.capabilities.base import Capability
+core/capabilities/__init__.py:from core.capabilities.discovery import (
+core/capabilities/__init__.py:from core.capabilities.loader import CapabilityLoader
+core/capabilities/__init__.py:from core.capabilities.metadata import (
+core/capabilities/__init__.py:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/__init__.py:from core.capabilities.operations import (
+core/capabilities/__init__.py:    register_operations_capabilities,
+core/capabilities/__init__.py:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/__init__.py:from core.capabilities.runner import CapabilityRunner
+core/capabilities/__init__.py:    "register_operations_capabilities",
+core/capabilities/base.py:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/registry.py:from core.capabilities.base import Capability
+core/capabilities/registry.py:        self._capabilities: dict[str, Capability] = {}
+core/capabilities/registry.py:        if capability.name in self._capabilities:
+core/capabilities/registry.py:        self._capabilities[capability.name] = capability
+core/capabilities/registry.py:        return self._capabilities[name]
+core/capabilities/registry.py:        return list(self._capabilities.values())
+core/capabilities/registry.py:        for capability in self._capabilities.values():
+core/capabilities/registry.py:        Resolve capabilities by declared requirements.
+core/capabilities/registry.py:        remaining = set(self._capabilities.keys())
+core/capabilities/registry.py:                capability = self._capabilities[name]
+core/capabilities/registry.py:                    name: sorted(self._capabilities[name].requires - provided)
+core/capabilities/runner.py:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/runner.py:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/report.py:from core.capabilities.models import CapabilityResult
+core/capabilities/adapters/__init__.py:from core.capabilities.adapters.builder import BuilderCapability
+core/capabilities/adapters/builder.py:from core.capabilities.base import Capability
+core/capabilities/adapters/builder.py:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/loader.py:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/loader.py:        register_capabilities(registry: CapabilityRegistry) -> None
+core/capabilities/loader.py:        hook = getattr(module, "register_capabilities", None)
+core/capabilities/discovery.py:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/discovery.py:    """Discover and invoke ``register_capabilities`` hooks deterministically."""
+core/capabilities/discovery.py:        hook = getattr(module, "register_capabilities", None)
+core/capabilities/operations.py:"""Real, read-only OperationsService capabilities."""
+core/capabilities/operations.py:from core.capabilities.base import Capability
+core/capabilities/operations.py:from core.capabilities.metadata import (
+core/capabilities/operations.py:from core.capabilities.models import CapabilityContext, CapabilityResult
+core/capabilities/operations.py:from core.capabilities.registry import CapabilityRegistry
+core/capabilities/operations.py:def register_operations_capabilities(
+core/capabilities/operations.py:    """Register canonical, non-destructive OperationsService capabilities."""
+core/capabilities/operations.py:    capabilities = (
+core/capabilities/operations.py:    for capability in capabilities:
+core/src/cognition/capability_registry.py:def detect_capabilities():
+core/src/cognition/context_builder.py:from ..utils.capabilities import detect_capabilities
+core/src/cognition/context_builder.py:    capabilities = detect_capabilities()
+core/src/cognition/context_builder.py:        "capabilities": capabilities,
+core/src/cognition/prompt_builder.py:{context['capabilities']}
+core/src/utils/capabilities.py:# core/src/utils/capabilities.py
+core/src/utils/capabilities.py:def detect_capabilities():
+core/capability_runtime_cli.py:from core.capabilities import (
+core/capability_runtime_cli.py:from core.capabilities.report import print_capability_report
+core/capability_runtime_cli.py:    "knowledge_engine.capabilities",
+core/executive/models.py:    required_capabilities: list[str] = field(default_factory=list)
+core/executive/models.py:        values.setdefault("required_capabilities", [])
+core/executive/registry.py:from core.executive.capabilities import (
+core/executive/registry.py:        capabilities: Iterable[str] = (),
+core/executive/registry.py:            capabilities=set(capabilities),
+core/executive/registry.py:        required_capabilities: Iterable[str],
+core/executive/registry.py:        required = tuple(sorted({normalize_capability(c) for c in required_capabilities}))
+core/executive/registry.py:                required_capabilities=(),
+core/executive/registry.py:                reason="No specialist capabilities were required.",
+core/executive/registry.py:            matched = tuple(sorted(required_set & descriptor.capabilities))
+core/executive/registry.py:            missing = tuple(sorted(required_set - descriptor.capabilities))
+core/executive/registry.py:                    matched_capabilities=matched,
+core/executive/registry.py:                    missing_capabilities=missing,
+core/executive/registry.py:            and candidate.matched_capabilities
+core/executive/registry.py:                    len(candidate.missing_capabilities),
+core/executive/registry.py:                f"{len(selected.matched_capabilities)}/{len(required)} "
+core/executive/registry.py:                "required capabilities matched."
+core/executive/registry.py:                matched_capabilities=(),
+core/executive/registry.py:                missing_capabilities=required,
+core/executive/registry.py:                "No ready specialist matched the required capabilities; "
+core/executive/registry.py:            required_capabilities=required,
+core/executive/planner.py:    capabilities: tuple[str, ...]
+core/executive/planner.py:        capabilities=("knowledge_search", "knowledge_retrieval"),
+core/executive/planner.py:        capabilities=("system_assessment",),
+core/executive/planner.py:            required_capabilities=["mission_analysis"],
+core/executive/planner.py:            decision = self.registry.select(rule.capabilities)
+core/executive/planner.py:                    required_capabilities=list(rule.capabilities),
+core/executive/planner.py:                    required_capabilities=["general_reasoning"],
+core/executive/planner.py:            required_capabilities=["mission_synthesis"],
+core/executive/director.py:from core.executive.capabilities import DirectorReadiness
+core/executive/director.py:                capabilities={"mission_analysis", "mission_synthesis", "general_reasoning"},
+core/executive/director.py:                capabilities={
+core/executive/director.py:                capabilities={"system_assessment", "platform_analysis"},
+core/executive/director.py:                        "required_capabilities": task.required_capabilities,
+core/executive/capabilities.py:    capabilities: set[str] = field(default_factory=set)
+core/executive/capabilities.py:        self.capabilities = {normalize_capability(c) for c in self.capabilities}
+core/executive/capabilities.py:        data["capabilities"] = sorted(self.capabilities)
+core/executive/capabilities.py:    matched_capabilities: tuple[str, ...]
+core/executive/capabilities.py:    missing_capabilities: tuple[str, ...]
+core/executive/capabilities.py:            "matched_capabilities": list(self.matched_capabilities),
+core/executive/capabilities.py:            "missing_capabilities": list(self.missing_capabilities),
+core/executive/capabilities.py:    required_capabilities: tuple[str, ...]
+core/executive/capabilities.py:            "required_capabilities": list(self.required_capabilities),
+core/integration/bootstrap.py:from core.capabilities.discovery import (
+core/integration/bootstrap.py:from core.capabilities.operations import register_operations_capabilities
+core/integration/bootstrap.py:from core.capabilities.registry import CapabilityRegistry
+core/integration/bootstrap.py:from core.integration.providers.capabilities import CapabilityProjectionProvider
+core/integration/bootstrap.py:    capabilities = CapabilityRegistry()
+core/integration/bootstrap.py:    register_operations_capabilities(capabilities, operations)
+core/integration/bootstrap.py:        CapabilityDiscovery(package_roots).discover(capabilities)
+core/integration/bootstrap.py:            capabilities,
+core/integration/bootstrap.py:        capability_registry=capabilities,
+core/integration/providers/__init__.py:from core.integration.providers.capabilities import CapabilityProjectionProvider
+core/integration/providers/capabilities.py:from core.capabilities.base import Capability
+core/integration/providers/capabilities.py:from core.capabilities.metadata import (
+core/integration/providers/capabilities.py:from core.capabilities.registry import CapabilityRegistry
+core/integration/providers/capabilities.py:    projection_id = "capabilities"
+core/integration/providers/capabilities.py:                summary="Capability discovery failed and no capabilities are registered.",
+core/integration/providers/capabilities.py:                    "registered_capabilities": 0,
+core/integration/providers/capabilities.py:                    "registered_capabilities": total,
+core/integration/providers/capabilities.py:                summary="No capabilities are registered.",
+core/integration/providers/capabilities.py:                details={"registered_capabilities": 0},
+core/integration/providers/capabilities.py:                "registered_capabilities": total,
+core/integration/providers/capabilities.py:        capabilities = sorted(
+core/integration/providers/capabilities.py:            1 for capability in capabilities
+core/integration/providers/capabilities.py:                "total": len(capabilities),
+core/integration/providers/capabilities.py:                "unbound": len(capabilities) - bound_count,
+core/integration/providers/capabilities.py:                "capabilities": capabilities,
+core/integration/readiness.py:    "operations": "Operations", "capabilities": "Capabilities", "executive": "Executive",
+core/integration/bus.py:            "capabilities": {x.capability_id: x.to_dict() for x in snapshot.readiness},
+core/identity/modes/ios.yaml:capabilities:
+core/identity/modes/kali.yaml:capabilities:
+core/identity/modes/macos.yaml:capabilities:
+core/identity/modes/ubuntu.yaml:capabilities:
+core/identity/modes/windows.yaml:capabilities:

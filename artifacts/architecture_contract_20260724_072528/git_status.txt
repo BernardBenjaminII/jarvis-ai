@@ -1,0 +1,87 @@
+On branch feature/genesis-ui-a-executive-integration
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+	modified:   core/capabilities/__init__.py
+	modified:   core/src/routes/api.py
+	modified:   core/src/routes/operations.py
+	modified:   core/src/static/mission_control/app.js
+	modified:   core/src/static/mission_control/index.html
+	modified:   core/src/static/mission_control/styles.css
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.runtime/
+	artifacts/architecture_contract_20260724_015711.tar.gz
+	artifacts/architecture_contract_20260724_015711/
+	artifacts/architecture_contract_20260724_021556.tar.gz
+	artifacts/architecture_contract_20260724_021556/
+	artifacts/architecture_contract_20260724_071014.tar.gz
+	artifacts/architecture_contract_20260724_071014/
+	artifacts/architecture_contract_20260724_072528/
+	config/executive_integration_manifest.yaml
+	config/subsystem_api_matrix.yaml
+	core/capabilities/discovery.py
+	core/capabilities/metadata.py
+	core/capabilities/operations.py
+	core/conversation/
+	core/integration/
+	dev/audit_executive_integration.py
+	dev/extract_architecture_contract.sh
+	dev/extract_genesis_vi_a3b_contract.sh
+	dev/install_convergence_c1_executive_conversation.sh
+	dev/install_genesis_ui_a2_executive_projection_framework.sh
+	dev/install_genesis_ui_a3_capability_discovery_registration.sh
+	dev/install_genesis_ui_a41_knowledge_inventory_projection.sh
+	dev/verification/verify_convergence_c1.py
+	dev/verification/verify_genesis_ui_a2_executive_projection_framework.py
+	dev/verification/verify_genesis_ui_a3_capability_discovery_registration.py
+	dev/verification/verify_genesis_ui_a41_knowledge_inventory_projection.py
+	dev/verification/verify_genesis_vi_a3_executive_projection_bus.py
+	dev/verification/verify_genesis_vi_a3a_certification_repair.py
+	dev/verification/verify_genesis_vi_a3b_compatibility_finalization.py
+	dev/verify_convergence_c1.sh
+	dev/verify_executive_integration_pack.sh
+	dev/verify_genesis_ui_a2_executive_projection_framework.sh
+	dev/verify_genesis_ui_a3_capability_discovery_registration.sh
+	dev/verify_genesis_ui_a41_knowledge_inventory_projection.sh
+	dev/verify_genesis_vi_a3_executive_projection_bus.sh
+	dev/verify_genesis_vi_a3a_certification_repair.sh
+	dev/verify_genesis_vi_a3b_compatibility_finalization.sh
+	docs/architecture/capability_visibility_contract.md
+	docs/architecture/convergence_c1_executive_conversation.md
+	docs/architecture/executive_integration_architecture.md
+	docs/architecture/executive_projection_bus.md
+	docs/architecture/executive_projection_contract.md
+	docs/architecture/genesis_ui_a2_executive_projection_framework.md
+	docs/architecture/genesis_ui_a3_capability_discovery_registration.md
+	docs/architecture/genesis_ui_a41_knowledge_inventory_projection.md
+	docs/architecture/genesis_vi_a3a_certification_repair.md
+	docs/architecture/genesis_vi_a3b_compatibility_finalization.md
+	docs/architecture/knowledge_awareness_contract.md
+	docs/audits/executive_integration_audit.json
+	docs/audits/executive_integration_audit.md
+	docs/audits/executive_integration_matrix.csv
+	docs/decisions/ADR-EXEC-0001-canonical-integration-plane.md
+	docs/decisions/ADR-EXEC-0002-executive-projection-bus.md
+	docs/decisions/ADR-EXEC-0002-projection-provider-architecture.md
+	docs/decisions/ADR-EXEC-0003-additive-integration-compatibility.md
+	docs/decisions/ADR-EXEC-0003-capability-discovery-registration.md
+	docs/decisions/ADR-EXEC-0004-knowledge-inventory-projection.md
+	docs/decisions/ADR-EXEC-0004-ui-a2-route-compatibility.md
+	docs/plans/
+	genesis_vi_a3b_contract.tar.gz
+	genesis_vi_a3b_contract/
+	jarvis_convergence_c1/
+	templates/
+	tests/test_convergence_c1_executive_conversation.py
+	tests/test_convergence_c1_http_contract.py
+	tests/test_genesis_ui_a2_executive_projection_framework.py
+	tests/test_genesis_ui_a3_capability_discovery_registration.py
+	tests/test_genesis_ui_a41_knowledge_inventory_projection.py
+	tests/test_genesis_vi_a3_executive_projection_bus.py
+	tests/test_genesis_vi_a3a_certification_repair.py
+	tests/test_genesis_vi_a3b_compatibility_finalization.py
+
+no changes added to commit (use "git add" and/or "git commit -a")

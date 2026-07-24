@@ -1,0 +1,109 @@
+version: 1
+
+approved_sources:
+
+  universities:
+    global:
+      - "*.edu"
+      - "*.ac.uk"
+      - "*.edu.au"
+      - "*.ac.jp"
+      - "*.edu.sg"
+
+    notable:
+      - mit.edu
+      - stanford.edu
+      - berkeley.edu
+      - caltech.edu
+      - cmu.edu
+      - ox.ac.uk
+      - cam.ac.uk
+      - ethz.ch
+
+  governments:
+    us:
+      - "*.gov"
+      - nist.gov
+      - nasa.gov
+      - noaa.gov
+      - usgs.gov
+      - cisa.gov
+      - nih.gov
+      - faa.gov
+
+    europe:
+      - europa.eu
+      - "*.gov.uk"
+
+    international:
+      - who.int
+      - un.org
+      - unesco.org
+      - oecd.org
+
+  standards:
+      - ieee.org
+      - iso.org
+      - ietf.org
+      - w3.org
+      - ansi.org
+      - ecma-international.org
+
+  documentation:
+      - docs.python.org
+      - developer.mozilla.org
+      - learn.microsoft.com
+      - developer.apple.com
+      - developers.google.com
+      - docs.oracle.com
+      - kubernetes.io
+      - rust-lang.org
+      - golang.org
+
+  scientific:
+      - arxiv.org
+      - nature.com
+      - science.org
+      - acm.org
+      - springer.com
+
+  open_knowledge:
+      - wikipedia.org
+      - wikibooks.org
+      - archive.org
+      - gutenberg.org
+      - openlibrary.org
+
+  software:
+      - github.com
+      - gitlab.com
+      - codeberg.org
+      - sourceforge.net
+
+  linux:
+      - kernel.org
+      - ubuntu.com
+      - debian.org
+      - kali.org
+      - archlinux.org
+
+  cybersecurity:
+      - attack.mitre.org
+      - cve.org
+      - exploit-db.com
+      - owasp.org
+      - sans.org
+
+  aviation:
+      - faa.gov
+      - easa.europa.eu
+      - skybrary.aero
+      - aviationweather.gov
+      - boeing.com
+      - airbus.com
+
+  machine_learning:
+      - huggingface.co
+      - pytorch.org
+      - tensorflow.org
+      - keras.io

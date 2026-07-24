@@ -1,0 +1,31 @@
+core/src/routes/operations.py:@router.get("/bridge/projections/{projection_id}")
+core/integration/bootstrap.py:    projections = ProjectionRegistry()
+core/integration/bootstrap.py:    projections.register(OperationsProjectionProvider(operations))
+core/integration/bootstrap.py:    projections.register(
+core/integration/bootstrap.py:    projections.register(
+core/integration/bootstrap.py:        projection_registry=projections,
+core/integration/bootstrap.py:        projection_service=ExecutiveProjectionService(projections),
+core/integration/providers/operations.py:        projections = {
+core/integration/providers/operations.py:        for name, build in projections.items():
+core/integration/service.py:    def all_projections(self) -> dict[str, Any]:
+core/integration/service.py:        projections = {}
+core/integration/service.py:            projections[provider.projection_id] = envelope.to_dict()
+core/integration/service.py:        return {"schema_version": "1.0", "generated_at": generated_at, "provider_count": len(projections), "summary": summary, "projections": projections}
+core/integration/bus.py:    projections: Mapping[str, Mapping[str, Any]]
+core/integration/bus.py:            "projections": {key: dict(value) for key, value in sorted(self.projections.items())},
+core/integration/bus.py:    def _collect_projections(self) -> dict[str, Mapping[str, Any]]:
+core/integration/bus.py:        raw = _as_mapping(self.projection_service.all_projections())
+core/integration/bus.py:        projections = _as_mapping(raw.get("projections", raw))
+core/integration/bus.py:        for key, value in projections.items():
+core/integration/bus.py:    def _fingerprint_payload(projections, readiness) -> str:
+core/integration/bus.py:            "projections": projections,
+core/integration/bus.py:                "No executive projections are registered.", "not_configured", checked_at, {"projection_count": 0})
+core/integration/bus.py:            summary = "All registered executive capability projections are ready."
+core/integration/bus.py:            projections = self._collect_projections()
+core/integration/bus.py:            readiness = tuple(normalize_projection_readiness(k, v) for k, v in projections.items())
+core/integration/bus.py:            fingerprint = self._fingerprint_payload(projections, readiness)
+core/integration/bus.py:                self._overall(readiness), readiness, projections, fingerprint)
+core/integration/bus.py:        return self.snapshot().projections.get(projection_id)
+core/integration/bus.py:            "revision": snapshot.revision, "projection_count": len(snapshot.projections),
+core/integration/bus.py:            "projection_ids": sorted(snapshot.projections),
+core/integration/bus.py:            "projection_endpoint_template": "/operations/bridge/projections/{projection_id}",

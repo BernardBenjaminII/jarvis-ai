@@ -1,0 +1,4237 @@
+{
+  "cognitive_documents": [
+    {
+      "headings": [
+        "# JARVIS Architectural Constitution",
+        "# Purpose",
+        "# 1. Vision",
+        "# 2. Mission",
+        "# 3. Architectural Philosophy",
+        "# 4. Constitutional Principles",
+        "# 5. Knowledge is Permanent",
+        "# 6. Intelligence is Upgradable",
+        "# 7. Experience is Cumulative",
+        "# 8. Judgment is Earned",
+        "# 9. Mission-Oriented Operation",
+        "# 10. Architectural Authority",
+        "# Part II \u2014 The Mind of JARVIS",
+        "# 11. Architectural Domains",
+        "# 12. Domain Independence",
+        "# 13. Knowledge Domain",
+        "# 14. Operational Memory Domain",
+        "# 15. Planning Domain",
+        "# 16. Reasoning Domain",
+        "# 17. Execution Domain",
+        "# 18. Reflection Domain",
+        "# 19. Communication Domain",
+        "# 20. Cooperation Between Domains",
+        "# Part III \u2014 Information Flow",
+        "# 21. Information Lifecycle",
+        "# 22. Knowledge Flow",
+        "# 23. Mission Flow",
+        "# 24. Experience Flow",
+        "# 25. Decision Flow",
+        "# 26. Feedback Loops",
+        "# 27. Separation of Flow",
+        "# 28. Information Ownership",
+        "# 29. Architectural Boundaries",
+        "# 30. Information Integrity",
+        "# Part IV \u2014 Architectural Domains",
+        "# 31. Domain Philosophy",
+        "# 32. Domain Ownership",
+        "# 33. Domain Contracts",
+        "# 34. Knowledge Domain",
+        "# 35. Operational Memory Domain",
+        "# 36. Planning Domain",
+        "# 37. Reasoning Domain",
+        "# 38. Execution Domain",
+        "# 39. Reflection Domain",
+        "# 40. Communication Domain",
+        "# Part V \u2014 Architectural Hierarchy",
+        "# 41. Constitutional Layer",
+        "# 42. Domain Layer",
+        "# 43. Director Layer",
+        "# 44. Service Layer",
+        "# 45. Component Layer",
+        "# 46. Implementation Layer",
+        "# 47. Dependency Direction",
+        "# 48. Architectural Stability",
+        "# 49. Introducing New Capabilities",
+        "# 50. Architectural Discipline",
+        "# Part VI \u2014 Cognitive Architecture",
+        "# 51. Cognitive Philosophy",
+        "# 52. The Cognitive Cycle",
+        "# 53. Observation",
+        "# 54. Understanding",
+        "# 55. Reasoning",
+        "# 56. Planning",
+        "# 57. Execution",
+        "# 58. Reflection",
+        "# 59. Assimilation",
+        "# 60. Continuous Cognitive Improvement"
+      ],
+      "line_count": 1824,
+      "path": "docs/architecture/00_JARVIS_ARCHITECTURE.md",
+      "sha256": "633ac0ce7a05e2377877114699d2214b263ae6af5da846b30874ec73d81f518a",
+      "size_bytes": 26897,
+      "title": "JARVIS Architectural Constitution"
+    },
+    {
+      "headings": [
+        "# JARVIS Cognitive Architecture",
+        "# 1. Purpose",
+        "# 2. Governing Question",
+        "# 3. Cognitive Doctrine",
+        "# 4. Foundational Principles",
+        "# 5. Cognitive Objectives",
+        "# 6. Cognitive Boundaries",
+        "# 7. The Cognitive Cycle",
+        "# 8. Observe",
+        "# 9. Orient",
+        "# 10. Understand",
+        "# 11. Frame",
+        "# 12. Reason",
+        "# 13. Plan",
+        "# 14. Authorize",
+        "# 15. Execute",
+        "# 16. Monitor",
+        "# 17. Evaluate",
+        "# 18. Reflect",
+        "# 19. Assimilate",
+        "# 20. Resume or Conclude",
+        "# 21. Cognitive State",
+        "# 22. Working Memory",
+        "# 23. Working Memory Admission",
+        "# 24. Working Memory Eviction",
+        "# 25. Working Memory Compression",
+        "# 26. Context",
+        "# 27. Context Assembly",
+        "# 28. Context Provenance",
+        "# 29. Context Freshness",
+        "# 30. Context Conflict",
+        "# 31. Attention",
+        "# 32. Focus",
+        "# 33. Focus Stack",
+        "# 34. Mission Focus",
+        "# 35. Objective Focus",
+        "# 36. Attention Budget",
+        "# 37. Cognitive Load",
+        "# 38. Prioritization",
+        "# 39. Interruptions",
+        "# 40. Interruption Classification",
+        "# 41. Interruption Handling",
+        "# 42. Resume Semantics",
+        "# 43. Goal Structure",
+        "# 44. Goal Stack",
+        "# 45. Goal Conflict",
+        "# 46. Goal Abandonment",
+        "# 47. Hypotheses",
+        "# 48. Hypothesis Lifecycle",
+        "# 49. Confidence",
+        "# 50. Confidence Propagation",
+        "# 51. Self-Verification",
+        "# 52. Alternative Generation",
+        "# 53. Decision Record",
+        "# 54. Director Coordination",
+        "# 55. Executive Director",
+        "# 56. Director Delegation",
+        "# 57. Director Reports",
+        "# 58. Director Conflict",
+        "# 59. Capability Selection",
+        "# 60. Model Independence",
+        "# 61. Multi-Model Cognition",
+        "# 62. Tool Use",
+        "# 63. Cognitive Safety",
+        "# 64. Reversibility",
+        "# 65. Failure Handling",
+        "# 66. Retry",
+        "# 67. Replanning",
+        "# 68. Escalation",
+        "# 69. Cognitive Events",
+        "# 70. Cognitive Observability",
+        "# 71. Cognitive Explanation",
+        "# 72. Commander Brief Integration",
+        "# 73. Mission Workspace Integration",
+        "# 74. SITREP Integration",
+        "# 75. Operational Memory Integration",
+        "# 76. Knowledge Integration",
+        "# 77. Procedural Memory",
+        "# 78. Cognitive Consolidation",
+        "# 79. Deliberate Forgetting",
+        "# 80. Long-Running Cognition",
+        "# 81. Cross-Device Cognition",
+        "# 82. Distributed Cognition",
+        "# 83. Offline Cognition",
+        "# 84. Cognitive Degradation",
+        "# 85. Cognitive Performance",
+        "# 86. Cognitive Quality",
+        "# 87. Cognitive Evaluation",
+        "# 88. Cognitive Invariants",
+        "# 89. Prohibited Patterns",
+        "# 90. Acceptance Criteria",
+        "# 91. Implementation Sequence",
+        "# 92. Relationship to Future Phases",
+        "# 93. Guiding Doctrine",
+        "# 94. Conclusion"
+      ],
+      "line_count": 1903,
+      "path": "docs/architecture/11_cognitive_architecture.md",
+      "sha256": "4c0c8391ec390d64230876b8d23b2c615052f20c9ad5f7cb12e313da5074d741",
+      "size_bytes": 35028,
+      "title": "JARVIS Cognitive Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Explainable Reasoning Architecture",
+        "# 1. Purpose",
+        "# 2. Governing Question",
+        "# 3. Reasoning Doctrine",
+        "# 4. Architectural Relationship",
+        "# 5. Reasoning Principles",
+        "# 6. Reasoning Inputs",
+        "# 7. Reasoning Outputs",
+        "# 8. Reasoning Case",
+        "# 9. Reasoning Case Lifecycle",
+        "# 10. Reasoning Scope",
+        "# 11. Question Formulation",
+        "# 12. Question Decomposition",
+        "# 13. Clarification",
+        "# 14. Evidence",
+        "# 15. Evidence Record",
+        "# 16. Evidence Classification",
+        "# 17. Evidence Quality",
+        "# 18. Evidence Freshness",
+        "# 19. Evidence Independence",
+        "# 20. Evidence Admission",
+        "# 21. Evidence Exclusion",
+        "# 22. Evidence Gap",
+        "# 23. Observation",
+        "# 24. Claim",
+        "# 25. Claim Status",
+        "# 26. Claim Graph",
+        "# 27. Assumption",
+        "# 28. Assumption Budget",
+        "# 29. Hidden Assumptions",
+        "# 30. Hypothesis",
+        "# 31. Hypothesis Generation",
+        "# 32. Hypothesis Diversity",
+        "# 33. Null Hypothesis",
+        "# 34. Hypothesis Testing",
+        "# 35. Hypothesis Lifecycle",
+        "# 36. Alternative",
+        "# 37. Alternative Generation",
+        "# 38. Alternative Screening",
+        "# 39. Criteria",
+        "# 40. Criterion Weight",
+        "# 41. Tradeoff Analysis",
+        "# 42. Constraint",
+        "# 43. Contradiction",
+        "# 44. Contradiction Record",
+        "# 45. Contradiction Detection",
+        "# 46. Contradiction Resolution",
+        "# 47. Uncertainty",
+        "# 48. Uncertainty Classification",
+        "# 49. Confidence",
+        "# 50. Confidence Representation",
+        "# 51. Confidence Levels",
+        "# 52. Confidence Propagation",
+        "# 53. Confidence Calibration",
+        "# 54. Risk",
+        "# 55. Risk Record",
+        "# 56. Risk Tolerance",
+        "# 57. Reversibility",
+        "# 58. Causal Reasoning",
+        "# 59. Diagnostic Reasoning",
+        "# 60. Predictive Reasoning",
+        "# 61. Comparative Reasoning",
+        "# 62. Strategic Reasoning",
+        "# 63. Procedural Reasoning",
+        "# 64. Ethical and Policy Reasoning",
+        "# 65. Reasoning Strategy",
+        "# 66. Strategy Selection",
+        "# 67. Multi-Method Reasoning",
+        "# 68. Model-Assisted Reasoning",
+        "# 69. Model Independence",
+        "# 70. Model Selection",
+        "# 71. Reasoning Director",
+        "# 72. Reasoning Services",
+        "# 73. Evidence Service",
+        "# 74. Claim Service",
+        "# 75. Hypothesis Service",
+        "# 76. Contradiction Service",
+        "# 77. Confidence Service",
+        "# 78. Risk Service",
+        "# 79. Alternative Service",
+        "# 80. Decision Service",
+        "# 81. Verification Service",
+        "# 82. Explanation Service",
+        "# 83. Reasoning Request",
+        "# 84. Reasoning Result",
+        "# 85. Decision Record",
+        "# 86. Decision Authority",
+        "# 87. Recommendation",
+        "# 88. Inconclusive Result",
+        "# 89. Escalation",
+        "# 90. Self-Verification",
+        "# 91. Verification Levels",
+        "# 92. Independent Verification",
+        "# 93. Verification Failure",
+        "# 94. Explanation",
+        "# 95. Explanation Depth",
+        "# 96. Structured Rationale",
+        "# 97. Chain-of-Thought Boundary",
+        "# 98. Reasoning Observability",
+        "# 99. Reasoning Events",
+        "# 100. Event Ownership",
+        "# 101. Operational Memory Integration",
+        "# 102. Knowledge Domain Integration",
+        "# 103. Planning Domain Integration",
+        "# 104. Execution Domain Integration",
+        "# 105. Reflection Domain Integration",
+        "# 106. Communication Domain Integration",
+        "# 107. Mission Control Integration",
+        "# 108. Commander Brief Integration",
+        "# 109. Reasoning Persistence",
+        "# 110. Reasoning Versioning",
+        "# 111. Reasoning Immutability",
+        "# 112. Reasoning Privacy",
+        "# 113. Reasoning Security",
+        "# 114. Untrusted Content",
+        "# 115. Evidence Poisoning",
+        "# 116. Reasoning Degradation",
+        "# 117. Offline Reasoning",
+        "# 118. Distributed Reasoning",
+        "# 119. Reasoning Performance",
+        "# 120. Reasoning Quality",
+        "# 121. Reasoning Evaluation",
+        "# 122. Calibration Evaluation",
+        "# 123. Explainability Evaluation",
+        "# 124. Reasoning Invariants",
+        "# 125. Prohibited Patterns",
+        "# 126. Minimum Reasoning Contract",
+        "# 127. Implementation Sequence",
+        "# 128. Initial Package Boundary",
+        "# 129. Relationship to Phase IX-C",
+        "# 130. Acceptance Criteria",
+        "# 131. Guiding Doctrine",
+        "# 132. Conclusion"
+      ],
+      "line_count": 2577,
+      "path": "docs/architecture/12_reasoning_architecture.md",
+      "sha256": "36051b56c1a8e9ad1cb3cb35573c6370d9b43145986a729557924020454a409e",
+      "size_bytes": 47008,
+      "title": "JARVIS Explainable Reasoning Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Mission Planning Architecture",
+        "# 1. Purpose",
+        "# 2. Architectural Position",
+        "# 3. Mission Planning Philosophy",
+        "# 4. Canonical Mission Hierarchy",
+        "# 5. Planning Actors and Responsibilities",
+        "# 6. Planning Inputs",
+        "# 7. Canonical Planning Pipeline",
+        "# 8. Planning State Model",
+        "# 9. Canonical State Transitions",
+        "# 10. Planning Invariants",
+        "# 11. Initial Service Boundaries",
+        "# 12. Phase IX-C Part 1 Completion Boundary",
+        "# 13. Canonical Declaration"
+      ],
+      "line_count": 1394,
+      "path": "docs/architecture/13_mission_planning_architecture.md",
+      "sha256": "ab9235f02be6b8ab4585294647968ded013b562d90fb51080a50703c6e76b4fe",
+      "size_bytes": 28953,
+      "title": "JARVIS Mission Planning Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Architecture",
+        "## Vision",
+        "# Core Philosophy",
+        "# Core Services",
+        "## Runtime",
+        "## Identity",
+        "## Doctor",
+        "## Memory",
+        "## Knowledge",
+        "# Supporting Services",
+        "# Service Relationships",
+        "# Design Principles",
+        "## Single Responsibility",
+        "## Loose Coupling",
+        "## Plugin Architecture",
+        "## Explainability",
+        "## Offline First",
+        "## User Control",
+        "## Security",
+        "## Extensibility",
+        "# Long-Term Direction",
+        "# Mission"
+      ],
+      "line_count": 306,
+      "path": "docs/architecture/JARVIS_ARCHITECTURE.md",
+      "sha256": "7c6b76a256987a7c0fea525b951cae0f2ee65bbe0c62375ce5587e92e44be6f5",
+      "size_bytes": 6107,
+      "title": "JARVIS Architecture"
+    },
+    {
+      "headings": [],
+      "line_count": 0,
+      "path": "docs/architecture/api.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "title": ""
+    },
+    {
+      "headings": [
+        "# JARVIS Architecture Blueprint",
+        "# 1. Architecture Rule",
+        "# 2. Architectural Principles",
+        "# 3. Top-Level Platform Layout",
+        "# 4. Bootstrap",
+        "# 5. Runtime",
+        "# 6. Core Services",
+        "# 7. Capability Framework",
+        "# 8. Knowledge Engine",
+        "# 9. Receiving",
+        "# 10. Discovery",
+        "# 11. Inspection",
+        "# 12. Extraction",
+        "# 13. Processing",
+        "# 14. Processors",
+        "# 15. Chunking",
+        "# 16. Embeddings",
+        "# 17. Objects",
+        "# 18. Registry",
+        "# 19. Knowledge Graph",
+        "# 20. Retrieval",
+        "# 21. Workflow",
+        "# 22. Workflows",
+        "# 23. Orchestrator",
+        "# 24. Director",
+        "# 25. Librarian",
+        "# 26. Development Tools",
+        "# 27. Verification",
+        "# 28. Backup Policy",
+        "# 29. Architectural Anti-Patterns",
+        "# 30. Phase II-A Completion Criteria"
+      ],
+      "line_count": 533,
+      "path": "docs/architecture/architecture_blueprint.md",
+      "sha256": "28d3418d44cfd2bc387fb58285aba524aae116c077d49fa94c3d7d26531055f4",
+      "size_bytes": 6963,
+      "title": "JARVIS Architecture Blueprint"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 Assimilation Core",
+        "## Purpose",
+        "## High-Level Flow",
+        "## Components",
+        "### AssimilationRunner",
+        "### ExtractionService",
+        "### DocumentPersistenceService",
+        "### AttemptJournalService",
+        "### AssimilationStateService",
+        "### HandlerRegistry",
+        "### Handlers",
+        "## Future Handlers",
+        "## Design Rules"
+      ],
+      "line_count": 110,
+      "path": "docs/architecture/assimilation_core.md",
+      "sha256": "5abb8a4fb2dad82045f8c49d63f7ae6a1ad946f4dbb083b14a9198593eecf4a1",
+      "size_bytes": 1367,
+      "title": "JARVIS Gen 2 Assimilation Core"
+    },
+    {
+      "headings": [
+        "# Bootstrap Canonical Architecture",
+        "## Purpose",
+        "# Canonical Entry Point",
+        "# Bootstrap Runner",
+        "# Lifecycle",
+        "# Legacy Bootstrap",
+        "# Runtime Check",
+        "# Goal"
+      ],
+      "line_count": 107,
+      "path": "docs/architecture/bootstrap_canonical.md",
+      "sha256": "614b2d77426863a2c0034c6d9c99bc22c1bcfdd0dd192e918a704bbc8bb636ac",
+      "size_bytes": 1540,
+      "title": "Bootstrap Canonical Architecture"
+    },
+    {
+      "headings": [],
+      "line_count": 29,
+      "path": "docs/architecture/bootstrap_refactor_plan.md",
+      "sha256": "cc01c24de7d4ce05303d65d51442c6b7b79ffd1ff4a515ec811422efe6b9f691",
+      "size_bytes": 488,
+      "title": ""
+    },
+    {
+      "headings": [
+        "# Cognitive Architecture Convergence",
+        "## Purpose",
+        "## Phase structure",
+        "### IX-C1 \u2014 Inventory and Preservation",
+        "### IX-C2 \u2014 Canonical Ownership",
+        "### IX-C3 \u2014 Controlled Migration",
+        "### IX-C4 \u2014 Architecture Freeze",
+        "## Governing rule"
+      ],
+      "line_count": 61,
+      "path": "docs/architecture/convergence/README.md",
+      "sha256": "8adeb9932aaabd40d91bca4c0db1524fd08b51227e8f340a67933819d4c7de9d",
+      "size_bytes": 1847,
+      "title": "Cognitive Architecture Convergence"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 Phase II-A \u2014 Capability-Based Director Routing",
+        "## Purpose",
+        "## Director readiness",
+        "## Routing evidence",
+        "## Current directors",
+        "### Executive",
+        "### Knowledge",
+        "### System",
+        "## Next phase"
+      ],
+      "line_count": 58,
+      "path": "docs/architecture/gen2_capability_routing.md",
+      "sha256": "b3ae144d3c769a1063ad9349ff09b55a05b011adeda0fceecb46e394da51b5f6",
+      "size_bytes": 1210,
+      "title": "JARVIS Gen 2 Phase II-A \u2014 Capability-Based Director Routing"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 Phase I \u2014 Executive Director and Mission Engine",
+        "## Status",
+        "## Purpose",
+        "## Architecture",
+        "## Design decisions",
+        "### Additive architecture",
+        "### Deterministic first planner",
+        "### Persistent missions",
+        "### Director isolation",
+        "### Safe system behavior",
+        "## Mission lifecycle",
+        "## Phase I completion criteria",
+        "## Next phase"
+      ],
+      "line_count": 110,
+      "path": "docs/architecture/gen2_mission_engine.md",
+      "sha256": "ce7ae3cc9aa05892fd1fa8969beb8f790917638aee8cced50b404b853c5abe28",
+      "size_bytes": 3005,
+      "title": "JARVIS Gen 2 Phase I \u2014 Executive Director and Mission Engine"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 Phase VII-B1",
+        "## Deterministic Source Admission",
+        "### Purpose",
+        "### Responsibilities",
+        "### Non-responsibilities",
+        "### Dependency Direction",
+        "### Completion Criteria"
+      ],
+      "line_count": 43,
+      "path": "docs/architecture/gen2_phase_7b1_source_admission.md",
+      "sha256": "384da4b4b93da34d76d626827c15f2e8fab8b22e6ce8e905e19167b1e92be3b8",
+      "size_bytes": 1021,
+      "title": "JARVIS Gen 2 Phase VII-B1"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 Phase VII-B2",
+        "## Persistent Source Registry",
+        "## Architectural Rule",
+        "## Responsibilities",
+        "## Lifecycle",
+        "## Non-Responsibilities",
+        "## Persistence",
+        "## Completion Criteria"
+      ],
+      "line_count": 61,
+      "path": "docs/architecture/gen2_phase_7b2_source_registry.md",
+      "sha256": "794b01968b1ab569c6227770870926673e3885e85461f538731b0464fed2e528",
+      "size_bytes": 1464,
+      "title": "JARVIS Gen 2 Phase VII-B2"
+    },
+    {
+      "headings": [
+        "# JARVIS Engineering Standard",
+        "## Version",
+        "## Status",
+        "## Purpose",
+        "## Primary principle",
+        "## Gate 0 \u2014 Historical audit",
+        "## Gate 1 \u2014 Responsibility",
+        "## Gate 2 \u2014 Dependency direction"
+      ],
+      "line_count": 89,
+      "path": "docs/architecture/jarvis_engineering_standard.md",
+      "sha256": "c7bd176b0448f0df5f8bcf001a93e8b1ade2521d41c1ab5ae064772cd40551ea",
+      "size_bytes": 1983,
+      "title": "JARVIS Engineering Standard"
+    },
+    {
+      "headings": [
+        "# JARVIS Knowledge Engine Architecture",
+        "## 1. Purpose",
+        "## 2. Core Principle",
+        "## 3. Runtime Layout"
+      ],
+      "line_count": 56,
+      "path": "docs/architecture/knowledge_engine.md",
+      "sha256": "a2d579c01b6a840ea4e89d45e701144f45f5dafb024bfce0005e73367e8f086b",
+      "size_bytes": 1406,
+      "title": "JARVIS Knowledge Engine Architecture"
+    },
+    {
+      "headings": [
+        "# Knowledge Engine Canonical Owners",
+        "## Rule",
+        "## Canonical Owners",
+        "## Design Rule"
+      ],
+      "line_count": 34,
+      "path": "docs/architecture/knowledge_engine_canonical_owners.md",
+      "sha256": "a30613bacd0b4054ad72cfbe2f1d1aff49a12434c13ebdb2989de3fb84cf03b2",
+      "size_bytes": 1115,
+      "title": "Knowledge Engine Canonical Owners"
+    },
+    {
+      "headings": [
+        "# JARVIS Knowledge Lifecycle",
+        "# Purpose",
+        "# Guiding Principles",
+        "## Inspect Early",
+        "## Reuse Forever",
+        "## Preserve the Original",
+        "## One Canonical Pipeline",
+        "# Canonical Lifecycle"
+      ],
+      "line_count": 67,
+      "path": "docs/architecture/knowledge_lifecycle.md",
+      "sha256": "0b5a67cf72cb7d3ba78048f4f4e00f0d0ea7604888f7d1a22a8d091d4340d516",
+      "size_bytes": 1150,
+      "title": "JARVIS Knowledge Lifecycle"
+    },
+    {
+      "headings": [
+        "# Knowledge System Migration",
+        "## Existing Modules",
+        "### core/knowledge_catalog",
+        "### core/knowledge_graph",
+        "### core/knowledge_mapper",
+        "### core/semantic_digest",
+        "### dev/librarian"
+      ],
+      "line_count": 59,
+      "path": "docs/architecture/knowledge_system_migration.md",
+      "sha256": "3f7e559744f8f8b197d27d45c111945d163816a484baeb411ac17e4ffe241ee0",
+      "size_bytes": 509,
+      "title": "Knowledge System Migration"
+    },
+    {
+      "headings": [
+        "# JARVIS Knowledge System v2",
+        "## Philosophy",
+        "## Pipeline",
+        "## Modules",
+        "### acquisition/",
+        "### inspection/",
+        "### extraction/",
+        "### catalog/",
+        "### ontology/",
+        "### graph/",
+        "### search/",
+        "### reasoning/",
+        "### research/",
+        "## Guiding Principle"
+      ],
+      "line_count": 197,
+      "path": "docs/architecture/knowledge_system_v2.md",
+      "sha256": "6380ece9960f7470ad087ea41790b951263fc4c4dea77770e96eca505096161e",
+      "size_bytes": 1708,
+      "title": "JARVIS Knowledge System v2"
+    },
+    {
+      "headings": [],
+      "line_count": 0,
+      "path": "docs/architecture/launcher.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 0,
+      "path": "docs/architecture/memory_engine.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "title": ""
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VI-E4",
+        "# Extraction and Chunking Service",
+        "# Purpose",
+        "# Motivation",
+        "# Architectural Change",
+        "## Before",
+        "## After",
+        "# New Component",
+        "## ExtractionService",
+        "# ExtractionResult",
+        "# Runner Changes",
+        "# Responsibilities After Phase VI-E4",
+        "## AssimilationRunner",
+        "## ExtractionService",
+        "# Dependency Injection",
+        "# Preserved Behavior",
+        "# Verification",
+        "# Engineering Contracts",
+        "# Exit Criteria",
+        "# Historical Notes"
+      ],
+      "line_count": 310,
+      "path": "docs/architecture/milestones/phase_vi_e4_extraction_service.md",
+      "sha256": "957f1ad32b120f6d99a18c945df9de5ad18c382d870f7570f9a058ab4590ffde",
+      "size_bytes": 5745,
+      "title": "JARVIS Gen 2 \u2014 Phase VI-E4"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 Phase VI-F2",
+        "## Architecture Contracts and Repository Layer",
+        "### Status",
+        "### Purpose",
+        "### Architectural correction"
+      ],
+      "line_count": 34,
+      "path": "docs/architecture/milestones/phase_vi_f2_architecture_contracts.md",
+      "sha256": "7edd60c76467f19c1763944d2210bed51e519b20135f329da68bf7c62c92896d",
+      "size_bytes": 640,
+      "title": "JARVIS Gen 2 Phase VI-F2"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VI-F3",
+        "# Runner Composition Contracts",
+        "# Purpose",
+        "# Motivation",
+        "# Architectural Position",
+        "# Responsibilities",
+        "# Constructor Contract",
+        "# Dependency Injection Contract",
+        "# Default Composition",
+        "# Public API Contract",
+        "# Handler Identity",
+        "# Retry Policy",
+        "# ClaimedDocument Contract",
+        "# Architectural Guarantees",
+        "# Verification",
+        "# Exit Criteria",
+        "# Historical Notes"
+      ],
+      "line_count": 299,
+      "path": "docs/architecture/milestones/phase_vi_f3_runner_composition.md",
+      "sha256": "812402049cd640b6246bcd59291e8e27e40e7e7c1f901dd3dec15671f534adda",
+      "size_bytes": 6491,
+      "title": "JARVIS Gen 2 \u2014 Phase VI-F3"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VI-F4",
+        "# Determinism and Performance Contracts",
+        "## Purpose",
+        "## Scope",
+        "## Determinism contracts",
+        "## Service-state contract",
+        "## Runner construction contract",
+        "## Performance philosophy",
+        "## Temporary fixtures",
+        "## Metrics reported",
+        "## Verification"
+      ],
+      "line_count": 141,
+      "path": "docs/architecture/milestones/phase_vi_f4_performance_contracts.md",
+      "sha256": "e446ded8bdb9c08e17fb0be2daa50ebc56851f1cc2916f2c89f9b52cf100abcc",
+      "size_bytes": 3233,
+      "title": "JARVIS Gen 2 \u2014 Phase VI-F4"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VI-F5",
+        "# Verification Framework Consolidation",
+        "## Purpose",
+        "## Architecture"
+      ],
+      "line_count": 37,
+      "path": "docs/architecture/milestones/phase_vi_f5_verification_framework.md",
+      "sha256": "f79b486bb9c2f624b33f57a1a477adfbb6156a8491ec9a3e0dafebdafb764714",
+      "size_bytes": 829,
+      "title": "JARVIS Gen 2 \u2014 Phase VI-F5"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VI-F7",
+        "# Developer Infrastructure and Safe Commit Gate",
+        "## Purpose",
+        "## Safe-commit workflow"
+      ],
+      "line_count": 40,
+      "path": "docs/architecture/milestones/phase_vi_f7_developer_infrastructure.md",
+      "sha256": "71903f2de14273cb73a5b83c814c90d7217bca3bf5648970216fd9a32205366c",
+      "size_bytes": 804,
+      "title": "JARVIS Gen 2 \u2014 Phase VI-F7"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VII-A1",
+        "# Knowledge Acquisition Foundation",
+        "## Purpose",
+        "## Architecture"
+      ],
+      "line_count": 35,
+      "path": "docs/architecture/milestones/phase_vii_a1_acquisition_foundation.md",
+      "sha256": "954ce0ad9148e01589383b0d6a4c5dc51f8826c869662eba3a6c7b5cfe181289",
+      "size_bytes": 697,
+      "title": "JARVIS Gen 2 \u2014 Phase VII-A1"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VII-A2",
+        "# Deterministic Acquisition Admission Engine",
+        "## Status",
+        "## Purpose",
+        "## Architecture"
+      ],
+      "line_count": 42,
+      "path": "docs/architecture/milestones/phase_vii_a2_admission_engine.md",
+      "sha256": "b2624d812eaf68041e916651ae3e37b64072ffa6061643954220b5d15fe00ba0",
+      "size_bytes": 950,
+      "title": "JARVIS Gen 2 \u2014 Phase VII-A2"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VII-A3",
+        "# Provenance Persistence Foundation",
+        "## Purpose",
+        "## Persistent records",
+        "## Architecture"
+      ],
+      "line_count": 38,
+      "path": "docs/architecture/milestones/phase_vii_a3_provenance_persistence.md",
+      "sha256": "b2c48116d9f388aa1ea7cb9e4cae30778386ddcefe030d8fb22f3fe45cce2373",
+      "size_bytes": 766,
+      "title": "JARVIS Gen 2 \u2014 Phase VII-A3"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VII-A4",
+        "# Durable Admission Workflow",
+        "## Purpose",
+        "## Architecture"
+      ],
+      "line_count": 23,
+      "path": "docs/architecture/milestones/phase_vii_a4_durable_admission_workflow.md",
+      "sha256": "9232e3974f35efe38db2ed2f23bac599b29ad7c544aa7afa555a35df472821b9",
+      "size_bytes": 635,
+      "title": "JARVIS Gen 2 \u2014 Phase VII-A4"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VII-A5",
+        "# Durable Acquisition Missions",
+        "## Purpose",
+        "## Architecture"
+      ],
+      "line_count": 26,
+      "path": "docs/architecture/milestones/phase_vii_a5_acquisition_missions.md",
+      "sha256": "652ee46fa59ebc2d2f5b5713b86d1517e57bb004c0abbbd975d9ce3a35e174f0",
+      "size_bytes": 409,
+      "title": "JARVIS Gen 2 \u2014 Phase VII-A5"
+    },
+    {
+      "headings": [
+        "# JARVIS Gen 2 \u2014 Phase VII-A6",
+        "# Controlled Assimilation Handoff",
+        "## Purpose",
+        "## Architecture"
+      ],
+      "line_count": 24,
+      "path": "docs/architecture/milestones/phase_vii_a6_assimilation_handoff.md",
+      "sha256": "b6d2d7aa5a591c1f2b43a38088aacd9f04cbc58c2cf6abb63e44fe51d659bced",
+      "size_bytes": 509,
+      "title": "JARVIS Gen 2 \u2014 Phase VII-A6"
+    },
+    {
+      "headings": [],
+      "line_count": 0,
+      "path": "docs/architecture/model_routing.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "title": ""
+    },
+    {
+      "headings": [
+        "# JARVIS Knowledge Engine Architecture",
+        "# Purpose",
+        "# Guiding Philosophy",
+        "# Design Principles",
+        "## Single Responsibility",
+        "## Interface First",
+        "## Provider-Based Architecture",
+        "# Runtime Layout",
+        "## catalog.sqlite",
+        "## providers.sqlite",
+        "## taxonomy.sqlite",
+        "## chunks/",
+        "## embeddings/",
+        "## indexes/",
+        "## manifests/",
+        "# Core Objects",
+        "## KnowledgeAsset",
+        "## KnowledgeProvider",
+        "## KnowledgeService",
+        "## KnowledgeEngine",
+        "# Knowledge Flow",
+        "# Query Flow",
+        "# Collections",
+        "# Future Expansion",
+        "# Long-Term Goal",
+        "# Current Milestones",
+        "## Milestone 1",
+        "## Milestone 2",
+        "## Milestone 3",
+        "## Milestone 4",
+        "## Milestone 5",
+        "## Milestone 6"
+      ],
+      "line_count": 539,
+      "path": "docs/architecture/overview.md",
+      "sha256": "fba5eb4061e46c3491ad5ba5d8cc6c3742477e928d0a78c7cd37ae777b5cc87d",
+      "size_bytes": 5982,
+      "title": "JARVIS Knowledge Engine Architecture"
+    },
+    {
+      "headings": [
+        "# Phase II-A \u2014 Architecture Consolidation",
+        "# Purpose",
+        "# Objectives",
+        "# Scope",
+        "# Current Architecture Assessment",
+        "## Bootstrap",
+        "## Knowledge Engine",
+        "# Consolidation Targets",
+        "## Bootstrap",
+        "### Goal",
+        "## Workflow Architecture",
+        "### workflow/",
+        "### workflows/",
+        "### orchestrator/",
+        "### director/",
+        "## Processing Architecture",
+        "### processors/",
+        "### processing/",
+        "## Discovery Architecture",
+        "### discovery/",
+        "### capabilities/discovery.py",
+        "# Backup Artifact Policy",
+        "# Verification Requirements",
+        "# Exit Criteria",
+        "## Architecture",
+        "## Repository",
+        "## Verification",
+        "## Documentation",
+        "# Deliverables",
+        "# Success Definition"
+      ],
+      "line_count": 353,
+      "path": "docs/architecture/phase_ii_a_consolidation.md",
+      "sha256": "c05804cc79ac2d95a7ad76bb947694098824f552890ad32c72f253df4bbad26a",
+      "size_bytes": 6309,
+      "title": "Phase II-A \u2014 Architecture Consolidation"
+    },
+    {
+      "headings": [],
+      "line_count": 43,
+      "path": "docs/architecture/runtime.md",
+      "sha256": "4e4315f1b28cb2371de1d047eeb7306339b596930dca964150f4a2699e7c8fc2",
+      "size_bytes": 627,
+      "title": ""
+    },
+    {
+      "headings": [
+        "# Knowledge Engine Service Architecture",
+        "# Purpose",
+        "# Architecture",
+        "# Public Services",
+        "# Responsibilities",
+        "## Workflow",
+        "## Services",
+        "## Knowledge Engine",
+        "## Persistence",
+        "# Architecture Rule"
+      ],
+      "line_count": 101,
+      "path": "docs/architecture/service_architecture.md",
+      "sha256": "96916fa756e9ee030ff1c6cfa1ebfc4e08d686171146f3e3622c7baeff422602",
+      "size_bytes": 1218,
+      "title": "Knowledge Engine Service Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Storage Architecture",
+        "## 1. Core Principle",
+        "## 2. Runtime Root"
+      ],
+      "line_count": 41,
+      "path": "docs/architecture/storage.md",
+      "sha256": "49a2f00d97a4ab21bb78536d4356280f1480bf858fa37fcf76fd2ce611f46aaa",
+      "size_bytes": 700,
+      "title": "JARVIS Storage Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Subsystem Ownership",
+        "## Bootstrap",
+        "## Discovery",
+        "## Processing",
+        "## Processors",
+        "## Workflow",
+        "## Workflows",
+        "## Director",
+        "## Orchestrator",
+        "## Registry",
+        "## Objects",
+        "## Embeddings"
+      ],
+      "line_count": 56,
+      "path": "docs/architecture/subsystem_ownership.md",
+      "sha256": "b100713e66a395d02245db0c8f0a1b6fb7ad3c58540715029022b794036c29dc",
+      "size_bytes": 470,
+      "title": "JARVIS Subsystem Ownership"
+    },
+    {
+      "headings": [
+        "# JARVIS Mission Control UI Design Language",
+        "## 1. Purpose",
+        "## 2. Product identity",
+        "## 3. Primary design principle",
+        "## 4. UI constitution",
+        "### Rule 1 \u2014 Mission before conversation",
+        "### Rule 2 \u2014 Operational value",
+        "### Rule 3 \u2014 Workspace priority",
+        "### Rule 4 \u2014 Five-second orientation",
+        "### Rule 5 \u2014 Calm presentation",
+        "### Rule 6 \u2014 Progressive disclosure",
+        "### Rule 7 \u2014 Briefing instead of greeting",
+        "### Rule 8 \u2014 Mission association",
+        "### Rule 9 \u2014 SITREP instead of notification clutter",
+        "### Rule 10 \u2014 Transparency without overload",
+        "## 5. Visual character",
+        "## 6. Semantic color system",
+        "### Neutral",
+        "### Blue",
+        "### Green",
+        "### Amber",
+        "### Red",
+        "## 7. Motion",
+        "## 8. Information density",
+        "## 9. Accessibility"
+      ],
+      "line_count": 199,
+      "path": "docs/architecture/ui/00_design_language.md",
+      "sha256": "20dff97ca30990074060f016d7da1dd151f05d33f82f9b4ab9bb1d0ad3249240",
+      "size_bytes": 4469,
+      "title": "JARVIS Mission Control UI Design Language"
+    },
+    {
+      "headings": [
+        "# JARVIS Mission Control User Experience",
+        "## 1. Experience objective",
+        "## 2. Canonical startup flow",
+        "## 3. Startup diagnostics",
+        "## 4. Commander Brief",
+        "## 5. Continuity",
+        "## 6. Mission-first interaction",
+        "## 7. Progressive disclosure",
+        "### Overview",
+        "### Summary",
+        "### Detail",
+        "## 8. Attention management",
+        "## 9. Session conclusion",
+        "## 10. Device-aware behavior"
+      ],
+      "line_count": 170,
+      "path": "docs/architecture/ui/01_user_experience.md",
+      "sha256": "e28f1f949df35d6e4c7cf0e052ee505db5c4693b0b7058ad05b7f9e167214e17",
+      "size_bytes": 3597,
+      "title": "JARVIS Mission Control User Experience"
+    },
+    {
+      "headings": [
+        "# JARVIS Mission Control Screen Architecture",
+        "## 1. Canonical desktop layout",
+        "# Mission Tools"
+      ],
+      "line_count": 71,
+      "path": "docs/architecture/ui/02_screen_architecture.md",
+      "sha256": "286e0ead8c9a52ff2ece57da35d9b6bc28245f4e3abfe79b281e99f98b628ff5",
+      "size_bytes": 2033,
+      "title": "JARVIS Mission Control Screen Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Mission Control Navigation Model",
+        "# 1. Purpose",
+        "# 2. Design Principles",
+        "# 3. Primary Navigation",
+        "# 4. Mission",
+        "# 5. Knowledge",
+        "# 6. Research",
+        "# 7. Development",
+        "# 8. Security",
+        "# 9. Devices",
+        "# 10. Settings",
+        "# 11. Mission Continuity",
+        "# 12. SITREP",
+        "# 13. Commander Brief",
+        "# 14. Keyboard Navigation",
+        "# 15. Device Adaptation",
+        "# 16. Navigation Ownership",
+        "# 17. Acceptance Criteria",
+        "# 18. Architectural Summary"
+      ],
+      "line_count": 350,
+      "path": "docs/architecture/ui/03_navigation_model.md",
+      "sha256": "dd58904c6db265dc955b92769dbdf2fe5c22ca7303c75f723842c90738a16a8e",
+      "size_bytes": 5067,
+      "title": "JARVIS Mission Control Navigation Model"
+    },
+    {
+      "headings": [
+        "# JARVIS Operational Context Architecture",
+        "# 1. Purpose",
+        "# 2. Design Goals",
+        "# 3. Canonical Operational Hierarchy",
+        "# 4. Mission",
+        "# 5. Mission Responsibilities",
+        "# 6. Mission Ownership",
+        "# 7. Objectives",
+        "# 8. Objective Responsibilities",
+        "# 9. Tasks",
+        "# 10. Task Responsibilities",
+        "# 11. Activities",
+        "# 12. Activity Responsibilities",
+        "# 13. Commands",
+        "# 14. Command Responsibilities",
+        "# 15. Operational Context Ownership",
+        "# 16. Context Persistence",
+        "# 17. Context Restoration",
+        "# 18. Foreground Mission",
+        "# 19. Background Missions",
+        "# 20. Context Switching",
+        "# 21. Mission Journal",
+        "# 22. Commander Brief Relationship",
+        "# 23. SITREP Relationship",
+        "# 24. Multi-Device Operation",
+        "# 25. Backend Responsibilities",
+        "# 26. Frontend Responsibilities",
+        "# 27. Architectural Rules",
+        "# 28. Future Expansion",
+        "# 29. Acceptance Criteria",
+        "# 30. Architectural Conclusion"
+      ],
+      "line_count": 835,
+      "path": "docs/architecture/ui/04_operational_context.md",
+      "sha256": "0c9ccad97dabe6898cdac79981754796a473b8b127524c5ec9f1618aad3518e7",
+      "size_bytes": 12763,
+      "title": "JARVIS Operational Context Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Commander Brief Architecture",
+        "# 1. Purpose",
+        "# 2. Philosophy",
+        "# 3. Design Principles",
+        "# 4. Commander Experience",
+        "# 5. Core Operational Principle",
+        "# 6. Attention Discipline",
+        "# 7. Commander Brief Character",
+        "# 8. Trust Before Action",
+        "# 9. Canonical Presentation Order",
+        "# 10. System Integrity",
+        "# 11. Mission Status",
+        "# 12. Mission Continuity",
+        "# 13. Changes Since Last Session",
+        "# 14. Attention Required",
+        "# 15. Recommended Next Action",
+        "# 16. Commander Brief Lifecycle",
+        "# 17. Relationship to Operational Context",
+        "# 18. Relationship to SITREP",
+        "# 19. Relationship to Mission Journal",
+        "# 20. Multi-Device Behavior",
+        "# 21. Architectural Rules",
+        "# 22. Acceptance Criteria",
+        "# 23. Architectural Conclusion"
+      ],
+      "line_count": 640,
+      "path": "docs/architecture/ui/05_commander_brief.md",
+      "sha256": "36a36cf7e73b123640b66f1f568b2e51d692b44dc75b7d7906253d23abc39259",
+      "size_bytes": 10877,
+      "title": "JARVIS Commander Brief Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Mission Workspace Architecture",
+        "# 1. Purpose",
+        "# 2. Governing Principle",
+        "# 3. Mission Workspace Doctrine",
+        "# 4. Primary Operator Questions",
+        "# 5. Entry into the Mission Workspace",
+        "# 6. Entry States",
+        "## Active Mission",
+        "## Mission Awaiting Approval",
+        "## Interrupted Mission",
+        "## Completed Mission",
+        "## No Active Mission",
+        "# 7. Mission Continuity",
+        "# 8. Foreground Mission",
+        "# 9. Workspace Responsibilities",
+        "# 10. Principal Work Surface",
+        "# 11. Focus Model",
+        "# 12. Conversation",
+        "# 13. Conversational Context",
+        "# 14. Commands Within Conversation",
+        "# 15. Artifacts",
+        "# 16. Artifact Interaction",
+        "# 17. Evidence",
+        "# 18. Tasks",
+        "# 19. Approvals",
+        "# 20. Recommendations",
+        "# 21. Mission Capabilities",
+        "# 22. Capability Activation",
+        "# 23. Engineering Capability",
+        "# 24. Operations Console",
+        "# 25. Knowledge Capability",
+        "# 26. Evidence Capability",
+        "# 27. Director Capability",
+        "# 28. Workspace Transitions",
+        "# 29. Capability Return Behavior",
+        "# 30. Background Execution",
+        "# 31. Presence and Identity Integration",
+        "# 32. Device Adaptation",
+        "## Desktop and Laptop",
+        "## Tablet",
+        "## Mobile",
+        "## Raspberry Pi and Small Displays",
+        "## Meta Quest and Spatial Interfaces",
+        "# 33. Accessibility",
+        "# 34. Workspace Recovery",
+        "# 35. Empty Workspace Behavior",
+        "# 36. Error Behavior",
+        "# 37. Architectural Rules",
+        "# 38. Future Expansion",
+        "# 39. Acceptance Criteria",
+        "# 40. Architectural Conclusion"
+      ],
+      "line_count": 1213,
+      "path": "docs/architecture/ui/06_mission_workspace.md",
+      "sha256": "aefd939e82dc9d2edc6b90f713a3e8e68bbfdf45554d114f93019cb332a56cbe",
+      "size_bytes": 20550,
+      "title": "JARVIS Mission Workspace Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Operator Experience",
+        "# 1. Purpose",
+        "# 2. Fundamental Principle",
+        "# 3. Experience Goals",
+        "# 4. Operational Character",
+        "# 5. Trust",
+        "# 6. Presence",
+        "# 7. Visual Presence",
+        "# 8. Identity",
+        "# 9. Attention",
+        "# 10. Communication",
+        "# 11. Recommendation Behavior",
+        "# 12. Inevitability",
+        "# 13. Voice",
+        "# 14. Emotional Experience",
+        "# 15. Long-Term Relationship",
+        "# 16. Failure Behavior",
+        "# 17. Architectural Rules",
+        "# 18. Acceptance Criteria",
+        "# 19. Architectural Conclusion"
+      ],
+      "line_count": 463,
+      "path": "docs/architecture/ui/07_operator_experience.md",
+      "sha256": "8fe63162513c4d6d4cb1522ec8331f70e2964be569ab1ca6ce5930a3af02f1ba",
+      "size_bytes": 8305,
+      "title": "JARVIS Operator Experience"
+    },
+    {
+      "headings": [
+        "# 17. Awaiting Approval",
+        "# 18. Mission Completion",
+        "# 19. Mission Success Criteria",
+        "# 20. Partial Completion",
+        "# 21. Mission Failure",
+        "# 22. Failure Classification",
+        "# 23. Mission Recovery",
+        "# 24. Mission Retry",
+        "# 25. Mission Cancellation",
+        "# 26. Mission Archival",
+        "# 27. Mission Reopening",
+        "# 28. Foreground Mission",
+        "# 29. Background Missions",
+        "# 30. Mission Relationships",
+        "# 31. Parent and Child Missions",
+        "# 32. Mission Dependencies",
+        "# 33. Mission Ownership",
+        "# 34. Director Participation",
+        "# 35. Lifecycle Transition Rules",
+        "# 36. Transition Validation",
+        "# 37. Mission State Invariants",
+        "# 38. Lifecycle Events",
+        "# 39. Event Requirements",
+        "# 40. Mission Journal Relationship",
+        "# 41. SITREP Relationship",
+        "# 42. Commander Brief Relationship",
+        "# 43. Startup Recovery",
+        "# 44. Stale Mission Detection",
+        "# 45. Lifecycle Security",
+        "# 46. Architectural Rules",
+        "# 47. Acceptance Criteria",
+        "# 48. Architectural Conclusion"
+      ],
+      "line_count": 984,
+      "path": "docs/architecture/ui/08_mission_lifecycle.md",
+      "sha256": "df0a8f662f6baec86c2f812e097d63d59c1dc79625f003278011bb9f3772d09e",
+      "size_bytes": 16530,
+      "title": "17. Awaiting Approval"
+    },
+    {
+      "headings": [
+        "# JARVIS Mission Control",
+        "# SITREP Architecture",
+        "# 1. Purpose",
+        "# 2. Governing Principle",
+        "# 3. Architectural Doctrine",
+        "# 4. SITREP Definition",
+        "# 5. What SITREP Is Not",
+        "# 6. Relationship to Mission Lifecycle",
+        "# 7. Relationship to Commander Brief",
+        "# 8. Relationship to Mission Journal",
+        "# 9. Relationship to Events",
+        "# 10. Relationship to Operational Context",
+        "# 11. Source Authority",
+        "# 12. Governing Rule",
+        "# 13. SITREP Item Structure",
+        "# 14. Title",
+        "# 15. Summary",
+        "# 16. Operational Significance",
+        "# 17. Categories",
+        "# 18. Priority",
+        "# 19. Critical Priority",
+        "# 20. High Priority",
+        "# 21. Normal Priority",
+        "# 22. Low and Informational Priority",
+        "# 23. Actionability",
+        "# 24. Recommended Action",
+        "# 13. SITREP Item Structure",
+        "# 14. Title",
+        "# 15. Summary",
+        "# 16. Operational Significance",
+        "# 17. Categories",
+        "# 18. Priority",
+        "# 19. Critical Priority",
+        "# 20. High Priority",
+        "# 21. Normal Priority",
+        "# 22. Low and Informational Priority",
+        "# 23. Actionability",
+        "# 24. Recommended Action",
+        "# 25. Consequence of Inaction",
+        "# 26. Confidence",
+        "# 27. SITREP Item State",
+        "# 28. Active",
+        "# 29. Acknowledged",
+        "# 30. Deferred",
+        "# 31. Resolving",
+        "# 32. Resolved",
+        "# 33. Superseded",
+        "# 34. Expired",
+        "# 35. Valid State Transitions",
+        "# 36. State Ownership",
+        "# 37. Deduplication",
+        "# 38. Consolidation",
+        "# 39. Correlation",
+        "# 40. Escalation",
+        "# 41. De-escalation",
+        "# 42. Recurrence",
+        "# 43. Foreground Mission Behavior",
+        "# 44. Background Mission Behavior",
+        "# 45. Foreground Change",
+        "# 46. Global SITREP",
+        "# 47. Mission SITREP",
+        "# 48. Objective and Task Context",
+        "# 49. Grouping",
+        "# 50. Ordering",
+        "# 51. Summarization",
+        "# 52. Volume Control",
+        "# 53. Presentation Model",
+        "# 54. Progressive Disclosure",
+        "# 55. Voice Presentation",
+        "# 56. Presence Integration",
+        "# 57. Operator Actions",
+        "# 58. Action Safety",
+        "# 59. Startup Reconciliation",
+        "# 60. Cross-Device Continuity",
+        "# 61. Auditability and Retention",
+        "# 62. Architectural Rules",
+        "# 63. Acceptance Criteria",
+        "# 64. Architectural Conclusion"
+      ],
+      "line_count": 2196,
+      "path": "docs/architecture/ui/09_sitrep.md",
+      "sha256": "99961416b5bbb2ffa62438a0b88353328e94fef3d55fc639fd9cc310eef27057",
+      "size_bytes": 35358,
+      "title": "JARVIS Mission Control"
+    },
+    {
+      "headings": [
+        "# Mission Journal Architecture",
+        "# 1. Purpose",
+        "# 2. Governing Principle",
+        "# 3. Architectural Doctrine",
+        "# 4. Relationship to Mission Lifecycle",
+        "# 5. Relationship to SITREP",
+        "# 6. Relationship to Events",
+        "# 7. Relationship to Knowledge",
+        "# 8. Relationship to Commander Brief",
+        "# 9. Relationship to Experience",
+        "# 10. Journal Ownership",
+        "# 11. Journal Identity",
+        "# 12. Journal Scope",
+        "# 13. Journal Entry",
+        "# 14. Entry Structure",
+        "# 15. Entry Types",
+        "# 16. Mission Intent",
+        "# 17. Objectives",
+        "# 18. Operational Timeline",
+        "# 19. Operational Narrative",
+        "# 20. Milestones",
+        "# 21. Decision Recording",
+        "# 22. Decision Authority",
+        "# 23. Alternatives Considered",
+        "# 24. Reasoning Capture",
+        "# 25. Belief at Time of Action",
+        "# 26. Evidence References",
+        "# 27. Evidence Availability",
+        "# 28. Failure Entries",
+        "# 29. Recovery Entries",
+        "# 30. Outcome Recording",
+        "# 31. After Action Review",
+        "# 32. AAR Timing",
+        "# 33. AAR Structure",
+        "# 34. Mission Intent in the AAR",
+        "# 35. Intended and Actual Outcome",
+        "# 36. What Went Well",
+        "# 37. What Did Not Go Well",
+        "# 38. Contributing Conditions",
+        "# 39. Root Cause",
+        "# 40. Unresolved Questions",
+        "# 41. Lesson Candidate",
+        "# 42. Lesson Validation",
+        "# 43. Lesson State",
+        "# 44. Recommendation",
+        "# 45. Future Planning Implications",
+        "# 46. Mission Executive Summary",
+        "# 47. Executive Summary Structure",
+        "# 48. Relevant Because",
+        "# 49. Operational Fingerprint",
+        "# 50. Fingerprint Stability",
+        "# 51. Archive Tags",
+        "# 52. Tag Governance",
+        "# 53. Searchable Archive Record",
+        "# 54. Archive Discovery",
+        "# 55. Restore Proposal",
+        "# 56. Restore Scope",
+        "# 57. Experience Assimilation",
+        "# 58. Experience Knowledge",
+        "# 59. Knowledge Engine Integration",
+        "# 60. Experience Graph",
+        "# 61. Experience Reuse",
+        "# 62. Experience and Judgment",
+        "# 63. Mission Package",
+        "# 64. Package Identity",
+        "# 65. Canonical Package Contents",
+        "# 66. Package Format",
+        "# 67. Compression",
+        "# 68. Active and Dormant Memory",
+        "# 69. Archive Manager",
+        "# 70. Journal Freezing",
+        "# 71. Package Integrity",
+        "# 72. Package Restoration",
+        "# 73. Partial Restoration",
+        "# 74. Package Versioning",
+        "# 75. Provenance Preservation",
+        "# 76. Retention",
+        "# 77. Security",
+        "# 78. Cross-Device Synchronization",
+        "# 79. Archive Migration",
+        "# 80. Operational Memory Doctrine",
+        "# 81. Presentation Philosophy",
+        "# 82. Reading Levels",
+        "# 83. Progressive Disclosure",
+        "# 84. Human and Machine Readability",
+        "# 85. Historical Fidelity",
+        "# 86. Architectural Rules",
+        "# 87. Acceptance Criteria",
+        "# 88. Relationship to Operational Memory",
+        "# 89. Guiding Principles",
+        "# 90. Conclusion"
+      ],
+      "line_count": 2242,
+      "path": "docs/architecture/ui/10_mission_journal.md",
+      "sha256": "2cebcebdb74aa126076717b512b88a310664e9f1494db878912a7fd98f2f7cff",
+      "size_bytes": 36754,
+      "title": "Mission Journal Architecture"
+    },
+    {
+      "headings": [
+        "# JARVIS Mission Control UI",
+        "## Canonical documents",
+        "## Architectural status"
+      ],
+      "line_count": 30,
+      "path": "docs/architecture/ui/README.md",
+      "sha256": "a153739b006b4ff7732e3e14ab0c0aa851433720dbeddb137cdeb957bf226b7a",
+      "size_bytes": 967,
+      "title": "JARVIS Mission Control UI"
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/constitution/architecture_principles.md",
+      "sha256": "819db38d567b54dc07699c9d070ec25c6e0f796ba1b07833449aba5d7d79d8b0",
+      "size_bytes": 38,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/constitution/execution.md",
+      "sha256": "8b42bf19cbab034553a2b6ad20fe733f6a639d62347c7107a0a07b66c55700ee",
+      "size_bytes": 27,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/constitution/executive.md",
+      "sha256": "80fe9cdb818643c67deae5499e7d60d90ad29e41f97563111b8f947ffad90666",
+      "size_bytes": 19,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/constitution/experience.md",
+      "sha256": "ca915e58758e3b25a22759a07d9d3f6b080844a9e31f26d1caa01f47d8f10e8f",
+      "size_bytes": 26,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/constitution/knowledge.md",
+      "sha256": "87b66133845910a9216a1a890a1304df7e368a8c265022c5039d6d40bbf269ef",
+      "size_bytes": 25,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/constitution/memory.md",
+      "sha256": "547a7fbb99f6f668706f54724bdd4987b383062802a55b0f19360f7019eb3540",
+      "size_bytes": 24,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/constitution/planning.md",
+      "sha256": "4d5b710cc11ae078a7773127f7329a13597d58626c222569fd387ac0c458ee23",
+      "size_bytes": 26,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/constitution/reasoning.md",
+      "sha256": "e855f2e11d3933f65b1dff75ad875d95d17d92cc3acaa0af11626df0927bb6fb",
+      "size_bytes": 20,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/specifications/decisions_episode.md",
+      "sha256": "4b2f23bee295c7e897379e3afed379e1676f7abb447c8615691b663455ef1670",
+      "size_bytes": 45,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/specifications/engine_message_protocol.md",
+      "sha256": "90486102185f89cad3bbf6ac5bd5f9687e28aea1973ee84bc6557d46ad46058c",
+      "size_bytes": 24,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/specifications/execution_contract.md",
+      "sha256": "973147a5664dee1b5704aa8d9a4bbd87928aabddf276fac37709fbc92cb31ca3",
+      "size_bytes": 21,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/specifications/experience_contract.md",
+      "sha256": "8ae23e023011ebd3a4dff91e9c711edd6dbf426f501d731f9b76e283324a6693",
+      "size_bytes": 22,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/specifications/knowledge_contract.md",
+      "sha256": "6308c99788cf3b39dbba40144f1419ebc9403857d93e79b88f75e2aac6bbb2cb",
+      "size_bytes": 21,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/specifications/planning_contract.md",
+      "sha256": "8540d3b342193a5a4ef7b0fabdf6568d7767175419027fc2558c57f7d6991a61",
+      "size_bytes": 20,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/specifications/reasoning_contract.md",
+      "sha256": "d441ba08e087eaf09caa8728c66bb4207b04da71c0642655f57d48aa6a0285f9",
+      "size_bytes": 21,
+      "title": ""
+    },
+    {
+      "headings": [],
+      "line_count": 1,
+      "path": "docs/specifications/state_machines.md",
+      "sha256": "9b0992972b67047f6c4a9e05b040ab049e4dab2bdb4af9a2612c137ec6307e95",
+      "size_bytes": 35,
+      "title": ""
+    },
+    {
+      "headings": [
+        "# JARVIS Engineering Standards",
+        "## Foundation",
+        "## Reasoning",
+        "## Knowledge",
+        "## Planning",
+        "## Execution",
+        "## Interface",
+        "## Operations"
+      ],
+      "line_count": 69,
+      "path": "docs/standards/README.md",
+      "sha256": "88552e9adb7ef96aa1a5c3d2f4dd088c323388cef944825c7190e2bb0c7332f7",
+      "size_bytes": 803,
+      "title": "JARVIS Engineering Standards"
+    },
+    {
+      "headings": [
+        "# FP-0000 \u2014 First Principles",
+        "# 1. Purpose",
+        "# 2. Scope",
+        "# 3. Identity",
+        "# 4. Executive Oath",
+        "# 5. First Principles",
+        "## FP-001 \u2014 Mission Before Mechanism",
+        "## FP-002 \u2014 Evidence Before Conclusion",
+        "## FP-003 \u2014 Separation of Observation and Inference",
+        "## FP-004 \u2014 Separation of Inference and Recommendation",
+        "## FP-005 \u2014 Traceability",
+        "## FP-006 \u2014 Provenance",
+        "## FP-007 \u2014 Explicit Uncertainty",
+        "## FP-008 \u2014 Governed Evolution",
+        "## FP-009 \u2014 Human Authority",
+        "## FP-010 \u2014 Executive Before Implementation",
+        "## FP-011 \u2014 Modularity",
+        "## FP-012 \u2014 Reuse Before Reinvention",
+        "## FP-013 \u2014 Research Before Speculation",
+        "## FP-014 \u2014 Portfolio Reasoning",
+        "## FP-015 \u2014 Explainability",
+        "## FP-016 \u2014 Integrity Before Convenience",
+        "# 6. Engineering Consequences",
+        "# 7. Relationship to Other Standards",
+        "# 8. Revision Policy",
+        "# End of Standard"
+      ],
+      "line_count": 251,
+      "path": "docs/standards/foundation/FP-0000_First_Principles.md",
+      "sha256": "7671e24fa45d51646456bb735cb7b2e859f9de12c2e01050d71bb7d179773510",
+      "size_bytes": 6375,
+      "title": "FP-0000 \u2014 First Principles"
+    },
+    {
+      "headings": [
+        "# GV-0001 \u2014 Executive Governance",
+        "# 1. Purpose",
+        "# 2. Scope",
+        "# 3. Authority",
+        "# 4. Governance Principles",
+        "## GV-001 \u2014 Constitutional Supremacy",
+        "## GV-002 \u2014 Human Authority",
+        "## GV-003 \u2014 No Autonomous Constitutional Change",
+        "## GV-004 \u2014 Evidence-Based Evolution",
+        "## GV-005 \u2014 Traceable Decisions",
+        "## GV-006 \u2014 Backward Integrity",
+        "## GV-007 \u2014 Transparency",
+        "## GV-008 \u2014 Separation of Governance and Implementation",
+        "# 5. Governance Responsibilities",
+        "# 6. Constitutional Change Process",
+        "# 7. Engineering Consequences",
+        "# 8. Verification",
+        "# 9. Relationships",
+        "# 10. Revision Policy",
+        "# End of Standard"
+      ],
+      "line_count": 216,
+      "path": "docs/standards/foundation/GV-0001_Governance.md",
+      "sha256": "bf1d8b1308589d7287e7acc2dcddb4abbe42f93fa7ce1f104bda4ab1907fe8d9",
+      "size_bytes": 3244,
+      "title": "GV-0001 \u2014 Executive Governance"
+    },
+    {
+      "headings": [
+        "# {{STANDARD-ID}} \u2014 {{TITLE}}",
+        "# 1. Purpose",
+        "# 2. Scope",
+        "# 3. Authority",
+        "# 4. Definitions",
+        "# 5. Requirements",
+        "# 6. Engineering Consequences",
+        "# 7. Verification",
+        "# 8. Relationships",
+        "# 9. Revision Policy",
+        "# Appendix A",
+        "# End of Standard"
+      ],
+      "line_count": 137,
+      "path": "docs/standards/templates/engineering_standard_template.md",
+      "sha256": "18b86529d0b44fd98938ed002c3b0ae4be814160aed359713582def0b77986bf",
+      "size_bytes": 1692,
+      "title": "{{STANDARD-ID}} \u2014 {{TITLE}}"
+    },
+    {
+      "headings": [
+        "# Executive Summary",
+        "# Table of Contents",
+        "# 1. Purpose",
+        "# 2. Historical Background",
+        "# 3. Design Philosophy",
+        "# 4. First Principles",
+        "# 5. Executive Cognitive Loop",
+        "# 6. Cognitive Engines",
+        "# 7. Information Flow",
+        "# 8. Decision Architecture",
+        "# 9. Learning Architecture",
+        "# 10. Architectural Invariants",
+        "# 11. Future Evolution",
+        "# 12. Conclusion",
+        "## Executive Summary",
+        "## Table of Contents",
+        "## 1. Purpose",
+        "## 2. Historical Background",
+        "## 3. Design Philosophy",
+        "## 4. First Principles",
+        "## 5. Executive Cognitive Loop",
+        "# 6. Cognitive Engines",
+        "# 7. Information Flow",
+        "# 8. Decision Architecture",
+        "# 9. Learning Architecture",
+        "# 10. Architectural Invariants",
+        "# 11. Future Evolution",
+        "# 12. Conclusion"
+      ],
+      "line_count": 358,
+      "path": "docs/whitepapers/WP-0001.md",
+      "sha256": "3b5387046485cd1dcef64eb96cfeada2ba63cfed7e3d86f517891fa52936a14b",
+      "size_bytes": 8703,
+      "title": "Executive Summary"
+    }
+  ],
+  "duplicate_symbols": {
+    "Mission": [
+      "core/executive/models.py:68 (class)",
+      "core/executive/planning/models.py:369 (class)"
+    ],
+    "utc_now": [
+      "core/executive/models.py:12 (function)",
+      "core/executive/planning/models.py:35 (function)",
+      "core/executive/planning_engine/models.py:24 (function)"
+    ]
+  },
+  "executive_python_files": [
+    {
+      "all_exports": [
+        "Activity",
+        "AuthorizationMode",
+        "Command",
+        "Constraint",
+        "ConstraintKind",
+        "Dependency",
+        "DependencyGraph",
+        "DependencyType",
+        "InMemoryPlanRepository",
+        "Mission",
+        "MissionPlan",
+        "MissionPriority",
+        "Objective",
+        "PlanRepository",
+        "PlanState",
+        "PlanVersion",
+        "PlanningService",
+        "ResourceRequirement",
+        "Risk",
+        "RiskLevel",
+        "Task"
+      ],
+      "imports": [
+        {
+          "level": 0,
+          "module": "core.executive.planning",
+          "names": [
+            "Activity",
+            "AuthorizationMode",
+            "Command",
+            "Constraint",
+            "ConstraintKind",
+            "Dependency",
+            "DependencyGraph",
+            "DependencyType",
+            "InMemoryPlanRepository",
+            "Mission",
+            "MissionPlan",
+            "MissionPriority",
+            "Objective",
+            "PlanRepository",
+            "PlanState",
+            "PlanVersion",
+            "PlanningService",
+            "ResourceRequirement",
+            "Risk",
+            "RiskLevel",
+            "Task"
+          ]
+        }
+      ],
+      "line_count": 53,
+      "module_docstring": "JARVIS executive architecture.\n\nThe executive package owns mission coordination, planning, authorization\nhandoff, execution supervision, observation, and operational control.",
+      "path": "core/executive/__init__.py",
+      "sha256": "8aafcaed00fffa100374ca754adeec615a9846121f025d40d0488781fb8dc158",
+      "size_bytes": 1020,
+      "symbols": [],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "asdict",
+            "dataclass",
+            "field"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "enum",
+          "names": [
+            "Enum"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Any"
+          ]
+        }
+      ],
+      "line_count": 94,
+      "module_docstring": "Capability declarations and routing evidence for JARVIS directors.",
+      "path": "core/executive/capabilities.py",
+      "sha256": "b9d1310cb3be2afa346c4d46e391e7ff7fda7154f3b57cf8238efd64266b2b75",
+      "size_bytes": 2850,
+      "symbols": [
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 10,
+          "name": "DirectorReadiness"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 17,
+          "name": "Capability"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 26,
+          "name": "DirectorDescriptor"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 48,
+          "name": "RoutingCandidate"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 68,
+          "name": "RoutingDecision"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 83,
+          "name": "normalize_capability"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 90,
+          "name": "normalize_director_name"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "",
+          "names": [
+            "argparse"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "",
+          "names": [
+            "json"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "",
+          "names": [
+            "os"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.director",
+          "names": [
+            "ExecutiveDirector"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Any"
+          ]
+        }
+      ],
+      "line_count": 121,
+      "module_docstring": "Command-line interface for JARVIS Gen 2 missions.",
+      "path": "core/executive/cli.py",
+      "sha256": "e92c7330c115698782151871e6e3263075ed95ddae7230a219bff64c9597387d",
+      "size_bytes": 3282,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 14,
+          "name": "default_database_path"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 21,
+          "name": "parse_context"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 30,
+          "name": "build_parser"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 77,
+          "name": "print_json"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 81,
+          "name": "main"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.models",
+          "names": [
+            "Mission",
+            "MissionTask",
+            "TaskExecutionResult"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Protocol"
+          ]
+        }
+      ],
+      "line_count": 34,
+      "module_docstring": "Protocols and exceptions for executive orchestration.",
+      "path": "core/executive/contracts.py",
+      "sha256": "57145ed7f8867a08a5525ab7a9f349f8268342e576902a2f6bdb1de4ef6130a9",
+      "size_bytes": 846,
+      "symbols": [
+        {
+          "bases": [
+            "Protocol"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 10,
+          "name": "DirectorHandler"
+        },
+        {
+          "bases": [
+            "RuntimeError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 21,
+          "name": "ExecutiveError"
+        },
+        {
+          "bases": [
+            "ExecutiveError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 25,
+          "name": "DirectorNotRegisteredError"
+        },
+        {
+          "bases": [
+            "ExecutiveError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 29,
+          "name": "MissionNotFoundError"
+        },
+        {
+          "bases": [
+            "ExecutiveError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 33,
+          "name": "InvalidMissionPlanError"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.capabilities",
+          "names": [
+            "DirectorReadiness"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.engine",
+          "names": [
+            "MissionEngine"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.handlers",
+          "names": [
+            "KnowledgeHandler",
+            "KnowledgeSearch",
+            "executive_handler",
+            "placeholder_system_handler"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.models",
+          "names": [
+            "Mission",
+            "MissionStatus",
+            "utc_now"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planner",
+          "names": [
+            "MissionPlanner"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.registry",
+          "names": [
+            "DirectorRegistry"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.store",
+          "names": [
+            "MissionStore"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Any"
+          ]
+        }
+      ],
+      "line_count": 166,
+      "module_docstring": "Top-level Executive Director facade for JARVIS Gen 2.",
+      "path": "core/executive/director.py",
+      "sha256": "bbaf03d4e4101e5fa732ac44bbdb162fdce420ee7ad6ce709a0482cc33608dcc",
+      "size_bytes": 5782,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "class",
+          "line": 22,
+          "name": "ExecutiveDirector"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.contracts",
+          "names": [
+            "InvalidMissionPlanError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.models",
+          "names": [
+            "Mission",
+            "MissionStatus",
+            "MissionTask",
+            "TaskStatus",
+            "utc_now"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.registry",
+          "names": [
+            "DirectorRegistry"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.store",
+          "names": [
+            "MissionStore"
+          ]
+        }
+      ],
+      "line_count": 247,
+      "module_docstring": "Dependency-aware execution engine for JARVIS missions.",
+      "path": "core/executive/engine.py",
+      "sha256": "eb4e58e459b4d587995340f8f5862a728353e44bf840f625a2e890d7dfd5da7a",
+      "size_bytes": 8044,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "class",
+          "line": 17,
+          "name": "MissionEngine"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "collections.abc",
+          "names": [
+            "Callable"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.models",
+          "names": [
+            "Mission",
+            "MissionTask",
+            "TaskExecutionResult"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Any"
+          ]
+        }
+      ],
+      "line_count": 136,
+      "module_docstring": "Built-in director handlers for the Gen 2 executive foundation.",
+      "path": "core/executive/handlers.py",
+      "sha256": "03fc15edc39256a47e3af9d270e377b1c01c6f82fbbd32ccb4f627f2ef135099",
+      "size_bytes": 4232,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 11,
+          "name": "executive_handler"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 65,
+          "name": "placeholder_system_handler"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "class",
+          "line": 92,
+          "name": "KnowledgeHandler"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "asdict",
+            "dataclass",
+            "field"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "datetime",
+          "names": [
+            "datetime",
+            "timezone"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "enum",
+          "names": [
+            "Enum"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Any"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "uuid",
+          "names": [
+            "uuid4"
+          ]
+        }
+      ],
+      "line_count": 108,
+      "module_docstring": "Domain models for the JARVIS Gen 2 mission system.",
+      "path": "core/executive/models.py",
+      "sha256": "992f7eac520ede1826c1ef4e11044fc41b42f5e4464803744bc4456807a7f2e4",
+      "size_bytes": 3375,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 12,
+          "name": "utc_now"
+        },
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 16,
+          "name": "MissionStatus"
+        },
+        {
+          "bases": [
+            "str",
+            "Enum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 26,
+          "name": "TaskStatus"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 37,
+          "name": "MissionTask"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 68,
+          "name": "Mission"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 105,
+          "name": "TaskExecutionResult"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.models",
+          "names": [
+            "Mission",
+            "MissionStatus",
+            "MissionTask",
+            "utc_now"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.registry",
+          "names": [
+            "DirectorRegistry"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "dataclass"
+          ]
+        }
+      ],
+      "line_count": 121,
+      "module_docstring": "Capability-based deterministic mission planner for JARVIS Gen 2.",
+      "path": "core/executive/planner.py",
+      "sha256": "9705d970028ddac760a2d3d56f1a300196b780f972183dcd9f22f71c36447e6a",
+      "size_bytes": 4247,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 12,
+          "name": "CapabilityRule"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "class",
+          "line": 41,
+          "name": "MissionPlanner"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [
+        "Activity",
+        "Assumption",
+        "AuthorizationMode",
+        "AuthorizationRequirement",
+        "Command",
+        "Constraint",
+        "ConstraintKind",
+        "Dependency",
+        "DependencyCycleError",
+        "DependencyGraph",
+        "DependencyGraphError",
+        "DependencyType",
+        "DuplicatePlanElementError",
+        "EvidenceReference",
+        "ImmutablePlanVersionError",
+        "InMemoryPlanRepository",
+        "InvalidPlanTransitionError",
+        "MissingPlanElementError",
+        "Mission",
+        "MissionPlan",
+        "MissionPriority",
+        "Objective",
+        "PlanElementKind",
+        "PlanNotFoundError",
+        "PlanRepository",
+        "PlanState",
+        "PlanValidator",
+        "PlanVersion",
+        "PlanVersionConflictError",
+        "PlanningError",
+        "PlanningService",
+        "PlanningValidationError",
+        "ResourceKind",
+        "ResourceRequirement",
+        "Risk",
+        "RiskLevel",
+        "RiskStatus",
+        "Task",
+        "ValidationReport",
+        "build_dependency_graph",
+        "collect_plan_element_ids",
+        "create_plan_version",
+        "new_identifier",
+        "utc_now"
+      ],
+      "imports": [
+        {
+          "level": 0,
+          "module": "core.executive.planning.dependencies",
+          "names": [
+            "DependencyGraph",
+            "build_dependency_graph",
+            "collect_plan_element_ids"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.enums",
+          "names": [
+            "AuthorizationMode",
+            "ConstraintKind",
+            "DependencyType",
+            "MissionPriority",
+            "PlanElementKind",
+            "PlanState",
+            "ResourceKind",
+            "RiskLevel",
+            "RiskStatus"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.errors",
+          "names": [
+            "DependencyCycleError",
+            "DependencyGraphError",
+            "DuplicatePlanElementError",
+            "ImmutablePlanVersionError",
+            "InvalidPlanTransitionError",
+            "MissingPlanElementError",
+            "PlanNotFoundError",
+            "PlanningError",
+            "PlanningValidationError",
+            "PlanVersionConflictError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.models",
+          "names": [
+            "Activity",
+            "Assumption",
+            "AuthorizationRequirement",
+            "Command",
+            "Constraint",
+            "Dependency",
+            "EvidenceReference",
+            "Mission",
+            "MissionPlan",
+            "Objective",
+            "PlanVersion",
+            "ResourceRequirement",
+            "Risk",
+            "Task",
+            "create_plan_version",
+            "new_identifier",
+            "utc_now"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.repository",
+          "names": [
+            "InMemoryPlanRepository",
+            "PlanRepository"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.service",
+          "names": [
+            "PlanningService"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.validation",
+          "names": [
+            "PlanValidator",
+            "ValidationReport"
+          ]
+        }
+      ],
+      "line_count": 102,
+      "module_docstring": "Canonical JARVIS mission-planning data model.",
+      "path": "core/executive/planning/__init__.py",
+      "sha256": "a8af70d67d9ad11fb2317f1119f81c35b76620c4364f7672acf1cbbea967f7a4",
+      "size_bytes": 2331,
+      "symbols": [],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "collections",
+          "names": [
+            "defaultdict",
+            "deque"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.errors",
+          "names": [
+            "DependencyCycleError",
+            "DependencyGraphError",
+            "MissingPlanElementError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.models",
+          "names": [
+            "Dependency",
+            "Mission"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "dataclass"
+          ]
+        }
+      ],
+      "line_count": 218,
+      "module_docstring": "Dependency graph construction and validation.",
+      "path": "core/executive/planning/dependencies.py",
+      "sha256": "d144bf37b52b09cd5c6bf9ced068da0b97b812f6e42350e9b79bc4f29dc6930d",
+      "size_bytes": 6493,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 16,
+          "name": "collect_plan_element_ids"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 37,
+          "name": "DependencyGraph"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 209,
+          "name": "build_dependency_graph"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "enum",
+          "names": [
+            "StrEnum"
+          ]
+        }
+      ],
+      "line_count": 128,
+      "module_docstring": "Canonical enums for JARVIS mission planning.",
+      "path": "core/executive/planning/enums.py",
+      "sha256": "22eda203587cec80af735d792a5484328c80bbee9483a62075e8d2e6741484b9",
+      "size_bytes": 3120,
+      "symbols": [
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 8,
+          "name": "PlanState"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 29,
+          "name": "MissionPriority"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 39,
+          "name": "AuthorizationMode"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 51,
+          "name": "RiskLevel"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 61,
+          "name": "RiskStatus"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 73,
+          "name": "ConstraintKind"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 92,
+          "name": "DependencyType"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 104,
+          "name": "ResourceKind"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 121,
+          "name": "PlanElementKind"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        }
+      ],
+      "line_count": 55,
+      "module_docstring": "Exceptions raised by the JARVIS planning data model.",
+      "path": "core/executive/planning/errors.py",
+      "sha256": "a448da389a9c403220520bd00cf90d59145f86ee4dd48636c2f36c621abd6ede",
+      "size_bytes": 1650,
+      "symbols": [
+        {
+          "bases": [
+            "Exception"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 6,
+          "name": "PlanningError"
+        },
+        {
+          "bases": [
+            "PlanningError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 10,
+          "name": "PlanningValidationError"
+        },
+        {
+          "bases": [
+            "PlanningValidationError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 18,
+          "name": "DependencyGraphError"
+        },
+        {
+          "bases": [
+            "DependencyGraphError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 22,
+          "name": "DependencyCycleError"
+        },
+        {
+          "bases": [
+            "DependencyGraphError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 34,
+          "name": "MissingPlanElementError"
+        },
+        {
+          "bases": [
+            "PlanningValidationError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 38,
+          "name": "DuplicatePlanElementError"
+        },
+        {
+          "bases": [
+            "PlanningError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 42,
+          "name": "InvalidPlanTransitionError"
+        },
+        {
+          "bases": [
+            "PlanningError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 46,
+          "name": "PlanNotFoundError"
+        },
+        {
+          "bases": [
+            "PlanningError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 50,
+          "name": "PlanVersionConflictError"
+        },
+        {
+          "bases": [
+            "PlanningError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 54,
+          "name": "ImmutablePlanVersionError"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "",
+          "names": [
+            "hashlib"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "",
+          "names": [
+            "json"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.enums",
+          "names": [
+            "AuthorizationMode",
+            "ConstraintKind",
+            "DependencyType",
+            "MissionPriority",
+            "PlanElementKind",
+            "PlanState",
+            "ResourceKind",
+            "RiskLevel",
+            "RiskStatus"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "asdict",
+            "dataclass",
+            "field"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "datetime",
+          "names": [
+            "UTC",
+            "datetime"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Any",
+            "Mapping"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "uuid",
+          "names": [
+            "uuid4"
+          ]
+        }
+      ],
+      "line_count": 551,
+      "module_docstring": "Canonical immutable planning contracts for JARVIS.\n\nThe contracts in this module describe plan data. They do not perform execution,\nauthorization, or autonomous mission control.",
+      "path": "core/executive/planning/models.py",
+      "sha256": "a8f872035e7204adf8ae3bc9c1eb968d0e2770ceb0ae17a7f4ab784ab5cf5976",
+      "size_bytes": 16446,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 29,
+          "name": "new_identifier"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 35,
+          "name": "utc_now"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 41,
+          "name": "_normalize_json_value"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 66,
+          "name": "AuthorizationRequirement"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 92,
+          "name": "EvidenceReference"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 107,
+          "name": "Assumption"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 129,
+          "name": "Constraint"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 145,
+          "name": "ResourceRequirement"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 166,
+          "name": "Risk"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 190,
+          "name": "Dependency"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 214,
+          "name": "Command"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 267,
+          "name": "Activity"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 296,
+          "name": "Task"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 333,
+          "name": "Objective"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 369,
+          "name": "Mission"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 420,
+          "name": "PlanVersion"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 485,
+          "name": "MissionPlan"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 527,
+          "name": "create_plan_version"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "abc",
+          "names": [
+            "ABC",
+            "abstractmethod"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.errors",
+          "names": [
+            "ImmutablePlanVersionError",
+            "PlanNotFoundError",
+            "PlanVersionConflictError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.models",
+          "names": [
+            "MissionPlan",
+            "PlanVersion"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "threading",
+          "names": [
+            "RLock"
+          ]
+        }
+      ],
+      "line_count": 131,
+      "module_docstring": "Persistence boundaries for immutable mission-plan versions.",
+      "path": "core/executive/planning/repository.py",
+      "sha256": "87920c44327b5661e16a8caf16faba44fe47308ff0764a723e70575519ae2faa",
+      "size_bytes": 4314,
+      "symbols": [
+        {
+          "bases": [
+            "ABC"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 16,
+          "name": "PlanRepository"
+        },
+        {
+          "bases": [
+            "PlanRepository"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 44,
+          "name": "InMemoryPlanRepository"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.enums",
+          "names": [
+            "PlanState"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.errors",
+          "names": [
+            "InvalidPlanTransitionError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.models",
+          "names": [
+            "Dependency",
+            "Mission",
+            "MissionPlan",
+            "PlanVersion",
+            "create_plan_version"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.repository",
+          "names": [
+            "PlanRepository"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.validation",
+          "names": [
+            "PlanValidator",
+            "ValidationReport"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "replace"
+          ]
+        }
+      ],
+      "line_count": 211,
+      "module_docstring": "Application service for immutable mission-plan lifecycle operations.",
+      "path": "core/executive/planning/service.py",
+      "sha256": "52884c1f12ea53900c9585076936d376933cabd21a5863de80fd171c203f2d0e",
+      "size_bytes": 5993,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "class",
+          "line": 112,
+          "name": "PlanningService"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.dependencies",
+          "names": [
+            "build_dependency_graph"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.enums",
+          "names": [
+            "AuthorizationMode"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.errors",
+          "names": [
+            "DuplicatePlanElementError",
+            "PlanningValidationError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning.models",
+          "names": [
+            "Mission",
+            "PlanVersion"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "dataclass"
+          ]
+        }
+      ],
+      "line_count": 194,
+      "module_docstring": "Structural validation for canonical mission plans.",
+      "path": "core/executive/planning/validation.py",
+      "sha256": "9d5b27bc24b541d79e4856f1597468612efd04126e694bdb380a6767f935d5c0",
+      "size_bytes": 6464,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 17,
+          "name": "ValidationReport"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "class",
+          "line": 32,
+          "name": "PlanValidator"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [
+        "Blocker",
+        "BlockerType",
+        "ConfidenceBand",
+        "DecisionTrace",
+        "DuplicateWorkItemError",
+        "ExecutionRecord",
+        "ExecutionSnapshot",
+        "InvalidExecutionSnapshotError",
+        "PlanningAssessment",
+        "PlanningCycleError",
+        "PlanningEngineError",
+        "PlanningGraphError",
+        "PlanningPolicy",
+        "ReadinessResult",
+        "ReadinessState",
+        "Recommendation",
+        "RecommendationType",
+        "TraceSeverity",
+        "UnknownDependencyReferenceError",
+        "UnknownWorkItemError",
+        "UnsupportedPlanningPolicyError",
+        "WorkItem",
+        "WorkItemKind",
+        "WorkItemState",
+        "canonical_fingerprint"
+      ],
+      "imports": [
+        {
+          "level": 0,
+          "module": "core.executive.planning_engine.enums",
+          "names": [
+            "BlockerType",
+            "ConfidenceBand",
+            "PlanningPolicy",
+            "ReadinessState",
+            "RecommendationType",
+            "TraceSeverity",
+            "WorkItemKind",
+            "WorkItemState"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning_engine.errors",
+          "names": [
+            "DuplicateWorkItemError",
+            "InvalidExecutionSnapshotError",
+            "PlanningCycleError",
+            "PlanningEngineError",
+            "PlanningGraphError",
+            "UnknownDependencyReferenceError",
+            "UnknownWorkItemError",
+            "UnsupportedPlanningPolicyError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning_engine.models",
+          "names": [
+            "Blocker",
+            "DecisionTrace",
+            "ExecutionRecord",
+            "ExecutionSnapshot",
+            "PlanningAssessment",
+            "ReadinessResult",
+            "Recommendation",
+            "WorkItem",
+            "canonical_fingerprint"
+          ]
+        }
+      ],
+      "line_count": 66,
+      "module_docstring": "Deterministic and explainable mission-planning engine.\n\nPhase IX-C3 establishes analysis contracts first. Graph construction,\nreadiness evaluation, scoring, and recommendation services are added in\nthe subsequent bounded packages.",
+      "path": "core/executive/planning_engine/__init__.py",
+      "sha256": "8c9335b28b3ccaab6971bf09ee7cf172be926f52cb4f5f540ff19646b990243e",
+      "size_bytes": 1613,
+      "symbols": [],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "enum",
+          "names": [
+            "StrEnum"
+          ]
+        }
+      ],
+      "line_count": 91,
+      "module_docstring": "Canonical enumerations for the deterministic planning engine.",
+      "path": "core/executive/planning_engine/enums.py",
+      "sha256": "14dd3b690300aaaf20c2f8ce73ecedfe9b3bd231798cea712e894ae9e2fb1d82",
+      "size_bytes": 2126,
+      "symbols": [
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 8,
+          "name": "WorkItemKind"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 18,
+          "name": "WorkItemState"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 31,
+          "name": "ReadinessState"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 42,
+          "name": "BlockerType"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 54,
+          "name": "RecommendationType"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 67,
+          "name": "ConfidenceBand"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 76,
+          "name": "TraceSeverity"
+        },
+        {
+          "bases": [
+            "StrEnum"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 84,
+          "name": "PlanningPolicy"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        }
+      ],
+      "line_count": 35,
+      "module_docstring": "Planning-engine exception hierarchy.",
+      "path": "core/executive/planning_engine/errors.py",
+      "sha256": "ae07f8e244058a8c717d0a769a2baa5dcefbca42b902263eb379870f24bc2a81",
+      "size_bytes": 1049,
+      "symbols": [
+        {
+          "bases": [
+            "RuntimeError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 6,
+          "name": "PlanningEngineError"
+        },
+        {
+          "bases": [
+            "PlanningEngineError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 10,
+          "name": "InvalidExecutionSnapshotError"
+        },
+        {
+          "bases": [
+            "PlanningEngineError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 14,
+          "name": "PlanningGraphError"
+        },
+        {
+          "bases": [
+            "PlanningGraphError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 18,
+          "name": "DuplicateWorkItemError"
+        },
+        {
+          "bases": [
+            "PlanningGraphError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 22,
+          "name": "UnknownWorkItemError"
+        },
+        {
+          "bases": [
+            "PlanningGraphError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 26,
+          "name": "UnknownDependencyReferenceError"
+        },
+        {
+          "bases": [
+            "PlanningGraphError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 30,
+          "name": "PlanningCycleError"
+        },
+        {
+          "bases": [
+            "PlanningEngineError"
+          ],
+          "decorators": [],
+          "kind": "class",
+          "line": 34,
+          "name": "UnsupportedPlanningPolicyError"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "",
+          "names": [
+            "json"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.planning_engine.enums",
+          "names": [
+            "BlockerType",
+            "ConfidenceBand",
+            "PlanningPolicy",
+            "ReadinessState",
+            "RecommendationType",
+            "TraceSeverity",
+            "WorkItemKind",
+            "WorkItemState"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "dataclass",
+            "field"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "datetime",
+          "names": [
+            "UTC",
+            "datetime"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "hashlib",
+          "names": [
+            "sha256"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "types",
+          "names": [
+            "MappingProxyType"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Any",
+            "Iterable",
+            "Mapping"
+          ]
+        }
+      ],
+      "line_count": 531,
+      "module_docstring": "Immutable contracts used by the deterministic planning engine.",
+      "path": "core/executive/planning_engine/models.py",
+      "sha256": "5aadd09054320a2e565195848494b7efb24e03c3a02bc0a175505dea100f6972",
+      "size_bytes": 15534,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 24,
+          "name": "utc_now"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 30,
+          "name": "_freeze_mapping"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 38,
+          "name": "_canonicalize"
+        },
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "function",
+          "line": 68,
+          "name": "canonical_fingerprint"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 82,
+          "name": "WorkItem"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 137,
+          "name": "ExecutionRecord"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 204,
+          "name": "ExecutionSnapshot"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 273,
+          "name": "Blocker"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 303,
+          "name": "ReadinessResult"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 354,
+          "name": "DecisionTrace"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 387,
+          "name": "Recommendation"
+        },
+        {
+          "bases": [],
+          "decorators": [
+            "dataclass"
+          ],
+          "kind": "class",
+          "line": 429,
+          "name": "PlanningAssessment"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "collections.abc",
+          "names": [
+            "Iterable"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.capabilities",
+          "names": [
+            "DirectorDescriptor",
+            "DirectorReadiness",
+            "RoutingCandidate",
+            "RoutingDecision",
+            "normalize_capability",
+            "normalize_director_name"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.contracts",
+          "names": [
+            "DirectorHandler",
+            "DirectorNotRegisteredError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "dataclasses",
+          "names": [
+            "replace"
+          ]
+        }
+      ],
+      "line_count": 196,
+      "module_docstring": "Capability-aware director registry used by the Mission Engine.",
+      "path": "core/executive/registry.py",
+      "sha256": "dc2ee435ec4f03fa37cedcabb36ac95a5ccaf222180e094ac58fe32056d2fda1",
+      "size_bytes": 6879,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "class",
+          "line": 19,
+          "name": "DirectorRegistry"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    },
+    {
+      "all_exports": [],
+      "imports": [
+        {
+          "level": 0,
+          "module": "",
+          "names": [
+            "json"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "",
+          "names": [
+            "sqlite3"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "__future__",
+          "names": [
+            "annotations"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.contracts",
+          "names": [
+            "MissionNotFoundError"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "core.executive.models",
+          "names": [
+            "Mission"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "threading",
+          "names": [
+            "RLock"
+          ]
+        },
+        {
+          "level": 0,
+          "module": "typing",
+          "names": [
+            "Any"
+          ]
+        }
+      ],
+      "line_count": 185,
+      "module_docstring": "SQLite persistence for JARVIS Gen 2 missions.",
+      "path": "core/executive/store.py",
+      "sha256": "ecc233ecf397f0af81c2780e4dce42ac5ce713775fbaf56ea303c66ebcc21599",
+      "size_bytes": 5948,
+      "symbols": [
+        {
+          "bases": [],
+          "decorators": [],
+          "kind": "class",
+          "line": 15,
+          "name": "MissionStore"
+        }
+      ],
+      "syntax_error": null,
+      "syntax_valid": true
+    }
+  ],
+  "findings": [
+    "Multiple planning implementations are present: core/executive/planner.py, core/executive/planning, core/executive/planning_engine",
+    "2 public symbol names appear in more than one Executive module.",
+    "Root-level whitepapers do not yet have canonical destination files: WP-0001-executive-cognitive-architecture.md, WP-0002-knowledge-engine.md, WP-0003-reasoning-engine.md, WP-0004-executive-engine.md, WP-0005-planning-engine.md, WP-0006-execution-engine.md, WP-0007-outcome-assessment.md, WP-0008-experience-engine.md, WP-0009-memory-engine.md, WP-0010-engine-communication.md"
+  ],
+  "generated_at_utc": "2026-07-18T17:39:34.723475+00:00",
+  "git_branch": "feature/cognitive-architecture-convergence",
+  "planning_location_symbols": {
+    "core/executive/planner.py": [
+      "class:CapabilityRule@core/executive/planner.py:12",
+      "class:MissionPlanner@core/executive/planner.py:41"
+    ],
+    "core/executive/planning": [
+      "class:Activity@core/executive/planning/models.py:267",
+      "class:Assumption@core/executive/planning/models.py:107",
+      "class:AuthorizationMode@core/executive/planning/enums.py:39",
+      "class:AuthorizationRequirement@core/executive/planning/models.py:66",
+      "class:Command@core/executive/planning/models.py:214",
+      "class:Constraint@core/executive/planning/models.py:129",
+      "class:ConstraintKind@core/executive/planning/enums.py:73",
+      "class:Dependency@core/executive/planning/models.py:190",
+      "class:DependencyCycleError@core/executive/planning/errors.py:22",
+      "class:DependencyGraph@core/executive/planning/dependencies.py:37",
+      "class:DependencyGraphError@core/executive/planning/errors.py:18",
+      "class:DependencyType@core/executive/planning/enums.py:92",
+      "class:DuplicatePlanElementError@core/executive/planning/errors.py:38",
+      "class:EvidenceReference@core/executive/planning/models.py:92",
+      "class:ImmutablePlanVersionError@core/executive/planning/errors.py:54",
+      "class:InMemoryPlanRepository@core/executive/planning/repository.py:44",
+      "class:InvalidPlanTransitionError@core/executive/planning/errors.py:42",
+      "class:MissingPlanElementError@core/executive/planning/errors.py:34",
+      "class:Mission@core/executive/planning/models.py:369",
+      "class:MissionPlan@core/executive/planning/models.py:485",
+      "class:MissionPriority@core/executive/planning/enums.py:29",
+      "class:Objective@core/executive/planning/models.py:333",
+      "class:PlanElementKind@core/executive/planning/enums.py:121",
+      "class:PlanNotFoundError@core/executive/planning/errors.py:46",
+      "class:PlanRepository@core/executive/planning/repository.py:16",
+      "class:PlanState@core/executive/planning/enums.py:8",
+      "class:PlanValidator@core/executive/planning/validation.py:32",
+      "class:PlanVersion@core/executive/planning/models.py:420",
+      "class:PlanVersionConflictError@core/executive/planning/errors.py:50",
+      "class:PlanningError@core/executive/planning/errors.py:6",
+      "class:PlanningService@core/executive/planning/service.py:112",
+      "class:PlanningValidationError@core/executive/planning/errors.py:10",
+      "class:ResourceKind@core/executive/planning/enums.py:104",
+      "class:ResourceRequirement@core/executive/planning/models.py:145",
+      "class:Risk@core/executive/planning/models.py:166",
+      "class:RiskLevel@core/executive/planning/enums.py:51",
+      "class:RiskStatus@core/executive/planning/enums.py:61",
+      "class:Task@core/executive/planning/models.py:296",
+      "class:ValidationReport@core/executive/planning/validation.py:17",
+      "function:_normalize_json_value@core/executive/planning/models.py:41",
+      "function:build_dependency_graph@core/executive/planning/dependencies.py:209",
+      "function:collect_plan_element_ids@core/executive/planning/dependencies.py:16",
+      "function:create_plan_version@core/executive/planning/models.py:527",
+      "function:new_identifier@core/executive/planning/models.py:29",
+      "function:utc_now@core/executive/planning/models.py:35"
+    ],
+    "core/executive/planning_engine": [
+      "class:Blocker@core/executive/planning_engine/models.py:273",
+      "class:BlockerType@core/executive/planning_engine/enums.py:42",
+      "class:ConfidenceBand@core/executive/planning_engine/enums.py:67",
+      "class:DecisionTrace@core/executive/planning_engine/models.py:354",
+      "class:DuplicateWorkItemError@core/executive/planning_engine/errors.py:18",
+      "class:ExecutionRecord@core/executive/planning_engine/models.py:137",
+      "class:ExecutionSnapshot@core/executive/planning_engine/models.py:204",
+      "class:InvalidExecutionSnapshotError@core/executive/planning_engine/errors.py:10",
+      "class:PlanningAssessment@core/executive/planning_engine/models.py:429",
+      "class:PlanningCycleError@core/executive/planning_engine/errors.py:30",
+      "class:PlanningEngineError@core/executive/planning_engine/errors.py:6",
+      "class:PlanningGraphError@core/executive/planning_engine/errors.py:14",
+      "class:PlanningPolicy@core/executive/planning_engine/enums.py:84",
+      "class:ReadinessResult@core/executive/planning_engine/models.py:303",
+      "class:ReadinessState@core/executive/planning_engine/enums.py:31",
+      "class:Recommendation@core/executive/planning_engine/models.py:387",
+      "class:RecommendationType@core/executive/planning_engine/enums.py:54",
+      "class:TraceSeverity@core/executive/planning_engine/enums.py:76",
+      "class:UnknownDependencyReferenceError@core/executive/planning_engine/errors.py:26",
+      "class:UnknownWorkItemError@core/executive/planning_engine/errors.py:22",
+      "class:UnsupportedPlanningPolicyError@core/executive/planning_engine/errors.py:34",
+      "class:WorkItem@core/executive/planning_engine/models.py:82",
+      "class:WorkItemKind@core/executive/planning_engine/enums.py:8",
+      "class:WorkItemState@core/executive/planning_engine/enums.py:18",
+      "function:_canonicalize@core/executive/planning_engine/models.py:38",
+      "function:_freeze_mapping@core/executive/planning_engine/models.py:30",
+      "function:canonical_fingerprint@core/executive/planning_engine/models.py:68",
+      "function:utc_now@core/executive/planning_engine/models.py:24"
+    ]
+  },
+  "planning_locations": {
+    "core/executive/planner.py": [
+      "core/executive/planner.py"
+    ],
+    "core/executive/planning": [
+      "core/executive/planning/__init__.py",
+      "core/executive/planning/dependencies.py",
+      "core/executive/planning/enums.py",
+      "core/executive/planning/errors.py",
+      "core/executive/planning/models.py",
+      "core/executive/planning/repository.py",
+      "core/executive/planning/service.py",
+      "core/executive/planning/validation.py"
+    ],
+    "core/executive/planning_engine": [
+      "core/executive/planning_engine/__init__.py",
+      "core/executive/planning_engine/enums.py",
+      "core/executive/planning_engine/errors.py",
+      "core/executive/planning_engine/models.py"
+    ]
+  },
+  "project_root": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+  "recommendations": [
+    "Do not remove planner.py, planning/, or planning_engine/ until Phase IX-C2 assigns canonical ownership.",
+    "Treat core/executive/planning/ as the leading canonical candidate because it already contains service, repository, validation, dependency, model, enum, and error layers.",
+    "Compare planning_engine models and enums against planning/ before merging their contracts.",
+    "Keep the Executive package responsible for orchestration, not detailed planning algorithms.",
+    "Reconcile root-level whitepapers by content and hash rather than filename alone.",
+    "Introduce the reasoning engine only after canonical planning contracts and Executive public exports are stable."
+  ],
+  "root_whitepapers": [
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0001-executive-cognitive-architecture.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0001-executive-cognitive-architecture.md",
+      "source_sha256": "949e842bb9486447fb04a1ccba5eafae1487249352d04d7db9f70e0961d01f7a"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0002-knowledge-engine.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0002-knowledge-engine.md",
+      "source_sha256": "63508e50764e9eab0dbcde454df3f739e07856d0e1756b2569af91fe4eb54c71"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0003-reasoning-engine.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0003-reasoning-engine.md",
+      "source_sha256": "089385afe5ec138a9d6b204abc207cf79eaf783cbcb429efbd8c1d2c11aee30d"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0004-executive-engine.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0004-executive-engine.md",
+      "source_sha256": "6803f8f98d849fa0b438496cbfcecce9f4875756b21f19ccaf6f19108b3f2dae"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0005-planning-engine.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0005-planning-engine.md",
+      "source_sha256": "0a828938ac572ce22ada701f4383efb78e7bfd7a3d2dd533f3add8efe5ba435c"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0006-execution-engine.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0006-execution-engine.md",
+      "source_sha256": "69d0a3c3fe1d6e7ac299a490e7173635eec2167a4f13f7a8204cf046a0a5f78a"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0007-outcome-assessment.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0007-outcome-assessment.md",
+      "source_sha256": "4dbbe80aae5504ef8771b645559781f7c0ec08d09ae093b34c35fc52b0e5b115"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0008-experience-engine.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0008-experience-engine.md",
+      "source_sha256": "2af5bd44be2479ee0fa94c8421695f840841ed571efd09243419e008aaa9867d"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0009-memory-engine.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0009-memory-engine.md",
+      "source_sha256": "1e4b2f836ae73878671c105ed69d20199b547d4dfcb79ef835db72cffe661e1c"
+    },
+    {
+      "destination_exists": false,
+      "destination_sha256": null,
+      "proposed_destination": "docs/whitepapers/WP-0010-engine-communication.md",
+      "relationship": "destination_missing",
+      "source_path": "WP-0010-engine-communication.md",
+      "source_sha256": "8543c032812d7a5c365f20452169ec54b6586cf792cc3aa3ac971061e055c602"
+    }
+  ],
+  "schema_version": "1.0"
+}

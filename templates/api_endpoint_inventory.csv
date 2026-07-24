@@ -1,0 +1,10 @@
+subsystem,method,path,handler,schema,live_provider,health_state,ui_consumer,test,classification,notes
+executive,GET,/operations/executive,,,,,,,,
+capabilities,GET,/operations/capabilities,,,,,,,,
+knowledge,GET,/operations/knowledge,,,,,,,,
+reasoning,GET,/operations/reasoning,,,,,,,,
+missions,GET,/operations/missions,,,,,,,,
+acquisition,GET,/operations/acquisition,,,,,,,,
+runtime,GET,/operations/runtime,,,,,,,,
+timeline,GET,/operations/timeline,,,,,,,,
+health,GET,/operations/health,,,,,,,,

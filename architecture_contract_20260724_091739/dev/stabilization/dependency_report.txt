@@ -1,0 +1,116 @@
+========================================================================
+JARVIS DEPENDENCY AUDIT
+========================================================================
+
+STANDARD LIBRARY
+
+  __future__
+  abc
+  argparse
+  ast
+  collections
+  contextlib
+  csv
+  dataclasses
+  datetime
+  functools
+  hashlib
+  html
+  importlib
+  inspect
+  io
+  json
+  math
+  mimetypes
+  os
+  pathlib
+  pickle
+  pkgutil
+  platform
+  pprint
+  re
+  shutil
+  socket
+  sqlite3
+  subprocess
+  sys
+  tempfile
+  time
+  types
+  typing
+  urllib
+  uuid
+  venv
+  xml
+  zipfile
+
+LOCAL MODULES
+
+  core
+  dev
+  knowledge_engine
+  tools
+
+THIRD PARTY IMPORTS
+
+MISSING  acquisition
+MISSING  agents
+MISSING  api
+MISSING  auth
+MISSING  base
+MISSING  brain
+MISSING  bs4
+MISSING  capabilities
+MISSING  check
+MISSING  cognition
+MISSING  dependencies
+MISSING  docx
+MISSING  ebooklib
+MISSING  epub
+MISSING  execution_plan
+MISSING  faiss
+✓        fastapi
+MISSING  filter
+MISSING  fitz
+MISSING  google
+MISSING  google_auth_oauthlib
+MISSING  googleapiclient
+MISSING  identity
+MISSING  image
+MISSING  markdown
+MISSING  metadata
+MISSING  model_map
+MISSING  models
+MISSING  normalize
+✓        numpy
+✓        ollama
+✓        openai
+MISSING  operations
+MISSING  pdf
+MISSING  personas
+MISSING  pil
+MISSING  planner
+✓        psutil
+✓        pydantic
+MISSING  pypdf
+MISSING  pypdf2
+MISSING  registry
+✓        requests
+MISSING  response_profiles
+MISSING  routes
+MISSING  runtime
+MISSING  sentence_transformers
+MISSING  services
+MISSING  src
+MISSING  text
+MISSING  utils
+✓        uvicorn
+MISSING  yaml
+MISSING  zim
+
+SUMMARY
+------------------------------------------------------------------------
+Stdlib       : 39
+Local        : 4
+Third Party  : 54
+Requirements : 22

@@ -1,0 +1,21 @@
+core/src/routes/operations.py:@router.get("/bridge")
+core/src/routes/operations.py:def executive_bridge_snapshot() -> dict:
+core/src/routes/operations.py:@router.get("/bridge/readiness")
+core/src/routes/operations.py:def executive_bridge_readiness() -> dict:
+core/src/routes/operations.py:@router.get("/bridge/manifest")
+core/src/routes/operations.py:def executive_bridge_manifest() -> dict:
+core/src/routes/operations.py:@router.get("/bridge/projections/{projection_id}")
+core/src/routes/operations.py:def executive_bridge_projection(projection_id: str) -> dict:
+core/src/routes/mission_control.py:@router.get("/bridge", include_in_schema=False)
+core/src/routes/mission_control.py:def commanders_bridge() -> FileResponse:
+core/src/static/mission_control/index.html:    <div class="bridge-title">COMMANDER'S BRIDGE · EXECUTIVE MISSION CONTROL <i></i> <time id="clock">--:--:--</time></div>
+core/src/static/mission_control/styles.css:.bridge-title{display:flex;align-items:center;gap:13px;color:var(--muted);font-size:.7rem;font-weight:700;letter-spacing:.14em}.bridge-title i{height:18px;border-left:1px solid var(--strong)}
+core/src/static/mission_control/styles.css:@media(max-width:850px){.shell{grid-template:"head" auto "nav" auto "main" 1fr "status" auto/1fr}header{grid-template-columns:1fr auto;padding:14px}.bridge-title{display:none}nav{flex-direction:row;overflow:auto;border-right:0;border-bottom:1px solid var(--line)}nav button{min-width:125px}nav footer{display:none}.grid>section,.grid>.wide{grid-column:1/-1}.statusline{padding:8px 14px;flex-wrap:wrap}}
+core/src/main.py.backup.20260723T163929Z:    return RedirectResponse(url="/bridge")
+core/src/main.py:    return RedirectResponse(url="/bridge")
+core/executive/handlers.py:                    "mode": "bridge_ready",
+core/executive/director.py:                    "integration": "live" if knowledge_search is not None else "bridge_ready"
+core/reasoning/models.py:    """Structured bridge from reasoning into future planning."""
+core/integration/bus.py:            "readiness_endpoint": "/operations/bridge/readiness",
+core/integration/bus.py:            "snapshot_endpoint": "/operations/bridge",
+core/integration/bus.py:            "projection_endpoint_template": "/operations/bridge/projections/{projection_id}",

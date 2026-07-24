@@ -1,0 +1,8 @@
+subsystem,classification,packages,routes,ui_files,capability_files,tests,verification_files,placeholder_hits
+executive,api_only,2,1,0,1,29,76,0
+capabilities,api_only,1,1,0,10,5,29,0
+knowledge,backend_only,3,0,0,0,10,139,0
+reasoning,backend_only,3,0,0,0,24,65,0
+acquisition,backend_only,2,0,0,0,3,39,0
+runtime,api_only,2,1,0,4,8,80,0
+timeline,api_only,1,1,0,1,8,18,0

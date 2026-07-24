@@ -1,0 +1,23 @@
+name: Academic Research
+
+preferred_sources:
+
+  - "*.edu"
+  - "*.ac.uk"
+  - arxiv.org
+  - nature.com
+  - science.org
+  - acm.org
+
+minimum_trust_score: 85
+
+preferred_formats:
+
+  - pdf
+  - epub
+
+ignore:
+
+  - forums
+  - advertisements
+

@@ -1,0 +1,23 @@
+version: 1
+
+standards:
+
+  - id: FP-0000
+    title: First Principles
+    category: foundation
+    status: draft
+
+  - id: GV-0001
+    title: Governance
+    category: foundation
+    status: draft
+
+  - id: CH-0001
+    title: Executive Character
+    category: foundation
+    status: planned
+
+  - id: SA-0001
+    title: Executive Safety
+    category: foundation
+    status: planned

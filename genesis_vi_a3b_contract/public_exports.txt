@@ -1,0 +1,3 @@
+core/integration/__init__.py:    names = getattr(module, "__all__", None)
+core/integration/__init__.py:__all__ = sorted(set(
+core/integration/providers/__init__.py:__all__ = [

@@ -1,0 +1,456 @@
+{
+  "audit_id": "GENESIS-I-A1",
+  "conclusions": {
+    "all_contracts_frozen_and_slotted": true,
+    "all_contracts_serializable": true,
+    "canonical_contract_module_present": true,
+    "canonical_serialization_present": true,
+    "evidence_model_is_embedded_in_models_module": true,
+    "evidence_weight_present": true,
+    "expected_contracts_present": true,
+    "planning_bridge_present": true,
+    "reasoning_session_input_present": true,
+    "reasoning_session_output_present": true,
+    "request_fingerprint_present": true
+  },
+  "contract_count": 7,
+  "contracts": [
+    {
+      "docstring": "One explicit piece of evidence available to a reasoning session.",
+      "fields": [
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "evidence_id"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "proposition"
+        },
+        {
+          "annotation": "EvidenceStance",
+          "has_default": false,
+          "name": "stance"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "source_ref"
+        },
+        {
+          "annotation": "EvidenceKind",
+          "has_default": true,
+          "name": "kind"
+        },
+        {
+          "annotation": "float",
+          "has_default": true,
+          "name": "reliability"
+        },
+        {
+          "annotation": "float",
+          "has_default": true,
+          "name": "confidence"
+        },
+        {
+          "annotation": "Mapping[str, Any]",
+          "has_default": true,
+          "name": "metadata"
+        }
+      ],
+      "frozen": true,
+      "has_post_init": true,
+      "has_to_dict": true,
+      "methods": [
+        "__post_init__",
+        "to_dict"
+      ],
+      "name": "EvidenceItem",
+      "properties": [
+        "weight"
+      ],
+      "slots": true
+    },
+    {
+      "docstring": "One candidate explanation or course of action to assess.",
+      "fields": [
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "hypothesis_id"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "statement"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": true,
+          "name": "supporting_evidence_ids"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": true,
+          "name": "contradicting_evidence_ids"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": true,
+          "name": "assumptions"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": true,
+          "name": "proposed_actions"
+        },
+        {
+          "annotation": "Mapping[str, Any]",
+          "has_default": true,
+          "name": "metadata"
+        }
+      ],
+      "frozen": true,
+      "has_post_init": true,
+      "has_to_dict": true,
+      "methods": [
+        "__post_init__",
+        "to_dict"
+      ],
+      "name": "Hypothesis",
+      "properties": [],
+      "slots": true
+    },
+    {
+      "docstring": "Complete deterministic input to the Reasoning Engine.",
+      "fields": [
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "request_id"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "goal"
+        },
+        {
+          "annotation": "tuple[EvidenceItem, ...]",
+          "has_default": false,
+          "name": "evidence"
+        },
+        {
+          "annotation": "tuple[Hypothesis, ...]",
+          "has_default": false,
+          "name": "hypotheses"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": true,
+          "name": "constraints"
+        },
+        {
+          "annotation": "Mapping[str, Any]",
+          "has_default": true,
+          "name": "context"
+        }
+      ],
+      "frozen": true,
+      "has_post_init": true,
+      "has_to_dict": true,
+      "methods": [
+        "__post_init__",
+        "to_dict"
+      ],
+      "name": "ReasoningRequest",
+      "properties": [
+        "fingerprint"
+      ],
+      "slots": true
+    },
+    {
+      "docstring": "Auditable scoring result for one hypothesis.",
+      "fields": [
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "hypothesis_id"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "statement"
+        },
+        {
+          "annotation": "float",
+          "has_default": false,
+          "name": "support_score"
+        },
+        {
+          "annotation": "float",
+          "has_default": false,
+          "name": "contradiction_score"
+        },
+        {
+          "annotation": "float",
+          "has_default": false,
+          "name": "confidence"
+        },
+        {
+          "annotation": "HypothesisDisposition",
+          "has_default": false,
+          "name": "disposition"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "supporting_evidence_ids"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "contradicting_evidence_ids"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "assumptions"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "rationale"
+        }
+      ],
+      "frozen": true,
+      "has_post_init": false,
+      "has_to_dict": true,
+      "methods": [
+        "to_dict"
+      ],
+      "name": "HypothesisAssessment",
+      "properties": [],
+      "slots": true
+    },
+    {
+      "docstring": "One deterministic, inspectable reasoning operation.",
+      "fields": [
+        {
+          "annotation": "int",
+          "has_default": false,
+          "name": "sequence"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "operation"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "inputs"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "output"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "explanation"
+        }
+      ],
+      "frozen": true,
+      "has_post_init": false,
+      "has_to_dict": true,
+      "methods": [
+        "to_dict"
+      ],
+      "name": "ReasoningTraceStep",
+      "properties": [],
+      "slots": true
+    },
+    {
+      "docstring": "Structured bridge from reasoning into future planning.",
+      "fields": [
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "objective"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "rationale"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "recommended_actions"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "assumptions"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "constraints"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "risks"
+        }
+      ],
+      "frozen": true,
+      "has_post_init": false,
+      "has_to_dict": true,
+      "methods": [
+        "to_dict"
+      ],
+      "name": "PlanningRecommendation",
+      "properties": [],
+      "slots": true
+    },
+    {
+      "docstring": "Complete output of one deterministic reasoning session.",
+      "fields": [
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "session_id"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "request_id"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "request_fingerprint"
+        },
+        {
+          "annotation": "ReasoningStatus",
+          "has_default": false,
+          "name": "status"
+        },
+        {
+          "annotation": "tuple[HypothesisAssessment, ...]",
+          "has_default": false,
+          "name": "assessments"
+        },
+        {
+          "annotation": "str | None",
+          "has_default": false,
+          "name": "selected_hypothesis_id"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "missing_information"
+        },
+        {
+          "annotation": "tuple[str, ...]",
+          "has_default": false,
+          "name": "contradictions"
+        },
+        {
+          "annotation": "PlanningRecommendation | None",
+          "has_default": false,
+          "name": "planning_recommendation"
+        },
+        {
+          "annotation": "tuple[ReasoningTraceStep, ...]",
+          "has_default": false,
+          "name": "trace"
+        },
+        {
+          "annotation": "str",
+          "has_default": false,
+          "name": "fingerprint"
+        }
+      ],
+      "frozen": true,
+      "has_post_init": false,
+      "has_to_dict": true,
+      "methods": [
+        "to_dict"
+      ],
+      "name": "ReasoningResult",
+      "properties": [],
+      "slots": true
+    }
+  ],
+  "expected_contracts": [
+    "EvidenceItem",
+    "Hypothesis",
+    "ReasoningRequest",
+    "HypothesisAssessment",
+    "ReasoningTraceStep",
+    "PlanningRecommendation",
+    "ReasoningResult"
+  ],
+  "imported_reasoning_enums": [
+    "EvidenceKind",
+    "EvidenceStance",
+    "HypothesisDisposition",
+    "ReasoningStatus"
+  ],
+  "key_field_inventories": {
+    "EvidenceItem": [
+      "evidence_id",
+      "proposition",
+      "stance",
+      "source_ref",
+      "kind",
+      "reliability",
+      "confidence",
+      "metadata"
+    ],
+    "ReasoningRequest": [
+      "request_id",
+      "goal",
+      "evidence",
+      "hypotheses",
+      "constraints",
+      "context"
+    ],
+    "ReasoningResult": [
+      "session_id",
+      "request_id",
+      "request_fingerprint",
+      "status",
+      "assessments",
+      "selected_hypothesis_id",
+      "missing_information",
+      "contradictions",
+      "planning_recommendation",
+      "trace",
+      "fingerprint"
+    ]
+  },
+  "migration_observations": [
+    "EvidenceItem is already the canonical evidence contract; Genesis must evolve it rather than introduce a competing evidence model.",
+    "ReasoningRequest already represents a deterministic session input and includes a canonical fingerprint.",
+    "ReasoningResult already represents a complete reasoning-session output, including traceability and a planning bridge.",
+    "All current contracts use frozen, slotted dataclasses and should retain those immutability guarantees.",
+    "Canonical serialization and SHA-256 fingerprinting are established cross-contract infrastructure and should remain backward compatible.",
+    "Future evidence provenance, admission, and assessment contracts should integrate with EvidenceItem through deliberate migration."
+  ],
+  "missing_expected_contracts": [],
+  "missing_expected_helpers": [],
+  "module_functions": [
+    "_require_text",
+    "_require_probability",
+    "canonicalize",
+    "canonical_fingerprint"
+  ],
+  "source": "core/reasoning/models.py",
+  "title": "Reasoning Contract Audit",
+  "unexpected_contracts": []
+}

@@ -1,0 +1,8 @@
+core/conversation/grounding.py
+core/conversation/orchestrator.py
+core/conversation/__init__.py
+core/src/routes/api.py
+tests/test_convergence_c4_knowledge_grounding.py
+dev/verification/verify_convergence_c4.py
+dev/verify_convergence_c4.sh
+docs/architecture/convergence_c4_knowledge_grounding.md

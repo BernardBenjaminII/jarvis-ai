@@ -1,0 +1,6 @@
+{
+    "runtime": "H:/JARVIS_HOME",
+    "models": "G:/ollama/models",
+    "project": "H:/Projects/jarvis-ai",
+    "venv": "H:/JARVIS_HOME/venvs/jarvis"
+}

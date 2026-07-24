@@ -1,0 +1,706 @@
+========================================================================================
+SYMBOL DEFINITIONS
+========================================================================================
+
+----------------------------------------------------------------------------------------
+core/executive/models.py
+----------------------------------------------------------------------------------------
+
+FunctionDef: utc_now (lines 12-13)
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+ClassDef: Mission (lines 68-101)
+
+class Mission:
+    objective: str
+    context: dict[str, Any] = field(default_factory=dict)
+    mission_id: str = field(default_factory=lambda: uuid4().hex)
+    status: MissionStatus = MissionStatus.DRAFT
+    tasks: list[MissionTask] = field(default_factory=list)
+    summary: dict[str, Any] | None = None
+    error: str | None = None
+    created_at: str = field(default_factory=utc_now)
+    updated_at: str = field(default_factory=utc_now)
+    started_at: str | None = None
+    completed_at: str | None = None
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "mission_id": self.mission_id,
+            "objective": self.objective,
+            "context": self.context,
+            "status": self.status.value,
+            "tasks": [task.to_dict() for task in self.tasks],
+            "summary": self.summary,
+            "error": self.error,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+            "started_at": self.started_at,
+            "completed_at": self.completed_at,
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "Mission":
+        values = dict(data)
+        values["status"] = MissionStatus(values.get("status", MissionStatus.DRAFT.value))
+        values["tasks"] = [MissionTask.from_dict(task) for task in values.get("tasks", [])]
+        return cls(**values)
+
+----------------------------------------------------------------------------------------
+core/executive/planning/models.py
+----------------------------------------------------------------------------------------
+
+FunctionDef: utc_now (lines 35-38)
+
+def utc_now() -> datetime:
+    """Return a timezone-aware UTC timestamp."""
+
+    return datetime.now(UTC)
+
+ClassDef: Mission (lines 369-416)
+
+class Mission:
+    """Highest operational unit controlled by the executive architecture."""
+
+    mission_id: str
+    title: str
+    commander_intent: str
+    desired_end_state: str
+    owner: str
+    objectives: tuple[Objective, ...] = ()
+    priority: MissionPriority = MissionPriority.NORMAL
+    constraints: tuple[Constraint, ...] = ()
+    prohibitions: tuple[str, ...] = ()
+    assumptions: tuple[Assumption, ...] = ()
+    risks: tuple[Risk, ...] = ()
+    resources: tuple[ResourceRequirement, ...] = ()
+    completion_criteria: tuple[str, ...] = ()
+    authorization: AuthorizationRequirement = field(
+        default_factory=lambda: AuthorizationRequirement(
+            mode=AuthorizationMode.COMMANDER_APPROVAL,
+            approving_authority="commander",
+        )
+    )
+    created_at: datetime = field(default_factory=utc_now)
+    metadata: Mapping[str, Any] = field(default_factory=dict)
+
+    @property
+    def element_id(self) -> str:
+        return self.mission_id
+
+    @property
+    def element_kind(self) -> PlanElementKind:
+        return PlanElementKind.MISSION
+
+    def __post_init__(self) -> None:
+        if not self.title.strip():
+            raise ValueError("Mission title cannot be empty")
+
+        if not self.commander_intent.strip():
+            raise ValueError("Mission commander_intent cannot be empty")
+
+        if not self.desired_end_state.strip():
+            raise ValueError("Mission desired_end_state cannot be empty")
+
+        if not self.owner.strip():
+            raise ValueError("Mission owner cannot be empty")
+
+        if not self.completion_criteria:
+            raise ValueError("Mission must define completion criteria")
+
+----------------------------------------------------------------------------------------
+core/executive/planning_engine/models.py
+----------------------------------------------------------------------------------------
+
+FunctionDef: utc_now (lines 24-27)
+
+def utc_now() -> datetime:
+    """Return a timezone-aware UTC timestamp."""
+
+    return datetime.now(UTC)
+
+========================================================================================
+IMPORT AND SYMBOL REFERENCES
+========================================================================================
+
+core/executive/__init__.py
+     17: Mission,
+     18: MissionPlan,
+     19: MissionPriority,
+     41: "Mission",
+     42: "MissionPlan",
+     43: "MissionPriority",
+
+core/executive/cli.py
+     33: description="JARVIS Gen 2 Executive Director and Mission Engine",
+     39: help="Mission SQLite database path",
+
+core/executive/contracts.py
+      7: from core.executive.models import Mission, MissionTask, TaskExecutionResult
+     15: mission: Mission,
+     16: task: MissionTask,
+     29: class MissionNotFoundError(ExecutiveError):
+     33: class InvalidMissionPlanError(ExecutiveError):
+
+core/executive/director.py
+      9: from core.executive.engine import MissionEngine
+     16: from core.executive.models import Mission, MissionStatus, utc_now
+     17: from core.executive.planner import MissionPlanner
+     19: from core.executive.store import MissionStore
+     28: planner: MissionPlanner | None = None,
+     32: self.store = MissionStore(database_path)
+     84: self.planner = planner or MissionPlanner(registry=self.registry)
+     86: self.engine = MissionEngine(self.registry, self.store)
+     93: ) -> Mission:
+     94: mission = Mission(objective=objective.strip(), context=context or {})
+     96: raise ValueError("Mission objective cannot be empty")
+    102: utc_now(),
+    106: def plan_mission(self, mission: Mission) -> Mission:
+    125: utc_now(),
+    135: ) -> Mission:
+    142: def execute_mission(self, mission_id: str) -> Mission:
+    144: if mission.status == MissionStatus.DRAFT:
+    146: if mission.status in {MissionStatus.COMPLETED, MissionStatus.CANCELLED}:
+    150: def get_mission(self, mission_id: str) -> Mission:
+    158: ) -> list[Mission]:
+
+core/executive/engine.py
+      5: from core.executive.contracts import InvalidMissionPlanError
+      6: from core.executive.models import (
+      7: Mission,
+      8: MissionStatus,
+      9: MissionTask,
+     11: utc_now,
+     14: from core.executive.store import MissionStore
+     17: class MissionEngine:
+     23: store: MissionStore,
+     28: def execute(self, mission: Mission) -> Mission:
+     31: mission.status = MissionStatus.RUNNING
+     32: mission.started_at = mission.started_at or utc_now()
+     33: mission.updated_at = utc_now()
+     55: task.completed_at = utc_now()
+     56: mission.updated_at = utc_now()
+     76: mission.status = MissionStatus.BLOCKED
+     78: "Mission made no progress. Check for unresolved or cyclic "
+     81: mission.updated_at = utc_now()
+     97: mission.status = MissionStatus.FAILED
+    100: mission.status = MissionStatus.BLOCKED
+    103: mission.status = MissionStatus.COMPLETED
+    105: mission.completed_at = utc_now()
+    107: mission.updated_at = utc_now()
+    118: def _run_task(self, mission: Mission, task: MissionTask) -> None:
+    120: task.started_at = utc_now()
+    121: mission.updated_at = utc_now()
+    138: task.completed_at = utc_now()
+    139: mission.updated_at = utc_now()
+    147: task.completed_at = utc_now()
+    148: mission.updated_at = utc_now()
+    170: mission: Mission,
+    171: task: MissionTask,
+    176: def _validate_plan(self, mission: Mission) -> None:
+    178: raise InvalidMissionPlanError("Mission has no tasks")
+    182: raise InvalidMissionPlanError("Mission contains duplicate task IDs")
+    188: raise InvalidMissionPlanError(
+    193: raise InvalidMissionPlanError(
+    205: raise InvalidMissionPlanError(
+    206: "Mission plan contains a dependency cycle"
+    223: mission: Mission,
+    232: utc_now(),
+    236: def _mission_summary(mission: Mission) -> dict:
+
+core/executive/handlers.py
+      8: from core.executive.models import Mission, MissionTask, TaskExecutionResult
+     12: mission: Mission,
+     13: task: MissionTask,
+     23: "assessment": "Mission objective accepted and normalized.",
+     66: mission: Mission,
+     67: task: MissionTask,
+    108: mission: Mission,
+    109: task: MissionTask,
+
+core/executive/models.py
+     12: def utc_now() -> str:
+     16: class MissionStatus(str, Enum):
+     37: class MissionTask:
+     49: created_at: str = field(default_factory=utc_now)
+     59: def from_dict(cls, data: dict[str, Any]) -> "MissionTask":
+     68: class Mission:
+     72: status: MissionStatus = MissionStatus.DRAFT
+     73: tasks: list[MissionTask] = field(default_factory=list)
+     76: created_at: str = field(default_factory=utc_now)
+     77: updated_at: str = field(default_factory=utc_now)
+     97: def from_dict(cls, data: dict[str, Any]) -> "Mission":
+     99: values["status"] = MissionStatus(values.get("status", MissionStatus.DRAFT.value))
+    100: values["tasks"] = [MissionTask.from_dict(task) for task in values.get("tasks", [])]
+
+core/executive/planner.py
+      7: from core.executive.models import Mission, MissionStatus, MissionTask, utc_now
+     41: class MissionPlanner:
+     53: def plan(self, mission: Mission) -> Mission:
+     55: raise ValueError("Mission objective cannot be empty")
+     57: raise RuntimeError("MissionPlanner requires a DirectorRegistry")
+     59: analyze = MissionTask(
+     71: delegated_tasks: list[MissionTask] = []
+     80: MissionTask(
+     94: MissionTask(
+    105: synthesize = MissionTask(
+    119: mission.status = MissionStatus.PLANNED
+    120: mission.updated_at = utc_now()
+
+core/executive/planning/__init__.py
+     12: MissionPriority,
+     31: from core.executive.planning.models import (
+     39: Mission,
+     40: MissionPlan,
+     48: utc_now,
+     75: "Mission",
+     76: "MissionPlan",
+     77: "MissionPriority",
+    101: "utc_now",
+
+core/executive/planning/dependencies.py
+     13: from core.executive.planning.models import Dependency, Mission
+     16: def collect_plan_element_ids(mission: Mission) -> tuple[str, ...]:
+    210: mission: Mission,
+
+core/executive/planning/enums.py
+     29: class MissionPriority(StrEnum):
+     30: """Mission scheduling and executive-arbitration priority."""
+
+core/executive/planning/models.py
+     20: MissionPriority,
+     35: def utc_now() -> datetime:
+     99: retrieved_at: datetime = field(default_factory=utc_now)
+    346: priority: MissionPriority = MissionPriority.NORMAL
+    369: class Mission:
+    378: priority: MissionPriority = MissionPriority.NORMAL
+    391: created_at: datetime = field(default_factory=utc_now)
+    404: raise ValueError("Mission title cannot be empty")
+    407: raise ValueError("Mission commander_intent cannot be empty")
+    410: raise ValueError("Mission desired_end_state cannot be empty")
+    413: raise ValueError("Mission owner cannot be empty")
+    416: raise ValueError("Mission must define completion criteria")
+    425: mission: Mission
+    428: created_at: datetime = field(default_factory=utc_now)
+    485: class MissionPlan:
+    493: raise ValueError("MissionPlan must contain at least one version")
+    500: "MissionPlan versions must be contiguous and ordered from 1"
+    505: "All PlanVersion records must reference the MissionPlan plan_id"
+    529: mission: Mission,
+
+core/executive/planning/repository.py
+     13: from core.executive.planning.models import MissionPlan, PlanVersion
+     20: def create(self, initial_version: PlanVersion) -> MissionPlan:
+     24: def append_version(self, version: PlanVersion) -> MissionPlan:
+     28: def get(self, plan_id: str) -> MissionPlan:
+     40: def list_plans(self) -> tuple[MissionPlan, ...]:
+     52: self._plans: dict[str, MissionPlan] = {}
+     55: def create(self, initial_version: PlanVersion) -> MissionPlan:
+     67: plan = MissionPlan(
+     74: def append_version(self, version: PlanVersion) -> MissionPlan:
+    103: updated = MissionPlan(
+    110: def get(self, plan_id: str) -> MissionPlan:
+    126: def list_plans(self) -> tuple[MissionPlan, ...]:
+
+core/executive/planning/service.py
+      9: from core.executive.planning.models import (
+     11: Mission,
+     12: MissionPlan,
+    127: mission: Mission,
+    130: ) -> MissionPlan:
+    145: mission: Mission,
+    150: ) -> MissionPlan:
+    180: ) -> MissionPlan:
+    207: def get_plan(self, plan_id: str) -> MissionPlan:
+
+core/executive/planning/validation.py
+     13: from core.executive.planning.models import Mission, PlanVersion
+     27: "Mission plan validation failed",
+     57: mission: Mission,
+    113: mission: Mission,
+    172: mission: Mission,
+
+core/executive/planning_engine/__init__.py
+     28: from core.executive.planning_engine.models import (
+
+core/executive/planning_engine/models.py
+     24: def utc_now() -> datetime:
+    147: updated_at: datetime = field(default_factory=utc_now)
+    208: captured_at: datetime = field(default_factory=utc_now)
+    441: analyzed_at: datetime = field(default_factory=utc_now)
+
+core/executive/registry.py
+      1: """Capability-aware director registry used by the Mission Engine."""
+
+core/executive/store.py
+     11: from core.executive.contracts import MissionNotFoundError
+     12: from core.executive.models import Mission
+     15: class MissionStore:
+     68: def save(self, mission: Mission) -> None:
+    102: def load(self, mission_id: str) -> Mission:
+    110: raise MissionNotFoundError(f"Mission not found: {mission_id}")
+    113: return Mission.from_dict(data)
+    120: ) -> list[Mission]:
+    136: Mission.from_dict(json.loads(row["payload_json"]))
+
+core/knowledge_catalog/assimilation/engine.py
+     35: def utc_now() -> str:
+    230: now = utc_now()
+
+core/knowledge_catalog/collections.py
+     31: def utc_now() -> str:
+    129: now = utc_now()
+
+core/knowledge_catalog/models.py
+      8: def utc_now() -> str:
+
+core/knowledge_catalog/registrar.py
+     14: def utc_now() -> str:
+     38: now = utc_now()
+
+core/knowledge_catalog/repository.py
+      5: from core.knowledge_catalog.models import Document, FileAsset, Source, Topic, utc_now
+     13: now = utc_now()
+     30: now = utc_now()
+     46: now = utc_now()
+     77: now = utc_now()
+    112: now = utc_now()
+
+core/src/cognition/prompt_builder.py
+     30: - Mission Focus: {mission}
+
+dev/librarian/cko/mit_cko_builder.py
+     26: def utc_now() -> str:
+    138: now = utc_now()
+    161: now = utc_now()
+
+dev/librarian/discovery/engine.py
+      7: from dev.librarian.discovery.models import DiscoveryCandidate, TrustedSource, utc_now
+    103: created_at=utc_now(),
+    118: "created_at": utc_now(),
+
+dev/librarian/discovery/models.py
+      7: def utc_now() -> str:
+
+dev/stabilization/repair_serialized_pdf_text.py
+     59: def utc_now() -> str:
+    323: "updated_at": utc_now(),
+    542: values["updated_at"] = utc_now()
+
+dev/tests/acquisition/test_phase_7a5.py
+     17: AcquisitionMissionItemState,
+     18: AcquisitionMissionService,
+     19: AcquisitionMissionState,
+    126: service = AcquisitionMissionService()
+    142: AcquisitionMissionState.READY
+    174: AcquisitionMissionItemState.ACCEPTED,
+    175: AcquisitionMissionItemState.REVIEW,
+    176: AcquisitionMissionItemState.IGNORED,
+    177: AcquisitionMissionItemState.REJECTED,
+    187: service = AcquisitionMissionService()
+    211: result = AcquisitionMissionService().create_mission(
+    222: AcquisitionMissionState.COMPLETED
+    230: service = AcquisitionMissionService()
+    288: print("[PASS] Mission schema idempotency")
+    293: print("[PASS] Mission creation idempotency")
+
+dev/tests/acquisition/test_phase_7a6.py
+     22: AcquisitionMissionService,
+     96: mission = AcquisitionMissionService().create_mission(
+    206: mission = AcquisitionMissionService().create_mission(
+
+dev/tests/acquisition/test_phase_7a7.py
+     46: AcquisitionMissionService,
+    258: AcquisitionMissionService()
+
+dev/tests/test_phase_6c.py
+     16: MissionStatus,
+    159: assert mission.status == MissionStatus.PLANNED
+    171: assert paused.status == MissionStatus.PAUSED
+    177: assert reloaded.status == MissionStatus.PAUSED
+    196: assert paused_again.status == MissionStatus.PAUSED
+    206: assert completed.status == MissionStatus.COMPLETED
+    212: assert final.status == MissionStatus.COMPLETED
+    252: print("[PASS] Mission reconstruction")
+    257: print("[PASS] Mission completion")
+    258: print("[PASS] Mission history")
+
+dev/verification/registry.py
+     27: name="Phase VI-C Persistent Missions",
+    183: name="Phase VII-A5 Acquisition Missions",
+
+dev/verification/runner.py
+     43: def utc_now() -> str:
+    562: started_at = utc_now()
+    580: completed_at = utc_now()
+
+knowledge_engine/acquisition/contracts.py
+     66: "AcquisitionMissionBuildResult",
+     67: "AcquisitionMissionItemRecord",
+     68: "AcquisitionMissionItemState",
+     69: "AcquisitionMissionRecord",
+     70: "AcquisitionMissionRepository",
+     71: "AcquisitionMissionService",
+     72: "AcquisitionMissionState",
+
+knowledge_engine/acquisition/handoff/service.py
+     28: AcquisitionMissionItemState,
+     29: AcquisitionMissionRepository,
+     30: AcquisitionMissionState,
+     45: AcquisitionMissionRepository | None
+     57: else AcquisitionMissionRepository()
+    103: AcquisitionMissionState.READY,
+    104: AcquisitionMissionState.COMPLETED,
+    122: is AcquisitionMissionItemState.ACCEPTED
+
+knowledge_engine/acquisition/missions/__init__.py
+      9: AcquisitionMissionBuildResult,
+     10: AcquisitionMissionItemRecord,
+     11: AcquisitionMissionItemState,
+     12: AcquisitionMissionRecord,
+     13: AcquisitionMissionState,
+     16: AcquisitionMissionRepository,
+     22: AcquisitionMissionService,
+     26: "AcquisitionMissionBuildResult",
+     27: "AcquisitionMissionItemRecord",
+     28: "AcquisitionMissionItemState",
+     29: "AcquisitionMissionRecord",
+     30: "AcquisitionMissionRepository",
+     31: "AcquisitionMissionService",
+     32: "AcquisitionMissionState",
+
+knowledge_engine/acquisition/missions/models.py
+      5: Mission execution and assimilation handoff are deferred to later phases.
+     15: class AcquisitionMissionState(str, Enum):
+     24: class AcquisitionMissionItemState(str, Enum):
+     34: class AcquisitionMissionRecord:
+     40: mission_state: AcquisitionMissionState
+    104: class AcquisitionMissionItemRecord:
+    115: item_state: AcquisitionMissionItemState
+    168: class AcquisitionMissionBuildResult:
+    171: mission: AcquisitionMissionRecord
+    172: items: tuple[AcquisitionMissionItemRecord, ...]
+    203: "AcquisitionMissionBuildResult",
+    204: "AcquisitionMissionItemRecord",
+    205: "AcquisitionMissionItemState",
+    206: "AcquisitionMissionRecord",
+    207: "AcquisitionMissionState",
+
+knowledge_engine/acquisition/missions/repository.py
+     12: AcquisitionMissionItemRecord,
+     13: AcquisitionMissionItemState,
+     14: AcquisitionMissionRecord,
+     15: AcquisitionMissionState,
+     19: class AcquisitionMissionRepository:
+    137: "Mission item insert did not return an ID"
+    147: ) -> AcquisitionMissionRecord:
+    174: return AcquisitionMissionRecord(
+    178: mission_state=AcquisitionMissionState(
+    200: ) -> tuple[AcquisitionMissionItemRecord, ...]:
+    223: AcquisitionMissionItemRecord(
+    232: item_state=AcquisitionMissionItemState(
+    243: "AcquisitionMissionRepository",
+
+knowledge_engine/acquisition/missions/service.py
+     21: AcquisitionMissionBuildResult,
+     22: AcquisitionMissionItemState,
+     23: AcquisitionMissionState,
+     26: AcquisitionMissionRepository,
+     34: "accept": AcquisitionMissionItemState.ACCEPTED,
+     35: "review": AcquisitionMissionItemState.REVIEW,
+     36: "ignore": AcquisitionMissionItemState.IGNORED,
+     37: "reject": AcquisitionMissionItemState.REJECTED,
+     41: class AcquisitionMissionService:
+     46: repository: AcquisitionMissionRepository | None = None,
+     51: else AcquisitionMissionRepository()
+     63: ) -> AcquisitionMissionBuildResult:
+    148: return AcquisitionMissionBuildResult(
+    166: AcquisitionMissionItemState.ACCEPTED
+    169: AcquisitionMissionItemState.REVIEW
+    172: AcquisitionMissionItemState.IGNORED
+    175: AcquisitionMissionItemState.REJECTED
+    179: AcquisitionMissionState.READY
+    181: else AcquisitionMissionState.COMPLETED
+    220: return AcquisitionMissionBuildResult(
+    234: "AcquisitionMissionService",
+
+knowledge_engine/assimilation/__init__.py
+     21: AssimilationMission,
+     22: AssimilationMissionItem,
+     23: MissionItemStatus,
+     24: MissionStatus,
+     27: AssimilationMissionStore,
+     28: MissionNotFoundError,
+     61: "AssimilationMission",
+     62: "AssimilationMissionItem",
+     63: "AssimilationMissionStore",
+     77: "MissionItemStatus",
+     78: "MissionNotFoundError",
+     79: "MissionStatus",
+
+knowledge_engine/assimilation/director.py
+      2: Mission-level coordination and persistent recovery for JARVIS assimilation.
+     18: AssimilationMission,
+     19: MissionItemStatus,
+     20: MissionStatus,
+     23: AssimilationMissionStore,
+     44: mission_store: AssimilationMissionStore | None = None,
+     49: self.mission_store = mission_store or AssimilationMissionStore(db)
+     63: ) -> AssimilationMission:
+     74: def load_mission(self, mission_id: str) -> AssimilationMission:
+     90: mission: AssimilationMission,
+     94: ) -> AssimilationMission:
+    106: MissionStatus.PLANNED,
+    107: MissionStatus.PAUSED,
+    108: MissionStatus.RUNNING,
+    143: if item.status != MissionItemStatus.QUEUED:
+    155: status=MissionItemStatus.SKIPPED,
+    174: status=MissionItemStatus.BLOCKED,
+    207: status=MissionItemStatus.FAILED,
+    231: status=MissionItemStatus.BLOCKED,
+    240: status=MissionItemStatus.COMPLETED,
+    247: status=MissionItemStatus.FAILED,
+    258: status=MissionItemStatus.BLOCKED,
+    273: MissionItemStatus.FAILED,
+    274: MissionItemStatus.BLOCKED,
+    283: MissionItemStatus.FAILED,
+    284: MissionItemStatus.BLOCKED,
+    300: ) -> AssimilationMission:
+    335: ) -> AssimilationMission:
+
+knowledge_engine/assimilation/mission.py
+     16: class MissionStatus(str, Enum):
+     28: class MissionItemStatus(str, Enum):
+     40: MissionItemStatus.COMPLETED,
+     41: MissionItemStatus.SKIPPED,
+     42: MissionItemStatus.FAILED,
+     43: MissionItemStatus.BLOCKED,
+     48: class AssimilationMissionItem:
+     70: status: MissionItemStatus = MissionItemStatus.QUEUED
+     93: self.status = MissionItemStatus.PROCESSING
+     94: self.started_at = utc_now()
+    100: status: MissionItemStatus,
+    110: self.completed_at = utc_now()
+    120: if self.status == MissionItemStatus.PROCESSING:
+    121: self.status = MissionItemStatus.QUEUED
+    123: "Mission item recovered from interrupted processing checkpoint."
+    140: ) -> "AssimilationMissionItem":
+    164: status=MissionItemStatus(
+    165: payload.get("status", MissionItemStatus.QUEUED.value)
+    175: class AssimilationMission:
+    183: status: MissionStatus
+    184: items: list[AssimilationMissionItem] = field(default_factory=list)
+    207: def pending_items(self) -> list[AssimilationMissionItem]:
+    211: if item.status == MissionItemStatus.QUEUED
+    273: self.started_at = utc_now()
+    275: self.status = MissionStatus.RUNNING
+    280: self.status = MissionStatus.PAUSED
+    281: self.paused_at = utc_now()
+    286: item.status == MissionItemStatus.COMPLETED
+    290: item.status == MissionItemStatus.FAILED
+    294: item.status == MissionItemStatus.SKIPPED
+    298: item.status == MissionItemStatus.BLOCKED
+    306: if item.status == MissionItemStatus.PROCESSING:
+    319: self.completed_at = utc_now()
+    323: self.status = MissionStatus.PAUSED
+    324: self.paused_at = utc_now()
+    327: self.status = MissionStatus.FAILED
+    329: self.status = MissionStatus.BLOCKED
+    331: self.status = MissionStatus.PARTIAL
+    333: self.status = MissionStatus.COMPLETED
+    370: ) -> "AssimilationMission":
+    382: status=MissionStatus(payload["status"]),
+    384: AssimilationMissionItem.from_dict(item)
+    413: def utc_now() -> str:
+
+knowledge_engine/assimilation/mission_store.py
+     11: AssimilationMission,
+     12: AssimilationMissionItem,
+     13: MissionStatus,
+     14: utc_now,
+     21: class MissionNotFoundError(LookupError):
+     25: class AssimilationMissionStore:
+     31: def save_new(self, mission: AssimilationMission) -> None:
+     51: f"Mission already exists: {mission.mission_id}"
+     71: mission: AssimilationMission,
+     73: item: AssimilationMissionItem | None = None,
+    100: def load(self, mission_id: str) -> AssimilationMission:
+    116: raise MissionNotFoundError(
+    121: return AssimilationMission.from_dict(payload)
+    248: mission: AssimilationMission,
+    331: item: AssimilationMissionItem,
+
+knowledge_engine/assimilation/planner.py
+     15: AssimilationMission,
+     16: AssimilationMissionItem,
+     17: MissionStatus,
+     19: utc_now,
+     34: ) -> AssimilationMission:
+    101: return AssimilationMission(
+    103: created_at=utc_now(),
+    107: status=MissionStatus.PLANNED,
+    245: ) -> AssimilationMissionItem:
+    262: return AssimilationMissionItem(
+    288: items: list[AssimilationMissionItem],
+
+knowledge_engine/assimilation_cli.py
+     16: AssimilationMission,
+     18: MissionNotFoundError,
+    161: def print_mission(mission: AssimilationMission) -> None:
+    169: print(f"Mission ID       : {mission.mission_id}")
+    402: except MissionNotFoundError as exc:
+
+knowledge_engine/source_registry/contracts.py
+     61: def utc_now_iso() -> str:
+
+knowledge_engine/source_registry/service.py
+     21: utc_now_iso,
+     92: timestamp = utc_now_iso()
+    150: utc_now_iso(),
+
+tests/test_gen2_capability_routing.py
+     11: from core.executive.models import Mission, MissionTask, TaskExecutionResult
+     15: def successful_handler(mission: Mission, task: MissionTask) -> TaskExecutionResult:
+
+tests/test_gen2_executive.py
+      9: from core.executive.contracts import InvalidMissionPlanError
+     11: from core.executive.engine import MissionEngine
+     12: from core.executive.models import (
+     13: Mission,
+     14: MissionStatus,
+     15: MissionTask,
+     20: from core.executive.store import MissionStore
+     36: self.assertEqual(mission.status, MissionStatus.COMPLETED)
+     60: self.assertEqual(mission.status, MissionStatus.COMPLETED)
+     78: self.assertEqual(reloaded.status, MissionStatus.COMPLETED)
+     89: mission: Mission,
+     90: task: MissionTask,
+     95: mission: Mission,
+     96: task: MissionTask,
+    103: store = MissionStore(self.database)
+    104: engine = MissionEngine(registry, store)
+    106: first = MissionTask(
+    111: second = MissionTask(
+    117: mission = Mission(
+    119: status=MissionStatus.PLANNED,
+    126: self.assertEqual(result.status, MissionStatus.FAILED)
+    136: store = MissionStore(self.database)
+    137: engine = MissionEngine(registry, store)
+    139: first = MissionTask(
+    144: second = MissionTask(
+    152: mission = Mission(
+    154: status=MissionStatus.PLANNED,
+    158: with self.assertRaises(InvalidMissionPlanError):
+
+tests/test_phase_9c2_planning_data_model.py
+      5: Canonical Mission Planning Data Model Tests
+     23: Mission,
+     24: MissionPriority,
+     52: def build_fixture_mission() -> Mission:
+    131: priority=MissionPriority.HIGH,
+    134: mission = Mission(
+    246: title="Phase IX-C2 Revised Mission",
+    277: "Phase IX-C2 Revised Mission",
+    448: reason="Mission refinement",

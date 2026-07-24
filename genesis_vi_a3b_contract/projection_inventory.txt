@@ -1,0 +1,119 @@
+core/integration/__init__.py:from core.integration.bus import ExecutiveProjectionBus, ProjectionBusSnapshot, get_default_projection_bus, reset_default_projection_bus
+core/integration/__init__.py:        "ExecutiveProjectionBus", "ExecutiveReadiness", "ProjectionBusSnapshot",
+core/integration/bootstrap.py:from core.integration.providers.capabilities import CapabilityProjectionProvider
+core/integration/bootstrap.py:from core.integration.providers.knowledge import KnowledgeProjectionProvider
+core/integration/bootstrap.py:from core.integration.providers.operations import OperationsProjectionProvider
+core/integration/bootstrap.py:from core.integration.registry import ProjectionRegistry
+core/integration/bootstrap.py:from core.integration.service import ExecutiveProjectionService
+core/integration/bootstrap.py:    projection_registry: ProjectionRegistry
+core/integration/bootstrap.py:    projection_service: ExecutiveProjectionService
+core/integration/bootstrap.py:    projections = ProjectionRegistry()
+core/integration/bootstrap.py:    projections.register(OperationsProjectionProvider(operations))
+core/integration/bootstrap.py:        CapabilityProjectionProvider(
+core/integration/bootstrap.py:        KnowledgeProjectionProvider(knowledge_inventory)
+core/integration/bootstrap.py:        projection_service=ExecutiveProjectionService(projections),
+core/integration/contracts.py:class ProjectionStatus(str, Enum):
+core/integration/contracts.py:class ProjectionHealth:
+core/integration/contracts.py:    status: ProjectionStatus
+core/integration/contracts.py:class ProjectionEnvelope:
+core/integration/contracts.py:    health: ProjectionHealth
+core/integration/errors.py:class DuplicateProjectionProviderError(ExecutiveIntegrationError):
+core/integration/errors.py:    """Projection identifier was registered more than once."""
+core/integration/errors.py:class ProjectionProviderNotFoundError(ExecutiveIntegrationError, KeyError):
+core/integration/provider.py:from core.integration.contracts import ProjectionEnvelope, ProjectionHealth
+core/integration/provider.py:class ProjectionProvider(Protocol):
+core/integration/provider.py:    def health(self) -> ProjectionHealth: ...
+core/integration/provider.py:    def project(self) -> ProjectionEnvelope: ...
+core/integration/providers/__init__.py:"""Canonical Executive Projection providers."""
+core/integration/providers/__init__.py:from core.integration.providers.capabilities import CapabilityProjectionProvider
+core/integration/providers/__init__.py:from core.integration.providers.knowledge import KnowledgeProjectionProvider
+core/integration/providers/__init__.py:from core.integration.providers.operations import OperationsProjectionProvider
+core/integration/providers/__init__.py:    "CapabilityProjectionProvider",
+core/integration/providers/__init__.py:    "KnowledgeProjectionProvider",
+core/integration/providers/__init__.py:    "OperationsProjectionProvider",
+core/integration/providers/capabilities.py:    ProjectionEnvelope,
+core/integration/providers/capabilities.py:    ProjectionHealth,
+core/integration/providers/capabilities.py:    ProjectionStatus,
+core/integration/providers/capabilities.py:class CapabilityProjectionProvider:
+core/integration/providers/capabilities.py:    def health(self) -> ProjectionHealth:
+core/integration/providers/capabilities.py:            return ProjectionHealth(
+core/integration/providers/capabilities.py:                status=ProjectionStatus.UNAVAILABLE,
+core/integration/providers/capabilities.py:            return ProjectionHealth(
+core/integration/providers/capabilities.py:                status=ProjectionStatus.DEGRADED,
+core/integration/providers/capabilities.py:            return ProjectionHealth(
+core/integration/providers/capabilities.py:                status=ProjectionStatus.NOT_CONFIGURED,
+core/integration/providers/capabilities.py:        return ProjectionHealth(
+core/integration/providers/capabilities.py:            status=ProjectionStatus.AVAILABLE,
+core/integration/providers/capabilities.py:            "implementation": CapabilityProjectionProvider._qualified_type(capability),
+core/integration/providers/capabilities.py:    def project(self) -> ProjectionEnvelope:
+core/integration/providers/capabilities.py:        return ProjectionEnvelope(
+core/integration/providers/operations.py:"""Projection provider for the existing OperationsService."""
+core/integration/providers/operations.py:    ProjectionEnvelope,
+core/integration/providers/operations.py:    ProjectionHealth,
+core/integration/providers/operations.py:    ProjectionStatus,
+core/integration/providers/operations.py:class OperationsProjectionProvider:
+core/integration/providers/operations.py:    def health(self) -> ProjectionHealth:
+core/integration/providers/operations.py:            return ProjectionHealth(
+core/integration/providers/operations.py:                status=ProjectionStatus.UNAVAILABLE,
+core/integration/providers/operations.py:            status = ProjectionStatus.AVAILABLE
+core/integration/providers/operations.py:            status = ProjectionStatus.DEGRADED
+core/integration/providers/operations.py:            status = ProjectionStatus.UNAVAILABLE
+core/integration/providers/operations.py:            status = ProjectionStatus.UNKNOWN
+core/integration/providers/operations.py:        return ProjectionHealth(
+core/integration/providers/operations.py:    def project(self) -> ProjectionEnvelope:
+core/integration/providers/operations.py:        if errors and health.status == ProjectionStatus.AVAILABLE:
+core/integration/providers/operations.py:            health = ProjectionHealth(
+core/integration/providers/operations.py:                status=ProjectionStatus.DEGRADED,
+core/integration/providers/operations.py:        return ProjectionEnvelope(
+core/integration/providers/knowledge.py:    ProjectionEnvelope,
+core/integration/providers/knowledge.py:    ProjectionHealth,
+core/integration/providers/knowledge.py:    ProjectionStatus,
+core/integration/providers/knowledge.py:class KnowledgeProjectionProvider:
+core/integration/providers/knowledge.py:    ) -> ProjectionHealth:
+core/integration/providers/knowledge.py:            return ProjectionHealth(
+core/integration/providers/knowledge.py:                status=ProjectionStatus.NOT_CONFIGURED,
+core/integration/providers/knowledge.py:            return ProjectionHealth(
+core/integration/providers/knowledge.py:                status=ProjectionStatus.UNAVAILABLE,
+core/integration/providers/knowledge.py:            return ProjectionHealth(
+core/integration/providers/knowledge.py:                status=ProjectionStatus.DEGRADED,
+core/integration/providers/knowledge.py:            return ProjectionHealth(
+core/integration/providers/knowledge.py:                status=ProjectionStatus.DEGRADED,
+core/integration/providers/knowledge.py:        return ProjectionHealth(
+core/integration/providers/knowledge.py:            status=ProjectionStatus.AVAILABLE,
+core/integration/providers/knowledge.py:    def health(self) -> ProjectionHealth:
+core/integration/providers/knowledge.py:            return ProjectionHealth(
+core/integration/providers/knowledge.py:                status=ProjectionStatus.UNAVAILABLE,
+core/integration/providers/knowledge.py:    def project(self) -> ProjectionEnvelope:
+core/integration/providers/knowledge.py:            health = ProjectionHealth(
+core/integration/providers/knowledge.py:                status=ProjectionStatus.UNAVAILABLE,
+core/integration/providers/knowledge.py:        return ProjectionEnvelope(
+core/integration/registry.py:from core.integration.errors import DuplicateProjectionProviderError, ProjectionProviderNotFoundError
+core/integration/registry.py:from core.integration.provider import ProjectionProvider
+core/integration/registry.py:class ProjectionRegistry:
+core/integration/registry.py:        self._providers: dict[str, ProjectionProvider] = {}
+core/integration/registry.py:    def register(self, provider: ProjectionProvider) -> None:
+core/integration/registry.py:            raise ValueError("Projection provider identifier cannot be empty.")
+core/integration/registry.py:            raise DuplicateProjectionProviderError(f"Projection provider already registered: {projection_id}")
+core/integration/registry.py:    def get(self, projection_id: str) -> ProjectionProvider:
+core/integration/registry.py:            raise ProjectionProviderNotFoundError(projection_id) from exc
+core/integration/registry.py:    def all(self) -> list[ProjectionProvider]:
+core/integration/service.py:from core.integration.contracts import ProjectionEnvelope, ProjectionStatus
+core/integration/service.py:from core.integration.registry import ProjectionRegistry
+core/integration/service.py:class ExecutiveProjectionService:
+core/integration/service.py:    def __init__(self, registry: ProjectionRegistry) -> None:
+core/integration/service.py:    def projection(self, projection_id: str) -> ProjectionEnvelope:
+core/integration/service.py:        summary = {status.value: 0 for status in ProjectionStatus}
+core/integration/service.py:        overall = ProjectionStatus.AVAILABLE
+core/integration/service.py:            if health.status == ProjectionStatus.UNAVAILABLE:
+core/integration/service.py:                overall = ProjectionStatus.UNAVAILABLE
+core/integration/service.py:            elif health.status in {ProjectionStatus.DEGRADED, ProjectionStatus.UNKNOWN, ProjectionStatus.NOT_CONFIGURED} and overall != ProjectionStatus.UNAVAILABLE:
+core/integration/service.py:                overall = ProjectionStatus.DEGRADED
+core/integration/bus.py:"""Canonical Executive Projection Bus."""
+core/integration/bus.py:        raise TypeError("Projection payload must be a mapping.")
+core/integration/bus.py:class ProjectionBusSnapshot:
+core/integration/bus.py:class ExecutiveProjectionBus:
+core/integration/bus.py:        self._last_snapshot: ProjectionBusSnapshot | None = None
+core/integration/bus.py:    def snapshot(self, *, force: bool = False) -> ProjectionBusSnapshot:
+core/integration/bus.py:            snapshot = ProjectionBusSnapshot(self.SCHEMA_VERSION, utc_now(), self._revision,
+core/integration/bus.py:def get_default_projection_bus() -> ExecutiveProjectionBus:
+core/integration/bus.py:            _default_bus = ExecutiveProjectionBus(get_default_integration_runtime().projection_service)

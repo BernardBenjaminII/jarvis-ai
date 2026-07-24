@@ -1,0 +1,89 @@
+$ /media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu/bin/python \
+-m dev.consolidation.ownership.audit
+
+JARVIS Ownership Audit
+============================================================
+
+knowledge_engine/processing
+---------------------------
+Python files: 13
+  - knowledge_engine/processing/__init__.py
+  - knowledge_engine/processing/__pycache__/__init__.py
+  - knowledge_engine/processing/catalog_stage.py
+  - knowledge_engine/processing/chunk_stage.py
+  - knowledge_engine/processing/concept_stage.py
+  - knowledge_engine/processing/discover.py
+  - knowledge_engine/processing/extract_stage.py
+  - knowledge_engine/processing/extract_text_stage.py
+  - knowledge_engine/processing/inspect_stage.py
+  - knowledge_engine/processing/object_assimilation_stage.py
+  - knowledge_engine/processing/processor.py
+  - knowledge_engine/processing/retrieve_stage.py
+  - knowledge_engine/processing/structure_stage.py
+
+knowledge_engine/processors
+---------------------------
+Python files: 5
+  - knowledge_engine/processors/__init__.py
+  - knowledge_engine/processors/base.py
+  - knowledge_engine/processors/document.py
+  - knowledge_engine/processors/registry.py
+  - knowledge_engine/processors/source_code.py
+
+knowledge_engine/workflow
+-------------------------
+Python files: 6
+  - knowledge_engine/workflow/__init__.py
+  - knowledge_engine/workflow/registry.py
+  - knowledge_engine/workflow/report.py
+  - knowledge_engine/workflow/runner.py
+  - knowledge_engine/workflow/smoke.py
+  - knowledge_engine/workflow/stage.py
+
+knowledge_engine/workflows
+--------------------------
+Python files: 3
+  - knowledge_engine/workflows/__init__.py
+  - knowledge_engine/workflows/knowledge.py
+  - knowledge_engine/workflows/registry.py
+
+knowledge_engine/orchestrator
+-----------------------------
+Python files: 4
+  - knowledge_engine/orchestrator/__init__.py
+  - knowledge_engine/orchestrator/pipeline.py
+  - knowledge_engine/orchestrator/report.py
+  - knowledge_engine/orchestrator/stage.py
+
+knowledge_engine/director
+-------------------------
+Python files: 11
+  - knowledge_engine/director/__init__.py
+  - knowledge_engine/director/context.py
+  - knowledge_engine/director/director.py
+  - knowledge_engine/director/registry.py
+  - knowledge_engine/director/report.py
+  - knowledge_engine/director/stage.py
+  - knowledge_engine/director/stages/__init__.py
+  - knowledge_engine/director/stages/chunking.py
+  - knowledge_engine/director/stages/doctor.py
+  - knowledge_engine/director/stages/embeddings.py
+  - knowledge_engine/director/test_run.py
+
+knowledge_engine/discovery
+--------------------------
+Python files: 5
+  - knowledge_engine/discovery/__init__.py
+  - knowledge_engine/discovery/__pycache__/__init__.py
+  - knowledge_engine/discovery/filesystem.py
+  - knowledge_engine/discovery/scanner.py
+  - knowledge_engine/discovery/service.py
+
+knowledge_engine/capabilities
+-----------------------------
+Python files: 5
+  - knowledge_engine/capabilities/__init__.py
+  - knowledge_engine/capabilities/discovery.py
+  - knowledge_engine/capabilities/knowledge_registry.py
+  - knowledge_engine/capabilities/objects.py
+  - knowledge_engine/capabilities/registry.py

@@ -1,0 +1,44 @@
+schema_version: "1.0"
+milestone: "Genesis UI-A"
+name: "Executive Integration"
+
+principles:
+  - live_data_only
+  - capability_registry_is_canonical
+  - unknown_is_not_zero
+  - unavailable_is_visible
+  - commands_are_auditable
+  - knowledge_requires_provenance
+  - confidence_requires_basis
+
+required_projections:
+  - executive
+  - capabilities
+  - knowledge
+  - reasoning
+  - missions
+  - acquisition
+  - runtime
+  - timeline
+  - health
+
+required_ui_sections:
+  - commander_brief
+  - missions
+  - knowledge
+  - reasoning
+  - memory
+  - capabilities
+  - acquisition
+  - operations
+  - runtime
+  - governance
+
+integration_states:
+  - fully_integrated
+  - api_only
+  - backend_only
+  - ui_placeholder
+  - unavailable
+  - deprecated
+  - unknown

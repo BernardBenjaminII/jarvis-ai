@@ -1,0 +1,33 @@
+name: Cybersecurity
+
+description: >
+  Acquisition profile optimized for cybersecurity,
+  offensive security, defensive security,
+  penetration testing, malware analysis,
+  exploit development and DFIR.
+
+preferred_sources:
+
+  - attack.mitre.org
+  - cve.org
+  - cisa.gov
+  - owasp.org
+  - sans.org
+  - nist.gov
+  - github.com
+
+minimum_trust_score: 80
+
+preferred_formats:
+
+  - pdf
+  - html
+  - markdown
+  - github
+
+ignore:
+
+  - advertisements
+  - clickbait
+  - seo_pages
+  - ai_content_farms

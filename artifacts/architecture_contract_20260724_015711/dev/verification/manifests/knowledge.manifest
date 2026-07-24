@@ -1,0 +1,32 @@
+# JARVIS Knowledge Domain Verification Manifest
+# Entries execute in architectural dependency order.
+
+dev/verify_phase_6b.sh
+dev/verify_phase_6c.sh
+
+dev/verify_phase_6d0.sh
+dev/verify_phase_6d1.sh
+dev/verify_phase_6d2.sh
+
+dev/verify_phase_6e1.sh
+dev/verify_phase_6e2.sh
+dev/verify_phase_6e3.sh
+dev/verify_phase_6e4.sh
+
+dev/verify_phase_6f2.sh
+dev/verify_phase_6f3.sh
+dev/verify_phase_6f4.sh
+dev/verify_phase_6f5.sh
+dev/verify_phase_6f7.sh
+
+dev/verify_phase_7a1.sh
+dev/verify_phase_7a2.sh
+dev/verify_phase_7a3.sh
+dev/verify_phase_7a4.sh
+dev/verify_phase_7a5.sh
+dev/verify_phase_7a6.sh
+dev/verify_phase_7a7.sh
+dev/verify_phase_7a8.sh
+
+dev/verify_phase_7b1.sh
+dev/verify_phase_7b2.sh

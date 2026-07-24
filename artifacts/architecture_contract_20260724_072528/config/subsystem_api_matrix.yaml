@@ -1,0 +1,80 @@
+schema_version: "1.0"
+
+subsystems:
+  - id: executive
+    package_candidates:
+      - core/executive
+      - core/operations
+    required_routes:
+      - /operations/executive
+      - /operations/missions
+    required_ui:
+      - Commander Brief
+      - Mission Workspace
+      - SITREP
+      - Mission Journal
+
+  - id: capabilities
+    package_candidates:
+      - core/capabilities
+    required_routes:
+      - /operations/capabilities
+      - /operations/capabilities/{capability_id}
+    required_ui:
+      - Capability Explorer
+
+  - id: knowledge
+    package_candidates:
+      - core/knowledge_catalog
+      - core/knowledge_graph
+      - knowledge_engine
+    required_routes:
+      - /operations/knowledge
+      - /operations/knowledge/gaps
+      - /operations/knowledge/research-queue
+    required_ui:
+      - Knowledge Overview
+      - Coverage
+      - Research Queue
+
+  - id: reasoning
+    package_candidates:
+      - core/reasoning
+      - core/cognition
+      - core/representation
+    required_routes:
+      - /operations/reasoning
+      - /operations/reasoning/sessions/{id}
+    required_ui:
+      - Reasoning Sessions
+      - Evidence and Hypotheses
+
+  - id: acquisition
+    package_candidates:
+      - core/acquisition
+      - knowledge_engine
+    required_routes:
+      - /operations/acquisition
+    required_ui:
+      - Acquisition Queue
+      - Validation and Promotion
+
+  - id: runtime
+    package_candidates:
+      - core/bootstrap
+      - core/runtime
+    required_routes:
+      - /operations/runtime
+      - /operations/health
+    required_ui:
+      - Runtime
+      - Models and Services
+
+  - id: timeline
+    package_candidates:
+      - core/timeline
+      - core/executive
+    required_routes:
+      - /operations/timeline
+    required_ui:
+      - Executive Timeline

@@ -1,0 +1,11 @@
+{
+    "runtime_candidates": [
+        "/mnt/g",
+        "/mnt/jarvis_runtime",
+        "/media/%USER%/JARVIS_RUNTIME"
+    ],
+
+    "project_candidates": [
+        "/media/%USER%/JARVISDATA/Projects/jarvis-ai"
+    ]
+}

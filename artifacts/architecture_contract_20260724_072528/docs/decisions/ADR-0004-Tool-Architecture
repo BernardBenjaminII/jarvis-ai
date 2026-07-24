@@ -1,0 +1,22 @@
+ADR-0004 Tool Architecture
+
+Decision:
+Filesystem operations will be executed by native Python tools rather than by LLM reasoning.
+
+Reason:
+Filesystem state is objective and should be measured, not inferred.
+
+Consequences:
+- Eliminates hallucinated directory contents.
+- Makes behavior cross-platform.
+- Establishes the contract for future tools.
+
+> **Legacy ADR**
+>
+> This ADR was created before the JARVIS ADR governance policy was established.
+>
+> Duplicate ADR numbers from this era are preserved intentionally for historical continuity.
+>
+> Beginning with **ADR-0017**, all Architecture Decision Records use unique,
+> immutable numbering.
+

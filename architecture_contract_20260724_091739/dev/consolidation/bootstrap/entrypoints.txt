@@ -1,0 +1,203 @@
+$ /media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu/bin/python \
+-m dev.consolidation.bootstrap.find_entrypoints
+
+__init__.py
+==================================================
+
+api.py
+==================================================
+
+bootstrap.py
+==================================================
+
+bootstrap_runner.py
+==================================================
+
+capabilities.py
+==================================================
+
+check.py
+==================================================
+
+dependencies.py
+==================================================
+
+main.py
+==================================================
+Contains main()
+Contains executable entry point
+
+models.py
+==================================================
+
+ollama.py
+==================================================
+
+runner.py
+==================================================
+
+runtime.py
+==================================================
+
+runtime_check.py
+==================================================
+Contains executable entry point
+
+venv.py
+==================================================
+
+
+
+$ /media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu/bin/python \
+-m dev.consolidation.bootstrap.bootstrap_call_graph
+
+BOOTSTRAP CALL GRAPH
+============================================================
+
+__init__.py
+-----------
+Imports
+
+Function Calls
+
+api.py
+------
+Imports
+
+Function Calls
+
+bootstrap.py
+------------
+Imports
+    api
+    capabilities
+    dependencies
+    models
+    ollama
+    runtime
+    venv
+
+Function Calls
+    ApiBootstrap
+    CapabilityBootstrap
+    DependencyBootstrap
+    ModelBootstrap
+    OllamaBootstrap
+    RuntimeBootstrap
+    VenvBootstrap
+    launch
+    prepare
+
+bootstrap_runner.py
+-------------------
+Imports
+    __future__
+    core.bootstrap.lifecycle.postflight
+    core.bootstrap.lifecycle.preflight
+    core.bootstrap.lifecycle.startup
+
+Function Calls
+    postflight
+    preflight
+    print
+    startup
+
+capabilities.py
+---------------
+Imports
+
+Function Calls
+
+check.py
+--------
+Imports
+    __future__
+    abc
+    models
+    time
+
+Function Calls
+    CheckResult
+    execute
+    perf_counter
+    str
+
+dependencies.py
+---------------
+Imports
+    pathlib
+    subprocess
+    sys
+
+Function Calls
+    FileNotFoundError
+    Path
+    RuntimeError
+    exists
+    get
+    print
+    run
+    str
+
+main.py
+-------
+Imports
+    __future__
+    runner
+
+Function Calls
+    BootstrapRunner
+    SystemExit
+    main
+    run
+
+models.py
+---------
+Imports
+    __future__
+    dataclasses
+
+Function Calls
+    dataclass
+
+ollama.py
+---------
+Imports
+
+Function Calls
+
+runner.py
+---------
+Imports
+    __future__
+    preflight.python_check
+    preflight.runtime_check
+
+Function Calls
+    PythonCheck
+    RuntimeMountCheck
+    append
+    len
+    print
+    run
+
+runtime.py
+----------
+Imports
+
+Function Calls
+
+runtime_check.py
+----------------
+Imports
+    __future__
+    core.bootstrap.main
+
+Function Calls
+    main
+
+venv.py
+-------
+Imports
+
+Function Calls

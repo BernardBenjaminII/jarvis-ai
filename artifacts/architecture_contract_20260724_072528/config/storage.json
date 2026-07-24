@@ -1,0 +1,22 @@
+{
+  "version": 1,
+
+  "runtime": {
+    "root": "/mnt/jarvis_runtime",
+    "venvs": "venvs",
+    "logs": "logs",
+    "temp": "temp",
+    "ollama": "ollama",
+    "models": "models"
+  },
+
+  "data": {
+    "root": "/mnt/jarvis_data",
+    "projects": "Projects",
+    "knowledge": "Knowledge",
+    "memory": "Memory",
+    "notes": "Notes",
+    "reports": "Reports",
+    "recon": "Recon"
+  }
+}

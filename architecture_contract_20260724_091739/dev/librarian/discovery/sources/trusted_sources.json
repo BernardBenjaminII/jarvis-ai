@@ -1,0 +1,123 @@
+[
+  {
+    "name": "MIT OCW",
+    "trust_score": 100,
+    "base_url": "https://ocw.mit.edu",
+    "formats": ["course_zip", "html", "pdf"],
+    "topics": ["mathematics", "computer_science", "engineering", "physics", "biology", "aerospace", "mechanical_engineering", "electrical_engineering"],
+    "method": "mit_ocw_course_package",
+    "query_templates": [
+      "site:ocw.mit.edu/courses {topic} MIT OCW",
+      "site:ocw.mit.edu/courses {topic} download course materials"
+    ]
+  },
+  {
+    "name": "MIT Press Open Access",
+    "trust_score": 95,
+    "base_url": "https://mitpress.mit.edu/open-access-at-mit-press/books/",
+    "formats": ["pdf", "epub", "html"],
+    "topics": ["computer_science", "engineering", "science", "mathematics", "medicine", "neuroscience", "technology"],
+    "method": "mit_press_open_access",
+    "query_templates": [
+      "site:mitpress.mit.edu open access {topic} MIT Press PDF",
+      "site:mitpress.mit.edu/books {topic} open access"
+    ]
+  },
+  {
+    "name": "WHO",
+    "trust_score": 100,
+    "base_url": "https://www.who.int/publications",
+    "formats": ["pdf", "html"],
+    "topics": ["medicine", "public_health", "field_medicine", "surgery", "emergency_medicine", "tropical_medicine", "water", "sanitation", "epidemiology"],
+    "method": "publication_pdf",
+    "query_templates": [
+      "site:who.int/publications {topic} pdf",
+      "site:who.int {topic} manual pdf"
+    ]
+  },
+  {
+    "name": "CDC",
+    "trust_score": 95,
+    "base_url": "https://www.cdc.gov",
+    "formats": ["pdf", "html"],
+    "topics": ["public_health", "medicine", "epidemiology", "infectious_disease", "emergency_response", "field_medicine"],
+    "method": "publication_pdf",
+    "query_templates": [
+      "site:cdc.gov {topic} pdf",
+      "site:cdc.gov {topic} field guide"
+    ]
+  },
+  {
+    "name": "NIST",
+    "trust_score": 95,
+    "base_url": "https://www.nist.gov/publications",
+    "formats": ["pdf", "html"],
+    "topics": ["cybersecurity", "cryptography", "standards", "engineering", "ai", "computer_science"],
+    "method": "publication_pdf",
+    "query_templates": [
+      "site:nist.gov/publications {topic} pdf",
+      "site:nvlpubs.nist.gov {topic} pdf"
+    ]
+  },
+  {
+    "name": "NASA",
+    "trust_score": 95,
+    "base_url": "https://ntrs.nasa.gov",
+    "formats": ["pdf", "metadata"],
+    "topics": ["aerospace", "engineering", "robotics", "materials", "propulsion", "systems_engineering", "space"],
+    "method": "nasa_ntrs",
+    "query_templates": [
+      "site:ntrs.nasa.gov {topic} pdf",
+      "site:nasa.gov {topic} handbook pdf"
+    ]
+  },
+  {
+    "name": "FAA",
+    "trust_score": 95,
+    "base_url": "https://www.faa.gov/regulations_policies/handbooks_manuals",
+    "formats": ["pdf"],
+    "topics": ["aviation", "maintenance", "aircraft", "rotorcraft", "navigation", "regulations"],
+    "method": "handbook_pdf",
+    "query_templates": [
+      "site:faa.gov regulations_policies handbooks_manuals {topic} pdf",
+      "site:faa.gov {topic} handbook pdf"
+    ]
+  },
+  {
+    "name": "OpenStax",
+    "trust_score": 95,
+    "base_url": "https://openstax.org/subjects",
+    "formats": ["pdf", "web", "epub"],
+    "topics": ["mathematics", "physics", "biology", "chemistry", "statistics", "anatomy", "physiology", "computer_science"],
+    "method": "open_textbook",
+    "query_templates": [
+      "site:openstax.org/details/books {topic}",
+      "OpenStax {topic} textbook pdf"
+    ]
+  },
+  {
+    "name": "LibreTexts",
+    "trust_score": 90,
+    "base_url": "https://libretexts.org",
+    "formats": ["html", "pdf", "zim"],
+    "topics": ["mathematics", "engineering", "physics", "chemistry", "biology", "computer_science", "medicine"],
+    "method": "open_textbook",
+    "query_templates": [
+      "site:libretexts.org {topic}",
+      "LibreTexts {topic} textbook"
+    ]
+  },
+  {
+    "name": "PubMed Central",
+    "trust_score": 95,
+    "base_url": "https://pmc.ncbi.nlm.nih.gov",
+    "formats": ["html", "pdf", "xml"],
+    "topics": ["medicine", "surgery", "emergency_medicine", "trauma", "field_medicine", "infectious_disease", "radiology"],
+    "method": "open_access_journal",
+    "query_templates": [
+      "site:pmc.ncbi.nlm.nih.gov {topic} review",
+      "site:pmc.ncbi.nlm.nih.gov {topic} open access"
+    ]
+  }
+]
+
