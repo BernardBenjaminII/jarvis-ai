@@ -1,0 +1,18 @@
+schema_version: "1.0"
+phase: "EAF-001"
+tiers:
+  - id: authority.tier_a
+    rank: 1
+    name: Supreme and Primary Authority
+  - id: authority.tier_b
+    rank: 2
+    name: Binding Executive and Administrative Authority
+  - id: authority.tier_c
+    rank: 3
+    name: Adjudicative Authority
+  - id: authority.tier_d
+    rank: 4
+    name: Official Interpretive and Operational Authority
+  - id: authority.tier_e
+    rank: 5
+    name: Secondary Authority

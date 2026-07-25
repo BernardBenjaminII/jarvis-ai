@@ -1,0 +1,19 @@
+schema_version: "1.0"
+phase: "EAF-001"
+academies:
+  - id: academy.constitutional
+    department_id: department.legal_affairs
+    name: Constitutional Academy
+    status: planned
+  - id: academy.global_digital_governance
+    department_id: department.legal_affairs
+    name: Global Digital Governance Academy
+    status: planned
+  - id: academy.international_law
+    department_id: department.legal_affairs
+    name: International Law Academy
+    status: planned
+  - id: academy.compliance
+    department_id: department.legal_affairs
+    name: Compliance Academy
+    status: planned

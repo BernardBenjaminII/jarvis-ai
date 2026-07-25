@@ -1,0 +1,8 @@
+schema_version: "1.0"
+phase: "EAF-001"
+competencies:
+  - id: competency.cyber_governance
+    name: Cyber Governance
+    target_level: intermediate
+    current_state: unknown
+    certification_state: not_started

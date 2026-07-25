@@ -1,0 +1,39 @@
+schema_version: "1.0"
+phase: "EAF-001"
+departments:
+  - id: department.executive_office
+    name: Executive Office
+    status: planned
+  - id: department.knowledge
+    name: Knowledge
+    status: planned
+  - id: department.engineering
+    name: Engineering
+    status: planned
+  - id: department.cyber_operations
+    name: Cyber Operations
+    status: planned
+  - id: department.legal_affairs
+    name: Legal Affairs
+    status: planned
+  - id: department.intelligence
+    name: Intelligence
+    status: planned
+  - id: department.science_and_technology
+    name: Science & Technology
+    status: planned
+  - id: department.medicine
+    name: Medicine
+    status: planned
+  - id: department.finance
+    name: Finance
+    status: planned
+  - id: department.operations
+    name: Operations
+    status: planned
+  - id: department.communications
+    name: Communications
+    status: planned
+  - id: department.human_capital
+    name: Human Capital
+    status: planned

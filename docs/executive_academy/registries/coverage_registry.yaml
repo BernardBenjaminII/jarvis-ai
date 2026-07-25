@@ -1,0 +1,15 @@
+schema_version: "1.0"
+phase: "EAF-001"
+coverage:
+  legal_affairs:
+    united_states: 0
+    texas: 0
+    north_carolina: 0
+    alabama: 0
+    tennessee: 0
+    european_union: 0
+    germany: 0
+    italy: 0
+    morocco: 0
+    japan: 0
+    international: 0

@@ -1,0 +1,14 @@
+schema_version: "1.0"
+phase: "EAF-001"
+jurisdictions:
+  - {id: jurisdiction.united_states, name: United States, coverage_percent: 0}
+  - {id: jurisdiction.texas, name: Texas, parent_id: jurisdiction.united_states, coverage_percent: 0}
+  - {id: jurisdiction.north_carolina, name: North Carolina, parent_id: jurisdiction.united_states, coverage_percent: 0}
+  - {id: jurisdiction.alabama, name: Alabama, parent_id: jurisdiction.united_states, coverage_percent: 0}
+  - {id: jurisdiction.tennessee, name: Tennessee, parent_id: jurisdiction.united_states, coverage_percent: 0}
+  - {id: jurisdiction.european_union, name: European Union, coverage_percent: 0}
+  - {id: jurisdiction.germany, name: Germany, coverage_percent: 0}
+  - {id: jurisdiction.italy, name: Italy, coverage_percent: 0}
+  - {id: jurisdiction.morocco, name: Morocco, coverage_percent: 0}
+  - {id: jurisdiction.japan, name: Japan, coverage_percent: 0}
+  - {id: jurisdiction.international, name: International, coverage_percent: 0}
