@@ -13,4 +13,4 @@ fi
 
 export PYTHONPATH="$PROJECT_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 
-"$PYTHON_BIN" dev/verification/verify_genesis_iv_a3.py
+"$PYTHON_BIN" dev/verification/verify_genesis_iv_a5.py

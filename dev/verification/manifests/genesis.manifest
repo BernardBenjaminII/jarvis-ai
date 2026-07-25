@@ -19,3 +19,15 @@ dev/verify_genesis_3a2.sh
 dev/verify_genesis_3a3.sh
 dev/verify_genesis_3a4.sh
 dev/verify_genesis_3f1.sh
+
+dev/verify_genesis_4a1.sh
+
+dev/verify_genesis_4a2.sh
+
+dev/verify_genesis_4a3.sh
+
+dev/verify_genesis_4a4.sh
+
+dev/verify_genesis_4a5.sh
+dev/verify_genesis_4a6a1.sh
+dev/verify_genesis_4a62.sh
