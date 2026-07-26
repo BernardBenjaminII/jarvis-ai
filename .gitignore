@@ -26,6 +26,14 @@ models/
 logs/
 *.log
 
+# --------------------------------------------------------------------
+# Runtime State
+# --------------------------------------------------------------------
+
+.runtime/**/*.sqlite
+.runtime/**/*.sqlite-shm
+.runtime/**/*.sqlite-wal
+
 # Ignore the external Knowledge Warehouse, not the Python package.
 
 /media/abdullah/JARVISDATA/Knowledge/
