@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 from threading import RLock
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-from core.conversation.contracts import ExecutiveRequestContext
+if TYPE_CHECKING:
+    from core.conversation.contracts import ExecutiveRequestContext
+
 from core.observability.contracts import MissionTransparencySnapshot, TransparencyEvent
 
 

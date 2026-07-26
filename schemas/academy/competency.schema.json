@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jarvis.local/schemas/academy/competency.schema.json",
+  "title": "Competency",
+  "type": "object",
+  "required": ["id", "name", "status"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "status": {
+      "type": "string",
+      "enum": ["planned", "dormant", "active", "restricted", "retired"]
+    }
+  },
+  "additionalProperties": true
+}

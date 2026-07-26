@@ -1,0 +1,22 @@
+{
+  "README.md": "8f0d6b94902aa49a4f608033b5212e667672095d984aa47f639143d6aeefc6b3",
+  "core/integration/__init__.py": "942e1236f9ab41d4ae3ba6b1e337eea5cbc3cd33105a5dbe2f90d58eeff95489",
+  "core/integration/api.py": "0bef79b9d47caa2853f246267b8ad6ad61f8eedc3287241af630022235be5b4d",
+  "core/integration/audit.py": "3f5baacbaca2d8fd88dcee5e9e79fa7d67ad32cab12e6feff1dc342bda0093e4",
+  "core/integration/catalog.py": "05eb1b67d1c45c286b71a5c6d1ff8eb08ec5f13e9abf69b5ef53cf6921ad360f",
+  "core/integration/cli.py": "a0f596bf75dde18de108b4c894ec667484f049b3dc499d097361dce0d7478d20",
+  "core/integration/contracts.py": "e3df2565cd4ab730c28f168613de7abf584aa93bb3a5ab73bad30fe9de5ed837",
+  "core/integration/enums.py": "252d5eeaa88086b82e85dea1286c91874890279ed49ed1685b188e25e50de8e9",
+  "core/integration/errors.py": "a6a2e38db12c6e228b5f8ef3138d43f075dfa23944e8a6c51f14d2bf0c66f231",
+  "core/integration/knowledge.py": "95cfee01fda7d3e1068dc6c419b721a67f3aff5d11abc746d004053aa33ae613",
+  "core/integration/projections.py": "b93961693a998c9c009bc71194f62f8a8ddba0c3c808e1678994ebbc18d61216",
+  "core/integration/registry.py": "4722a5c715c61e220ce04556552f3087a20fc5142b4934f8dafe8687c90c3bc9",
+  "core/integration/serialization.py": "967b87b18d5097f61e00eddad83544ec6ea67a35a929175ca066357cd273165a",
+  "core/integration/service.py": "c89ebbb7716296f9224cb46762001415edcee8d494b8458c35c4d798c8d66be1",
+  "dev/install_genesis_iv_b1.sh": "e77991755d781891e09a45f1514e88b73c06c8614b1b18b1fa498f9fbebb40b9",
+  "dev/verification/verify_genesis_iv_b1.py": "329a685ad222fc49f8b64350cf82e2b2330a1586f74a0554deb1b20e12e06cd2",
+  "dev/verify_genesis_4b1.sh": "de1203d8734e5a8bd471254d730f36fb741002c5ee5c945e2c27a672002b43a4",
+  "docs/architecture/genesis_iv_b1_executive_integration_visibility_fabric.md": "97d19ac67e481efbb1f191c975065def110972fe78de6b21c3e19923519f99cf",
+  "docs/decisions/ADR-0037-executive-integration-visibility-fabric.md": "d524e036c7d3970cafa54f2fcbfca57b6e79b5085dd7b69fba091e1b5cfe88ab",
+  "tests/test_genesis_iv_b1_executive_integration_visibility_fabric.py": "bacafb6d019a15c695db1b47d7d5422609553c6a074173d5becf862627f066fa"
+}

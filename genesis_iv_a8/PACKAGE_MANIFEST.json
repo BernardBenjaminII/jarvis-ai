@@ -1,0 +1,16 @@
+{
+  "README.md": "8e72a7e335cc5700f3c020a0b40d284687efbc3b103e87668eed12b50a6104ff",
+  "core/cognition/mission_compiler/__init__.py": "003b7859f7ba1f1b24dff5431543f203b2322cca92552e6a8e9e79924fbef5f2",
+  "core/cognition/mission_compiler/compiler.py": "2626e941a85a430923b692aae4e8e5691194e459c5a00c854715f101f216d152",
+  "core/cognition/mission_compiler/contracts.py": "d1c561b625f01ba520bc8e3fcd91befa1bda26afa8f4cbc5a63d9b061f2a0b87",
+  "core/cognition/mission_compiler/enums.py": "139595c25a1b35c022da85282f248b99fc0aeafe6c0ab15978554945352d198c",
+  "core/cognition/mission_compiler/errors.py": "664cde9b7bcb39d2c1fcc6b3b319cb1b825b547691fa392aac9d42731cb1b8c3",
+  "core/cognition/mission_compiler/graph.py": "00ea01e874fb297118d051a4a6d4588b98cdb32a45cdc3dbbe913e5166128408",
+  "core/cognition/mission_compiler/serialization.py": "96a0bb7f382a16d63a4bc3e1c16e8bdd37dad07eae7235caa2429b7ed5c0ee88",
+  "dev/install_genesis_iv_a8.sh": "ce3274471d2e8de20d15bffeccb097b2baaa7c2245ef1e36c1c2de95c79054f6",
+  "dev/verification/verify_genesis_iv_a8.py": "c8e671ab3d6f93fc68008963f024c57c3e631dd78558e2b26ade166af6f0e543",
+  "dev/verify_genesis_4a8.sh": "1d2a5535de6483c16aee737d4f40e694319a2ceecf892b1f549daecbc5dbdf0d",
+  "docs/architecture/genesis_iv_a8_executive_mission_compiler.md": "cac38b03665ffd2fc4e262bfaef060baf73ee59a17f67827151eff9bb76c6167",
+  "docs/decisions/ADR-0035-executive-mission-compiler-boundary.md": "5bc9a6d3b8e9d88310b6efc316416fc980cecb2b27093e061590a1a8e5b34953",
+  "tests/test_genesis_iv_a8_executive_mission_compiler.py": "7f1ff78f57bff40cb2014999eeaa2982f06f6ca4847dfb3958663b3d3ac94769"
+}

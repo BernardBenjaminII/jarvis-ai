@@ -24,8 +24,15 @@ class FixtureProvider:
     def health(self):
         return ProjectionHealth(ProjectionStatus.AVAILABLE, "Fixture is healthy.")
     def project(self):
-        return ProjectionEnvelope(self.projection_id, self.schema_version, datetime.now(timezone.utc), self.health(), {"value": 1}, "fixture.provider")
-
+        return ProjectionEnvelope(
+            projection_id=self.projection_id,
+            schema_version=self.schema_version,
+            generated_at=datetime.now(timezone.utc),
+            source_timestamp=None,
+            provider="fixture.provider",
+            health=self.health(),
+            data={"value": 1},
+        )
 class ExecutiveProjectionFrameworkTests(unittest.TestCase):
     def test_registry_registers_provider(self):
         registry = ProjectionRegistry(); provider = FixtureProvider(); registry.register(provider)

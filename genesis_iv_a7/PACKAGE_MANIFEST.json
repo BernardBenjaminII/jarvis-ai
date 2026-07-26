@@ -1,0 +1,16 @@
+{
+  "README.md": "85af593aa91df7e24b75960294f93bf92de343b3151372cf03372470b4fbc116",
+  "core/cognition/executive_decision/__init__.py": "a3f9c765e5376979f64501a7106bf9a667174555af4febe40052f838f70d80e7",
+  "core/cognition/executive_decision/contracts.py": "951c63a674aca13d8ce13aead53397e0adb59fb56bd6dfff9a98f664bb9e1c6b",
+  "core/cognition/executive_decision/engine.py": "67d40c07c9b7c81639c92989319ae5f71e2f6dac5275b41c1969ae1c0621b2ca",
+  "core/cognition/executive_decision/enums.py": "11fa1dea2f6244ca127944e4bee2ad31c7e98d1c5e646edc05ef0baf8c4ba30e",
+  "core/cognition/executive_decision/errors.py": "620fd87897c1dd86e3956a26d385ea1c4798fd1705f5b733b82919973720a9f8",
+  "core/cognition/executive_decision/scoring.py": "47f176f0a736b067648655318a4abca44c3e9c3c2fc981df5a6e996c08d0bf1b",
+  "core/cognition/executive_decision/serialization.py": "4ca61cceb4752f8a7579a536296938acd7a645c3246fb0267fc98e55448251c5",
+  "dev/install_genesis_iv_a7.sh": "c60a673c6690eb314cef88a24a6c1937ed7042bb5e16c2b19e50ef0efd2763e9",
+  "dev/verification/verify_genesis_iv_a7.py": "71e00b00f726fff2e9ef3193ac40efa62d9ac068e1eae3cdcfe88091a9b0c093",
+  "dev/verify_genesis_4a7.sh": "078e755066ee8026e9697d2c13c6df08354137d53f61463d0067b106f63c630f",
+  "docs/architecture/genesis_iv_a7_executive_decision_engine.md": "1f681bec194bf2bc599f43cb97e507157d82dd08ebca7520aafd59e41a589127",
+  "docs/decisions/ADR-0034-executive-decision-engine.md": "370b0c23ed405ef0447a568a8425ded196ee20622bc907039f1bd08a34836e3c",
+  "tests/test_genesis_iv_a7_executive_decision_engine.py": "07fcdbee122dbe7ede1db874660bc7b1d2f45b2a3a6c1814bb9309d8a7a6d0ab"
+}

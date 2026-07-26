@@ -1,0 +1,17 @@
+{
+  "README.md": "fbaa1ba2e10f848233030930266962ece41be45c7a09f84c698deda1feaec29a",
+  "core/cognition/execution_orchestrator/__init__.py": "feab71bd1c41e93caf823f07f7435e344917d8547dc6afd54970d99063f5dffc",
+  "core/cognition/execution_orchestrator/contracts.py": "a73a90a2e8c11984aa6d078f8293ccacea7b786fedae53fdf4ac3fbc7a687b7d",
+  "core/cognition/execution_orchestrator/enums.py": "bb1113e2ce10711037c87948dc9fe9f496819b30d5735e91142763354249c2e3",
+  "core/cognition/execution_orchestrator/errors.py": "074727b966d4a0fe6ed5f4d50174fbddb9876a2790b846a2fb335799c8a73ada",
+  "core/cognition/execution_orchestrator/executors.py": "35d1229ee67e2e0975f5d802603891cffc91ab969d37110b1309856d7d65be66",
+  "core/cognition/execution_orchestrator/orchestrator.py": "3be56275dd3030ee1b8d492f2d1520603137b6ba60562d9d60392e55ce67ba61",
+  "core/cognition/execution_orchestrator/serialization.py": "96a0bb7f382a16d63a4bc3e1c16e8bdd37dad07eae7235caa2429b7ed5c0ee88",
+  "core/cognition/execution_orchestrator/state.py": "73fdcb8b6ea94cd8e3604d812e8f9aadb0a44fcd85317ad5b5383af65104898c",
+  "dev/install_genesis_iv_a9.sh": "52ac89b86991c7457721bfd08658a4b3e53e323356e7e059ce61ebd7dcfcffc1",
+  "dev/verification/verify_genesis_iv_a9.py": "6e1685d2d24e4e9385c93e8c608124475d6c6c81b6436ffcd97f02b5e7bc7843",
+  "dev/verify_genesis_4a9.sh": "02da43f30e9d0206363fdafffab4e3cd76a41a707cbc6f728319b084630ccd52",
+  "docs/architecture/genesis_iv_a9_executive_execution_orchestrator.md": "3984feca7b2cd153d715e6c942a426f0b1f19930d86e2fb7e7eae75f82bd2d9d",
+  "docs/decisions/ADR-0036-executive-execution-orchestrator-boundary.md": "374a90236087885b4f516c76efa9b6456523b03b4874e415e4f5e50386867efb",
+  "tests/test_genesis_iv_a9_executive_execution_orchestrator.py": "b3211c4009303b11873987c7a94a28d4ebbf1cb72e8e4f3ebb06202efb9bd875"
+}

@@ -1,0 +1,34 @@
+{
+  "approved_legacy_definitions": [],
+  "canonical_definitions": [
+    "core/observation/contracts.py"
+  ],
+  "canonical_path": "core/observation/contracts.py",
+  "converged": false,
+  "definitions": [
+    {
+      "path": "core/observation/contracts.py",
+      "status": "canonical"
+    },
+    {
+      "path": "core/cognition/common/contracts.py",
+      "status": "forbidden"
+    },
+    {
+      "path": "core/cognition/observation/models.py",
+      "status": "forbidden"
+    },
+    {
+      "path": "core/representation/contracts.py",
+      "status": "forbidden"
+    }
+  ],
+  "deprecated_definitions": [],
+  "fingerprint": "7e16e4aaf0461585d5970b9252a12065640402485c0dd048ffae6d683e33add6",
+  "forbidden_duplicates": [
+    "core/cognition/common/contracts.py",
+    "core/cognition/observation/models.py",
+    "core/representation/contracts.py"
+  ],
+  "schema_version": "jarvis.observation-convergence-report.v1"
+}
