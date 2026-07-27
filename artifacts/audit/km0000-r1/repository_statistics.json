@@ -1,0 +1,21 @@
+{
+  "adr_documents": 118,
+  "architecture_documents": 334,
+  "constitutional_documents": 37,
+  "diagnostics": 1,
+  "external_files": 0,
+  "generated_files": 0,
+  "markdown_documents": 632,
+  "markdown_files": 632,
+  "package_markers": 267,
+  "python_files": 2018,
+  "python_modules": 2018,
+  "python_symbols": 7615,
+  "shell_files": 401,
+  "source_files": 3375,
+  "test_files": 278,
+  "total_bytes": 20926549,
+  "total_files": 3375,
+  "verification_files": 448,
+  "whitepapers": 6
+}

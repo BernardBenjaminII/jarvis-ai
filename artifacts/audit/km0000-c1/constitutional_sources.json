@@ -1,0 +1,2572 @@
+{
+  "extraction_fingerprint": "24bb64dfbf24f94baeacfbe19aa173fe95ea5647c78744e0eed96b0cee7e0e4c",
+  "repository_fingerprint": "d9b16c9dca510cef98d8292f4bd6d9f465a3f7adaf4598fea39d87889bf378fb",
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "document_id": null,
+      "path": "ADR-0020-genesis-iv-cognition-architecture-constitution.md",
+      "repository_id": "REP-6E5EF08BEF24FF8B",
+      "source_kind": "constitutional",
+      "source_sha256": "069dcdde66a43b07c1404619ef09e698a683fb23a966d45cfa14ae6474b19c99",
+      "status": "Accepted",
+      "title": "ADR-0020: Genesis IV Cognition Architecture Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/00_JARVIS_ARCHITECTURE.md",
+      "repository_id": "REP-374193CA8007D765",
+      "source_kind": "architecture",
+      "source_sha256": "633ac0ce7a05e2377877114699d2214b263ae6af5da846b30874ec73d81f518a",
+      "status": "Foundational Architecture",
+      "title": "JARVIS Architectural Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/11_cognitive_architecture.md",
+      "repository_id": "REP-3CB1F758928AF0F3",
+      "source_kind": "architecture",
+      "source_sha256": "4c0c8391ec390d64230876b8d23b2c615052f20c9ad5f7cb12e313da5074d741",
+      "status": "Canonical Architecture",
+      "title": "JARVIS Cognitive Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/12_reasoning_architecture.md",
+      "repository_id": "REP-6012CD8120CF0E5A",
+      "source_kind": "architecture",
+      "source_sha256": "36051b56c1a8e9ad1cb3cb35573c6370d9b43145986a729557924020454a409e",
+      "status": "Canonical Architecture",
+      "title": "JARVIS Explainable Reasoning Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/13_mission_planning_architecture.md",
+      "repository_id": "REP-79634769F2163976",
+      "source_kind": "architecture",
+      "source_sha256": "ab9235f02be6b8ab4585294647968ded013b562d90fb51080a50703c6e76b4fe",
+      "status": "Canonical Architecture",
+      "title": "JARVIS Mission Planning Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/GENESIS_FOUNDATION.md",
+      "repository_id": "REP-5D93F583AA1D4046",
+      "source_kind": "architecture",
+      "source_sha256": "3a3cdab89c98b02407d65f6c953d660256c0a7fad78522ced821e00ae861cc3f",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/JARVIS_ARCHITECTURE.md",
+      "repository_id": "REP-8A415EAB1958F044",
+      "source_kind": "architecture",
+      "source_sha256": "7c6b76a256987a7c0fea525b951cae0f2ee65bbe0c62375ce5587e92e44be6f5",
+      "status": null,
+      "title": "JARVIS Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/architecture_blueprint.md",
+      "repository_id": "REP-CDC942BEBFC2349D",
+      "source_kind": "architecture",
+      "source_sha256": "28d3418d44cfd2bc387fb58285aba524aae116c077d49fa94c3d7d26531055f4",
+      "status": "Active",
+      "title": "JARVIS Architecture Blueprint"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/architecture_intelligence.md",
+      "repository_id": "REP-B6E3836D83570C6C",
+      "source_kind": "architecture",
+      "source_sha256": "be139beebd1b4713db0d75c3737f53b5d2080970223514a706abdef92da2a444",
+      "status": "Genesis V-A1 foundation",
+      "title": "JARVIS Architecture Intelligence"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/bootstrap_canonical.md",
+      "repository_id": "REP-4D92843F0518D745",
+      "source_kind": "architecture",
+      "source_sha256": "614b2d77426863a2c0034c6d9c99bc22c1bcfdd0dd192e918a704bbc8bb636ac",
+      "status": null,
+      "title": "Bootstrap Canonical Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/capability_visibility_contract.md",
+      "repository_id": "REP-212583E6C3E91B12",
+      "source_kind": "architecture",
+      "source_sha256": "24587f0601c172489dc041a362ed198fd31eb295b5f26f01848a0f83dce4f290",
+      "status": null,
+      "title": "Capability Visibility Contract"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognition/00_overview.md",
+      "repository_id": "REP-A19DEFC166BC2CA1",
+      "source_kind": "architecture",
+      "source_sha256": "0dc4784e3c4432db18ea182ea8553bbb8c1be07306bb6c6b8f3a4c2537090e9f",
+      "status": "Active",
+      "title": "Cognition Subsystem Overview"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognition/02_observation_engine.md",
+      "repository_id": "REP-38723A62A0316834",
+      "source_kind": "architecture",
+      "source_sha256": "6dcb608b0d3e53f234e65bd8f05f5d91143467bb3a4ca7d096d550f7682e4511",
+      "status": null,
+      "title": "Genesis IV-R2 Observation Engine"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognition/genesis_vi_a1_step1_foundation.md",
+      "repository_id": "REP-10E20336608F8BF3",
+      "source_kind": "architecture",
+      "source_sha256": "ef780ff7e48f4d629d7f0245c087b34073478f4a76142a5758f70a0039f65104",
+      "status": "Implemented",
+      "title": "Genesis VI-A1 Step 1 — Executive Cognition Contracts"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognition/genesis_vi_a3_cognitive_state_machine.md",
+      "repository_id": "REP-3CD32E476D28A589",
+      "source_kind": "architecture",
+      "source_sha256": "c920ea346bc557de252e7a5bd495c10e5590cdda34eb18ee33c4cb38b93192d7",
+      "status": "Implemented",
+      "title": "Genesis VI-A3 — Cognitive State Machine"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognition/genesis_vi_a5_executive_session.md",
+      "repository_id": "REP-FD0ED88B48C78252",
+      "source_kind": "architecture",
+      "source_sha256": "32fb21198b925f88e98dfef962a4c403bad5f26ed1f698fcbb598e240291445e",
+      "status": "Implemented",
+      "title": "Genesis VI-A5 — Executive Session"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognition/genesis_vi_a61_persistence_contracts.md",
+      "repository_id": "REP-37F2569A9B3BC54B",
+      "source_kind": "architecture",
+      "source_sha256": "60155b18c8bf3ddd772a2faba0ee15b7ef81c0d2acbcfd40a348332829e75e03",
+      "status": "Implemented",
+      "title": "Genesis VI-A6.1 — Persistence Contracts"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognition/genesis_vi_a62_canonical_snapshot_serializer.md",
+      "repository_id": "REP-6E65CA7E500DDFE8",
+      "source_kind": "architecture",
+      "source_sha256": "21f2b934f2625bf0ded8085a102a2b222c7c99051cc3abc58755130511cf5bc0",
+      "status": "Implemented",
+      "title": "Genesis VI-A6.2 — Canonical Snapshot Serializer"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognitive_ownership.md",
+      "repository_id": "REP-B9D3311EB28C3AE0",
+      "source_kind": "architecture",
+      "source_sha256": "5280c17b8f16dc18235c6fb7080974d9e39442a37d9a9edf7a638b3dbd0ea961",
+      "status": "Accepted architecture baseline",
+      "title": "Canonical Cognitive Subsystem Ownership"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognitive_representation_architecture.md",
+      "repository_id": "REP-99EB5EA7B065370E",
+      "source_kind": "architecture",
+      "source_sha256": "9ea4727b467a6b335e3adbe0d17f4ce6f1f906cca2f8bbe548e68da2dec2431e",
+      "status": "Phase X-C1 Foundation",
+      "title": "Cognitive Representation Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/cognitive_semantic_articulation.md",
+      "repository_id": "REP-F12AE6D0367F1700",
+      "source_kind": "architecture",
+      "source_sha256": "2b6015850a0815ee20624d44e3ba05e96e467c7f35fd50d7e12ec83940ebad3f",
+      "status": null,
+      "title": "Phase X-C2 — Semantic Articulation and Context Assembly"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/commanders_bridge_foundation.md",
+      "repository_id": "REP-63E3B2BFC6964EFD",
+      "source_kind": "architecture",
+      "source_sha256": "05999551c4c3bcb2f6c527229a8cc7af86f2dc261e9c0778e6e23fdc9995242f",
+      "status": "Implemented",
+      "title": "MC-1002 — Commander's Bridge Foundation"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/convergence/README.md",
+      "repository_id": "REP-200C4EF60FAD475F",
+      "source_kind": "architecture",
+      "source_sha256": "8adeb9932aaabd40d91bca4c0db1524fd08b51227e8f340a67933819d4c7de9d",
+      "status": null,
+      "title": "Cognitive Architecture Convergence"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/convergence/genesis_1a1_reasoning_contract_audit.md",
+      "repository_id": "REP-95D96EED41761DE0",
+      "source_kind": "architecture",
+      "source_sha256": "79c28d9f7775640f285e1eb217157144f34c11c50dc66b5c86ed9180b10491ad",
+      "status": "Architecture baseline",
+      "title": "Genesis I-A1 — Reasoning Contract Audit"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md",
+      "repository_id": "REP-63B5C730D8CD37BE",
+      "source_kind": "architecture",
+      "source_sha256": "dd39255d831c6a8a5973a058982e90533808801096e08a46ed5a5eb237dec4cd",
+      "status": "PASS",
+      "title": "Genesis I-A2 — Reasoning Service Audit"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.md",
+      "repository_id": "REP-AC81445DA63C7E66",
+      "source_kind": "architecture",
+      "source_sha256": "ab4858455b30cb4735b241cd74a62915ce6b1d8e8f7824d6e532c2966ad344e2",
+      "status": "Architecture baseline",
+      "title": "Genesis I-A3 — Knowledge Integration Audit"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md",
+      "repository_id": "REP-8219D84E4189EDD1",
+      "source_kind": "architecture",
+      "source_sha256": "c475c7cc2decaa4cf8659621a210b9bdb7a7b2cd91aaee64feba98f47f2bf36b",
+      "status": "Foundational architecture baseline",
+      "title": "Genesis I-A4 — Canonical Reasoning Architecture Baseline"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/convergence_c1_executive_conversation.md",
+      "repository_id": "REP-10E91DB79254DCB4",
+      "source_kind": "architecture",
+      "source_sha256": "116cc5908b805ed051ae84d7c80c09cdc25cb74d1831db5b24d3db4e791d8cf0",
+      "status": null,
+      "title": "JARVIS Convergence C-1 — Executive Conversation Activation"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/convergence_c3_capability_routing.md",
+      "repository_id": "REP-387491EFEE52C8C2",
+      "source_kind": "architecture",
+      "source_sha256": "bf078e805b953573952a4e724147e3035c11237756f6889775c59d6238a8132a",
+      "status": null,
+      "title": "JARVIS Convergence C-3 — Capability Routing"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/convergence_c4_knowledge_grounding.md",
+      "repository_id": "REP-864BF24493C44ACA",
+      "source_kind": "architecture",
+      "source_sha256": "c7a07a56879bee7b27ef62fb23c96edd00930ac1dbfd0164618413d0344ab20b",
+      "status": null,
+      "title": "JARVIS Convergence C-4 — Knowledge Grounding"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/evidence_engine.md",
+      "repository_id": "REP-768CC697A308CA0F",
+      "source_kind": "architecture",
+      "source_sha256": "3722a37c4301325610fb471b7b13cacb692f0e4984071653cebc34742f954931",
+      "status": "Canonical subsystem specification",
+      "title": "JARVIS Evidence Engine"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/executive_cognitive_lifecycle.md",
+      "repository_id": "REP-9BA71065E923C3A2",
+      "source_kind": "architecture",
+      "source_sha256": "24ba0916c94a41e5906e2ad65ea905750ffc33c4838acd8811c30ad62e67210a",
+      "status": "Draft 1.0",
+      "title": "Executive Cognitive Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/executive_integration_architecture.md",
+      "repository_id": "REP-F0A934D97ABCDE27",
+      "source_kind": "architecture",
+      "source_sha256": "27ded6240b44768d8d1e61884fd2e035d08b95b404d0dfd7464cb235205c2f31",
+      "status": null,
+      "title": "Executive Integration Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/executive_projection_contract.md",
+      "repository_id": "REP-A20CFE43FD8A9294",
+      "source_kind": "architecture",
+      "source_sha256": "a10e49ac61c19f8e19c3d2e88f12c2ea57fadb16345e3270a847161260e42dbc",
+      "status": null,
+      "title": "Executive Projection Contract"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/gen2_mission_engine.md",
+      "repository_id": "REP-B5B87389F705CDB3",
+      "source_kind": "architecture",
+      "source_sha256": "ce7ae3cc9aa05892fd1fa8969beb8f790917638aee8cced50b404b853c5abe28",
+      "status": null,
+      "title": "JARVIS Gen 2 Phase I — Executive Director and Mission Engine"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/gen2_phase_7b1_source_admission.md",
+      "repository_id": "REP-3A97D22462E55A29",
+      "source_kind": "architecture",
+      "source_sha256": "384da4b4b93da34d76d626827c15f2e8fab8b22e6ce8e905e19167b1e92be3b8",
+      "status": null,
+      "title": "JARVIS Gen 2 Phase VII-B1"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/gen2_phase_7b2_source_registry.md",
+      "repository_id": "REP-779A7AE79A7A3304",
+      "source_kind": "architecture",
+      "source_sha256": "794b01968b1ab569c6227770870926673e3885e85461f538731b0464fed2e528",
+      "status": null,
+      "title": "JARVIS Gen 2 Phase VII-B2"
+    },
+    {
+      "document_id": "GENESIS-LIFECYCLE",
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/GENESIS_LIFECYCLE.md",
+      "repository_id": "REP-0B49D010987879B1",
+      "source_kind": "architecture",
+      "source_sha256": "a79e2e14e64b1ffef33abb588a5a46f7cb83921aa92703e7da35288a70f4d84f",
+      "status": "Constitutional Standard",
+      "title": "GENESIS LIFECYCLE"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/execution/README.md",
+      "repository_id": "REP-C68A251AC95CCC5D",
+      "source_kind": "architecture",
+      "source_sha256": "5f683f9cb778d1a4428e6789e98c113a798611f51e4544e7b8303d08584e9104",
+      "status": null,
+      "title": "Execution Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/executive/README.md",
+      "repository_id": "REP-1CDC51A396A9C313",
+      "source_kind": "architecture",
+      "source_sha256": "dfb6b01545566e3ee50f73f18454975f5a7d0aa6c7f0c665c3411e24857f528f",
+      "status": null,
+      "title": "Executive Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/experience/README.md",
+      "repository_id": "REP-5023524FA7840AB7",
+      "source_kind": "architecture",
+      "source_sha256": "42e94df9fa88d7b3b8df03d929bc0dae1f43aaa9572f73abe4f7d2b02e48c653",
+      "status": null,
+      "title": "Experience Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/knowledge/README.md",
+      "repository_id": "REP-C68E2CCFCE1BC636",
+      "source_kind": "architecture",
+      "source_sha256": "5c31129afdcb6d6b0ce5204253ae25ac1e86d728bb8826f572ad29697a46dd5a",
+      "status": null,
+      "title": "Knowledge Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/memory/README.md",
+      "repository_id": "REP-20C261761366E2AD",
+      "source_kind": "architecture",
+      "source_sha256": "ef1e04bb54b2dd2847d8502e0baecd1937b95a1c2ed0ce23307243f907bbb6dc",
+      "status": null,
+      "title": "Memory Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/planning/README.md",
+      "repository_id": "REP-16E2C50DCB494F97",
+      "source_kind": "architecture",
+      "source_sha256": "7d4d1f9c9f8ea99e3ca48a60079d2a6822375d526e614abac575b2af979ab53e",
+      "status": null,
+      "title": "Planning Genesis"
+    },
+    {
+      "document_id": "GENESIS-II-A1",
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md",
+      "repository_id": "REP-30B0385BA9B0C9C3",
+      "source_kind": "architecture",
+      "source_sha256": "113723f6b8d9add0760375d762e75457854353b6e0dc2f3faa7021e12e11a761",
+      "status": "Implemented",
+      "title": "GENESIS II-A1 — REASONING SESSION CONTRACT"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/reasoning/GENESIS_II_A2_REASONING_SESSION_LIFECYCLE.md",
+      "repository_id": "REP-9087904892A9F043",
+      "source_kind": "architecture",
+      "source_sha256": "be3e238310558ae61c1466d4e76be66e44e3401d8c76928cfbf4dee952b64b47",
+      "status": "Implementation Candidate",
+      "title": "Genesis II-A2 — Reasoning Session Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/reasoning/GENESIS_II_A3A_VERIFICATION_ARCHITECTURE.md",
+      "repository_id": "REP-6AEAEEE6EA546107",
+      "source_kind": "architecture",
+      "source_sha256": "4c1f0300e874866537306cf006dc4aa1b1c07a9939bf4716bd2b2aa7e9cc32ab",
+      "status": "Implementation Candidate",
+      "title": "Genesis II-A3A — Verification Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/reasoning/GENESIS_II_A3_CONSTITUTIONAL_REASONING_CONTEXT.md",
+      "repository_id": "REP-256FA9B0E16D7C84",
+      "source_kind": "constitutional",
+      "source_sha256": "59511137996e73db66b66561b1dd40c9d83d53213d34c2bf8bf765af2d034697",
+      "status": "Implementation Candidate",
+      "title": "Genesis II-A3 — Constitutional Reasoning Context"
+    },
+    {
+      "document_id": "GENESIS-II-A4",
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/reasoning/GENESIS_II_A4_CANONICAL_EVIDENCE_MODEL.md",
+      "repository_id": "REP-6A28E30703126E2C",
+      "source_kind": "architecture",
+      "source_sha256": "3c1a3e97fb50a8b9989d3ef8fca1b0b50eb8c2efd8c1fffe78f4f5626cc9d358",
+      "status": "Executive Design",
+      "title": "JARVIS Genesis II-A4 — Canonical Evidence Model"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/reasoning/README.md",
+      "repository_id": "REP-4537E83078891C48",
+      "source_kind": "architecture",
+      "source_sha256": "0919f67bf9ab0ddb3a79af91b98372ea38b462639636281259c43ba6e0f884db",
+      "status": null,
+      "title": "Reasoning Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis/vision/README.md",
+      "repository_id": "REP-51D9064320496742",
+      "source_kind": "architecture",
+      "source_sha256": "3a272e0245b7455cc18a3e95c3e815aa2816e2d3fe382272e725ed153e3775e5",
+      "status": null,
+      "title": "Vision Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis_cognitive_workspace_foundation.md",
+      "repository_id": "REP-1370574F01C8BB5C",
+      "source_kind": "architecture",
+      "source_sha256": "125424dc8a50d3c252cecb59da8bbbc27c9bc37b77bcbc7e53269abaf0702c99",
+      "status": null,
+      "title": "Genesis III-A1 — Cognitive Workspace Foundation"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis_evolutionary_verification_architecture.md",
+      "repository_id": "REP-5EF3F063702D2489",
+      "source_kind": "architecture",
+      "source_sha256": "eee8ad978359f4b6a437a4196708ae3d9bfc6f8cf0d612e61c1aecff76ee9d88",
+      "status": null,
+      "title": "Genesis II-A3B — Evolutionary Verification Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis_persistent_cognitive_workspace_repository.md",
+      "repository_id": "REP-25B7E72C1F726A5C",
+      "source_kind": "architecture",
+      "source_sha256": "6b1eec111b93ed3a4020bb2818b22efa6c5298f71b8b1413a02e2880d0449f4b",
+      "status": null,
+      "title": "Genesis III-A2 — Persistent Cognitive Workspace Repository"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis_ui_a3_capability_discovery_registration.md",
+      "repository_id": "REP-C8CAAB4AA1B7C804",
+      "source_kind": "architecture",
+      "source_sha256": "90d89610eecc8b4ef84417cd127246a59c5251405e596d043c0aa85ccce55f50",
+      "status": null,
+      "title": "Genesis UI-A3 — Capability Discovery & Registration"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis_vi_a63_executive_checkpoint_store.md",
+      "repository_id": "REP-9510CFA7AFC7E08C",
+      "source_kind": "architecture",
+      "source_sha256": "ba72fc997d5ccf696b11abf9d40c0fa120c77df56843802005d5b9c3ac94c102",
+      "status": "Certified implementation candidate",
+      "title": "Genesis VI-A6.3 — Executive Checkpoint Store"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis_vi_a64_executive_integrity_engine.md",
+      "repository_id": "REP-7BF27DA2ACD826FE",
+      "source_kind": "architecture",
+      "source_sha256": "efcb9bdf8f66e3acebabfe20be74b1706c1d8dbb0396224f164b8ff6e57cd42c",
+      "status": "Implemented",
+      "title": "Genesis VI-A6.4 — Executive Integrity Engine"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/genesis_vi_a66_executive_lifecycle_manager.md",
+      "repository_id": "REP-A26664BE67A7A18F",
+      "source_kind": "architecture",
+      "source_sha256": "d641cffedc49500810ef6b982662dca5b332e2e381053d33258838d84cd28a8d",
+      "status": "Implemented",
+      "title": "Genesis VI-A6.6 — Executive Lifecycle & Session Manager"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/jarvis_engineering_standard.md",
+      "repository_id": "REP-9E36D59E16B57F68",
+      "source_kind": "architecture",
+      "source_sha256": "c7bd176b0448f0df5f8bcf001a93e8b1ade2521d41c1ab5ae064772cd40551ea",
+      "status": null,
+      "title": "JARVIS Engineering Standard"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/knowledge_awareness_contract.md",
+      "repository_id": "REP-E979F9C40D87196B",
+      "source_kind": "architecture",
+      "source_sha256": "4902fc48429185910235f2b9d6de02fd44a58445dae834e983a2b90539563740",
+      "status": null,
+      "title": "Knowledge Awareness Contract"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/knowledge_engine_canonical_owners.md",
+      "repository_id": "REP-7A81BE2667AA84DB",
+      "source_kind": "architecture",
+      "source_sha256": "a30613bacd0b4054ad72cfbe2f1d1aff49a12434c13ebdb2989de3fb84cf03b2",
+      "status": null,
+      "title": "Knowledge Engine Canonical Owners"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/knowledge_lifecycle.md",
+      "repository_id": "REP-57CF7CFA96D1CDD9",
+      "source_kind": "architecture",
+      "source_sha256": "0b5a67cf72cb7d3ba78048f4f4e00f0d0ea7604888f7d1a22a8d091d4340d516",
+      "status": "Canonical Architecture",
+      "title": "JARVIS Knowledge Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/knowledge_system_v2.md",
+      "repository_id": "REP-89FA8C0725AD3598",
+      "source_kind": "architecture",
+      "source_sha256": "6380ece9960f7470ad087ea41790b951263fc4c4dea77770e96eca505096161e",
+      "status": null,
+      "title": "JARVIS Knowledge System v2"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/milestones/phase_vi_f3_runner_composition.md",
+      "repository_id": "REP-93860BC5B41462EE",
+      "source_kind": "architecture",
+      "source_sha256": "812402049cd640b6246bcd59291e8e27e40e7e7c1f901dd3dec15671f534adda",
+      "status": "Complete",
+      "title": "JARVIS Gen 2 — Phase VI-F3"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/milestones/phase_vi_f4_performance_contracts.md",
+      "repository_id": "REP-E41BBF2268DEAA94",
+      "source_kind": "architecture",
+      "source_sha256": "e446ded8bdb9c08e17fb0be2daa50ebc56851f1cc2916f2c89f9b52cf100abcc",
+      "status": "Complete after focused and master verification pass.",
+      "title": "JARVIS Gen 2 — Phase VI-F4"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/milestones/phase_vii_a6_assimilation_handoff.md",
+      "repository_id": "REP-EEF0EA714E2E319F",
+      "source_kind": "architecture",
+      "source_sha256": "b6d2d7aa5a591c1f2b43a38088aacd9f04cbc58c2cf6abb63e44fe51d659bced",
+      "status": null,
+      "title": "JARVIS Gen 2 — Phase VII-A6"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/operations_layer.md",
+      "repository_id": "REP-3C1165BADFAF98D8",
+      "source_kind": "architecture",
+      "source_sha256": "a6f1fda049b34dcf7b583c9ba1988c705cad74da2beecd4075d68ffe0920b791",
+      "status": null,
+      "title": "MC-1001 — Executive Operations Interface"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/overview.md",
+      "repository_id": "REP-AD4BC7EB85B09D9E",
+      "source_kind": "architecture",
+      "source_sha256": "fba5eb4061e46c3491ad5ba5d8cc6c3742477e928d0a78c7cd37ae777b5cc87d",
+      "status": null,
+      "title": "JARVIS Knowledge Engine Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/phase_ii_a_consolidation.md",
+      "repository_id": "REP-C57336DDFB7CAFC2",
+      "source_kind": "architecture",
+      "source_sha256": "c05804cc79ac2d95a7ad76bb947694098824f552890ad32c72f253df4bbad26a",
+      "status": "In Progress",
+      "title": "Phase II-A — Architecture Consolidation"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/reasoning_engine_foundation.md",
+      "repository_id": "REP-9D929251022134B8",
+      "source_kind": "architecture",
+      "source_sha256": "22bd0c78895d468b90b425cebe7a1b4143dc5611bbd06b19ec699d05bdcf4957",
+      "status": null,
+      "title": "JARVIS Reasoning Engine Foundation"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/reasoning_hypothesis_knowledge_integration.md",
+      "repository_id": "REP-01F1FB47208DD5CA",
+      "source_kind": "architecture",
+      "source_sha256": "a676439de71ff84ef83eabc4827443b2e4c358a9b272c17a15505ba57ba89721",
+      "status": null,
+      "title": "Phase X-B — Hypothesis Generation and Knowledge Evidence Integration"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/service_architecture.md",
+      "repository_id": "REP-227F772589DD52CA",
+      "source_kind": "architecture",
+      "source_sha256": "96916fa756e9ee030ff1c6cfa1ebfc4e08d686171146f3e3622c7baeff422602",
+      "status": "Active",
+      "title": "Knowledge Engine Service Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/storage.md",
+      "repository_id": "REP-8D31007DE4A6D9C9",
+      "source_kind": "architecture",
+      "source_sha256": "49a2f00d97a4ab21bb78536d4356280f1480bf858fa37fcf76fd2ce611f46aaa",
+      "status": "Draft",
+      "title": "JARVIS Storage Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/testing/CANONICAL_CONSTITUTIONAL_FIXTURES.md",
+      "repository_id": "REP-56D152CA200FF301",
+      "source_kind": "constitutional",
+      "source_sha256": "812b26971952781ad4e77a8236b25b12f6f6c8788b8e584aa9692e555f40aeda",
+      "status": "Implementation Candidate",
+      "title": "Canonical Constitutional Test Fixtures"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/00_design_language.md",
+      "repository_id": "REP-6B56F48667EB49C0",
+      "source_kind": "architecture",
+      "source_sha256": "20dff97ca30990074060f016d7da1dd151f05d33f82f9b4ab9bb1d0ad3249240",
+      "status": null,
+      "title": "JARVIS Mission Control UI Design Language"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/01_user_experience.md",
+      "repository_id": "REP-0F83A273C8BDFFC3",
+      "source_kind": "architecture",
+      "source_sha256": "e28f1f949df35d6e4c7cf0e052ee505db5c4693b0b7058ad05b7f9e167214e17",
+      "status": null,
+      "title": "JARVIS Mission Control User Experience"
+    },
+    {
+      "document_id": "UI-0003",
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/03_navigation_model.md",
+      "repository_id": "REP-BCD245B7E3D41950",
+      "source_kind": "architecture",
+      "source_sha256": "dd58904c6db265dc955b92769dbdf2fe5c22ca7303c75f723842c90738a16a8e",
+      "status": "Draft",
+      "title": "JARVIS Mission Control Navigation Model"
+    },
+    {
+      "document_id": "UI-0004",
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/04_operational_context.md",
+      "repository_id": "REP-666ADC0959765E0E",
+      "source_kind": "architecture",
+      "source_sha256": "0c9ccad97dabe6898cdac79981754796a473b8b127524c5ec9f1618aad3518e7",
+      "status": "Draft",
+      "title": "JARVIS Operational Context Architecture"
+    },
+    {
+      "document_id": "UI-0005",
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/05_commander_brief.md",
+      "repository_id": "REP-8E2AEB894DF79E7A",
+      "source_kind": "architecture",
+      "source_sha256": "36a36cf7e73b123640b66f1f568b2e51d692b44dc75b7d7906253d23abc39259",
+      "status": "Draft",
+      "title": "JARVIS Commander Brief Architecture"
+    },
+    {
+      "document_id": "UI-0006",
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/06_mission_workspace.md",
+      "repository_id": "REP-A9F6D8CC1957ED83",
+      "source_kind": "architecture",
+      "source_sha256": "aefd939e82dc9d2edc6b90f713a3e8e68bbfdf45554d114f93019cb332a56cbe",
+      "status": "Draft",
+      "title": "JARVIS Mission Workspace Architecture"
+    },
+    {
+      "document_id": "UI-0007",
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/07_operator_experience.md",
+      "repository_id": "REP-A7C7FE4402E2C6E1",
+      "source_kind": "architecture",
+      "source_sha256": "8fe63162513c4d6d4cb1522ec8331f70e2964be569ab1ca6ce5930a3af02f1ba",
+      "status": "Draft",
+      "title": "JARVIS Operator Experience"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/08_mission_lifecycle.md",
+      "repository_id": "REP-435BB039E2E580AE",
+      "source_kind": "architecture",
+      "source_sha256": "df0a8f662f6baec86c2f812e097d63d59c1dc79625f003278011bb9f3772d09e",
+      "status": null,
+      "title": "17. Awaiting Approval"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/09_sitrep.md",
+      "repository_id": "REP-9FD5094024244855",
+      "source_kind": "architecture",
+      "source_sha256": "99961416b5bbb2ffa62438a0b88353328e94fef3d55fc639fd9cc310eef27057",
+      "status": "Architecture Definition",
+      "title": "JARVIS Mission Control"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/10_mission_journal.md",
+      "repository_id": "REP-D74A93EE05CB10BA",
+      "source_kind": "architecture",
+      "source_sha256": "2cebcebdb74aa126076717b512b88a310664e9f1494db878912a7fd98f2f7cff",
+      "status": "Canonical",
+      "title": "Mission Journal Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/architecture/ui/README.md",
+      "repository_id": "REP-5152728360CBC6E6",
+      "source_kind": "architecture",
+      "source_sha256": "a153739b006b4ff7732e3e14ab0c0aa851433720dbeddb137cdeb957bf226b7a",
+      "status": null,
+      "title": "JARVIS Mission Control UI"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/constitution/ENGINEERING_CONSTITUTION.md",
+      "repository_id": "REP-5C3F5668A9844758",
+      "source_kind": "constitutional",
+      "source_sha256": "a39d740c57bde46f6a71983e88e9e17379afe6fa1b43e32f1583a9f6b933adc1",
+      "status": "Foundational",
+      "title": "JARVIS Engineering Constitution"
+    },
+    {
+      "document_id": "UI-0001",
+      "path": "architecture_contract_20260724_091739/docs/constitution/UI-0001-commanders_bridge_constitution.md",
+      "repository_id": "REP-F6383E8623368C78",
+      "source_kind": "constitutional",
+      "source_sha256": "3e1743de9ce637d40c06d911f0753d9c37a22f2d5b2f17737dd46ee0374b2100",
+      "status": "Ratified",
+      "title": "UI-0001"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0000.md",
+      "repository_id": "REP-428F1D836CF64015",
+      "source_kind": "adr",
+      "source_sha256": "26e594058ee380b70dd21fe3e8fa2e7f2934ee3c9bfb50b5152d3c2a095d2937",
+      "status": null,
+      "title": "ADR-0000: The JARVIS North Star"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0006-Jarvis-Librarian-Knowledge-Gap-Analysis.md",
+      "repository_id": "REP-CCD3B7B88C0D04A9",
+      "source_kind": "adr",
+      "source_sha256": "57ff30be2b82e062c2072671555ef960aeecf0e17e67a9d3294ee33a1e27eeb9",
+      "status": null,
+      "title": "ADR-0006: JARVIS Librarian and Knowledge Gap Analysis"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0006-knowledge-ontology.md",
+      "repository_id": "REP-2E4F33366235D16B",
+      "source_kind": "adr",
+      "source_sha256": "2bc8159535a29bf9d12728c3dec77e939a78bed4951bc45f2b545821d503f853",
+      "status": "Accepted",
+      "title": "ADR-0006 — Knowledge Ontology"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0007-inspect-early-reuse-forever.md",
+      "repository_id": "REP-A25C3D6A0EEE5C8E",
+      "source_kind": "adr",
+      "source_sha256": "c46999d0f2e53f0bffa074994450c28386421f50cd41c028356291336164cde2",
+      "status": "Accepted",
+      "title": "ADR-0007 — Inspect Early, Reuse Forever"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0007-knowledge-lifecycle.md",
+      "repository_id": "REP-1650E9C5F97B0195",
+      "source_kind": "adr",
+      "source_sha256": "e47c4b511daa09e29f27f426aaffc5708f22f75f979b7e8dc587c7ab67a2418f",
+      "status": "Accepted",
+      "title": "ADR-0007 — Knowledge Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0007-knowledge-pipeline-architecture.md",
+      "repository_id": "REP-7E00D498C5623C7B",
+      "source_kind": "adr",
+      "source_sha256": "aec9d618f792f26c75389fb0935732d9f391e6f89ab4a146b420ffbf134eed43",
+      "status": "Accepted",
+      "title": "ADR-0007: Knowledge Pipeline Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0008-layered-capability-architecture.md",
+      "repository_id": "REP-838799E5564510F8",
+      "source_kind": "adr",
+      "source_sha256": "43cddb20255b75165b1ba3668984ae209e9f02a272912d780773fa42ea3d7dff",
+      "status": "Accepted",
+      "title": "ADR-0008 — Layered Capability Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0011-knowledge-discovery-engine.md",
+      "repository_id": "REP-6A1505E8988F02A6",
+      "source_kind": "adr",
+      "source_sha256": "652b166450d3f2d67d0878a343d1571fad9ffb638141aff6b71327e25a3de994",
+      "status": null,
+      "title": "ADR-0011: Knowledge Discovery Engine"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0012-knowledge-coverage-graph.md",
+      "repository_id": "REP-E0ACB07E40537E72",
+      "source_kind": "adr",
+      "source_sha256": "f1482637ecc221f9be6325060cb7c6e2b3cbd6b85d5356d702b34f0fcc8d27ba",
+      "status": null,
+      "title": "ADR-0012: Knowledge Coverage Graph"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0013-gap-analysis-engine.md",
+      "repository_id": "REP-198B6C41FCA6D712",
+      "source_kind": "adr",
+      "source_sha256": "ce48abca28b4b2456a69487c25ba520ba008b7baa8aab59f3533a3b9abbdd503",
+      "status": null,
+      "title": "ADR-0013: Gap Analysis Engine"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0013A-knowledge-mapping-layer.md",
+      "repository_id": "REP-4E3FCFF01FB2D247",
+      "source_kind": "adr",
+      "source_sha256": "8aad34ef21c539443f8f31583c7404e407c1211266e187a119a77ed5f6b98299",
+      "status": null,
+      "title": "ADR-0013A: Knowledge Mapping Layer"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0015-semantic-extraction-engine.md",
+      "repository_id": "REP-70981E39F8FDBB98",
+      "source_kind": "adr",
+      "source_sha256": "5b911a8d179a85513843e9717d146020da7eccb2531f5853bd96cd9acfb7bb04",
+      "status": null,
+      "title": "ADR-0015 — Semantic Extraction Engine"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0016-knowledge-capability-ownership.md",
+      "repository_id": "REP-FDDCBEF9B7DC9D84",
+      "source_kind": "adr",
+      "source_sha256": "e250c920496972121bac351ad23bb1227bc057150ea8351ce98db1c9cc8d6c14",
+      "status": null,
+      "title": "ADR-0016 — Knowledge Capability Ownership"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0017-progressive-workspace-tools.md",
+      "repository_id": "REP-F8A0F0CB3A3D882F",
+      "source_kind": "adr",
+      "source_sha256": "ca8b135abd22d396bc5708fe14b131747ccff57b5f2a4a5bf2a7b8cd349ba08b",
+      "status": null,
+      "title": "ADR-0017"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0018-constitutional-first-principles.md",
+      "repository_id": "REP-5FBC6A7BAE5F9B74",
+      "source_kind": "constitutional",
+      "source_sha256": "552e1f4f301ff5bccc52f2b34ebccc991a4f6c2df521736652b2e28b88aeb598",
+      "status": null,
+      "title": "ADR-0018 — Constitutional First Principles"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0018-genesis-iv-evidence-constitution.md",
+      "repository_id": "REP-7F8D15D7385B0CAC",
+      "source_kind": "constitutional",
+      "source_sha256": "389a9151e2b3598ccddd5e4c36a9c5b1631cdd61c7b7f175a9d4506b82abf512",
+      "status": "Accepted",
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0018-operational-memory.md",
+      "repository_id": "REP-B08687843A047C74",
+      "source_kind": "adr",
+      "source_sha256": "3c708811cd911774b032a150072078a9d098e6f41079909a6f4c00a80a0da1a3",
+      "status": "Accepted",
+      "title": "ADR-0018 — Operational Memory as a First-Class Architectural Domain"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0018.md",
+      "repository_id": "REP-C2CEF7703E6763C8",
+      "source_kind": "adr",
+      "source_sha256": "826fee7e39d7f0664f89c464d6c5930774d99f66bf971a33e0c14a76f0f62e3d",
+      "status": "Accepted",
+      "title": "ADR-0018 — Canonical Constitutional Test Fixtures"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0019-canonical-evidence-model.md",
+      "repository_id": "REP-80599A71F0555DC5",
+      "source_kind": "adr",
+      "source_sha256": "047e295962fa79851b12a5b4cae1bf836232b9c709992698ad16b66869780b34",
+      "status": "Accepted",
+      "title": "ADR-0019 — Adopt a Canonical Evidence Model"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0019-genesis-iv-claim-constitution.md",
+      "repository_id": "REP-7B129A131377EECB",
+      "source_kind": "constitutional",
+      "source_sha256": "f340250c71576495f4a7cb757bdcd35d8ebd5248e27386cc1a503815eb59afa5",
+      "status": "Accepted",
+      "title": "ADR-0019: Genesis IV Claim Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0020-genesis-iv-cognition-architecture-constitution.md",
+      "repository_id": "REP-93902D1560DEF02F",
+      "source_kind": "constitutional",
+      "source_sha256": "16142570d0714c4b965e417848e1aff387b81035ab2882be9300cfa43c8d5374",
+      "status": "Accepted",
+      "title": "ADR-0020: Genesis IV Cognition Architecture Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-0023.md",
+      "repository_id": "REP-DF6CD5FC441050E5",
+      "source_kind": "adr",
+      "source_sha256": "b9c29c60304d54f7c361e3467ec41b82d3a989b7fb742e79e41b60e74fa6ed19",
+      "status": "Accepted",
+      "title": "ADR-0023 — Executive Evidence and Trust Model"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-EXEC-0002-executive-projection-bus.md",
+      "repository_id": "REP-4A87B5833287E272",
+      "source_kind": "adr",
+      "source_sha256": "4218402953827e338c781ce8d08fa536fd5b458aae51b33fb6b74af6a1b5835a",
+      "status": "Accepted",
+      "title": "ADR-EXEC-0002 — Canonical Executive Projection Bus"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-EXEC-0003-additive-integration-compatibility.md",
+      "repository_id": "REP-BD8554C956165320",
+      "source_kind": "adr",
+      "source_sha256": "ff8ec18d3a8487ea5457c9518ae29d036613ecf703fe4b858689ccca7022cfed",
+      "status": "Accepted",
+      "title": "ADR-EXEC-0003 — Additive Executive Integration Compatibility"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-EXEC-0003-capability-discovery-registration.md",
+      "repository_id": "REP-B9A6C1DE4B90F7EC",
+      "source_kind": "adr",
+      "source_sha256": "8a578ecad9faafa9c68fbb55f81d312fa67c77ed2f05385098b270491a0cb5c4",
+      "status": "Accepted",
+      "title": "ADR-EXEC-0003: Capability Discovery and Registration"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-GENESIS-II-A3B.md",
+      "repository_id": "REP-5F639FDC0D16F25E",
+      "source_kind": "adr",
+      "source_sha256": "a092c2f21b3a0f8f232021c6e14c0fbc1d02936d913efa257040d73c36babed7",
+      "status": "Accepted",
+      "title": "ADR — Evolutionary Genesis Verification Manifest"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-GENESIS-III-A1.md",
+      "repository_id": "REP-10FD2C44B98F5836",
+      "source_kind": "adr",
+      "source_sha256": "2c107656b44b6be452e2243908cade71610694d148dcb5efddce780ba323727d",
+      "status": "Accepted",
+      "title": "ADR — Explicit Immutable Cognitive Workspace"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-GENESIS-III-A2.md",
+      "repository_id": "REP-90F1A19E347C6AD5",
+      "source_kind": "adr",
+      "source_sha256": "edbd35eceacb1ed93285c05dddf5d961eee3f239de5d1c40977880273fc7c5fe",
+      "status": "Accepted",
+      "title": "ADR — Persist Cognitive Workspaces Through a Repository Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "architecture_contract_20260724_091739/docs/decisions/ADR-GENESIS-III-A3.md",
+      "repository_id": "REP-1613345D1D6164B0",
+      "source_kind": "adr",
+      "source_sha256": "a05aa9966fb5818461200b316f7b3d51fd51a05ce3da6a5dc42e4dce178830c0",
+      "status": "Accepted",
+      "title": "ADR — Add a Repository-Agnostic Cognitive Workspace Catalog"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/00_JARVIS_ARCHITECTURE.md",
+      "repository_id": "REP-A2A9C30C1ED9B071",
+      "source_kind": "architecture",
+      "source_sha256": "633ac0ce7a05e2377877114699d2214b263ae6af5da846b30874ec73d81f518a",
+      "status": "Foundational Architecture",
+      "title": "JARVIS Architectural Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/11_cognitive_architecture.md",
+      "repository_id": "REP-450904DA473944C8",
+      "source_kind": "architecture",
+      "source_sha256": "4c0c8391ec390d64230876b8d23b2c615052f20c9ad5f7cb12e313da5074d741",
+      "status": "Canonical Architecture",
+      "title": "JARVIS Cognitive Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/12_reasoning_architecture.md",
+      "repository_id": "REP-8E13E20A122B7023",
+      "source_kind": "architecture",
+      "source_sha256": "36051b56c1a8e9ad1cb3cb35573c6370d9b43145986a729557924020454a409e",
+      "status": "Canonical Architecture",
+      "title": "JARVIS Explainable Reasoning Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/13_mission_planning_architecture.md",
+      "repository_id": "REP-539C760652AC421F",
+      "source_kind": "architecture",
+      "source_sha256": "ab9235f02be6b8ab4585294647968ded013b562d90fb51080a50703c6e76b4fe",
+      "status": "Canonical Architecture",
+      "title": "JARVIS Mission Planning Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/GENESIS_FOUNDATION.md",
+      "repository_id": "REP-687F30DF64C7A02B",
+      "source_kind": "architecture",
+      "source_sha256": "3a3cdab89c98b02407d65f6c953d660256c0a7fad78522ced821e00ae861cc3f",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/JARVIS_ARCHITECTURE.md",
+      "repository_id": "REP-1C1577F85FFC107C",
+      "source_kind": "architecture",
+      "source_sha256": "7c6b76a256987a7c0fea525b951cae0f2ee65bbe0c62375ce5587e92e44be6f5",
+      "status": null,
+      "title": "JARVIS Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/architecture_blueprint.md",
+      "repository_id": "REP-151C0899B80D8C7E",
+      "source_kind": "architecture",
+      "source_sha256": "28d3418d44cfd2bc387fb58285aba524aae116c077d49fa94c3d7d26531055f4",
+      "status": "Active",
+      "title": "JARVIS Architecture Blueprint"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/architecture_intelligence.md",
+      "repository_id": "REP-F82BFBBD9CFFF694",
+      "source_kind": "architecture",
+      "source_sha256": "be139beebd1b4713db0d75c3737f53b5d2080970223514a706abdef92da2a444",
+      "status": "Genesis V-A1 foundation",
+      "title": "JARVIS Architecture Intelligence"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/bootstrap_canonical.md",
+      "repository_id": "REP-1BBB92B216417C97",
+      "source_kind": "architecture",
+      "source_sha256": "614b2d77426863a2c0034c6d9c99bc22c1bcfdd0dd192e918a704bbc8bb636ac",
+      "status": null,
+      "title": "Bootstrap Canonical Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/capability_visibility_contract.md",
+      "repository_id": "REP-627A17CFEBE01129",
+      "source_kind": "architecture",
+      "source_sha256": "24587f0601c172489dc041a362ed198fd31eb295b5f26f01848a0f83dce4f290",
+      "status": null,
+      "title": "Capability Visibility Contract"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognition/00_overview.md",
+      "repository_id": "REP-5808ACC325912F02",
+      "source_kind": "architecture",
+      "source_sha256": "0dc4784e3c4432db18ea182ea8553bbb8c1be07306bb6c6b8f3a4c2537090e9f",
+      "status": "Active",
+      "title": "Cognition Subsystem Overview"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognition/02_observation_engine.md",
+      "repository_id": "REP-1306304A3FCE3C0D",
+      "source_kind": "architecture",
+      "source_sha256": "6dcb608b0d3e53f234e65bd8f05f5d91143467bb3a4ca7d096d550f7682e4511",
+      "status": null,
+      "title": "Genesis IV-R2 Observation Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognition/genesis_vi_a1_step1_foundation.md",
+      "repository_id": "REP-F2FA958B659D6EDA",
+      "source_kind": "architecture",
+      "source_sha256": "ef780ff7e48f4d629d7f0245c087b34073478f4a76142a5758f70a0039f65104",
+      "status": "Implemented",
+      "title": "Genesis VI-A1 Step 1 — Executive Cognition Contracts"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognition/genesis_vi_a3_cognitive_state_machine.md",
+      "repository_id": "REP-A15F5D1E81D491FF",
+      "source_kind": "architecture",
+      "source_sha256": "c920ea346bc557de252e7a5bd495c10e5590cdda34eb18ee33c4cb38b93192d7",
+      "status": "Implemented",
+      "title": "Genesis VI-A3 — Cognitive State Machine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognition/genesis_vi_a5_executive_session.md",
+      "repository_id": "REP-D14AE3FEA4DC5836",
+      "source_kind": "architecture",
+      "source_sha256": "32fb21198b925f88e98dfef962a4c403bad5f26ed1f698fcbb598e240291445e",
+      "status": "Implemented",
+      "title": "Genesis VI-A5 — Executive Session"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognition/genesis_vi_a61_persistence_contracts.md",
+      "repository_id": "REP-21F82A9E4EED2CC5",
+      "source_kind": "architecture",
+      "source_sha256": "60155b18c8bf3ddd772a2faba0ee15b7ef81c0d2acbcfd40a348332829e75e03",
+      "status": "Implemented",
+      "title": "Genesis VI-A6.1 — Persistence Contracts"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognition/genesis_vi_a62_canonical_snapshot_serializer.md",
+      "repository_id": "REP-14E74DC8A63AFDF4",
+      "source_kind": "architecture",
+      "source_sha256": "21f2b934f2625bf0ded8085a102a2b222c7c99051cc3abc58755130511cf5bc0",
+      "status": "Implemented",
+      "title": "Genesis VI-A6.2 — Canonical Snapshot Serializer"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognitive_ownership.md",
+      "repository_id": "REP-2E1F72EE3CD1265E",
+      "source_kind": "architecture",
+      "source_sha256": "5280c17b8f16dc18235c6fb7080974d9e39442a37d9a9edf7a638b3dbd0ea961",
+      "status": "Accepted architecture baseline",
+      "title": "Canonical Cognitive Subsystem Ownership"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognitive_representation_architecture.md",
+      "repository_id": "REP-B42C4FF7E363ECD2",
+      "source_kind": "architecture",
+      "source_sha256": "9ea4727b467a6b335e3adbe0d17f4ce6f1f906cca2f8bbe548e68da2dec2431e",
+      "status": "Phase X-C1 Foundation",
+      "title": "Cognitive Representation Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/cognitive_semantic_articulation.md",
+      "repository_id": "REP-ED892471BAEBEBE9",
+      "source_kind": "architecture",
+      "source_sha256": "2b6015850a0815ee20624d44e3ba05e96e467c7f35fd50d7e12ec83940ebad3f",
+      "status": null,
+      "title": "Phase X-C2 — Semantic Articulation and Context Assembly"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/commanders_bridge_foundation.md",
+      "repository_id": "REP-42FEA5DE6712160B",
+      "source_kind": "architecture",
+      "source_sha256": "05999551c4c3bcb2f6c527229a8cc7af86f2dc261e9c0778e6e23fdc9995242f",
+      "status": "Implemented",
+      "title": "MC-1002 — Commander's Bridge Foundation"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/README.md",
+      "repository_id": "REP-6B5FF8EDCD9F7102",
+      "source_kind": "architecture",
+      "source_sha256": "8adeb9932aaabd40d91bca4c0db1524fd08b51227e8f340a67933819d4c7de9d",
+      "status": null,
+      "title": "Cognitive Architecture Convergence"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_1a1_reasoning_contract_audit.md",
+      "repository_id": "REP-4593984D82B0885B",
+      "source_kind": "architecture",
+      "source_sha256": "79c28d9f7775640f285e1eb217157144f34c11c50dc66b5c86ed9180b10491ad",
+      "status": "Architecture baseline",
+      "title": "Genesis I-A1 — Reasoning Contract Audit"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md",
+      "repository_id": "REP-7B5B7A2067865B62",
+      "source_kind": "architecture",
+      "source_sha256": "dd39255d831c6a8a5973a058982e90533808801096e08a46ed5a5eb237dec4cd",
+      "status": "PASS",
+      "title": "Genesis I-A2 — Reasoning Service Audit"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.md",
+      "repository_id": "REP-85057FA5178035E7",
+      "source_kind": "architecture",
+      "source_sha256": "ab4858455b30cb4735b241cd74a62915ce6b1d8e8f7824d6e532c2966ad344e2",
+      "status": "Architecture baseline",
+      "title": "Genesis I-A3 — Knowledge Integration Audit"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md",
+      "repository_id": "REP-2F2D3C55008A2F7D",
+      "source_kind": "architecture",
+      "source_sha256": "c475c7cc2decaa4cf8659621a210b9bdb7a7b2cd91aaee64feba98f47f2bf36b",
+      "status": "Foundational architecture baseline",
+      "title": "Genesis I-A4 — Canonical Reasoning Architecture Baseline"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_iv_b4_audit_correction.md",
+      "repository_id": "REP-0484C973025995C7",
+      "source_kind": "architecture",
+      "source_sha256": "144388cdf2fd0b0b53ebbc4fa0c47def62cb01dc7b6393128643c5d0fd6fa22d",
+      "status": null,
+      "title": "Genesis IV-B4 — Observation Audit Correction"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_iv_b4_observation_migration.md",
+      "repository_id": "REP-721EEA6356B98BE9",
+      "source_kind": "architecture",
+      "source_sha256": "c81205a0f97f3fd543a8eb68cf51eaa64ad588bbd9bf6ff53be807ac04def84a",
+      "status": null,
+      "title": "Genesis IV-B4 — Observation Migration & Compatibility"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_iv_b4b_behavioral_compatibility.md",
+      "repository_id": "REP-E76F689ADF741557",
+      "source_kind": "architecture",
+      "source_sha256": "145f6742d41b7a70cae1947aee92af923d937a42e2b3e528946311f1e3bee747",
+      "status": null,
+      "title": "Genesis IV-B4B — Behavioral Compatibility Certification"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_iv_b4c_registry_reconstruction.md",
+      "repository_id": "REP-FEEFD950A3B199B6",
+      "source_kind": "architecture",
+      "source_sha256": "7f651a4535937ef83a0ca355ee7ef3ffededbd1309b1329e7dd0a2795930fade",
+      "status": null,
+      "title": "Genesis IV-B4C — Canonical Migration Registry Reconstruction"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_vi_b0_integration_contract_convergence.md",
+      "repository_id": "REP-490FC28ED039D20A",
+      "source_kind": "architecture",
+      "source_sha256": "aef22f4854d5f36fc9e87452fbcbb11143a749d1b4095e4cf37b48b60aed6c60",
+      "status": "Implemented",
+      "title": "Genesis VI-B0 — Integration Contract Convergence"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence/genesis_vi_b0_projection_plane.md",
+      "repository_id": "REP-4687C59A3D11238C",
+      "source_kind": "architecture",
+      "source_sha256": "7d0895be1ad148a9d5e1a23b44923074d12bb553499cf76ca3fff293ab9646f0",
+      "status": "Implemented",
+      "title": "Genesis VI-B0 — Executive Projection Plane"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence_c1_executive_conversation.md",
+      "repository_id": "REP-423CEDD6A69D3F3A",
+      "source_kind": "architecture",
+      "source_sha256": "116cc5908b805ed051ae84d7c80c09cdc25cb74d1831db5b24d3db4e791d8cf0",
+      "status": null,
+      "title": "JARVIS Convergence C-1 — Executive Conversation Activation"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence_c3_capability_routing.md",
+      "repository_id": "REP-8BAB359DA7A0632E",
+      "source_kind": "architecture",
+      "source_sha256": "bf078e805b953573952a4e724147e3035c11237756f6889775c59d6238a8132a",
+      "status": null,
+      "title": "JARVIS Convergence C-3 — Capability Routing"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence_c4_knowledge_grounding.md",
+      "repository_id": "REP-B75C2FBDDE3E8A4C",
+      "source_kind": "architecture",
+      "source_sha256": "c7a07a56879bee7b27ef62fb23c96edd00930ac1dbfd0164618413d0344ab20b",
+      "status": null,
+      "title": "JARVIS Convergence C-4 — Knowledge Grounding"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/convergence_c5_executive_knowledge_awareness.md",
+      "repository_id": "REP-59D02DC871ACFCE6",
+      "source_kind": "architecture",
+      "source_sha256": "5755130007fcc672ef08c05d0a249e7734891879b1745267758bde7a57c1f743",
+      "status": null,
+      "title": "Convergence C-5 — Executive Knowledge Awareness & Evidence Reasoning"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/evidence_engine.md",
+      "repository_id": "REP-0BF4CA803EC4E853",
+      "source_kind": "architecture",
+      "source_sha256": "3722a37c4301325610fb471b7b13cacb692f0e4984071653cebc34742f954931",
+      "status": "Canonical subsystem specification",
+      "title": "JARVIS Evidence Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/executive_cognitive_lifecycle.md",
+      "repository_id": "REP-54DA6512E6B3F69D",
+      "source_kind": "architecture",
+      "source_sha256": "24ba0916c94a41e5906e2ad65ea905750ffc33c4838acd8811c30ad62e67210a",
+      "status": "Draft 1.0",
+      "title": "Executive Cognitive Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/executive_integration_architecture.md",
+      "repository_id": "REP-BEDA2FD10F3170AE",
+      "source_kind": "architecture",
+      "source_sha256": "27ded6240b44768d8d1e61884fd2e035d08b95b404d0dfd7464cb235205c2f31",
+      "status": null,
+      "title": "Executive Integration Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/executive_projection_contract.md",
+      "repository_id": "REP-9296594BBE5F390C",
+      "source_kind": "architecture",
+      "source_sha256": "a10e49ac61c19f8e19c3d2e88f12c2ea57fadb16345e3270a847161260e42dbc",
+      "status": null,
+      "title": "Executive Projection Contract"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/gen2_mission_engine.md",
+      "repository_id": "REP-4A4B795F3B5FD1D5",
+      "source_kind": "architecture",
+      "source_sha256": "ce7ae3cc9aa05892fd1fa8969beb8f790917638aee8cced50b404b853c5abe28",
+      "status": null,
+      "title": "JARVIS Gen 2 Phase I — Executive Director and Mission Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/gen2_phase_7b1_source_admission.md",
+      "repository_id": "REP-A5F65E54C0E6BA79",
+      "source_kind": "architecture",
+      "source_sha256": "384da4b4b93da34d76d626827c15f2e8fab8b22e6ce8e905e19167b1e92be3b8",
+      "status": null,
+      "title": "JARVIS Gen 2 Phase VII-B1"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/gen2_phase_7b2_source_registry.md",
+      "repository_id": "REP-F4E5B659F0ED41A6",
+      "source_kind": "architecture",
+      "source_sha256": "794b01968b1ab569c6227770870926673e3885e85461f538731b0464fed2e528",
+      "status": null,
+      "title": "JARVIS Gen 2 Phase VII-B2"
+    },
+    {
+      "document_id": "GENESIS-LIFECYCLE",
+      "path": "docs/architecture/genesis/GENESIS_LIFECYCLE.md",
+      "repository_id": "REP-C0C5E7CB7A08AB95",
+      "source_kind": "architecture",
+      "source_sha256": "a79e2e14e64b1ffef33abb588a5a46f7cb83921aa92703e7da35288a70f4d84f",
+      "status": "Constitutional Standard",
+      "title": "GENESIS LIFECYCLE"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/execution/README.md",
+      "repository_id": "REP-C69865118E4B1EB3",
+      "source_kind": "architecture",
+      "source_sha256": "5f683f9cb778d1a4428e6789e98c113a798611f51e4544e7b8303d08584e9104",
+      "status": null,
+      "title": "Execution Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/executive/README.md",
+      "repository_id": "REP-160606C84E730541",
+      "source_kind": "architecture",
+      "source_sha256": "dfb6b01545566e3ee50f73f18454975f5a7d0aa6c7f0c665c3411e24857f528f",
+      "status": null,
+      "title": "Executive Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/experience/README.md",
+      "repository_id": "REP-F092B1D2AB6E82FC",
+      "source_kind": "architecture",
+      "source_sha256": "42e94df9fa88d7b3b8df03d929bc0dae1f43aaa9572f73abe4f7d2b02e48c653",
+      "status": null,
+      "title": "Experience Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/knowledge/README.md",
+      "repository_id": "REP-8E68B2ADACC475A8",
+      "source_kind": "architecture",
+      "source_sha256": "5c31129afdcb6d6b0ce5204253ae25ac1e86d728bb8826f572ad29697a46dd5a",
+      "status": null,
+      "title": "Knowledge Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/memory/README.md",
+      "repository_id": "REP-FFF098FD119060A4",
+      "source_kind": "architecture",
+      "source_sha256": "ef1e04bb54b2dd2847d8502e0baecd1937b95a1c2ed0ce23307243f907bbb6dc",
+      "status": null,
+      "title": "Memory Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/planning/README.md",
+      "repository_id": "REP-199643B758341021",
+      "source_kind": "architecture",
+      "source_sha256": "7d4d1f9c9f8ea99e3ca48a60079d2a6822375d526e614abac575b2af979ab53e",
+      "status": null,
+      "title": "Planning Genesis"
+    },
+    {
+      "document_id": "GENESIS-II-A1",
+      "path": "docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md",
+      "repository_id": "REP-470F13956761E84C",
+      "source_kind": "architecture",
+      "source_sha256": "113723f6b8d9add0760375d762e75457854353b6e0dc2f3faa7021e12e11a761",
+      "status": "Implemented",
+      "title": "GENESIS II-A1 — REASONING SESSION CONTRACT"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/reasoning/GENESIS_II_A2_REASONING_SESSION_LIFECYCLE.md",
+      "repository_id": "REP-2882A343717AB533",
+      "source_kind": "architecture",
+      "source_sha256": "be3e238310558ae61c1466d4e76be66e44e3401d8c76928cfbf4dee952b64b47",
+      "status": "Implementation Candidate",
+      "title": "Genesis II-A2 — Reasoning Session Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/reasoning/GENESIS_II_A3A_VERIFICATION_ARCHITECTURE.md",
+      "repository_id": "REP-E0663EB5B6D9107A",
+      "source_kind": "architecture",
+      "source_sha256": "4c1f0300e874866537306cf006dc4aa1b1c07a9939bf4716bd2b2aa7e9cc32ab",
+      "status": "Implementation Candidate",
+      "title": "Genesis II-A3A — Verification Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/reasoning/GENESIS_II_A3_CONSTITUTIONAL_REASONING_CONTEXT.md",
+      "repository_id": "REP-9ABB3C86D5A4C882",
+      "source_kind": "constitutional",
+      "source_sha256": "59511137996e73db66b66561b1dd40c9d83d53213d34c2bf8bf765af2d034697",
+      "status": "Implementation Candidate",
+      "title": "Genesis II-A3 — Constitutional Reasoning Context"
+    },
+    {
+      "document_id": "GENESIS-II-A4",
+      "path": "docs/architecture/genesis/reasoning/GENESIS_II_A4_CANONICAL_EVIDENCE_MODEL.md",
+      "repository_id": "REP-EC364B75EAA32D7E",
+      "source_kind": "architecture",
+      "source_sha256": "3c1a3e97fb50a8b9989d3ef8fca1b0b50eb8c2efd8c1fffe78f4f5626cc9d358",
+      "status": "Executive Design",
+      "title": "JARVIS Genesis II-A4 — Canonical Evidence Model"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/reasoning/README.md",
+      "repository_id": "REP-5AAB458AFE026149",
+      "source_kind": "architecture",
+      "source_sha256": "0919f67bf9ab0ddb3a79af91b98372ea38b462639636281259c43ba6e0f884db",
+      "status": null,
+      "title": "Reasoning Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis/vision/README.md",
+      "repository_id": "REP-15F79E89C45DFEA4",
+      "source_kind": "architecture",
+      "source_sha256": "3a272e0245b7455cc18a3e95c3e815aa2816e2d3fe382272e725ed153e3775e5",
+      "status": null,
+      "title": "Vision Genesis"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_3f1_cognitive_workspace_integration_freeze.md",
+      "repository_id": "REP-660F3896BE10FDB5",
+      "source_kind": "architecture",
+      "source_sha256": "93d721fa6e2c1d3b1d8ea23f682e64b217b87239deb0a0691579956bf0b6c925",
+      "status": null,
+      "title": "Genesis III-F1 — Cognitive Workspace Integration Freeze"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_cognitive_workspace_foundation.md",
+      "repository_id": "REP-5BA2346BD42A752E",
+      "source_kind": "architecture",
+      "source_sha256": "125424dc8a50d3c252cecb59da8bbbc27c9bc37b77bcbc7e53269abaf0702c99",
+      "status": null,
+      "title": "Genesis III-A1 — Cognitive Workspace Foundation"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_evolutionary_verification_architecture.md",
+      "repository_id": "REP-8DF9E9937F6AD446",
+      "source_kind": "architecture",
+      "source_sha256": "eee8ad978359f4b6a437a4196708ae3d9bfc6f8cf0d612e61c1aecff76ee9d88",
+      "status": null,
+      "title": "Genesis II-A3B — Evolutionary Verification Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_iv_a2_executive_situation_model.md",
+      "repository_id": "REP-4ADE52007969BB98",
+      "source_kind": "architecture",
+      "source_sha256": "6302bb03a4dc2c6ca3e13760b3f0b00948dbbe7086bf0731679a3f5a2a791c4b",
+      "status": "Implemented",
+      "title": "Genesis IV-A2 — Executive Situation Model"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_iv_a3_executive_hypothesis_engine.md",
+      "repository_id": "REP-916801F26616EEDA",
+      "source_kind": "architecture",
+      "source_sha256": "010fec46f86b98a62f04685d213068927febc009c549f14228b3726cfb35aaf0",
+      "status": "Implemented",
+      "title": "Genesis IV-A3 — Executive Hypothesis Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_iv_a4_executive_evidence_correlation.md",
+      "repository_id": "REP-A91844CB1DCA1096",
+      "source_kind": "architecture",
+      "source_sha256": "fd376d4ca187e0ef258cc4ce6ef853ae704499d3f96d4696b6f1cefbec0e3aef",
+      "status": "Implemented",
+      "title": "Genesis IV-A4 — Executive Evidence Correlation Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_iv_a5_executive_reasoner.md",
+      "repository_id": "REP-681EE738B71D6C6C",
+      "source_kind": "architecture",
+      "source_sha256": "a9994f08cbd2e318b1fbd7cef4678a1c8a258b507a5be9ea4238ce8268c0b6b0",
+      "status": "Implemented",
+      "title": "Genesis IV-A5 — Executive Reasoner"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_iv_a8_executive_mission_compiler.md",
+      "repository_id": "REP-E94B2253445FC617",
+      "source_kind": "architecture",
+      "source_sha256": "cac38b03665ffd2fc4e262bfaef060baf73ee59a17f67827151eff9bb76c6167",
+      "status": null,
+      "title": "Genesis IV-A8 — Executive Mission Compiler"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_iv_a9_executive_execution_orchestrator.md",
+      "repository_id": "REP-370D502ECCDB6CE2",
+      "source_kind": "architecture",
+      "source_sha256": "3984feca7b2cd153d715e6c942a426f0b1f19930d86e2fb7e7eae75f82bd2d9d",
+      "status": null,
+      "title": "Genesis IV-A9 — Executive Execution Orchestrator"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_iv_b1_executive_integration_visibility_fabric.md",
+      "repository_id": "REP-F5B5DA2B94413E6C",
+      "source_kind": "architecture",
+      "source_sha256": "97d19ac67e481efbb1f191c975065def110972fe78de6b21c3e19923519f99cf",
+      "status": null,
+      "title": "Genesis IV-B1 — Executive Integration and Visibility Fabric"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_persistent_cognitive_workspace_repository.md",
+      "repository_id": "REP-C80D4FB53E6C8F8C",
+      "source_kind": "architecture",
+      "source_sha256": "6b1eec111b93ed3a4020bb2818b22efa6c5298f71b8b1413a02e2880d0449f4b",
+      "status": null,
+      "title": "Genesis III-A2 — Persistent Cognitive Workspace Repository"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_ui_a3_capability_discovery_registration.md",
+      "repository_id": "REP-2787564C7190D7AE",
+      "source_kind": "architecture",
+      "source_sha256": "90d89610eecc8b4ef84417cd127246a59c5251405e596d043c0aa85ccce55f50",
+      "status": null,
+      "title": "Genesis UI-A3 — Capability Discovery & Registration"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_vi_a63_executive_checkpoint_store.md",
+      "repository_id": "REP-1BE50097827F337F",
+      "source_kind": "architecture",
+      "source_sha256": "ba72fc997d5ccf696b11abf9d40c0fa120c77df56843802005d5b9c3ac94c102",
+      "status": "Certified implementation candidate",
+      "title": "Genesis VI-A6.3 — Executive Checkpoint Store"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_vi_a64_executive_integrity_engine.md",
+      "repository_id": "REP-4206531C82A1972A",
+      "source_kind": "architecture",
+      "source_sha256": "efcb9bdf8f66e3acebabfe20be74b1706c1d8dbb0396224f164b8ff6e57cd42c",
+      "status": "Implemented",
+      "title": "Genesis VI-A6.4 — Executive Integrity Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/genesis_vi_a66_executive_lifecycle_manager.md",
+      "repository_id": "REP-C9628BC76AE93E9F",
+      "source_kind": "architecture",
+      "source_sha256": "d641cffedc49500810ef6b982662dca5b332e2e381053d33258838d84cd28a8d",
+      "status": "Implemented",
+      "title": "Genesis VI-A6.6 — Executive Lifecycle & Session Manager"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/governance/constitutional_extraction_engine.md",
+      "repository_id": "REP-DC9977E97BED593F",
+      "source_kind": "constitutional",
+      "source_sha256": "c8b1f75addf4385a39f1d18fb6c325cacf3179978d4a2611ac39e020198ae6cd",
+      "status": "Implementation Candidate",
+      "title": "Genesis VII-C1 — Constitutional Extraction Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/governance_audit_certification.md",
+      "repository_id": "REP-EF388BED3309D2EB",
+      "source_kind": "architecture",
+      "source_sha256": "49a38da9d2d0ff0cadf515e4e1b1e4682e75e78003bac35c2cd50178ef435893",
+      "status": "Implemented",
+      "title": "Genesis VII-C0 Pack 1B — Governance Audit Certification"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/jarvis_engineering_standard.md",
+      "repository_id": "REP-29831A0B0EF53151",
+      "source_kind": "architecture",
+      "source_sha256": "c7bd176b0448f0df5f8bcf001a93e8b1ade2521d41c1ab5ae064772cd40551ea",
+      "status": null,
+      "title": "JARVIS Engineering Standard"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/knowledge_awareness_contract.md",
+      "repository_id": "REP-BA7DB85A94000CC6",
+      "source_kind": "architecture",
+      "source_sha256": "4902fc48429185910235f2b9d6de02fd44a58445dae834e983a2b90539563740",
+      "status": null,
+      "title": "Knowledge Awareness Contract"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/knowledge_engine_canonical_owners.md",
+      "repository_id": "REP-0DB470B0F02E3A2C",
+      "source_kind": "architecture",
+      "source_sha256": "a30613bacd0b4054ad72cfbe2f1d1aff49a12434c13ebdb2989de3fb84cf03b2",
+      "status": null,
+      "title": "Knowledge Engine Canonical Owners"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/knowledge_lifecycle.md",
+      "repository_id": "REP-E2EBAD007B5FC2C4",
+      "source_kind": "architecture",
+      "source_sha256": "0b5a67cf72cb7d3ba78048f4f4e00f0d0ea7604888f7d1a22a8d091d4340d516",
+      "status": "Canonical Architecture",
+      "title": "JARVIS Knowledge Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/knowledge_system_v2.md",
+      "repository_id": "REP-22CD694A167B27BF",
+      "source_kind": "architecture",
+      "source_sha256": "6380ece9960f7470ad087ea41790b951263fc4c4dea77770e96eca505096161e",
+      "status": null,
+      "title": "JARVIS Knowledge System v2"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/milestones/phase_vi_f3_runner_composition.md",
+      "repository_id": "REP-1979D1322A5CFB4E",
+      "source_kind": "architecture",
+      "source_sha256": "812402049cd640b6246bcd59291e8e27e40e7e7c1f901dd3dec15671f534adda",
+      "status": "Complete",
+      "title": "JARVIS Gen 2 — Phase VI-F3"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/milestones/phase_vi_f4_performance_contracts.md",
+      "repository_id": "REP-BAEF97AE81DD1C2C",
+      "source_kind": "architecture",
+      "source_sha256": "e446ded8bdb9c08e17fb0be2daa50ebc56851f1cc2916f2c89f9b52cf100abcc",
+      "status": "Complete after focused and master verification pass.",
+      "title": "JARVIS Gen 2 — Phase VI-F4"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/milestones/phase_vii_a6_assimilation_handoff.md",
+      "repository_id": "REP-766E980C5499F105",
+      "source_kind": "architecture",
+      "source_sha256": "b6d2d7aa5a591c1f2b43a38088aacd9f04cbc58c2cf6abb63e44fe51d659bced",
+      "status": null,
+      "title": "JARVIS Gen 2 — Phase VII-A6"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/operations_layer.md",
+      "repository_id": "REP-49E03FC7A58E3209",
+      "source_kind": "architecture",
+      "source_sha256": "a6f1fda049b34dcf7b583c9ba1988c705cad74da2beecd4075d68ffe0920b791",
+      "status": null,
+      "title": "MC-1001 — Executive Operations Interface"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/overview.md",
+      "repository_id": "REP-41BEF874CE620E7E",
+      "source_kind": "architecture",
+      "source_sha256": "fba5eb4061e46c3491ad5ba5d8cc6c3742477e928d0a78c7cd37ae777b5cc87d",
+      "status": null,
+      "title": "JARVIS Knowledge Engine Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/phase_ii_a_consolidation.md",
+      "repository_id": "REP-32AA57FB2A70BA83",
+      "source_kind": "architecture",
+      "source_sha256": "c05804cc79ac2d95a7ad76bb947694098824f552890ad32c72f253df4bbad26a",
+      "status": "In Progress",
+      "title": "Phase II-A — Architecture Consolidation"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/reasoning_engine_foundation.md",
+      "repository_id": "REP-9E73265A0EF56FB3",
+      "source_kind": "architecture",
+      "source_sha256": "22bd0c78895d468b90b425cebe7a1b4143dc5611bbd06b19ec699d05bdcf4957",
+      "status": null,
+      "title": "JARVIS Reasoning Engine Foundation"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/reasoning_hypothesis_knowledge_integration.md",
+      "repository_id": "REP-01622092A32AF76B",
+      "source_kind": "architecture",
+      "source_sha256": "a676439de71ff84ef83eabc4827443b2e4c358a9b272c17a15505ba57ba89721",
+      "status": null,
+      "title": "Phase X-B — Hypothesis Generation and Knowledge Evidence Integration"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/service_architecture.md",
+      "repository_id": "REP-E5D139B9EE3ACBDF",
+      "source_kind": "architecture",
+      "source_sha256": "96916fa756e9ee030ff1c6cfa1ebfc4e08d686171146f3e3622c7baeff422602",
+      "status": "Active",
+      "title": "Knowledge Engine Service Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/storage.md",
+      "repository_id": "REP-E855BD280104452F",
+      "source_kind": "architecture",
+      "source_sha256": "49a2f00d97a4ab21bb78536d4356280f1480bf858fa37fcf76fd2ce611f46aaa",
+      "status": "Draft",
+      "title": "JARVIS Storage Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/testing/CANONICAL_CONSTITUTIONAL_FIXTURES.md",
+      "repository_id": "REP-75148713E62AFD56",
+      "source_kind": "constitutional",
+      "source_sha256": "812b26971952781ad4e77a8236b25b12f6f6c8788b8e584aa9692e555f40aeda",
+      "status": "Implementation Candidate",
+      "title": "Canonical Constitutional Test Fixtures"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/ui/00_design_language.md",
+      "repository_id": "REP-4A0C3F49BF2ACC81",
+      "source_kind": "architecture",
+      "source_sha256": "20dff97ca30990074060f016d7da1dd151f05d33f82f9b4ab9bb1d0ad3249240",
+      "status": null,
+      "title": "JARVIS Mission Control UI Design Language"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/ui/01_user_experience.md",
+      "repository_id": "REP-0E4CE4E81A0FE81F",
+      "source_kind": "architecture",
+      "source_sha256": "e28f1f949df35d6e4c7cf0e052ee505db5c4693b0b7058ad05b7f9e167214e17",
+      "status": null,
+      "title": "JARVIS Mission Control User Experience"
+    },
+    {
+      "document_id": "UI-0003",
+      "path": "docs/architecture/ui/03_navigation_model.md",
+      "repository_id": "REP-DD37466CDC6F7121",
+      "source_kind": "architecture",
+      "source_sha256": "dd58904c6db265dc955b92769dbdf2fe5c22ca7303c75f723842c90738a16a8e",
+      "status": "Draft",
+      "title": "JARVIS Mission Control Navigation Model"
+    },
+    {
+      "document_id": "UI-0004",
+      "path": "docs/architecture/ui/04_operational_context.md",
+      "repository_id": "REP-8CE692ACA4747F67",
+      "source_kind": "architecture",
+      "source_sha256": "0c9ccad97dabe6898cdac79981754796a473b8b127524c5ec9f1618aad3518e7",
+      "status": "Draft",
+      "title": "JARVIS Operational Context Architecture"
+    },
+    {
+      "document_id": "UI-0005",
+      "path": "docs/architecture/ui/05_commander_brief.md",
+      "repository_id": "REP-9BEDE762A9BBD144",
+      "source_kind": "architecture",
+      "source_sha256": "36a36cf7e73b123640b66f1f568b2e51d692b44dc75b7d7906253d23abc39259",
+      "status": "Draft",
+      "title": "JARVIS Commander Brief Architecture"
+    },
+    {
+      "document_id": "UI-0006",
+      "path": "docs/architecture/ui/06_mission_workspace.md",
+      "repository_id": "REP-71B3B4C8924B6D6C",
+      "source_kind": "architecture",
+      "source_sha256": "aefd939e82dc9d2edc6b90f713a3e8e68bbfdf45554d114f93019cb332a56cbe",
+      "status": "Draft",
+      "title": "JARVIS Mission Workspace Architecture"
+    },
+    {
+      "document_id": "UI-0007",
+      "path": "docs/architecture/ui/07_operator_experience.md",
+      "repository_id": "REP-657CD2016EA2CBB3",
+      "source_kind": "architecture",
+      "source_sha256": "8fe63162513c4d6d4cb1522ec8331f70e2964be569ab1ca6ce5930a3af02f1ba",
+      "status": "Draft",
+      "title": "JARVIS Operator Experience"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/ui/08_mission_lifecycle.md",
+      "repository_id": "REP-77BE49D8C8F2FFE1",
+      "source_kind": "architecture",
+      "source_sha256": "df0a8f662f6baec86c2f812e097d63d59c1dc79625f003278011bb9f3772d09e",
+      "status": null,
+      "title": "17. Awaiting Approval"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/ui/09_sitrep.md",
+      "repository_id": "REP-66FC0253FEBA2D8A",
+      "source_kind": "architecture",
+      "source_sha256": "99961416b5bbb2ffa62438a0b88353328e94fef3d55fc639fd9cc310eef27057",
+      "status": "Architecture Definition",
+      "title": "JARVIS Mission Control"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/ui/10_mission_journal.md",
+      "repository_id": "REP-6166F71D3F421D73",
+      "source_kind": "architecture",
+      "source_sha256": "2cebcebdb74aa126076717b512b88a310664e9f1494db878912a7fd98f2f7cff",
+      "status": "Canonical",
+      "title": "Mission Journal Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/architecture/ui/README.md",
+      "repository_id": "REP-F786490F7C0B7CAC",
+      "source_kind": "architecture",
+      "source_sha256": "a153739b006b4ff7732e3e14ab0c0aa851433720dbeddb137cdeb957bf226b7a",
+      "status": null,
+      "title": "JARVIS Mission Control UI"
+    },
+    {
+      "document_id": null,
+      "path": "docs/audits/constitution_ratification_report.md",
+      "repository_id": "REP-FD6E92660CC74FEB",
+      "source_kind": "constitutional",
+      "source_sha256": "2b403eeb01f873b62e664f9c099a962970f640af47b79766c2d79848a1191e42",
+      "status": "Ratified",
+      "title": "CONST-0001 Ratification Report"
+    },
+    {
+      "document_id": null,
+      "path": "docs/audits/constitution_v1_canonicalization_report.md",
+      "repository_id": "REP-C9F2AE6BC9B8A6EF",
+      "source_kind": "constitutional",
+      "source_sha256": "242d1e35ab172f79e76f20b6afea7745529186f542dcefda68c5f984568cfda1",
+      "status": null,
+      "title": "CONST-0001 Canonicalization Report"
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/ENGINEERING_CONSTITUTION.md",
+      "repository_id": "REP-3E24BA10837946BC",
+      "source_kind": "constitutional",
+      "source_sha256": "a39d740c57bde46f6a71983e88e9e17379afe6fa1b43e32f1583a9f6b933adc1",
+      "status": "Foundational",
+      "title": "JARVIS Engineering Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/KM-0000_KNOWLEDGE_CONSTITUTION.md",
+      "repository_id": "REP-E7091A3B7E76DE8D",
+      "source_kind": "constitutional",
+      "source_sha256": "751128689f471d71f6b6a4361f7fd9ae777cb201b5d6ce6f592444e4756a2021",
+      "status": "Draft 0.1 (Repository Audit)",
+      "title": "Document ID: KM-0000-R1"
+    },
+    {
+      "document_id": "UI-0001",
+      "path": "docs/constitution/UI-0001-commanders_bridge_constitution.md",
+      "repository_id": "REP-59D725BC77E699E0",
+      "source_kind": "constitutional",
+      "source_sha256": "3e1743de9ce637d40c06d911f0753d9c37a22f2d5b2f17737dd46ee0374b2100",
+      "status": "Ratified",
+      "title": "UI-0001"
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/architecture_principles.md",
+      "repository_id": "REP-B0C40BA5FFFE1EA7",
+      "source_kind": "constitutional",
+      "source_sha256": "819db38d567b54dc07699c9d070ec25c6e0f796ba1b07833449aba5d7d79d8b0",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/execution.md",
+      "repository_id": "REP-0058B23D07E09D06",
+      "source_kind": "constitutional",
+      "source_sha256": "8b42bf19cbab034553a2b6ad20fe733f6a639d62347c7107a0a07b66c55700ee",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": "CONST-0001",
+      "path": "docs/constitution/executive.md",
+      "repository_id": "REP-A628530DFCF2990C",
+      "source_kind": "constitutional",
+      "source_sha256": "983b77f27fa614b4c74e68c5af255f07ccdd7cd4d9f430baa6101f4d021f161c",
+      "status": "Ratified",
+      "title": "JARVIS Executive Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/experience.md",
+      "repository_id": "REP-5C51DB5E890AFEC4",
+      "source_kind": "constitutional",
+      "source_sha256": "ca915e58758e3b25a22759a07d9d3f6b080844a9e31f26d1caa01f47d8f10e8f",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/knowledge.md",
+      "repository_id": "REP-3751D1C44DB3B2A1",
+      "source_kind": "constitutional",
+      "source_sha256": "87b66133845910a9216a1a890a1304df7e368a8c265022c5039d6d40bbf269ef",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/memory.md",
+      "repository_id": "REP-84E2831C0B529BAC",
+      "source_kind": "constitutional",
+      "source_sha256": "547a7fbb99f6f668706f54724bdd4987b383062802a55b0f19360f7019eb3540",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/planning.md",
+      "repository_id": "REP-C33A1C624DD32CB1",
+      "source_kind": "constitutional",
+      "source_sha256": "4d5b710cc11ae078a7773127f7329a13597d58626c222569fd387ac0c458ee23",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "docs/constitution/reasoning.md",
+      "repository_id": "REP-6EEED1F721B12BE8",
+      "source_kind": "constitutional",
+      "source_sha256": "e855f2e11d3933f65b1dff75ad875d95d17d92cc3acaa0af11626df0927bb6fb",
+      "status": null,
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0000.md",
+      "repository_id": "REP-38DB0016AC34AAE3",
+      "source_kind": "adr",
+      "source_sha256": "26e594058ee380b70dd21fe3e8fa2e7f2934ee3c9bfb50b5152d3c2a095d2937",
+      "status": null,
+      "title": "ADR-0000: The JARVIS North Star"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0006-Jarvis-Librarian-Knowledge-Gap-Analysis.md",
+      "repository_id": "REP-AE0060900D9C8C2C",
+      "source_kind": "adr",
+      "source_sha256": "57ff30be2b82e062c2072671555ef960aeecf0e17e67a9d3294ee33a1e27eeb9",
+      "status": null,
+      "title": "ADR-0006: JARVIS Librarian and Knowledge Gap Analysis"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0006-knowledge-ontology.md",
+      "repository_id": "REP-B7D8C846C50D14AA",
+      "source_kind": "adr",
+      "source_sha256": "2bc8159535a29bf9d12728c3dec77e939a78bed4951bc45f2b545821d503f853",
+      "status": "Accepted",
+      "title": "ADR-0006 — Knowledge Ontology"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0007-inspect-early-reuse-forever.md",
+      "repository_id": "REP-18236EB3CC355D88",
+      "source_kind": "adr",
+      "source_sha256": "c46999d0f2e53f0bffa074994450c28386421f50cd41c028356291336164cde2",
+      "status": "Accepted",
+      "title": "ADR-0007 — Inspect Early, Reuse Forever"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0007-knowledge-lifecycle.md",
+      "repository_id": "REP-45DC4B77EC64FA52",
+      "source_kind": "adr",
+      "source_sha256": "e47c4b511daa09e29f27f426aaffc5708f22f75f979b7e8dc587c7ab67a2418f",
+      "status": "Accepted",
+      "title": "ADR-0007 — Knowledge Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0007-knowledge-pipeline-architecture.md",
+      "repository_id": "REP-9C9BA08A381E5B59",
+      "source_kind": "adr",
+      "source_sha256": "aec9d618f792f26c75389fb0935732d9f391e6f89ab4a146b420ffbf134eed43",
+      "status": "Accepted",
+      "title": "ADR-0007: Knowledge Pipeline Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0008-layered-capability-architecture.md",
+      "repository_id": "REP-7A0725DC937F6BA9",
+      "source_kind": "adr",
+      "source_sha256": "43cddb20255b75165b1ba3668984ae209e9f02a272912d780773fa42ea3d7dff",
+      "status": "Accepted",
+      "title": "ADR-0008 — Layered Capability Architecture"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0011-knowledge-discovery-engine.md",
+      "repository_id": "REP-6333522D32C66741",
+      "source_kind": "adr",
+      "source_sha256": "652b166450d3f2d67d0878a343d1571fad9ffb638141aff6b71327e25a3de994",
+      "status": null,
+      "title": "ADR-0011: Knowledge Discovery Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0012-knowledge-coverage-graph.md",
+      "repository_id": "REP-FC0985EEE8A3728B",
+      "source_kind": "adr",
+      "source_sha256": "f1482637ecc221f9be6325060cb7c6e2b3cbd6b85d5356d702b34f0fcc8d27ba",
+      "status": null,
+      "title": "ADR-0012: Knowledge Coverage Graph"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0013-gap-analysis-engine.md",
+      "repository_id": "REP-DBF190637053F955",
+      "source_kind": "adr",
+      "source_sha256": "ce48abca28b4b2456a69487c25ba520ba008b7baa8aab59f3533a3b9abbdd503",
+      "status": null,
+      "title": "ADR-0013: Gap Analysis Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0013A-knowledge-mapping-layer.md",
+      "repository_id": "REP-A25BAB48FEF9440A",
+      "source_kind": "adr",
+      "source_sha256": "8aad34ef21c539443f8f31583c7404e407c1211266e187a119a77ed5f6b98299",
+      "status": null,
+      "title": "ADR-0013A: Knowledge Mapping Layer"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0015-semantic-extraction-engine.md",
+      "repository_id": "REP-79C4587254BFF0E0",
+      "source_kind": "adr",
+      "source_sha256": "5b911a8d179a85513843e9717d146020da7eccb2531f5853bd96cd9acfb7bb04",
+      "status": null,
+      "title": "ADR-0015 — Semantic Extraction Engine"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0016-knowledge-capability-ownership.md",
+      "repository_id": "REP-E0104971D90C59D0",
+      "source_kind": "adr",
+      "source_sha256": "e250c920496972121bac351ad23bb1227bc057150ea8351ce98db1c9cc8d6c14",
+      "status": null,
+      "title": "ADR-0016 — Knowledge Capability Ownership"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0017-progressive-workspace-tools.md",
+      "repository_id": "REP-53EB686774D5AF5F",
+      "source_kind": "adr",
+      "source_sha256": "ca8b135abd22d396bc5708fe14b131747ccff57b5f2a4a5bf2a7b8cd349ba08b",
+      "status": null,
+      "title": "ADR-0017"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0018-constitutional-first-principles.md",
+      "repository_id": "REP-BFCBD8C3DF4025C4",
+      "source_kind": "constitutional",
+      "source_sha256": "552e1f4f301ff5bccc52f2b34ebccc991a4f6c2df521736652b2e28b88aeb598",
+      "status": null,
+      "title": "ADR-0018 — Constitutional First Principles"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0018-genesis-iv-evidence-constitution.md",
+      "repository_id": "REP-FBDA5D8FFE542673",
+      "source_kind": "constitutional",
+      "source_sha256": "389a9151e2b3598ccddd5e4c36a9c5b1631cdd61c7b7f175a9d4506b82abf512",
+      "status": "Accepted",
+      "title": null
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0018-operational-memory.md",
+      "repository_id": "REP-0AF46904FB085D1F",
+      "source_kind": "adr",
+      "source_sha256": "3c708811cd911774b032a150072078a9d098e6f41079909a6f4c00a80a0da1a3",
+      "status": "Accepted",
+      "title": "ADR-0018 — Operational Memory as a First-Class Architectural Domain"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0018.md",
+      "repository_id": "REP-5493D7DDB8EAA086",
+      "source_kind": "adr",
+      "source_sha256": "826fee7e39d7f0664f89c464d6c5930774d99f66bf971a33e0c14a76f0f62e3d",
+      "status": "Accepted",
+      "title": "ADR-0018 — Canonical Constitutional Test Fixtures"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0019-canonical-evidence-model.md",
+      "repository_id": "REP-180A7EE7F7A029A2",
+      "source_kind": "adr",
+      "source_sha256": "047e295962fa79851b12a5b4cae1bf836232b9c709992698ad16b66869780b34",
+      "status": "Accepted",
+      "title": "ADR-0019 — Adopt a Canonical Evidence Model"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0019-genesis-iv-claim-constitution.md",
+      "repository_id": "REP-FAE31160B702916B",
+      "source_kind": "constitutional",
+      "source_sha256": "f340250c71576495f4a7cb757bdcd35d8ebd5248e27386cc1a503815eb59afa5",
+      "status": "Accepted",
+      "title": "ADR-0019: Genesis IV Claim Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0020-genesis-iv-cognition-architecture-constitution.md",
+      "repository_id": "REP-CA42A0C25CC99CD3",
+      "source_kind": "constitutional",
+      "source_sha256": "16142570d0714c4b965e417848e1aff387b81035ab2882be9300cfa43c8d5374",
+      "status": "Accepted",
+      "title": "ADR-0020: Genesis IV Cognition Architecture Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0023.md",
+      "repository_id": "REP-988FED86A87627DD",
+      "source_kind": "adr",
+      "source_sha256": "b9c29c60304d54f7c361e3467ec41b82d3a989b7fb742e79e41b60e74fa6ed19",
+      "status": "Accepted",
+      "title": "ADR-0023 — Executive Evidence and Trust Model"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0026-executive-observation-bus.md",
+      "repository_id": "REP-7ABCD79F3C24A4EA",
+      "source_kind": "adr",
+      "source_sha256": "4cf41ebb9c4f2f6b5bb6cb85ecd926cad51e24d96cd973b973f0354f8cb34806",
+      "status": "Accepted",
+      "title": "ADR-0026 — Executive Observation Bus"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0027-executive-situation-model.md",
+      "repository_id": "REP-6A1DFFAEC09F7FEB",
+      "source_kind": "adr",
+      "source_sha256": "af45f1c9c06fbdf472072a0fe4fb0edba951893b88939330cbb857aef25ad7a7",
+      "status": "Accepted",
+      "title": "ADR-0027 — Executive Situation Model"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0028-hypothesis-lifecycle.md",
+      "repository_id": "REP-094E3E2FB1112A24",
+      "source_kind": "adr",
+      "source_sha256": "7614450110be2d80cba6caf0784b8c04af8574827ac2f43d418ec123a43d71e5",
+      "status": "Accepted",
+      "title": "ADR-0028 — Executive Hypothesis Lifecycle"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0029-evidence-correlation-boundary.md",
+      "repository_id": "REP-46B344D5A5436C84",
+      "source_kind": "adr",
+      "source_sha256": "b8fb9da80c90dbcb6d257adbdd9c8585cf307b470a4871366b4dbf8c2ab3041b",
+      "status": "Accepted",
+      "title": "ADR-0029 — Evidence Correlation Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0030-executive-reasoning-policy.md",
+      "repository_id": "REP-C6A5BF4FF69DD068",
+      "source_kind": "adr",
+      "source_sha256": "1a45c216d3349cab351a03f554eba067091b888ded354d64c3216df1cc2a73e9",
+      "status": "Accepted",
+      "title": "ADR-0030 — Executive Reasoning Policy"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0031-executive-decision-boundary.md",
+      "repository_id": "REP-8A80BE28D7E1917E",
+      "source_kind": "adr",
+      "source_sha256": "61ac24b0afcc9bb69f177534a1673aa2664a3421b1706d3fffe651c3795b1a1a",
+      "status": "Accepted",
+      "title": "ADR-0031 — Executive Decision Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0032-executive-course-of-action-generation.md",
+      "repository_id": "REP-E90D6119A6F6AEC2",
+      "source_kind": "adr",
+      "source_sha256": "29fe18fc9eb78b77315b2924f23ebb5f3b2773b72c7579b68d573c4fd413da17",
+      "status": "Accepted",
+      "title": "ADR-0032: Executive Course-of-Action Generation Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0034-executive-decision-engine.md",
+      "repository_id": "REP-096E411B551EFB39",
+      "source_kind": "adr",
+      "source_sha256": "370b0c23ed405ef0447a568a8425ded196ee20622bc907039f1bd08a34836e3c",
+      "status": "Accepted",
+      "title": "ADR-0034 — Executive Decision Engine Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0035-executive-mission-compiler-boundary.md",
+      "repository_id": "REP-1671334E5C795EDC",
+      "source_kind": "adr",
+      "source_sha256": "5bc9a6d3b8e9d88310b6efc316416fc980cecb2b27093e061590a1a8e5b34953",
+      "status": "Accepted",
+      "title": "ADR-0035 — Executive Mission Compiler Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0036-executive-execution-orchestrator-boundary.md",
+      "repository_id": "REP-84ADD271986FB298",
+      "source_kind": "adr",
+      "source_sha256": "374a90236087885b4f516c76efa9b6456523b03b4874e415e4f5e50386867efb",
+      "status": "Accepted",
+      "title": "ADR-0036 — Executive Execution Orchestrator Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-0037-executive-integration-visibility-fabric.md",
+      "repository_id": "REP-B26DACAD20EC4D5E",
+      "source_kind": "adr",
+      "source_sha256": "d524e036c7d3970cafa54f2fcbfca57b6e79b5085dd7b69fba091e1b5cfe88ab",
+      "status": "Accepted",
+      "title": "ADR-0037 — Executive Integration and Visibility Fabric"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-EA-0001-executive-academy-charter.md",
+      "repository_id": "REP-2DDE29E65943063B",
+      "source_kind": "adr",
+      "source_sha256": "733b35fcf87d08b77c287a4c6d334983392791b0627aae444152c9d6ba752f19",
+      "status": "Accepted",
+      "title": "ADR-EA-0001 — Executive Academy Charter"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-EXEC-0002-executive-projection-bus.md",
+      "repository_id": "REP-A3BB3AE6FAA3AA90",
+      "source_kind": "adr",
+      "source_sha256": "4218402953827e338c781ce8d08fa536fd5b458aae51b33fb6b74af6a1b5835a",
+      "status": "Accepted",
+      "title": "ADR-EXEC-0002 — Canonical Executive Projection Bus"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-EXEC-0003-additive-integration-compatibility.md",
+      "repository_id": "REP-FC62A3F5A6886966",
+      "source_kind": "adr",
+      "source_sha256": "ff8ec18d3a8487ea5457c9518ae29d036613ecf703fe4b858689ccca7022cfed",
+      "status": "Accepted",
+      "title": "ADR-EXEC-0003 — Additive Executive Integration Compatibility"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-EXEC-0003-capability-discovery-registration.md",
+      "repository_id": "REP-A175C1A52F3A61CC",
+      "source_kind": "adr",
+      "source_sha256": "8a578ecad9faafa9c68fbb55f81d312fa67c77ed2f05385098b270491a0cb5c4",
+      "status": "Accepted",
+      "title": "ADR-EXEC-0003: Capability Discovery and Registration"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-GENESIS-II-A3B.md",
+      "repository_id": "REP-4E47A987D3A428C3",
+      "source_kind": "adr",
+      "source_sha256": "a092c2f21b3a0f8f232021c6e14c0fbc1d02936d913efa257040d73c36babed7",
+      "status": "Accepted",
+      "title": "ADR — Evolutionary Genesis Verification Manifest"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-GENESIS-III-A1.md",
+      "repository_id": "REP-AA3AE6857561F29A",
+      "source_kind": "adr",
+      "source_sha256": "2c107656b44b6be452e2243908cade71610694d148dcb5efddce780ba323727d",
+      "status": "Accepted",
+      "title": "ADR — Explicit Immutable Cognitive Workspace"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-GENESIS-III-A2.md",
+      "repository_id": "REP-CD7ECBD965C7D948",
+      "source_kind": "adr",
+      "source_sha256": "edbd35eceacb1ed93285c05dddf5d961eee3f239de5d1c40977880273fc7c5fe",
+      "status": "Accepted",
+      "title": "ADR — Persist Cognitive Workspaces Through a Repository Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "docs/decisions/ADR-GENESIS-III-A3.md",
+      "repository_id": "REP-8BD2EFB85FF62AFD",
+      "source_kind": "adr",
+      "source_sha256": "a05aa9966fb5818461200b316f7b3d51fd51a05ce3da6a5dc42e4dce178830c0",
+      "status": "Accepted",
+      "title": "ADR — Add a Repository-Agnostic Cognitive Workspace Catalog"
+    },
+    {
+      "document_id": "EA-CONSTITUTION-0001",
+      "path": "docs/executive_academy/EXECUTIVE_ACADEMY_CONSTITUTION.md",
+      "repository_id": "REP-77FC58CDC189023D",
+      "source_kind": "constitutional",
+      "source_sha256": "e88e4e9d2f2dfd1408b4e61fc4aa0a5776049726c58a577a94b7fe909c47986f",
+      "status": "Foundational",
+      "title": "Executive Academy Constitution"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_a7/docs/decisions/ADR-0034-executive-decision-engine.md",
+      "repository_id": "REP-3D498BB130D40A5F",
+      "source_kind": "adr",
+      "source_sha256": "370b0c23ed405ef0447a568a8425ded196ee20622bc907039f1bd08a34836e3c",
+      "status": "Accepted",
+      "title": "ADR-0034 — Executive Decision Engine Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_a8/docs/architecture/genesis_iv_a8_executive_mission_compiler.md",
+      "repository_id": "REP-E54C8C97D0C90D7B",
+      "source_kind": "architecture",
+      "source_sha256": "cac38b03665ffd2fc4e262bfaef060baf73ee59a17f67827151eff9bb76c6167",
+      "status": null,
+      "title": "Genesis IV-A8 — Executive Mission Compiler"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_a8/docs/decisions/ADR-0035-executive-mission-compiler-boundary.md",
+      "repository_id": "REP-BB3EEF1D74EC1F71",
+      "source_kind": "adr",
+      "source_sha256": "5bc9a6d3b8e9d88310b6efc316416fc980cecb2b27093e061590a1a8e5b34953",
+      "status": "Accepted",
+      "title": "ADR-0035 — Executive Mission Compiler Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_a9/docs/architecture/genesis_iv_a9_executive_execution_orchestrator.md",
+      "repository_id": "REP-F1A430CAA46EF688",
+      "source_kind": "architecture",
+      "source_sha256": "3984feca7b2cd153d715e6c942a426f0b1f19930d86e2fb7e7eae75f82bd2d9d",
+      "status": null,
+      "title": "Genesis IV-A9 — Executive Execution Orchestrator"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_a9/docs/decisions/ADR-0036-executive-execution-orchestrator-boundary.md",
+      "repository_id": "REP-362FF8A9F3BD71B2",
+      "source_kind": "adr",
+      "source_sha256": "374a90236087885b4f516c76efa9b6456523b03b4874e415e4f5e50386867efb",
+      "status": "Accepted",
+      "title": "ADR-0036 — Executive Execution Orchestrator Boundary"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_b1/docs/architecture/genesis_iv_b1_executive_integration_visibility_fabric.md",
+      "repository_id": "REP-A5AA0CFFE37E84B8",
+      "source_kind": "architecture",
+      "source_sha256": "97d19ac67e481efbb1f191c975065def110972fe78de6b21c3e19923519f99cf",
+      "status": null,
+      "title": "Genesis IV-B1 — Executive Integration and Visibility Fabric"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_b1/docs/decisions/ADR-0037-executive-integration-visibility-fabric.md",
+      "repository_id": "REP-D72E893C2E6B989A",
+      "source_kind": "adr",
+      "source_sha256": "d524e036c7d3970cafa54f2fcbfca57b6e79b5085dd7b69fba091e1b5cfe88ab",
+      "status": "Accepted",
+      "title": "ADR-0037 — Executive Integration and Visibility Fabric"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_b1_rc1/docs/architecture/genesis_iv_b1_executive_integration_visibility_fabric.md",
+      "repository_id": "REP-C9A6462462178DB9",
+      "source_kind": "architecture",
+      "source_sha256": "97d19ac67e481efbb1f191c975065def110972fe78de6b21c3e19923519f99cf",
+      "status": null,
+      "title": "Genesis IV-B1 — Executive Integration and Visibility Fabric"
+    },
+    {
+      "document_id": null,
+      "path": "genesis_iv_b1_rc1/docs/decisions/ADR-0037-executive-integration-visibility-fabric.md",
+      "repository_id": "REP-70E4D0F08B9D5C97",
+      "source_kind": "adr",
+      "source_sha256": "d524e036c7d3970cafa54f2fcbfca57b6e79b5085dd7b69fba091e1b5cfe88ab",
+      "status": "Accepted",
+      "title": "ADR-0037 — Executive Integration and Visibility Fabric"
+    },
+    {
+      "document_id": null,
+      "path": "jarvis_convergence_c1/payload/docs/architecture/convergence_c1_executive_conversation.md",
+      "repository_id": "REP-6B64ADA94F9CF482",
+      "source_kind": "architecture",
+      "source_sha256": "116cc5908b805ed051ae84d7c80c09cdc25cb74d1831db5b24d3db4e791d8cf0",
+      "status": null,
+      "title": "JARVIS Convergence C-1 — Executive Conversation Activation"
+    },
+    {
+      "document_id": null,
+      "path": "jarvis_convergence_c3/payload/docs/architecture/convergence_c3_capability_routing.md",
+      "repository_id": "REP-0C12F13B68253AA8",
+      "source_kind": "architecture",
+      "source_sha256": "bf078e805b953573952a4e724147e3035c11237756f6889775c59d6238a8132a",
+      "status": null,
+      "title": "JARVIS Convergence C-3 — Capability Routing"
+    },
+    {
+      "document_id": null,
+      "path": "jarvis_convergence_c4/payload/docs/architecture/convergence_c4_knowledge_grounding.md",
+      "repository_id": "REP-7B7A98D52AB96A4C",
+      "source_kind": "architecture",
+      "source_sha256": "c7a07a56879bee7b27ef62fb23c96edd00930ac1dbfd0164618413d0344ab20b",
+      "status": null,
+      "title": "JARVIS Convergence C-4 — Knowledge Grounding"
+    },
+    {
+      "document_id": null,
+      "path": "jarvis_convergence_c5/payload/docs/architecture/convergence_c5_executive_knowledge_awareness.md",
+      "repository_id": "REP-BCDC50892214F98D",
+      "source_kind": "architecture",
+      "source_sha256": "5755130007fcc672ef08c05d0a249e7734891879b1745267758bde7a57c1f743",
+      "status": null,
+      "title": "Convergence C-5 — Executive Knowledge Awareness & Evidence Reasoning"
+    }
+  ]
+}

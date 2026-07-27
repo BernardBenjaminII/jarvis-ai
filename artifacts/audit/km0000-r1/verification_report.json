@@ -1,0 +1,240 @@
+{
+  "checks": [
+    {
+      "check_id": "ORDER-FILES",
+      "description": "Repository files use deterministic path ordering",
+      "detail": "count=3375",
+      "passed": true
+    },
+    {
+      "check_id": "ORDER-PYTHON",
+      "description": "Python modules use deterministic path ordering",
+      "detail": "count=2018",
+      "passed": true
+    },
+    {
+      "check_id": "ORDER-MARKDOWN",
+      "description": "Markdown documents use deterministic path ordering",
+      "detail": "count=632",
+      "passed": true
+    },
+    {
+      "check_id": "ORDER-DIAGNOSTICS",
+      "description": "Diagnostics use deterministic ordering",
+      "detail": "count=1",
+      "passed": true
+    },
+    {
+      "check_id": "UNIQUE-PATHS",
+      "description": "Repository paths are unique",
+      "detail": "count=3375",
+      "passed": true
+    },
+    {
+      "check_id": "UNIQUE-IDS",
+      "description": "Repository identifiers are unique",
+      "detail": "count=3375",
+      "passed": true
+    },
+    {
+      "check_id": "UNIQUE-PYTHON",
+      "description": "Python module paths are unique",
+      "detail": "count=2018",
+      "passed": true
+    },
+    {
+      "check_id": "UNIQUE-MARKDOWN",
+      "description": "Markdown document paths are unique",
+      "detail": "count=632",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-TOTAL_FILES",
+      "description": "Statistic total_files matches inventory evidence",
+      "detail": "expected=3375; actual=3375",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-TOTAL_BYTES",
+      "description": "Statistic total_bytes matches inventory evidence",
+      "detail": "expected=20926549; actual=20926549",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-PYTHON_FILES",
+      "description": "Statistic python_files matches inventory evidence",
+      "detail": "expected=2018; actual=2018",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-MARKDOWN_FILES",
+      "description": "Statistic markdown_files matches inventory evidence",
+      "detail": "expected=632; actual=632",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-SHELL_FILES",
+      "description": "Statistic shell_files matches inventory evidence",
+      "detail": "expected=401; actual=401",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-PACKAGE_MARKERS",
+      "description": "Statistic package_markers matches inventory evidence",
+      "detail": "expected=267; actual=267",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-TEST_FILES",
+      "description": "Statistic test_files matches inventory evidence",
+      "detail": "expected=278; actual=278",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-VERIFICATION_FILES",
+      "description": "Statistic verification_files matches inventory evidence",
+      "detail": "expected=448; actual=448",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-ARCHITECTURE_DOCUMENTS",
+      "description": "Statistic architecture_documents matches inventory evidence",
+      "detail": "expected=334; actual=334",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-ADR_DOCUMENTS",
+      "description": "Statistic adr_documents matches inventory evidence",
+      "detail": "expected=118; actual=118",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-CONSTITUTIONAL_DOCUMENTS",
+      "description": "Statistic constitutional_documents matches inventory evidence",
+      "detail": "expected=37; actual=37",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-WHITEPAPERS",
+      "description": "Statistic whitepapers matches inventory evidence",
+      "detail": "expected=6; actual=6",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-PYTHON_MODULES",
+      "description": "Statistic python_modules matches inventory evidence",
+      "detail": "expected=2018; actual=2018",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-PYTHON_SYMBOLS",
+      "description": "Statistic python_symbols matches inventory evidence",
+      "detail": "expected=7615; actual=7615",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-MARKDOWN_DOCUMENTS",
+      "description": "Statistic markdown_documents matches inventory evidence",
+      "detail": "expected=632; actual=632",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-DIAGNOSTICS",
+      "description": "Statistic diagnostics matches inventory evidence",
+      "detail": "expected=1; actual=1",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-SOURCE_FILES",
+      "description": "Statistic source_files matches inventory evidence",
+      "detail": "expected=3375; actual=3375",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-GENERATED_FILES",
+      "description": "Statistic generated_files matches inventory evidence",
+      "detail": "expected=0; actual=0",
+      "passed": true
+    },
+    {
+      "check_id": "STAT-EXTERNAL_FILES",
+      "description": "Statistic external_files matches inventory evidence",
+      "detail": "expected=0; actual=0",
+      "passed": true
+    },
+    {
+      "check_id": "XREF-PYTHON",
+      "description": "Every Python file has exactly one parsed module",
+      "detail": "actual=2018",
+      "passed": true
+    },
+    {
+      "check_id": "XREF-MARKDOWN",
+      "description": "Every Markdown file has exactly one parsed document",
+      "detail": "actual=632",
+      "passed": true
+    },
+    {
+      "check_id": "XREF-IDS",
+      "description": "Parsed objects retain source repository identifiers",
+      "detail": "compared by path",
+      "passed": true
+    },
+    {
+      "check_id": "XREF-DIAGNOSTICS",
+      "description": "Every diagnostic references a discovered file",
+      "detail": "diagnostics=1",
+      "passed": true
+    },
+    {
+      "check_id": "FINGERPRINT",
+      "description": "Repository fingerprint matches canonical inventory evidence",
+      "detail": "expected=06cd40b2fe3069c8ffd928171f17b38663af2c52ca153a84678dee68adb41dc9; actual=06cd40b2fe3069c8ffd928171f17b38663af2c52ca153a84678dee68adb41dc9",
+      "passed": true
+    },
+    {
+      "check_id": "SCHEMA",
+      "description": "Inventory schema is supported",
+      "detail": "expected=1.1.0; actual=1.1.0",
+      "passed": true
+    },
+    {
+      "check_id": "EVIDENCE-CLASS",
+      "description": "Every repository file has a recognized evidence classification",
+      "detail": "files=3375",
+      "passed": true
+    },
+    {
+      "check_id": "EVIDENCE-GENERATED",
+      "description": "Generated-root files are never classified as immutable source evidence",
+      "detail": "generated roots checked",
+      "passed": true
+    },
+    {
+      "check_id": "SOURCE-PRESENCE",
+      "description": "Every inventoried source file remains present",
+      "detail": "verified=3375; missing=0",
+      "passed": true
+    },
+    {
+      "check_id": "SOURCE-HASHES",
+      "description": "Every inventoried source file retains its recorded content hash",
+      "detail": "verified=3375; changed=0",
+      "passed": true
+    }
+  ],
+  "engine_version": "GENESIS-VII-C0-P1B-R1",
+  "health": {
+    "coverage_percent": 99.97037,
+    "diagnostic_count": 1,
+    "external_files_classified": 0,
+    "files_scanned": 3375,
+    "files_with_diagnostics": 1,
+    "files_without_diagnostics": 3374,
+    "generated_files_classified": 0,
+    "source_files_verified": 3375,
+    "status": "GOOD"
+  },
+  "repository_fingerprint": "06cd40b2fe3069c8ffd928171f17b38663af2c52ca153a84678dee68adb41dc9",
+  "schema_version": "1.1.0"
+}

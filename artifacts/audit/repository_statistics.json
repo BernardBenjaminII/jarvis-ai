@@ -1,0 +1,18 @@
+{
+  "adr_documents": 305,
+  "architecture_documents": 863,
+  "constitutional_documents": 65,
+  "diagnostics": 1,
+  "markdown_documents": 1309,
+  "markdown_files": 1309,
+  "package_markers": 497,
+  "python_files": 3876,
+  "python_modules": 3876,
+  "python_symbols": 15090,
+  "shell_files": 397,
+  "test_files": 541,
+  "total_bytes": 52830336,
+  "total_files": 6291,
+  "verification_files": 659,
+  "whitepapers": 6
+}
