@@ -1,0 +1,835 @@
+{
+  "analysis_fingerprint": "3d267fd843a56719e15ff0ff28062db8be88a6a6ee9c497e37f4aeaf29903d92",
+  "refines": [
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-9D3378CD205D9438DAF8",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-08338685578C48AA",
+      "target_claim_id": "CCL-80EF53F6722BFB41"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-36C63DA64838ED7802A3",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-08338685578C48AA",
+      "target_claim_id": "CCL-FA6B31BFE20A5BB2"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-20764670585030F50AE8",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-08E646CC5DB84189",
+      "target_claim_id": "CCL-6AB6B8E6C751B28E"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-0E026973163C91CF09B5",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-08E646CC5DB84189",
+      "target_claim_id": "CCL-7ECDD729D635B930"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-C94FE3F03CC2CBCE5CBC",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-091478E3BF5F915D",
+      "target_claim_id": "CCL-2D210C737D7F11E4"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-3E7D3E954887E02C54F1",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-091478E3BF5F915D",
+      "target_claim_id": "CCL-C829AA20A54229F3"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-B785AE4980E6D6140BB8",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-112BBDF2570ECB52",
+      "target_claim_id": "CCL-8FAFB804731B7231"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-B1520E205C6AE6F9B74F",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-112BBDF2570ECB52",
+      "target_claim_id": "CCL-C7EC16BADC52C528"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-18F577047A3B808312FD",
+      "relationship_type": "refines",
+      "score": 0.714286,
+      "source_claim_id": "CCL-192399A56DEE8A4B",
+      "target_claim_id": "CCL-372A83A3845FA0A0"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-3632284C25798D854EF5",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-1B3FB338CDD54447",
+      "target_claim_id": "CCL-46DF5F4B95A9172C"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-3449EF001DC0D75B0C3A",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-1B3FB338CDD54447",
+      "target_claim_id": "CCL-5E74DFD4E0EB5DB0"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-F38E1171DFDA380E94F8",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-202CED7B1FC8D9EE",
+      "target_claim_id": "CCL-5103AD17A2B0F73A"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-ACBD792C498806AAFE6F",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-202CED7B1FC8D9EE",
+      "target_claim_id": "CCL-B4C3489A5A858D2F"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-D3961B6E9DD3F4AF0B92",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-2D210C737D7F11E4",
+      "target_claim_id": "CCL-C7700FEB6E0B7003"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-AFD09BEBB3E8A986F04C",
+      "relationship_type": "refines",
+      "score": 0.833333,
+      "source_claim_id": "CCL-31E810C2C03C1529",
+      "target_claim_id": "CCL-4E681848903863C4"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-F7BAAD7508410D9D6DE4",
+      "relationship_type": "refines",
+      "score": 0.833333,
+      "source_claim_id": "CCL-31E810C2C03C1529",
+      "target_claim_id": "CCL-B9001105DD6951A3"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-C4B4C9353DBDEA94ECC5",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-32D63FC136E5AD72",
+      "target_claim_id": "CCL-9DBE54151B6BC6F4"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-009D0B1EB9CC93B34FFA",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-32D63FC136E5AD72",
+      "target_claim_id": "CCL-BCF125556A7DF21C"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-1ACFEC2A6F223AC8EE3F",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-335EFD4B2796F287",
+      "target_claim_id": "CCL-6BE15591113D76AD"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-DCA07C0CEE09FD17DDBA",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-335EFD4B2796F287",
+      "target_claim_id": "CCL-C3A3828BD2306BB1"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-D6098EE12BB41E8986B1",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-46DF5F4B95A9172C",
+      "target_claim_id": "CCL-C5A36CD0370BFFD1"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-019A9D59EA8BCB3DDBF6",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-492A9C0017155661",
+      "target_claim_id": "CCL-B0A349EB5AC168DF"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-4037AA54EAA50B76D689",
+      "relationship_type": "refines",
+      "score": 0.714286,
+      "source_claim_id": "CCL-4E678D5F6E024D8C",
+      "target_claim_id": "CCL-CC65567DD7FEED5C"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-A1E025A5BE204C889626",
+      "relationship_type": "refines",
+      "score": 0.714286,
+      "source_claim_id": "CCL-4E678D5F6E024D8C",
+      "target_claim_id": "CCL-D72121A79296F5A2"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-1A28D8F03DDADE356C6D",
+      "relationship_type": "refines",
+      "score": 0.833333,
+      "source_claim_id": "CCL-4E681848903863C4",
+      "target_claim_id": "CCL-B95B41FB3C7B7012"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-F9ECB492DAE50025B5C4",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-5103AD17A2B0F73A",
+      "target_claim_id": "CCL-FD15C2EA087335C9"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-571EC99BE78072222687",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-5B7A722B7CD945E4",
+      "target_claim_id": "CCL-801785711DB658F8"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-E05E262C3C860BF2DFC7",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-5B7A722B7CD945E4",
+      "target_claim_id": "CCL-D438333E844DC744"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-1839AD19FB01417E545E",
+      "relationship_type": "refines",
+      "score": 0.833333,
+      "source_claim_id": "CCL-5C72D3B957503D50",
+      "target_claim_id": "CCL-E645CEDDF4E90F4E"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-A7F05D1A06CA6C405F28",
+      "relationship_type": "refines",
+      "score": 0.833333,
+      "source_claim_id": "CCL-5C72D3B957503D50",
+      "target_claim_id": "CCL-F0F8809BCE9E43B5"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-9D8FE6AF1C893A001D92",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-5E74DFD4E0EB5DB0",
+      "target_claim_id": "CCL-C5A36CD0370BFFD1"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-241834DB679F2BE8E3E9",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-66D449AB2B5C29E4",
+      "target_claim_id": "CCL-9DBE54151B6BC6F4"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-53F5D6BDE71F01E5E0A2",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-66D449AB2B5C29E4",
+      "target_claim_id": "CCL-BCF125556A7DF21C"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-CA371A1A175CE42F7300",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-6AB6B8E6C751B28E",
+      "target_claim_id": "CCL-A11162A78458B190"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-128B431893153BD74D37",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-6BE15591113D76AD",
+      "target_claim_id": "CCL-E77F7C7F33C80D87"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-47BAA2871A21DBFFCED1",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-73F4F4900FE1D720",
+      "target_claim_id": "CCL-80EF53F6722BFB41"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-4CAFC6CD6828C9EBE233",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-73F4F4900FE1D720",
+      "target_claim_id": "CCL-FA6B31BFE20A5BB2"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-3EEBBDE5C6FCCEFBA8CB",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-7ECDD729D635B930",
+      "target_claim_id": "CCL-A11162A78458B190"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-CAA36596E2FAA6D1A23D",
+      "relationship_type": "refines",
+      "score": 0.833333,
+      "source_claim_id": "CCL-7F6E4A5672FC314A",
+      "target_claim_id": "CCL-E645CEDDF4E90F4E"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-037BF2EF282C60892397",
+      "relationship_type": "refines",
+      "score": 0.833333,
+      "source_claim_id": "CCL-7F6E4A5672FC314A",
+      "target_claim_id": "CCL-F0F8809BCE9E43B5"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-58FABF3727D6382CDCE8",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-801785711DB658F8",
+      "target_claim_id": "CCL-A51BE831B6495D12"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-11D4CA87AEA9D4F2E135",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-80EF53F6722BFB41",
+      "target_claim_id": "CCL-E154837BA0518823"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-A9DE12D525174B27839F",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-80EF53F6722BFB41",
+      "target_claim_id": "CCL-F3871FE38877C917"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-70EA99873709D65E5A5D",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-8FAFB804731B7231",
+      "target_claim_id": "CCL-EECEF08ABA6051BF"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-9D7D1AC761F16E5171B0",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-9D46E22961FB8159",
+      "target_claim_id": "CCL-EA42AA2BB932CC6E"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-F823775B6DA047EFF31B",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-A51BE831B6495D12",
+      "target_claim_id": "CCL-D438333E844DC744"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-B36780CB2B875F0ABE7E",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-B4C3489A5A858D2F",
+      "target_claim_id": "CCL-FD15C2EA087335C9"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-D740432B2F02C3BBD787",
+      "relationship_type": "refines",
+      "score": 0.833333,
+      "source_claim_id": "CCL-B9001105DD6951A3",
+      "target_claim_id": "CCL-B95B41FB3C7B7012"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-56562E0F06ECEE4B865D",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-C3A3828BD2306BB1",
+      "target_claim_id": "CCL-E77F7C7F33C80D87"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-B83596CBFB6CCBD009E1",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-C7700FEB6E0B7003",
+      "target_claim_id": "CCL-C829AA20A54229F3"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-F40830041F11E83BCD7A",
+      "relationship_type": "refines",
+      "score": 0.8,
+      "source_claim_id": "CCL-C7EC16BADC52C528",
+      "target_claim_id": "CCL-EECEF08ABA6051BF"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-040E89EB413FCBBE58B9",
+      "relationship_type": "refines",
+      "score": 0.714286,
+      "source_claim_id": "CCL-CC65567DD7FEED5C",
+      "target_claim_id": "CCL-CFC25E8493C1A0AF"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-DE4E7198DD19241857B4",
+      "relationship_type": "refines",
+      "score": 0.714286,
+      "source_claim_id": "CCL-CFC25E8493C1A0AF",
+      "target_claim_id": "CCL-D72121A79296F5A2"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-E476764E7F2FF22F363C",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-E154837BA0518823",
+      "target_claim_id": "CCL-FA6B31BFE20A5BB2"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial vocabulary; the longer statement is treated as refinement.",
+      "relationship_id": "REL-48FA765E712F22CC7E08",
+      "relationship_type": "refines",
+      "score": 0.75,
+      "source_claim_id": "CCL-F3871FE38877C917",
+      "target_claim_id": "CCL-FA6B31BFE20A5BB2"
+    }
+  ],
+  "supports": [
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-217FAAC875B8033DAA5F",
+      "relationship_type": "supports",
+      "score": 0.714286,
+      "source_claim_id": "CCL-09787E868A80A5FD",
+      "target_claim_id": "CCL-B1C259274F5DE93C"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-89ECDDE603B00B9DD0AA",
+      "relationship_type": "supports",
+      "score": 0.714286,
+      "source_claim_id": "CCL-09787E868A80A5FD",
+      "target_claim_id": "CCL-F3FD41967F8D46C6"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-1492A3AAAC5A4CF02BF0",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-0C1B326A11542FD2",
+      "target_claim_id": "CCL-62C6330079BB493C"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-80A887618F17028FEF96",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-0C1B326A11542FD2",
+      "target_claim_id": "CCL-75633E484D781FD3"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-BC1BD4801694CB07B751",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-1295E6975402D34A",
+      "target_claim_id": "CCL-2A8A963C418CB0B6"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-F49DB617DD24F6E7DE69",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-1295E6975402D34A",
+      "target_claim_id": "CCL-43E12F309307F821"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-2034F0B6A66B4EB93252",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-1295E6975402D34A",
+      "target_claim_id": "CCL-59FF9088F2E2AAF5"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-4FDE6400149791C3DDDD",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-1295E6975402D34A",
+      "target_claim_id": "CCL-DA60969BF5061BF2"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-E9D4B0FCAC7DFFAF3AB4",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-1C166CFED6511846",
+      "target_claim_id": "CCL-4C07F5787411E478"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-0588E950E49A5C6BD8CA",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-1C166CFED6511846",
+      "target_claim_id": "CCL-5148093FE981C19A"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-9B37560A8765B624CD39",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-1FB6F555ECD26A91",
+      "target_claim_id": "CCL-4C07F5787411E478"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-4F99D693C36D96B95DC1",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-1FB6F555ECD26A91",
+      "target_claim_id": "CCL-5148093FE981C19A"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-C3377C085F1C66C75B2A",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-2A8A963C418CB0B6",
+      "target_claim_id": "CCL-7A8BCF67EA243980"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-2E2C70195D9D71BB481F",
+      "relationship_type": "supports",
+      "score": 0.777778,
+      "source_claim_id": "CCL-4122DF88DC7FFB04",
+      "target_claim_id": "CCL-5C966F68973D9BAE"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-674DE94BC7432A3CF027",
+      "relationship_type": "supports",
+      "score": 0.777778,
+      "source_claim_id": "CCL-4122DF88DC7FFB04",
+      "target_claim_id": "CCL-9F99D6EFBC1A8348"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-3CC0DDDAC048DF4BA25D",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-43E12F309307F821",
+      "target_claim_id": "CCL-7A8BCF67EA243980"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-579F5FA526354A6E5A0E",
+      "relationship_type": "supports",
+      "score": 0.8,
+      "source_claim_id": "CCL-49E9BED1EF580840",
+      "target_claim_id": "CCL-55D7B24A4C55428E"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-D69341B5CFEA80954090",
+      "relationship_type": "supports",
+      "score": 0.8,
+      "source_claim_id": "CCL-49E9BED1EF580840",
+      "target_claim_id": "CCL-9C27E6DB8C2046DD"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-AF1D22B5AB42092638E7",
+      "relationship_type": "supports",
+      "score": 0.8,
+      "source_claim_id": "CCL-55D7B24A4C55428E",
+      "target_claim_id": "CCL-E1522E3D318E2673"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-456C4AE071799EEAE3AE",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-59FF9088F2E2AAF5",
+      "target_claim_id": "CCL-7A8BCF67EA243980"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-5458D16B5D34E6796850",
+      "relationship_type": "supports",
+      "score": 0.777778,
+      "source_claim_id": "CCL-5C55116CE246BE6D",
+      "target_claim_id": "CCL-FCA221F55B39C964"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-F31FD4E007ABCE5A4575",
+      "relationship_type": "supports",
+      "score": 0.777778,
+      "source_claim_id": "CCL-5C966F68973D9BAE",
+      "target_claim_id": "CCL-8E07CE5455F46D0E"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-C8BBE2ED5C90B6F496BA",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-601A08804036F97E",
+      "target_claim_id": "CCL-85CC40827AE61ED2"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-1402260CF9F29C702CFD",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-601A08804036F97E",
+      "target_claim_id": "CCL-BD1EBEAA9490E881"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-50C37ED5ECA28DC705C1",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-62C6330079BB493C",
+      "target_claim_id": "CCL-8E73F29B575CFD51"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-62E4E64B27F9C2832AB2",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-75633E484D781FD3",
+      "target_claim_id": "CCL-8E73F29B575CFD51"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-5CADA8FD362694FFF797",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-7A8BCF67EA243980",
+      "target_claim_id": "CCL-DA60969BF5061BF2"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-BB89B11C299868A74EF9",
+      "relationship_type": "supports",
+      "score": 0.714286,
+      "source_claim_id": "CCL-7AD43A055F248AA0",
+      "target_claim_id": "CCL-94386F7964DBBB9D"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-1DDF3B65C8BBF30B328E",
+      "relationship_type": "supports",
+      "score": 0.714286,
+      "source_claim_id": "CCL-7AD43A055F248AA0",
+      "target_claim_id": "CCL-DFD05DD9DD947B5D"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-64D3349B6DABE32CF4F1",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-85CC40827AE61ED2",
+      "target_claim_id": "CCL-FE54C6AFCC60163D"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-9596D38BF0E7B45DD20E",
+      "relationship_type": "supports",
+      "score": 0.777778,
+      "source_claim_id": "CCL-8E07CE5455F46D0E",
+      "target_claim_id": "CCL-9F99D6EFBC1A8348"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-39516C5C8E66560F5E1D",
+      "relationship_type": "supports",
+      "score": 0.714286,
+      "source_claim_id": "CCL-94386F7964DBBB9D",
+      "target_claim_id": "CCL-A507C6299B006B02"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-FE0718244595B56E8E96",
+      "relationship_type": "supports",
+      "score": 0.8,
+      "source_claim_id": "CCL-9C27E6DB8C2046DD",
+      "target_claim_id": "CCL-E1522E3D318E2673"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-37CAC96F754AF18D780C",
+      "relationship_type": "supports",
+      "score": 0.714286,
+      "source_claim_id": "CCL-A507C6299B006B02",
+      "target_claim_id": "CCL-DFD05DD9DD947B5D"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-0E2CCEEC2380CFB5D969",
+      "relationship_type": "supports",
+      "score": 0.714286,
+      "source_claim_id": "CCL-B1C259274F5DE93C",
+      "target_claim_id": "CCL-D3EF060FAD4EA0B9"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-FD27B3CF72483D027DDC",
+      "relationship_type": "supports",
+      "score": 0.75,
+      "source_claim_id": "CCL-BD1EBEAA9490E881",
+      "target_claim_id": "CCL-FE54C6AFCC60163D"
+    },
+    {
+      "authority_resolution": "",
+      "rationale": "Claims share domain and substantial normative vocabulary.",
+      "relationship_id": "REL-AC1CCCB7BD872B3D77C2",
+      "relationship_type": "supports",
+      "score": 0.714286,
+      "source_claim_id": "CCL-D3EF060FAD4EA0B9",
+      "target_claim_id": "CCL-F3FD41967F8D46C6"
+    }
+  ]
+}

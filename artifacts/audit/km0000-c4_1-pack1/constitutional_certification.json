@@ -1,0 +1,194 @@
+{
+  "analysis_fingerprint": "3d267fd843a56719e15ff0ff28062db8be88a6a6ee9c497e37f4aeaf29903d92",
+  "certification_fingerprint": "e9b35e3bc288c8d453ce0c3b43c0fe2eb92b6b69550156eba174b4cfc42787ee",
+  "compliance_fingerprint": "ce7f4c5d197a09952e2ab035ceba8802106e2fedf109eb4c2b20efb625b0d71a",
+  "diagnostics": [],
+  "extraction_fingerprint": "24bb64dfbf24f94baeacfbe19aa173fe95ea5647c78744e0eed96b0cee7e0e4c",
+  "policy": {
+    "minimum_negative_findings": 1,
+    "minimum_not_applicable_subjects": 1,
+    "minimum_positive_findings": 1,
+    "minimum_review_findings": 1,
+    "require_complete_traceability": true,
+    "require_determinism": true,
+    "require_rank_one_match": true
+  },
+  "ratification_fingerprint": "9eedf476200ccf0f22dc118142d8616042e1a1006526c7517c5caadf5097b032",
+  "repository_fingerprint": "d9b16c9dca510cef98d8292f4bd6d9f465a3f7adaf4598fea39d87889bf378fb",
+  "results": [
+    {
+      "findings": 0,
+      "fingerprint": "4aa5e2bcff84e65ce32e20c4820432612fe51d1b73035e7deb43e1fd70cc7893",
+      "observed_article_id": "",
+      "observed_status": "not_executed",
+      "rank": 0,
+      "rationale": "Framework scenario registered; executable scenario logic arrives in Pack 2.",
+      "scenario_id": "CSC-0E0F53C827CE425BF9CA",
+      "status": "skipped",
+      "traceability_complete": false
+    },
+    {
+      "findings": 0,
+      "fingerprint": "e440434d634fa15dc05e0fb6459278162dbe8c4200647dcca835f21ba6e9f6af",
+      "observed_article_id": "",
+      "observed_status": "not_executed",
+      "rank": 0,
+      "rationale": "Framework scenario registered; executable scenario logic arrives in Pack 2.",
+      "scenario_id": "CSC-6B63FF03013D21F5F16D",
+      "status": "skipped",
+      "traceability_complete": false
+    },
+    {
+      "findings": 0,
+      "fingerprint": "cac532c88dfb997d1ae07ee615ae5a63eef86735fb6d10849c2fc2b9064b50ca",
+      "observed_article_id": "",
+      "observed_status": "not_executed",
+      "rank": 0,
+      "rationale": "Framework scenario registered; executable scenario logic arrives in Pack 2.",
+      "scenario_id": "CSC-909B2453C14C12122F63",
+      "status": "skipped",
+      "traceability_complete": false
+    },
+    {
+      "findings": 0,
+      "fingerprint": "003fdecf14afad46f36a601dadf17f40d8be8a4ee37b4808315b15602510d19b",
+      "observed_article_id": "",
+      "observed_status": "not_executed",
+      "rank": 0,
+      "rationale": "Framework scenario registered; executable scenario logic arrives in Pack 2.",
+      "scenario_id": "CSC-9CD3B3181971341F410F",
+      "status": "skipped",
+      "traceability_complete": false
+    },
+    {
+      "findings": 0,
+      "fingerprint": "75d63ad115a8cedf0a9fa0e7a8d1c9cbf51fe29da16c946e3609e9674896a1ca",
+      "observed_article_id": "",
+      "observed_status": "not_executed",
+      "rank": 0,
+      "rationale": "Framework scenario registered; executable scenario logic arrives in Pack 2.",
+      "scenario_id": "CSC-AAD5402D4863D22ABABC",
+      "status": "skipped",
+      "traceability_complete": false
+    },
+    {
+      "findings": 0,
+      "fingerprint": "a63f34d06a5b14f86417ec4b1c4668afefb3e2dfa6365f4e30fa6d770a01e9d0",
+      "observed_article_id": "",
+      "observed_status": "not_executed",
+      "rank": 0,
+      "rationale": "Framework scenario registered; executable scenario logic arrives in Pack 2.",
+      "scenario_id": "CSC-C8C0F2085D7F6B11683A",
+      "status": "skipped",
+      "traceability_complete": false
+    },
+    {
+      "findings": 0,
+      "fingerprint": "c75c834d1f6e29656c46ca1aea2cd0cb1b3a45476f58d5356a76712f3a886f3c",
+      "observed_article_id": "",
+      "observed_status": "not_executed",
+      "rank": 0,
+      "rationale": "Framework scenario registered; executable scenario logic arrives in Pack 2.",
+      "scenario_id": "CSC-EA99AD1DB0E93A4D318A",
+      "status": "skipped",
+      "traceability_complete": false
+    },
+    {
+      "findings": 0,
+      "fingerprint": "379e4e0c9744551ae1803bfee68cf34789328466b286ebcc7ee1af4da2264204",
+      "observed_article_id": "",
+      "observed_status": "not_executed",
+      "rank": 0,
+      "rationale": "Framework scenario registered; executable scenario logic arrives in Pack 2.",
+      "scenario_id": "CSC-FE278D5F7960E37B08B3",
+      "status": "skipped",
+      "traceability_complete": false
+    }
+  ],
+  "scenarios": [
+    {
+      "description": "Prove the chain from subject to article and upstream fingerprints.",
+      "expected_article_id": "",
+      "expected_status": "pass",
+      "fingerprint": "68c11d1673c341f82eecd4d4aebe75fc416959103e0c4797391af0386dac3ce4",
+      "kind": "traceability",
+      "scenario_id": "CSC-0E0F53C827CE425BF9CA",
+      "title": "Traceability"
+    },
+    {
+      "description": "Prove that the expected constitutional article ranks first.",
+      "expected_article_id": "",
+      "expected_status": "pass",
+      "fingerprint": "7b0d1ce5fbf59f4e8a0ab9ae4d7afb946b39aae69afad02bcb4059cacc57a2fb",
+      "kind": "ranking",
+      "scenario_id": "CSC-6B63FF03013D21F5F16D",
+      "title": "Ranking"
+    },
+    {
+      "description": "Prove that an unrelated subject remains outside constitutional applicability.",
+      "expected_article_id": "",
+      "expected_status": "not_applicable",
+      "fingerprint": "29b56dfc3eb41b71fe4a8580e32ff376a43b7f459ae58d83a78d9320854bb299",
+      "kind": "not_applicable",
+      "scenario_id": "CSC-909B2453C14C12122F63",
+      "title": "Not applicable"
+    },
+    {
+      "description": "Prove that a deterministic contradiction can produce a noncompliant result.",
+      "expected_article_id": "",
+      "expected_status": "noncompliant",
+      "fingerprint": "f7fff10e46d20ae83461d5022ec2bc5707b7e06bd6c9a751a0a7a085b2252d7a",
+      "kind": "negative_compliance",
+      "scenario_id": "CSC-9CD3B3181971341F410F",
+      "title": "Negative compliance"
+    },
+    {
+      "description": "Prove that a live constitutional article can produce a compliant result.",
+      "expected_article_id": "",
+      "expected_status": "compliant",
+      "fingerprint": "da5b0ea20ba00881508a1e2b3bc383c9d1a8ceba36ca09179c6eddc094b289bb",
+      "kind": "positive_compliance",
+      "scenario_id": "CSC-AAD5402D4863D22ABABC",
+      "title": "Positive compliance"
+    },
+    {
+      "description": "Prove that an ambiguous but applicable subject can require human review.",
+      "expected_article_id": "",
+      "expected_status": "review_required",
+      "fingerprint": "8ed19481ab1e4fdc6b10b769994eac31e0657db0c85ed8dfe2345a2ee20f0a70",
+      "kind": "review_required",
+      "scenario_id": "CSC-C8C0F2085D7F6B11683A",
+      "title": "Review required"
+    },
+    {
+      "description": "Prove that repeated certification produces the same fingerprint.",
+      "expected_article_id": "",
+      "expected_status": "pass",
+      "fingerprint": "f770a7b8edd448386431b421fe8b855ccc9f2ad852736dbda0172e53db397816",
+      "kind": "determinism",
+      "scenario_id": "CSC-EA99AD1DB0E93A4D318A",
+      "title": "Determinism"
+    },
+    {
+      "description": "Prove that every certification subject is represented by an assessment.",
+      "expected_article_id": "",
+      "expected_status": "pass",
+      "fingerprint": "6e64d18e30310a653296974047558d959a08893c70bbdbbfa2da9b153f522ffb",
+      "kind": "coverage",
+      "scenario_id": "CSC-FE278D5F7960E37B08B3",
+      "title": "Coverage"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "statistics": {
+    "diagnostics": 0,
+    "failed": 0,
+    "negative_findings": 0,
+    "not_applicable_subjects": 0,
+    "passed": 0,
+    "positive_findings": 0,
+    "review_findings": 0,
+    "scenarios": 8,
+    "skipped": 8
+  }
+}

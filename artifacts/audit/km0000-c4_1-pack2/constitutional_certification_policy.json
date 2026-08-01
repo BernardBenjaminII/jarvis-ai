@@ -1,0 +1,13 @@
+{
+  "certification_fingerprint": "5262813cad170a65fa78d45020e36e77f17aaaf68d514e0df8ddf63655901bc4",
+  "policy": {
+    "minimum_negative_findings": 1,
+    "minimum_not_applicable_subjects": 1,
+    "minimum_positive_findings": 1,
+    "minimum_review_findings": 1,
+    "require_complete_traceability": true,
+    "require_determinism": true,
+    "require_rank_one_match": true
+  },
+  "schema_version": "1.0.0"
+}

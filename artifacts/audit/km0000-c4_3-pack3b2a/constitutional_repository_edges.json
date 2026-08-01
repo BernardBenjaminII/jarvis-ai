@@ -1,0 +1,387 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+  "edges": [
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-16714F70BB58944F7118:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "4b331008a9e7d01faceca14378dbab4f0a3c78d5044b8dd4dd0aa80715a44d4f",
+      "source_node_id": "repository_artifact:artifact:RA-16714F70BB58944F7118",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-1CB54D8E99972E1C1BAF:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "5ad1f8896e12eaef55e19a0cf7aad86ac884c59a0e228a55eb353cba1022d77e",
+      "source_node_id": "repository_artifact:artifact:RA-1CB54D8E99972E1C1BAF",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-210BB6A3C69F373B2761:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "d3e5f646d95b9e78c57fed0be47a09f4992acf5617c6496d754d68ece9e1cf68",
+      "source_node_id": "repository_artifact:artifact:RA-210BB6A3C69F373B2761",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-33CFECB575C3FC559D7B:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "5dbdf892757c84dac2dc2a703d305199add17894c5800f6149f20dbbf5c0611a",
+      "source_node_id": "repository_artifact:artifact:RA-33CFECB575C3FC559D7B",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-579A51719DBBC72C38B1:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "1c8f07c3e3875dc0b731c3780d82901cb0498260ffc03a2f6c0b364d7c617a36",
+      "source_node_id": "repository_artifact:artifact:RA-579A51719DBBC72C38B1",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-765B2D6306D5B3223378:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "556c3f9f592ab5a16ffeb0d2e5bf770c600c2e751d50318306d8c32ab2051ad6",
+      "source_node_id": "repository_artifact:artifact:RA-765B2D6306D5B3223378",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-7815E5495E69C50E664C:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "d8f40162c77a6c9df77e742b51e759b3bdffc4be10e9018e02ea3e350b8d8958",
+      "source_node_id": "repository_artifact:artifact:RA-7815E5495E69C50E664C",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-7EE4AFE81AED4EA2A882:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "00fb20f58dba7547224b45695fb5a6dddd46e410341c075fc1a1757c2c11493d",
+      "source_node_id": "repository_artifact:artifact:RA-7EE4AFE81AED4EA2A882",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-859E321B756DF9D8D32D:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "0284d1512e7b487cf17204fac6ab4d0f59d01399f186bbd73e1b2cb81c50e17e",
+      "source_node_id": "repository_artifact:artifact:RA-859E321B756DF9D8D32D",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-85ACFCB9A8E94258113B:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "42b659197531743ff3e9147111d5be7eb02280fc91191d3d953988d51475f3fd",
+      "source_node_id": "repository_artifact:artifact:RA-85ACFCB9A8E94258113B",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-8861F5433DD84F0257CD:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "2aade8f59a927b639240c907de5c4bc3fa2b5e98fa487870a64f229bbb76054d",
+      "source_node_id": "repository_artifact:artifact:RA-8861F5433DD84F0257CD",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-8F5904443A7890A6160A:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "f1cdcd00339d2a3cb3c63f6a6ee76acc527edb1bd934c14b787395fc14bfcbeb",
+      "source_node_id": "repository_artifact:artifact:RA-8F5904443A7890A6160A",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-9A710B7189FB305D2C17:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "3cc96a7ad39a88b38bb3e3b0464b71e640a30344de5147bc641b43dd15a775a2",
+      "source_node_id": "repository_artifact:artifact:RA-9A710B7189FB305D2C17",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-9BB0F5560AEFF7CE6AAD:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "bb017e0a19ddcaa1876718968990c67b3273b374eb04d22cb97d09334a6ea279",
+      "source_node_id": "repository_artifact:artifact:RA-9BB0F5560AEFF7CE6AAD",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-A52E9A58A702A7E54394:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "079f9b783c7807e9ee3928da501b4891ec2eb0e2ef69e8c897b3fc58d6fb5b8a",
+      "source_node_id": "repository_artifact:artifact:RA-A52E9A58A702A7E54394",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-AF05CE0011EB7442C0BB:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "753e9b16b4438b46ae42d50703bba42d6d199fccd631d8853e913740fe673de1",
+      "source_node_id": "repository_artifact:artifact:RA-AF05CE0011EB7442C0BB",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-BA79784A3CC3FEC822DC:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "d175d0afe352e2ef4da344012bd395acf885aa4a0e9a82ae4ab95afa4039d8e6",
+      "source_node_id": "repository_artifact:artifact:RA-BA79784A3CC3FEC822DC",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-C254516E782A994AEF4D:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "0655c585367ef01319447570000634d5551f14a884c93058f65ca191a7ce7c16",
+      "source_node_id": "repository_artifact:artifact:RA-C254516E782A994AEF4D",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-E33AF5816DAC0B6AD94A:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "875cad94e81092bd38600c4145b0f33b83b61fa1e3c4954a24f35c61ef31ac2c",
+      "source_node_id": "repository_artifact:artifact:RA-E33AF5816DAC0B6AD94A",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-F70ABEBF0CBEF800A627:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "98884a6c43f6e93bb22bd705d5cc6ce8beea62459107d532c3b7d5647e76c199",
+      "source_node_id": "repository_artifact:artifact:RA-F70ABEBF0CBEF800A627",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {},
+      "edge_id": "belongs:repository_artifact:artifact:RA-FC3B1B43D5F89053978D:repository:root",
+      "edge_kind": "belongs_to",
+      "fingerprint": "e5823893b90a9bba5d85e66dd8988c65e060a4d2f07ad83e86e891b6501c8f52",
+      "source_node_id": "repository_artifact:artifact:RA-FC3B1B43D5F89053978D",
+      "target_node_id": "repository:root"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-16714F70BB58944F7118"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-16714F70BB58944F7118",
+      "edge_kind": "contains",
+      "fingerprint": "600aef6e6048a4a689b14f3d1a69b505afd33e0ded170fe7ae91a50d6fd64d1e",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-1CB54D8E99972E1C1BAF",
+      "edge_kind": "contains",
+      "fingerprint": "628f055bb9568c4615ece5fd5f3dae71e4d6bd0b81bd287e8ef54d2b19ee7230",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-210BB6A3C69F373B2761"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-210BB6A3C69F373B2761",
+      "edge_kind": "contains",
+      "fingerprint": "7e72044774fe845b6c9b05b8418c7e77dfb36b1d3b619dc6861ed612b2faca98",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-33CFECB575C3FC559D7B",
+      "edge_kind": "contains",
+      "fingerprint": "5baa9e685b2b2e9f192796261056b7cc9f0fd565420ed29a684b73cb31b8ca98",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-579A51719DBBC72C38B1"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-579A51719DBBC72C38B1",
+      "edge_kind": "contains",
+      "fingerprint": "b16e3eb114ec606d6e2a93261864f2358fab28c9be785f751f6c93ac313c5bd0",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-765B2D6306D5B3223378"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-765B2D6306D5B3223378",
+      "edge_kind": "contains",
+      "fingerprint": "71788909f12e4683ffb34e1fa2c1ea3f93b950232aa02a601886bf2cb61a3d9f",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-7815E5495E69C50E664C"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-7815E5495E69C50E664C",
+      "edge_kind": "contains",
+      "fingerprint": "065d64002adfba36a480ee515960d5a63c739e4d304d5a7228cfd2a152d4ca95",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-7EE4AFE81AED4EA2A882",
+      "edge_kind": "contains",
+      "fingerprint": "d37227dace68ed8d34062bab511c2beb49812950ed77de49cf0b2773043487b1",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-859E321B756DF9D8D32D"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-859E321B756DF9D8D32D",
+      "edge_kind": "contains",
+      "fingerprint": "4b13e8696358819da724f99c8040a65c9660dc14977174e8c1a34f228f7abc9f",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-85ACFCB9A8E94258113B",
+      "edge_kind": "contains",
+      "fingerprint": "5df708ea5c3e38476296f0e71f58a6e972819e319ebbbf7cf44c38055f76991b",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-8861F5433DD84F0257CD"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-8861F5433DD84F0257CD",
+      "edge_kind": "contains",
+      "fingerprint": "3cd65e8439599b57af48d64cb0837e88da57eda700a75b723d4ee6d6d5224ecb",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-8F5904443A7890A6160A"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-8F5904443A7890A6160A",
+      "edge_kind": "contains",
+      "fingerprint": "b44619614f7e2b888077f48ee63a8005e163a1473450cdf30f4e455f982e1d91",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-9A710B7189FB305D2C17"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-9A710B7189FB305D2C17",
+      "edge_kind": "contains",
+      "fingerprint": "f9ce63030e2517caf2a361bb2236a7a086100b3e137c6b7f2ae8bfb8cf08a218",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-9A710B7189FB305D2C17"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_kind": "contains",
+      "fingerprint": "16b6ffc5b67ba5f3572ec05975a127e1cfe463ec9af1cee4d37ff07bb2b3a5c6",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-A52E9A58A702A7E54394"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-A52E9A58A702A7E54394",
+      "edge_kind": "contains",
+      "fingerprint": "829384c86fda5bd040f26807504a60f6e4788a2ba1090c29b576fef37f4f3bfb",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-A52E9A58A702A7E54394"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-AF05CE0011EB7442C0BB"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-AF05CE0011EB7442C0BB",
+      "edge_kind": "contains",
+      "fingerprint": "fafa3fa0b838170dbabf4cbb84de1594a8fa6c14804e5c3ad7d4b674dffe0c7c",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-AF05CE0011EB7442C0BB"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-BA79784A3CC3FEC822DC"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-BA79784A3CC3FEC822DC",
+      "edge_kind": "contains",
+      "fingerprint": "76208bf02710e2cdea3ef72c44e5d1afb6f541d3c940b24106d31e1495743f05",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-BA79784A3CC3FEC822DC"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-C254516E782A994AEF4D"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-C254516E782A994AEF4D",
+      "edge_kind": "contains",
+      "fingerprint": "54729c3f1f1571cee6b8201ac302ff83fcec8f2ea43c98a245587349920d6e00",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-E33AF5816DAC0B6AD94A",
+      "edge_kind": "contains",
+      "fingerprint": "ae99df96282a6d2e0c9accaa5c83d5d685178d9420642ef4e17a6504208aef12",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-F70ABEBF0CBEF800A627",
+      "edge_kind": "contains",
+      "fingerprint": "8cd7f7bb52a25d5442eb22630a893867d1c2575ca311a817fa3325f086051c48",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {
+        "source_authority_node_id": "artifact:RA-FC3B1B43D5F89053978D"
+      },
+      "edge_id": "contains:repository:root:repository_artifact:artifact:RA-FC3B1B43D5F89053978D",
+      "edge_kind": "contains",
+      "fingerprint": "aa86a1fc2e0fd918e54a4d8ee7da07aabd981a564684a8fc9654a2118bf282dd",
+      "source_node_id": "repository:root",
+      "target_node_id": "repository_artifact:artifact:RA-FC3B1B43D5F89053978D"
+    }
+  ],
+  "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "repository_projection_fingerprint": "01c342103b9235450f7c315f1550b62dbac23e835e440caea1a5baf953a12b54",
+  "schema_version": "1.0.0"
+}

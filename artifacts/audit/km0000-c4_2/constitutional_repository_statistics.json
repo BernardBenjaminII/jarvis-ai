@@ -1,0 +1,18 @@
+{
+  "audit_fingerprint": "7e899af8ca178fd6f716aafac0d96507cd65ac385624a390f4b2e6f4f823bc3a",
+  "schema_version": "1.0.0",
+  "statistics": {
+    "applicable_artifacts": 21,
+    "articles_considered": 2161,
+    "articles_referenced": 13,
+    "articles_unused": 2148,
+    "artifacts_discovered": 802,
+    "artifacts_evaluated": 802,
+    "compliant_artifacts": 0,
+    "diagnostics": 0,
+    "findings": 137,
+    "noncompliant_artifacts": 0,
+    "not_applicable_artifacts": 781,
+    "review_required_artifacts": 21
+  }
+}

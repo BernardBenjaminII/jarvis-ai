@@ -1,0 +1,16 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_distribution": {
+    "articles_with_cross_domain_authority": 8,
+    "articles_with_single_domain_authority": 5,
+    "articles_without_observed_domain_authority": 2148,
+    "classification_distribution": {
+      "exercised": 8,
+      "underutilized": 5,
+      "unused": 2148
+    },
+    "distribution_fingerprint": "55fb44d19f357d38a1930803ff2c97507488e0a4a5d6bbb9ed263cfbfc00bbef"
+  },
+  "coverage_fingerprint": "f46f3a6f39da52d9c6918f1c6f2819280a513071c3553f78e3bf562411e71f45",
+  "schema_version": "1.0.0"
+}

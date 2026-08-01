@@ -1,0 +1,675 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+  "directorate_foundation_fingerprint": "b2180d0b9ec72c1c2e40bc0e4edca609e74be0055cb8562f1795212f9e4df252",
+  "directorate_projection_fingerprint": "008684bec737ac030899aa8fd0e84ffeb9b8c9c1f9ec31b0f6bdf2c576576ca2",
+  "edges": [
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-16714F70BB58944F7118"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-16714F70BB58944F7118",
+      "edge_kind": "maintains",
+      "fingerprint": "e1ebd2174d54cb81d6e278e85f8cb1aee3cbf9d6ebd9f1d1fe1804c9e3171a29",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-1CB54D8E99972E1C1BAF"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-1CB54D8E99972E1C1BAF",
+      "edge_kind": "maintains",
+      "fingerprint": "2210cd00d9cdde560c99137f28fbd24fbc2d5d57f4659a7856dbc89be8f98d54",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-210BB6A3C69F373B2761"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-210BB6A3C69F373B2761",
+      "edge_kind": "maintains",
+      "fingerprint": "b2589edfd85db54aca5668c94a47b37f0cd6e69ff6bb3f64cf7e5a027aa59d0b",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-33CFECB575C3FC559D7B"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-33CFECB575C3FC559D7B",
+      "edge_kind": "maintains",
+      "fingerprint": "7c2aed3dc9c666b0b94b057843ae6f73b9a67f35337ff69d1b21e38b7b28e928",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-579A51719DBBC72C38B1"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-579A51719DBBC72C38B1",
+      "edge_kind": "maintains",
+      "fingerprint": "dbeb305a8f5dbca8826934c8f96e7abb65f266c9e76cd4ffe9748e875bbe8520",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-765B2D6306D5B3223378"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-765B2D6306D5B3223378",
+      "edge_kind": "maintains",
+      "fingerprint": "acc99a28170b9d950f2df304ce8e7b60cea8a1f2eef12761645819a7c5a3d87f",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-7815E5495E69C50E664C"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-7815E5495E69C50E664C",
+      "edge_kind": "maintains",
+      "fingerprint": "f00b2057b71d098ac37c9c6ebafd94a008022f9e363da437fcb8dad0ef96011d",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-7EE4AFE81AED4EA2A882"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-7EE4AFE81AED4EA2A882",
+      "edge_kind": "maintains",
+      "fingerprint": "7ce5225fd022b80f2c3aeefaa21a3639adf483af9f360913a71547bc0186accc",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-859E321B756DF9D8D32D"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-859E321B756DF9D8D32D",
+      "edge_kind": "maintains",
+      "fingerprint": "e7c426657a393e3fed1bab274a1c0043b0237c8a61f1a78ba6295eb609108f3b",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-85ACFCB9A8E94258113B"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-85ACFCB9A8E94258113B",
+      "edge_kind": "maintains",
+      "fingerprint": "54e0bf1e077c59ebd060cebd5d939e250edb86e99b3df89381ec3fd10c597cfd",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-8861F5433DD84F0257CD"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-8861F5433DD84F0257CD",
+      "edge_kind": "maintains",
+      "fingerprint": "46111a2ef28b417c74f74e1450b03a46f3674ce7a1fb0036c04f9e608d42ff10",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-8F5904443A7890A6160A"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-8F5904443A7890A6160A",
+      "edge_kind": "maintains",
+      "fingerprint": "8fbfcc4588e5b83f5923b72278056a4970c20c0708306db5c87be4904492882d",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-9A710B7189FB305D2C17"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-9A710B7189FB305D2C17",
+      "edge_kind": "maintains",
+      "fingerprint": "2810e5696415b54d43f45d229a8d55f1eb35cb0ccde2447536bb1c5765c87f35",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-9A710B7189FB305D2C17"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-9BB0F5560AEFF7CE6AAD"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_kind": "maintains",
+      "fingerprint": "29c03e5dc2d63689fd48b470f48324ed2cf3947b78341aa766a5a6c383ae6b84",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-A52E9A58A702A7E54394"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-A52E9A58A702A7E54394",
+      "edge_kind": "maintains",
+      "fingerprint": "ce9b2f74769756a8ad436c8d6b42e70c2bc96aa581d0ea1c2b8a6173855d9d96",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-A52E9A58A702A7E54394"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-AF05CE0011EB7442C0BB"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-AF05CE0011EB7442C0BB",
+      "edge_kind": "maintains",
+      "fingerprint": "bd84f7d44f78ccc2385cace5b3d1f900b043e5a582f07bdcdf42a2c5c1e61c38",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-AF05CE0011EB7442C0BB"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-BA79784A3CC3FEC822DC"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-BA79784A3CC3FEC822DC",
+      "edge_kind": "maintains",
+      "fingerprint": "777da47b122ba277415e7231aae7241ef583885cba37328b291e1ced851b86e0",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-BA79784A3CC3FEC822DC"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-C254516E782A994AEF4D"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-C254516E782A994AEF4D",
+      "edge_kind": "maintains",
+      "fingerprint": "e0ffbf6821a8822ee985c3ffed336fff0c31fe59341c428b34a42e0e256b2718",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-E33AF5816DAC0B6AD94A"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-E33AF5816DAC0B6AD94A",
+      "edge_kind": "maintains",
+      "fingerprint": "66d915ddf478430b655f57181071569cfe3ba3963802cf9a12e01d408521193a",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-F70ABEBF0CBEF800A627"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-F70ABEBF0CBEF800A627",
+      "edge_kind": "maintains",
+      "fingerprint": "8fbaac10e05006777e2382758aafc0442d05babd92314407bbdc8a6f6d9fb7d2",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-FC3B1B43D5F89053978D"
+      },
+      "edge_id": "maintains:directorate:software_engineering:ownership_domain:RA-FC3B1B43D5F89053978D",
+      "edge_kind": "maintains",
+      "fingerprint": "573cf392dd3c69cb27ca60e03240e0c9d29d088bb998b98317b920ad51c8ba70",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-FC3B1B43D5F89053978D"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-16714F70BB58944F7118"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-16714F70BB58944F7118",
+      "edge_kind": "owns",
+      "fingerprint": "5978cd9f8fc9f0ea4f53c02ddb38a6a8b46401041fb6e41ef5f4dedba4400f14",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-1CB54D8E99972E1C1BAF"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-1CB54D8E99972E1C1BAF",
+      "edge_kind": "owns",
+      "fingerprint": "341371b5812c0311d8df3ae24b9270f36a6a5efba2124d6f4f116c550ee1e9bc",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-210BB6A3C69F373B2761"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-210BB6A3C69F373B2761",
+      "edge_kind": "owns",
+      "fingerprint": "86839a63e9ebeca7d56bc2fe1e0f16e632c276c8fcf30adcc8f77d4cd2569c14",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-33CFECB575C3FC559D7B"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-33CFECB575C3FC559D7B",
+      "edge_kind": "owns",
+      "fingerprint": "5635d7204532bbe0bcb1bfc9074539f75724353e5e220f6acf70182363079c55",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-579A51719DBBC72C38B1"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-579A51719DBBC72C38B1",
+      "edge_kind": "owns",
+      "fingerprint": "e77b6ed5a07085e7ee75178d49f9d389fa3d31f4f4f8337c2dbabf35bb209e27",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-765B2D6306D5B3223378"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-765B2D6306D5B3223378",
+      "edge_kind": "owns",
+      "fingerprint": "63ddf10aa3b6603abe8209bb5c4e6a020de5e27398e3d67e699766664a01f130",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-7815E5495E69C50E664C"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-7815E5495E69C50E664C",
+      "edge_kind": "owns",
+      "fingerprint": "0e9f702ed18335ec4a7aca3fc1f65e5fec45bcef21d234276dcc6f75798ff155",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-7EE4AFE81AED4EA2A882"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-7EE4AFE81AED4EA2A882",
+      "edge_kind": "owns",
+      "fingerprint": "2495f0cf321afff980ec02ed58e8d7d248dda48b3accf54cf5e7a4b0fd24722f",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-859E321B756DF9D8D32D"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-859E321B756DF9D8D32D",
+      "edge_kind": "owns",
+      "fingerprint": "6483360c9b913e4ae7f4e52649ac7211b3c8c46e799421e0c56a70dedbaf332e",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-85ACFCB9A8E94258113B"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-85ACFCB9A8E94258113B",
+      "edge_kind": "owns",
+      "fingerprint": "889fd3b6888c868aed5f02781d25f1eef2d10bf6d63afae2dd1555303a9f6227",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-8861F5433DD84F0257CD"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-8861F5433DD84F0257CD",
+      "edge_kind": "owns",
+      "fingerprint": "499fd89eeb862b65d0c6f6f7c707f2649637d01951d7f9fb16ce916d0b660205",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-8F5904443A7890A6160A"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-8F5904443A7890A6160A",
+      "edge_kind": "owns",
+      "fingerprint": "e45b4128a6a2ed6ad55c3bda491d10d05f519b82ae392868969aae9ac3b074d4",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-9A710B7189FB305D2C17"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-9A710B7189FB305D2C17",
+      "edge_kind": "owns",
+      "fingerprint": "30430bb2e6ad3b58744c4dc3ae5f293f6af48746c11140f3cd3900f7139f0b3e",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-9A710B7189FB305D2C17"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-9BB0F5560AEFF7CE6AAD"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_kind": "owns",
+      "fingerprint": "6b9f3165e389591dbd5cea10a1510ee05e7f952cb245fd52a2e6dd51fec935d5",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-A52E9A58A702A7E54394"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-A52E9A58A702A7E54394",
+      "edge_kind": "owns",
+      "fingerprint": "82953a686d2af980eb5cf38954fe441a3066faf39e758c7d80e40085d53ee8c3",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-A52E9A58A702A7E54394"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-AF05CE0011EB7442C0BB"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-AF05CE0011EB7442C0BB",
+      "edge_kind": "owns",
+      "fingerprint": "d6995ff8b573e3aaf2aafa3a64bafef7e24d5093a3f27329a1f01f774b3c3c0b",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-AF05CE0011EB7442C0BB"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-BA79784A3CC3FEC822DC"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-BA79784A3CC3FEC822DC",
+      "edge_kind": "owns",
+      "fingerprint": "b66c5585d54cb912d12c4a8cbf06319a97c0b21d89002ef7807ba9b1ec43c811",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-BA79784A3CC3FEC822DC"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-C254516E782A994AEF4D"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-C254516E782A994AEF4D",
+      "edge_kind": "owns",
+      "fingerprint": "6bf8b5692a921d1b1dec31b6fe0bb616867c83241914c511a547a8f5aea93bc4",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-E33AF5816DAC0B6AD94A"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-E33AF5816DAC0B6AD94A",
+      "edge_kind": "owns",
+      "fingerprint": "7f4e3d445d70661e6924974ddcaba48604357034c9d21d5d38df48aef4c57dc3",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-F70ABEBF0CBEF800A627"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-F70ABEBF0CBEF800A627",
+      "edge_kind": "owns",
+      "fingerprint": "fcf6f2c9a358f0c3f7930a0cdc76b21f75e742611e167ac8673c9e99c22c18f5",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {
+        "assignment_rule": "software_engineering",
+        "deterministic": true,
+        "repository_path": "RA-FC3B1B43D5F89053978D"
+      },
+      "edge_id": "owns:directorate:software_engineering:ownership_domain:RA-FC3B1B43D5F89053978D",
+      "edge_kind": "owns",
+      "fingerprint": "6f40a4999e7893786d89415733742e042f2d528a74ae70354d297d7ee1453e2a",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "ownership_domain:RA-FC3B1B43D5F89053978D"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "responsible_for:directorate:executive:responsibility:mission_direction",
+      "edge_kind": "responsible_for",
+      "fingerprint": "e640227b3504d6c192f47998ba036a013bf1ada5a83b5afdba8f42e59a4564fe",
+      "source_node_id": "directorate:executive",
+      "target_node_id": "responsibility:mission_direction"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "responsible_for:directorate:governance:responsibility:constitutional_governance",
+      "edge_kind": "responsible_for",
+      "fingerprint": "283f394d308bc66694a8cf4f5a4c4f205300944df596b8ebdd033da4d66713a6",
+      "source_node_id": "directorate:governance",
+      "target_node_id": "responsibility:constitutional_governance"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "responsible_for:directorate:intelligence_acquisition:responsibility:intelligence_acquisition",
+      "edge_kind": "responsible_for",
+      "fingerprint": "ec51432fb40a6514d3bad7e873b89c1f287f652496532f5e0a6d6e8b32c8d021",
+      "source_node_id": "directorate:intelligence_acquisition",
+      "target_node_id": "responsibility:intelligence_acquisition"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "responsible_for:directorate:knowledge:responsibility:knowledge_stewardship",
+      "edge_kind": "responsible_for",
+      "fingerprint": "11408f37db8097bcbf24285de20ccd5de60a255f9a0aa8d128ecd8c14c4ab255",
+      "source_node_id": "directorate:knowledge",
+      "target_node_id": "responsibility:knowledge_stewardship"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "responsible_for:directorate:operations:responsibility:operational_execution",
+      "edge_kind": "responsible_for",
+      "fingerprint": "0e18e220a2deff4c82c8394e43a10f348bbb43d5968c923b6dc3ba826609484a",
+      "source_node_id": "directorate:operations",
+      "target_node_id": "responsibility:operational_execution"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "responsible_for:directorate:planning:responsibility:mission_planning",
+      "edge_kind": "responsible_for",
+      "fingerprint": "b74fb16ae31845cc18222823bc7589b444a3e2f81b63f15da93f68fb605a6fb6",
+      "source_node_id": "directorate:planning",
+      "target_node_id": "responsibility:mission_planning"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "responsible_for:directorate:reasoning:responsibility:cognitive_reasoning",
+      "edge_kind": "responsible_for",
+      "fingerprint": "a875fe0a0faa8260d685e7ef86b9e259f1dfce1081cb4c2ca0e60f22cad174d8",
+      "source_node_id": "directorate:reasoning",
+      "target_node_id": "responsibility:cognitive_reasoning"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "responsible_for:directorate:software_engineering:responsibility:software_delivery",
+      "edge_kind": "responsible_for",
+      "fingerprint": "093320c6bf2db2ae6d8e8264e9064cbf5e2d9e84c9afc6416205bd0612f8ceff",
+      "source_node_id": "directorate:software_engineering",
+      "target_node_id": "responsibility:software_delivery"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "supervises:organizational_unit:jarvis:directorate:executive",
+      "edge_kind": "supervises",
+      "fingerprint": "590695e363f1f3909807d4a0cdc1d4c09634e238afcaf24bd1241fd805e86b44",
+      "source_node_id": "organizational_unit:jarvis",
+      "target_node_id": "directorate:executive"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "supervises:organizational_unit:jarvis:directorate:governance",
+      "edge_kind": "supervises",
+      "fingerprint": "576f7d71a9e8b0b83bf97dd7377df3c600ce07ea6ce9a671fd5551d53745c68a",
+      "source_node_id": "organizational_unit:jarvis",
+      "target_node_id": "directorate:governance"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "supervises:organizational_unit:jarvis:directorate:intelligence_acquisition",
+      "edge_kind": "supervises",
+      "fingerprint": "6c20c0c69c7be3a9809afd54150fdf0b93c40e56b3302b885b8623172783c38d",
+      "source_node_id": "organizational_unit:jarvis",
+      "target_node_id": "directorate:intelligence_acquisition"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "supervises:organizational_unit:jarvis:directorate:knowledge",
+      "edge_kind": "supervises",
+      "fingerprint": "c662b4d06eb383149e73f78a43ae46a06e8187e23d80f0a03a8adc47a2daee26",
+      "source_node_id": "organizational_unit:jarvis",
+      "target_node_id": "directorate:knowledge"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "supervises:organizational_unit:jarvis:directorate:operations",
+      "edge_kind": "supervises",
+      "fingerprint": "ec13caee657d6010ffb4e8793832d7eb6b6af8b054958d5f033024dfbf3fe4d8",
+      "source_node_id": "organizational_unit:jarvis",
+      "target_node_id": "directorate:operations"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "supervises:organizational_unit:jarvis:directorate:planning",
+      "edge_kind": "supervises",
+      "fingerprint": "0a2647f1c866b1f569e709affed5e95952468f173833775669e17230ca0fc571",
+      "source_node_id": "organizational_unit:jarvis",
+      "target_node_id": "directorate:planning"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "supervises:organizational_unit:jarvis:directorate:reasoning",
+      "edge_kind": "supervises",
+      "fingerprint": "4541c1fc956fd1d299a9916a08f2084d53c2228d546740e9310373b09050e495",
+      "source_node_id": "organizational_unit:jarvis",
+      "target_node_id": "directorate:reasoning"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "edge_id": "supervises:organizational_unit:jarvis:directorate:software_engineering",
+      "edge_kind": "supervises",
+      "fingerprint": "cd7bfc0efa06180b2483c42153c5dcd25fd733865b067faed8ea122e1a5e63e4",
+      "source_node_id": "organizational_unit:jarvis",
+      "target_node_id": "directorate:software_engineering"
+    }
+  ],
+  "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "repository_projection_fingerprint": "01c342103b9235450f7c315f1550b62dbac23e835e440caea1a5baf953a12b54",
+  "schema_version": "1.0.0"
+}

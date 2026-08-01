@@ -1,0 +1,19 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+  "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "integrity": {
+    "dangling_edge_ids": [],
+    "diagnostics": [],
+    "duplicate_edge_ids": [],
+    "duplicate_node_ids": [],
+    "edge_count": 42,
+    "fingerprint": "ebc706b107dd536d12c76014f921cb2e443b8eac17304d568c25f8e132b31c70",
+    "invalid_containment_edge_ids": [],
+    "is_valid": true,
+    "node_count": 22,
+    "orphan_node_ids": []
+  },
+  "repository_projection_fingerprint": "01c342103b9235450f7c315f1550b62dbac23e835e440caea1a5baf953a12b54",
+  "schema_version": "1.0.0"
+}

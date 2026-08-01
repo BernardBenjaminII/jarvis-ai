@@ -1,0 +1,1577 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "edges": [
+    {
+      "attributes": {
+        "inference": "single-domain article observation"
+      },
+      "edge_fingerprint": "24db4983be0dc02077a83d386eb33eb5d523d87220b590a08eabbefbc32c4638",
+      "edge_id": "belongs:RA-9A710B7189FB305D2C17:executive",
+      "edge_type": "belongs_to_domain",
+      "source_node_id": "artifact:RA-9A710B7189FB305D2C17",
+      "target_node_id": "domain:executive"
+    },
+    {
+      "attributes": {
+        "inference": "single-domain article observation"
+      },
+      "edge_fingerprint": "42debe0ee7f71cb4030e16271b8b1ba65fbf30880b4ef2fe76765b7cd1f3b31b",
+      "edge_id": "belongs:RA-A52E9A58A702A7E54394:general",
+      "edge_type": "belongs_to_domain",
+      "source_node_id": "artifact:RA-A52E9A58A702A7E54394",
+      "target_node_id": "domain:general"
+    },
+    {
+      "attributes": {
+        "inference": "single-domain article observation"
+      },
+      "edge_fingerprint": "2641606e7fcaa22413e6f792e327147236d4731a3751ac42e1f6138838cdbe48",
+      "edge_id": "belongs:RA-AF05CE0011EB7442C0BB:executive",
+      "edge_type": "belongs_to_domain",
+      "source_node_id": "artifact:RA-AF05CE0011EB7442C0BB",
+      "target_node_id": "domain:executive"
+    },
+    {
+      "attributes": {
+        "inference": "single-domain article observation"
+      },
+      "edge_fingerprint": "60e29620ef7993b4b5f97ad56e57fe6e4c2975c78ee65e43d49ca3e36268c26f",
+      "edge_id": "belongs:RA-BA79784A3CC3FEC822DC:general",
+      "edge_type": "belongs_to_domain",
+      "source_node_id": "artifact:RA-BA79784A3CC3FEC822DC",
+      "target_node_id": "domain:general"
+    },
+    {
+      "attributes": {
+        "inference": "single-domain article observation"
+      },
+      "edge_fingerprint": "7a941b2928a0a5c16cada8ce82fa78f29fc0c5a636df2db2b4c4ee64ed05a773",
+      "edge_id": "belongs:RA-FC3B1B43D5F89053978D:executive",
+      "edge_type": "belongs_to_domain",
+      "source_node_id": "artifact:RA-FC3B1B43D5F89053978D",
+      "target_node_id": "domain:executive"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "e4209971a647f11d886c011e96e87645600547c66c1b072cec0a55f1b437a277",
+      "edge_id": "governs:ARTICLE-0102:RA-16714F70BB58944F7118",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "ebf02dc900ca9f0d6eb216509189b9cdea803b746691a3d1fadc491b078ac1b3",
+      "edge_id": "governs:ARTICLE-0102:RA-1CB54D8E99972E1C1BAF",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "92c09f913509195f38c8b997c0d3a2949d4ab13ae8893870dceaf54a59ecb101",
+      "edge_id": "governs:ARTICLE-0102:RA-210BB6A3C69F373B2761",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c9198530820b325e4612b9a384bff9d5ee302dd4b27bdb679f417da3aa690dfd",
+      "edge_id": "governs:ARTICLE-0102:RA-33CFECB575C3FC559D7B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "477f1453075897cef260446789814b761629eab173b893803c04863bd1acc751",
+      "edge_id": "governs:ARTICLE-0102:RA-579A51719DBBC72C38B1",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "b58c95a832429674ced1ae780f3fdd3de5e67b6c2fbcb97237f16623527d7710",
+      "edge_id": "governs:ARTICLE-0102:RA-765B2D6306D5B3223378",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "a7a38202da655c08d2f02a142a47e29a6c826895d5d58688b4f2b6fbb3f98193",
+      "edge_id": "governs:ARTICLE-0102:RA-7815E5495E69C50E664C",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "2a48b1be09fcbccc32c19f7ac53955ba367d2d113d123820271f0e8977522405",
+      "edge_id": "governs:ARTICLE-0102:RA-7EE4AFE81AED4EA2A882",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "db1c1045f38b508ab4b7869f7bfac2c37926dfdd5ab2177b2dfbf265264309f0",
+      "edge_id": "governs:ARTICLE-0102:RA-859E321B756DF9D8D32D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "0c55bfde3cf3aeed8b7c98c34d58d6ac7e71ed852d2c107c817d0401e74c6bf8",
+      "edge_id": "governs:ARTICLE-0102:RA-85ACFCB9A8E94258113B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "ba51f3756b7b16f7c1bb9bdff7e009ebca7e5db17ad09445448ad87d014e67ed",
+      "edge_id": "governs:ARTICLE-0102:RA-8861F5433DD84F0257CD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "8af5812ff14ab6538d6054782d905d92038ef9598f7566ab57d0a39d38a5ec25",
+      "edge_id": "governs:ARTICLE-0102:RA-8F5904443A7890A6160A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "ddc8e93795fe05bc9a54314c78174a6becba2184061fad033965615574a57c9b",
+      "edge_id": "governs:ARTICLE-0102:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "65f53123046c257e13cb44a43bf2b551ffc308f218f4856c722ae043d033e6f7",
+      "edge_id": "governs:ARTICLE-0102:RA-C254516E782A994AEF4D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "1ba0ed12cb3f7fe0e0d01398173a2dc4c4338d27b5a48930506e87be48669533",
+      "edge_id": "governs:ARTICLE-0102:RA-E33AF5816DAC0B6AD94A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "5884be7ac27e76bcedc5956d22124b998be2c64041fbc1a27a591595076fbcfa",
+      "edge_id": "governs:ARTICLE-0102:RA-F70ABEBF0CBEF800A627",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "ecbdc16c948408eadd3339a9d291df62e7853bca4362abcdfe3728b5ff9cf33f",
+      "edge_id": "governs:ARTICLE-0187:RA-16714F70BB58944F7118",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "5c518add39da1083079dbe478247323b242aeaf317b237fff019657aca8afc61",
+      "edge_id": "governs:ARTICLE-0187:RA-1CB54D8E99972E1C1BAF",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "efce7a6ab71b87718eb48af22efa84990d507f2a283d8617a05c20dede03a0ce",
+      "edge_id": "governs:ARTICLE-0187:RA-210BB6A3C69F373B2761",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "d8f278d9f9e416794a4eef37f1a38c03898b43074107ddae3f4c55564c3b6070",
+      "edge_id": "governs:ARTICLE-0187:RA-33CFECB575C3FC559D7B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "86588c3154a110789feceb16bfd58b550c2afe527c6ca90184a1df205e3c8d2e",
+      "edge_id": "governs:ARTICLE-0187:RA-579A51719DBBC72C38B1",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "3372ffd0535c77f3f77c04d19f7ff34c4d8a3bdb116c76da29d4078ec17375b1",
+      "edge_id": "governs:ARTICLE-0187:RA-765B2D6306D5B3223378",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "82570800f813a2d02cc1234b87758e2bfbfeed475308c0729ce857ea9ffa7247",
+      "edge_id": "governs:ARTICLE-0187:RA-7815E5495E69C50E664C",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "26c8d20e572214f3c57e5eeae38f8a820add903c6ab30d6569269ad00906f382",
+      "edge_id": "governs:ARTICLE-0187:RA-7EE4AFE81AED4EA2A882",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "d26a47a6c07264b2d322911567726db2c867ad91a5f4fe218f5460895ef5c752",
+      "edge_id": "governs:ARTICLE-0187:RA-859E321B756DF9D8D32D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "287d5771a02a78be271654251878cb65e076a1ee40b5f15f85f58ac514a6586a",
+      "edge_id": "governs:ARTICLE-0187:RA-85ACFCB9A8E94258113B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "48dc27ce0d2d119ce562c6bd2b3c81dfe618a7dbcc8a88db18f214ff7cb69633",
+      "edge_id": "governs:ARTICLE-0187:RA-8861F5433DD84F0257CD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "fe1314a9136f09ecf99a2490bf417ef668bc1f06f2681f002112d3a4f6b951c4",
+      "edge_id": "governs:ARTICLE-0187:RA-8F5904443A7890A6160A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6244944567578b0cf49eecf7f7eb9e71bc7de330beb00f585401022cd7621dfb",
+      "edge_id": "governs:ARTICLE-0187:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "b9a8ac1a19663e618714c3c2b2424e0e7d6987ed200004a28d8e3eadc919d460",
+      "edge_id": "governs:ARTICLE-0187:RA-C254516E782A994AEF4D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "89589009ac513002c3cebb588705eeba4525a03e792e6e8c1d78e299e6f71b48",
+      "edge_id": "governs:ARTICLE-0187:RA-E33AF5816DAC0B6AD94A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "f1e5a097de586c2cafb642f20211eaa911a969af8986cceda4e35052a54a276f",
+      "edge_id": "governs:ARTICLE-0187:RA-F70ABEBF0CBEF800A627",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "12545a90cc0a6ee974aa841c6b3e3d5f293e0f88477135afa764767cacabe369",
+      "edge_id": "governs:ARTICLE-0255:RA-AF05CE0011EB7442C0BB",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0255",
+      "target_node_id": "artifact:RA-AF05CE0011EB7442C0BB"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6a58a32ef8de91ad2f4067d1eac3269c571f46920abbe6788ce1c0d4d17b39f7",
+      "edge_id": "governs:ARTICLE-0255:RA-FC3B1B43D5F89053978D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0255",
+      "target_node_id": "artifact:RA-FC3B1B43D5F89053978D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "28470624ea77168ed7bcc30ba20637da7f44f7ed5d8e50b067aa4511f5b716da",
+      "edge_id": "governs:ARTICLE-0262:RA-9A710B7189FB305D2C17",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0262",
+      "target_node_id": "artifact:RA-9A710B7189FB305D2C17"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "eff43640d3738ab80b283d42b48d00597d39bd1122922b2d0d56b651e4057a38",
+      "edge_id": "governs:ARTICLE-0306:RA-16714F70BB58944F7118",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "a5776d4c3f47314cdc7d65df118e93ce2b8998263b6dc9b5bf4e6d773583d9d5",
+      "edge_id": "governs:ARTICLE-0306:RA-1CB54D8E99972E1C1BAF",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "4c96f268b129ca6e32bc41fa42f25fd4fa0270be74b859e1e996f3b678fd365e",
+      "edge_id": "governs:ARTICLE-0306:RA-210BB6A3C69F373B2761",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "9b3b7b2655f84d79fc3b818b28745f285feb124c409d5ab78265efd1581fabfc",
+      "edge_id": "governs:ARTICLE-0306:RA-33CFECB575C3FC559D7B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "b90a5ca076bfa8035e82d6ae5a697bf4cbdd5ca98fd3718e34cb45570a5c17d7",
+      "edge_id": "governs:ARTICLE-0306:RA-579A51719DBBC72C38B1",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c5a340d626a7fef09d72f7f9adb5db56f863b70ad0292904a9ac71344690f9a4",
+      "edge_id": "governs:ARTICLE-0306:RA-765B2D6306D5B3223378",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "2c3201ef7bae3488604d1d878f96fb30454c3aa0f1e903fd59b7eda8625ce493",
+      "edge_id": "governs:ARTICLE-0306:RA-7815E5495E69C50E664C",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "e91fd33eb4f2cb659bae3ec5c4cb2917de485e71306a27d86a0120761f394cb3",
+      "edge_id": "governs:ARTICLE-0306:RA-7EE4AFE81AED4EA2A882",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "33eb03ddd0ab150d5df6259cdf77d393b3d0f056052e36363205bd74f3adddd8",
+      "edge_id": "governs:ARTICLE-0306:RA-859E321B756DF9D8D32D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7b929c10da0c8fff06f56b5206b12e6b65d544118f72050dbbbb4f0d4c3bd841",
+      "edge_id": "governs:ARTICLE-0306:RA-85ACFCB9A8E94258113B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "a553730a2b3eb5987ef72d01f4f59eea7197374f3c2a5fcb5b27a9f72ad02f15",
+      "edge_id": "governs:ARTICLE-0306:RA-8861F5433DD84F0257CD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "a3cd6a76e261b1d2c7e742dfd70be08ec6ed9149eb7a8aeb771c9d549de1849f",
+      "edge_id": "governs:ARTICLE-0306:RA-8F5904443A7890A6160A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "76743036ea48e67d2fd8659e5239d94aedc0bf051805d4b7dd3cd1d9c892ffec",
+      "edge_id": "governs:ARTICLE-0306:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "828b3cf33e3576d303553ff58e35105762643678924d943987b5153b87b87932",
+      "edge_id": "governs:ARTICLE-0306:RA-C254516E782A994AEF4D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "713c31e63c7c4edc3d1e9377512b68d82d4f4231f880d3e7c04c8118878a6b1a",
+      "edge_id": "governs:ARTICLE-0306:RA-E33AF5816DAC0B6AD94A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "73fe7548a64cb0181ef31a22441eefad37f95655765a2563f38f5dd642270aa9",
+      "edge_id": "governs:ARTICLE-0306:RA-F70ABEBF0CBEF800A627",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "2b64f58cd70a3be0fe73c124c0ab61f286b66e373d456887fe2c595441664f20",
+      "edge_id": "governs:ARTICLE-0360:RA-16714F70BB58944F7118",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "841c9c7424e8e3ac699aed7149c1f300366280b45cc5c3b9cf7b0cc5152b1dce",
+      "edge_id": "governs:ARTICLE-0360:RA-1CB54D8E99972E1C1BAF",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "943f7fb659301b9648683b97b9aea3acc134a013de4002e5c25262b1cc70b811",
+      "edge_id": "governs:ARTICLE-0360:RA-210BB6A3C69F373B2761",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "05d046e2fd14ca06a1d919c10c0b1e6e11a52cb283204616924446c43d26dfad",
+      "edge_id": "governs:ARTICLE-0360:RA-33CFECB575C3FC559D7B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "488da7e5fcf0a1e13c90c3968ae1718ad64883309fd90e475f7713271490a8da",
+      "edge_id": "governs:ARTICLE-0360:RA-579A51719DBBC72C38B1",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "38c63804246dd4a1e531438e7ecba33cdcc49ed4d621e5f30d6d67b2d038b1ab",
+      "edge_id": "governs:ARTICLE-0360:RA-765B2D6306D5B3223378",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6165902036e157a474bf7d582c41e654ae535fee3d5b74cf666c67f1d1d464d4",
+      "edge_id": "governs:ARTICLE-0360:RA-7815E5495E69C50E664C",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "79919c8813569fb21c5e9f4b604e21900a6f88d5cb680109ddba719c26703899",
+      "edge_id": "governs:ARTICLE-0360:RA-7EE4AFE81AED4EA2A882",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "0ed52c9689323292c8da4f19908fcf693e507f32f29de62e10ad8453a4f1ea4d",
+      "edge_id": "governs:ARTICLE-0360:RA-859E321B756DF9D8D32D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "cfed4f02e41e24f269c18cc82ab4784d8c95f5bb35ba0425398a4349eb124108",
+      "edge_id": "governs:ARTICLE-0360:RA-85ACFCB9A8E94258113B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6c4dc25ac28ecfaa1486b059f7b8eb2b3634ecda2389a2cecdf263920544173a",
+      "edge_id": "governs:ARTICLE-0360:RA-8861F5433DD84F0257CD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "341e06b36b92ee7407d6127973f5692240eca3ef6f1deb2286d5991509eeaeed",
+      "edge_id": "governs:ARTICLE-0360:RA-8F5904443A7890A6160A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "86dcef92446b87dd3e7818e2f7f54e9bda682d1765f6083830f151f1d9e0bf0e",
+      "edge_id": "governs:ARTICLE-0360:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "83af8afbf67cfac4f2b43fd14539c8e432118c77116ecc73968c40c5495a3695",
+      "edge_id": "governs:ARTICLE-0360:RA-C254516E782A994AEF4D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "2c5bb7a0897ec29746fdf3cc85ae29733bd0f2ec497604c5af31d1177aedf1ca",
+      "edge_id": "governs:ARTICLE-0360:RA-E33AF5816DAC0B6AD94A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "73cd819fbd0df0f94aeb0756256b3e5ee86246f78a22521c13b73654b68a5105",
+      "edge_id": "governs:ARTICLE-0360:RA-F70ABEBF0CBEF800A627",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "efa2b971322ebe5b7ce119019d6237929ad8ea439bb92f8bc4da25cd1ac3354a",
+      "edge_id": "governs:ARTICLE-0748:RA-A52E9A58A702A7E54394",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0748",
+      "target_node_id": "artifact:RA-A52E9A58A702A7E54394"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "2ebf51d6c1ebed4b35cf709951ae9d2d31e2b7e4741dbb2a8ddb87147c49045b",
+      "edge_id": "governs:ARTICLE-0748:RA-BA79784A3CC3FEC822DC",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0748",
+      "target_node_id": "artifact:RA-BA79784A3CC3FEC822DC"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "72db8d534a507a216c6b7b4c1beec282a4923119f94869da9f98a8803c6ef45b",
+      "edge_id": "governs:ARTICLE-0801:RA-A52E9A58A702A7E54394",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0801",
+      "target_node_id": "artifact:RA-A52E9A58A702A7E54394"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7068297cbfdc50a79265567f864ad9dcc5dbea04cfb79307aabff5a47a45ddc8",
+      "edge_id": "governs:ARTICLE-0801:RA-BA79784A3CC3FEC822DC",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-0801",
+      "target_node_id": "artifact:RA-BA79784A3CC3FEC822DC"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "95b538f8d7ada8c499ec64b6774b081d62bc3cd922ab13dea6ed268a57c8cd0a",
+      "edge_id": "governs:ARTICLE-1386:RA-16714F70BB58944F7118",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "576bfa817259cb22ebcfbf358b64a6ec9bb05f4dc4b93d3d0af6b939c1fbbb54",
+      "edge_id": "governs:ARTICLE-1386:RA-1CB54D8E99972E1C1BAF",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "fafc705871f0eec31cfdca5430a4dba5f736d55c2c04a5cf278ce0a286275391",
+      "edge_id": "governs:ARTICLE-1386:RA-210BB6A3C69F373B2761",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "76af7cad6438d22e00300a0406f6f89360004e0bc2d1c8f5dcff7724b095899d",
+      "edge_id": "governs:ARTICLE-1386:RA-33CFECB575C3FC559D7B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "fc86ad78f07ac65347589484fdb985aa0045eb9fe88d039a75b11e1cdaf18d37",
+      "edge_id": "governs:ARTICLE-1386:RA-579A51719DBBC72C38B1",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c346f9492de3dd78cd06cd5dcdb0f8cad1ff9d95c1ff01f94648e631893071ca",
+      "edge_id": "governs:ARTICLE-1386:RA-765B2D6306D5B3223378",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "38cde9452dd0be630dc2aaf340e58d70d25758aeeb0521dba7f7591acfe40062",
+      "edge_id": "governs:ARTICLE-1386:RA-7815E5495E69C50E664C",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "5fec0b713def202019d7ad0511064558d4bb94ad0da76475dfc162dfe38d4094",
+      "edge_id": "governs:ARTICLE-1386:RA-7EE4AFE81AED4EA2A882",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "602d0f610eeb380e07f97ca3f14b61b5fe1c157a8b79d3ea4b0108d01a6b98da",
+      "edge_id": "governs:ARTICLE-1386:RA-859E321B756DF9D8D32D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "5c6b96e9b9d0e79e63b298bbd952b8d1edb48eb4886cd2ab4f75fd13861e0166",
+      "edge_id": "governs:ARTICLE-1386:RA-85ACFCB9A8E94258113B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "ac7b0bd23479cf686ff57adc983969f8797fce634a308bee6bf446c35ef1e0f7",
+      "edge_id": "governs:ARTICLE-1386:RA-8861F5433DD84F0257CD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "57445d83d3bd694ceee7428852d0ee8185484575d944a721fac6fae789783729",
+      "edge_id": "governs:ARTICLE-1386:RA-8F5904443A7890A6160A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7e78708e5bbef6187131804b2d4775220b94eacccef3117d4ac3c5d52d364dc0",
+      "edge_id": "governs:ARTICLE-1386:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "4ddffadf94f3d139c05b66405ee94786f350706ac33dc7097c35dd11acedbc03",
+      "edge_id": "governs:ARTICLE-1386:RA-C254516E782A994AEF4D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "34a4fca2448308e1d52281bcc017661474e7b32b610b6a72d706136290e1d804",
+      "edge_id": "governs:ARTICLE-1386:RA-E33AF5816DAC0B6AD94A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "0f47d409c60736f26f3fd99e96d5bb084e667773ca349697151b18066f94b135",
+      "edge_id": "governs:ARTICLE-1386:RA-F70ABEBF0CBEF800A627",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "713eaf9de95643f0f6b8260905b248fff196fd7481a9d37323075b24171c4dd8",
+      "edge_id": "governs:ARTICLE-1543:RA-A52E9A58A702A7E54394",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1543",
+      "target_node_id": "artifact:RA-A52E9A58A702A7E54394"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "24ac7d874092005cb40a0bdbe2e97f49139627b86da07c72e94e6f5357f1e08d",
+      "edge_id": "governs:ARTICLE-1543:RA-BA79784A3CC3FEC822DC",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1543",
+      "target_node_id": "artifact:RA-BA79784A3CC3FEC822DC"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7acd74b7a13fd36c50973d7830d94827e2a3f49a1af3b1750e9c141622bb9e78",
+      "edge_id": "governs:ARTICLE-1559:RA-16714F70BB58944F7118",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "e55322fd6c07573dffb51766c24cdceda1b88397519e376e74043225a4a3a1d7",
+      "edge_id": "governs:ARTICLE-1559:RA-1CB54D8E99972E1C1BAF",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "84a526fd57cab0d27840f262128ec55de473a3aca30572449601e75ccba6e7d0",
+      "edge_id": "governs:ARTICLE-1559:RA-210BB6A3C69F373B2761",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "4fc10705f3092edded1fd4e0943e0e60e362668fa6f28ecda646186df5056ffc",
+      "edge_id": "governs:ARTICLE-1559:RA-33CFECB575C3FC559D7B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "08e6bb4d0d81fda62c55d46fddff17f04f2af13531b9bbb9101c0063a63bc110",
+      "edge_id": "governs:ARTICLE-1559:RA-579A51719DBBC72C38B1",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "3a01c2f5b21a2504dff07170e9cf084440ba7b170f0af0eac05ca2bee618c127",
+      "edge_id": "governs:ARTICLE-1559:RA-765B2D6306D5B3223378",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "10c6d49d49b983578948b09e52fa45235b5537813605486676b3e11462068207",
+      "edge_id": "governs:ARTICLE-1559:RA-7815E5495E69C50E664C",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "9448bc7dbbb48e141295d875e79390bcba1d15efc48b728e5e3efb411f856ce9",
+      "edge_id": "governs:ARTICLE-1559:RA-7EE4AFE81AED4EA2A882",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "1c08865818993c6c3d8f7428236dbee82f7e163860d31417140dbb5570fafbf9",
+      "edge_id": "governs:ARTICLE-1559:RA-859E321B756DF9D8D32D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "588130eef4710bc89d8fa4daa4d6729c76c9d7f7a74fe70d3e0e5a1f1a012097",
+      "edge_id": "governs:ARTICLE-1559:RA-85ACFCB9A8E94258113B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "e80218f020476b0471e49ee8c809a4fb2c138389e050a409defa16a9a3fe949e",
+      "edge_id": "governs:ARTICLE-1559:RA-8861F5433DD84F0257CD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "2f76f9b18a8b3a0679f2cd56cb71e8ebca87b7f6bf9ddebbab2a64bdd24a0862",
+      "edge_id": "governs:ARTICLE-1559:RA-8F5904443A7890A6160A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "f141d140624245b5fcfac70b68127d7892702c99182c25927a350c4d8f2af259",
+      "edge_id": "governs:ARTICLE-1559:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "741133926de272feb9f1b6db7e31cd091ed5e8a64686aab5c87723165f878b15",
+      "edge_id": "governs:ARTICLE-1559:RA-C254516E782A994AEF4D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "0ee28f0ad36b2b4ce3e571d04388b14ebb98c8e794f7dc0be88bb373528e363f",
+      "edge_id": "governs:ARTICLE-1559:RA-E33AF5816DAC0B6AD94A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "782fb6d18c61b65c6375a5a3150b9a59df33ceff9d7bb4bb11aaabab216932b6",
+      "edge_id": "governs:ARTICLE-1559:RA-F70ABEBF0CBEF800A627",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "9e4f58ab9591f75f20f3822575f56dc99083db5abb145e61ddb32ca0fafc1734",
+      "edge_id": "governs:ARTICLE-1620:RA-16714F70BB58944F7118",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "30930663f22a317b8f8e46f60a4002b3c6a79b819022a3f18bb3009e6c9cb97b",
+      "edge_id": "governs:ARTICLE-1620:RA-1CB54D8E99972E1C1BAF",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "789fda97b4032b6ce58106634d8b9752d72e2cec4ea6581964540191cd0ed359",
+      "edge_id": "governs:ARTICLE-1620:RA-210BB6A3C69F373B2761",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "d1a85b9ed35ba4337c07ed9cc9e3d6c8ec926baab8deab3e5467b23f6a8c6213",
+      "edge_id": "governs:ARTICLE-1620:RA-33CFECB575C3FC559D7B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c31a3f66a9635e659ac9e0c4f707d9af08ec3ef025c6b39b96942c4670ad832b",
+      "edge_id": "governs:ARTICLE-1620:RA-579A51719DBBC72C38B1",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "4e68e51dcbe2e917885d358c86a4aefc9304b745015de5acc57a3dbdbe0f14df",
+      "edge_id": "governs:ARTICLE-1620:RA-765B2D6306D5B3223378",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "cf52d9d70152c6ecb8a84db9997586a99af8bdd569f00708f937a2ecc635201a",
+      "edge_id": "governs:ARTICLE-1620:RA-7815E5495E69C50E664C",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "0a07ade63bead5be7238bcea0ccc5ab224113d513bd9ca69dba78fadd49c98b7",
+      "edge_id": "governs:ARTICLE-1620:RA-7EE4AFE81AED4EA2A882",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "79c44a0e1e100d7e57a09dda59c2e9b362f1c04d1147cf66457182b29fcbca79",
+      "edge_id": "governs:ARTICLE-1620:RA-859E321B756DF9D8D32D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6d8d4e0ce1dce4f52c262da4fb347f1c6d00a87311d4f43255f4e1763b3a1952",
+      "edge_id": "governs:ARTICLE-1620:RA-85ACFCB9A8E94258113B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "dc5ce61feb1ae3476ab8742122cbe76fea729c7ac745830f738fa82b741cf8a7",
+      "edge_id": "governs:ARTICLE-1620:RA-8861F5433DD84F0257CD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6f7ea12f9809647ae6591c4ef30658d15a5f7431e3a6ac7158ecdac5a5fd4cc7",
+      "edge_id": "governs:ARTICLE-1620:RA-8F5904443A7890A6160A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "d46a6743dc3d1d82576cb3d1b8aee61da55935c108f02c9ddcaf1331441aebd3",
+      "edge_id": "governs:ARTICLE-1620:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "0f4a50083d0249afbd2596bc9ed0cbcd1af9f21fe432315d1a5586240d45df0a",
+      "edge_id": "governs:ARTICLE-1620:RA-C254516E782A994AEF4D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "cc3a73f042f27837856d2e6eca9dcb96c698698533bc631d8bf8ad74e1a5726b",
+      "edge_id": "governs:ARTICLE-1620:RA-E33AF5816DAC0B6AD94A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "b4195e9d89f59ced53913e88fd91a9cef39923037703bd9e70851604dd9bdb7d",
+      "edge_id": "governs:ARTICLE-1620:RA-F70ABEBF0CBEF800A627",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "053e54c3c9807371e4aa792976a5ca4fcd9ddda9ea0a385cd496ec63c28b0e62",
+      "edge_id": "governs:ARTICLE-1807:RA-16714F70BB58944F7118",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c80cfca1d4612e1f79b4285520afd7a579c418cf034847caa002d35c9d877fbc",
+      "edge_id": "governs:ARTICLE-1807:RA-1CB54D8E99972E1C1BAF",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "148fb9bd744ba8a4d8f089565d8621dd11c3493dd7d11d3e7eba6a7f2162a9a6",
+      "edge_id": "governs:ARTICLE-1807:RA-210BB6A3C69F373B2761",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "5c187fbb5c1519ef03eeefec11be77fe2912dcf671732da24512482733df00f4",
+      "edge_id": "governs:ARTICLE-1807:RA-33CFECB575C3FC559D7B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "b332faef9d13544a82eb4731c64d69950307d4e8e4611e4eb06e752bfa0c12aa",
+      "edge_id": "governs:ARTICLE-1807:RA-579A51719DBBC72C38B1",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "9b01ddda0824f0bf3a587aa2f0cccc3b6ca01378e1f15bced3dac21a2078cd92",
+      "edge_id": "governs:ARTICLE-1807:RA-765B2D6306D5B3223378",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7f8d1fd539f9307e4499adf6a292ac35a282642216c0936eac96e94a814b8799",
+      "edge_id": "governs:ARTICLE-1807:RA-7815E5495E69C50E664C",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "a2844c814e51c1012d2d746bcf6cac589409f7f512f94b0eea20d38121155139",
+      "edge_id": "governs:ARTICLE-1807:RA-7EE4AFE81AED4EA2A882",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7aba697bd4e3cbfe95b4bedfb4d837d6dc94b5b45ad72ea4912a81c4dc76d8b0",
+      "edge_id": "governs:ARTICLE-1807:RA-859E321B756DF9D8D32D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "da8c2a12f87e7ee6b09b640e637323c7280179ff3f5a6feb3bc28830d922847f",
+      "edge_id": "governs:ARTICLE-1807:RA-85ACFCB9A8E94258113B",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "07f2c858064fd1cd2509b7f639e96615558928d2f765998284dfc5a914457abe",
+      "edge_id": "governs:ARTICLE-1807:RA-8861F5433DD84F0257CD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "b006ce7726c96710cdbc639bab7da80a3c9debb64f456d7d92a8bb18d82ad334",
+      "edge_id": "governs:ARTICLE-1807:RA-8F5904443A7890A6160A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c961887e5173b378808e46f5db322df702e7866a1c054545cc668f91b583f085",
+      "edge_id": "governs:ARTICLE-1807:RA-9BB0F5560AEFF7CE6AAD",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "a99f2b58796305c998d16427c77336149d0fc649133fdd20dcb1678f7e4b919e",
+      "edge_id": "governs:ARTICLE-1807:RA-C254516E782A994AEF4D",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c9af8c38ff3a4f381f6da1aa5bdc43789889ec14f0a81aec10c7faebe3706922",
+      "edge_id": "governs:ARTICLE-1807:RA-E33AF5816DAC0B6AD94A",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "62f5fd4bb633682e64590328514c20ca99f0835557c1c5aff56db5ef1e2566fc",
+      "edge_id": "governs:ARTICLE-1807:RA-F70ABEBF0CBEF800A627",
+      "edge_type": "governs",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "042bdb0bbae9bdfa70853e9b3af8dbec914a4e3aff5e668fcf5142f54387a270",
+      "edge_id": "observed:ARTICLE-0102:architecture",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "domain:architecture"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "e2baf27e71956e33eda3531fa429bd0941aff00dfb5903fc15721f7d2b147775",
+      "edge_id": "observed:ARTICLE-0102:execution",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "domain:execution"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "802a6dee1bd14583fec930c24a4f14ee02b073feb8e82d4da9015d7d5aa993fd",
+      "edge_id": "observed:ARTICLE-0102:knowledge",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "domain:knowledge"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "2a93a4cae2107ecb253048e9da7883eeac011c7fc47eeb387553faea31cae04f",
+      "edge_id": "observed:ARTICLE-0102:memory",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "domain:memory"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "d3114a542dd4366b74eba8a6f072d2e511f1fcdd02f0471cf0217bc43995e549",
+      "edge_id": "observed:ARTICLE-0102:planning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "domain:planning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "21a4f76eb8dee3fe82cf34ac2b1cf0f6a87b25f9c09a4577135eebbf3b63b516",
+      "edge_id": "observed:ARTICLE-0102:reasoning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0102",
+      "target_node_id": "domain:reasoning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "8ec7765ff0b1da290fee23b7dfbb5ee479d1e945549ce3620b37727fab001525",
+      "edge_id": "observed:ARTICLE-0187:architecture",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "domain:architecture"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "9bb5338f7d4ba04af1d5aada39369f97530379940cf499d966e0201ca16eab0c",
+      "edge_id": "observed:ARTICLE-0187:execution",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "domain:execution"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "677427cea57103fe98cb7110323df05f4f15904062181eceb16f5d6d5d34a6e9",
+      "edge_id": "observed:ARTICLE-0187:knowledge",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "domain:knowledge"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "9772a9f339c154cc16d793550cd5a1bedb2f30b372b6fd46e05165099bda3fb1",
+      "edge_id": "observed:ARTICLE-0187:memory",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "domain:memory"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "48251326c99852d3baefff978b026a6a37ed70f6a498182cbe0f34b9ecd9188c",
+      "edge_id": "observed:ARTICLE-0187:planning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "domain:planning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "15823d13bdd9957fe446edec775d9f8c6944c17c50eb04cb8c87aafd83c9baa3",
+      "edge_id": "observed:ARTICLE-0187:reasoning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0187",
+      "target_node_id": "domain:reasoning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "aa670ec8508c6db1471df5647aef7fcb897bb1fbfc9856cd461224298d2355c9",
+      "edge_id": "observed:ARTICLE-0255:executive",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0255",
+      "target_node_id": "domain:executive"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7a7b9882610a25cb4c24ebdc41cf731cf1c9e2146b9323921a6404a43d83a57d",
+      "edge_id": "observed:ARTICLE-0262:executive",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0262",
+      "target_node_id": "domain:executive"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "d272e09b54a9493ee7f900c5cf551bdba80f1ae8f9902aec0b60e780caebaa1b",
+      "edge_id": "observed:ARTICLE-0306:architecture",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "domain:architecture"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "d2fe8934cafd941e1131460b1f98e91ea76c1f4ac81f4f973c6de237ea92b368",
+      "edge_id": "observed:ARTICLE-0306:execution",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "domain:execution"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "e569c2abcbd039d8760cddfc01909991563da1ff98b2865eaab05834b8620212",
+      "edge_id": "observed:ARTICLE-0306:knowledge",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "domain:knowledge"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "dfba137d05b0d1c770cd748fa680dfc2f5e7e0a224327c03562140257944e6ac",
+      "edge_id": "observed:ARTICLE-0306:memory",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "domain:memory"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6a7448c3f3fa2f8b5cdc5567e79b4c03a37fc00ec7bd0b606481c249966f8bf2",
+      "edge_id": "observed:ARTICLE-0306:planning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "domain:planning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "ab27502db2a20ac41958162a0257f760d1572b14a723592a48e78df051010cad",
+      "edge_id": "observed:ARTICLE-0306:reasoning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0306",
+      "target_node_id": "domain:reasoning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "8df4acda11aa9cb28f06cb828f6fb3da4afbfdfd78e9f0626686c2046b559718",
+      "edge_id": "observed:ARTICLE-0360:architecture",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "domain:architecture"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "99c105ccb0bace9f51b2817588bebb15f538c6d29374eae4ceea50d2ea84a429",
+      "edge_id": "observed:ARTICLE-0360:execution",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "domain:execution"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "91f4a5a79ee93180a1e60537c58c3b7f623e4ac76579c5b48b109f15e3d85c30",
+      "edge_id": "observed:ARTICLE-0360:knowledge",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "domain:knowledge"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c921ea6789bfb106aa69098f68823f99495f3f5d578dc778f2be6a81fcd291bc",
+      "edge_id": "observed:ARTICLE-0360:memory",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "domain:memory"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6356242d499da20f669aa722b7556edfa6ea5bed29708df7af79c9f0a50f1290",
+      "edge_id": "observed:ARTICLE-0360:planning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "domain:planning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c9b35cf5bef1f6b827ff5eb7a4428e945ee7aab10ec9e13009b83d1ea10bcc44",
+      "edge_id": "observed:ARTICLE-0360:reasoning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0360",
+      "target_node_id": "domain:reasoning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7273d6b434d8a3dab81a52a8769580a2deed9d9878c5209c2c3ea8399b13e2c8",
+      "edge_id": "observed:ARTICLE-0748:general",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0748",
+      "target_node_id": "domain:general"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "09b38fbb8b46320a98082f8cfbe2eb456d4c7bbc8acd6760f7ea791c673d611e",
+      "edge_id": "observed:ARTICLE-0801:general",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-0801",
+      "target_node_id": "domain:general"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "b792ddc123db8461308c0f8b4c7d56fce4dca038ed4edee658418d40da204379",
+      "edge_id": "observed:ARTICLE-1386:architecture",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "domain:architecture"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "0206d3a67191413e8ce41ed696682853e5266ded2e76c2cbdbc5190f3309e075",
+      "edge_id": "observed:ARTICLE-1386:execution",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "domain:execution"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "2cce27ef01c74ffbc9a8d02fa1c4a82287a1ecd27586f2a53803e4cee385b8e7",
+      "edge_id": "observed:ARTICLE-1386:knowledge",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "domain:knowledge"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "efe2d4c5aadf27d31f39c4833a196111671de81e611c429a40ef26045cae4ae6",
+      "edge_id": "observed:ARTICLE-1386:memory",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "domain:memory"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "63a705a327494b4292bf34eeb3431a16edd6b14108f13baa99be470151102a9d",
+      "edge_id": "observed:ARTICLE-1386:planning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "domain:planning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "47ebd35f0f44dd5494b759aa9d1f7f32c2b1116bc2221739493e384ac15938c2",
+      "edge_id": "observed:ARTICLE-1386:reasoning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1386",
+      "target_node_id": "domain:reasoning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "a6837b234d79caa81232332f78f617ecbbbe6066c93c0a484e4874682f317d72",
+      "edge_id": "observed:ARTICLE-1543:general",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1543",
+      "target_node_id": "domain:general"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c905aaa85395df89a3f5a94f2640c0c052feef6ba16c2aa0e7eef9da7df53ce9",
+      "edge_id": "observed:ARTICLE-1559:architecture",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "domain:architecture"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6ab6fb3d85e494e473222f1cde379f3319232c660df2438c403c44dcbd85de26",
+      "edge_id": "observed:ARTICLE-1559:execution",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "domain:execution"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "4d8fa3945021eaec1b519ccf1347d5557a1ae6d41b4105247d41718a5fdbacf7",
+      "edge_id": "observed:ARTICLE-1559:knowledge",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "domain:knowledge"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "cdc826ebc9a2cae1c565e47da2b038b8fc256301ec9c8b3734468b444aef489f",
+      "edge_id": "observed:ARTICLE-1559:memory",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "domain:memory"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "39b0d6e573ccd7e5a0cdc568e7b16fa00eb1bcd7899a5e3ea923e067171d37da",
+      "edge_id": "observed:ARTICLE-1559:planning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "domain:planning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "41295044ed35e99a2a2a1245b5112411cedf76490e7c3566fcfa4c632e1941a1",
+      "edge_id": "observed:ARTICLE-1559:reasoning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1559",
+      "target_node_id": "domain:reasoning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "f45cb02be6aec3dd676477ff445aa1b0dc239b568f1371d7135d54b8b6337b00",
+      "edge_id": "observed:ARTICLE-1620:architecture",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "domain:architecture"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "6a8cdd53b25aa2fff19e355a0851c41775b8df7f91efdf2b9f1dcca8c69d1185",
+      "edge_id": "observed:ARTICLE-1620:execution",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "domain:execution"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "7bbdb3435605a151dba2cfb212c4fa20cef163eb4f081ac0ec77f9ab5df7b64d",
+      "edge_id": "observed:ARTICLE-1620:knowledge",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "domain:knowledge"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "5507daee5c3f2981d70d0d0ef4d7afb0bc6946d7998e40d095c9ee021a7fa29d",
+      "edge_id": "observed:ARTICLE-1620:memory",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "domain:memory"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "1d4341ace5c49f769c2a07d49cc99ddf3e257390993c681dc6a4a38925c0c328",
+      "edge_id": "observed:ARTICLE-1620:planning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "domain:planning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "c702c1e7850b865017ad00f14125e901b5b81852e271698e1c461498dec8543d",
+      "edge_id": "observed:ARTICLE-1620:reasoning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1620",
+      "target_node_id": "domain:reasoning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "3c8a59d508d71a329a93da61cb999ecabf3cd47cf125c7854e2b1075bf30871a",
+      "edge_id": "observed:ARTICLE-1807:architecture",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "domain:architecture"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "45f0243329555787597f2b4f593a0caf8911fac2fa489806f9b6beee0cf859f4",
+      "edge_id": "observed:ARTICLE-1807:execution",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "domain:execution"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "d9feec74db025a80cce6b90c6e2c33773595352b1b37267c7cfa686feee0718c",
+      "edge_id": "observed:ARTICLE-1807:knowledge",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "domain:knowledge"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "8f38a11a7315c2b3f9ce8f139f80e9b1499109846c79266493dffe664a325fe3",
+      "edge_id": "observed:ARTICLE-1807:memory",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "domain:memory"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "906414d7433eae3bf6b5af0e6a3f1befd8a8089a8a2c2f048bf75a27ea265794",
+      "edge_id": "observed:ARTICLE-1807:planning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "domain:planning"
+    },
+    {
+      "attributes": {},
+      "edge_fingerprint": "a1122ae54946b0ded87c82ce958c09f6cfd4d04d1a1504631169d15bdba6a478",
+      "edge_id": "observed:ARTICLE-1807:reasoning",
+      "edge_type": "observed_in_domain",
+      "source_node_id": "article:ARTICLE-1807",
+      "target_node_id": "domain:reasoning"
+    }
+  ],
+  "graph_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "schema_version": "1.0.0"
+}

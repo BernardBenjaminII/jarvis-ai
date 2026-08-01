@@ -1,0 +1,391 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+  "directorate_foundation_fingerprint": "b2180d0b9ec72c1c2e40bc0e4edca609e74be0055cb8562f1795212f9e4df252",
+  "directorate_projection_fingerprint": "008684bec737ac030899aa8fd0e84ffeb9b8c9c1f9ec31b0f6bdf2c576576ca2",
+  "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "nodes": [
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "executive",
+      "fingerprint": "56b1a638ed13e33dae1df43363c2792abd67f80392b996c2c3f0127af25c3f1a",
+      "label": "Executive Directorate",
+      "node_id": "directorate:executive",
+      "node_kind": "directorate"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "governance",
+      "fingerprint": "8f34981a7a0a884f9087382a144007a3b304c528037a55a0dd2b9f4141b4962c",
+      "label": "Governance Directorate",
+      "node_id": "directorate:governance",
+      "node_kind": "directorate"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "intelligence_acquisition",
+      "fingerprint": "f9fa593cbb1782dddf28acf0b14218e22e7adc4d12b4bf58ad1343c36a4a2f06",
+      "label": "Intelligence Acquisition Directorate",
+      "node_id": "directorate:intelligence_acquisition",
+      "node_kind": "directorate"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "knowledge",
+      "fingerprint": "3241e2ef835d57ef6a6dd664ce995e0785a1f531b5b2c9597c95e6cd94912caf",
+      "label": "Knowledge Directorate",
+      "node_id": "directorate:knowledge",
+      "node_kind": "directorate"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "operations",
+      "fingerprint": "491bcc63f8e4915f3c1fb4de31cdfab15cad2c69d5f1c740d9209df66b26379a",
+      "label": "Operations Directorate",
+      "node_id": "directorate:operations",
+      "node_kind": "directorate"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "planning",
+      "fingerprint": "31248c2f87b7d5ca8c95893bb5d21b3d32aee4e2837a5107c2103b42555fde04",
+      "label": "Planning Directorate",
+      "node_id": "directorate:planning",
+      "node_kind": "directorate"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "reasoning",
+      "fingerprint": "1ef21a5b076913e3941ece922681aa1925221483b50c7cc7f00728031090d5d3",
+      "label": "Reasoning Directorate",
+      "node_id": "directorate:reasoning",
+      "node_kind": "directorate"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "software_engineering",
+      "fingerprint": "aa783172e6260633bb401201a4b95ef7b5d793b4bf291161c76addbe79da786a",
+      "label": "Software Engineering Directorate",
+      "node_id": "directorate:software_engineering",
+      "node_kind": "directorate"
+    },
+    {
+      "attributes": {
+        "root": true
+      },
+      "canonical_key": "jarvis",
+      "fingerprint": "314297446c47f9fa9ec0a196ccd074065c6d3631c7a1522ab5b14da2c983730e",
+      "label": "JARVIS Executive Organization",
+      "node_id": "organizational_unit:jarvis",
+      "node_kind": "organizational_unit"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-16714F70BB58944F7118"
+      },
+      "canonical_key": "RA-16714F70BB58944F7118",
+      "fingerprint": "91705e4c8367e5b1a838f560d62fa9672be075f4dc89c25d0f5158e1373541fe",
+      "label": "RA-16714F70BB58944F7118",
+      "node_id": "ownership_domain:RA-16714F70BB58944F7118",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-1CB54D8E99972E1C1BAF"
+      },
+      "canonical_key": "RA-1CB54D8E99972E1C1BAF",
+      "fingerprint": "dcd119ceafbf4e5a836f63a5b597ad76a613cb8e46114ec9f99044a044d5c6da",
+      "label": "RA-1CB54D8E99972E1C1BAF",
+      "node_id": "ownership_domain:RA-1CB54D8E99972E1C1BAF",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-210BB6A3C69F373B2761"
+      },
+      "canonical_key": "RA-210BB6A3C69F373B2761",
+      "fingerprint": "0226f49c765db470808ad5eb8212b0584ae7a9402a44c29893939827acde3997",
+      "label": "RA-210BB6A3C69F373B2761",
+      "node_id": "ownership_domain:RA-210BB6A3C69F373B2761",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-33CFECB575C3FC559D7B"
+      },
+      "canonical_key": "RA-33CFECB575C3FC559D7B",
+      "fingerprint": "03cbced6bf1d79367696abbf5095d471f40d1dadac69861530dfeec99efe7863",
+      "label": "RA-33CFECB575C3FC559D7B",
+      "node_id": "ownership_domain:RA-33CFECB575C3FC559D7B",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-579A51719DBBC72C38B1"
+      },
+      "canonical_key": "RA-579A51719DBBC72C38B1",
+      "fingerprint": "be17acf4a6249effea291fcdb3c6b0ad9b2e1140aa6c0482dc3c1e6c54f3d8dc",
+      "label": "RA-579A51719DBBC72C38B1",
+      "node_id": "ownership_domain:RA-579A51719DBBC72C38B1",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-765B2D6306D5B3223378"
+      },
+      "canonical_key": "RA-765B2D6306D5B3223378",
+      "fingerprint": "5a5427451092fc94450cdbade94c4a6a668d551c276d5e38a9c1e0f170f5604f",
+      "label": "RA-765B2D6306D5B3223378",
+      "node_id": "ownership_domain:RA-765B2D6306D5B3223378",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-7815E5495E69C50E664C"
+      },
+      "canonical_key": "RA-7815E5495E69C50E664C",
+      "fingerprint": "5c3c889dc144238b1b3aa4fc5b6c1821a3783d86d65e0f7bc6878434f63972ef",
+      "label": "RA-7815E5495E69C50E664C",
+      "node_id": "ownership_domain:RA-7815E5495E69C50E664C",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-7EE4AFE81AED4EA2A882"
+      },
+      "canonical_key": "RA-7EE4AFE81AED4EA2A882",
+      "fingerprint": "69dd0924de8b8bcae045dd07799350c69ed4d25e54e361d1bd61d408e62713b1",
+      "label": "RA-7EE4AFE81AED4EA2A882",
+      "node_id": "ownership_domain:RA-7EE4AFE81AED4EA2A882",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-859E321B756DF9D8D32D"
+      },
+      "canonical_key": "RA-859E321B756DF9D8D32D",
+      "fingerprint": "c126a1cd6467466efb0c95e59c8f4aac2649b1c1475485748a40d2bb24d5d6f6",
+      "label": "RA-859E321B756DF9D8D32D",
+      "node_id": "ownership_domain:RA-859E321B756DF9D8D32D",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-85ACFCB9A8E94258113B"
+      },
+      "canonical_key": "RA-85ACFCB9A8E94258113B",
+      "fingerprint": "5ba7cd7d62b9abeec41b9edc3a852ca1ac67f42a15ce74808b9af0475260fd23",
+      "label": "RA-85ACFCB9A8E94258113B",
+      "node_id": "ownership_domain:RA-85ACFCB9A8E94258113B",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-8861F5433DD84F0257CD"
+      },
+      "canonical_key": "RA-8861F5433DD84F0257CD",
+      "fingerprint": "4f1a3a11975ce99f165578259fd139e236f1c4a0be2d888617479b3c801f1f1c",
+      "label": "RA-8861F5433DD84F0257CD",
+      "node_id": "ownership_domain:RA-8861F5433DD84F0257CD",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-8F5904443A7890A6160A"
+      },
+      "canonical_key": "RA-8F5904443A7890A6160A",
+      "fingerprint": "bd49c704a937666c29a624f487d6bf3a35aaf657fb4e6a928c43d7d2245f03ec",
+      "label": "RA-8F5904443A7890A6160A",
+      "node_id": "ownership_domain:RA-8F5904443A7890A6160A",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-9A710B7189FB305D2C17"
+      },
+      "canonical_key": "RA-9A710B7189FB305D2C17",
+      "fingerprint": "2b4589a1b4e4779a6f68686f21c33e2443669e990e043975ddd587ea6d6265e5",
+      "label": "RA-9A710B7189FB305D2C17",
+      "node_id": "ownership_domain:RA-9A710B7189FB305D2C17",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-9BB0F5560AEFF7CE6AAD"
+      },
+      "canonical_key": "RA-9BB0F5560AEFF7CE6AAD",
+      "fingerprint": "f03cb47c6843ba3f0c03cfa82504c32f976aaa9c54b31b2b27157f8f286fe501",
+      "label": "RA-9BB0F5560AEFF7CE6AAD",
+      "node_id": "ownership_domain:RA-9BB0F5560AEFF7CE6AAD",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-A52E9A58A702A7E54394"
+      },
+      "canonical_key": "RA-A52E9A58A702A7E54394",
+      "fingerprint": "4f576c340247d2e79b625ab5663ae842f690843c808982649dcb005051a86f2e",
+      "label": "RA-A52E9A58A702A7E54394",
+      "node_id": "ownership_domain:RA-A52E9A58A702A7E54394",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-AF05CE0011EB7442C0BB"
+      },
+      "canonical_key": "RA-AF05CE0011EB7442C0BB",
+      "fingerprint": "1e334bea41481d1376037b99ea6ec59c55a97580db4abfbe5b9f2e3a8e8c96c9",
+      "label": "RA-AF05CE0011EB7442C0BB",
+      "node_id": "ownership_domain:RA-AF05CE0011EB7442C0BB",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-BA79784A3CC3FEC822DC"
+      },
+      "canonical_key": "RA-BA79784A3CC3FEC822DC",
+      "fingerprint": "90f677a96f7c2f887e7a1af8ed225b94a3df7012d46bb320bbf2de5509a64d29",
+      "label": "RA-BA79784A3CC3FEC822DC",
+      "node_id": "ownership_domain:RA-BA79784A3CC3FEC822DC",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-C254516E782A994AEF4D"
+      },
+      "canonical_key": "RA-C254516E782A994AEF4D",
+      "fingerprint": "b7212366adc5e686c05d832aad375c8043085c2f86ff1522da2bc29105d9403e",
+      "label": "RA-C254516E782A994AEF4D",
+      "node_id": "ownership_domain:RA-C254516E782A994AEF4D",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-E33AF5816DAC0B6AD94A"
+      },
+      "canonical_key": "RA-E33AF5816DAC0B6AD94A",
+      "fingerprint": "a442d955845e75c5262b91aae0fe70f1b282f5378d48083054b34458058d9f2d",
+      "label": "RA-E33AF5816DAC0B6AD94A",
+      "node_id": "ownership_domain:RA-E33AF5816DAC0B6AD94A",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-F70ABEBF0CBEF800A627"
+      },
+      "canonical_key": "RA-F70ABEBF0CBEF800A627",
+      "fingerprint": "8a3cb9ad3064ae4637e5ea0f7d35d49251392f8cbd4551d862dae7c96f0f1ac7",
+      "label": "RA-F70ABEBF0CBEF800A627",
+      "node_id": "ownership_domain:RA-F70ABEBF0CBEF800A627",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "repository_path": "RA-FC3B1B43D5F89053978D"
+      },
+      "canonical_key": "RA-FC3B1B43D5F89053978D",
+      "fingerprint": "46b55205d7674d1bdb963762bf95c6e062013704d7ab4882d1d9e042d597a244",
+      "label": "RA-FC3B1B43D5F89053978D",
+      "node_id": "ownership_domain:RA-FC3B1B43D5F89053978D",
+      "node_kind": "ownership_domain"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "cognitive_reasoning",
+      "fingerprint": "47f7b653f22a2696c743e981487b683be57157a910b831bcfec8fabc0cf29465",
+      "label": "Reasoning, evidence synthesis, and inference",
+      "node_id": "responsibility:cognitive_reasoning",
+      "node_kind": "responsibility"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "constitutional_governance",
+      "fingerprint": "29cdcf2ae2358b8f760ded19cb25fc465e28959e13bb17171e77c009780e6697",
+      "label": "Constitutional governance and certification",
+      "node_id": "responsibility:constitutional_governance",
+      "node_kind": "responsibility"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "intelligence_acquisition",
+      "fingerprint": "4f170b629c7ce0eebf5ffc755287afcc9fffa43f5306ff5d351b414d72ae724c",
+      "label": "External intelligence acquisition",
+      "node_id": "responsibility:intelligence_acquisition",
+      "node_kind": "responsibility"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "knowledge_stewardship",
+      "fingerprint": "9c4b65e9daaa6bd8d5498d687c23a7114fd284c950a02c6864022d6b373a9858",
+      "label": "Knowledge stewardship and catalog integrity",
+      "node_id": "responsibility:knowledge_stewardship",
+      "node_kind": "responsibility"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "mission_direction",
+      "fingerprint": "02472de46c29fbc0684f8e95f037c76ca383ecde7b6e70647821aec11f9ab50f",
+      "label": "Mission direction and executive command",
+      "node_id": "responsibility:mission_direction",
+      "node_kind": "responsibility"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "mission_planning",
+      "fingerprint": "7d44189159d26e79722fc2f0655cf8961d6f8f414fe737c194fd672bfa278851",
+      "label": "Mission planning and plan integrity",
+      "node_id": "responsibility:mission_planning",
+      "node_kind": "responsibility"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "operational_execution",
+      "fingerprint": "c23ffafbc705271dc62a95a8ffc11e9bd9415628a4ed930687c222361e4797ce",
+      "label": "Operational execution and telemetry",
+      "node_id": "responsibility:operational_execution",
+      "node_kind": "responsibility"
+    },
+    {
+      "attributes": {
+        "canonical": true
+      },
+      "canonical_key": "software_delivery",
+      "fingerprint": "45d0b24492b38baa13cc4dcc15cc10d1f7511350e2c95d51e24a4e8e14bb6583",
+      "label": "Software architecture and delivery",
+      "node_id": "responsibility:software_delivery",
+      "node_kind": "responsibility"
+    }
+  ],
+  "repository_projection_fingerprint": "01c342103b9235450f7c315f1550b62dbac23e835e440caea1a5baf953a12b54",
+  "schema_version": "1.0.0"
+}

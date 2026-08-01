@@ -1,0 +1,16 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "graph_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "integrity": {
+    "dangling_edge_ids": [],
+    "diagnostics": [],
+    "duplicate_edge_ids": [],
+    "duplicate_node_ids": [],
+    "edge_count": 195,
+    "integrity_fingerprint": "b3e0c9db304b1c30c2232f254bba087ba1fe76eea1bced73aa601fe7d40139a8",
+    "is_valid": true,
+    "node_count": 2190,
+    "self_loop_edge_ids": []
+  },
+  "schema_version": "1.0.0"
+}

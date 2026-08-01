@@ -1,0 +1,23 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "graph_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "metrics": {
+    "connected_node_count": 42,
+    "edge_count": 195,
+    "edge_type_counts": {
+      "belongs_to_domain": 5,
+      "governs": 137,
+      "observed_in_domain": 53
+    },
+    "graph_density": 4.0676608e-05,
+    "isolated_node_count": 2148,
+    "metrics_fingerprint": "f5fb2c4dfde7111a64a3a3c453eb9d4a936f38c06038c1a1453ecc1151a6424c",
+    "node_count": 2190,
+    "node_type_counts": {
+      "article": 2161,
+      "domain": 8,
+      "repository_artifact": 21
+    }
+  },
+  "schema_version": "1.0.0"
+}

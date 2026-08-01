@@ -1,0 +1,24 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+  "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "metrics": {
+    "article_count": 2161,
+    "authority_class_count": 5,
+    "authority_class_distribution": {
+      "active": 8,
+      "cold": 2148,
+      "review": 5
+    },
+    "authority_utilization_ratio": 0.006015733457,
+    "authorization_edge_count": 137,
+    "classification_edge_count": 2161,
+    "domain_edge_count": 53,
+    "exercised_article_count": 13,
+    "fingerprint": "008e9d97776e0fe89262aa5b8efc0c1027d5051e978e509e85b0c2963f97d702",
+    "governance_domain_count": 8,
+    "governed_artifact_count": 21,
+    "unexercised_article_count": 2148
+  },
+  "schema_version": "1.0.0"
+}

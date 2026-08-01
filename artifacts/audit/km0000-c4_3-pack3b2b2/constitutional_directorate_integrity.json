@@ -1,0 +1,23 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+  "directorate_foundation_fingerprint": "b2180d0b9ec72c1c2e40bc0e4edca609e74be0055cb8562f1795212f9e4df252",
+  "directorate_projection_fingerprint": "008684bec737ac030899aa8fd0e84ffeb9b8c9c1f9ec31b0f6bdf2c576576ca2",
+  "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "integrity": {
+    "dangling_edge_ids": [],
+    "diagnostics": [],
+    "directorate_count": 8,
+    "duplicate_edge_ids": [],
+    "duplicate_node_ids": [],
+    "edge_count": 58,
+    "fingerprint": "dbf49452d5281aca2129917a0dbca514faf06d782735987f0df05dc760804c5f",
+    "invalid_edge_ids": [],
+    "is_valid": true,
+    "missing_directorate_keys": [],
+    "node_count": 38,
+    "orphan_responsibility_ids": []
+  },
+  "repository_projection_fingerprint": "01c342103b9235450f7c315f1550b62dbac23e835e440caea1a5baf953a12b54",
+  "schema_version": "1.0.0"
+}

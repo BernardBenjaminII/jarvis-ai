@@ -1,0 +1,77 @@
+{
+  "analysis_fingerprint": "3d267fd843a56719e15ff0ff28062db8be88a6a6ee9c497e37f4aeaf29903d92",
+  "resolutions": [
+    {
+      "authority_resolution": "unresolved_equal_authority",
+      "rationale": "Claims have high lexical overlap but opposite normative polarity.",
+      "relationship_id": "REL-E7FA203B522CA422F9B5",
+      "relationship_type": "contradicts",
+      "score": 0.75,
+      "source_claim_id": "CCL-00E254E4DD2AC738",
+      "target_claim_id": "CCL-4CC7DFD6BBEF35E1"
+    },
+    {
+      "authority_resolution": "unresolved_equal_authority",
+      "rationale": "Claims have high lexical overlap but opposite normative polarity.",
+      "relationship_id": "REL-7200AB96003282FC167F",
+      "relationship_type": "contradicts",
+      "score": 0.75,
+      "source_claim_id": "CCL-00E254E4DD2AC738",
+      "target_claim_id": "CCL-CD69DD661394F2A7"
+    },
+    {
+      "authority_resolution": "unresolved_equal_authority",
+      "rationale": "Claims have high lexical overlap but opposite normative polarity.",
+      "relationship_id": "REL-E878C92094260DD71370",
+      "relationship_type": "contradicts",
+      "score": 0.75,
+      "source_claim_id": "CCL-10DDF8F8B337484F",
+      "target_claim_id": "CCL-4CC7DFD6BBEF35E1"
+    },
+    {
+      "authority_resolution": "unresolved_equal_authority",
+      "rationale": "Claims have high lexical overlap but opposite normative polarity.",
+      "relationship_id": "REL-66964AC811479A919882",
+      "relationship_type": "contradicts",
+      "score": 0.75,
+      "source_claim_id": "CCL-10DDF8F8B337484F",
+      "target_claim_id": "CCL-CD69DD661394F2A7"
+    },
+    {
+      "authority_resolution": "unresolved_equal_authority",
+      "rationale": "Claims have high lexical overlap but opposite normative polarity.",
+      "relationship_id": "REL-1B9F87B339844C391D2E",
+      "relationship_type": "contradicts",
+      "score": 0.8,
+      "source_claim_id": "CCL-1430F479F8E5E43F",
+      "target_claim_id": "CCL-669233C49453C0B6"
+    },
+    {
+      "authority_resolution": "unresolved_equal_authority",
+      "rationale": "Claims have high lexical overlap but opposite normative polarity.",
+      "relationship_id": "REL-196017E0EEFDC9075A79",
+      "relationship_type": "contradicts",
+      "score": 0.8,
+      "source_claim_id": "CCL-1430F479F8E5E43F",
+      "target_claim_id": "CCL-CFF686C0CB34BD63"
+    },
+    {
+      "authority_resolution": "unresolved_equal_authority",
+      "rationale": "Claims have high lexical overlap but opposite normative polarity.",
+      "relationship_id": "REL-5A4A5D034D9BEEC80755",
+      "relationship_type": "contradicts",
+      "score": 0.8,
+      "source_claim_id": "CCL-669233C49453C0B6",
+      "target_claim_id": "CCL-BF7ABFD5952F38AD"
+    },
+    {
+      "authority_resolution": "unresolved_equal_authority",
+      "rationale": "Claims have high lexical overlap but opposite normative polarity.",
+      "relationship_id": "REL-57C2C0FCE28B6D548404",
+      "relationship_type": "contradicts",
+      "score": 0.8,
+      "source_claim_id": "CCL-BF7ABFD5952F38AD",
+      "target_claim_id": "CCL-CFF686C0CB34BD63"
+    }
+  ]
+}

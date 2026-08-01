@@ -1,0 +1,130 @@
+{
+  "analysis_fingerprint": "3d267fd843a56719e15ff0ff28062db8be88a6a6ee9c497e37f4aeaf29903d92",
+  "certification_fingerprint": "5262813cad170a65fa78d45020e36e77f17aaaf68d514e0df8ddf63655901bc4",
+  "compliance_fingerprint": "ce7f4c5d197a09952e2ab035ceba8802106e2fedf109eb4c2b20efb625b0d71a",
+  "diagnostics": [],
+  "extraction_fingerprint": "24bb64dfbf24f94baeacfbe19aa173fe95ea5647c78744e0eed96b0cee7e0e4c",
+  "policy": {
+    "minimum_negative_findings": 1,
+    "minimum_not_applicable_subjects": 1,
+    "minimum_positive_findings": 1,
+    "minimum_review_findings": 1,
+    "require_complete_traceability": true,
+    "require_determinism": true,
+    "require_rank_one_match": true
+  },
+  "ratification_fingerprint": "9eedf476200ccf0f22dc118142d8616042e1a1006526c7517c5caadf5097b032",
+  "repository_fingerprint": "d9b16c9dca510cef98d8292f4bd6d9f465a3f7adaf4598fea39d87889bf378fb",
+  "results": [
+    {
+      "findings": 1,
+      "fingerprint": "c99694731c56e850d1793b5623fb07590549fd44a7fca07205303eb636989539",
+      "observed_article_id": "ARTICLE-0231",
+      "observed_status": "noncompliant",
+      "rank": 1,
+      "rationale": "Observed expected status 'noncompliant' for live scenario 'negative_compliance'.",
+      "scenario_id": "CSC-3DA33216A6C0BB2F886A",
+      "status": "pass",
+      "traceability_complete": true
+    },
+    {
+      "findings": 1,
+      "fingerprint": "7eab87be38a3057758dc938a611dedb111c3743bcc0aa228e14fcc1ef0512e4b",
+      "observed_article_id": "ARTICLE-0231",
+      "observed_status": "compliant",
+      "rank": 1,
+      "rationale": "Observed expected status 'compliant' for live scenario 'positive_compliance'.",
+      "scenario_id": "CSC-5AF9E6455223AC57CF6E",
+      "status": "pass",
+      "traceability_complete": true
+    },
+    {
+      "findings": 1,
+      "fingerprint": "5427f53d531be41d23a77b882bb1a7d605a5627143f7d5a2243fb7d1db36fbf1",
+      "observed_article_id": "ARTICLE-0231",
+      "observed_status": "review_required",
+      "rank": 1,
+      "rationale": "Observed expected status 'review_required' for live scenario 'review_required'.",
+      "scenario_id": "CSC-7CC8E603645725BE6B3A",
+      "status": "pass",
+      "traceability_complete": true
+    },
+    {
+      "findings": 0,
+      "fingerprint": "5bf71f2cc14c54c5576694bd7f89ba3789f1ff76d0fb8cd262198873abfb5033",
+      "observed_article_id": "",
+      "observed_status": "not_applicable",
+      "rank": 0,
+      "rationale": "Observed expected status 'not_applicable' for live scenario 'not_applicable'.",
+      "scenario_id": "CSC-95C64900BE091B7A3B09",
+      "status": "pass",
+      "traceability_complete": true
+    }
+  ],
+  "scenarios": [
+    {
+      "expected_article_id": "ARTICLE-0231",
+      "expected_status": "noncompliant",
+      "fingerprint": "f367177a2ec1e8fa1ed8bc08326de0aac6ff1d6bfc9a68d03f1fc8174f0e04c7",
+      "kind": "negative_compliance",
+      "scenario_id": "CSC-3DA33216A6C0BB2F886A",
+      "source_article_fingerprint": "70e08e28dd26fb75a78c784c43af74d045250fd25f9c7d350d5e3c62c7c9244c",
+      "subject_content": "Must not Gen 2 Phase II should connect the existing Knowledge Director to KnowledgeHandler, add capability declarations, and let the Executive Director select among real registered directors based on capabilities rather than keyword rules alone.",
+      "subject_domain": "executive",
+      "subject_id": "CSUB-3DA33216A6C0BB2F886A",
+      "subject_title": "C4.1 certification: Live negative compliance",
+      "title": "Live negative compliance"
+    },
+    {
+      "expected_article_id": "ARTICLE-0231",
+      "expected_status": "compliant",
+      "fingerprint": "9f135f0b51b4a13a34be65064dc2f8478f357377f4af116a18372a50223c571e",
+      "kind": "positive_compliance",
+      "scenario_id": "CSC-5AF9E6455223AC57CF6E",
+      "source_article_fingerprint": "70e08e28dd26fb75a78c784c43af74d045250fd25f9c7d350d5e3c62c7c9244c",
+      "subject_content": "Gen 2 Phase II should connect the existing Knowledge Director to KnowledgeHandler, add capability declarations, and let the Executive Director select among real registered directors based on capabilities rather than keyword rules alone.",
+      "subject_domain": "executive",
+      "subject_id": "CSUB-5AF9E6455223AC57CF6E",
+      "subject_title": "C4.1 certification: Live positive compliance",
+      "title": "Live positive compliance"
+    },
+    {
+      "expected_article_id": "ARTICLE-0231",
+      "expected_status": "review_required",
+      "fingerprint": "38e54413fec7f4557ae19e45ad2d7f2811d0c53ac8b4ce2dd5466de6012efd3b",
+      "kind": "review_required",
+      "scenario_id": "CSC-7CC8E603645725BE6B3A",
+      "source_article_fingerprint": "70e08e28dd26fb75a78c784c43af74d045250fd25f9c7d350d5e3c62c7c9244c",
+      "subject_content": "2 add alone among based capabilities capability connect declarations director directors executive existing",
+      "subject_domain": "executive",
+      "subject_id": "CSUB-7CC8E603645725BE6B3A",
+      "subject_title": "C4.1 certification: Live review required",
+      "title": "Live review required"
+    },
+    {
+      "expected_article_id": "",
+      "expected_status": "not_applicable",
+      "fingerprint": "8e0ab362a06a7fe1b2d02d798c95fa49cd6a7a2ff27ddb461beb372a64c3c87e",
+      "kind": "not_applicable",
+      "scenario_id": "CSC-95C64900BE091B7A3B09",
+      "source_article_fingerprint": "",
+      "subject_content": "quartz zephyr nebula xylophone",
+      "subject_domain": "__constitutional_certification_unrelated__",
+      "subject_id": "CSUB-95C64900BE091B7A3B09",
+      "subject_title": "C4.1 certification: Live not applicable",
+      "title": "Live not applicable"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "statistics": {
+    "diagnostics": 0,
+    "failed": 0,
+    "negative_findings": 1,
+    "not_applicable_subjects": 1,
+    "passed": 4,
+    "positive_findings": 1,
+    "review_findings": 1,
+    "scenarios": 4,
+    "skipped": 0
+  }
+}

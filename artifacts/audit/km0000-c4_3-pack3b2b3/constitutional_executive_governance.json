@@ -1,0 +1,890 @@
+{
+  "domain_summaries": [
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-16714F70BB58944F7118",
+        "repository_path": "RA-16714F70BB58944F7118",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-16714F70BB58944F7118",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-16714F70BB58944F7118",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-1CB54D8E99972E1C1BAF",
+        "repository_path": "RA-1CB54D8E99972E1C1BAF",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-1CB54D8E99972E1C1BAF",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-1CB54D8E99972E1C1BAF",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-210BB6A3C69F373B2761",
+        "repository_path": "RA-210BB6A3C69F373B2761",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-210BB6A3C69F373B2761",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-210BB6A3C69F373B2761",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-33CFECB575C3FC559D7B",
+        "repository_path": "RA-33CFECB575C3FC559D7B",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-33CFECB575C3FC559D7B",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-33CFECB575C3FC559D7B",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-579A51719DBBC72C38B1",
+        "repository_path": "RA-579A51719DBBC72C38B1",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-579A51719DBBC72C38B1",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-579A51719DBBC72C38B1",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-765B2D6306D5B3223378",
+        "repository_path": "RA-765B2D6306D5B3223378",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-765B2D6306D5B3223378",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-765B2D6306D5B3223378",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-7815E5495E69C50E664C",
+        "repository_path": "RA-7815E5495E69C50E664C",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-7815E5495E69C50E664C",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-7815E5495E69C50E664C",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-7EE4AFE81AED4EA2A882",
+        "repository_path": "RA-7EE4AFE81AED4EA2A882",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-7EE4AFE81AED4EA2A882",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-7EE4AFE81AED4EA2A882",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-859E321B756DF9D8D32D",
+        "repository_path": "RA-859E321B756DF9D8D32D",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-859E321B756DF9D8D32D",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-859E321B756DF9D8D32D",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-85ACFCB9A8E94258113B",
+        "repository_path": "RA-85ACFCB9A8E94258113B",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-85ACFCB9A8E94258113B",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-85ACFCB9A8E94258113B",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-8861F5433DD84F0257CD",
+        "repository_path": "RA-8861F5433DD84F0257CD",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-8861F5433DD84F0257CD",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-8861F5433DD84F0257CD",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-8F5904443A7890A6160A",
+        "repository_path": "RA-8F5904443A7890A6160A",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-8F5904443A7890A6160A",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-8F5904443A7890A6160A",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-9A710B7189FB305D2C17",
+        "repository_path": "RA-9A710B7189FB305D2C17",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-9A710B7189FB305D2C17",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-9A710B7189FB305D2C17",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-9BB0F5560AEFF7CE6AAD",
+        "repository_path": "RA-9BB0F5560AEFF7CE6AAD",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-9BB0F5560AEFF7CE6AAD",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-9BB0F5560AEFF7CE6AAD",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-A52E9A58A702A7E54394",
+        "repository_path": "RA-A52E9A58A702A7E54394",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-A52E9A58A702A7E54394",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-A52E9A58A702A7E54394",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-AF05CE0011EB7442C0BB",
+        "repository_path": "RA-AF05CE0011EB7442C0BB",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-AF05CE0011EB7442C0BB",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-AF05CE0011EB7442C0BB",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-BA79784A3CC3FEC822DC",
+        "repository_path": "RA-BA79784A3CC3FEC822DC",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-BA79784A3CC3FEC822DC",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-BA79784A3CC3FEC822DC",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-C254516E782A994AEF4D",
+        "repository_path": "RA-C254516E782A994AEF4D",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-C254516E782A994AEF4D",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-C254516E782A994AEF4D",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-E33AF5816DAC0B6AD94A",
+        "repository_path": "RA-E33AF5816DAC0B6AD94A",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-E33AF5816DAC0B6AD94A",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-E33AF5816DAC0B6AD94A",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-F70ABEBF0CBEF800A627",
+        "repository_path": "RA-F70ABEBF0CBEF800A627",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-F70ABEBF0CBEF800A627",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-F70ABEBF0CBEF800A627",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    },
+    {
+      "authority": {
+        "certifier_directorate_ids": [],
+        "maintainer_directorate_ids": [
+          "directorate:software_engineering"
+        ],
+        "owner_directorate_id": "directorate:software_engineering",
+        "owner_directorate_key": "software_engineering",
+        "ownership_domain_id": "ownership_domain:RA-FC3B1B43D5F89053978D",
+        "repository_path": "RA-FC3B1B43D5F89053978D",
+        "resolved": true,
+        "responsible_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      },
+      "capability": {
+        "capability_key": "RA-FC3B1B43D5F89053978D",
+        "constitutional_scope": [
+          "software_engineering"
+        ],
+        "owner_directorate_key": "software_engineering",
+        "repository_path": "RA-FC3B1B43D5F89053978D",
+        "review_scopes": [
+          "software_engineering"
+        ]
+      },
+      "review": {
+        "approval_directorate_id": "directorate:software_engineering",
+        "certification_required": false,
+        "reasons": [
+          "Owning directorate review required.",
+          "Maintaining directorate review required."
+        ],
+        "required_reviewer_directorate_ids": [
+          "directorate:software_engineering"
+        ]
+      }
+    }
+  ],
+  "fingerprint_chain": {
+    "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+    "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+    "directorate_foundation_fingerprint": "b2180d0b9ec72c1c2e40bc0e4edca609e74be0055cb8562f1795212f9e4df252",
+    "directorate_projection_fingerprint": "008684bec737ac030899aa8fd0e84ffeb9b8c9c1f9ec31b0f6bdf2c576576ca2",
+    "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+    "repository_projection_fingerprint": "01c342103b9235450f7c315f1550b62dbac23e835e440caea1a5baf953a12b54"
+  },
+  "impact": {
+    "affected_capability_keys": [
+      "RA-16714F70BB58944F7118",
+      "RA-1CB54D8E99972E1C1BAF",
+      "RA-210BB6A3C69F373B2761",
+      "RA-33CFECB575C3FC559D7B",
+      "RA-579A51719DBBC72C38B1",
+      "RA-765B2D6306D5B3223378",
+      "RA-7815E5495E69C50E664C",
+      "RA-7EE4AFE81AED4EA2A882",
+      "RA-859E321B756DF9D8D32D",
+      "RA-85ACFCB9A8E94258113B",
+      "RA-8861F5433DD84F0257CD",
+      "RA-8F5904443A7890A6160A",
+      "RA-9A710B7189FB305D2C17",
+      "RA-9BB0F5560AEFF7CE6AAD",
+      "RA-A52E9A58A702A7E54394",
+      "RA-AF05CE0011EB7442C0BB",
+      "RA-BA79784A3CC3FEC822DC",
+      "RA-C254516E782A994AEF4D",
+      "RA-E33AF5816DAC0B6AD94A",
+      "RA-F70ABEBF0CBEF800A627",
+      "RA-FC3B1B43D5F89053978D"
+    ],
+    "affected_directorate_ids": [
+      "directorate:software_engineering"
+    ],
+    "affected_ownership_domain_ids": [
+      "ownership_domain:RA-16714F70BB58944F7118",
+      "ownership_domain:RA-1CB54D8E99972E1C1BAF",
+      "ownership_domain:RA-210BB6A3C69F373B2761",
+      "ownership_domain:RA-33CFECB575C3FC559D7B",
+      "ownership_domain:RA-579A51719DBBC72C38B1",
+      "ownership_domain:RA-765B2D6306D5B3223378",
+      "ownership_domain:RA-7815E5495E69C50E664C",
+      "ownership_domain:RA-7EE4AFE81AED4EA2A882",
+      "ownership_domain:RA-859E321B756DF9D8D32D",
+      "ownership_domain:RA-85ACFCB9A8E94258113B",
+      "ownership_domain:RA-8861F5433DD84F0257CD",
+      "ownership_domain:RA-8F5904443A7890A6160A",
+      "ownership_domain:RA-9A710B7189FB305D2C17",
+      "ownership_domain:RA-9BB0F5560AEFF7CE6AAD",
+      "ownership_domain:RA-A52E9A58A702A7E54394",
+      "ownership_domain:RA-AF05CE0011EB7442C0BB",
+      "ownership_domain:RA-BA79784A3CC3FEC822DC",
+      "ownership_domain:RA-C254516E782A994AEF4D",
+      "ownership_domain:RA-E33AF5816DAC0B6AD94A",
+      "ownership_domain:RA-F70ABEBF0CBEF800A627",
+      "ownership_domain:RA-FC3B1B43D5F89053978D"
+    ],
+    "changed_paths": [
+      "RA-16714F70BB58944F7118",
+      "RA-1CB54D8E99972E1C1BAF",
+      "RA-210BB6A3C69F373B2761",
+      "RA-33CFECB575C3FC559D7B",
+      "RA-579A51719DBBC72C38B1",
+      "RA-765B2D6306D5B3223378",
+      "RA-7815E5495E69C50E664C",
+      "RA-7EE4AFE81AED4EA2A882",
+      "RA-859E321B756DF9D8D32D",
+      "RA-85ACFCB9A8E94258113B",
+      "RA-8861F5433DD84F0257CD",
+      "RA-8F5904443A7890A6160A",
+      "RA-9A710B7189FB305D2C17",
+      "RA-9BB0F5560AEFF7CE6AAD",
+      "RA-A52E9A58A702A7E54394",
+      "RA-AF05CE0011EB7442C0BB",
+      "RA-BA79784A3CC3FEC822DC",
+      "RA-C254516E782A994AEF4D",
+      "RA-E33AF5816DAC0B6AD94A",
+      "RA-F70ABEBF0CBEF800A627",
+      "RA-FC3B1B43D5F89053978D"
+    ],
+    "fingerprint": "493b19ab58e37f0f4b581a609e42d65c7b8da3c886c6e00a3fae73314364ae37",
+    "required_reviewer_directorate_ids": [
+      "directorate:software_engineering"
+    ],
+    "unresolved_paths": []
+  },
+  "schema_version": "1.0.0"
+}

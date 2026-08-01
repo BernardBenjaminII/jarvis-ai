@@ -1,0 +1,12 @@
+{
+  "assessments": [
+    {
+      "applicable_articles": [],
+      "finding_ids": [],
+      "fingerprint": "b524ab1ae6ff9140af6bdf41ae40a531465bbdb50c855f4068ad30b3f2bc0445",
+      "overall_status": "not_applicable",
+      "subject_id": "C4-SELF-001"
+    }
+  ],
+  "compliance_fingerprint": "ce7f4c5d197a09952e2ab035ceba8802106e2fedf109eb4c2b20efb625b0d71a"
+}

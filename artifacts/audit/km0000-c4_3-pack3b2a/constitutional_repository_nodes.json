@@ -1,0 +1,250 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+  "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "nodes": [
+    {
+      "attributes": {
+        "lifecycle_state": "implemented"
+      },
+      "fingerprint": "d0022f8d45ced3f4efbf8662768d52dd4eb7e546fd07ef87fa49f1d4ce55b725",
+      "label": "JARVIS Repository",
+      "node_id": "repository:root",
+      "node_kind": "repository",
+      "path": "."
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-16714F70BB58944F7118"
+      },
+      "fingerprint": "4c9e8926d933814fec0fed41258b2d6055954b379f140cc94d196c3acebd7329",
+      "label": "RA-16714F70BB58944F7118",
+      "node_id": "repository_artifact:artifact:RA-16714F70BB58944F7118",
+      "node_kind": "package",
+      "path": "RA-16714F70BB58944F7118"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-1CB54D8E99972E1C1BAF"
+      },
+      "fingerprint": "dad65e06aea66a7e52e4aaf404cb4e99d2496c8eb668babaa07f9eed931d7a6b",
+      "label": "RA-1CB54D8E99972E1C1BAF",
+      "node_id": "repository_artifact:artifact:RA-1CB54D8E99972E1C1BAF",
+      "node_kind": "package",
+      "path": "RA-1CB54D8E99972E1C1BAF"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-210BB6A3C69F373B2761"
+      },
+      "fingerprint": "7441f4edc75d2cf69244491a495170eb436b95a5b02e8efa71f4067a19ef3801",
+      "label": "RA-210BB6A3C69F373B2761",
+      "node_id": "repository_artifact:artifact:RA-210BB6A3C69F373B2761",
+      "node_kind": "package",
+      "path": "RA-210BB6A3C69F373B2761"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-33CFECB575C3FC559D7B"
+      },
+      "fingerprint": "9aafe1e99d9f75ded7fb90f5e40d51b84e6adcc733d78919d190cfb07827521e",
+      "label": "RA-33CFECB575C3FC559D7B",
+      "node_id": "repository_artifact:artifact:RA-33CFECB575C3FC559D7B",
+      "node_kind": "package",
+      "path": "RA-33CFECB575C3FC559D7B"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-579A51719DBBC72C38B1"
+      },
+      "fingerprint": "82c39f25ca0a6240c743eadb633fdff974ed2343be378b1a9c2cc815e5ecdf21",
+      "label": "RA-579A51719DBBC72C38B1",
+      "node_id": "repository_artifact:artifact:RA-579A51719DBBC72C38B1",
+      "node_kind": "package",
+      "path": "RA-579A51719DBBC72C38B1"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-765B2D6306D5B3223378"
+      },
+      "fingerprint": "28a07d046fcd41038f06f42ca98af2ac4c88a18c15d743a3573abf00fa124047",
+      "label": "RA-765B2D6306D5B3223378",
+      "node_id": "repository_artifact:artifact:RA-765B2D6306D5B3223378",
+      "node_kind": "package",
+      "path": "RA-765B2D6306D5B3223378"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-7815E5495E69C50E664C"
+      },
+      "fingerprint": "2a1634781251927522d2dcffaefc4ab231c8465eb0d5ef612294002e4fd0981c",
+      "label": "RA-7815E5495E69C50E664C",
+      "node_id": "repository_artifact:artifact:RA-7815E5495E69C50E664C",
+      "node_kind": "package",
+      "path": "RA-7815E5495E69C50E664C"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-7EE4AFE81AED4EA2A882"
+      },
+      "fingerprint": "d0ac55e3f6c34cec9f8ef6ec56aa2093990faaf5042e10c5a8b285396b0f8035",
+      "label": "RA-7EE4AFE81AED4EA2A882",
+      "node_id": "repository_artifact:artifact:RA-7EE4AFE81AED4EA2A882",
+      "node_kind": "package",
+      "path": "RA-7EE4AFE81AED4EA2A882"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-859E321B756DF9D8D32D"
+      },
+      "fingerprint": "011720a37798e606936d5436be71bcc5228b60537d6399923e085e5aa929ba34",
+      "label": "RA-859E321B756DF9D8D32D",
+      "node_id": "repository_artifact:artifact:RA-859E321B756DF9D8D32D",
+      "node_kind": "package",
+      "path": "RA-859E321B756DF9D8D32D"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-85ACFCB9A8E94258113B"
+      },
+      "fingerprint": "49dcf165cc8e92bd84b0e6b938b2835fe33e542c3c13757ab81811a5836820e3",
+      "label": "RA-85ACFCB9A8E94258113B",
+      "node_id": "repository_artifact:artifact:RA-85ACFCB9A8E94258113B",
+      "node_kind": "package",
+      "path": "RA-85ACFCB9A8E94258113B"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-8861F5433DD84F0257CD"
+      },
+      "fingerprint": "a8f3a03dc252fbca6f25955bd512b17a19fd00a88a7393f151c471d6d98f4c43",
+      "label": "RA-8861F5433DD84F0257CD",
+      "node_id": "repository_artifact:artifact:RA-8861F5433DD84F0257CD",
+      "node_kind": "package",
+      "path": "RA-8861F5433DD84F0257CD"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-8F5904443A7890A6160A"
+      },
+      "fingerprint": "8871ba4ed8d0b6402f3cc57fc0e31dee8ad64a233595f491bf4ae5000e0f8475",
+      "label": "RA-8F5904443A7890A6160A",
+      "node_id": "repository_artifact:artifact:RA-8F5904443A7890A6160A",
+      "node_kind": "package",
+      "path": "RA-8F5904443A7890A6160A"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-9A710B7189FB305D2C17"
+      },
+      "fingerprint": "0ee0e565e91dd2277e415e9dc24152900bc90f653f205515683a343aa56506c4",
+      "label": "RA-9A710B7189FB305D2C17",
+      "node_id": "repository_artifact:artifact:RA-9A710B7189FB305D2C17",
+      "node_kind": "package",
+      "path": "RA-9A710B7189FB305D2C17"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-9BB0F5560AEFF7CE6AAD"
+      },
+      "fingerprint": "c0b842cf927405f36cd8ab91b7d47a006102b2dee904f7ca29eaac0aedb9688b",
+      "label": "RA-9BB0F5560AEFF7CE6AAD",
+      "node_id": "repository_artifact:artifact:RA-9BB0F5560AEFF7CE6AAD",
+      "node_kind": "package",
+      "path": "RA-9BB0F5560AEFF7CE6AAD"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-A52E9A58A702A7E54394"
+      },
+      "fingerprint": "3fd9fe136227c41748ccf7b8d83d1a001eb00dffea60fab54a15ea99d48e2d4d",
+      "label": "RA-A52E9A58A702A7E54394",
+      "node_id": "repository_artifact:artifact:RA-A52E9A58A702A7E54394",
+      "node_kind": "package",
+      "path": "RA-A52E9A58A702A7E54394"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-AF05CE0011EB7442C0BB"
+      },
+      "fingerprint": "5fd5ea8d60aed2356d2b696d78ccc86a007380980489e3de8d3de9a4117a2fe9",
+      "label": "RA-AF05CE0011EB7442C0BB",
+      "node_id": "repository_artifact:artifact:RA-AF05CE0011EB7442C0BB",
+      "node_kind": "package",
+      "path": "RA-AF05CE0011EB7442C0BB"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-BA79784A3CC3FEC822DC"
+      },
+      "fingerprint": "e2e90c45f9288b45b884053ef242e881132086f28a901597307fd5658f17426b",
+      "label": "RA-BA79784A3CC3FEC822DC",
+      "node_id": "repository_artifact:artifact:RA-BA79784A3CC3FEC822DC",
+      "node_kind": "package",
+      "path": "RA-BA79784A3CC3FEC822DC"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-C254516E782A994AEF4D"
+      },
+      "fingerprint": "6b93359b30b07df4341590be6b3c2629164aa110f09ddf5ea5d2ebdc7170df00",
+      "label": "RA-C254516E782A994AEF4D",
+      "node_id": "repository_artifact:artifact:RA-C254516E782A994AEF4D",
+      "node_kind": "package",
+      "path": "RA-C254516E782A994AEF4D"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-E33AF5816DAC0B6AD94A"
+      },
+      "fingerprint": "b2245e162c308212c89ab171bb0355a4c0d6224db336d713eceef831b099ce06",
+      "label": "RA-E33AF5816DAC0B6AD94A",
+      "node_id": "repository_artifact:artifact:RA-E33AF5816DAC0B6AD94A",
+      "node_kind": "package",
+      "path": "RA-E33AF5816DAC0B6AD94A"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-F70ABEBF0CBEF800A627"
+      },
+      "fingerprint": "a6cdc03383d6a4d9256dbca317938fa962b0ca238278e73968eb8d0cace45512",
+      "label": "RA-F70ABEBF0CBEF800A627",
+      "node_id": "repository_artifact:artifact:RA-F70ABEBF0CBEF800A627",
+      "node_kind": "package",
+      "path": "RA-F70ABEBF0CBEF800A627"
+    },
+    {
+      "attributes": {
+        "lifecycle_state": "implemented",
+        "source_authority_node_id": "artifact:RA-FC3B1B43D5F89053978D"
+      },
+      "fingerprint": "ce446cbc20dbec1e9d451cc4c04ffc1226e5c142093949523d0e0b617fae5479",
+      "label": "RA-FC3B1B43D5F89053978D",
+      "node_id": "repository_artifact:artifact:RA-FC3B1B43D5F89053978D",
+      "node_kind": "package",
+      "path": "RA-FC3B1B43D5F89053978D"
+    }
+  ],
+  "repository_projection_fingerprint": "01c342103b9235450f7c315f1550b62dbac23e835e440caea1a5baf953a12b54",
+  "schema_version": "1.0.0"
+}

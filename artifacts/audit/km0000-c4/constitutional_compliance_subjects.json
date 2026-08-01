@@ -1,0 +1,14 @@
+{
+  "compliance_fingerprint": "ce7f4c5d197a09952e2ab035ceba8802106e2fedf109eb4c2b20efb625b0d71a",
+  "subjects": [
+    {
+      "content": "The Constitutional Compliance Engine must preserve evidence, retain traceability, remain deterministic, and require review for unresolved constitutional conflicts.",
+      "domain": "governance",
+      "fingerprint": "431f6af916441703e9e61a0bcc4aaa54e78c40a19c9c3b9d06ac2c218d7b3daf",
+      "path": "docs/architecture/governance/constitutional_compliance_engine.md",
+      "subject_id": "C4-SELF-001",
+      "subject_type": "architecture",
+      "title": "Constitutional Compliance Engine"
+    }
+  ]
+}

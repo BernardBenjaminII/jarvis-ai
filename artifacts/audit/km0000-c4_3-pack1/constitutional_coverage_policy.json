@@ -1,0 +1,22 @@
+{
+  "coverage_fingerprint": "f46f3a6f39da52d9c6918f1c6f2819280a513071c3553f78e3bf562411e71f45",
+  "policy": {
+    "governed_domain_coverage_threshold": 0.8,
+    "governed_domains": [
+      "architecture",
+      "engineering",
+      "execution",
+      "executive",
+      "experience",
+      "governance",
+      "knowledge",
+      "memory",
+      "planning",
+      "reasoning",
+      "security"
+    ],
+    "low_usage_threshold": 2,
+    "partial_domain_coverage_threshold": 0.5
+  },
+  "schema_version": "1.0.0"
+}

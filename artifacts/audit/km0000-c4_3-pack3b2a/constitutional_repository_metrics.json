@@ -1,0 +1,28 @@
+{
+  "article_intelligence_fingerprint": "54c3fde90ff9184ffd498f4b1108ef737228b79f6118ddad577aa64fa61a47e0",
+  "authority_graph_fingerprint": "97142928c82ff9e2b1ad56958fc0419b64b9197b8394848a5d86cba98919d43c",
+  "graph_foundation_fingerprint": "4641f210bd5f635a4d4f2ce23156b4a802aab10b9ebf68183c9cd4f2c7109c53",
+  "metrics": {
+    "classification_completeness_ratio": 1.0,
+    "classified_node_count": 22,
+    "configuration_count": 0,
+    "containment_edge_count": 21,
+    "data_artifact_count": 0,
+    "document_count": 0,
+    "executable_count": 0,
+    "fingerprint": "4b96345c9814020f2ced51c56d8c44949062d56644acc1665b3ba74885084185",
+    "module_count": 0,
+    "node_kind_distribution": {
+      "package": 21,
+      "repository": 1
+    },
+    "package_count": 21,
+    "repository_count": 1,
+    "test_count": 0,
+    "unclassified_node_count": 0,
+    "unknown_count": 0,
+    "verification_count": 0
+  },
+  "repository_projection_fingerprint": "01c342103b9235450f7c315f1550b62dbac23e835e440caea1a5baf953a12b54",
+  "schema_version": "1.0.0"
+}
