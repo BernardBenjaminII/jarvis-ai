@@ -11,7 +11,9 @@ from fastapi.staticfiles import StaticFiles
 from core.src.routes.api import router as api_router
 from core.src.routes.mission_control import router as mission_control_router
 from core.src.routes.operations import router as operations_router
-
+from core.src.routes.executive_operations import (
+    router as executive_operations_router,
+)
 
 BASE_DIR = Path(__file__).resolve().parent
 STATIC_ROOT = BASE_DIR / "static"
@@ -44,6 +46,7 @@ app.mount(
 
 app.include_router(mission_control_router)
 app.include_router(operations_router)
+app.include_router(executive_operations_router)
 app.include_router(api_router)
 
 

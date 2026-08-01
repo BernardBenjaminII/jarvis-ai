@@ -1,51 +1,2312 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#090c10">
-  <title>JARVIS — Commander's Bridge</title>
-  <link rel="stylesheet" href="/mission-control/static/styles.css">
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="JARVIS Executive Operations Center"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080b11"
+    >
+
+    <title>JARVIS — Executive Operations Center</title>
+
+    <link
+        rel="stylesheet"
+        href="/mission-control/static/styles.css"
+    >
 </head>
+
 <body>
-<div class="shell">
-  <header>
-    <div class="identity"><b>J</b><span><small>EXECUTIVE COMMAND SYSTEM</small><strong>JARVIS</strong></span></div>
-    <div class="bridge-title">COMMANDER'S BRIDGE <i></i> <time id="clock">--:--:--</time></div>
-    <span id="link" class="pill unknown">CONNECTING</span>
-  </header>
-  <nav>
-    <button class="active"><em>01</em>Bridge</button>
-    <button id="open-chat"><em>02</em>Command</button>
-    <footer><small>CONVERGENCE C-1</small><b>EXECUTIVE CONVERSATION</b></footer>
-  </nav>
-  <main>
-    <div class="brief"><div><small>COMMANDER BRIEF</small><h1>Executive Operational Picture</h1></div><span id="snapshot-time">Awaiting telemetry</span></div>
-    <section class="executive panel" aria-labelledby="executive-heading">
-      <div><small id="executive-heading">EXECUTIVE STATUS</small><h2 id="status">UNKNOWN</h2><p id="status-detail">Establishing Operations link</p>
-        <div class="executive-context">
-          <span><small>MISSION</small><b id="executive-mission">UNASSIGNED</b></span><span><small>OBJECTIVE</small><b id="executive-objective">UNASSIGNED</b></span><span><small>ACTIVITY</small><b id="executive-activity">IDLE</b></span><span><small>LAST TRANSITION</small><b id="last-transition">UNKNOWN</b></span>
+    <noscript>
+        <section class="noscript-warning">
+            <h1>JavaScript Required</h1>
+
+            <p>
+                The Executive Operations Center requires JavaScript to retrieve
+                live system state and maintain the Executive connection.
+            </p>
+        </section>
+    </noscript>
+
+    <div
+        id="executive-application"
+        class="executive-application"
+        data-application-state="initializing"
+    >
+        <!-- ============================================================= -->
+        <!-- ACCESSIBILITY                                                  -->
+        <!-- ============================================================= -->
+
+        <a
+            class="skip-link"
+            href="#executive-main"
+        >
+            Skip to Executive workspace
+        </a>
+
+        <div
+            id="global-announcer"
+            class="visually-hidden"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        ></div>
+
+        <!-- ============================================================= -->
+        <!-- MOBILE SCRIM                                                   -->
+        <!-- ============================================================= -->
+
+        <button
+            id="navigation-scrim"
+            class="navigation-scrim"
+            type="button"
+            aria-label="Close navigation"
+            hidden
+        ></button>
+
+        <!-- ============================================================= -->
+        <!-- EXECUTIVE SIDEBAR                                              -->
+        <!-- ============================================================= -->
+
+        <aside
+            id="executive-sidebar"
+            class="executive-sidebar"
+            aria-label="Executive navigation"
+        >
+            <header class="sidebar-header">
+                <a
+                    class="brand-lockup"
+                    href="/mission-control/"
+                    aria-label="JARVIS Executive Operations Center"
+                >
+                    <span
+                        class="brand-mark"
+                        aria-hidden="true"
+                    >
+                        J
+                    </span>
+
+                    <span class="brand-copy">
+                        <strong class="brand-name">
+                            JARVIS
+                        </strong>
+
+                        <span class="brand-subtitle">
+                            Executive Operations
+                        </span>
+                    </span>
+                </a>
+
+                <button
+                    id="sidebar-collapse-button"
+                    class="icon-button sidebar-collapse-button"
+                    type="button"
+                    aria-label="Collapse Executive navigation"
+                    aria-controls="executive-sidebar"
+                    aria-expanded="true"
+                >
+                    <span aria-hidden="true">
+                        ‹
+                    </span>
+                </button>
+            </header>
+
+            <section
+                class="sidebar-system-state"
+                aria-labelledby="sidebar-system-state-title"
+            >
+                <h2
+                    id="sidebar-system-state-title"
+                    class="visually-hidden"
+                >
+                    Executive connection
+                </h2>
+
+                <div class="connection-state">
+                    <span
+                        id="sidebar-connection-indicator"
+                        class="status-indicator status-indicator--unknown"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span class="connection-copy">
+                        <span class="connection-label">
+                            Executive Link
+                        </span>
+
+                        <strong
+                            id="sidebar-connection-state"
+                            class="connection-value"
+                        >
+                            Initializing
+                        </strong>
+                    </span>
+                </div>
+
+                <div class="sidebar-clock">
+                    <span class="sidebar-clock-label">
+                        Executive Time
+                    </span>
+
+                    <time
+                        id="sidebar-executive-clock"
+                        class="sidebar-clock-value"
+                        datetime=""
+                    >
+                        --:--:--
+                    </time>
+                </div>
+            </section>
+
+            <nav
+                class="primary-navigation"
+                aria-label="Primary Executive sections"
+            >
+                <section class="navigation-group">
+                    <h2 class="navigation-group-title">
+                        Command
+                    </h2>
+
+                    <a
+                        class="navigation-item navigation-item--active"
+                        href="#commander-brief"
+                        data-view="commander-brief"
+                        aria-current="page"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ◫
+                        </span>
+
+                        <span class="navigation-label">
+                            Commander Brief
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#executive-operations"
+                        data-view="executive-operations"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ◎
+                        </span>
+
+                        <span class="navigation-label">
+                            Operations
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#missions"
+                        data-view="missions"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ◉
+                        </span>
+
+                        <span class="navigation-label">
+                            Missions
+                        </span>
+
+                        <span
+                            id="navigation-mission-count"
+                            class="navigation-badge"
+                            aria-label="Mission count unavailable"
+                        >
+                            —
+                        </span>
+                    </a>
+                </section>
+
+                <section class="navigation-group">
+                    <h2 class="navigation-group-title">
+                        Enterprise
+                    </h2>
+
+                    <a
+                        class="navigation-item"
+                        href="#assets"
+                        data-view="assets"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ◈
+                        </span>
+
+                        <span class="navigation-label">
+                            Assets
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#knowledge"
+                        data-view="knowledge"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ◇
+                        </span>
+
+                        <span class="navigation-label">
+                            Knowledge
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#artificial-intelligence"
+                        data-view="artificial-intelligence"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ✦
+                        </span>
+
+                        <span class="navigation-label">
+                            Artificial Intelligence
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#robotics"
+                        data-view="robotics"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ⬡
+                        </span>
+
+                        <span class="navigation-label">
+                            Robotics
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#infrastructure"
+                        data-view="infrastructure"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ▦
+                        </span>
+
+                        <span class="navigation-label">
+                            Infrastructure
+                        </span>
+                    </a>
+                </section>
+
+                <section class="navigation-group">
+                    <h2 class="navigation-group-title">
+                        Intelligence
+                    </h2>
+
+                    <a
+                        class="navigation-item"
+                        href="#events"
+                        data-view="events"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ≋
+                        </span>
+
+                        <span class="navigation-label">
+                            Executive Events
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#digital-twins"
+                        data-view="digital-twins"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ⧉
+                        </span>
+
+                        <span class="navigation-label">
+                            Digital Twins
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#analytics"
+                        data-view="analytics"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ◒
+                        </span>
+
+                        <span class="navigation-label">
+                            Analytics
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#planning"
+                        data-view="planning"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ⌁
+                        </span>
+
+                        <span class="navigation-label">
+                            Planning
+                        </span>
+                    </a>
+                </section>
+
+                <section class="navigation-group">
+                    <h2 class="navigation-group-title">
+                        Governance
+                    </h2>
+
+                    <a
+                        class="navigation-item"
+                        href="#organizations"
+                        data-view="organizations"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ⬢
+                        </span>
+
+                        <span class="navigation-label">
+                            Organizations
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#security"
+                        data-view="security"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ◭
+                        </span>
+
+                        <span class="navigation-label">
+                            Security
+                        </span>
+                    </a>
+
+                    <a
+                        class="navigation-item"
+                        href="#administration"
+                        data-view="administration"
+                    >
+                        <span
+                            class="navigation-icon"
+                            aria-hidden="true"
+                        >
+                            ⚙
+                        </span>
+
+                        <span class="navigation-label">
+                            Administration
+                        </span>
+                    </a>
+                </section>
+            </nav>
+
+            <footer class="sidebar-footer">
+                <p class="sidebar-motto">
+                    Knowledge is permanent.<br>
+                    Intelligence is upgradable.
+                </p>
+
+                <div class="sidebar-version">
+                    <span>
+                        Genesis VII-A0
+                    </span>
+
+                    <span>
+                        Pack 3A-1
+                    </span>
+                </div>
+            </footer>
+        </aside>
+
+        <!-- ============================================================= -->
+        <!-- EXECUTIVE SHELL                                                -->
+        <!-- ============================================================= -->
+
+        <div class="executive-shell">
+            <!-- ========================================================= -->
+            <!-- COMMAND BAR                                               -->
+            <!-- ========================================================= -->
+
+            <header
+                id="executive-command-bar"
+                class="executive-command-bar"
+            >
+                <div class="command-bar-leading">
+                    <button
+                        id="mobile-navigation-button"
+                        class="icon-button mobile-navigation-button"
+                        type="button"
+                        aria-label="Open Executive navigation"
+                        aria-controls="executive-sidebar"
+                        aria-expanded="false"
+                    >
+                        <span aria-hidden="true">
+                            ☰
+                        </span>
+                    </button>
+
+                    <div class="command-bar-context">
+                        <p class="command-bar-eyebrow">
+                            Executive Operations Center
+                        </p>
+
+                        <h1
+                            id="active-view-title"
+                            class="command-bar-title"
+                        >
+                            Commander Brief
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="command-bar-actions">
+                    <button
+                        id="executive-search-button"
+                        class="command-trigger"
+                        type="button"
+                        aria-haspopup="dialog"
+                        aria-controls="executive-search-dialog"
+                    >
+                        <span
+                            class="command-trigger-icon"
+                            aria-hidden="true"
+                        >
+                            ⌕
+                        </span>
+
+                        <span class="command-trigger-label">
+                            Search Executive system
+                        </span>
+
+                        <kbd class="command-trigger-shortcut">
+                            Ctrl K
+                        </kbd>
+                    </button>
+
+                    <button
+                        id="command-palette-button"
+                        class="icon-button"
+                        type="button"
+                        aria-label="Open Executive command palette"
+                        aria-haspopup="dialog"
+                        aria-controls="command-palette-dialog"
+                    >
+                        <span aria-hidden="true">
+                            ⌘
+                        </span>
+                    </button>
+
+                    <button
+                        id="notification-center-button"
+                        class="icon-button notification-button"
+                        type="button"
+                        aria-label="Open notification center"
+                        aria-haspopup="dialog"
+                        aria-controls="notification-center"
+                        aria-expanded="false"
+                    >
+                        <span aria-hidden="true">
+                            ◔
+                        </span>
+
+                        <span
+                            id="notification-count"
+                            class="notification-count"
+                            hidden
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <div
+                        id="command-bar-connection"
+                        class="command-bar-connection"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        <span
+                            id="command-bar-connection-indicator"
+                            class="status-indicator status-indicator--unknown"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span
+                            id="command-bar-connection-label"
+                            class="command-bar-connection-label"
+                        >
+                            Connecting
+                        </span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========================================================= -->
+            <!-- MAIN EXECUTIVE WORKSPACE                                  -->
+            <!-- ========================================================= -->
+
+            <main
+                id="executive-main"
+                class="executive-main"
+                tabindex="-1"
+            >
+                <!-- ===================================================== -->
+                <!-- COMMANDER BRIEF VIEW                                  -->
+                <!-- ===================================================== -->
+
+                <section
+                    id="commander-brief"
+                    class="executive-view executive-view--active"
+                    data-view-panel="commander-brief"
+                    aria-labelledby="commander-brief-heading"
+                >
+                    <header class="view-header">
+                        <div class="view-heading">
+                            <p class="view-eyebrow">
+                                Executive situational awareness
+                            </p>
+
+                            <h2
+                                id="commander-brief-heading"
+                                class="view-title"
+                            >
+                                Commander Brief
+                            </h2>
+
+                            <p class="view-description">
+                                Current Executive health, readiness,
+                                operational activity, and required attention.
+                            </p>
+                        </div>
+
+                        <div class="view-actions">
+                            <button
+                                id="refresh-dashboard-button"
+                                class="secondary-button"
+                                type="button"
+                            >
+                                <span aria-hidden="true">
+                                    ↻
+                                </span>
+
+                                Refresh
+                            </button>
+
+                            <button
+                                id="open-command-center-button"
+                                class="primary-button"
+                                type="button"
+                                aria-haspopup="dialog"
+                                aria-controls="command-palette-dialog"
+                            >
+                                Executive Command
+                            </button>
+                        </div>
+                    </header>
+
+                    <!-- ================================================= -->
+                    <!-- EXECUTIVE STATUS BANNER                           -->
+                    <!-- ================================================= -->
+
+                    <section
+                        id="executive-status-banner"
+                        class="executive-status-banner executive-status-banner--unknown"
+                        aria-labelledby="executive-status-heading"
+                    >
+                        <div class="status-banner-leading">
+                            <span
+                                id="executive-status-symbol"
+                                class="status-banner-symbol"
+                                aria-hidden="true"
+                            >
+                                ◌
+                            </span>
+
+                            <div class="status-banner-copy">
+                                <p class="status-banner-label">
+                                    Executive Status
+                                </p>
+
+                                <h3
+                                    id="executive-status-heading"
+                                    class="status-banner-heading"
+                                >
+                                    Establishing operational picture
+                                </h3>
+
+                                <p
+                                    id="executive-status-message"
+                                    class="status-banner-message"
+                                >
+                                    Waiting for authoritative Executive state.
+                                </p>
+                            </div>
+                        </div>
+
+                        <dl class="status-banner-metadata">
+                            <div class="status-banner-metadata-item">
+                                <dt>
+                                    Health
+                                </dt>
+
+                                <dd id="status-banner-health">
+                                    Unknown
+                                </dd>
+                            </div>
+
+                            <div class="status-banner-metadata-item">
+                                <dt>
+                                    Metrics
+                                </dt>
+
+                                <dd id="status-banner-metrics">
+                                    —
+                                </dd>
+                            </div>
+
+                            <div class="status-banner-metadata-item">
+                                <dt>
+                                    Updated
+                                </dt>
+
+                                <dd>
+                                    <time
+                                        id="status-banner-updated"
+                                        datetime=""
+                                    >
+                                        Awaiting data
+                                    </time>
+                                </dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <!-- ================================================= -->
+                    <!-- PRIMARY METRICS                                   -->
+                    <!-- ================================================= -->
+
+                    <section
+                        class="dashboard-section"
+                        aria-labelledby="enterprise-summary-heading"
+                    >
+                        <header class="section-header">
+                            <div>
+                                <p class="section-eyebrow">
+                                    Enterprise state
+                                </p>
+
+                                <h3
+                                    id="enterprise-summary-heading"
+                                    class="section-title"
+                                >
+                                    Executive Summary
+                                </h3>
+                            </div>
+
+                            <p
+                                id="metric-source-summary"
+                                class="section-metadata"
+                            >
+                                Awaiting authoritative metric sources
+                            </p>
+                        </header>
+
+                        <div
+                            id="executive-metric-grid"
+                            class="metric-grid"
+                        >
+                            <article
+                                class="metric-card"
+                                data-metric-card="missions"
+                            >
+                                <header class="metric-card-header">
+                                    <span class="metric-card-label">
+                                        Missions
+                                    </span>
+
+                                    <span
+                                        class="metric-card-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ◉
+                                    </span>
+                                </header>
+
+                                <p
+                                    id="metric-missions-value"
+                                    class="metric-card-value"
+                                    data-metric-value="missions"
+                                >
+                                    —
+                                </p>
+
+                                <p
+                                    id="metric-missions-state"
+                                    class="metric-card-state"
+                                    data-metric-state="missions"
+                                >
+                                    Awaiting registry
+                                </p>
+                            </article>
+
+                            <article
+                                class="metric-card"
+                                data-metric-card="assets"
+                            >
+                                <header class="metric-card-header">
+                                    <span class="metric-card-label">
+                                        Assets
+                                    </span>
+
+                                    <span
+                                        class="metric-card-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ◈
+                                    </span>
+                                </header>
+
+                                <p
+                                    id="metric-assets-value"
+                                    class="metric-card-value"
+                                    data-metric-value="assets"
+                                >
+                                    —
+                                </p>
+
+                                <p
+                                    id="metric-assets-state"
+                                    class="metric-card-state"
+                                    data-metric-state="assets"
+                                >
+                                    Awaiting registry
+                                </p>
+                            </article>
+
+                            <article
+                                class="metric-card"
+                                data-metric-card="knowledge_files"
+                            >
+                                <header class="metric-card-header">
+                                    <span class="metric-card-label">
+                                        Knowledge Files
+                                    </span>
+
+                                    <span
+                                        class="metric-card-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ◇
+                                    </span>
+                                </header>
+
+                                <p
+                                    id="metric-knowledge-files-value"
+                                    class="metric-card-value"
+                                    data-metric-value="knowledge_files"
+                                >
+                                    —
+                                </p>
+
+                                <p
+                                    id="metric-knowledge-files-state"
+                                    class="metric-card-state"
+                                    data-metric-state="knowledge_files"
+                                >
+                                    Measuring
+                                </p>
+                            </article>
+
+                            <article
+                                class="metric-card"
+                                data-metric-card="ai_models"
+                            >
+                                <header class="metric-card-header">
+                                    <span class="metric-card-label">
+                                        AI Models
+                                    </span>
+
+                                    <span
+                                        class="metric-card-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ✦
+                                    </span>
+                                </header>
+
+                                <p
+                                    id="metric-ai-models-value"
+                                    class="metric-card-value"
+                                    data-metric-value="ai_models"
+                                >
+                                    —
+                                </p>
+
+                                <p
+                                    id="metric-ai-models-state"
+                                    class="metric-card-state"
+                                    data-metric-state="ai_models"
+                                >
+                                    Awaiting registry
+                                </p>
+                            </article>
+
+                            <article
+                                class="metric-card"
+                                data-metric-card="executive_events"
+                            >
+                                <header class="metric-card-header">
+                                    <span class="metric-card-label">
+                                        Executive Events
+                                    </span>
+
+                                    <span
+                                        class="metric-card-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ≋
+                                    </span>
+                                </header>
+
+                                <p
+                                    id="metric-executive-events-value"
+                                    class="metric-card-value"
+                                    data-metric-value="executive_events"
+                                >
+                                    —
+                                </p>
+
+                                <p
+                                    id="metric-executive-events-state"
+                                    class="metric-card-state"
+                                    data-metric-state="executive_events"
+                                >
+                                    Awaiting registry
+                                </p>
+                            </article>
+
+                            <article
+                                class="metric-card"
+                                data-metric-card="digital_twins"
+                            >
+                                <header class="metric-card-header">
+                                    <span class="metric-card-label">
+                                        Digital Twins
+                                    </span>
+
+                                    <span
+                                        class="metric-card-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ⧉
+                                    </span>
+                                </header>
+
+                                <p
+                                    id="metric-digital-twins-value"
+                                    class="metric-card-value"
+                                    data-metric-value="digital_twins"
+                                >
+                                    —
+                                </p>
+
+                                <p
+                                    id="metric-digital-twins-state"
+                                    class="metric-card-state"
+                                    data-metric-state="digital_twins"
+                                >
+                                    Awaiting registry
+                                </p>
+                            </article>
+
+                            <article
+                                class="metric-card"
+                                data-metric-card="robots"
+                            >
+                                <header class="metric-card-header">
+                                    <span class="metric-card-label">
+                                        Robots
+                                    </span>
+
+                                    <span
+                                        class="metric-card-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ⬡
+                                    </span>
+                                </header>
+
+                                <p
+                                    id="metric-robots-value"
+                                    class="metric-card-value"
+                                    data-metric-value="robots"
+                                >
+                                    —
+                                </p>
+
+                                <p
+                                    id="metric-robots-state"
+                                    class="metric-card-state"
+                                    data-metric-state="robots"
+                                >
+                                    Awaiting registry
+                                </p>
+                            </article>
+
+                            <article
+                                class="metric-card"
+                                data-metric-card="background_jobs"
+                            >
+                                <header class="metric-card-header">
+                                    <span class="metric-card-label">
+                                        Background Jobs
+                                    </span>
+
+                                    <span
+                                        class="metric-card-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ⟳
+                                    </span>
+                                </header>
+
+                                <p
+                                    id="metric-background-jobs-value"
+                                    class="metric-card-value"
+                                    data-metric-value="background_jobs"
+                                >
+                                    —
+                                </p>
+
+                                <p
+                                    id="metric-background-jobs-state"
+                                    class="metric-card-state"
+                                    data-metric-state="background_jobs"
+                                >
+                                    Awaiting registry
+                                </p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- ================================================= -->
+                    <!-- OPERATIONAL PICTURE                                -->
+                    <!-- ================================================= -->
+
+                    <section
+                        class="dashboard-section"
+                        aria-labelledby="operational-picture-heading"
+                    >
+                        <header class="section-header">
+                            <div>
+                                <p class="section-eyebrow">
+                                    Live system state
+                                </p>
+
+                                <h3
+                                    id="operational-picture-heading"
+                                    class="section-title"
+                                >
+                                    Operational Picture
+                                </h3>
+                            </div>
+                        </header>
+
+                        <div class="dashboard-grid dashboard-grid--primary">
+                            <!-- ========================================= -->
+                            <!-- HEALTH PANEL                              -->
+                            <!-- ========================================= -->
+
+                            <article
+                                id="executive-health-panel"
+                                class="dashboard-panel dashboard-panel--health"
+                                aria-labelledby="executive-health-panel-heading"
+                            >
+                                <header class="panel-header">
+                                    <div>
+                                        <p class="panel-eyebrow">
+                                            Enterprise observation
+                                        </p>
+
+                                        <h4
+                                            id="executive-health-panel-heading"
+                                            class="panel-title"
+                                        >
+                                            Executive Health
+                                        </h4>
+                                    </div>
+
+                                    <span
+                                        id="executive-health-state"
+                                        class="state-pill state-pill--unknown"
+                                    >
+                                        Unknown
+                                    </span>
+                                </header>
+
+                                <div
+                                    id="executive-health-checks"
+                                    class="health-check-list"
+                                    role="list"
+                                >
+                                    <div
+                                        class="empty-state empty-state--compact"
+                                        role="listitem"
+                                    >
+                                        <span
+                                            class="empty-state-icon"
+                                            aria-hidden="true"
+                                        >
+                                            ◌
+                                        </span>
+
+                                        <div>
+                                            <strong>
+                                                Health telemetry pending
+                                            </strong>
+
+                                            <p>
+                                                Waiting for the Executive
+                                                Health service.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <footer class="panel-footer">
+                                    <button
+                                        class="text-button"
+                                        type="button"
+                                        data-open-view="infrastructure"
+                                    >
+                                        Open infrastructure
+                                    </button>
+
+                                    <time
+                                        id="health-panel-updated"
+                                        datetime=""
+                                    >
+                                        Not yet updated
+                                    </time>
+                                </footer>
+                            </article>
+
+                            <!-- ========================================= -->
+                            <!-- ATTENTION PANEL                           -->
+                            <!-- ========================================= -->
+
+                            <article
+                                id="executive-attention-panel"
+                                class="dashboard-panel dashboard-panel--attention"
+                                aria-labelledby="executive-attention-heading"
+                            >
+                                <header class="panel-header">
+                                    <div>
+                                        <p class="panel-eyebrow">
+                                            Commander action
+                                        </p>
+
+                                        <h4
+                                            id="executive-attention-heading"
+                                            class="panel-title"
+                                        >
+                                            Requires Attention
+                                        </h4>
+                                    </div>
+
+                                    <span
+                                        id="attention-item-count"
+                                        class="state-pill"
+                                    >
+                                        —
+                                    </span>
+                                </header>
+
+                                <div
+                                    id="executive-attention-list"
+                                    class="attention-list"
+                                >
+                                    <div class="empty-state empty-state--compact">
+                                        <span
+                                            class="empty-state-icon"
+                                            aria-hidden="true"
+                                        >
+                                            ◌
+                                        </span>
+
+                                        <div>
+                                            <strong>
+                                                Assessment pending
+                                            </strong>
+
+                                            <p>
+                                                Executive status has not yet
+                                                been evaluated.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <footer class="panel-footer">
+                                    <button
+                                        class="text-button"
+                                        type="button"
+                                        data-open-view="security"
+                                    >
+                                        Review enterprise risk
+                                    </button>
+                                </footer>
+                            </article>
+
+                            <!-- ========================================= -->
+                            <!-- RUNTIME PANEL                             -->
+                            <!-- ========================================= -->
+
+                            <article
+                                id="runtime-panel"
+                                class="dashboard-panel"
+                                aria-labelledby="runtime-panel-heading"
+                            >
+                                <header class="panel-header">
+                                    <div>
+                                        <p class="panel-eyebrow">
+                                            Runtime environment
+                                        </p>
+
+                                        <h4
+                                            id="runtime-panel-heading"
+                                            class="panel-title"
+                                        >
+                                            Runtime
+                                        </h4>
+                                    </div>
+                                </header>
+
+                                <dl class="data-list">
+                                    <div class="data-list-item">
+                                        <dt>
+                                            Python
+                                        </dt>
+
+                                        <dd id="runtime-python-version">
+                                            —
+                                        </dd>
+                                    </div>
+
+                                    <div class="data-list-item">
+                                        <dt>
+                                            Logical CPUs
+                                        </dt>
+
+                                        <dd id="runtime-logical-cpus">
+                                            —
+                                        </dd>
+                                    </div>
+
+                                    <div class="data-list-item">
+                                        <dt>
+                                            System Load
+                                        </dt>
+
+                                        <dd id="runtime-system-load">
+                                            —
+                                        </dd>
+                                    </div>
+
+                                    <div class="data-list-item">
+                                        <dt>
+                                            Memory
+                                        </dt>
+
+                                        <dd id="runtime-memory">
+                                            —
+                                        </dd>
+                                    </div>
+                                </dl>
+
+                                <footer class="panel-footer">
+                                    <span id="runtime-source-label">
+                                        Awaiting telemetry
+                                    </span>
+                                </footer>
+                            </article>
+
+                            <!-- ========================================= -->
+                            <!-- STORAGE PANEL                             -->
+                            <!-- ========================================= -->
+
+                            <article
+                                id="storage-panel"
+                                class="dashboard-panel"
+                                aria-labelledby="storage-panel-heading"
+                            >
+                                <header class="panel-header">
+                                    <div>
+                                        <p class="panel-eyebrow">
+                                            Storage posture
+                                        </p>
+
+                                        <h4
+                                            id="storage-panel-heading"
+                                            class="panel-title"
+                                        >
+                                            Storage
+                                        </h4>
+                                    </div>
+                                </header>
+
+                                <div class="storage-summary">
+                                    <div class="storage-meter">
+                                        <div class="storage-meter-header">
+                                            <span>
+                                                Project Filesystem
+                                            </span>
+
+                                            <strong
+                                                id="storage-project-percent"
+                                            >
+                                                —
+                                            </strong>
+                                        </div>
+
+                                        <div
+                                            class="progress-track"
+                                            role="progressbar"
+                                            aria-label="Project filesystem utilization"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                            aria-valuenow="0"
+                                        >
+                                            <span
+                                                id="storage-project-bar"
+                                                class="progress-value"
+                                                style="width: 0%"
+                                            ></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="storage-meter">
+                                        <div class="storage-meter-header">
+                                            <span>
+                                                Root Filesystem
+                                            </span>
+
+                                            <strong
+                                                id="storage-root-percent"
+                                            >
+                                                —
+                                            </strong>
+                                        </div>
+
+                                        <div
+                                            class="progress-track"
+                                            role="progressbar"
+                                            aria-label="Root filesystem utilization"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                            aria-valuenow="0"
+                                        >
+                                            <span
+                                                id="storage-root-bar"
+                                                class="progress-value"
+                                                style="width: 0%"
+                                            ></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <footer class="panel-footer">
+                                    <button
+                                        class="text-button"
+                                        type="button"
+                                        data-open-view="infrastructure"
+                                    >
+                                        Inspect storage
+                                    </button>
+                                </footer>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- ================================================= -->
+                    <!-- EXECUTIVE ACTIVITY                                 -->
+                    <!-- ================================================= -->
+
+                    <section
+                        class="dashboard-section"
+                        aria-labelledby="executive-activity-heading"
+                    >
+                        <header class="section-header">
+                            <div>
+                                <p class="section-eyebrow">
+                                    Institutional history
+                                </p>
+
+                                <h3
+                                    id="executive-activity-heading"
+                                    class="section-title"
+                                >
+                                    Executive Activity
+                                </h3>
+                            </div>
+
+                            <button
+                                class="text-button"
+                                type="button"
+                                data-open-view="events"
+                            >
+                                Open event stream
+                            </button>
+                        </header>
+
+                        <div class="dashboard-grid dashboard-grid--activity">
+                            <article
+                                id="executive-event-preview"
+                                class="dashboard-panel dashboard-panel--timeline"
+                                aria-labelledby="executive-event-preview-heading"
+                            >
+                                <header class="panel-header">
+                                    <div>
+                                        <p class="panel-eyebrow">
+                                            Live stream
+                                        </p>
+
+                                        <h4
+                                            id="executive-event-preview-heading"
+                                            class="panel-title"
+                                        >
+                                            Recent Executive Events
+                                        </h4>
+                                    </div>
+
+                                    <span
+                                        id="event-stream-state"
+                                        class="state-pill state-pill--unknown"
+                                    >
+                                        Pending Pack 4
+                                    </span>
+                                </header>
+
+                                <ol
+                                    id="executive-event-list"
+                                    class="event-timeline"
+                                >
+                                    <li class="empty-state">
+                                        <span
+                                            class="empty-state-icon"
+                                            aria-hidden="true"
+                                        >
+                                            ≋
+                                        </span>
+
+                                        <div>
+                                            <strong>
+                                                Event transport established
+                                            </strong>
+
+                                            <p>
+                                                Authoritative event retrieval
+                                                will be connected in Pack 4.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </article>
+
+                            <article
+                                id="executive-readiness-panel"
+                                class="dashboard-panel"
+                                aria-labelledby="executive-readiness-heading"
+                            >
+                                <header class="panel-header">
+                                    <div>
+                                        <p class="panel-eyebrow">
+                                            Mission posture
+                                        </p>
+
+                                        <h4
+                                            id="executive-readiness-heading"
+                                            class="panel-title"
+                                        >
+                                            Readiness
+                                        </h4>
+                                    </div>
+                                </header>
+
+                                <dl class="readiness-list">
+                                    <div class="readiness-item">
+                                        <dt>
+                                            Mission Readiness
+                                        </dt>
+
+                                        <dd id="mission-readiness-state">
+                                            Not connected
+                                        </dd>
+                                    </div>
+
+                                    <div class="readiness-item">
+                                        <dt>
+                                            Asset Readiness
+                                        </dt>
+
+                                        <dd id="asset-readiness-state">
+                                            Not connected
+                                        </dd>
+                                    </div>
+
+                                    <div class="readiness-item">
+                                        <dt>
+                                            Knowledge Health
+                                        </dt>
+
+                                        <dd id="knowledge-readiness-state">
+                                            Not connected
+                                        </dd>
+                                    </div>
+
+                                    <div class="readiness-item">
+                                        <dt>
+                                            AI Availability
+                                        </dt>
+
+                                        <dd id="ai-readiness-state">
+                                            Not connected
+                                        </dd>
+                                    </div>
+
+                                    <div class="readiness-item">
+                                        <dt>
+                                            Security Posture
+                                        </dt>
+
+                                        <dd id="security-readiness-state">
+                                            Not connected
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- ================================================= -->
+                    <!-- WORKSTREAMS                                        -->
+                    <!-- ================================================= -->
+
+                    <section
+                        class="dashboard-section"
+                        aria-labelledby="workstreams-heading"
+                    >
+                        <header class="section-header">
+                            <div>
+                                <p class="section-eyebrow">
+                                    Executive work
+                                </p>
+
+                                <h3
+                                    id="workstreams-heading"
+                                    class="section-title"
+                                >
+                                    Active Workstreams
+                                </h3>
+                            </div>
+                        </header>
+
+                        <div class="workstream-grid">
+                            <article class="workstream-card">
+                                <header class="workstream-card-header">
+                                    <span
+                                        class="workstream-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ◉
+                                    </span>
+
+                                    <div>
+                                        <h4>
+                                            Missions
+                                        </h4>
+
+                                        <p>
+                                            Mission registry and execution
+                                            posture
+                                        </p>
+                                    </div>
+                                </header>
+
+                                <div class="workstream-card-body">
+                                    <strong id="workstream-mission-summary">
+                                        Registry not connected
+                                    </strong>
+                                </div>
+
+                                <footer class="workstream-card-footer">
+                                    <button
+                                        class="text-button"
+                                        type="button"
+                                        data-open-view="missions"
+                                    >
+                                        Open Mission Center
+                                    </button>
+                                </footer>
+                            </article>
+
+                            <article class="workstream-card">
+                                <header class="workstream-card-header">
+                                    <span
+                                        class="workstream-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ◇
+                                    </span>
+
+                                    <div>
+                                        <h4>
+                                            Knowledge
+                                        </h4>
+
+                                        <p>
+                                            Catalog, assimilation, and
+                                            acquisition
+                                        </p>
+                                    </div>
+                                </header>
+
+                                <div class="workstream-card-body">
+                                    <strong id="workstream-knowledge-summary">
+                                        Measuring knowledge root
+                                    </strong>
+                                </div>
+
+                                <footer class="workstream-card-footer">
+                                    <button
+                                        class="text-button"
+                                        type="button"
+                                        data-open-view="knowledge"
+                                    >
+                                        Open Knowledge Center
+                                    </button>
+                                </footer>
+                            </article>
+
+                            <article class="workstream-card">
+                                <header class="workstream-card-header">
+                                    <span
+                                        class="workstream-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ✦
+                                    </span>
+
+                                    <div>
+                                        <h4>
+                                            Artificial Intelligence
+                                        </h4>
+
+                                        <p>
+                                            Models, reasoning, and agent
+                                            availability
+                                        </p>
+                                    </div>
+                                </header>
+
+                                <div class="workstream-card-body">
+                                    <strong id="workstream-ai-summary">
+                                        Registry not connected
+                                    </strong>
+                                </div>
+
+                                <footer class="workstream-card-footer">
+                                    <button
+                                        class="text-button"
+                                        type="button"
+                                        data-open-view="artificial-intelligence"
+                                    >
+                                        Open AI Center
+                                    </button>
+                                </footer>
+                            </article>
+
+                            <article class="workstream-card">
+                                <header class="workstream-card-header">
+                                    <span
+                                        class="workstream-icon"
+                                        aria-hidden="true"
+                                    >
+                                        ⬡
+                                    </span>
+
+                                    <div>
+                                        <h4>
+                                            Robotics
+                                        </h4>
+
+                                        <p>
+                                            Fleet, nodes, deployment, and
+                                            recovery
+                                        </p>
+                                    </div>
+                                </header>
+
+                                <div class="workstream-card-body">
+                                    <strong id="workstream-robotics-summary">
+                                        Registry not connected
+                                    </strong>
+                                </div>
+
+                                <footer class="workstream-card-footer">
+                                    <button
+                                        class="text-button"
+                                        type="button"
+                                        data-open-view="robotics"
+                                    >
+                                        Open Robotics Center
+                                    </button>
+                                </footer>
+                            </article>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- ===================================================== -->
+                <!-- PROGRESSIVE WORKSPACE VIEW                            -->
+                <!-- ===================================================== -->
+
+                <section
+                    id="progressive-workspace"
+                    class="executive-view"
+                    data-view-panel="progressive-workspace"
+                    aria-labelledby="progressive-workspace-heading"
+                    hidden
+                >
+                    <header class="view-header">
+                        <div class="view-heading">
+                            <p class="view-eyebrow">
+                                Progressive Executive workspace
+                            </p>
+
+                            <h2
+                                id="progressive-workspace-heading"
+                                class="view-title"
+                            >
+                                Workspace
+                            </h2>
+
+                            <p
+                                id="progressive-workspace-description"
+                                class="view-description"
+                            >
+                                This Executive capability has not yet been
+                                mounted into the active workspace.
+                            </p>
+                        </div>
+                    </header>
+
+                    <div
+                        id="progressive-workspace-content"
+                        class="workspace-placeholder"
+                    >
+                        <span
+                            class="workspace-placeholder-icon"
+                            aria-hidden="true"
+                        >
+                            ◫
+                        </span>
+
+                        <h3 id="workspace-placeholder-title">
+                            Capability pending integration
+                        </h3>
+
+                        <p id="workspace-placeholder-message">
+                            The navigation contract is established. Its
+                            operational interface will be delivered in the
+                            appropriate Genesis pack.
+                        </p>
+
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            data-open-view="commander-brief"
+                        >
+                            Return to Commander Brief
+                        </button>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ========================================================= -->
+            <!-- EXECUTIVE STATUS BAR                                      -->
+            <!-- ========================================================= -->
+
+            <footer
+                id="executive-status-bar"
+                class="executive-status-bar"
+            >
+                <div class="status-bar-group">
+                    <span class="status-bar-item">
+                        <span
+                            id="status-bar-connection-indicator"
+                            class="status-indicator status-indicator--unknown"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span id="status-bar-connection">
+                            Executive link initializing
+                        </span>
+                    </span>
+
+                    <span class="status-bar-separator" aria-hidden="true">
+                        /
+                    </span>
+
+                    <span
+                        id="status-bar-health"
+                        class="status-bar-item"
+                    >
+                        Health unknown
+                    </span>
+                </div>
+
+                <div class="status-bar-group">
+                    <span
+                        id="status-bar-last-update"
+                        class="status-bar-item"
+                    >
+                        No live update received
+                    </span>
+
+                    <span class="status-bar-separator" aria-hidden="true">
+                        /
+                    </span>
+
+                    <span class="status-bar-item">
+                        Genesis VII-A0
+                    </span>
+                </div>
+            </footer>
         </div>
-      </div>
-      <div class="readiness" role="meter" aria-label="Executive readiness" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><b id="readiness">--</b><small>READINESS</small></div>
-    </section>
-    <section class="cognitive-strip" aria-label="Executive cognitive telemetry"><div><small>OBSERVATIONS</small><b id="observations">0</b></div><div><small>INFERENCES</small><b id="inferences">0</b></div><div><small>PLANS</small><b id="plans">0</b></div><div><small>PENDING DECISIONS</small><b id="pending-decisions">0</b></div><div><small>RECOMMENDATIONS</small><b id="pending-recommendations">0</b></div></section>
-    <div class="grid">
-      <section class="panel mission wide"><div class="heading"><div><small>PRIMARY MISSION</small><h3 id="mission">No active mission</h3></div><span id="mission-state" class="pill unknown">UNKNOWN</span></div><p id="objective">Awaiting mission projection from Operations.</p><div class="metrics"><div><small>ACTIVE</small><b id="active">0</b></div><div><small>QUEUED</small><b id="queued">0</b></div><div><small>COMPLETE</small><b id="complete">0</b></div></div></section>
-      <section class="panel divisions"><div class="heading"><div><small>EXECUTIVE DIVISIONS</small><h3>Operational Readiness</h3></div></div><div id="divisions-list"></div></section>
-      <section class="panel timeline wide"><div class="heading"><div><small>EXECUTIVE TIMELINE</small><h3>Recent Activity</h3></div><span id="event-count">0 EVENTS</span></div><ol id="timeline"><li class="empty">No operational events received.</li></ol></section>
-      <section class="panel resources"><div class="heading"><div><small>RESOURCES</small><h3>Platform Capacity</h3></div></div><div id="resources-list"></div></section>
-      <section class="panel recommendations wide"><div class="heading"><div><small>COMMANDER ATTENTION</small><h3>Recommendations</h3></div><span id="recommendation-count">0 PENDING</span></div><div id="recommendations" class="empty">No recommendations require authorization.</div></section>
-      <section class="panel alerts"><div class="heading"><div><small>OPERATIONAL INTEGRITY</small><h3>Alerts</h3></div><span id="alert-count">0 ACTIVE</span></div><div id="alerts" class="empty">No active operational alerts.</div></section>
+
+        <!-- ============================================================= -->
+        <!-- NOTIFICATION CENTER                                           -->
+        <!-- ============================================================= -->
+
+        <aside
+            id="notification-center"
+            class="notification-center"
+            aria-labelledby="notification-center-heading"
+            aria-hidden="true"
+            hidden
+        >
+            <header class="notification-center-header">
+                <div>
+                    <p class="panel-eyebrow">
+                        Executive awareness
+                    </p>
+
+                    <h2
+                        id="notification-center-heading"
+                        class="notification-center-title"
+                    >
+                        Notifications
+                    </h2>
+                </div>
+
+                <button
+                    id="notification-center-close"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Close notification center"
+                >
+                    ×
+                </button>
+            </header>
+
+            <div
+                id="notification-center-list"
+                class="notification-center-list"
+            >
+                <div class="empty-state">
+                    <span
+                        class="empty-state-icon"
+                        aria-hidden="true"
+                    >
+                        ◔
+                    </span>
+
+                    <div>
+                        <strong>
+                            No Executive notifications
+                        </strong>
+
+                        <p>
+                            Notifications will appear here as operational
+                            conditions change.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ============================================================= -->
+        <!-- EXECUTIVE SEARCH DIALOG                                       -->
+        <!-- ============================================================= -->
+
+        <dialog
+            id="executive-search-dialog"
+            class="executive-dialog executive-search-dialog"
+            aria-labelledby="executive-search-heading"
+        >
+            <form
+                class="dialog-shell"
+                method="dialog"
+            >
+                <header class="dialog-header">
+                    <div>
+                        <p class="dialog-eyebrow">
+                            Enterprise discovery
+                        </p>
+
+                        <h2
+                            id="executive-search-heading"
+                            class="dialog-title"
+                        >
+                            Executive Search
+                        </h2>
+                    </div>
+
+                    <button
+                        class="icon-button"
+                        type="submit"
+                        value="cancel"
+                        aria-label="Close Executive search"
+                    >
+                        ×
+                    </button>
+                </header>
+
+                <div class="dialog-search-field">
+                    <label
+                        class="visually-hidden"
+                        for="executive-search-input"
+                    >
+                        Search Executive system
+                    </label>
+
+                    <span
+                        class="dialog-search-icon"
+                        aria-hidden="true"
+                    >
+                        ⌕
+                    </span>
+
+                    <input
+                        id="executive-search-input"
+                        class="dialog-search-input"
+                        type="search"
+                        name="executive-search"
+                        placeholder="Search missions, assets, knowledge, events, AI, and organizations"
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                </div>
+
+                <div
+                    id="executive-search-results"
+                    class="dialog-results"
+                    aria-live="polite"
+                >
+                    <div class="empty-state">
+                        <span
+                            class="empty-state-icon"
+                            aria-hidden="true"
+                        >
+                            ⌕
+                        </span>
+
+                        <div>
+                            <strong>
+                                Search integration pending
+                            </strong>
+
+                            <p>
+                                Unified Executive Search will be connected in
+                                Genesis VII-A0 Pack 5.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </dialog>
+
+        <!-- ============================================================= -->
+        <!-- COMMAND PALETTE DIALOG                                        -->
+        <!-- ============================================================= -->
+
+        <dialog
+            id="command-palette-dialog"
+            class="executive-dialog command-palette-dialog"
+            aria-labelledby="command-palette-heading"
+        >
+            <form
+                class="dialog-shell"
+                method="dialog"
+            >
+                <header class="dialog-header">
+                    <div>
+                        <p class="dialog-eyebrow">
+                            Executive action
+                        </p>
+
+                        <h2
+                            id="command-palette-heading"
+                            class="dialog-title"
+                        >
+                            Command Palette
+                        </h2>
+                    </div>
+
+                    <button
+                        class="icon-button"
+                        type="submit"
+                        value="cancel"
+                        aria-label="Close command palette"
+                    >
+                        ×
+                    </button>
+                </header>
+
+                <div class="dialog-search-field">
+                    <label
+                        class="visually-hidden"
+                        for="command-palette-input"
+                    >
+                        Find an Executive command
+                    </label>
+
+                    <span
+                        class="dialog-search-icon"
+                        aria-hidden="true"
+                    >
+                        ⌘
+                    </span>
+
+                    <input
+                        id="command-palette-input"
+                        class="dialog-search-input"
+                        type="search"
+                        name="executive-command"
+                        placeholder="Type an Executive command"
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                </div>
+
+                <div
+                    id="command-palette-results"
+                    class="dialog-results"
+                >
+                    <section
+                        class="command-group"
+                        aria-labelledby="navigation-command-group-heading"
+                    >
+                        <h3
+                            id="navigation-command-group-heading"
+                            class="command-group-title"
+                        >
+                            Navigation
+                        </h3>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            data-command="open-commander-brief"
+                        >
+                            <span>
+                                Open Commander Brief
+                            </span>
+
+                            <kbd>
+                                G B
+                            </kbd>
+                        </button>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            data-command="open-missions"
+                        >
+                            <span>
+                                Open Mission Center
+                            </span>
+
+                            <kbd>
+                                G M
+                            </kbd>
+                        </button>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            data-command="open-assets"
+                        >
+                            <span>
+                                Open Asset Registry
+                            </span>
+
+                            <kbd>
+                                G A
+                            </kbd>
+                        </button>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            data-command="open-knowledge"
+                        >
+                            <span>
+                                Open Knowledge Center
+                            </span>
+
+                            <kbd>
+                                G K
+                            </kbd>
+                        </button>
+                    </section>
+
+                    <section
+                        class="command-group"
+                        aria-labelledby="system-command-group-heading"
+                    >
+                        <h3
+                            id="system-command-group-heading"
+                            class="command-group-title"
+                        >
+                            System
+                        </h3>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            data-command="refresh-dashboard"
+                        >
+                            <span>
+                                Refresh Executive Dashboard
+                            </span>
+
+                            <kbd>
+                                R
+                            </kbd>
+                        </button>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            data-command="open-search"
+                        >
+                            <span>
+                                Search Executive System
+                            </span>
+
+                            <kbd>
+                                Ctrl K
+                            </kbd>
+                        </button>
+                    </section>
+
+                    <section
+                        class="command-group"
+                        aria-labelledby="future-command-group-heading"
+                    >
+                        <h3
+                            id="future-command-group-heading"
+                            class="command-group-title"
+                        >
+                            Future Executive Actions
+                        </h3>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            disabled
+                        >
+                            <span>
+                                Create Mission
+                            </span>
+
+                            <small>
+                                Mission Directorate integration required
+                            </small>
+                        </button>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            disabled
+                        >
+                            <span>
+                                Register Asset
+                            </span>
+
+                            <small>
+                                Asset workflow integration required
+                            </small>
+                        </button>
+
+                        <button
+                            class="command-item"
+                            type="button"
+                            disabled
+                        >
+                            <span>
+                                Run Assimilation
+                            </span>
+
+                            <small>
+                                Knowledge workflow integration required
+                            </small>
+                        </button>
+                    </section>
+                </div>
+            </form>
+        </dialog>
+
+        <!-- ============================================================= -->
+        <!-- APPLICATION ERROR DIALOG                                      -->
+        <!-- ============================================================= -->
+
+        <dialog
+            id="executive-error-dialog"
+            class="executive-dialog executive-error-dialog"
+            aria-labelledby="executive-error-heading"
+        >
+            <form
+                class="dialog-shell"
+                method="dialog"
+            >
+                <header class="dialog-header">
+                    <div>
+                        <p class="dialog-eyebrow">
+                            Executive system
+                        </p>
+
+                        <h2
+                            id="executive-error-heading"
+                            class="dialog-title"
+                        >
+                            Operational Error
+                        </h2>
+                    </div>
+
+                    <button
+                        class="icon-button"
+                        type="submit"
+                        value="cancel"
+                        aria-label="Close error dialog"
+                    >
+                        ×
+                    </button>
+                </header>
+
+                <div class="dialog-content">
+                    <p id="executive-error-message">
+                        An unexpected error occurred.
+                    </p>
+
+                    <pre
+                        id="executive-error-details"
+                        class="error-details"
+                        hidden
+                    ></pre>
+                </div>
+
+                <footer class="dialog-footer">
+                    <button
+                        class="secondary-button"
+                        type="submit"
+                        value="cancel"
+                    >
+                        Close
+                    </button>
+
+                    <button
+                        id="executive-error-retry"
+                        class="primary-button"
+                        type="button"
+                    >
+                        Retry
+                    </button>
+                </footer>
+            </form>
+        </dialog>
     </div>
-    <section id="conversation" class="conversation panel" aria-labelledby="conversation-title">
-      <div class="conversation-heading"><div><small>EXECUTIVE COMMAND INTERFACE</small><h2 id="conversation-title">Speak to JARVIS</h2></div><span id="conversation-state" class="pill ready">READY</span></div>
-      <div id="conversation-log" class="conversation-log" aria-live="polite"><article class="message jarvis"><small>JARVIS</small><p>Executive conversation link established. What are your orders?</p></article></div>
-      <form id="conversation-form" class="conversation-form"><label class="sr-only" for="command-input">Command JARVIS</label><textarea id="command-input" rows="3" maxlength="32000" placeholder="Ask JARVIS anything…" required></textarea><div class="conversation-actions"><span id="conversation-detail">Text channel · persistent session</span><button id="send-command" class="primary" type="submit">Send Command</button></div></form>
-    </section>
-  </main>
-  <aside class="statusline"><span>OPERATIONS API <b id="api">CONNECTING</b></span><span>LAST SYNC <b id="sync">NEVER</b></span><span>CONVERSATION <b id="chat-api">READY</b></span><span>MODE <b>COMMAND</b></span></aside>
-</div>
-<script src="/mission-control/static/app.js" defer></script>
+
+    <script
+        src="/mission-control/static/app.js"
+        defer
+    ></script>
+
+    <script
+        src="/mission-control/static/api.js"
+        defer
+    ></script>
 </body>
 </html>
