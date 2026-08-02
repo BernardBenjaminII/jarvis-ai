@@ -1,20 +1,35 @@
 """Append-only Executive Timeline Engine."""
 from __future__ import annotations
-from collections.abc import Iterable
+
+from collections.abc import Iterable, Sequence
 from typing import Callable
 from uuid import uuid4
+
 from .contracts import (
-    GENESIS_FINGERPRINT, InvalidTimelineEventError, TimelineEvent,
-    TimelineEventDraft, TimelineIntegrityReport, utc_now,
+    GENESIS_FINGERPRINT,
+    InvalidTimelineEventError,
+    TimelineEvent,
+    TimelineEventDraft,
+    TimelineIntegrityReport,
+    utc_now,
 )
 from .queries import TimelineQuery, execute_query
 
+
 class ExecutiveTimelineEngine:
-    def __init__(self, *, event_id_factory: Callable[[int], str] | None = None) -> None:
+    """Create and validate one immutable, fingerprint-chained timeline."""
+
+    def __init__(
+        self,
+        *,
+        event_id_factory: Callable[[int], str] | None = None,
+        initial_events: Sequence[TimelineEvent] = (),
+    ) -> None:
         self._events: list[TimelineEvent] = []
         self._event_id_factory = event_id_factory or (
             lambda n: f"timeline-event-{n:08d}-{uuid4().hex}"
         )
+        self._load_initial_events(initial_events)
 
     @property
     def events(self) -> tuple[TimelineEvent, ...]:
@@ -24,21 +39,36 @@ class ExecutiveTimelineEngine:
     def terminal_fingerprint(self) -> str:
         return self._events[-1].event_fingerprint if self._events else GENESIS_FINGERPRINT
 
+    def _load_initial_events(self, events: Sequence[TimelineEvent]) -> None:
+        candidate = tuple(events)
+        if not candidate:
+            return
+        findings = self._verify_events(candidate)
+        if findings:
+            raise InvalidTimelineEventError(
+                "Cannot hydrate timeline engine: " + "; ".join(findings)
+            )
+        self._events.extend(candidate)
+
     def append(self, draft: TimelineEventDraft) -> TimelineEvent:
         draft.validate()
         sequence = len(self._events) + 1
         event_id = self._event_id_factory(sequence)
-        if not event_id or any(e.event_id == event_id for e in self._events):
+        if not event_id or any(event.event_id == event_id for event in self._events):
             raise InvalidTimelineEventError("Event ID must be unique and non-empty.")
         if draft.parent_event_id is not None and not any(
-            e.event_id == draft.parent_event_id for e in self._events
+            event.event_id == draft.parent_event_id for event in self._events
         ):
             raise InvalidTimelineEventError("Parent must reference an earlier event.")
         event = TimelineEvent.create(
-            event_id=event_id, sequence=sequence,
+            event_id=event_id,
+            sequence=sequence,
             occurred_at=draft.occurred_at or utc_now(),
-            subsystem=draft.subsystem, kind=draft.kind, context=draft.context,
-            payload=draft.payload, parent_event_id=draft.parent_event_id,
+            subsystem=draft.subsystem,
+            kind=draft.kind,
+            context=draft.context,
+            payload=draft.payload,
+            parent_event_id=draft.parent_event_id,
             previous_event_fingerprint=self.terminal_fingerprint,
         )
         self._events.append(event)
@@ -54,10 +84,17 @@ class ExecutiveTimelineEngine:
         return self.query(TimelineQuery(limit=limit, newest_first=True))
 
     def verify(self) -> TimelineIntegrityReport:
-        findings = []
+        return TimelineIntegrityReport.create(
+            self._events,
+            self._verify_events(tuple(self._events)),
+        )
+
+    @staticmethod
+    def _verify_events(events: Sequence[TimelineEvent]) -> list[str]:
+        findings: list[str] = []
         expected_previous = GENESIS_FINGERPRINT
         seen: set[str] = set()
-        for expected_sequence, event in enumerate(self._events, 1):
+        for expected_sequence, event in enumerate(events, 1):
             if event.sequence != expected_sequence:
                 findings.append(f"Sequence mismatch at {expected_sequence}.")
             if event.event_id in seen:
@@ -70,4 +107,4 @@ class ExecutiveTimelineEngine:
                 findings.append(f"Invalid parent at sequence {event.sequence}.")
             seen.add(event.event_id)
             expected_previous = event.event_fingerprint
-        return TimelineIntegrityReport.create(self._events, findings)
+        return findings
