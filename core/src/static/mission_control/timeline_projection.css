@@ -1,0 +1,240 @@
+/* Genesis VII-A0 Pack 4B-1 — Executive Event Timeline Projection */
+
+.event-stream-status,
+.event-stream-count,
+.event-stream-updated {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12));
+    border-radius: 999px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.72rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.event-stream-status::before {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    margin-right: 0.4rem;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0.45rem currentColor;
+}
+
+.event-stream-status--connecting,
+.event-stream-status--polling {
+    color: var(--accent, currentColor);
+}
+
+.event-stream-status--live {
+    color: var(--success, currentColor);
+}
+
+.event-stream-status--degraded {
+    color: var(--warning, currentColor);
+}
+
+.event-stream-status--stopped {
+    opacity: 0.65;
+}
+
+.event-stream-count,
+.event-stream-updated {
+    opacity: 0.76;
+}
+
+.event-timeline {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.executive-event {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1rem minmax(5.5rem, auto) minmax(0, 1fr);
+    gap: 0.8rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+}
+
+.executive-event:last-child {
+    border-bottom: 0;
+}
+
+.executive-event::before {
+    content: "";
+    position: absolute;
+    top: 1.75rem;
+    bottom: -1.75rem;
+    left: 0.38rem;
+    width: 1px;
+    background: var(--border-subtle, rgba(255, 255, 255, 0.12));
+}
+
+.executive-event:last-child::before {
+    display: none;
+}
+
+.executive-event-marker {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-top: 0.2rem;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    background: var(--surface, #111);
+}
+
+.executive-event-marker--critical {
+    color: var(--critical, currentColor);
+}
+
+.executive-event-marker--warning {
+    color: var(--warning, currentColor);
+}
+
+.executive-event-marker--success {
+    color: var(--success, currentColor);
+}
+
+.executive-event-marker--information {
+    color: var(--accent, currentColor);
+}
+
+.executive-event-marker--neutral {
+    color: currentColor;
+    opacity: 0.58;
+}
+
+.executive-event-time {
+    padding-top: 0.05rem;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.76rem;
+    opacity: 0.72;
+}
+
+.executive-event-body {
+    min-width: 0;
+}
+
+.executive-event-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.executive-event-title {
+    font-size: 0.94rem;
+    font-weight: 650;
+}
+
+.executive-event-subsystem {
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12));
+    border-radius: 999px;
+    padding: 0.15rem 0.45rem;
+    font-size: 0.67rem;
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.executive-event-summary {
+    margin: 0.3rem 0 0;
+    overflow-wrap: anywhere;
+    font-size: 0.82rem;
+    opacity: 0.82;
+}
+
+.executive-event-details {
+    margin-top: 0.55rem;
+    font-size: 0.75rem;
+}
+
+.executive-event-details > summary {
+    width: fit-content;
+    cursor: pointer;
+    opacity: 0.68;
+}
+
+.executive-event-details > summary:hover,
+.executive-event-details > summary:focus-visible {
+    opacity: 1;
+}
+
+.executive-event-metadata {
+    display: grid;
+    grid-template-columns: minmax(6rem, auto) minmax(0, 1fr);
+    gap: 0.35rem 0.75rem;
+    margin: 0.65rem 0 0;
+    padding: 0.75rem;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+    border-radius: 0.5rem;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.executive-event-metadata dt {
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.executive-event-metadata dd {
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-family: var(--font-mono, monospace);
+}
+
+.executive-event-empty-state {
+    margin: 0;
+}
+
+@media (max-width: 720px) {
+    .executive-event {
+        grid-template-columns: 1rem minmax(0, 1fr);
+    }
+
+    .executive-event-time {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .executive-event-body {
+        grid-column: 2;
+    }
+
+    .executive-event-marker {
+        grid-row: 1 / span 2;
+    }
+
+    .executive-event-metadata {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .event-stream-status::before {
+        box-shadow: none;
+    }
+}
+
+@media print {
+    .event-stream-status,
+    .event-stream-count,
+    .event-stream-updated {
+        border-color: #777;
+    }
+
+    .executive-event-details {
+        display: block;
+    }
+}
