@@ -1,0 +1,2879 @@
+{
+  "canonical_decisions": [
+    {
+      "component": "confidence_band",
+      "decision": "AUDIT",
+      "module": "core.cognition.confidence",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceLink.weighted_score",
+      "decision": "AUDIT",
+      "module": "core.cognition.evidence_correlation.models",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExecutiveDecisionEngine.rank",
+      "decision": "AUDIT",
+      "module": "core.cognition.executive_decision.engine",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "component_scores",
+      "decision": "AUDIT",
+      "module": "core.cognition.executive_decision.scoring",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "weighted_score",
+      "decision": "AUDIT",
+      "module": "core.cognition.executive_decision.scoring",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "HypothesisRanking.__post_init__",
+      "decision": "AUDIT",
+      "module": "core.cognition.reasoner.models",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "HypothesisRanking.to_canonical_dict",
+      "decision": "AUDIT",
+      "module": "core.cognition.reasoner.models",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_require_score",
+      "decision": "AUDIT",
+      "module": "core.evidence.contracts",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CandidateScore.to_dict",
+      "decision": "AUDIT",
+      "module": "core.executive.capabilities.models",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CapabilitySelector._score",
+      "decision": "AUDIT",
+      "module": "core.executive.capabilities.selector",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "authority_rank",
+      "decision": "AUDIT",
+      "module": "core.governance.constitution.analysis.authority",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "resolve_authority",
+      "decision": "AUDIT",
+      "module": "core.governance.constitution.analysis.authority",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ConstitutionalArticleIntelligenceEngine.assess.ranked",
+      "decision": "AUDIT",
+      "module": "core.governance.constitution.coverage.article_intelligence",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ConstitutionalArticleQueryService.__init__",
+      "decision": "AUDIT",
+      "module": "core.governance.constitution.coverage.executive_queries",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "score_document",
+      "decision": "AUDIT",
+      "module": "core.knowledge_catalog.assimilation.engine",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "register_file",
+      "decision": "AUDIT",
+      "module": "core.knowledge_catalog.service",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "classify_disposition",
+      "decision": "AUDIT",
+      "module": "core.reasoning.confidence",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "hypothesis_confidence",
+      "decision": "AUDIT",
+      "module": "core.reasoning.confidence",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_ranking",
+      "decision": "AUDIT",
+      "module": "core.reasoning.knowledge",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ReasoningEngine._select_assessment",
+      "decision": "AUDIT",
+      "module": "core.reasoning.service",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_score_keywords",
+      "decision": "AUDIT",
+      "module": "core.src.cognition.intent_classifier",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "AssimilationStateService.mark_document_ready_for_embedding",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.assimilation.services.state",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "build_knowledge_registry",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.capabilities.registry",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingStage.run",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.director.stages.embeddings",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkEmbeddingBuilder.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.builder",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkEmbeddingBuilder._advance_ready_documents",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.builder",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkEmbeddingBuilder._mark_skipped",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.builder",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkEmbeddingBuilder.build_pending_embeddings",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.builder",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingEngine.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.engine",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingEngine.build_missing",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.engine",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingEngine.ensure_schema",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.engine",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LocalEmbeddingProvider.__post_init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.local_provider",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LocalEmbeddingProvider.embed",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.local_provider",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LocalEmbeddingProvider.embed_batch",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.local_provider",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LocalEmbeddingProvider.embed_text",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.local_provider",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkEmbeddingStore.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.store",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkEmbeddingStore.upsert_embedding",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.store",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "init_embeddings",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.embeddings.store",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "build_hnsw_index",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.hybrid_retrieval.faiss_store",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "MetadataSearcher.score_resources",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.hybrid_retrieval.metadata_search",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "HybridSearcher.search",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.hybrid_retrieval.search",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeIntegrityAuditor._audit_embeddings",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.integrity.auditor",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "catalog_quality_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.librarian.quality",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "upsert_catalog_entry",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.librarian.store",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "duplicate_similarity",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.duplicates",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RankingBreakdown.as_dict",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.models",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RankingCandidate.identity",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.models",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RankingWeights.__post_init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.models",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "normalize_candidate",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.normalization",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "normalize_candidates",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.normalization",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "normalize_quality_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.normalization",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "normalize_semantic_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.normalization",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeRanker.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.ranker",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeRanker.rank",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.ranker",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeRanker.rank_candidates",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.ranker",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "rank_results",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.ranker",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "authority_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.scorer",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "calculate_breakdown",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.scorer",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "completeness_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.scorer",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "diversity_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.scorer",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "freshness_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.scorer",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "lexical_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.scorer",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "jaccard_similarity",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.ranking.text",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "VectorSearcher.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval.vector_search",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "VectorSearcher.cosine",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval.vector_search",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "VectorSearcher.search",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval.vector_search",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalDirector.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval_intelligence.director",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CandidateFilter.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval_intelligence.filtering",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "confidence_label",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval_intelligence.filtering",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalCandidate.as_mapping",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval_intelligence.models",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "normalize_candidate",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval_intelligence.normalization",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "normalize_similarity",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval_intelligence.normalization",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "VectorRetrievalProvider.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval_intelligence.providers",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "VectorRetrievalProvider.retrieve",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.retrieval_intelligence.providers",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchService._build_search_result",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.search.service",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchService._candidate_limit",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.search.service",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchService._prepare_candidate",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.search.service",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchService._quality_score",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.search.service",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchService.execute",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.search.service",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingService.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.services.embeddings",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingService.embed",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.services.embeddings",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingService.embed_batch",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.services.embeddings",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RankingService.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.services.ranking",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RankingService.rank",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.services.ranking",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "rank_search_results",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.services.ranking",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingStage.__init__",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.workflows.stages.embeddings",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EmbeddingStage.run",
+      "decision": "AUDIT",
+      "module": "knowledge_engine.workflows.stages.embeddings",
+      "rationale": "Capability exists statically but is not proven live. Inspect callers, data coverage, and compatibility before activation or removal.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CertificationRuntime.certify",
+      "decision": "DORMANT",
+      "module": "core.certification.runtime.bootstrap",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "validate_claim_record",
+      "decision": "DORMANT",
+      "module": "core.cognition.claim_validation",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceReference.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.common.object_model",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceReference.to_primitive",
+      "decision": "DORMANT",
+      "module": "core.cognition.common.object_model",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "confidence_for_direct_source",
+      "decision": "DORMANT",
+      "module": "core.cognition.confidence",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRecord.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRecord.from_observation",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRecord.identity_payload",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "make_evidence_id",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceChain.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_chain",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceChain.identity_payload",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_chain",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceChain.is_contested",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_chain",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceChain.neutral_evidence",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_chain",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceChain.opposing_evidence",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_chain",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceChain.supporting_evidence",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_chain",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_normalize_evidence_records",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_chain",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "make_evidence_chain_id",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_chain",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceCorrelator.assess",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_correlation.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExecutiveEvidenceCorrelator.assess",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_correlation.correlator",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceLink.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_correlation.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceLink.to_canonical_dict",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_correlation.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExecutiveEvidenceService.__init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_correlation.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExecutiveEvidenceService.assess",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_correlation.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExecutiveEvidenceService.repository",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_correlation.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "validate_evidence_chain",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_validation",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "validate_evidence_object",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_validation",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "validate_evidence_record",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_validation",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "validate_provenance_record",
+      "decision": "DORMANT",
+      "module": "core.cognition.evidence_validation",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "structured_candidate",
+      "decision": "DORMANT",
+      "module": "core.cognition.extraction",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceSeed.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.integration.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "Observation.create",
+      "decision": "DORMANT",
+      "module": "core.cognition.observation.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ObservationProvenance.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.observation.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ObservationProvenance.create",
+      "decision": "DORMANT",
+      "module": "core.cognition.observation.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ObservationProvenance.to_canonical_dict",
+      "decision": "DORMANT",
+      "module": "core.cognition.observation.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExecutiveObservationService.record",
+      "decision": "DORMANT",
+      "module": "core.cognition.observation.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRecord.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.provenance",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRecord.identity_payload",
+      "decision": "DORMANT",
+      "module": "core.cognition.provenance",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "make_provenance_id",
+      "decision": "DORMANT",
+      "module": "core.cognition.provenance",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "validate_source_reference",
+      "decision": "DORMANT",
+      "module": "core.cognition.validation",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog.__init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog._matches",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog._sort_key",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog.blocked",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog.low_confidence",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog.rebuild",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog.resumable",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog.search",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceCatalog.search_workspaces",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "WorkspaceCatalogEntry.from_workspace",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceReference.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "Hypothesis.attach_evidence",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CognitiveWorkspaceService.attach_evidence",
+      "decision": "DORMANT",
+      "module": "core.cognition.workspace.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "VerificationEvidence.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.engineering.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceAssessment.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceGap.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRecord.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRelationship.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceSet.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceError.__init__",
+      "decision": "DORMANT",
+      "module": "core.evidence.errors",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceError.as_dict",
+      "decision": "DORMANT",
+      "module": "core.evidence.errors",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExecutiveEventBus.publish_many",
+      "decision": "DORMANT",
+      "module": "core.executive.events.bus",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeHandler.__init__",
+      "decision": "DORMANT",
+      "module": "core.executive.handlers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceReference.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.executive.planning.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExecutiveTimelineEngine.append_many",
+      "decision": "DORMANT",
+      "module": "core.executive.timeline.engine",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "classify_evidence",
+      "decision": "DORMANT",
+      "module": "core.governance.audit.filesystem",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "sha256_file",
+      "decision": "DORMANT",
+      "module": "core.governance.audit.filesystem",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RepositoryInventoryVerifier._verify_evidence_policy",
+      "decision": "DORMANT",
+      "module": "core.governance.audit.verification",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ClaimEvidence.to_dict",
+      "decision": "DORMANT",
+      "module": "core.governance.constitution.ratification.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "build_knowledge_readiness",
+      "decision": "DORMANT",
+      "module": "core.integration.knowledge",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceAssessment.to_dict",
+      "decision": "DORMANT",
+      "module": "core.knowledge_awareness.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ResearchRecommendation.to_dict",
+      "decision": "DORMANT",
+      "module": "core.knowledge_awareness.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "cmd_search",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.cli",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_schema_script",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.database",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RuntimeKnowledgeMaterializer.__init__",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.materialization.engine",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RuntimeKnowledgeMaterializer._candidates",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.materialization.engine",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "chunk_text",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.materialization.engine",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogRepository.__init__",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogRepository.add_file_asset",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogRepository.create_document",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogRepository.link_document_topic",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogRepository.stats",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogRepository.upsert_source",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogRepository.upsert_topic",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "seed_catalog",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.seed",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "initialize_catalog",
+      "decision": "DORMANT",
+      "module": "core.knowledge_catalog.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "scan_observation_exports",
+      "decision": "DORMANT",
+      "module": "core.observation.export_audit",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceAssessment.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceAssessment._identity_payload",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceAssessment.create",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceContent.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceContent.content_id",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceOrigin.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceProvenance.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceProvenanceStep.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRecord.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRecord._identity_payload",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRecord.create",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRelationship.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRelationship._identity_payload",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceRelationship.create",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceStatusEvent.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceStatusEvent._identity_payload",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceStatusEvent.create",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceTemporalScope.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceUncertainty.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceUncertainty._validate_kind_contract",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_placeholder_assessment_id",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_placeholder_evidence_id",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_placeholder_relationship_id",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_placeholder_status_event_id",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.contracts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CanonicalEvidenceIdentifier.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.identifiers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CanonicalEvidenceIdentifier.__str__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.identifiers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CanonicalEvidenceIdentifier.canonical_value",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.identifiers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CanonicalEvidenceIdentifier.from_payload",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.identifiers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CanonicalEvidenceIdentifier.parse",
+      "decision": "DORMANT",
+      "module": "core.reasoning.evidence.identifiers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DeterministicHypothesisGenerator.generate",
+      "decision": "DORMANT",
+      "module": "core.reasoning.generation",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "assess_hypothesis",
+      "decision": "DORMANT",
+      "module": "core.reasoning.inference",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeEvidenceAdapter.adapt",
+      "decision": "DORMANT",
+      "module": "core.reasoning.knowledge",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_evidence_id",
+      "decision": "DORMANT",
+      "module": "core.reasoning.knowledge",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceItem.__post_init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceItem.to_dict",
+      "decision": "DORMANT",
+      "module": "core.reasoning.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EvidenceItem.weight",
+      "decision": "DORMANT",
+      "module": "core.reasoning.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeReasoningPipeline.__init__",
+      "decision": "DORMANT",
+      "module": "core.reasoning.pipeline",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_provenance",
+      "decision": "DORMANT",
+      "module": "core.representation.articulation",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer.__init__",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._callable_identity",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._capture_synthesis",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._capture_synthesis.deterministic_synthesis",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._database_terms",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._discover_known_query",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._gap_checks",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._identity",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._json_safe",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._known_checks",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._run_request",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._sha256",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer._source_contract_checks",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "EndToEndRetrievalTracer.certify",
+      "decision": "DORMANT",
+      "module": "core.retrieval.certification.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CertificationFailureAnalyzer._result",
+      "decision": "DORMANT",
+      "module": "core.retrieval.failure_analysis.analyzer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeGapPropagationTracer.__init__",
+      "decision": "DORMANT",
+      "module": "core.retrieval.gap_trace.tracer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "build_inventory",
+      "decision": "DORMANT",
+      "module": "core.retrieval.inventory",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_catalog_database_path",
+      "decision": "DORMANT",
+      "module": "core.src.routes.api",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "AcquisitionIntakeService.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.intake.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRecord.__post_init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRecord.to_dict",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceWriteResult.candidate_id",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceWriteResult.sighting_count",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRepository._map_provenance",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRepository.append_history",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRepository.find_by_checksum",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRepository.get_by_source",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRepository.get_history",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRepository.list_history",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRepository.source_exists",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceRepository.upsert_sighting",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.repository",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ensure_provenance_schema",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.schema",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceService.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceService.known_checksums",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ProvenanceService.record_decision",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.acquisition.provenance.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "AssimilationHandler.verify",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.handlers.base",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "AssimilationRunner._complete_success",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.runner",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "AttemptJournalService.complete_attempt",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.services.attempts",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExtractionResult.chunk_count",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.services.extraction",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExtractionService.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.services.extraction",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ExtractionService.extract",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.services.extraction",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentPersistenceResult.persisted",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.services.persistence",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentPersistenceService.persist_document",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.services.persistence",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentPersistenceService.replace_chunks",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.services.persistence",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "chunk_text",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.assimilation.single_document",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.connect",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.duplicate_groups",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.initialize",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.replace_structure",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.structure_summary",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.summary",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.upsert_document",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeCatalog.upsert_inspection",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogEnrichmentBuilder.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog_enrichment.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogEnrichmentBuilder.build",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog_enrichment.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "init_catalog_enrichment",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.catalog_enrichment.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunkBuilder.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunkBuilder._make_chunk",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunkBuilder.build_ready_documents",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunker.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.chunker",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunker._chunk_code",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.chunker",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunker._chunk_markdown",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.chunker",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunker._looks_like_code",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.chunker",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunker._looks_like_markdown",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.chunker",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunker._normalize",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.chunker",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunker.chunk",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.chunker",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunkStore.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "DocumentChunkStore.replace_chunks",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "init_chunks",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "chunk_text",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.chunking.strategies",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ConceptBuilder.build_ready_chunks",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.concepts.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_evidence_window",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.concepts.extractor",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkConceptStore.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.concepts.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkConceptStore.replace_concepts",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.concepts.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "IntentRouter._strip_search_prefix",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.director.router.intent_router",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkStage.run",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.director.stages.chunking",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchWorkflow._result_limit",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.director.workflows.search",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchWorkflow.run",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.director.workflows.search",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "sha256_file",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.discovery.filesystem",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "FaissIndexStore.save",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.hybrid_retrieval.faiss_store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "MetadataSearcher.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.hybrid_retrieval.metadata_search",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "HybridSearcher.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.hybrid_retrieval.search",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "cmd_search",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.hybrid_search_cli",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeIndexSearch.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.index.search",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeIndexSearch.search",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.index.search",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeIntegrityAuditor._audit_chunks",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.integrity.auditor",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeIntegrityAuditor.run",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.integrity.auditor",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LibraryCatalogBuilder.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.library.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LibraryCatalogBuilder._metadata",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.library.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LibraryCatalogBuilder.build",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.library.builder",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LibraryCatalogStore.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.library.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LibraryCatalogStore.summary",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.library.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "LibraryCatalogStore.upsert",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.library.store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "sha256_file",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.metadata.fingerprints",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "run_inventory",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.pipeline",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogStage.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.processing.catalog_stage",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogStage.run",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.processing.catalog_stage",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeQualityValidator.validate_chunk",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.quality.validator",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "QualityValidator.duplicate",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.quality.validators",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "QueryAnalyzer._build_retrieval_query",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.query_understanding.analyzer",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "_normalize_chunk_index",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.ranking.normalization",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalDirector._provider_limit",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.director",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalDirector.search",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.director",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CandidateFilter.apply",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.filtering",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CandidateMerger.merge",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.merger",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalCandidate.identity",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalDiagnostics.as_dict",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.models",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalProvider.retrieve",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.providers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "StaticRetrievalProvider.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.providers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "StaticRetrievalProvider.retrieve",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.retrieval_intelligence.providers",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchService.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.search.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchService._float_value",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.search.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "SearchService._integer_value",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.search.service",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkingService.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.services.chunking",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkingService.chunk",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.services.chunking",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalService.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.services.retrieval",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalService.search",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.services.retrieval",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "WorkflowRegistryService.register",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.services.workflow_registry",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogStore.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.storage.catalog_store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogStore.summary",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.storage.catalog_store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogStore.upsert_document",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.storage.catalog_store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "PageStore.search",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.storage.page_store",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "KnowledgeWorker._sha256_file",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.worker.worker",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkingStage.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.workflows.stages.chunking",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "ChunkingStage.run",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.workflows.stages.chunking",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalStage.__init__",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.workflows.stages.retrieval",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "RetrievalStage.run",
+      "decision": "DORMANT",
+      "module": "knowledge_engine.workflows.stages.retrieval",
+      "rationale": "Static implementation found outside the proven live runtime path.",
+      "status": "DORMANT"
+    },
+    {
+      "component": "CatalogGroundingService.__init__",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "CatalogGroundingService._ground_objective",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "CatalogGroundingService._search_catalog",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "CatalogGroundingService.ground",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "CatalogGroundingService.search_for_director",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "GroundingEvidence.to_dict",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "GroundingResult.evidence",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "GroundingResult.for_objective",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "GroundingResult.gaps",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "GroundingResult.status",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "GroundingResult.synthesis_input",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "GroundingResult.to_dict",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ObjectiveGrounding.status",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ObjectiveGrounding.to_dict",
+      "decision": "KEEP",
+      "module": "core.conversation.grounding",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ExecutiveConversationOrchestrator.__init__",
+      "decision": "KEEP",
+      "module": "core.conversation.orchestrator",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ExecutiveDirector.__init__",
+      "decision": "KEEP",
+      "module": "core.executive.director",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ExecutiveDirector.director_catalog",
+      "decision": "KEEP",
+      "module": "core.executive.director",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ExecutiveKnowledgeAwarenessService._answerability",
+      "decision": "KEEP",
+      "module": "core.knowledge_awareness.service",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ExecutiveKnowledgeAwarenessService._evidence",
+      "decision": "KEEP",
+      "module": "core.knowledge_awareness.service",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ExecutiveKnowledgeAwarenessService._maturity",
+      "decision": "KEEP",
+      "module": "core.knowledge_awareness.service",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "ExecutiveKnowledgeAwarenessService.assess",
+      "decision": "KEEP",
+      "module": "core.knowledge_awareness.service",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "_confidence",
+      "decision": "KEEP",
+      "module": "core.knowledge_catalog.materialization.search",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "_fts_query",
+      "decision": "KEEP",
+      "module": "core.knowledge_catalog.materialization.search",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "search_runtime_knowledge",
+      "decision": "KEEP",
+      "module": "core.knowledge_catalog.materialization.search",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "search_catalog",
+      "decision": "KEEP",
+      "module": "core.knowledge_catalog.search",
+      "rationale": "Live runtime identity proves this implementation participates in the active retrieval path.",
+      "status": "CANONICAL"
+    },
+    {
+      "component": "embedding_coverage",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.audits.generate_genesis_ix_a4_1b_pack2_reports",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    },
+    {
+      "component": "render_embedding_report",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.audits.generate_genesis_ix_a4_1b_pack2_reports",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    },
+    {
+      "component": "HealthCheck.score",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.doctor.check",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    },
+    {
+      "component": "SearchWorkflowCheck.run",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.doctor.search",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    },
+    {
+      "component": "score_candidate",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.librarian.discovery.engine",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    },
+    {
+      "component": "search",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.librarian.mit_miner",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    },
+    {
+      "component": "make_chunk_record",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.stabilization.repair_serialized_pdf_text",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    },
+    {
+      "component": "remove_existing_embeddings",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.stabilization.repair_serialized_pdf_text",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    },
+    {
+      "component": "replace_document_chunks",
+      "decision": "KEEP-AUXILIARY",
+      "module": "dev.stabilization.repair_serialized_pdf_text",
+      "rationale": "Development or verification utility. It is not a production runtime owner.",
+      "status": "AUXILIARY"
+    }
+  ],
+  "duplicate_candidates": [
+    {
+      "category": "chunking",
+      "members": [
+        "ChunkingService.__init__ (knowledge_engine/services/chunking.py:17, DORMANT)",
+        "ChunkingStage.__init__ (knowledge_engine/workflows/stages/chunking.py:12, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('__init__', '', '')"
+    },
+    {
+      "category": "chunking",
+      "members": [
+        "ChunkConceptStore.__init__ (knowledge_engine/concepts/store.py:29, DORMANT)",
+        "DocumentChunkBuilder.__init__ (knowledge_engine/chunking/builder.py:13, DORMANT)",
+        "DocumentChunkStore.__init__ (knowledge_engine/chunking/store.py:43, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('__init__', 'db', '')"
+    },
+    {
+      "category": "chunking",
+      "members": [
+        "ChunkingService.chunk (knowledge_engine/services/chunking.py:20, DORMANT)",
+        "DocumentChunker.chunk (knowledge_engine/chunking/chunker.py:24, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('chunk', 'text,file_path', 'ChunkingResult')"
+    },
+    {
+      "category": "chunking",
+      "members": [
+        "sha256_file (core/governance/audit/filesystem.py:107, DORMANT)",
+        "sha256_file (knowledge_engine/discovery/filesystem.py:150, DORMANT)",
+        "sha256_file (knowledge_engine/metadata/fingerprints.py:5, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('sha256_file', 'path,chunk_size', 'str')"
+    },
+    {
+      "category": "embedding",
+      "members": [
+        "EmbeddingService.__init__ (knowledge_engine/services/embeddings.py:19, DORMANT)",
+        "EmbeddingStage.__init__ (knowledge_engine/workflows/stages/embeddings.py:12, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('__init__', '', '')"
+    },
+    {
+      "category": "embedding",
+      "members": [
+        "EmbeddingService.embed (knowledge_engine/services/embeddings.py:22, DORMANT)",
+        "LocalEmbeddingProvider.embed (knowledge_engine/embeddings/local_provider.py:27, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('embed', 'text', 'list[float]')"
+    },
+    {
+      "category": "evidence",
+      "members": [
+        "CanonicalEvidenceIdentifier.__post_init__ (core/reasoning/evidence/identifiers.py:25, DORMANT)",
+        "EvidenceAssessment.__post_init__ (core/evidence/contracts.py:294, DORMANT)",
+        "EvidenceAssessment.__post_init__ (core/reasoning/evidence/contracts.py:880, DORMANT)",
+        "EvidenceChain.__post_init__ (core/cognition/evidence_chain.py:77, DORMANT)",
+        "EvidenceContent.__post_init__ (core/reasoning/evidence/contracts.py:88, DORMANT)",
+        "EvidenceGap.__post_init__ (core/evidence/contracts.py:381, DORMANT)",
+        "EvidenceItem.__post_init__ (core/reasoning/models.py:78, DORMANT)",
+        "EvidenceLink.__post_init__ (core/cognition/evidence_correlation/models.py:110, DORMANT)",
+        "EvidenceOrigin.__post_init__ (core/reasoning/evidence/contracts.py:135, DORMANT)",
+        "EvidenceProvenance.__post_init__ (core/reasoning/evidence/contracts.py:261, DORMANT)",
+        "EvidenceProvenanceStep.__post_init__ (core/reasoning/evidence/contracts.py:203, DORMANT)",
+        "EvidenceRecord.__post_init__ (core/cognition/evidence.py:97, DORMANT)",
+        "EvidenceRecord.__post_init__ (core/evidence/contracts.py:316, DORMANT)",
+        "EvidenceRecord.__post_init__ (core/reasoning/evidence/contracts.py:706, DORMANT)",
+        "EvidenceReference.__post_init__ (core/cognition/workspace/models.py:55, DORMANT)",
+        "EvidenceReference.__post_init__ (core/executive/planning/models.py:101, DORMANT)",
+        "EvidenceRelationship.__post_init__ (core/evidence/contracts.py:348, DORMANT)",
+        "EvidenceRelationship.__post_init__ (core/reasoning/evidence/contracts.py:599, DORMANT)",
+        "EvidenceSeed.__post_init__ (core/cognition/integration/contracts.py:48, DORMANT)",
+        "EvidenceSet.__post_init__ (core/evidence/contracts.py:408, DORMANT)",
+        "EvidenceStatusEvent.__post_init__ (core/reasoning/evidence/contracts.py:1038, DORMANT)",
+        "EvidenceTemporalScope.__post_init__ (core/reasoning/evidence/contracts.py:297, DORMANT)",
+        "EvidenceUncertainty.__post_init__ (core/reasoning/evidence/contracts.py:380, DORMANT)",
+        "ProvenanceRecord.__post_init__ (core/cognition/provenance.py:84, DORMANT)",
+        "ProvenanceRecord.__post_init__ (knowledge_engine/acquisition/provenance/models.py:62, DORMANT)",
+        "ProvenanceReference.__post_init__ (core/cognition/common/object_model.py:48, DORMANT)",
+        "VerificationEvidence.__post_init__ (core/engineering/contracts.py:89, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('__post_init__', '', 'None')"
+    },
+    {
+      "category": "evidence",
+      "members": [
+        "EvidenceChain.identity_payload (core/cognition/evidence_chain.py:151, DORMANT)",
+        "EvidenceRecord.identity_payload (core/cognition/evidence.py:197, DORMANT)",
+        "ProvenanceRecord.identity_payload (core/cognition/provenance.py:169, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('identity_payload', '', 'dict[str, object]')"
+    },
+    {
+      "category": "evidence",
+      "members": [
+        "ClaimEvidence.to_dict (core/governance/constitution/ratification/models.py:25, DORMANT)",
+        "EvidenceAssessment.to_dict (core/knowledge_awareness/contracts.py:35, DORMANT)",
+        "EvidenceItem.to_dict (core/reasoning/models.py:89, DORMANT)",
+        "ProvenanceRecord.to_dict (knowledge_engine/acquisition/provenance/models.py:108, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('to_dict', '', 'dict[str, Any]')"
+    },
+    {
+      "category": "other",
+      "members": [
+        "CatalogEnrichmentBuilder.__init__ (knowledge_engine/catalog_enrichment/builder.py:14, DORMANT)",
+        "CatalogStore.__init__ (knowledge_engine/storage/catalog_store.py:5, DORMANT)",
+        "LibraryCatalogStore.__init__ (knowledge_engine/library/store.py:6, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('__init__', 'db', '')"
+    },
+    {
+      "category": "other",
+      "members": [
+        "CatalogStore.summary (knowledge_engine/storage/catalog_store.py:41, DORMANT)",
+        "KnowledgeCatalog.summary (knowledge_engine/catalog.py:157, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('summary', '', 'dict')"
+    },
+    {
+      "category": "other",
+      "members": [
+        "CatalogStore.upsert_document (knowledge_engine/storage/catalog_store.py:8, DORMANT)",
+        "KnowledgeCatalog.upsert_document (knowledge_engine/catalog.py:82, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('upsert_document', 'doc', 'None')"
+    },
+    {
+      "category": "ranking",
+      "members": [
+        "HypothesisRanking.__post_init__ (core/cognition/reasoner/models.py:75, DORMANT)",
+        "RankingWeights.__post_init__ (knowledge_engine/ranking/models.py:21, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('__post_init__', '', 'None')"
+    },
+    {
+      "category": "ranking",
+      "members": [
+        "KnowledgeRanker.rank (knowledge_engine/ranking/ranker.py:148, DORMANT)",
+        "RankingService.rank (knowledge_engine/services/ranking.py:21, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('rank', 'query,results,limit', 'list[dict[str, Any]]')"
+    },
+    {
+      "category": "retrieval",
+      "members": [
+        "KnowledgeIndexSearch.__init__ (knowledge_engine/index/search.py:2, DORMANT)",
+        "MetadataSearcher.__init__ (knowledge_engine/hybrid_retrieval/metadata_search.py:11, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('__init__', 'db', '')"
+    },
+    {
+      "category": "retrieval",
+      "members": [
+        "cmd_search (core/knowledge_catalog/cli.py:68, DORMANT)",
+        "cmd_search (knowledge_engine/hybrid_search_cli.py:23, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('cmd_search', 'args', 'None')"
+    },
+    {
+      "category": "retrieval",
+      "members": [
+        "KnowledgeIndexSearch.search (knowledge_engine/index/search.py:5, DORMANT)",
+        "PageStore.search (knowledge_engine/storage/page_store.py:49, DORMANT)"
+      ],
+      "recommendation": "No live owner was proven. Confirm consumers before selecting or implementing a canonical service.",
+      "signature": "('search', 'query,limit', 'list[dict]')"
+    }
+  ],
+  "embedding_coverage": {
+    "chunk_tables": {
+      "chunk_concepts": 9,
+      "chunks": 0,
+      "document_chunks": 5,
+      "runtime_chunks": 4674,
+      "runtime_chunks_fts": 4674
+    },
+    "coverage_percent": 0.107,
+    "embedding_tables": {
+      "chunk_embeddings": 5
+    },
+    "primary_chunk_count": 4674,
+    "primary_embedding_count": 5,
+    "status": "partial"
+  },
+  "reports": [
+    "retrieval_canonicalization_report.md",
+    "retrieval_component_matrix.md",
+    "retrieval_duplicate_report.md",
+    "retrieval_embedding_coverage.md",
+    "retrieval_runtime_graph.md",
+    "retrieval_table_ownership.md"
+  ],
+  "runtime_edges": [
+    {
+      "evidence": "live dependency injection",
+      "source": "core.conversation.service.ExecutiveConversationService",
+      "target": "core.conversation.orchestrator.ExecutiveConversationOrchestrator"
+    },
+    {
+      "evidence": "live dependency injection",
+      "source": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "target": "core.conversation.grounding.CatalogGroundingService"
+    },
+    {
+      "evidence": "live dependency injection",
+      "source": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "target": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService"
+    },
+    {
+      "evidence": "live dependency injection",
+      "source": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "target": "core.executive.director.ExecutiveDirector"
+    },
+    {
+      "evidence": "live dependency injection",
+      "source": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "target": "builtins.function"
+    },
+    {
+      "evidence": "bound search handler",
+      "source": "core.conversation.grounding.CatalogGroundingService",
+      "target": "core.knowledge_catalog.search.search_catalog"
+    },
+    {
+      "evidence": "canonical search delegation",
+      "source": "core.knowledge_catalog.search.search_catalog",
+      "target": "core.knowledge_catalog.materialization.search.search_runtime_knowledge"
+    },
+    {
+      "evidence": "full-text retrieval",
+      "source": "core.knowledge_catalog.materialization.search.search_runtime_knowledge",
+      "target": "SQLite runtime_chunks_fts"
+    },
+    {
+      "evidence": "grounding assessment",
+      "source": "core.conversation.grounding.CatalogGroundingService",
+      "target": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService"
+    },
+    {
+      "evidence": "grounding.synthesis_input()",
+      "source": "core.conversation.grounding.CatalogGroundingService",
+      "target": "builtins.function"
+    }
+  ],
+  "schema_version": "genesis_ix_a4_1b_pack2_v1",
+  "source_inventory": "docs/audits/genesis_ix_a4_1b_pack1/retrieval_runtime_inventory.json"
+}

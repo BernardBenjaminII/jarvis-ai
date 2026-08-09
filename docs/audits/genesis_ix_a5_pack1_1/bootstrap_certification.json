@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "code": "ROOT-VALID",
+      "detail": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+      "status": "PASS"
+    },
+    {
+      "code": "CONTEXT-IMMUTABLE",
+      "detail": "RuntimeContext is frozen",
+      "status": "PASS"
+    },
+    {
+      "code": "JSON-SERIALIZATION",
+      "detail": "RuntimeContext serializes",
+      "status": "PASS"
+    },
+    {
+      "code": "SYSPATH-UNIQUE",
+      "detail": "count=1",
+      "status": "PASS"
+    },
+    {
+      "code": "ARBITRARY-CWD",
+      "detail": "Traceback (most recent call last):\n  File \"/media/abdullah/JARVISDATA/Projects/jarvis-ai/dev/run_genesis_ix_a5_pack1_audit.py\", line 164, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/media/abdullah/JARVISDATA/Projects/jarvis-ai/dev/run_genesis_ix_a5_pack1_audit.py\", line 151, in main\n    print(\"Database       :\", data[\"database\"][\"path\"])\n                              ~~~~^^^^^^^^^^^^\nKeyError: 'database'",
+      "status": "FAIL"
+    },
+    {
+      "code": "AUDIT-REPORT",
+      "detail": "report generated outside repository cwd",
+      "status": "PASS"
+    }
+  ],
+  "checks_executed": 6,
+  "checks_failed": 1,
+  "checks_passed": 5,
+  "runtime": {
+    "genesis_version": null,
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "project_root": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+    "python_executable": "/usr/bin/python3.12",
+    "python_version": "3.12.3",
+    "repository_verified": true,
+    "working_directory": "/media/abdullah/JARVISDATA/Projects/jarvis-ai"
+  },
+  "schema_version": "genesis_ix_a5_pack1_1_v1",
+  "status": "FAILED"
+}

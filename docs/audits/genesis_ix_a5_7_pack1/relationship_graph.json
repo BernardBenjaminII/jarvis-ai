@@ -1,0 +1,370 @@
+[
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "item_id",
+      "to": "item_id"
+    },
+    "relation": "foreign_key",
+    "source": "acquisitions.sqlite:attempts",
+    "target": "acquisitions.sqlite:acquisitions"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "session_id",
+      "to": "session_id"
+    },
+    "relation": "foreign_key",
+    "source": "conversation.sqlite:conversation_messages",
+    "target": "conversation.sqlite:conversation_sessions"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "mission_id",
+      "to": "mission_id"
+    },
+    "relation": "foreign_key",
+    "source": "missions.sqlite:mission_events",
+    "target": "missions.sqlite:missions"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "object_uuid",
+      "to": "object_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:catalog_enrichment",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:knowledge_objects"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "chunk_uuid",
+      "to": "chunk_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:chunk_embeddings",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:document_chunks"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "to_document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:document_relationships",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:documents"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "from_document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:document_relationships",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:documents"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "topic_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:document_topics",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:topics"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:document_topics",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:documents"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "source_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:documents",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:sources"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:file_assets",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:documents"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "target_node_uuid",
+      "to": "node_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:graph_edges",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:graph_nodes"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "source_node_uuid",
+      "to": "node_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:graph_edges",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:graph_nodes"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "discovered_file_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:knowledge_classifications",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:discovered_files"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "discovered_file_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:knowledge_object_files",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:discovered_files"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "object_uuid",
+      "to": "object_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:knowledge_object_files",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:knowledge_objects"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "object_uuid",
+      "to": "object_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:librarian_catalog",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:knowledge_objects"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "object_uuid",
+      "to": "object_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.before_pdf_repair.20260710_040337.sqlite:resource_inspections",
+    "target": "catalog.before_pdf_repair.20260710_040337.sqlite:knowledge_objects"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "object_uuid",
+      "to": "object_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:catalog_enrichment",
+    "target": "catalog.sqlite:knowledge_objects"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "chunk_uuid",
+      "to": "chunk_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:chunk_embeddings",
+    "target": "catalog.sqlite:document_chunks"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "to_document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:document_relationships",
+    "target": "catalog.sqlite:documents"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "from_document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:document_relationships",
+    "target": "catalog.sqlite:documents"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "topic_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:document_topics",
+    "target": "catalog.sqlite:topics"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:document_topics",
+    "target": "catalog.sqlite:documents"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "source_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:documents",
+    "target": "catalog.sqlite:sources"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:file_assets",
+    "target": "catalog.sqlite:documents"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "target_node_uuid",
+      "to": "node_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:graph_edges",
+    "target": "catalog.sqlite:graph_nodes"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "source_node_uuid",
+      "to": "node_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:graph_edges",
+    "target": "catalog.sqlite:graph_nodes"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "discovered_file_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:knowledge_classifications",
+    "target": "catalog.sqlite:discovered_files"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "discovered_file_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:knowledge_object_files",
+    "target": "catalog.sqlite:discovered_files"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "object_uuid",
+      "to": "object_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:knowledge_object_files",
+    "target": "catalog.sqlite:knowledge_objects"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "object_uuid",
+      "to": "object_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:librarian_catalog",
+    "target": "catalog.sqlite:knowledge_objects"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "object_uuid",
+      "to": "object_uuid"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:resource_inspections",
+    "target": "catalog.sqlite:knowledge_objects"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "document_id",
+      "to": "id"
+    },
+    "relation": "foreign_key",
+    "source": "catalog.sqlite:runtime_chunks",
+    "target": "catalog.sqlite:runtime_documents"
+  },
+  {
+    "confidence": 0.95,
+    "evidence": {
+      "observed_tables": true
+    },
+    "relation": "materializes_to_chunks",
+    "source": "catalog.sqlite:runtime_documents",
+    "target": "catalog.sqlite:runtime_chunks"
+  },
+  {
+    "confidence": 0.95,
+    "evidence": {
+      "observed_tables": true
+    },
+    "relation": "indexed_by_fts",
+    "source": "catalog.sqlite:runtime_chunks",
+    "target": "catalog.sqlite:runtime_chunks_fts"
+  },
+  {
+    "confidence": 1.0,
+    "evidence": {
+      "from": "cko_id",
+      "to": "cko_id"
+    },
+    "relation": "foreign_key",
+    "source": "cko.sqlite:representations",
+    "target": "cko.sqlite:knowledge_objects"
+  }
+]

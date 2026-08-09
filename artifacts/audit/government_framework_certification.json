@@ -1,0 +1,62 @@
+{
+  "architecture_fingerprint": "b82f8b4157393d8f40ccfb39db938aac0d935fcbf8db1fa0cd3111febda719c5",
+  "findings": [
+    {
+      "evidence": [
+        "required_artifacts=16"
+      ],
+      "finding_id": "required-artifacts",
+      "status": "pass",
+      "summary": "All prerequisite verifiers, tests, documents, and GOA-0000 are present."
+    },
+    {
+      "evidence": [
+        "violations=0"
+      ],
+      "finding_id": "forbidden-imports",
+      "status": "pass",
+      "summary": "No runtime, persistence, web, process, or legacy Executive imports."
+    },
+    {
+      "evidence": [
+        "executive->models",
+        "executive->registry",
+        "executive->relationships",
+        "registry->models",
+        "registry->relationships",
+        "registry->serialization",
+        "relationships->models",
+        "serialization->models",
+        "serialization->relationships"
+      ],
+      "finding_id": "dependency-direction",
+      "status": "pass",
+      "summary": "Dependencies flow only toward lower constitutional layers."
+    },
+    {
+      "evidence": [
+        "from .models import *",
+        "from .relationships import *",
+        "from .serialization import *",
+        "from .registry import *",
+        "from .executive import *"
+      ],
+      "finding_id": "public-api",
+      "status": "pass",
+      "summary": "The Government public API exports all certified layers."
+    },
+    {
+      "evidence": [
+        "concrete_interface_classes=0"
+      ],
+      "finding_id": "abstract-boundaries",
+      "status": "pass",
+      "summary": "Registry and Executive integration boundaries remain abstract."
+    }
+  ],
+  "framework": "JARVIS Government Framework",
+  "framework_version": "Genesis VIII-A0",
+  "schema_version": "1.0.0",
+  "source_fingerprint": "d84178f77cf1ee67073d0545f2fe1ff2e2828565cc40b8b573a71d08b08c01f2",
+  "status": "pass"
+}

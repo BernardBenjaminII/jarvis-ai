@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "chunk_fts_parity": true,
+    "no_duplicate_runtime_paths": true,
+    "no_failed_candidates": true,
+    "no_incomplete_stages": true,
+    "no_orphan_chunks": true,
+    "sqlite_integrity_ok": true
+  },
+  "hygiene_action_counts": {
+    "EXCLUDED_APPLEDOUBLE": 9,
+    "OCR_LOW_QUALITY": 1,
+    "POLICY_EXCLUDED": 1,
+    "RECOVERABLE_OCR": 3
+  },
+  "runtime": {
+    "chunk_fts_parity": true,
+    "duplicate_runtime_paths": 0,
+    "integrity_check": "ok",
+    "orphan_chunks": 0,
+    "runtime_chunks": 783280,
+    "runtime_chunks_fts": 783280,
+    "runtime_documents": 89330
+  },
+  "stage_counts": {
+    "COMPLETE": 89261,
+    "EXCLUDED_METADATA": 9,
+    "EXCLUDED_POLICY": 1,
+    "UNRECOVERABLE": 1
+  },
+  "status": "EXCELLENT"
+}

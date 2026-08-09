@@ -1,0 +1,190 @@
+{
+  "counts": {
+    "fail": 0,
+    "not_applicable": 0,
+    "partial": 1,
+    "pass": 15
+  },
+  "findings": [
+    {
+      "domain": "acquisition",
+      "evidence": [
+        "/media/abdullah/JARVISDATA/Projects/jarvis-ai/dev/verify_phase_7a8.sh"
+      ],
+      "finding_id": "acquisition-verifier",
+      "observable": "verification",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Path exists: dev/verify_phase_7a8.sh"
+    },
+    {
+      "domain": "executive",
+      "evidence": [
+        "DirectorReadiness",
+        "CapabilityOrchestrator",
+        "CapabilityRegistry"
+      ],
+      "finding_id": "executive-capabilities",
+      "observable": "capabilities",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Module available: core.executive.capabilities"
+    },
+    {
+      "domain": "executive",
+      "evidence": [
+        "ExecutiveDirector"
+      ],
+      "finding_id": "executive-director",
+      "observable": "director",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Module available: core.executive.director"
+    },
+    {
+      "domain": "executive",
+      "evidence": [
+        "router"
+      ],
+      "finding_id": "executive-routes",
+      "observable": "operations_api",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Module available: core.src.routes.operations"
+    },
+    {
+      "domain": "git",
+      "evidence": [
+        "true"
+      ],
+      "finding_id": "git-repository",
+      "observable": "repository",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Git working tree available."
+    },
+    {
+      "domain": "knowledge",
+      "evidence": [
+        "knowledge"
+      ],
+      "finding_id": "knowledge-api",
+      "observable": "public_api",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Knowledge API available through knowledge."
+    },
+    {
+      "domain": "knowledge",
+      "evidence": [
+        "/media/abdullah/JARVISDATA/Projects/jarvis-ai/dev/verify_knowledge_all.sh"
+      ],
+      "finding_id": "knowledge-verifier",
+      "observable": "verification",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Path exists: dev/verify_knowledge_all.sh"
+    },
+    {
+      "domain": "mission_control",
+      "evidence": [
+        "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/src/static/mission_control/api.js"
+      ],
+      "finding_id": "mc-api",
+      "observable": "api_client",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Path exists: core/src/static/mission_control/api.js"
+    },
+    {
+      "domain": "mission_control",
+      "evidence": [
+        "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/src/static/mission_control/index.html"
+      ],
+      "finding_id": "mc-shell",
+      "observable": "application_shell",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Path exists: core/src/static/mission_control/index.html"
+    },
+    {
+      "domain": "mission_control",
+      "evidence": [
+        "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/src/static/mission_control/dashboard.js"
+      ],
+      "finding_id": "mc-dashboard",
+      "observable": "dashboard_projection",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Path exists: core/src/static/mission_control/dashboard.js"
+    },
+    {
+      "domain": "mission_control",
+      "evidence": [
+        "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/src/static/mission_control/health_projection.js"
+      ],
+      "finding_id": "mc-health",
+      "observable": "health_projection",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Path exists: core/src/static/mission_control/health_projection.js"
+    },
+    {
+      "domain": "mission_control",
+      "evidence": [
+        "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/src/static/mission_control/timeline_projection.js"
+      ],
+      "finding_id": "mc-timeline",
+      "observable": "timeline_projection",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Path exists: core/src/static/mission_control/timeline_projection.js"
+    },
+    {
+      "domain": "ollama",
+      "evidence": [
+        "inventory_lines=10"
+      ],
+      "finding_id": "ollama-list",
+      "observable": "inference_provider",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Ollama model inventory available."
+    },
+    {
+      "domain": "runtime",
+      "evidence": [
+        "app"
+      ],
+      "finding_id": "fastapi-app",
+      "observable": "application",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Module available: core.src.main"
+    },
+    {
+      "domain": "runtime",
+      "evidence": [],
+      "finding_id": "python-runtime",
+      "observable": "python",
+      "remediation": [],
+      "status": "pass",
+      "summary": "Python runtime available."
+    },
+    {
+      "domain": "security",
+      "evidence": [],
+      "finding_id": "security-surface",
+      "observable": "configuration",
+      "remediation": [
+        "Add a dedicated security posture verifier."
+      ],
+      "status": "partial",
+      "summary": "No canonical security posture surface discovered."
+    }
+  ],
+  "fingerprint": "009a6d5045620dda713ce972e6343c8143dd865713654a8b06ea8e2a7e10718c",
+  "overall_status": "partial",
+  "pack": "Genesis VII-B0",
+  "schema_version": "1.0.0"
+}

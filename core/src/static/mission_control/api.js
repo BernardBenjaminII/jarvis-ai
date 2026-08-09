@@ -10,7 +10,7 @@
 
     const DEFAULT_CONFIGURATION = Object.freeze({
         basePath: "/operations/executive",
-        timeoutMilliseconds: 10000,
+        timeoutMilliseconds: 30000,
         retryAttempts: 2,
         retryBaseDelayMilliseconds: 400,
         retryMaximumDelayMilliseconds: 3000,

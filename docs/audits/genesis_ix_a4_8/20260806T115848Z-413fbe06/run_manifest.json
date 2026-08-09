@@ -1,0 +1,53 @@
+{
+  "archive": {
+    "artifact_hashes": {
+      "Capability_Matrix.md": "70d644b8e469f98c72f1ecb6d739deacd8bd5811c598c17167f7a16eee434dd3",
+      "Executive_Acceptance_Report.md": "ef75ba12d7c0e6e5e7d464a1909f8d691888dc43cb2c8d847e0c6ce74adc174e",
+      "Executive_Runtime_Scorecard.md": "70d644b8e469f98c72f1ecb6d739deacd8bd5811c598c17167f7a16eee434dd3",
+      "failures.jsonl": "8b03dbada7950584248b3160cc58edaf87eafc31e0e6e1772cb5a37bfc2daec6",
+      "prompts/SMOKE-KNOWN-SHA256.txt": "932526e28da0d310e9e0f411dfd27c65d5618d5b0a19664ceaa9625ec153d3d5",
+      "prompts/SMOKE-UNKNOWN-WARP-CORE.txt": "810a87c41d9662333482c0c317d0f6138df1e8986041de1c0da418b51360b063",
+      "responses/SMOKE-KNOWN-SHA256.txt": "d0575ffc15dd14f799b478c9ea5f47453d7798d926ebf4ccdc26d6eae90e7a2c",
+      "responses/SMOKE-UNKNOWN-WARP-CORE.txt": "d0575ffc15dd14f799b478c9ea5f47453d7798d926ebf4ccdc26d6eae90e7a2c",
+      "results.jsonl": "a7042897afff0a6a6cec93d6869a00e6da7de949eac1c7bcc2cd297b425be93c",
+      "summary.json": "9b1dd56482187c957b4f34de775e7fe493fdcc6f9befebafffacb36a0e30f9b2",
+      "telemetry/SMOKE-KNOWN-SHA256.json": "fd873de9e226894074ae303a7077834119fe13efea3dccddc3761154f7c780a2",
+      "telemetry/SMOKE-UNKNOWN-WARP-CORE.json": "573ad76fdd8af943afaf583a70b5479fa5ef05bc48d100942e46f8302faff5f4",
+      "traces/SMOKE-KNOWN-SHA256.json": "0540f53734c48f0e1bae00f362fbbad88bc8c0208e489f5d95e15231c75896d3",
+      "traces/SMOKE-UNKNOWN-WARP-CORE.json": "a28eea918551a61030d44ff9d3bf6b535a90ce8e6d90ef3c21efd2cba320b55e"
+    }
+  },
+  "campaign_id": "GENESIS-IX-A4.8-SMOKE",
+  "campaign_name": "Genesis IX-A4.8 Smoke Acceptance",
+  "campaign_version": "pack2-v1",
+  "completed_at": "2026-08-06T11:58:48.979549+00:00",
+  "run_id": "20260806T115848Z-413fbe06",
+  "schema_version": "genesis_ix_a4_8_pack2_v1",
+  "started_at": "2026-08-06T11:58:48.615085+00:00",
+  "summary": {
+    "average_duration_ms": 178.547345,
+    "domains": {
+      "Gap Detection": {
+        "errors": 0,
+        "failed": 0,
+        "passed": 1,
+        "skipped": 0,
+        "total": 1
+      },
+      "Retrieval": {
+        "errors": 0,
+        "failed": 1,
+        "passed": 0,
+        "skipped": 0,
+        "total": 1
+      }
+    },
+    "errors": 0,
+    "failed": 1,
+    "pass_rate": 0.5,
+    "passed": 1,
+    "skipped": 0,
+    "total": 2
+  },
+  "tests_executed": 2
+}

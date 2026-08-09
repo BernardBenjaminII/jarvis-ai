@@ -1,0 +1,306 @@
+{
+  "candidates_completed": 25,
+  "candidates_selected": 25,
+  "checkpoint_db": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/.runtime/materialization/genesis_x_a1_engine.sqlite",
+  "chunks_per_minute": 0.0,
+  "classification": "PRODUCTION_ENGINE_DRY_RUN_READY",
+  "completed_at": "2026-08-06T22:31:45.750327+00:00",
+  "documents_per_minute": 8183.669431926495,
+  "dry_run": true,
+  "elapsed_seconds": 0.18329186100163497,
+  "estimated_remaining_seconds": 654.5132406135182,
+  "post_counts": {
+    "runtime_chunks": 4674,
+    "runtime_chunks_fts": 4674,
+    "runtime_documents": 69
+  },
+  "pre_counts": {
+    "runtime_chunks": 4674,
+    "runtime_chunks_fts": 4674,
+    "runtime_documents": 69
+  },
+  "results": [
+    {
+      "candidate_id": "id:10",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Ethical Hacking With Python, JavaScript and Kali Linux/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking/Get More Books & Magazines.txt",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:1000",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/04/AFG20060405n233.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10000",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n225.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10001",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n226.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10002",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n227.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10003",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n228.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10004",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n229.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10005",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n230.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10006",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n231.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10007",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n232.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10008",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n233.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10009",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n234.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:1001",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/04/AFG20060405n234.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10010",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060313n235.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10011",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n256.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10012",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n257.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10013",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n258.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10014",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n259.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10015",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n260.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10016",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n261.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10017",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n262.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10018",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n263.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10019",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n264.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:1002",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/04/AFG20060405n235.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    },
+    {
+      "candidate_id": "id:10020",
+      "chunk_delta": 0,
+      "detail": "Dry-run validated.",
+      "document_delta": 0,
+      "extraction_seconds": 0.0,
+      "fts_delta": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/History/afg-war-diary.html/afg/event/2006/03/AFG20060314n265.html",
+      "stage": "VALIDATED",
+      "write_seconds": 0.0
+    }
+  ],
+  "run_id": "X-A1-13f90e042ae0",
+  "stage_counts": {
+    "VALIDATED": 25
+  },
+  "started_at": "2026-08-06T22:31:45.564937+00:00",
+  "status": "EXCELLENT",
+  "workers": 4
+}\n

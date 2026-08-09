@@ -1,0 +1,652 @@
+{
+  "authorities": [
+    {
+      "authority_reasons": [
+        "configured DEFAULT_CATALOG_DB",
+        "populated runtime FTS",
+        "populated runtime documents"
+      ],
+      "authority_score": 85.0,
+      "configured_runtime": true,
+      "core_tables_present": [
+        "documents",
+        "knowledge_index",
+        "library_catalog",
+        "runtime_documents",
+        "runtime_chunks",
+        "runtime_chunks_fts",
+        "document_subjects",
+        "knowledge_classifications"
+      ],
+      "modified_ns": 1785826410482340344,
+      "name": "catalog.sqlite",
+      "path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "rank": 1,
+      "recommended_role": "authoritative_runtime_catalog",
+      "schema_object_count": 124,
+      "size_bytes": 222314496,
+      "table_counts": {
+        "document_subjects": 3572,
+        "documents": 0,
+        "knowledge_classifications": 90003,
+        "knowledge_index": 0,
+        "library_catalog": 0,
+        "runtime_chunks": 4674,
+        "runtime_chunks_fts": 4674,
+        "runtime_documents": 69
+      }
+    },
+    {
+      "authority_reasons": [
+        "populated catalog registry"
+      ],
+      "authority_score": 15.0,
+      "configured_runtime": false,
+      "core_tables_present": [
+        "documents",
+        "knowledge_index",
+        "library_catalog"
+      ],
+      "modified_ns": 1782953895160000000,
+      "name": "catalog.sqlite",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/.jarvis/catalog.sqlite",
+      "rank": 2,
+      "recommended_role": "secondary_or_historical_catalog",
+      "schema_object_count": 35,
+      "size_bytes": 115118080,
+      "table_counts": {
+        "document_subjects": 0,
+        "documents": 50619,
+        "knowledge_classifications": 0,
+        "knowledge_index": 50619,
+        "library_catalog": 11420,
+        "runtime_chunks": 0,
+        "runtime_chunks_fts": 0,
+        "runtime_documents": 0
+      }
+    },
+    {
+      "authority_reasons": [
+        "populated catalog registry"
+      ],
+      "authority_score": 10.0,
+      "configured_runtime": false,
+      "core_tables_present": [
+        "documents",
+        "document_subjects"
+      ],
+      "modified_ns": 1782992235083005374,
+      "name": "librarian.sqlite",
+      "path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/librarian.sqlite",
+      "rank": 3,
+      "recommended_role": "secondary_or_historical_catalog",
+      "schema_object_count": 11,
+      "size_bytes": 2924544,
+      "table_counts": {
+        "document_subjects": 4,
+        "documents": 3655,
+        "knowledge_classifications": 0,
+        "knowledge_index": 0,
+        "library_catalog": 0,
+        "runtime_chunks": 0,
+        "runtime_chunks_fts": 0,
+        "runtime_documents": 0
+      }
+    },
+    {
+      "authority_reasons": [],
+      "authority_score": 0.0,
+      "configured_runtime": false,
+      "core_tables_present": [],
+      "modified_ns": 1784067173680000000,
+      "name": "acquisitions.sqlite",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/00_catalog/acquisitions.sqlite",
+      "rank": 4,
+      "recommended_role": "secondary_or_historical_catalog",
+      "schema_object_count": 4,
+      "size_bytes": 53248,
+      "table_counts": {
+        "document_subjects": 0,
+        "documents": 0,
+        "knowledge_classifications": 0,
+        "knowledge_index": 0,
+        "library_catalog": 0,
+        "runtime_chunks": 0,
+        "runtime_chunks_fts": 0,
+        "runtime_documents": 0
+      }
+    },
+    {
+      "authority_reasons": [],
+      "authority_score": 0.0,
+      "configured_runtime": false,
+      "core_tables_present": [],
+      "modified_ns": 1786017528970000000,
+      "name": "conversation.sqlite",
+      "path": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/.runtime/conversation/conversation.sqlite",
+      "rank": 5,
+      "recommended_role": "secondary_or_historical_catalog",
+      "schema_object_count": 3,
+      "size_bytes": 1273856,
+      "table_counts": {
+        "document_subjects": 0,
+        "documents": 0,
+        "knowledge_classifications": 0,
+        "knowledge_index": 0,
+        "library_catalog": 0,
+        "runtime_chunks": 0,
+        "runtime_chunks_fts": 0,
+        "runtime_documents": 0
+      }
+    },
+    {
+      "authority_reasons": [],
+      "authority_score": 0.0,
+      "configured_runtime": false,
+      "core_tables_present": [],
+      "modified_ns": 1786017528950000000,
+      "name": "missions.sqlite",
+      "path": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/.runtime/executive/missions.sqlite",
+      "rank": 6,
+      "recommended_role": "secondary_or_historical_catalog",
+      "schema_object_count": 4,
+      "size_bytes": 2732032,
+      "table_counts": {
+        "document_subjects": 0,
+        "documents": 0,
+        "knowledge_classifications": 0,
+        "knowledge_index": 0,
+        "library_catalog": 0,
+        "runtime_chunks": 0,
+        "runtime_chunks_fts": 0,
+        "runtime_documents": 0
+      }
+    },
+    {
+      "authority_reasons": [],
+      "authority_score": 0.0,
+      "configured_runtime": false,
+      "core_tables_present": [],
+      "modified_ns": 1782957477401163029,
+      "name": "cko.sqlite",
+      "path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/cko.sqlite",
+      "rank": 7,
+      "recommended_role": "secondary_or_historical_catalog",
+      "schema_object_count": 5,
+      "size_bytes": 589824,
+      "table_counts": {
+        "document_subjects": 0,
+        "documents": 0,
+        "knowledge_classifications": 0,
+        "knowledge_index": 0,
+        "library_catalog": 0,
+        "runtime_chunks": 0,
+        "runtime_chunks_fts": 0,
+        "runtime_documents": 0
+      }
+    },
+    {
+      "authority_reasons": [
+        "backup naming"
+      ],
+      "authority_score": -40.0,
+      "configured_runtime": false,
+      "core_tables_present": [
+        "documents",
+        "knowledge_index",
+        "library_catalog",
+        "document_subjects",
+        "knowledge_classifications"
+      ],
+      "modified_ns": 1783649017662328746,
+      "name": "catalog.before_pdf_repair.20260710_040337.sqlite",
+      "path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/backups/catalog.before_pdf_repair.20260710_040337.sqlite",
+      "rank": 8,
+      "recommended_role": "secondary_or_historical_catalog",
+      "schema_object_count": 114,
+      "size_bytes": 208265216,
+      "table_counts": {
+        "document_subjects": 3572,
+        "documents": 0,
+        "knowledge_classifications": 90003,
+        "knowledge_index": 0,
+        "library_catalog": 0,
+        "runtime_chunks": 0,
+        "runtime_chunks_fts": 0,
+        "runtime_documents": 0
+      }
+    }
+  ],
+  "classification": "AUTHORITATIVE_CATALOG_RUNTIME_UNDERMATERIALIZED",
+  "database_comparisons": [
+    {
+      "authoritative_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "authority_score_delta": 70.0,
+      "candidate_path": "/media/abdullah/JARVISDATA/Knowledge/.jarvis/catalog.sqlite",
+      "candidate_role": "secondary_or_historical_catalog",
+      "schema_object_delta": 89,
+      "size_delta_bytes": 107196416
+    },
+    {
+      "authoritative_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "authority_score_delta": 75.0,
+      "candidate_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/librarian.sqlite",
+      "candidate_role": "secondary_or_historical_catalog",
+      "schema_object_delta": 113,
+      "size_delta_bytes": 219389952
+    },
+    {
+      "authoritative_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "authority_score_delta": 85.0,
+      "candidate_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/00_catalog/acquisitions.sqlite",
+      "candidate_role": "secondary_or_historical_catalog",
+      "schema_object_delta": 120,
+      "size_delta_bytes": 222261248
+    },
+    {
+      "authoritative_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "authority_score_delta": 85.0,
+      "candidate_path": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/.runtime/conversation/conversation.sqlite",
+      "candidate_role": "secondary_or_historical_catalog",
+      "schema_object_delta": 121,
+      "size_delta_bytes": 221040640
+    },
+    {
+      "authoritative_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "authority_score_delta": 85.0,
+      "candidate_path": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/.runtime/executive/missions.sqlite",
+      "candidate_role": "secondary_or_historical_catalog",
+      "schema_object_delta": 120,
+      "size_delta_bytes": 219582464
+    },
+    {
+      "authoritative_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "authority_score_delta": 85.0,
+      "candidate_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/cko.sqlite",
+      "candidate_role": "secondary_or_historical_catalog",
+      "schema_object_delta": 119,
+      "size_delta_bytes": 221724672
+    },
+    {
+      "authoritative_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "authority_score_delta": 125.0,
+      "candidate_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/backups/catalog.before_pdf_repair.20260710_040337.sqlite",
+      "candidate_role": "secondary_or_historical_catalog",
+      "schema_object_delta": 10,
+      "size_delta_bytes": 14049280
+    }
+  ],
+  "dropoff": {
+    "catalog_base": 90003,
+    "chunks_per_runtime_document": 67.73913043478261,
+    "fts_chunk_coverage": 1.0,
+    "materialization_rate": 0.0007666411119629346,
+    "runtime_chunks": 4674,
+    "runtime_documents": 69,
+    "runtime_fts_rows": 4674,
+    "unmaterialized_catalog_objects": 89934
+  },
+  "lineage_edges": [
+    {
+      "classification": "no_identity_join",
+      "error": null,
+      "identity_pair": null,
+      "matched_source_rows": null,
+      "source_match_rate": null,
+      "source_rows": 0,
+      "source_stage": "physical_catalog_registry",
+      "source_table": "documents",
+      "target_rows": 0,
+      "target_stage": "search_metadata_registry",
+      "target_table": "knowledge_index",
+      "target_to_source_ratio": 0.0
+    },
+    {
+      "classification": "no_identity_join",
+      "error": null,
+      "identity_pair": null,
+      "matched_source_rows": null,
+      "source_match_rate": null,
+      "source_rows": 0,
+      "source_stage": "search_metadata_registry",
+      "source_table": "knowledge_index",
+      "target_rows": 0,
+      "target_stage": "library_registry",
+      "target_table": "library_catalog",
+      "target_to_source_ratio": 0.0
+    },
+    {
+      "classification": "weak_lineage",
+      "error": null,
+      "identity_pair": [
+        "document_path",
+        "file_path"
+      ],
+      "matched_source_rows": 0,
+      "source_match_rate": 0.0,
+      "source_rows": 0,
+      "source_stage": "library_registry",
+      "source_table": "library_catalog",
+      "target_rows": 90003,
+      "target_stage": "classified_files",
+      "target_table": "knowledge_classifications",
+      "target_to_source_ratio": 0.0
+    },
+    {
+      "classification": "weak_lineage",
+      "error": null,
+      "identity_pair": [
+        "file_path",
+        "file_path"
+      ],
+      "matched_source_rows": 13,
+      "source_match_rate": 0.00014443962979011812,
+      "source_rows": 90003,
+      "source_stage": "classified_files",
+      "source_table": "knowledge_classifications",
+      "target_rows": 69,
+      "target_stage": "runtime_documents",
+      "target_table": "runtime_documents",
+      "target_to_source_ratio": 0.0007666411119629346
+    },
+    {
+      "classification": "strong_lineage",
+      "error": null,
+      "identity_pair": [
+        "id",
+        "document_id"
+      ],
+      "matched_source_rows": 69,
+      "source_match_rate": 1.0,
+      "source_rows": 69,
+      "source_stage": "runtime_documents",
+      "source_table": "runtime_documents",
+      "target_rows": 4674,
+      "target_stage": "runtime_chunks",
+      "target_table": "runtime_chunks",
+      "target_to_source_ratio": 67.73913043478261
+    },
+    {
+      "classification": "weak_lineage",
+      "error": null,
+      "identity_pair": [
+        "id",
+        "document_id"
+      ],
+      "matched_source_rows": 69,
+      "source_match_rate": 0.014762516046213094,
+      "source_rows": 4674,
+      "source_stage": "runtime_chunks",
+      "source_table": "runtime_chunks",
+      "target_rows": 4674,
+      "target_stage": "runtime_fts",
+      "target_table": "runtime_chunks_fts",
+      "target_to_source_ratio": 1.0
+    }
+  ],
+  "pipeline_stages": [
+    {
+      "columns": [
+        "id",
+        "title",
+        "document_type",
+        "language",
+        "publication_year",
+        "edition",
+        "source_id",
+        "trust_score",
+        "quality_score",
+        "status",
+        "created_at",
+        "updated_at",
+        "sha256",
+        "relative_path",
+        "filename",
+        "extension",
+        "size_bytes",
+        "modified_time",
+        "category",
+        "first_seen",
+        "last_seen"
+      ],
+      "identity_columns": [
+        "relative_path",
+        "sha256",
+        "id"
+      ],
+      "identity_distinct": {
+        "id": 0,
+        "relative_path": 0,
+        "sha256": 0
+      },
+      "identity_population": {
+        "id": 0,
+        "relative_path": 0,
+        "sha256": 0
+      },
+      "present": true,
+      "row_count": 0,
+      "stage": "physical_catalog_registry",
+      "table": "documents"
+    },
+    {
+      "columns": [
+        "document_path",
+        "filename",
+        "extension",
+        "category",
+        "provider",
+        "title",
+        "author",
+        "subject",
+        "keywords",
+        "pages",
+        "toc_entries",
+        "structure_terms",
+        "language",
+        "fingerprint",
+        "indexed_at"
+      ],
+      "identity_columns": [
+        "document_path"
+      ],
+      "identity_distinct": {
+        "document_path": 0
+      },
+      "identity_population": {
+        "document_path": 0
+      },
+      "present": true,
+      "row_count": 0,
+      "stage": "search_metadata_registry",
+      "table": "knowledge_index"
+    },
+    {
+      "columns": [
+        "document_path",
+        "filename",
+        "extension",
+        "category",
+        "provider",
+        "title",
+        "subtitle",
+        "author",
+        "publisher",
+        "publication_year",
+        "edition",
+        "isbn",
+        "subject",
+        "keywords",
+        "language",
+        "pages",
+        "fingerprint",
+        "cataloged_at"
+      ],
+      "identity_columns": [
+        "document_path"
+      ],
+      "identity_distinct": {
+        "document_path": 0
+      },
+      "identity_population": {
+        "document_path": 0
+      },
+      "present": true,
+      "row_count": 0,
+      "stage": "library_registry",
+      "table": "library_catalog"
+    },
+    {
+      "columns": [
+        "id",
+        "discovered_file_id",
+        "file_path",
+        "knowledge_type",
+        "domain",
+        "subject",
+        "confidence",
+        "action",
+        "reason",
+        "classified_at"
+      ],
+      "identity_columns": [
+        "file_path",
+        "id"
+      ],
+      "identity_distinct": {
+        "file_path": 90003,
+        "id": 90003
+      },
+      "identity_population": {
+        "file_path": 90003,
+        "id": 90003
+      },
+      "present": true,
+      "row_count": 90003,
+      "stage": "classified_files",
+      "table": "knowledge_classifications"
+    },
+    {
+      "columns": [
+        "id",
+        "file_path",
+        "sha256",
+        "title",
+        "media_type",
+        "content_text",
+        "content_chars",
+        "materialized_at",
+        "updated_at"
+      ],
+      "identity_columns": [
+        "file_path",
+        "sha256",
+        "id"
+      ],
+      "identity_distinct": {
+        "file_path": 69,
+        "id": 69,
+        "sha256": 67
+      },
+      "identity_population": {
+        "file_path": 69,
+        "id": 69,
+        "sha256": 69
+      },
+      "present": true,
+      "row_count": 69,
+      "stage": "runtime_documents",
+      "table": "runtime_documents"
+    },
+    {
+      "columns": [
+        "id",
+        "document_id",
+        "chunk_index",
+        "chunk_text",
+        "start_char",
+        "end_char",
+        "token_estimate",
+        "content_sha256",
+        "created_at"
+      ],
+      "identity_columns": [
+        "content_sha256",
+        "document_id",
+        "id"
+      ],
+      "identity_distinct": {
+        "content_sha256": 4203,
+        "document_id": 69,
+        "id": 4674
+      },
+      "identity_population": {
+        "content_sha256": 4674,
+        "document_id": 4674,
+        "id": 4674
+      },
+      "present": true,
+      "row_count": 4674,
+      "stage": "runtime_chunks",
+      "table": "runtime_chunks"
+    },
+    {
+      "columns": [
+        "chunk_text",
+        "title",
+        "file_path",
+        "document_id",
+        "chunk_id"
+      ],
+      "identity_columns": [
+        "file_path",
+        "document_id"
+      ],
+      "identity_distinct": {
+        "document_id": 69,
+        "file_path": 69
+      },
+      "identity_population": {
+        "document_id": 4674,
+        "file_path": 4674
+      },
+      "present": true,
+      "row_count": 4674,
+      "stage": "runtime_fts",
+      "table": "runtime_chunks_fts"
+    }
+  ],
+  "recommendations": [
+    "Audit the materializer candidate selection and campaign history; the authoritative catalog is severely undermaterialized.",
+    "Do not tune FTS ranking until runtime document coverage is expanded.",
+    "FTS coverage of existing runtime chunks is healthy; focus on upstream materialization coverage.",
+    "Inspect the first non-strong lineage edge: physical_catalog_registry -> search_metadata_registry."
+  ],
+  "status": "FAILED",
+  "summary": {
+    "authoritative_path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+    "catalog_base": 90003,
+    "configured_catalog_is_authoritative": true,
+    "configured_runtime_catalog": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+    "database_count": 8,
+    "first_non_strong_edge": {
+      "classification": "no_identity_join",
+      "error": null,
+      "identity_pair": null,
+      "matched_source_rows": null,
+      "source_match_rate": null,
+      "source_rows": 0,
+      "source_stage": "physical_catalog_registry",
+      "source_table": "documents",
+      "target_rows": 0,
+      "target_stage": "search_metadata_registry",
+      "target_table": "knowledge_index",
+      "target_to_source_ratio": 0.0
+    },
+    "fts_chunk_coverage": 1.0,
+    "materialization_rate": 0.0007666411119629346,
+    "runtime_chunks": 4674,
+    "runtime_documents": 69,
+    "runtime_fts_rows": 4674
+  }
+}

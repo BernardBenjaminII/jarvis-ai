@@ -1,0 +1,48 @@
+{
+  "analyses": [
+    {
+      "blocking": true,
+      "check_code": "GAP-DECLARATION",
+      "classification": "RUNTIME_BUG",
+      "confidence": 0.93,
+      "evidence": [
+        "Status: 'grounded'",
+        "Gap count: 0",
+        "Unknown material must generate an explicit KnowledgeGap."
+      ],
+      "label": "Knowledge gap is explicit",
+      "reason": "Unknown material did not produce an explicit KnowledgeGap.",
+      "recommended_repair": "Repair CatalogGroundingService gap creation and prompt propagation.",
+      "repair_scope": "runtime gap handling"
+    },
+    {
+      "blocking": true,
+      "check_code": "GAP-RECOMMENDATION",
+      "classification": "RUNTIME_BUG",
+      "confidence": 0.93,
+      "evidence": [
+        "Status: 'grounded'",
+        "Gap count: 0",
+        "The gap must retain a recommended follow-on action."
+      ],
+      "label": "Gap prompt preserves acquisition guidance",
+      "reason": "Unknown material did not produce an explicit KnowledgeGap.",
+      "recommended_repair": "Repair CatalogGroundingService gap creation and prompt propagation.",
+      "repair_scope": "runtime gap handling"
+    }
+  ],
+  "failed_check_count": 2,
+  "generated_at": "2026-08-04T22:12:48.010009+00:00",
+  "schema_version": "genesis_ix_a4_3a_v1",
+  "source_certification": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/docs/audits/genesis_ix_a4_3/end_to_end_certification.json",
+  "source_status": "FAILED",
+  "status": "ANALYZED",
+  "summary": {
+    "blocking_failures": 2,
+    "classification_counts": {
+      "RUNTIME_BUG": 2
+    },
+    "non_blocking_failures": 0,
+    "recommended_next_action": "Repair blocking runtime failures before changing certification thresholds."
+  }
+}

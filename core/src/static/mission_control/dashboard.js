@@ -293,6 +293,7 @@
             try {
                 const envelope = await window.JARVIS_API.dashboard({
                     refresh: forceRefresh,
+                    timeoutMilliseconds: 30000,
                 });
 
                 const dashboard = this.validateDashboardEnvelope(

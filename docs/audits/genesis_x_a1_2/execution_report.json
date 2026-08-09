@@ -1,0 +1,24 @@
+{
+  "after": {
+    "runtime_chunks": 778341,
+    "runtime_chunks_fts": 778341,
+    "runtime_documents": 89190
+  },
+  "backpressure_events": 1224,
+  "before": {
+    "runtime_chunks": 671272,
+    "runtime_chunks_fts": 671272,
+    "runtime_documents": 83503
+  },
+  "classification": "HIGH_THROUGHPUT_BATCH_COMPLETED",
+  "complete": 5687,
+  "failed": 26,
+  "selected": 5713,
+  "stage_counts": {
+    "COMPLETE": 89121,
+    "FAILED": 151
+  },
+  "status": "EXCELLENT",
+  "writer_batches": 285,
+  "writer_documents": 5687
+}

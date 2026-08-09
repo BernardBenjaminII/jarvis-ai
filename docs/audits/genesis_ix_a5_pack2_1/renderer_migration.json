@@ -1,0 +1,13 @@
+{
+  "bootstrap_certification": {
+    "changed": false,
+    "status": "compatible",
+    "target": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/dev/certify_genesis_ix_a5_pack1_1.py"
+  },
+  "retrieval_runner": {
+    "changed": false,
+    "status": "already_migrated",
+    "target": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/dev/run_genesis_ix_a5_pack1_audit.py"
+  },
+  "schema_version": "genesis_ix_a5_pack2_1_v1"
+}

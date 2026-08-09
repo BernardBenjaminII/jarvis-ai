@@ -182,3 +182,9 @@ def executive_bridge_projection(projection_id: str) -> dict:
             detail=f"Unknown projection: {projection_id}",
         )
     return dict(projection)
+
+# Genesis IX-A4.7 Pack 3 — grounded answer telemetry route
+@router.get("/executive/grounded-answer")
+def operations_grounded_answer_telemetry() -> dict[str, Any]:
+    from core.conversation.grounded_answer.telemetry import get_grounded_answer_telemetry_store
+    return get_grounded_answer_telemetry_store().projection()

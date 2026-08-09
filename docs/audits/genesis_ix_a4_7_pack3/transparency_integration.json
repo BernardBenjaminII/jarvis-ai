@@ -1,0 +1,5 @@
+{
+  "route": "already_integrated",
+  "mission_control": "already_integrated",
+  "endpoint": "/operations/executive/grounded-answer"
+}

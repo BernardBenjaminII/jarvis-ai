@@ -1,0 +1,111 @@
+{
+  "counts": {
+    "EXCLUDED_APPLEDOUBLE": 9,
+    "LEGITIMATE_RESIDUAL_DOCUMENT": 4,
+    "POLICY_EXCLUDED": 1
+  },
+  "findings": [
+    {
+      "candidate_id": "id:867",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Hayatus Sahabah/._Hayatus Sahabah vol. 1.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:871",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/History of the Caliphs/._Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:88897",
+      "classification": "LEGITIMATE_RESIDUAL_DOCUMENT",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Jihad Afghani/LION OF PANJSHIR.PDF",
+      "reason": "Eligible for final document-specific recovery.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:88915",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Wortbat Porter 4th ed.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:88916",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Mawrid.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:88921",
+      "classification": "LEGITIMATE_RESIDUAL_DOCUMENT",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/WrightArabicGrammarVol2.pdf",
+      "reason": "Eligible for final document-specific recovery.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:88930",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC - Arabic Class Notes Part 04.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:88931",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC-Arabic Class Notes Part 01.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:88974",
+      "classification": "LEGITIMATE_RESIDUAL_DOCUMENT",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Language/wortbat-porter-4thed.pdf",
+      "reason": "Eligible for final document-specific recovery.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:89010",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Litterature/._la ta7zan.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:89013",
+      "classification": "POLICY_EXCLUDED",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Marskmanship/Full-Auto Conversion - Select Fire AK-47.pdf",
+      "reason": "Instructional weapon-conversion content excluded from recovery/indexing.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:89057",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Phys Ed/10 bodybuilding ebooks- six pack abs, muscle building workouts strength turbulence training pdf/._The Stubborn Fat Solution - Flatten Your Abs.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:89073",
+      "classification": "EXCLUDED_APPLEDOUBLE",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Sirat/._Ar-Raheeq Al-Makhtum(the sealed nectar)Biography of Prophet Of Islam[eng]e-book.pdf",
+      "reason": "macOS AppleDouble/resource-fork sidecar.",
+      "runtime_present": false
+    },
+    {
+      "candidate_id": "id:89110",
+      "classification": "LEGITIMATE_RESIDUAL_DOCUMENT",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Social Studies/Karl Marx and Friedrich Engels - Ebook Collection/Marx Engels/Karl Marx/Marx_Mathematical_Manuscripts_1881.pdf",
+      "reason": "Eligible for final document-specific recovery.",
+      "runtime_present": false
+    }
+  ],
+  "stage_counts": {
+    "COMPLETE": 89258,
+    "FAILED": 14
+  }
+}

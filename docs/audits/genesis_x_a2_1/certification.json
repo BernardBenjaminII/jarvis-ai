@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "chunk_fts_parity": true,
+    "no_duplicate_runtime_paths": true,
+    "no_incomplete_stages": true,
+    "no_orphan_chunks": true,
+    "sqlite_integrity_ok": true
+  },
+  "recovery_counts": {
+    "OCR_LOW_QUALITY": 1,
+    "RECOVERABLE_OCR": 123,
+    "UNRECOVERABLE": 4
+  },
+  "remaining_failed": 14,
+  "runtime_counts": {
+    "runtime_chunks": 782930,
+    "runtime_chunks_fts": 782930,
+    "runtime_documents": 89327
+  },
+  "stage_counts": {
+    "COMPLETE": 89258,
+    "FAILED": 14
+  },
+  "status": "EXCELLENT"
+}

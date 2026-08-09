@@ -1,0 +1,154 @@
+{
+  "after": {
+    "runtime_chunks": 781724,
+    "runtime_chunks_fts": 781724,
+    "runtime_documents": 89204
+  },
+  "before": {
+    "runtime_chunks": 781724,
+    "runtime_chunks_fts": 781724,
+    "runtime_documents": 89204
+  },
+  "dry_run": true,
+  "outcome_counts": {
+    "OCR_READY": 10
+  },
+  "remaining_failed": 137,
+  "results": [
+    {
+      "candidate_id": "id:709",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 1409,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Holy-Quran-Short-Commentary.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:717",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 416,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:736",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 978,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/THE NOBLE QURAN [without recitation].pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:737",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 2,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/001.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:738",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 65,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/002.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:739",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 40,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/003.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:740",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 35,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/004.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:741",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 29,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/005.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:742",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 31,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/006.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:743",
+      "chars": 0,
+      "detail": "Tesseract available; would OCR up to 80 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 31,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/007.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_READY",
+      "strategy": "ocr_dry_run",
+      "text": ""
+    }
+  ],
+  "selected": 10,
+  "stage_counts": {
+    "COMPLETE": 89135,
+    "FAILED": 137
+  }
+}

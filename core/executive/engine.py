@@ -1,8 +1,12 @@
 """Dependency-aware execution engine for JARVIS missions."""
-
 from __future__ import annotations
 
 from core.executive.contracts import InvalidMissionPlanError
+from core.executive.events import (
+    ExecutiveEventBus,
+    MissionEventPublisher,
+    MissionStoreEventSubscriber,
+)
 from core.executive.models import (
     Mission,
     MissionStatus,
@@ -15,15 +19,29 @@ from core.executive.store import MissionStore
 
 
 class MissionEngine:
-    """Executes mission tasks and persists every state transition."""
+    """Execute mission tasks and publish every transition constitutionally."""
 
     def __init__(
         self,
         registry: DirectorRegistry,
         store: MissionStore,
+        *,
+        event_bus: ExecutiveEventBus | None = None,
     ) -> None:
         self.registry = registry
         self.store = store
+        self._publisher = (
+            MissionEventPublisher(event_bus)
+            if event_bus is not None
+            else None
+        )
+        self._legacy_subscription = None
+
+        if event_bus is not None:
+            self._legacy_subscription = event_bus.subscribe(
+                MissionStoreEventSubscriber(store),
+                name="mission-store-event-subscriber",
+            )
 
     def execute(self, mission: Mission) -> Mission:
         self._validate_plan(mission)
@@ -51,13 +69,18 @@ class MissionEngine:
                     for state in dependency_states
                 ):
                     task.status = TaskStatus.BLOCKED
-                    task.error = "One or more dependencies failed or were blocked."
+                    task.error = (
+                        "One or more dependencies failed or were blocked."
+                    )
                     task.completed_at = utc_now()
                     mission.updated_at = utc_now()
                     self._persist(
                         mission,
                         "task_blocked",
-                        {"task_id": task.task_id, "error": task.error},
+                        {
+                            "task_id": task.task_id,
+                            "error": task.error,
+                        },
                     )
                     progress = True
                     continue
@@ -87,10 +110,12 @@ class MissionEngine:
                 return mission
 
         failed_tasks = [
-            task for task in mission.tasks if task.status == TaskStatus.FAILED
+            task for task in mission.tasks
+            if task.status == TaskStatus.FAILED
         ]
         blocked_tasks = [
-            task for task in mission.tasks if task.status == TaskStatus.BLOCKED
+            task for task in mission.tasks
+            if task.status == TaskStatus.BLOCKED
         ]
 
         if failed_tasks:
@@ -132,7 +157,7 @@ class MissionEngine:
         try:
             handler = self.registry.resolve(task.director)
             execution = handler(mission, task)
-        except Exception as exc:  # engine boundary
+        except Exception as exc:
             task.status = TaskStatus.FAILED
             task.error = str(exc)
             task.completed_at = utc_now()
@@ -140,7 +165,10 @@ class MissionEngine:
             self._persist(
                 mission,
                 "task_failed",
-                {"task_id": task.task_id, "error": task.error},
+                {
+                    "task_id": task.task_id,
+                    "error": task.error,
+                },
             )
             return
 
@@ -154,7 +182,10 @@ class MissionEngine:
             self._persist(
                 mission,
                 "task_completed",
-                {"task_id": task.task_id, "result": task.result},
+                {
+                    "task_id": task.task_id,
+                    "result": task.result,
+                },
             )
         else:
             task.status = TaskStatus.FAILED
@@ -162,7 +193,10 @@ class MissionEngine:
             self._persist(
                 mission,
                 "task_failed",
-                {"task_id": task.task_id, "error": task.error},
+                {
+                    "task_id": task.task_id,
+                    "error": task.error,
+                },
             )
 
     def _dependency_states(
@@ -170,8 +204,14 @@ class MissionEngine:
         mission: Mission,
         task: MissionTask,
     ) -> list[TaskStatus]:
-        by_id = {candidate.task_id: candidate for candidate in mission.tasks}
-        return [by_id[task_id].status for task_id in task.depends_on]
+        by_id = {
+            candidate.task_id: candidate
+            for candidate in mission.tasks
+        }
+        return [
+            by_id[task_id].status
+            for task_id in task.depends_on
+        ]
 
     def _validate_plan(self, mission: Mission) -> None:
         if not mission.tasks:
@@ -179,7 +219,9 @@ class MissionEngine:
 
         task_ids = [task.task_id for task in mission.tasks]
         if len(task_ids) != len(set(task_ids)):
-            raise InvalidMissionPlanError("Mission contains duplicate task IDs")
+            raise InvalidMissionPlanError(
+                "Mission contains duplicate task IDs"
+            )
 
         known = set(task_ids)
         for task in mission.tasks:
@@ -197,7 +239,8 @@ class MissionEngine:
         visiting: set[str] = set()
         visited: set[str] = set()
         dependencies = {
-            task.task_id: tuple(task.depends_on) for task in mission.tasks
+            task.task_id: tuple(task.depends_on)
+            for task in mission.tasks
         }
 
         def visit(task_id: str) -> None:
@@ -216,7 +259,9 @@ class MissionEngine:
         for task_id in task_ids:
             visit(task_id)
 
-        self.registry.require(task.director for task in mission.tasks)
+        self.registry.require(
+            task.director for task in mission.tasks
+        )
 
     def _persist(
         self,
@@ -224,12 +269,23 @@ class MissionEngine:
         event_type: str,
         payload: dict,
     ) -> None:
+        occurred_at = utc_now()
         self.store.save(mission)
-        self.store.record_event(
-            mission.mission_id,
-            event_type,
-            payload,
-            utc_now(),
+
+        if self._publisher is None:
+            self.store.record_event(
+                mission.mission_id,
+                event_type,
+                payload,
+                occurred_at,
+            )
+            return
+
+        self._publisher.publish_transition(
+            mission_id=mission.mission_id,
+            event_type=event_type,
+            payload=payload,
+            occurred_at=occurred_at,
         )
 
     @staticmethod
@@ -239,7 +295,8 @@ class MissionEngine:
             "status": mission.status.value,
             "task_count": len(mission.tasks),
             "completed_tasks": sum(
-                task.status == TaskStatus.COMPLETED for task in mission.tasks
+                task.status == TaskStatus.COMPLETED
+                for task in mission.tasks
             ),
             "directors_used": sorted(
                 {task.director for task in mission.tasks}

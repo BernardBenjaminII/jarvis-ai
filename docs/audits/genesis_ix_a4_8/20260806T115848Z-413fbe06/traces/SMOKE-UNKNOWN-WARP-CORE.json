@@ -1,0 +1,35 @@
+{
+  "assertions": [
+    {
+      "code": "ANSWER-TEXT",
+      "expected": true,
+      "observed": true,
+      "status": "PASS"
+    },
+    {
+      "code": "STATE",
+      "expected": "unknown",
+      "observed": "unknown",
+      "status": "PASS"
+    },
+    {
+      "code": "ACCEPTED-MAX",
+      "expected": 0,
+      "observed": 0,
+      "status": "PASS"
+    },
+    {
+      "code": "RECOMMENDATION",
+      "expected": true,
+      "observed": true,
+      "status": "PASS"
+    },
+    {
+      "code": "CITATIONS",
+      "expected": false,
+      "observed": false,
+      "status": "PASS"
+    }
+  ],
+  "error": null
+}

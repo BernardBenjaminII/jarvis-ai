@@ -1,0 +1,878 @@
+{
+  "after": {
+    "runtime_chunks": 781724,
+    "runtime_chunks_fts": 781724,
+    "runtime_documents": 89204
+  },
+  "before": {
+    "runtime_chunks": 780193,
+    "runtime_chunks_fts": 780193,
+    "runtime_documents": 89198
+  },
+  "remaining_failed": 137,
+  "results": [
+    {
+      "candidate_id": "id:709",
+      "detail": "No usable native text; pages=1409",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:717",
+      "detail": "No usable native text; pages=416",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:736",
+      "detail": "No usable native text; pages=978",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:737",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:738",
+      "detail": "No usable native text; pages=65",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:739",
+      "detail": "No usable native text; pages=40",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:740",
+      "detail": "No usable native text; pages=35",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:741",
+      "detail": "No usable native text; pages=29",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:742",
+      "detail": "No usable native text; pages=31",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:743",
+      "detail": "No usable native text; pages=31",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:744",
+      "detail": "No usable native text; pages=12",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:745",
+      "detail": "No usable native text; pages=27",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:746",
+      "detail": "No usable native text; pages=18",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:747",
+      "detail": "No usable native text; pages=18",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:748",
+      "detail": "No usable native text; pages=16",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:749",
+      "detail": "No usable native text; pages=8",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:750",
+      "detail": "No usable native text; pages=10",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:751",
+      "detail": "No usable native text; pages=9",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:752",
+      "detail": "No usable native text; pages=21",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:753",
+      "detail": "No usable native text; pages=17",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:754",
+      "detail": "No usable native text; pages=17",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:755",
+      "detail": "No usable native text; pages=12",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:756",
+      "detail": "No usable native text; pages=15",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:757",
+      "detail": "No usable native text; pages=14",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:758",
+      "detail": "No usable native text; pages=13",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:759",
+      "detail": "No usable native text; pages=12",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:760",
+      "detail": "No usable native text; pages=13",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:761",
+      "detail": "No usable native text; pages=10",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:762",
+      "detail": "No usable native text; pages=16",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:763",
+      "detail": "No usable native text; pages=12",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:764",
+      "detail": "No usable native text; pages=13",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:765",
+      "detail": "No usable native text; pages=11",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:766",
+      "detail": "No usable native text; pages=9",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:767",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:768",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:769",
+      "detail": "No usable native text; pages=14",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:770",
+      "detail": "No usable native text; pages=9",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:771",
+      "detail": "No usable native text; pages=7",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:772",
+      "detail": "No usable native text; pages=9",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:773",
+      "detail": "No usable native text; pages=13",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:774",
+      "detail": "No usable native text; pages=9",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:775",
+      "detail": "No usable native text; pages=12",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:776",
+      "detail": "No usable native text; pages=13",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:777",
+      "detail": "No usable native text; pages=10",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:778",
+      "detail": "No usable native text; pages=10",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:779",
+      "detail": "No usable native text; pages=11",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:780",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:781",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:782",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:783",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:784",
+      "detail": "No usable native text; pages=5",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:785",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:786",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:787",
+      "detail": "No usable native text; pages=7",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:788",
+      "detail": "No usable native text; pages=5",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:789",
+      "detail": "No usable native text; pages=7",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:790",
+      "detail": "No usable native text; pages=5",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:791",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:792",
+      "detail": "No usable native text; pages=7",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:793",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:794",
+      "detail": "No usable native text; pages=5",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:795",
+      "detail": "No usable native text; pages=5",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:796",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:797",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:798",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:799",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:800",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:801",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:802",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:803",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:804",
+      "detail": "No usable native text; pages=6",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:805",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:806",
+      "detail": "No usable native text; pages=5",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:807",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:808",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:809",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:810",
+      "detail": "No usable native text; pages=5",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:811",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:812",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:813",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:814",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:815",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:816",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:817",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:818",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:819",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:820",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:821",
+      "detail": "No usable native text; pages=4",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:822",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:823",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:824",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:825",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:826",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:827",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:828",
+      "detail": "No usable native text; pages=3",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:829",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:830",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:831",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:832",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:833",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:834",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:835",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:836",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:837",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:838",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:839",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:840",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:841",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:842",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:843",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:844",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:845",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:846",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:847",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:848",
+      "detail": "No usable native text; pages=2",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:849",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:850",
+      "detail": "No usable native text; pages=1",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:867",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Hayatus Sahabah/._Hayatus Sahabah vol. 1.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:868",
+      "detail": "No usable native text; pages=416",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:871",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/History of the Caliphs/._Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:874",
+      "detail": "No usable native text; pages=13",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:881",
+      "detail": "No usable native text; pages=59",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:88897",
+      "detail": "No usable native text; pages=0",
+      "status": "UNRECOVERABLE",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:88915",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Wortbat Porter 4th ed.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:88916",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Mawrid.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:88918",
+      "detail": "No usable native text; pages=1257",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:88919",
+      "detail": "No usable native text; pages=816",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:88920",
+      "detail": "No usable native text; pages=166",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:88921",
+      "detail": "No usable native text; pages=233",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:88930",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC - Arabic Class Notes Part 04.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:88931",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC-Arabic Class Notes Part 01.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:88974",
+      "detail": "No usable native text; pages=816",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:89010",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Litterature/._la ta7zan.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:89013",
+      "detail": "No usable native text; pages=16",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:89057",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Phys Ed/10 bodybuilding ebooks- six pack abs, muscle building workouts strength turbulence training pdf/._The Stubborn Fat Solution - Flatten Your Abs.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:89073",
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Sirat/._Ar-Raheeq Al-Makhtum(the sealed nectar)Biography of Prophet Of Islam[eng]e-book.pdf'.",
+      "status": "FAILED",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:89110",
+      "detail": "No usable native text; pages=157",
+      "status": "OCR_REQUIRED",
+      "strategy": "pdf_scan_classifier"
+    },
+    {
+      "candidate_id": "id:89076",
+      "detail": "Committed 24 chunks.",
+      "status": "COMPLETE",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:89124",
+      "detail": "Committed 1486 chunks.",
+      "status": "COMPLETE",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:89127",
+      "detail": "Committed 10 chunks.",
+      "status": "COMPLETE",
+      "strategy": "pymupdf"
+    },
+    {
+      "candidate_id": "id:89755",
+      "detail": "Committed 4 chunks.",
+      "status": "COMPLETE",
+      "strategy": "legacy"
+    },
+    {
+      "candidate_id": "id:89784",
+      "detail": "Committed 2 chunks.",
+      "status": "COMPLETE",
+      "strategy": "legacy"
+    },
+    {
+      "candidate_id": "id:89786",
+      "detail": "Committed 5 chunks.",
+      "status": "COMPLETE",
+      "strategy": "legacy"
+    }
+  ],
+  "selected": 143,
+  "stage_counts": {
+    "COMPLETE": 89135,
+    "FAILED": 137
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "chunk_fts_parity": true,
+    "no_incomplete_stages": true,
+    "sqlite_integrity_ok": true
+  },
+  "recovery_counts": {
+    "FAILED": 9,
+    "OCR_REQUIRED": 127,
+    "RECOVERABLE": 14,
+    "UNRECOVERABLE": 1
+  },
+  "remaining_failed": 137,
+  "runtime_counts": {
+    "runtime_chunks": 781724,
+    "runtime_chunks_fts": 781724,
+    "runtime_documents": 89204
+  },
+  "stage_counts": {
+    "COMPLETE": 89135,
+    "FAILED": 137
+  },
+  "status": "EXCELLENT"
+}

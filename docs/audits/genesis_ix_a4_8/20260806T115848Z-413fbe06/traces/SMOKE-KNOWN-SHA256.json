@@ -1,0 +1,23 @@
+{
+  "assertions": [
+    {
+      "code": "ANSWER-TEXT",
+      "expected": true,
+      "observed": true,
+      "status": "PASS"
+    },
+    {
+      "code": "ACCEPTED-MIN",
+      "expected": 1,
+      "observed": 0,
+      "status": "FAIL"
+    },
+    {
+      "code": "FORBIDDEN-i don't have access to your knowledge base",
+      "expected": false,
+      "observed": false,
+      "status": "PASS"
+    }
+  ],
+  "error": null
+}

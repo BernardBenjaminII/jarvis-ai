@@ -1,0 +1,147 @@
+# Genesis X-A1.3 — Exception Disposition Plan
+
+- Retry: **3**
+- Quarantine/repair: **134**
+
+## Retry
+
+- `id:89755` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Yahood-Nasiri/pt/pt25a27.htm`
+- `id:89784` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Yahood-Nasiri/pt/pt25b27.htm`
+- `id:89786` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Yahood-Nasiri/pt/pt25b29.htm`
+
+## Quarantine/Repair
+
+- `id:11` — `UNSUPPORTED_OR_EXTRACTOR_GAP` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Ethical Hacking With Python, JavaScript and Kali Linux/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking.epub`
+- `id:14` — `UNSUPPORTED_OR_EXTRACTOR_GAP` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking.epub`
+- `id:15` — `UNSUPPORTED_OR_EXTRACTOR_GAP` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu EPUB/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu.epub`
+- `id:205` — `UNSUPPORTED_OR_EXTRACTOR_GAP` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu EPUB/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu.epub`
+- `id:207` — `UNSUPPORTED_OR_EXTRACTOR_GAP` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Linux Kernel Programming by Kaiwan N. Billimoria EPUB/Linux Kernel Programming by Kaiwan N. Billimoria.epub`
+- `id:212` — `UNSUPPORTED_OR_EXTRACTOR_GAP` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Java and Android Application Development for Dummies eBook Set/Java and Android Application Development for Dummies eBook Set.epub`
+- `id:215` — `UNSUPPORTED_OR_EXTRACTOR_GAP` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking.epub`
+- `id:7` — `UNSUPPORTED_OR_EXTRACTOR_GAP` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Ethical Hacking With Python, JavaScript and Kali Linux/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu EPUB/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu.epub`
+- `id:709` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Holy-Quran-Short-Commentary.pdf`
+- `id:717` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf`
+- `id:736` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/THE NOBLE QURAN [without recitation].pdf`
+- `id:737` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/001.pdf`
+- `id:738` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/002.pdf`
+- `id:739` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/003.pdf`
+- `id:740` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/004.pdf`
+- `id:741` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/005.pdf`
+- `id:742` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/006.pdf`
+- `id:743` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/007.pdf`
+- `id:744` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/008.pdf`
+- `id:745` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/009.pdf`
+- `id:746` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/010.pdf`
+- `id:747` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/011.pdf`
+- `id:748` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/012.pdf`
+- `id:749` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/013.pdf`
+- `id:750` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/014.pdf`
+- `id:751` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/015.pdf`
+- `id:752` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/016.pdf`
+- `id:753` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/017.pdf`
+- `id:754` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/018.pdf`
+- `id:755` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/019.pdf`
+- `id:756` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/020.pdf`
+- `id:757` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/021.pdf`
+- `id:758` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/022.pdf`
+- `id:759` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/023.pdf`
+- `id:760` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/024.pdf`
+- `id:761` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/025.pdf`
+- `id:762` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/026.pdf`
+- `id:763` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/027.pdf`
+- `id:764` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/028.pdf`
+- `id:765` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/029.pdf`
+- `id:766` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/030.pdf`
+- `id:767` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/031.pdf`
+- `id:768` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/032.pdf`
+- `id:769` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/033.pdf`
+- `id:770` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/034.pdf`
+- `id:771` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/035.pdf`
+- `id:772` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/036.pdf`
+- `id:773` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/037.pdf`
+- `id:774` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/038.pdf`
+- `id:775` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/039.pdf`
+- `id:776` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/040.pdf`
+- `id:777` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/041.pdf`
+- `id:778` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/042.pdf`
+- `id:779` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/043.pdf`
+- `id:780` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/044.pdf`
+- `id:781` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/045.pdf`
+- `id:782` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/046.pdf`
+- `id:783` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/047.pdf`
+- `id:784` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/048.pdf`
+- `id:785` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/049.pdf`
+- `id:786` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/050.pdf`
+- `id:787` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/051.pdf`
+- `id:788` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/052.pdf`
+- `id:789` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/053.pdf`
+- `id:790` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/054.pdf`
+- `id:791` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/055.pdf`
+- `id:792` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/056.pdf`
+- `id:793` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/057.pdf`
+- `id:794` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/058.pdf`
+- `id:795` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/059.pdf`
+- `id:796` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/060.pdf`
+- `id:797` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/061.pdf`
+- `id:798` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/062.pdf`
+- `id:799` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/063.pdf`
+- `id:800` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/064.pdf`
+- `id:801` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/065.pdf`
+- `id:802` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/066.pdf`
+- `id:803` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/067.pdf`
+- `id:804` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/068.pdf`
+- `id:805` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/069.pdf`
+- `id:806` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/070.pdf`
+- `id:807` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/071.pdf`
+- `id:808` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/072.pdf`
+- `id:809` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/073.pdf`
+- `id:810` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/074.pdf`
+- `id:811` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/075.pdf`
+- `id:812` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/076.pdf`
+- `id:813` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/077.pdf`
+- `id:814` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/078.pdf`
+- `id:815` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/079.pdf`
+- `id:816` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/080.pdf`
+- `id:817` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/081.pdf`
+- `id:818` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/082.pdf`
+- `id:819` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/083.pdf`
+- `id:820` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/084.pdf`
+- `id:821` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/085.pdf`
+- `id:822` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/086.pdf`
+- `id:823` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/087.pdf`
+- `id:824` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/088.pdf`
+- `id:825` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/089.pdf`
+- `id:826` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/090.pdf`
+- `id:827` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/091.pdf`
+- `id:828` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/092.pdf`
+- `id:829` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/093.pdf`
+- `id:830` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/094.pdf`
+- `id:831` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/095.pdf`
+- `id:832` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/096.pdf`
+- `id:833` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/097.pdf`
+- `id:834` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/098.pdf`
+- `id:835` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/099.pdf`
+- `id:836` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/100.pdf`
+- `id:837` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/101.pdf`
+- `id:838` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/102.pdf`
+- `id:839` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/103.pdf`
+- `id:840` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/104.pdf`
+- `id:841` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/105.pdf`
+- `id:842` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/106.pdf`
+- `id:843` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/107.pdf`
+- `id:844` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/108.pdf`
+- `id:845` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/109.pdf`
+- `id:846` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/110.pdf`
+- `id:847` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/111.pdf`
+- `id:848` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/112.pdf`
+- `id:849` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/113.pdf`
+- `id:850` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/114.pdf`
+- `id:868` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/History of the Caliphs/Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf`
+- `id:874` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/GED/RelativeResourceManager.pdf`
+- `id:88918` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/Mawrid.pdf`
+- `id:88919` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/Wortbat Porter 4th ed.pdf`
+- `id:88920` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/WrightArabicGrammarVol1.pdf`
+- `id:88921` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/WrightArabicGrammarVol2.pdf`
+- `id:88974` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Language/wortbat-porter-4thed.pdf`
+- `id:89013` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Marskmanship/Full-Auto Conversion - Select Fire AK-47.pdf`
+- `id:89110` — `NO_EXTRACTABLE_TEXT` — `/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Social Studies/Karl Marx and Friedrich Engels - Ebook Collection/Marx Engels/Karl Marx/Marx_Mathematical_Manuscripts_1881.pdf`

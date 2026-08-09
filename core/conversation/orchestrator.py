@@ -175,6 +175,16 @@ class ExecutiveConversationOrchestrator:
             synthesis_input = grounding.synthesis_input(synthesis_input)
         if knowledge_state is not None:
             synthesis_input = knowledge_state.synthesis_input(synthesis_input)
+
+            from core.conversation.grounded_answer.integration import (
+                augment_synthesis_input,
+            )
+
+            synthesis_input = augment_synthesis_input(
+                self,
+                context,
+                synthesis_input,
+            )
         answer = self._normalize_answer(self.synthesis_handler(synthesis_input))
         trace.append(ConversationTraceEvent(
             stage="executive.synthesis",

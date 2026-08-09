@@ -1,0 +1,2003 @@
+{
+  "graph_edges": [
+    {
+      "evidence": "runtime binding",
+      "relation": "injects",
+      "source": "core.conversation.service.ExecutiveConversationService",
+      "target": "core.conversation.orchestrator.ExecutiveConversationOrchestrator"
+    },
+    {
+      "evidence": "runtime binding",
+      "relation": "injects",
+      "source": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "target": "core.conversation.grounding.CatalogGroundingService"
+    },
+    {
+      "evidence": "runtime binding",
+      "relation": "injects",
+      "source": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "target": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService"
+    },
+    {
+      "evidence": "runtime binding",
+      "relation": "injects",
+      "source": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "target": "core.executive.director.ExecutiveDirector"
+    },
+    {
+      "evidence": "runtime binding",
+      "relation": "injects",
+      "source": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "target": "builtins.function"
+    },
+    {
+      "evidence": "bound search handler",
+      "relation": "calls",
+      "source": "core.conversation.grounding.CatalogGroundingService",
+      "target": "builtins.function"
+    },
+    {
+      "evidence": "canonical search path",
+      "relation": "delegates",
+      "source": "builtins.function",
+      "target": "builtins.function"
+    },
+    {
+      "evidence": "FTS",
+      "relation": "queries",
+      "source": "builtins.function",
+      "target": "SQLite runtime_chunks_fts"
+    },
+    {
+      "evidence": "GroundingResult",
+      "relation": "provides",
+      "source": "core.conversation.grounding.CatalogGroundingService",
+      "target": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService"
+    },
+    {
+      "evidence": "synthesis_input",
+      "relation": "augments",
+      "source": "core.conversation.grounding.CatalogGroundingService",
+      "target": "builtins.function"
+    },
+    {
+      "evidence": "core/capabilities/discovery.py:55",
+      "relation": "calls",
+      "source": "core.capabilities.discovery.CapabilityDiscovery._register",
+      "target": "registry.all"
+    },
+    {
+      "evidence": "core/capabilities/discovery.py:69",
+      "relation": "calls",
+      "source": "core.capabilities.discovery.CapabilityDiscovery.discover",
+      "target": "registry.all"
+    },
+    {
+      "evidence": "core/capabilities/operations.py:91",
+      "relation": "calls",
+      "source": "core.capabilities.operations.register_operations_capabilities",
+      "target": "event_registry.list_events"
+    },
+    {
+      "evidence": "core/capabilities/operations.py:91",
+      "relation": "calls",
+      "source": "core.capabilities.operations.register_operations_capabilities",
+      "target": "registry.all"
+    },
+    {
+      "evidence": "core/capabilities/operations.py:91",
+      "relation": "calls",
+      "source": "core.capabilities.operations.register_operations_capabilities",
+      "target": "registry.register"
+    },
+    {
+      "evidence": "core/certification/runtime/bootstrap.py:76",
+      "relation": "calls",
+      "source": "core.certification.runtime.bootstrap.CertificationRuntime.certify",
+      "target": "self.catalog_database.is_file"
+    },
+    {
+      "evidence": "core/cognition/claim_validation.py:14",
+      "relation": "calls",
+      "source": "core.cognition.claim_validation.validate_claim_record",
+      "target": "validate_evidence_chain"
+    },
+    {
+      "evidence": "core/cognition/evidence.py:97",
+      "relation": "calls",
+      "source": "core.cognition.evidence.EvidenceRecord.__post_init__",
+      "target": "EvidenceDirection"
+    },
+    {
+      "evidence": "core/cognition/evidence.py:97",
+      "relation": "calls",
+      "source": "core.cognition.evidence.EvidenceRecord.__post_init__",
+      "target": "EvidenceKind"
+    },
+    {
+      "evidence": "core/cognition/evidence.py:97",
+      "relation": "calls",
+      "source": "core.cognition.evidence.EvidenceRecord.__post_init__",
+      "target": "EvidenceQuality"
+    },
+    {
+      "evidence": "core/cognition/evidence.py:97",
+      "relation": "calls",
+      "source": "core.cognition.evidence.EvidenceRecord.__post_init__",
+      "target": "make_evidence_id"
+    },
+    {
+      "evidence": "core/cognition/evidence_chain.py:77",
+      "relation": "calls",
+      "source": "core.cognition.evidence_chain.EvidenceChain.__post_init__",
+      "target": "EvidenceChainStatus"
+    },
+    {
+      "evidence": "core/cognition/evidence_chain.py:77",
+      "relation": "calls",
+      "source": "core.cognition.evidence_chain.EvidenceChain.__post_init__",
+      "target": "_normalize_evidence_records"
+    },
+    {
+      "evidence": "core/cognition/evidence_chain.py:77",
+      "relation": "calls",
+      "source": "core.cognition.evidence_chain.EvidenceChain.__post_init__",
+      "target": "make_evidence_chain_id"
+    },
+    {
+      "evidence": "core/cognition/evidence_correlation/models.py:110",
+      "relation": "calls",
+      "source": "core.cognition.evidence_correlation.models.EvidenceLink.__post_init__",
+      "target": "EvidencePolarity"
+    },
+    {
+      "evidence": "core/cognition/evidence_correlation/models.py:110",
+      "relation": "calls",
+      "source": "core.cognition.evidence_correlation.models.EvidenceLink.__post_init__",
+      "target": "EvidenceStrength"
+    },
+    {
+      "evidence": "core/cognition/evidence_correlation/models.py:110",
+      "relation": "calls",
+      "source": "core.cognition.evidence_correlation.models.EvidenceLink.__post_init__",
+      "target": "InvalidEvidenceLinkError"
+    },
+    {
+      "evidence": "core/cognition/evidence_correlation/service.py:19",
+      "relation": "calls",
+      "source": "core.cognition.evidence_correlation.service.ExecutiveEvidenceService.__init__",
+      "target": "ExecutiveEvidenceCorrelator"
+    },
+    {
+      "evidence": "core/cognition/evidence_validation.py:18",
+      "relation": "calls",
+      "source": "core.cognition.evidence_validation.validate_provenance_record",
+      "target": "make_provenance_id"
+    },
+    {
+      "evidence": "core/cognition/evidence_validation.py:41",
+      "relation": "calls",
+      "source": "core.cognition.evidence_validation.validate_evidence_record",
+      "target": "make_evidence_id"
+    },
+    {
+      "evidence": "core/cognition/evidence_validation.py:41",
+      "relation": "calls",
+      "source": "core.cognition.evidence_validation.validate_evidence_record",
+      "target": "validate_provenance_record"
+    },
+    {
+      "evidence": "core/cognition/evidence_validation.py:68",
+      "relation": "calls",
+      "source": "core.cognition.evidence_validation.validate_evidence_chain",
+      "target": "make_evidence_chain_id"
+    },
+    {
+      "evidence": "core/cognition/evidence_validation.py:68",
+      "relation": "calls",
+      "source": "core.cognition.evidence_validation.validate_evidence_chain",
+      "target": "validate_evidence_record"
+    },
+    {
+      "evidence": "core/cognition/evidence_validation.py:109",
+      "relation": "calls",
+      "source": "core.cognition.evidence_validation.validate_evidence_object",
+      "target": "validate_evidence_chain"
+    },
+    {
+      "evidence": "core/cognition/evidence_validation.py:109",
+      "relation": "calls",
+      "source": "core.cognition.evidence_validation.validate_evidence_object",
+      "target": "validate_evidence_record"
+    },
+    {
+      "evidence": "core/cognition/evidence_validation.py:109",
+      "relation": "calls",
+      "source": "core.cognition.evidence_validation.validate_evidence_object",
+      "target": "validate_provenance_record"
+    },
+    {
+      "evidence": "core/cognition/execution_orchestrator/orchestrator.py:38",
+      "relation": "calls",
+      "source": "core.cognition.execution_orchestrator.orchestrator.ExecutiveExecutionOrchestrator.__init__",
+      "target": "ExecutorRegistry"
+    },
+    {
+      "evidence": "core/cognition/layers/observation/director.py:21",
+      "relation": "calls",
+      "source": "core.cognition.layers.observation.director.ObservationDirector.__init__",
+      "target": "ObservationRegistry"
+    },
+    {
+      "evidence": "core/cognition/observation/models.py:87",
+      "relation": "calls",
+      "source": "core.cognition.observation.models.Observation.create",
+      "target": "provenance.to_canonical_dict"
+    },
+    {
+      "evidence": "core/cognition/observation/service.py:7",
+      "relation": "calls",
+      "source": "core.cognition.observation.service.ExecutiveObservationService.record",
+      "target": "ObservationProvenance.create"
+    },
+    {
+      "evidence": "core/cognition/provenance.py:84",
+      "relation": "calls",
+      "source": "core.cognition.provenance.ProvenanceRecord.__post_init__",
+      "target": "ProvenanceKind"
+    },
+    {
+      "evidence": "core/cognition/provenance.py:84",
+      "relation": "calls",
+      "source": "core.cognition.provenance.ProvenanceRecord.__post_init__",
+      "target": "make_provenance_id"
+    },
+    {
+      "evidence": "core/cognition/workspace/catalog.py:98",
+      "relation": "calls",
+      "source": "core.cognition.workspace.catalog.WorkspaceCatalogEntry.from_workspace",
+      "target": "'\\n'.join((part.strip() for part in searchable_parts if part and part.strip())).casefold"
+    },
+    {
+      "evidence": "core/cognition/workspace/catalog.py:149",
+      "relation": "calls",
+      "source": "core.cognition.workspace.catalog.CognitiveWorkspaceCatalog.rebuild",
+      "target": "WorkspaceCatalogEntry.from_workspace"
+    },
+    {
+      "evidence": "core/cognition/workspace/catalog.py:182",
+      "relation": "calls",
+      "source": "core.cognition.workspace.catalog.CognitiveWorkspaceCatalog.resumable",
+      "target": "self.search"
+    },
+    {
+      "evidence": "core/cognition/workspace/catalog.py:201",
+      "relation": "calls",
+      "source": "core.cognition.workspace.catalog.CognitiveWorkspaceCatalog.blocked",
+      "target": "self.search"
+    },
+    {
+      "evidence": "core/cognition/workspace/catalog.py:221",
+      "relation": "calls",
+      "source": "core.cognition.workspace.catalog.CognitiveWorkspaceCatalog.low_confidence",
+      "target": "self.search"
+    },
+    {
+      "evidence": "core/cognition/workspace/catalog.py:298",
+      "relation": "calls",
+      "source": "core.cognition.workspace.catalog.CognitiveWorkspaceCatalog.search_workspaces",
+      "target": "self.search"
+    },
+    {
+      "evidence": "core/cognition/workspace/service.py:62",
+      "relation": "calls",
+      "source": "core.cognition.workspace.service.CognitiveWorkspaceService.attach_evidence",
+      "target": "hypothesis.attach_evidence"
+    },
+    {
+      "evidence": "core/conversation/grounding.py:148",
+      "relation": "calls",
+      "source": "core.conversation.grounding.CatalogGroundingService._search_catalog",
+      "target": "search_catalog"
+    },
+    {
+      "evidence": "core/conversation/grounding.py:152",
+      "relation": "calls",
+      "source": "core.conversation.grounding.CatalogGroundingService.ground",
+      "target": "GroundingResult"
+    },
+    {
+      "evidence": "core/conversation/grounding.py:178",
+      "relation": "calls",
+      "source": "core.conversation.grounding.CatalogGroundingService._ground_objective",
+      "target": "GroundingEvidence"
+    },
+    {
+      "evidence": "core/conversation/grounding.py:178",
+      "relation": "calls",
+      "source": "core.conversation.grounding.CatalogGroundingService._ground_objective",
+      "target": "ObjectiveGrounding"
+    },
+    {
+      "evidence": "core/conversation/grounding.py:178",
+      "relation": "calls",
+      "source": "core.conversation.grounding.CatalogGroundingService._ground_objective",
+      "target": "evidence.append"
+    },
+    {
+      "evidence": "core/conversation/grounding.py:178",
+      "relation": "calls",
+      "source": "core.conversation.grounding.CatalogGroundingService._ground_objective",
+      "target": "self.search_handler"
+    },
+    {
+      "evidence": "core/evidence/contracts.py:72",
+      "relation": "calls",
+      "source": "core.evidence.contracts._require_score",
+      "target": "EvidenceValidationError"
+    },
+    {
+      "evidence": "core/evidence/contracts.py:348",
+      "relation": "calls",
+      "source": "core.evidence.contracts.EvidenceRelationship.__post_init__",
+      "target": "EvidenceValidationError"
+    },
+    {
+      "evidence": "core/evidence/contracts.py:348",
+      "relation": "calls",
+      "source": "core.evidence.contracts.EvidenceRelationship.__post_init__",
+      "target": "_require_score"
+    },
+    {
+      "evidence": "core/evidence/contracts.py:381",
+      "relation": "calls",
+      "source": "core.evidence.contracts.EvidenceGap.__post_init__",
+      "target": "_require_score"
+    },
+    {
+      "evidence": "core/evidence/contracts.py:408",
+      "relation": "calls",
+      "source": "core.evidence.contracts.EvidenceSet.__post_init__",
+      "target": "EvidenceValidationError"
+    },
+    {
+      "evidence": "core/evidence/contracts.py:408",
+      "relation": "calls",
+      "source": "core.evidence.contracts.EvidenceSet.__post_init__",
+      "target": "_require_score"
+    },
+    {
+      "evidence": "core/evidence/contracts.py:408",
+      "relation": "calls",
+      "source": "core.evidence.contracts.EvidenceSet.__post_init__",
+      "target": "evidence_ids.count"
+    },
+    {
+      "evidence": "core/executive/capabilities/selector.py:53",
+      "relation": "calls",
+      "source": "core.executive.capabilities.selector.CapabilitySelector._score",
+      "target": "CandidateScore"
+    },
+    {
+      "evidence": "core/executive/director.py:23",
+      "relation": "calls",
+      "source": "core.executive.director.ExecutiveDirector.__init__",
+      "target": "DirectorRegistry"
+    },
+    {
+      "evidence": "core/executive/director.py:23",
+      "relation": "calls",
+      "source": "core.executive.director.ExecutiveDirector.__init__",
+      "target": "self.planner.bind_registry"
+    },
+    {
+      "evidence": "core/executive/director.py:23",
+      "relation": "calls",
+      "source": "core.executive.director.ExecutiveDirector.__init__",
+      "target": "self.registry.contains"
+    },
+    {
+      "evidence": "core/executive/director.py:23",
+      "relation": "calls",
+      "source": "core.executive.director.ExecutiveDirector.__init__",
+      "target": "self.registry.register"
+    },
+    {
+      "evidence": "core/executive/director.py:165",
+      "relation": "calls",
+      "source": "core.executive.director.ExecutiveDirector.director_catalog",
+      "target": "self.registry.descriptors"
+    },
+    {
+      "evidence": "core/executive/operations_center/collectors.py:455",
+      "relation": "calls",
+      "source": "core.executive.operations_center.collectors.MetricsCollector.__init__",
+      "target": "RegistryCounter"
+    },
+    {
+      "evidence": "core/executive/operations_center/services.py:49",
+      "relation": "calls",
+      "source": "core.executive.operations_center.services.TimedCache.get_or_create",
+      "target": "_CacheEntry"
+    },
+    {
+      "evidence": "core/executive/operations_center/services.py:71",
+      "relation": "calls",
+      "source": "core.executive.operations_center.services.ExecutiveHealthService.__init__",
+      "target": "TimedCache"
+    },
+    {
+      "evidence": "core/executive/operations_center/services.py:103",
+      "relation": "calls",
+      "source": "core.executive.operations_center.services.ExecutiveMetricsService.__init__",
+      "target": "TimedCache"
+    },
+    {
+      "evidence": "core/government/registry/memory.py:78",
+      "relation": "calls",
+      "source": "core.government.registry.memory.InMemoryGovernmentRegistry.register_object",
+      "target": "RegistryEvent"
+    },
+    {
+      "evidence": "core/government/registry/memory.py:87",
+      "relation": "calls",
+      "source": "core.government.registry.memory.InMemoryGovernmentRegistry.update_object",
+      "target": "RegistryEvent"
+    },
+    {
+      "evidence": "core/government/registry/memory.py:96",
+      "relation": "calls",
+      "source": "core.government.registry.memory.InMemoryGovernmentRegistry.remove_object",
+      "target": "RegistryEvent"
+    },
+    {
+      "evidence": "core/government/registry/memory.py:116",
+      "relation": "calls",
+      "source": "core.government.registry.memory.InMemoryGovernmentRegistry.register_relationship",
+      "target": "RegistryEvent"
+    },
+    {
+      "evidence": "core/government/registry/memory.py:136",
+      "relation": "calls",
+      "source": "core.government.registry.memory.InMemoryGovernmentRegistry.remove_relationship",
+      "target": "RegistryEvent"
+    },
+    {
+      "evidence": "core/government/registry/memory.py:216",
+      "relation": "calls",
+      "source": "core.government.registry.memory.InMemoryGovernmentRegistry.restore",
+      "target": "RegistryEvent"
+    },
+    {
+      "evidence": "core/government/registry/memory.py:231",
+      "relation": "calls",
+      "source": "core.government.registry.memory.InMemoryGovernmentRegistry.transaction",
+      "target": "MemoryRegistryTransaction"
+    },
+    {
+      "evidence": "core/government/registry/provider_memory.py:19",
+      "relation": "calls",
+      "source": "core.government.registry.provider_memory.InMemoryRegistryProvider.__init__",
+      "target": "InMemoryGovernmentRegistry"
+    },
+    {
+      "evidence": "core/government/registry/provider_memory.py:40",
+      "relation": "calls",
+      "source": "core.government.registry.provider_memory.InMemoryRegistryProvider.create_transaction",
+      "target": "self._registry.transaction"
+    },
+    {
+      "evidence": "core/integration/audit.py:11",
+      "relation": "calls",
+      "source": "core.integration.audit.RepositoryIntegrationAuditor.audit",
+      "target": "CapabilityRegistry"
+    },
+    {
+      "evidence": "core/integration/audit.py:11",
+      "relation": "calls",
+      "source": "core.integration.audit.RepositoryIntegrationAuditor.audit",
+      "target": "registry.all"
+    },
+    {
+      "evidence": "core/integration/catalog.py:5",
+      "relation": "calls",
+      "source": "core.integration.catalog.build_genesis_iv_capability_registry",
+      "target": "CapabilityRegistry"
+    },
+    {
+      "evidence": "core/knowledge_awareness/service.py:20",
+      "relation": "calls",
+      "source": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService.assess",
+      "target": "EvidenceAssessment"
+    },
+    {
+      "evidence": "core/knowledge_awareness/service.py:20",
+      "relation": "calls",
+      "source": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService.assess",
+      "target": "ResearchRecommendation"
+    },
+    {
+      "evidence": "core/knowledge_awareness/service.py:20",
+      "relation": "calls",
+      "source": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService.assess",
+      "target": "research.append"
+    },
+    {
+      "evidence": "core/knowledge_awareness/service.py:20",
+      "relation": "calls",
+      "source": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService.assess",
+      "target": "self._evidence"
+    },
+    {
+      "evidence": "core/knowledge_awareness/service.py:82",
+      "relation": "calls",
+      "source": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService._evidence",
+      "target": "EvidenceItem"
+    },
+    {
+      "evidence": "core/knowledge_catalog/cli.py:64",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.cli.cmd_semantic_backfill",
+      "target": "semantic_backfill"
+    },
+    {
+      "evidence": "core/knowledge_catalog/cli.py:68",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.cli.cmd_search",
+      "target": "search_catalog"
+    },
+    {
+      "evidence": "core/knowledge_catalog/materialization/search.py:17",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.materialization.search.search_runtime_knowledge",
+      "target": "_fts_query"
+    },
+    {
+      "evidence": "core/knowledge_catalog/materialization/search.py:17",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.materialization.search.search_runtime_knowledge",
+      "target": "conn.execute(\"SELECT 1 FROM sqlite_master WHERE name='runtime_chunks_fts'\").fetchone"
+    },
+    {
+      "evidence": "core/knowledge_catalog/materialization/search.py:17",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.materialization.search.search_runtime_knowledge",
+      "target": "conn.execute('SELECT c.id AS chunk_id,c.document_id,d.title,d.file_path,c.chunk_text,1.0 AS rank\\n                FROM runtime_chunks c JOIN runtime_documents d ON d.id=c.document_id\\n                WHERE lower(c.chunk_text) LIKE ? OR lower(d.title) LIKE ? OR lower(d.file_path) LIKE ?\\n                ORDER BY d.file_path,c.chunk_index LIMIT ?', (p, p, p, max(1, int(limit)))).fetchall"
+    },
+    {
+      "evidence": "core/knowledge_catalog/materialization/search.py:17",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.materialization.search.search_runtime_knowledge",
+      "target": "conn.execute('SELECT f.chunk_id,f.document_id,f.title,f.file_path,f.chunk_text,bm25(runtime_chunks_fts) AS rank\\n                FROM runtime_chunks_fts f WHERE runtime_chunks_fts MATCH ? ORDER BY rank LIMIT ?', (_fts_query(normalized), max(1, int(limit)))).fetchall"
+    },
+    {
+      "evidence": "core/knowledge_catalog/search.py:8",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.search.search_catalog",
+      "target": "search_runtime_knowledge"
+    },
+    {
+      "evidence": "core/knowledge_catalog/service.py:11",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.service.initialize_catalog",
+      "target": "CatalogRepository"
+    },
+    {
+      "evidence": "core/knowledge_catalog/service.py:11",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.service.initialize_catalog",
+      "target": "seed_catalog"
+    },
+    {
+      "evidence": "core/knowledge_catalog/service.py:20",
+      "relation": "calls",
+      "source": "core.knowledge_catalog.service.register_file",
+      "target": "CatalogRepository"
+    },
+    {
+      "evidence": "core/observation/migration_registry.py:247",
+      "relation": "calls",
+      "source": "core.observation.migration_registry.migration_registry_fingerprint",
+      "target": "json.dumps(migration_registry_payload(), sort_keys=True, separators=(',', ':'), ensure_ascii=True).encode"
+    },
+    {
+      "evidence": "core/observation/migration_registry.py:247",
+      "relation": "calls",
+      "source": "core.observation.migration_registry.migration_registry_fingerprint",
+      "target": "migration_registry_payload"
+    },
+    {
+      "evidence": "core/operations/service.py:26",
+      "relation": "calls",
+      "source": "core.operations.service.OperationsService.__init__",
+      "target": "OperationsEventRegistry"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:49",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts._placeholder_evidence_id",
+      "target": "EvidenceId"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:117",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceContent.content_id",
+      "target": "EvidenceContentId.from_payload"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:135",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceOrigin.__post_init__",
+      "target": "EvidenceValidationError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:261",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceProvenance.__post_init__",
+      "target": "EvidenceValidationError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:297",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceTemporalScope.__post_init__",
+      "target": "EvidenceTemporalError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:380",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceUncertainty.__post_init__",
+      "target": "EvidenceUncertaintyError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:453",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceUncertainty._validate_kind_contract",
+      "target": "EvidenceUncertaintyError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:599",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceRelationship.__post_init__",
+      "target": "EvidenceRelationshipError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:660",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceRelationship.create",
+      "target": "EvidenceRelationshipId.from_payload"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:706",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceRecord.__post_init__",
+      "target": "EvidenceValidationError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:819",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceRecord.create",
+      "target": "EvidenceId.from_payload"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:819",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceRecord.create",
+      "target": "_placeholder_evidence_id"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:880",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceAssessment.__post_init__",
+      "target": "EvidenceValidationError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:976",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceAssessment.create",
+      "target": "EvidenceAssessmentId.from_payload"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:1038",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceStatusEvent.__post_init__",
+      "target": "EvidenceValidationError"
+    },
+    {
+      "evidence": "core/reasoning/evidence/contracts.py:1128",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.contracts.EvidenceStatusEvent.create",
+      "target": "EvidenceStatusEventId.from_payload"
+    },
+    {
+      "evidence": "core/reasoning/evidence/identifiers.py:25",
+      "relation": "calls",
+      "source": "core.reasoning.evidence.identifiers.CanonicalEvidenceIdentifier.__post_init__",
+      "target": "EvidenceIdentityError"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:63",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge._evidence_id",
+      "target": "f'{source}\\x1f{chunk}\\x1f{text}'.encode"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:63",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge._evidence_id",
+      "target": "hashlib.sha256(f'{source}\\x1f{chunk}\\x1f{text}'.encode('utf-8')).hexdigest"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:81",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge.KnowledgeEvidenceAdapter.adapt",
+      "target": "AdaptedEvidenceBatch"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:81",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge.KnowledgeEvidenceAdapter.adapt",
+      "target": "EvidenceItem"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:81",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge.KnowledgeEvidenceAdapter.adapt",
+      "target": "KnowledgeEvidenceAdapterError"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:81",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge.KnowledgeEvidenceAdapter.adapt",
+      "target": "_evidence_id"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:81",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge.KnowledgeEvidenceAdapter.adapt",
+      "target": "_ranking"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:81",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge.KnowledgeEvidenceAdapter.adapt",
+      "target": "evidence.append"
+    },
+    {
+      "evidence": "core/reasoning/knowledge.py:81",
+      "relation": "calls",
+      "source": "core.reasoning.knowledge.KnowledgeEvidenceAdapter.adapt",
+      "target": "evidence.sort"
+    },
+    {
+      "evidence": "core/reasoning/pipeline.py:36",
+      "relation": "calls",
+      "source": "core.reasoning.pipeline.KnowledgeReasoningPipeline.__init__",
+      "target": "KnowledgeEvidenceAdapter"
+    },
+    {
+      "evidence": "core/representation/articulation.py:259",
+      "relation": "calls",
+      "source": "core.representation.articulation.SemanticArticulator._normalize",
+      "target": "_provenance"
+    },
+    {
+      "evidence": "core/representation/articulation.py:384",
+      "relation": "calls",
+      "source": "core.representation.articulation.SemanticArticulator._derive_source_id",
+      "target": "reference.provenance.get"
+    },
+    {
+      "evidence": "core/representation/registry.py:286",
+      "relation": "calls",
+      "source": "core.representation.registry.RepresentationRegistry._build_registration",
+      "target": "RepresentationRegistry._normalize_artifact_kinds"
+    },
+    {
+      "evidence": "core/representation/segmentation.py:41",
+      "relation": "calls",
+      "source": "core.representation.segmentation.DeterministicSemanticSegmenter.segment",
+      "target": "SemanticSegment"
+    },
+    {
+      "evidence": "core/representation/segmentation.py:99",
+      "relation": "calls",
+      "source": "core.representation.segmentation.DeterministicSemanticSegmenter._blocks",
+      "target": "DeterministicSemanticSegmenter._trim"
+    },
+    {
+      "evidence": "core/representation/segmentation.py:111",
+      "relation": "calls",
+      "source": "core.representation.segmentation.DeterministicSemanticSegmenter._lines",
+      "target": "DeterministicSemanticSegmenter._trim"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:49",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer.__init__",
+      "target": "catalog_database.resolve"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:180",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._discover_known_query",
+      "target": "search_catalog"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:205",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._database_terms",
+      "target": "self.catalog_database.is_file"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:368",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._known_checks",
+      "target": "grounding.get"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:368",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._known_checks",
+      "target": "str(grounding_status).casefold"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:455",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._gap_checks",
+      "target": "grounding.get"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:455",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._gap_checks",
+      "target": "str(grounding_status).casefold"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:526",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._source_contract_checks",
+      "target": "catalog_path.read_text"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:526",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._source_contract_checks",
+      "target": "grounding_path.read_text"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:526",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._source_contract_checks",
+      "target": "runtime_search_path.read_text"
+    },
+    {
+      "evidence": "core/retrieval/certification/tracer.py:640",
+      "relation": "calls",
+      "source": "core.retrieval.certification.tracer.EndToEndRetrievalTracer._json_safe",
+      "target": "EndToEndRetrievalTracer._json_safe"
+    },
+    {
+      "evidence": "core/retrieval/gap_trace/tracer.py:70",
+      "relation": "calls",
+      "source": "core.retrieval.gap_trace.tracer.KnowledgeGapPropagationTracer.__init__",
+      "target": "catalog_database.resolve"
+    },
+    {
+      "evidence": "core/semantic_digest/analyzer.py:28",
+      "relation": "calls",
+      "source": "core.semantic_digest.analyzer.analyze_semantics",
+      "target": "concept_scores.get"
+    },
+    {
+      "evidence": "core/semantic_digest/analyzer.py:28",
+      "relation": "calls",
+      "source": "core.semantic_digest.analyzer.analyze_semantics",
+      "target": "concept_scores.items"
+    },
+    {
+      "evidence": "core/semantic_digest/analyzer.py:28",
+      "relation": "calls",
+      "source": "core.semantic_digest.analyzer.analyze_semantics",
+      "target": "keyword_scores.get"
+    },
+    {
+      "evidence": "core/semantic_digest/analyzer.py:28",
+      "relation": "calls",
+      "source": "core.semantic_digest.analyzer.analyze_semantics",
+      "target": "keyword_scores.items"
+    },
+    {
+      "evidence": "core/semantic_digest/analyzer.py:28",
+      "relation": "calls",
+      "source": "core.semantic_digest.analyzer.analyze_semantics",
+      "target": "subject_scores.get"
+    },
+    {
+      "evidence": "core/semantic_digest/analyzer.py:28",
+      "relation": "calls",
+      "source": "core.semantic_digest.analyzer.analyze_semantics",
+      "target": "subject_scores.items"
+    },
+    {
+      "evidence": "core/src/cognition/intent_classifier.py:93",
+      "relation": "calls",
+      "source": "core.src.cognition.intent_classifier._score_keywords",
+      "target": "re.search"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/__init__.py:22",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.__init__.build_default_provider_registry",
+      "target": "AcquisitionProviderRegistry"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/__init__.py:22",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.__init__.build_default_provider_registry",
+      "target": "registry.register"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/admission/__init__.py:31",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.admission.__init__.build_default_admission_registry",
+      "target": "AdmissionPolicyRegistry"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/admission/__init__.py:31",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.admission.__init__.build_default_admission_registry",
+      "target": "registry.register"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/admission/director.py:57",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.admission.director.AdmissionDirector.evaluate_candidate",
+      "target": "self.registry.ordered_policies"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/admission/director.py:147",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.admission.director.AdmissionDirector._validate_evaluations",
+      "target": "self.registry.ordered_policies"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/admission/director.py:147",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.admission.director.AdmissionDirector._validate_evaluations",
+      "target": "self.registry.policy_ids"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/intake/service.py:38",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.intake.service.AcquisitionIntakeService.__init__",
+      "target": "ProvenanceService"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/repository.py:21",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.repository.ProvenanceRepository.source_exists",
+      "target": "conn.execute('\\n            SELECT 1\\n            FROM acquisition_provenance\\n            WHERE provider_id=?\\n              AND source_uri=?\\n            LIMIT 1\\n            ', (provider_id, source_uri)).fetchone"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/repository.py:150",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.repository.ProvenanceRepository.get_by_source",
+      "target": "conn.execute('\\n            SELECT\\n                candidate_id,\\n                provider_id,\\n                source_uri,\\n                local_path,\\n                filename,\\n                checksum_sha256,\\n                first_seen_at,\\n                last_seen_at,\\n                sighting_count,\\n                last_action,\\n                last_decision_fingerprint,\\n                campaign_id\\n            FROM acquisition_provenance\\n            WHERE provider_id=?\\n              AND source_uri=?\\n            ', (provider_id, source_uri)).fetchone"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/repository.py:150",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.repository.ProvenanceRepository.get_by_source",
+      "target": "self._map_provenance"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/repository.py:188",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.repository.ProvenanceRepository.find_by_checksum",
+      "target": "conn.execute('\\n            SELECT\\n                candidate_id,\\n                provider_id,\\n                source_uri,\\n                local_path,\\n                filename,\\n                checksum_sha256,\\n                first_seen_at,\\n                last_seen_at,\\n                sighting_count,\\n                last_action,\\n                last_decision_fingerprint,\\n                campaign_id\\n            FROM acquisition_provenance\\n            WHERE checksum_sha256=?\\n            ORDER BY provider_id, source_uri\\n            ', (checksum_sha256,)).fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/repository.py:188",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.repository.ProvenanceRepository.find_by_checksum",
+      "target": "self._map_provenance"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/repository.py:303",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.repository.ProvenanceRepository._map_provenance",
+      "target": "ProvenanceRecord"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/service.py:31",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.service.ProvenanceService.__init__",
+      "target": "ProvenanceRepository"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/service.py:41",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.service.ProvenanceService.record_decision",
+      "target": "ProvenanceWriteResult"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/service.py:41",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.service.ProvenanceService.record_decision",
+      "target": "ensure_provenance_schema"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/service.py:126",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.service.ProvenanceService.known_checksums",
+      "target": "conn.execute('\\n            SELECT DISTINCT checksum_sha256\\n            FROM acquisition_provenance\\n            ORDER BY checksum_sha256\\n            ').fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/acquisition/provenance/service.py:126",
+      "relation": "calls",
+      "source": "knowledge_engine.acquisition.provenance.service.ProvenanceService.known_checksums",
+      "target": "ensure_provenance_schema"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/handlers/source_collection.py:31",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.handlers.source_collection.SourceCollectionHandler.__init__",
+      "target": "KnowledgeRegistryRepository"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/planner.py:112",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.planner.AssimilationPlanner.inventory",
+      "target": "conn.execute('\\n                SELECT\\n                    object_type,\\n                    lifecycle_state,\\n                    assimilation_state,\\n                    COUNT(*) AS total\\n                FROM knowledge_registry\\n                GROUP BY\\n                    object_type,\\n                    lifecycle_state,\\n                    assimilation_state\\n                ORDER BY total DESC, object_type ASC\\n                ').fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/registry_builder.py:19",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.registry_builder.build_handler_registry",
+      "target": "HandlerRegistry"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/registry_builder.py:19",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.registry_builder.build_handler_registry",
+      "target": "registry.register"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/repositories/knowledge_registry.py:126",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.repositories.knowledge_registry.KnowledgeRegistryRepository._map_row",
+      "target": "KnowledgeRegistryObject"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/runner.py:436",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.runner.AssimilationRunner._complete_success",
+      "target": "self.state_service.mark_document_ready_for_embedding"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/services/extraction.py:86",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.services.extraction.ExtractionService.extract",
+      "target": "chunk.strip"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/services/extraction.py:86",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.services.extraction.ExtractionService.extract",
+      "target": "chunk_text"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/services/persistence.py:49",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.services.persistence.DocumentPersistenceService.persist_document",
+      "target": "chunk.strip"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/services/persistence.py:49",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.services.persistence.DocumentPersistenceService.persist_document",
+      "target": "self.replace_chunks"
+    },
+    {
+      "evidence": "knowledge_engine/assimilation/single_document.py:31",
+      "relation": "calls",
+      "source": "knowledge_engine.assimilation.single_document.chunk_text",
+      "target": "chunks.append"
+    },
+    {
+      "evidence": "knowledge_engine/capabilities/__init__.py:7",
+      "relation": "calls",
+      "source": "knowledge_engine.capabilities.__init__.register_capabilities",
+      "target": "build_knowledge_registry"
+    },
+    {
+      "evidence": "knowledge_engine/capabilities/__init__.py:7",
+      "relation": "calls",
+      "source": "knowledge_engine.capabilities.__init__.register_capabilities",
+      "target": "knowledge_registry.all"
+    },
+    {
+      "evidence": "knowledge_engine/capabilities/__init__.py:7",
+      "relation": "calls",
+      "source": "knowledge_engine.capabilities.__init__.register_capabilities",
+      "target": "registry.register"
+    },
+    {
+      "evidence": "knowledge_engine/capabilities/knowledge_registry.py:22",
+      "relation": "calls",
+      "source": "knowledge_engine.capabilities.knowledge_registry.KnowledgeRegistryCapability.execute",
+      "target": "RegistryService"
+    },
+    {
+      "evidence": "knowledge_engine/capabilities/knowledge_registry.py:22",
+      "relation": "calls",
+      "source": "knowledge_engine.capabilities.knowledge_registry.KnowledgeRegistryCapability.execute",
+      "target": "RegistryService(context.database).run"
+    },
+    {
+      "evidence": "knowledge_engine/capabilities/registry.py:12",
+      "relation": "calls",
+      "source": "knowledge_engine.capabilities.registry.build_knowledge_registry",
+      "target": "CapabilityRegistry"
+    },
+    {
+      "evidence": "knowledge_engine/capabilities/registry.py:12",
+      "relation": "calls",
+      "source": "knowledge_engine.capabilities.registry.build_knowledge_registry",
+      "target": "registry.register"
+    },
+    {
+      "evidence": "knowledge_engine/catalog_enrichment/builder.py:17",
+      "relation": "calls",
+      "source": "knowledge_engine.catalog_enrichment.builder.CatalogEnrichmentBuilder.build",
+      "target": "CatalogEnrichment"
+    },
+    {
+      "evidence": "knowledge_engine/catalog_enrichment/builder.py:17",
+      "relation": "calls",
+      "source": "knowledge_engine.catalog_enrichment.builder.CatalogEnrichmentBuilder.build",
+      "target": "init_catalog_enrichment"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/builder.py:13",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.builder.DocumentChunkBuilder.__init__",
+      "target": "DocumentChunkStore"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/builder.py:13",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.builder.DocumentChunkBuilder.__init__",
+      "target": "DocumentChunker"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/builder.py:18",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.builder.DocumentChunkBuilder.build_ready_documents",
+      "target": "conn.execute(\"\\n                SELECT kr.object_uuid,\\n                       dt.file_path,\\n                       dt.text\\n                FROM knowledge_registry kr\\n                JOIN catalog_documents cd\\n                  ON cd.file_path = kr.object_path\\n                     OR cd.file_path LIKE kr.object_path || '/%'\\n                JOIN document_text dt\\n                  ON dt.file_path = cd.file_path\\n                WHERE kr.assimilation_state='ready_for_chunking'\\n                  AND dt.status='processed'\\n                  AND dt.content_chars > 0\\n                ORDER BY kr.updated_at ASC\\n                LIMIT ?\\n                \", (limit,)).fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/builder.py:18",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.builder.DocumentChunkBuilder.build_ready_documents",
+      "target": "self._make_chunk"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/builder.py:18",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.builder.DocumentChunkBuilder.build_ready_documents",
+      "target": "self.chunker.chunk"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/builder.py:18",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.builder.DocumentChunkBuilder.build_ready_documents",
+      "target": "self.store.replace_chunks"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/builder.py:85",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.builder.DocumentChunkBuilder._make_chunk",
+      "target": "DocumentChunk"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:24",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker.chunk",
+      "target": "ChunkingResult"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:24",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker.chunk",
+      "target": "chunk_text"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:24",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker.chunk",
+      "target": "self._chunk_code"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:24",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker.chunk",
+      "target": "self._chunk_markdown"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:57",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker._looks_like_markdown",
+      "target": "re.search"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:98",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker._chunk_markdown",
+      "target": "chunk.strip"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:98",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker._chunk_markdown",
+      "target": "chunk_text"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:98",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker._chunk_markdown",
+      "target": "final_chunks.append"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:98",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker._chunk_markdown",
+      "target": "final_chunks.extend"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:128",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker._chunk_code",
+      "target": "chunk.strip"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/chunker.py:128",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.chunker.DocumentChunker._chunk_code",
+      "target": "chunks.append"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/store.py:46",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.store.DocumentChunkStore.replace_chunks",
+      "target": "init_chunks"
+    },
+    {
+      "evidence": "knowledge_engine/chunking/strategies.py:6",
+      "relation": "calls",
+      "source": "knowledge_engine.chunking.strategies.chunk_text",
+      "target": "chunks.append"
+    },
+    {
+      "evidence": "knowledge_engine/concepts/builder.py:12",
+      "relation": "calls",
+      "source": "knowledge_engine.concepts.builder.ConceptBuilder.build_ready_chunks",
+      "target": "conn.execute(\"\\n                SELECT chunk_uuid,\\n                       file_path,\\n                       text\\n                FROM document_chunks\\n                WHERE embedding_state='not_embedded'\\n                  AND COALESCE(concept_state, 'not_extracted')='not_extracted'\\n                ORDER BY created_at ASC\\n                LIMIT ?\\n                \", (limit,)).fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/director/registry.py:21",
+      "relation": "calls",
+      "source": "knowledge_engine.director.registry.StageRegistry.register_defaults",
+      "target": "ChunkStage"
+    },
+    {
+      "evidence": "knowledge_engine/director/registry.py:21",
+      "relation": "calls",
+      "source": "knowledge_engine.director.registry.StageRegistry.register_defaults",
+      "target": "EmbeddingStage"
+    },
+    {
+      "evidence": "knowledge_engine/director/stages/chunking.py:17",
+      "relation": "calls",
+      "source": "knowledge_engine.director.stages.chunking.ChunkStage.run",
+      "target": "ChunkBuilder"
+    },
+    {
+      "evidence": "knowledge_engine/director/stages/embeddings.py:17",
+      "relation": "calls",
+      "source": "knowledge_engine.director.stages.embeddings.EmbeddingStage.run",
+      "target": "ChunkEmbeddingBuilder"
+    },
+    {
+      "evidence": "knowledge_engine/director/stages/embeddings.py:17",
+      "relation": "calls",
+      "source": "knowledge_engine.director.stages.embeddings.EmbeddingStage.run",
+      "target": "builder.build_pending_embeddings"
+    },
+    {
+      "evidence": "knowledge_engine/director/workflows/search.py:26",
+      "relation": "calls",
+      "source": "knowledge_engine.director.workflows.search.SearchWorkflow.run",
+      "target": "SearchService"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:9",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder.__init__",
+      "target": "ChunkEmbeddingStore"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:9",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder.__init__",
+      "target": "LocalEmbeddingProvider"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder.build_pending_embeddings",
+      "target": "ChunkEmbedding"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder.build_pending_embeddings",
+      "target": "conn.execute(\"\\n                SELECT chunk_uuid,\\n                       file_path,\\n                       chunk_index,\\n                       text,\\n                       char_count\\n                FROM document_chunks\\n                WHERE embedding_state='not_embedded'\\n                ORDER BY created_at ASC\\n                LIMIT ?\\n                \", (limit,)).fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder.build_pending_embeddings",
+      "target": "init_embeddings"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder.build_pending_embeddings",
+      "target": "self.provider.embed"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder.build_pending_embeddings",
+      "target": "self.store.upsert_embedding"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:88",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder._advance_ready_documents",
+      "target": "conn.execute(\"\\n                    SELECT COUNT(*)\\n                    FROM document_chunks\\n                    WHERE file_path = ?\\n                      AND embedding_state='not_embedded'\\n                    \", (object_path,)).fetchone"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/builder.py:88",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.builder.ChunkEmbeddingBuilder._advance_ready_documents",
+      "target": "conn.execute(\"\\n                SELECT kr.object_uuid,\\n                       kr.object_path\\n                FROM knowledge_registry kr\\n                WHERE kr.assimilation_state='ready_for_embedding'\\n                \").fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/engine.py:11",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.engine.EmbeddingEngine.__init__",
+      "target": "LocalEmbeddingProvider"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/engine.py:31",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.engine.EmbeddingEngine.build_missing",
+      "target": "self.provider.embed"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/local_provider.py:27",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.local_provider.LocalEmbeddingProvider.embed",
+      "target": "self.embed_text"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/local_provider.py:30",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.local_provider.LocalEmbeddingProvider.embed_text",
+      "target": "vector.astype"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/local_provider.py:30",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.local_provider.LocalEmbeddingProvider.embed_text",
+      "target": "vector.astype(float).tolist"
+    },
+    {
+      "evidence": "knowledge_engine/embeddings/store.py:36",
+      "relation": "calls",
+      "source": "knowledge_engine.embeddings.store.ChunkEmbeddingStore.upsert_embedding",
+      "target": "init_embeddings"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/faiss_store.py:42",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.faiss_store.build_hnsw_index",
+      "target": "vectors.astype"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/index_builder.py:22",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.index_builder.HybridIndexBuilder.rebuild",
+      "target": "chunk_uuids.append"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/index_builder.py:22",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.index_builder.HybridIndexBuilder.rebuild",
+      "target": "vectors.append"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/metadata_search.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.metadata_search.MetadataSearcher.score_resources",
+      "target": "conn.execute(\"\\n                SELECT\\n                    lc.object_uuid,\\n                    lc.object_path,\\n                    lc.object_type,\\n                    lc.canonical_title,\\n                    lc.display_title,\\n                    lc.subject,\\n                    lc.keywords,\\n                    lc.description,\\n                    lc.quality_score,\\n                    lc.subject_confidence,\\n                    COALESCE(ce.aliases, '') AS aliases,\\n                    COALESCE(ce.search_terms, '') AS search_terms,\\n                    COALESCE(ce.entities, '') AS entities,\\n                    COALESCE(ce.topics, '') AS topics\\n                FROM librarian_catalog lc\\n                LEFT JOIN catalog_enrichment ce\\n                  ON ce.object_uuid = lc.object_uuid\\n                \").fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/metadata_search.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.metadata_search.MetadataSearcher.score_resources",
+      "target": "str(row['search_terms'] or '').lower"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:17",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.__init__",
+      "target": "LocalEmbeddingProvider"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:17",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.__init__",
+      "target": "MetadataSearcher"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.search",
+      "target": "RetrievalResult"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.search",
+      "target": "conn.execute(sql, list(vector_hits.keys())).fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.search",
+      "target": "index.search"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.search",
+      "target": "metadata_scores.get"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.search",
+      "target": "self.embedding_provider.embed"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.search",
+      "target": "self.metadata_searcher.score_resources"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_retrieval/search.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_retrieval.search.HybridSearcher.search",
+      "target": "vector_hits.keys"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_search_cli.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_search_cli.cmd_search",
+      "target": "HybridSearcher"
+    },
+    {
+      "evidence": "knowledge_engine/hybrid_search_cli.py:23",
+      "relation": "calls",
+      "source": "knowledge_engine.hybrid_search_cli.cmd_search",
+      "target": "searcher.search"
+    },
+    {
+      "evidence": "knowledge_engine/integrity/auditor.py:45",
+      "relation": "calls",
+      "source": "knowledge_engine.integrity.auditor.KnowledgeIntegrityAuditor.run",
+      "target": "self._audit_chunks"
+    },
+    {
+      "evidence": "knowledge_engine/integrity/auditor.py:45",
+      "relation": "calls",
+      "source": "knowledge_engine.integrity.auditor.KnowledgeIntegrityAuditor.run",
+      "target": "self._audit_embeddings"
+    },
+    {
+      "evidence": "knowledge_engine/integrity/auditor.py:185",
+      "relation": "calls",
+      "source": "knowledge_engine.integrity.auditor.KnowledgeIntegrityAuditor._audit_chunks",
+      "target": "conn.execute('\\n            SELECT chunk_uuid,\\n                   file_path,\\n                   chunk_index,\\n                   text,\\n                   char_count,\\n                   checksum\\n            FROM document_chunks\\n            ORDER BY file_path, chunk_index\\n            LIMIT ?\\n            ', (limit,)).fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/integrity/auditor.py:269",
+      "relation": "calls",
+      "source": "knowledge_engine.integrity.auditor.KnowledgeIntegrityAuditor._audit_embeddings",
+      "target": "conn.execute('\\n            SELECT chunk_uuid,\\n                   vector_json,\\n                   dimensions\\n            FROM chunk_embeddings\\n            ORDER BY chunk_uuid\\n            LIMIT ?\\n            ', (limit,)).fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/library/store.py:137",
+      "relation": "calls",
+      "source": "knowledge_engine.library.store.LibraryCatalogStore.summary",
+      "target": "conn.execute('SELECT COUNT(*) FROM library_catalog').fetchone"
+    },
+    {
+      "evidence": "knowledge_engine/processing/catalog_stage.py:32",
+      "relation": "calls",
+      "source": "knowledge_engine.processing.catalog_stage.CatalogStage.run",
+      "target": "self.catalog_store.upsert_document"
+    },
+    {
+      "evidence": "knowledge_engine/processors/registry.py:24",
+      "relation": "calls",
+      "source": "knowledge_engine.processors.registry.default_registry",
+      "target": "ProcessorRegistry"
+    },
+    {
+      "evidence": "knowledge_engine/processors/registry.py:24",
+      "relation": "calls",
+      "source": "knowledge_engine.processors.registry.default_registry",
+      "target": "registry.register"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/duplicates.py:13",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.duplicates.duplicate_similarity",
+      "target": "jaccard_similarity"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/normalization.py:158",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.normalization.normalize_candidate",
+      "target": "RankingCandidate"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/normalization.py:158",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.normalization.normalize_candidate",
+      "target": "_normalize_chunk_index"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/normalization.py:158",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.normalization.normalize_candidate",
+      "target": "normalize_quality_score"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/normalization.py:158",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.normalization.normalize_candidate",
+      "target": "normalize_semantic_score"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/ranker.py:55",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.ranker.KnowledgeRanker.__init__",
+      "target": "RankingWeights"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/ranker.py:148",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.ranker.KnowledgeRanker.rank",
+      "target": "self.rank_candidates"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/ranker.py:159",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.ranker.rank_results",
+      "target": "KnowledgeRanker"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/ranker.py:159",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.ranker.rank_results",
+      "target": "ranker.rank"
+    },
+    {
+      "evidence": "knowledge_engine/ranking/scorer.py:66",
+      "relation": "calls",
+      "source": "knowledge_engine.ranking.scorer.lexical_score",
+      "target": "jaccard_similarity"
+    },
+    {
+      "evidence": "knowledge_engine/registry/builder.py:8",
+      "relation": "calls",
+      "source": "knowledge_engine.registry.builder.KnowledgeRegistryBuilder.__init__",
+      "target": "KnowledgeRegistryStore"
+    },
+    {
+      "evidence": "knowledge_engine/registry/builder.py:12",
+      "relation": "calls",
+      "source": "knowledge_engine.registry.builder.KnowledgeRegistryBuilder.build",
+      "target": "RegistryRecord"
+    },
+    {
+      "evidence": "knowledge_engine/registry/service.py:15",
+      "relation": "calls",
+      "source": "knowledge_engine.registry.service.RegistryService.run",
+      "target": "KnowledgeRegistryBuilder"
+    },
+    {
+      "evidence": "knowledge_engine/registry/store.py:73",
+      "relation": "calls",
+      "source": "knowledge_engine.registry.store.KnowledgeRegistryStore.initialize",
+      "target": "init_registry"
+    },
+    {
+      "evidence": "knowledge_engine/registry/store.py:77",
+      "relation": "calls",
+      "source": "knowledge_engine.registry.store.KnowledgeRegistryStore.upsert",
+      "target": "init_registry"
+    },
+    {
+      "evidence": "knowledge_engine/registry/store.py:132",
+      "relation": "calls",
+      "source": "knowledge_engine.registry.store.KnowledgeRegistryStore.summary",
+      "target": "conn.execute('SELECT COUNT(*) FROM knowledge_registry').fetchone"
+    },
+    {
+      "evidence": "knowledge_engine/registry/store.py:132",
+      "relation": "calls",
+      "source": "knowledge_engine.registry.store.KnowledgeRegistryStore.summary",
+      "target": "init_registry"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval/vector_search.py:10",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval.vector_search.VectorSearcher.__init__",
+      "target": "LocalEmbeddingProvider"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval/vector_search.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval.vector_search.VectorSearcher.search",
+      "target": "self.cosine"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval/vector_search.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval.vector_search.VectorSearcher.search",
+      "target": "self.provider.embed"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval_intelligence/director.py:32",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval_intelligence.director.RetrievalDirector.__init__",
+      "target": "VectorRetrievalProvider"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval_intelligence/director.py:58",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval_intelligence.director.RetrievalDirector.search",
+      "target": "RetrievalDiagnostics"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval_intelligence/director.py:58",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval_intelligence.director.RetrievalDirector.search",
+      "target": "provider.retrieve"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval_intelligence/normalization.py:56",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval_intelligence.normalization.normalize_candidate",
+      "target": "RetrievalCandidate"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval_intelligence/normalization.py:56",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval_intelligence.normalization.normalize_candidate",
+      "target": "normalize_similarity"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval_intelligence/providers.py:34",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval_intelligence.providers.VectorRetrievalProvider.__init__",
+      "target": "RetrievalService"
+    },
+    {
+      "evidence": "knowledge_engine/retrieval_intelligence/providers.py:37",
+      "relation": "calls",
+      "source": "knowledge_engine.retrieval_intelligence.providers.VectorRetrievalProvider.retrieve",
+      "target": "self._service.search"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:72",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService.__init__",
+      "target": "RankingService"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:72",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService.__init__",
+      "target": "RetrievalDirector"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:78",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService.execute",
+      "target": "SearchResponse"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:78",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService.execute",
+      "target": "quality_scores.append"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:78",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService.execute",
+      "target": "self._build_search_result"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:78",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService.execute",
+      "target": "self._quality_score"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:78",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService.execute",
+      "target": "self.ranking.rank"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:78",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService.execute",
+      "target": "self.retrieval.search"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:218",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._prepare_candidate",
+      "target": "QualityService.validator.validate_chunk"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:218",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._prepare_candidate",
+      "target": "SearchService._float_value"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:218",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._prepare_candidate",
+      "target": "SearchService._integer_value"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:218",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._prepare_candidate",
+      "target": "SearchService._quality_score"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:369",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._build_search_result",
+      "target": "QualityService.validator.validate_chunk"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:369",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._build_search_result",
+      "target": "SearchResult"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:369",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._build_search_result",
+      "target": "SearchService._float_value"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:369",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._build_search_result",
+      "target": "SearchService._integer_value"
+    },
+    {
+      "evidence": "knowledge_engine/search/service.py:369",
+      "relation": "calls",
+      "source": "knowledge_engine.search.service.SearchService._build_search_result",
+      "target": "ranked_result.get"
+    },
+    {
+      "evidence": "knowledge_engine/services/chunking.py:17",
+      "relation": "calls",
+      "source": "knowledge_engine.services.chunking.ChunkingService.__init__",
+      "target": "DocumentChunker"
+    },
+    {
+      "evidence": "knowledge_engine/services/chunking.py:20",
+      "relation": "calls",
+      "source": "knowledge_engine.services.chunking.ChunkingService.chunk",
+      "target": "self.chunker.chunk"
+    },
+    {
+      "evidence": "knowledge_engine/services/embeddings.py:19",
+      "relation": "calls",
+      "source": "knowledge_engine.services.embeddings.EmbeddingService.__init__",
+      "target": "LocalEmbeddingProvider"
+    },
+    {
+      "evidence": "knowledge_engine/services/embeddings.py:22",
+      "relation": "calls",
+      "source": "knowledge_engine.services.embeddings.EmbeddingService.embed",
+      "target": "self.provider.embed"
+    },
+    {
+      "evidence": "knowledge_engine/services/embeddings.py:25",
+      "relation": "calls",
+      "source": "knowledge_engine.services.embeddings.EmbeddingService.embed_batch",
+      "target": "self.provider.embed_batch"
+    },
+    {
+      "evidence": "knowledge_engine/services/ranking.py:14",
+      "relation": "calls",
+      "source": "knowledge_engine.services.ranking.RankingService.__init__",
+      "target": "KnowledgeRanker"
+    },
+    {
+      "evidence": "knowledge_engine/services/ranking.py:21",
+      "relation": "calls",
+      "source": "knowledge_engine.services.ranking.RankingService.rank",
+      "target": "self._ranker.rank"
+    },
+    {
+      "evidence": "knowledge_engine/services/ranking.py:35",
+      "relation": "calls",
+      "source": "knowledge_engine.services.ranking.rank_search_results",
+      "target": "RankingService"
+    },
+    {
+      "evidence": "knowledge_engine/services/ranking.py:35",
+      "relation": "calls",
+      "source": "knowledge_engine.services.ranking.rank_search_results",
+      "target": "RankingService().rank"
+    },
+    {
+      "evidence": "knowledge_engine/services/retrieval.py:13",
+      "relation": "calls",
+      "source": "knowledge_engine.services.retrieval.RetrievalService.__init__",
+      "target": "VectorSearcher"
+    },
+    {
+      "evidence": "knowledge_engine/services/retrieval.py:16",
+      "relation": "calls",
+      "source": "knowledge_engine.services.retrieval.RetrievalService.search",
+      "target": "self.searcher.search"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/repository.py:104",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.repository.SQLiteSourceRegistryRepository.get_by_id",
+      "target": "SourceRegistryNotFoundError"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/repository.py:104",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.repository.SQLiteSourceRegistryRepository.get_by_id",
+      "target": "conn.execute('SELECT * FROM source_registry WHERE registry_id = ?', (registry_id,)).fetchone"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/repository.py:117",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.repository.SQLiteSourceRegistryRepository.get_by_source_id",
+      "target": "conn.execute('SELECT * FROM source_registry WHERE source_id = ?', (source_id,)).fetchone"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/repository.py:126",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.repository.SQLiteSourceRegistryRepository.get_by_fingerprint",
+      "target": "conn.execute('SELECT * FROM source_registry WHERE fingerprint = ?', (fingerprint,)).fetchone"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/repository.py:135",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.repository.SQLiteSourceRegistryRepository.list_all",
+      "target": "conn.execute('SELECT * FROM source_registry ORDER BY registry_id').fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/repository.py:143",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.repository.SQLiteSourceRegistryRepository.update_state",
+      "target": "SourceRegistryNotFoundError"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/repository.py:165",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.repository.SQLiteSourceRegistryRepository.stats",
+      "target": "RegistryStats"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/repository.py:165",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.repository.SQLiteSourceRegistryRepository.stats",
+      "target": "conn.execute('\\n                SELECT lifecycle_state, COUNT(*)\\n                FROM source_registry\\n                GROUP BY lifecycle_state\\n                ').fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/service.py:49",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.service.SourceRegistryService.__init__",
+      "target": "SQLiteSourceRegistryRepository"
+    },
+    {
+      "evidence": "knowledge_engine/source_registry/service.py:71",
+      "relation": "calls",
+      "source": "knowledge_engine.source_registry.service.SourceRegistryService.register_source",
+      "target": "SourceRegistryConflictError"
+    },
+    {
+      "evidence": "knowledge_engine/storage/page_store.py:49",
+      "relation": "calls",
+      "source": "knowledge_engine.storage.page_store.PageStore.search",
+      "target": "conn.execute(\"\\n                SELECT\\n                    document_path,\\n                    page_number,\\n                    snippet(document_pages_fts, 2, '[', ']', '...', 32)\\n                FROM document_pages_fts\\n                WHERE document_pages_fts MATCH ?\\n                LIMIT ?\\n                \", (query, limit)).fetchall"
+    },
+    {
+      "evidence": "knowledge_engine/workflow/smoke.py:45",
+      "relation": "calls",
+      "source": "knowledge_engine.workflow.smoke.build_smoke_registry",
+      "target": "WorkflowRegistry"
+    },
+    {
+      "evidence": "knowledge_engine/workflow/smoke.py:45",
+      "relation": "calls",
+      "source": "knowledge_engine.workflow.smoke.build_smoke_registry",
+      "target": "registry.register"
+    },
+    {
+      "evidence": "knowledge_engine/workflows/stages/chunking.py:12",
+      "relation": "calls",
+      "source": "knowledge_engine.workflows.stages.chunking.ChunkingStage.__init__",
+      "target": "ChunkingService"
+    },
+    {
+      "evidence": "knowledge_engine/workflows/stages/chunking.py:15",
+      "relation": "calls",
+      "source": "knowledge_engine.workflows.stages.chunking.ChunkingStage.run",
+      "target": "self.service.chunk"
+    },
+    {
+      "evidence": "knowledge_engine/workflows/stages/embeddings.py:12",
+      "relation": "calls",
+      "source": "knowledge_engine.workflows.stages.embeddings.EmbeddingStage.__init__",
+      "target": "EmbeddingService"
+    },
+    {
+      "evidence": "knowledge_engine/workflows/stages/embeddings.py:15",
+      "relation": "calls",
+      "source": "knowledge_engine.workflows.stages.embeddings.EmbeddingStage.run",
+      "target": "self.service.embed_batch"
+    },
+    {
+      "evidence": "knowledge_engine/workflows/stages/registry.py:12",
+      "relation": "calls",
+      "source": "knowledge_engine.workflows.stages.registry.RegistryStage.__init__",
+      "target": "WorkflowRegistryService"
+    },
+    {
+      "evidence": "knowledge_engine/workflows/stages/retrieval.py:12",
+      "relation": "calls",
+      "source": "knowledge_engine.workflows.stages.retrieval.RetrievalStage.__init__",
+      "target": "RetrievalService"
+    }
+  ],
+  "schema_version": "genesis_ix_a4_2a_v1"
+}

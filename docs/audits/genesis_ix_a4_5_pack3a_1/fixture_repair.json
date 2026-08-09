@@ -1,0 +1,7 @@
+{
+  "changed": true,
+  "repair": "Instantiate tracer -> discover semantic fixture -> override live known-query selector -> certify",
+  "schema_version": "genesis_ix_a4_5_pack3a_1_v1",
+  "status": "repaired",
+  "target": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/dev/certification/certify_genesis_ix_a4_3.py"
+}

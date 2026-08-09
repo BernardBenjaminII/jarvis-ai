@@ -1,0 +1,1541 @@
+# Genesis VII-C0A-1 — Organizational Constitution Audit
+
+**Classification:** `partially_exists`
+**Exact constitution found:** `False`
+**Fingerprint:** `febbcfd3491d7f0b3389cc1e3d1265191b1831ce3e5ac7548ba07c82ad93f29a`
+
+## Interpretation
+
+Organizational doctrine and implementation exist in fragments, but no canonical constitution was identified. Consolidate existing sources.
+
+## Constitutional sources
+
+- `docs/constitution/ENGINEERING_CONSTITUTION.md`
+- `docs/constitution/KM-0000_KNOWLEDGE_CONSTITUTION.md`
+- `docs/constitution/UI-0001-commanders_bridge_constitution.md`
+- `docs/constitution/executive.md`
+
+## Architecture and ADR sources
+
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md`
+- `docs/architecture/11_cognitive_architecture.md`
+- `docs/architecture/12_reasoning_architecture.md`
+- `docs/architecture/13_mission_planning_architecture.md`
+- `docs/architecture/JARVIS_ARCHITECTURE.md`
+- `docs/architecture/architecture_blueprint.md`
+- `docs/architecture/architecture_intelligence.md`
+- `docs/architecture/assimilation_core.md`
+- `docs/architecture/bootstrap_canonical.md`
+- `docs/architecture/cognition/00_overview.md`
+- `docs/architecture/cognition/01_cognitive_object_model.md`
+- `docs/architecture/cognition/genesis_vi_a3_cognitive_state_machine.md`
+- `docs/architecture/cognition/genesis_vi_a5_executive_session.md`
+- `docs/architecture/cognitive_semantic_articulation.md`
+- `docs/architecture/commanders_bridge_foundation.md`
+- `docs/architecture/convergence/genesis_1a1_reasoning_contract_audit.md`
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json`
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md`
+- `docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.json`
+- `docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.md`
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json`
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md`
+- `docs/architecture/convergence/genesis_3f1_public_api.json`
+- `docs/architecture/convergence/genesis_3f1_public_api.md`
+- `docs/architecture/convergence/genesis_3f1_snapshot.json`
+- `docs/architecture/convergence/genesis_iv_b4_final_canonical_convergence.md`
+- `docs/architecture/convergence/genesis_iv_b4b_behavioral_compatibility.md`
+- `docs/architecture/convergence/genesis_vi_b0_integration_contract_convergence.md`
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md`
+- `docs/architecture/convergence/genesis_vi_b0a_projection_compatibility.md`
+- `docs/architecture/convergence/phase_9c1_inventory.json`
+- `docs/architecture/convergence/phase_9c1_inventory.md`
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt`
+- `docs/architecture/convergence_c1_executive_conversation.md`
+- `docs/architecture/convergence_c2_director_activation.md`
+- `docs/architecture/convergence_c2a_certification_repair.md`
+- `docs/architecture/convergence_c3_capability_routing.md`
+- `docs/architecture/convergence_c4_knowledge_grounding.md`
+- `docs/architecture/convergence_c6_executive_observability.md`
+- `docs/architecture/evidence_engine.md`
+- `docs/architecture/executive_cognitive_lifecycle.md`
+- `docs/architecture/executive_integration_architecture.md`
+- `docs/architecture/executive_projection_contract.md`
+- `docs/architecture/gen2_capability_routing.md`
+- `docs/architecture/gen2_mission_engine.md`
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md`
+- `docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md`
+- `docs/architecture/genesis/reasoning/GENESIS_II_A2_REASONING_SESSION_LIFECYCLE.md`
+- `docs/architecture/genesis/reasoning/GENESIS_II_A3_CONSTITUTIONAL_REASONING_CONTEXT.md`
+- `docs/architecture/genesis/reasoning/GENESIS_II_A4_CANONICAL_EVIDENCE_MODEL.md`
+- `docs/architecture/genesis_3a3a_cognitive_workspace_public_surface_restoration.md`
+- `docs/architecture/genesis_3a4_cognitive_workspace_integration.md`
+- `docs/architecture/genesis_cognitive_workspace_foundation.md`
+- `docs/architecture/genesis_iv_a4_executive_evidence_correlation.md`
+- `docs/architecture/genesis_iv_a6a1_executive_decision_foundation.md`
+- `docs/architecture/genesis_iv_a7_executive_decision_engine.md`
+- `docs/architecture/genesis_iv_a8_executive_mission_compiler.md`
+- `docs/architecture/genesis_iv_b1_executive_integration_visibility_fabric.md`
+- `docs/architecture/genesis_ui_a2_executive_projection_framework.md`
+- `docs/architecture/genesis_ui_a3_capability_discovery_registration.md`
+- `docs/architecture/genesis_ui_a41_knowledge_inventory_projection.md`
+- `docs/architecture/genesis_vi_a63_executive_checkpoint_store.md`
+- `docs/architecture/genesis_vi_a64_executive_integrity_engine.md`
+- `docs/architecture/genesis_vi_a66_executive_lifecycle_manager.md`
+- `docs/architecture/genesis_vi_a67_executive_timeline_engine.md`
+- `docs/architecture/genesis_vi_a68_part_b.md`
+- `docs/architecture/genesis_vi_a68_timeline_repository_foundation.md`
+- `docs/architecture/genesis_vii_a0_pack_4b2_capability_orchestration.md`
+- `docs/architecture/genesis_vii_b0_integration_audit.md`
+- `docs/architecture/genesis_vii_c0a1_organizational_constitution_audit.md`
+- `docs/architecture/governance/constitutional_analysis_engine.md`
+- `docs/architecture/governance/constitutional_article_intelligence.md`
+- `docs/architecture/governance/constitutional_authority_graph.md`
+- `docs/architecture/governance/constitutional_compliance_certification_framework.md`
+- `docs/architecture/governance/constitutional_compliance_engine.md`
+- `docs/architecture/governance/constitutional_directorate_foundation.md`
+- `docs/architecture/governance/constitutional_directorate_projection.md`
+- `docs/architecture/governance/constitutional_executive_governance.md`
+- `docs/architecture/governance/constitutional_extraction_engine.md`
+- `docs/architecture/governance/constitutional_graph_foundation.md`
+- `docs/architecture/governance/constitutional_repository_projection.md`
+- `docs/architecture/governance/repository_wide_constitutional_audit.md`
+- `docs/architecture/governance_audit_certification.md`
+- `docs/architecture/jarvis_engineering_standard.md`
+- `docs/architecture/knowledge_awareness_contract.md`
+- `docs/architecture/knowledge_system_inventory.txt`
+- `docs/architecture/layers.yaml`
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md`
+- `docs/architecture/milestones/phase_vi_f2_architecture_contracts.md`
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md`
+- `docs/architecture/milestones/phase_vi_f4_performance_contracts.md`
+- `docs/architecture/milestones/phase_vii_a3_provenance_persistence.md`
+- `docs/architecture/milestones/phase_vii_a4_durable_admission_workflow.md`
+- `docs/architecture/milestones/phase_vii_a5_acquisition_missions.md`
+- `docs/architecture/milestones/phase_vii_a6_assimilation_handoff.md`
+- `docs/architecture/operations_layer.md`
+- `docs/architecture/overview.md`
+- `docs/architecture/phase_ii_a_consolidation.md`
+- `docs/architecture/service_architecture.md`
+- `docs/architecture/testing/CANONICAL_CONSTITUTIONAL_FIXTURES.md`
+- `docs/architecture/ui/00_design_language.md`
+- `docs/architecture/ui/01_user_experience.md`
+- `docs/architecture/ui/02_screen_architecture.md`
+- `docs/architecture/ui/03_navigation_model.md`
+- `docs/architecture/ui/04_operational_context.md`
+- `docs/architecture/ui/05_commander_brief.md`
+- `docs/architecture/ui/06_mission_workspace.md`
+- `docs/architecture/ui/07_operator_experience.md`
+- `docs/architecture/ui/08_mission_lifecycle.md`
+- `docs/architecture/ui/09_sitrep.md`
+- `docs/architecture/ui/10_mission_journal.md`
+- `docs/architecture/ui/README.md`
+- `docs/architecture/ui/genesis_vi_a2_executive_mission_control.md`
+- `docs/decisions/ADR-0000.md`
+- `docs/decisions/ADR-0004-doctor-framework.md`
+- `docs/decisions/ADR-0006-Jarvis-Librarian-Knowledge-Gap-Analysis.md`
+- `docs/decisions/ADR-0006-bootstrap-architecture.md`
+- `docs/decisions/ADR-0006-knowledge-ontology.md`
+- `docs/decisions/ADR-0007-inspect-early-reuse-forever.md`
+- `docs/decisions/ADR-0007-knowledge-lifecycle.md`
+- `docs/decisions/ADR-0007-knowledge-pipeline-architecture.md`
+- `docs/decisions/ADR-0008-knowledge-catalog-metadata-model.md`
+- `docs/decisions/ADR-0008-layered-capability-architecture.md`
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md`
+- `docs/decisions/ADR-0013-gap-analysis-engine.md`
+- `docs/decisions/ADR-0015-semantic-extraction-engine.md`
+- `docs/decisions/ADR-0017-progressive-workspace-tools.md`
+- `docs/decisions/ADR-0018-constitutional-first-principles.md`
+- `docs/decisions/ADR-0018-operational-memory.md`
+- `docs/decisions/ADR-0018.md`
+- `docs/decisions/ADR-0019-canonical-evidence-model.md`
+- `docs/decisions/ADR-0019-executive-governance.md`
+- `docs/decisions/ADR-0020-genesis-iv-cognition-architecture-constitution.md`
+- `docs/decisions/ADR-0022-observation-engine.md`
+- `docs/decisions/ADR-0024-cognitive-workspace-integration-engine.md`
+- `docs/decisions/ADR-0032-executive-course-of-action-generation.md`
+- `docs/decisions/ADR-0034-executive-decision-engine.md`
+- `docs/decisions/ADR-0036-executive-execution-orchestrator-boundary.md`
+- `docs/decisions/ADR-0037-executive-integration-visibility-fabric.md`
+- `docs/decisions/ADR-0039-observation-migration-strategy.md`
+- `docs/decisions/ADR-EA-0001-executive-academy-charter.md`
+- `docs/decisions/ADR-EXEC-0001-canonical-integration-plane.md`
+- `docs/decisions/ADR-EXEC-0002-executive-projection-bus.md`
+- `docs/decisions/ADR-EXEC-0002-projection-provider-architecture.md`
+- `docs/decisions/ADR-EXEC-0003-capability-discovery-registration.md`
+- `docs/decisions/ADR-EXEC-0004-knowledge-inventory-projection.md`
+- `docs/decisions/ADR-GENESIS-II-A3B.md`
+- `docs/decisions/ADR-GENESIS-III-A1.md`
+
+## Executive implementation sources
+
+- `core/executive/__init__.py`
+- `core/executive/capabilities/__init__.py`
+- `core/executive/capabilities/observability.py`
+- `core/executive/capabilities/selector.py`
+- `core/executive/cli.py`
+- `core/executive/director.py`
+- `core/executive/events/bus.py`
+- `core/executive/events/publishers.py`
+- `core/executive/operations_center/__init__.py`
+- `core/executive/operations_center/api.py`
+- `core/executive/operations_center/collectors.py`
+- `core/executive/operations_center/services.py`
+- `core/executive/operations_center/transport.py`
+- `core/executive/planning/__init__.py`
+- `core/executive/planning/models.py`
+- `core/executive/planning/service.py`
+- `core/executive/registry.py`
+- `core/executive/timeline/contracts.py`
+- `core/executive/timeline/repository.py`
+- `core/executive/timeline/storage.py`
+
+## Mission Control and route sources
+
+- `core/src/routes/api.py`
+- `core/src/routes/mission_control.py`
+- `core/src/routes/operations.py`
+- `core/src/static/mission_control/health_projection.js`
+- `core/src/static/mission_control/index.html`
+- `core/src/static/mission_control/timeline_projection.js`
+
+## Matched evidence
+
+- `core/executive/__init__.py:1` — **service** — """Executive-level services and durable infrastructure."""
+- `core/executive/capabilities/__init__.py:29` — **service** — from .observability import CapabilityObservabilityService
+- `core/executive/capabilities/__init__.py:64` — **service** — "CapabilityObservabilityService",
+- `core/executive/capabilities/observability.py:2` — **mission control** — """Read-only observability projection for Mission Control integration."""
+- `core/executive/capabilities/observability.py:12` — **service** — class CapabilityObservabilityService:
+- `core/executive/capabilities/selector.py:63` — **authority** — reasons.append("risk exceeds mission authority")
+- `core/executive/cli.py:33` — **executive director** — description="JARVIS Gen 2 Executive Director and Mission Engine",
+- `core/executive/director.py:1` — **executive director** — """Top-level Executive Director facade for JARVIS Gen 2."""
+- `core/executive/events/bus.py:41` — **authority** — authority, rebuilds its engine, and retries the semantic draft once.
+- `core/executive/events/publishers.py:1` — **service** — """Publisher helpers for existing Executive services."""
+- `core/executive/events/publishers.py:148` — **directorate** — subsystem=TimelineSubsystem.DIRECTORATE,
+- `core/executive/events/publishers.py:160` — **directorate** — subsystem=TimelineSubsystem.DIRECTORATE,
+- `core/executive/events/publishers.py:173` — **directorate** — subsystem=TimelineSubsystem.DIRECTORATE,
+- `core/executive/operations_center/__init__.py:3` — **service** — Executive Operations Center backend services.
+- `core/executive/operations_center/__init__.py:17` — **service** — from .services import (
+- `core/executive/operations_center/__init__.py:18` — **service** — ExecutiveDashboardService,
+- `core/executive/operations_center/__init__.py:19` — **service** — ExecutiveHealthService,
+- `core/executive/operations_center/__init__.py:20` — **service** — ExecutiveMetricsService,
+- `core/executive/operations_center/__init__.py:21` — **service** — ExecutiveStatusService,
+- `core/executive/operations_center/__init__.py:26` — **service** — "ExecutiveDashboardService",
+- `core/executive/operations_center/__init__.py:28` — **service** — "ExecutiveHealthService",
+- `core/executive/operations_center/__init__.py:31` — **service** — "ExecutiveMetricsService",
+- `core/executive/operations_center/__init__.py:33` — **service** — "ExecutiveStatusService",
+- `core/executive/operations_center/api.py:26` — **service** — from .services import (
+- `core/executive/operations_center/api.py:27` — **service** — ExecutiveDashboardService,
+- `core/executive/operations_center/api.py:28` — **service** — ExecutiveHealthService,
+- `core/executive/operations_center/api.py:29` — **service** — ExecutiveMetricsService,
+- `core/executive/operations_center/api.py:30` — **service** — ExecutiveStatusService,
+- `core/executive/operations_center/api.py:46` — **service** — """Long-lived Pack 2 services shared by REST and WebSocket handlers."""
+- `core/executive/operations_center/api.py:48` — **service** — health_service: ExecutiveHealthService
+- `core/executive/operations_center/api.py:49` — **service** — metrics_service: ExecutiveMetricsService
+- `core/executive/operations_center/api.py:50` — **service** — status_service: ExecutiveStatusService
+- `core/executive/operations_center/api.py:51` — **service** — dashboard_service: ExecutiveDashboardService
+- `core/executive/operations_center/api.py:72` — **service** — health_service = ExecutiveHealthService()
+- `core/executive/operations_center/api.py:73` — **service** — metrics_service = ExecutiveMetricsService()
+- `core/executive/operations_center/api.py:74` — **service** — status_service = ExecutiveStatusService()
+- `core/executive/operations_center/api.py:76` — **service** — dashboard_service = ExecutiveDashboardService(
+- `core/executive/operations_center/api.py:77` — **service** — health_service=health_service,
+- `core/executive/operations_center/api.py:78` — **service** — metrics_service=metrics_service,
+- `core/executive/operations_center/api.py:79` — **service** — status_service=status_service,
+- `core/executive/operations_center/api.py:85` — **service** — dashboard_service=dashboard_service,
+- `core/executive/operations_center/api.py:91` — **service** — health_service=health_service,
+- `core/executive/operations_center/api.py:92` — **service** — metrics_service=metrics_service,
+- `core/executive/operations_center/api.py:93` — **service** — status_service=status_service,
+- `core/executive/operations_center/api.py:94` — **service** — dashboard_service=dashboard_service,
+- `core/executive/operations_center/api.py:130` — **service** — runtime.dashboard_service.snapshot,
+- `core/executive/operations_center/api.py:145` — **service** — runtime.health_service.snapshot,
+- `core/executive/operations_center/api.py:160` — **service** — runtime.metrics_service.snapshot,
+- `core/executive/operations_center/api.py:175` — **service** — runtime.health_service.snapshot,
+- `core/executive/operations_center/api.py:179` — **service** — runtime.metrics_service.snapshot,
+- `core/executive/operations_center/api.py:182` — **service** — status = runtime.status_service.derive(
+- `core/executive/operations_center/api.py:266` — **service** — runtime.dashboard_service.snapshot,
+- `core/executive/operations_center/collectors.py:106` — **organization** — "organizations",
+- `core/executive/operations_center/collectors.py:107` — **organization** — "Organizations",
+- `core/executive/operations_center/collectors.py:108` — **organization** — "JARVIS_ORGANIZATION_REGISTRY",
+- `core/executive/operations_center/collectors.py:109` — **organization** — "JARVIS_ORGANIZATION_TABLE",
+- `core/executive/operations_center/collectors.py:110` — **organization** — "Registered constitutional organizations.",
+- `core/executive/operations_center/services.py:2` — **service** — Executive Operations Center services for Genesis VII-A0 Pack 1.
+- `core/executive/operations_center/services.py:68` — **service** — class ExecutiveHealthService:
+- `core/executive/operations_center/services.py:100` — **service** — class ExecutiveMetricsService:
+- `core/executive/operations_center/services.py:126` — **service** — class ExecutiveStatusService:
+- `core/executive/operations_center/services.py:202` — **service** — class ExecutiveDashboardService:
+- `core/executive/operations_center/services.py:203` — **service** — """Aggregate Pack 1 services into one canonical dashboard snapshot."""
+- `core/executive/operations_center/services.py:208` — **service** — health_service: ExecutiveHealthService | None = None,
+- `core/executive/operations_center/services.py:209` — **service** — metrics_service: ExecutiveMetricsService | None = None,
+- `core/executive/operations_center/services.py:210` — **service** — status_service: ExecutiveStatusService | None = None,
+- `core/executive/operations_center/services.py:212` — **service** — self._health_service = (
+- `core/executive/operations_center/services.py:213` — **service** — health_service or ExecutiveHealthService()
+- `core/executive/operations_center/services.py:215` — **service** — self._metrics_service = (
+- `core/executive/operations_center/services.py:216` — **service** — metrics_service or ExecutiveMetricsService()
+- `core/executive/operations_center/services.py:218` — **service** — self._status_service = status_service or ExecutiveStatusService()
+- `core/executive/operations_center/services.py:225` — **service** — health = self._health_service.snapshot(
+- `core/executive/operations_center/services.py:228` — **service** — metrics = self._metrics_service.snapshot(
+- `core/executive/operations_center/services.py:231` — **service** — status = self._status_service.derive(
+- `core/executive/operations_center/transport.py:24` — **service** — from .services import ExecutiveDashboardService
+- `core/executive/operations_center/transport.py:200` — **service** — dashboard_service: ExecutiveDashboardService,
+- `core/executive/operations_center/transport.py:207` — **service** — self._dashboard_service = dashboard_service
+- `core/executive/operations_center/transport.py:252` — **service** — self._dashboard_service.snapshot,
+- `core/executive/planning/__init__.py:54` — **service** — from core.executive.planning.service import PlanningService
+- `core/executive/planning/__init__.py:84` — **service** — "PlanningService",
+- `core/executive/planning/models.py:4` — **mission control** — authorization, or autonomous mission control.
+- `core/executive/planning/models.py:70` — **authority** — approving_authority: str | None = None
+- `core/executive/planning/models.py:84` — **authority** — and not self.approving_authority
+- `core/executive/planning/models.py:87` — **authority** — f"{self.mode.value} requires an approving_authority"
+- `core/executive/planning/models.py:388` — **authority** — approving_authority="commander",
+- `core/executive/planning/service.py:1` — **service** — """Application service for immutable mission-plan lifecycle operations."""
+- `core/executive/planning/service.py:112` — **service** — class PlanningService:
+- `core/executive/registry.py:1` — **director registry** — """Capability-aware director registry used by the Mission Engine."""
+- `core/executive/timeline/contracts.py:55` — **directorate** — DIRECTORATE = "directorate"
+- `core/executive/timeline/repository.py:21` — **authority** — """Persistent authority for already-created VI-A6.7 TimelineEvent objects."""
+- `core/executive/timeline/storage.py:14` — **authority** — """Own one JSONL authority plus its interprocess lock."""
+- `core/src/routes/api.py:11` — **service** — CatalogGroundingService,
+- `core/src/routes/api.py:13` — **service** — ExecutiveConversationService,
+- `core/src/routes/api.py:17` — **service** — from core.knowledge_awareness import ExecutiveKnowledgeAwarenessService
+- `core/src/routes/api.py:43` — **service** — catalog_grounding = CatalogGroundingService(database_path=_catalog_database_path())
+- `core/src/routes/api.py:44` — **service** — knowledge_awareness = ExecutiveKnowledgeAwarenessService()
+- `core/src/routes/api.py:52` — **service** — grounding_service=catalog_grounding,
+- `core/src/routes/api.py:53` — **service** — awareness_service=knowledge_awareness,
+- `core/src/routes/api.py:55` — **service** — conversation_service = ExecutiveConversationService(
+- `core/src/routes/api.py:76` — **service** — response = conversation_service.ask(q.question, mode=q.mode)
+- `core/src/routes/api.py:84` — **service** — return conversation_service.ask(
+- `core/src/routes/api.py:95` — **service** — session = conversation_service.repository.session(session_id)
+- `core/src/routes/api.py:106` — **service** — session = conversation_service.repository.session(session_id)
+- `core/src/routes/api.py:109` — **service** — return {"session_id": session_id, "messages": conversation_service.history(session_id, limit=limit)}
+- `core/src/routes/mission_control.py:9` — **mission control** — router = APIRouter(tags=["Mission Control"])
+- `core/src/routes/mission_control.py:17` — **mission control** — raise HTTPException(503, "Mission Control is unavailable.")
+- `core/src/routes/operations.py:12` — **service** — from core.operations import OperationsService
+- `core/src/routes/operations.py:13` — **service** — from core.observability import get_default_observability_service
+- `core/src/routes/operations.py:16` — **service** — _service = OperationsService()
+- `core/src/routes/operations.py:19` — **service** — def get_operations_service() -> OperationsService:
+- `core/src/routes/operations.py:20` — **service** — """Return the process-wide Sprint 0 Operations service."""
+- `core/src/routes/operations.py:22` — **service** — return _service
+- `core/src/routes/operations.py:25` — **service** — def get_projection_service():
+- `core/src/routes/operations.py:26` — **service** — """Return the canonical Executive Integration projection service."""
+- `core/src/routes/operations.py:28` — **service** — return get_default_integration_runtime().projection_service
+- `core/src/routes/operations.py:45` — **service** — return get_operations_service().snapshot().to_dict()
+- `core/src/routes/operations.py:52` — **service** — return get_operations_service().executive().to_dict()
+- `core/src/routes/operations.py:57` — **service** — return get_operations_service().health().to_dict()
+- `core/src/routes/operations.py:64` — **service** — for mission in get_operations_service().missions()
+- `core/src/routes/operations.py:70` — **service** — return get_operations_service().resources().to_dict()
+- `core/src/routes/operations.py:77` — **service** — return get_operations_service().timeline(limit=limit).to_dict()
+- `core/src/routes/operations.py:86` — **service** — snapshot = get_default_observability_service().latest()
+- `core/src/routes/operations.py:101` — **service** — for event in get_operations_service().event_registry.list_events(limit=limit)
+- `core/src/routes/operations.py:114` — **service** — current projection service. It is intentionally additive to VI-A3's Bridge.
+- `core/src/routes/operations.py:117` — **service** — return get_projection_service().all_projections()
+- `core/src/routes/operations.py:125` — **service** — return get_projection_service().projection(projection_id).to_dict()
+- `core/src/static/mission_control/health_projection.js:471` — **service** — "The Executive Health service returned no checks."
+- `core/src/static/mission_control/index.html:409` — **governance** — Governance
+- `core/src/static/mission_control/index.html:414` — **organization** — href="#organizations"
+- `core/src/static/mission_control/index.html:415` — **organization** — data-view="organizations"
+- `core/src/static/mission_control/index.html:425` — **organization** — Organizations
+- `core/src/static/mission_control/index.html:1131` — **service** — Health service.
+- `core/src/static/mission_control/index.html:1967` — **organization** — placeholder="Search missions, assets, knowledge, events, AI, and organizations"
+- `core/src/static/mission_control/index.html:2197` — **directorate** — Mission Directorate integration required
+- `core/src/static/mission_control/timeline_projection.js:3` — **mission control** — MISSION CONTROL EXECUTIVE EVENT TIMELINE PROJECTION
+- `core/src/static/mission_control/timeline_projection.js:216` — **mission control** — "Mission Control Executive event timeline was not found."
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:35` — **authority** — This document therefore occupies the highest architectural authority within the
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:74` — **organization** — Knowledge without organization creates confusion.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:196` — **organization** — Operational experience therefore constitutes a permanent organizational asset.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:196` — **organizational** — Operational experience therefore constitutes a permanent organizational asset.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:245` — **authority** — # 10. Architectural Authority
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:257` — **authority** — Authority therefore flows downward.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:289` — **authority** — No lower layer should contradict a higher architectural authority without an
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:341` — **service** — A domain may consist of one service, many services, or distributed services.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:370` — **organization** — • semantic organization,
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:500` — **service** — • service invocation,
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:540` — **organization** — Reflection transforms completed Missions into organizational growth.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:540` — **organizational** — Reflection transforms completed Missions into organizational growth.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:973` — **service** — Services may be replaced.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:992` — **authority** — • authority,
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1202` — **service** — • service coordination
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1232` — **organization** — Transform completed operations into organizational improvement.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1232` — **organizational** — Transform completed operations into organizational improvement.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1339` — **authority** — • constitutional authority.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1357` — **authority** — • authority,
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1393` — **service** — # 44. Service Layer
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1395` — **service** — Services perform specialized operational work.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1417` — **service** — Services should remain narrowly focused.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1419` — **service** — Well-defined services encourage composability.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1494` — **service** — Services
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1516` — **service** — Services evolve regularly.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1536` — **service** — Which Services perform it?
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1551` — **bureau** — The purpose of the hierarchy is not bureaucracy.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1752` — **service** — Execution coordinates Directors and Services to accomplish Mission objectives.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1778` — **organization** — Reflection transforms experience into organizational improvement.
+- `docs/architecture/00_JARVIS_ARCHITECTURE.md:1778` — **organizational** — Reflection transforms experience into organizational improvement.
+- `docs/architecture/11_cognitive_architecture.md:6` — **authority** — **Authority:** JARVIS Architectural Constitution
+- `docs/architecture/11_cognitive_architecture.md:131` — **service** — - specialized Services,
+- `docs/architecture/11_cognitive_architecture.md:132` — **authority** — - or operator authority.
+- `docs/architecture/11_cognitive_architecture.md:206` — **service** — - service results,
+- `docs/architecture/11_cognitive_architecture.md:341` — **authority** — - delegated authority,
+- `docs/architecture/11_cognitive_architecture.md:359` — **service** — - Services,
+- `docs/architecture/11_cognitive_architecture.md:625` — **service** — - service output,
+- `docs/architecture/11_cognitive_architecture.md:1075` — **authority** — - authority,
+- `docs/architecture/11_cognitive_architecture.md:1108` — **executive director** — # 55. Executive Director
+- `docs/architecture/11_cognitive_architecture.md:1110` — **executive director** — The Executive Director coordinates the overall cognitive cycle.
+- `docs/architecture/11_cognitive_architecture.md:1124` — **executive director** — The Executive Director coordinates cognition.
+- `docs/architecture/11_cognitive_architecture.md:1137` — **authority** — - authority,
+- `docs/architecture/11_cognitive_architecture.md:1169` — **authority** — - domain authority,
+- `docs/architecture/11_cognitive_architecture.md:1174` — **authority** — - and operator authority.
+- `docs/architecture/11_cognitive_architecture.md:1176` — **executive director** — The Executive Director should not hide material disagreement.
+- `docs/architecture/11_cognitive_architecture.md:1260` — **authority** — Cognitive Safety prevents reasoning and action from exceeding authority or
+- `docs/architecture/11_cognitive_architecture.md:1303` — **service** — - service failure,
+- `docs/architecture/11_cognitive_architecture.md:1349` — **authority** — Escalation transfers a decision to a higher authority or more capable
+- `docs/architecture/11_cognitive_architecture.md:1357` — **authority** — - insufficient authority,
+- `docs/architecture/11_cognitive_architecture.md:1569` — **governance** — Forgetting is resource governance.
+- `docs/architecture/11_cognitive_architecture.md:1602` — **authority** — - authority,
+- `docs/architecture/11_cognitive_architecture.md:1620` — **authority** — - explicit authority,
+- `docs/architecture/11_cognitive_architecture.md:1732` — **authority** — 4. Every significant decision preserves evidence and authority.
+- `docs/architecture/11_cognitive_architecture.md:1800` — **service** — 4. Context Assembly Service.
+- `docs/architecture/11_cognitive_architecture.md:1806` — **executive director** — 7. Executive Director cognitive coordinator.
+- `docs/architecture/11_cognitive_architecture.md:1836` — **executive director** — Phase IX-D will refine Executive Director implementation.
+- `docs/architecture/11_cognitive_architecture.md:1842` — **mission control** — Phase X will redesign Mission Control UI around these stable cognitive
+- `docs/architecture/11_cognitive_architecture.md:1862` — **authority** — - what authority it possesses,
+- `docs/architecture/11_cognitive_architecture.md:1886` — **authority** — JARVIS acts within authority.
+- `docs/architecture/12_reasoning_architecture.md:6` — **authority** — **Authority:** JARVIS Architectural Constitution
+- `docs/architecture/12_reasoning_architecture.md:61` — **authority** — - the authority involved,
+- `docs/architecture/12_reasoning_architecture.md:184` — **service** — - service outputs,
+- `docs/architecture/12_reasoning_architecture.md:235` — **authority** — - authority,
+- `docs/architecture/12_reasoning_architecture.md:289` — **authority** — - and required authority.
+- `docs/architecture/12_reasoning_architecture.md:390` — **authority** — - authority,
+- `docs/architecture/12_reasoning_architecture.md:427` — **authority** — - source authority,
+- `docs/architecture/12_reasoning_architecture.md:785` — **authority** — - required authority,
+- `docs/architecture/12_reasoning_architecture.md:820` — **authority** — - authority,
+- `docs/architecture/12_reasoning_architecture.md:961` — **authority** — - source authority,
+- `docs/architecture/12_reasoning_architecture.md:1134` — **organization** — - organizational policy,
+- `docs/architecture/12_reasoning_architecture.md:1134` — **organizational** — - organizational policy,
+- `docs/architecture/12_reasoning_architecture.md:1137` — **authority** — - or delegated authority.
+- `docs/architecture/12_reasoning_architecture.md:1261` — **authority** — - and authority.
+- `docs/architecture/12_reasoning_architecture.md:1273` — **authority** — - authority,
+- `docs/architecture/12_reasoning_architecture.md:1398` — **service** — - coordinating specialized reasoning services,
+- `docs/architecture/12_reasoning_architecture.md:1410` — **service** — # 72. Reasoning Services
+- `docs/architecture/12_reasoning_architecture.md:1412` — **service** — Reasoning Services may include:
+- `docs/architecture/12_reasoning_architecture.md:1414` — **service** — - Evidence Service,
+- `docs/architecture/12_reasoning_architecture.md:1415` — **service** — - Claim Service,
+- `docs/architecture/12_reasoning_architecture.md:1416` — **service** — - Hypothesis Service,
+- `docs/architecture/12_reasoning_architecture.md:1417` — **service** — - Contradiction Service,
+- `docs/architecture/12_reasoning_architecture.md:1418` — **service** — - Confidence Service,
+- `docs/architecture/12_reasoning_architecture.md:1419` — **service** — - Risk Service,
+- `docs/architecture/12_reasoning_architecture.md:1420` — **service** — - Alternative Service,
+- `docs/architecture/12_reasoning_architecture.md:1421` — **service** — - Decision Service,
+- `docs/architecture/12_reasoning_architecture.md:1422` — **service** — - Verification Service,
+- `docs/architecture/12_reasoning_architecture.md:1423` — **service** — - and Explanation Service.
+- `docs/architecture/12_reasoning_architecture.md:1425` — **service** — Each Service should have a narrow contract.
+- `docs/architecture/12_reasoning_architecture.md:1429` — **service** — # 73. Evidence Service
+- `docs/architecture/12_reasoning_architecture.md:1431` — **service** — The Evidence Service manages:
+- `docs/architecture/12_reasoning_architecture.md:1446` — **service** — # 74. Claim Service
+- `docs/architecture/12_reasoning_architecture.md:1448` — **service** — The Claim Service manages:
+- `docs/architecture/12_reasoning_architecture.md:1461` — **service** — # 75. Hypothesis Service
+- `docs/architecture/12_reasoning_architecture.md:1463` — **service** — The Hypothesis Service manages:
+- `docs/architecture/12_reasoning_architecture.md:1476` — **service** — # 76. Contradiction Service
+- `docs/architecture/12_reasoning_architecture.md:1478` — **service** — The Contradiction Service identifies and tracks material conflict.
+- `docs/architecture/12_reasoning_architecture.md:1490` — **service** — # 77. Confidence Service
+- `docs/architecture/12_reasoning_architecture.md:1492` — **service** — The Confidence Service evaluates and propagates confidence.
+- `docs/architecture/12_reasoning_architecture.md:1503` — **service** — # 78. Risk Service
+- `docs/architecture/12_reasoning_architecture.md:1505` — **service** — The Risk Service evaluates consequence and uncertainty.
+- `docs/architecture/12_reasoning_architecture.md:1517` — **service** — # 79. Alternative Service
+- `docs/architecture/12_reasoning_architecture.md:1519` — **service** — The Alternative Service manages:
+- `docs/architecture/12_reasoning_architecture.md:1532` — **service** — # 80. Decision Service
+- `docs/architecture/12_reasoning_architecture.md:1534` — **service** — The Decision Service records selected conclusions or recommendations.
+- `docs/architecture/12_reasoning_architecture.md:1538` — **authority** — - authority,
+- `docs/architecture/12_reasoning_architecture.md:1550` — **service** — # 81. Verification Service
+- `docs/architecture/12_reasoning_architecture.md:1552` — **service** — The Verification Service evaluates whether a proposed conclusion is adequately
+- `docs/architecture/12_reasoning_architecture.md:1568` — **service** — # 82. Explanation Service
+- `docs/architecture/12_reasoning_architecture.md:1570` — **service** — The Explanation Service produces operator-facing structured explanations.
+- `docs/architecture/12_reasoning_architecture.md:1597` — **authority** — - authority,
+- `docs/architecture/12_reasoning_architecture.md:1636` — **authority** — - decision authority,
+- `docs/architecture/12_reasoning_architecture.md:1651` — **authority** — # 86. Decision Authority
+- `docs/architecture/12_reasoning_architecture.md:1653` — **authority** — Decision authority may belong to:
+- `docs/architecture/12_reasoning_architecture.md:1659` — **authority** — - or an external authority.
+- `docs/architecture/12_reasoning_architecture.md:1663` — **authority** — It must not silently expand its own authority.
+- `docs/architecture/12_reasoning_architecture.md:1670` — **authority** — authority.
+- `docs/architecture/12_reasoning_architecture.md:1704` — **authority** — - authority is insufficient,
+- `docs/architecture/12_reasoning_architecture.md:1866` — **authority** — - and decisions awaiting authority.
+- `docs/architecture/12_reasoning_architecture.md:2002` — **mission control** — # 107. Mission Control Integration
+- `docs/architecture/12_reasoning_architecture.md:2004` — **mission control** — Mission Control may display:
+- `docs/architecture/12_reasoning_architecture.md:2015` — **mission control** — Mission Control renders backend Reasoning State.
+- `docs/architecture/12_reasoning_architecture.md:2115` — **authority** — - and fabricated authority.
+- `docs/architecture/12_reasoning_architecture.md:2142` — **authority** — - authority mismatch,
+- `docs/architecture/12_reasoning_architecture.md:2186` — **service** — Reasoning may be distributed across devices or services.
+- `docs/architecture/12_reasoning_architecture.md:2192` — **authority** — - authority boundaries,
+- `docs/architecture/12_reasoning_architecture.md:2196` — **authority** — - and durable final authority.
+- `docs/architecture/12_reasoning_architecture.md:2278` — **authority** — - and decision authority.
+- `docs/architecture/12_reasoning_architecture.md:2305` — **authority** — 9. Recommendations do not silently grant execution authority.
+- `docs/architecture/12_reasoning_architecture.md:2311` — **mission control** — 12. Mission Control does not own authoritative reasoning state.
+- `docs/architecture/12_reasoning_architecture.md:2351` — **authority** — - authority,
+- `docs/architecture/12_reasoning_architecture.md:2378` — **service** — 3. Evidence Record and Evidence Service.
+- `docs/architecture/12_reasoning_architecture.md:2396` — **service** — 12. Verification Service.
+- `docs/architecture/12_reasoning_architecture.md:2398` — **service** — 13. Explanation Service.
+- `docs/architecture/12_reasoning_architecture.md:2406` — **mission control** — 17. Mission Control observability API.
+- `docs/architecture/12_reasoning_architecture.md:2492` — **service** — Director and Service boundaries are defined,
+- `docs/architecture/12_reasoning_architecture.md:2515` — **mission control** — - Mission Control renders reasoning state without becoming the authoritative owner.
+- `docs/architecture/12_reasoning_architecture.md:2536` — **authority** — Who possesses decision authority?
+- `docs/architecture/13_mission_planning_architecture.md:5` — **authority** — **Authority:** ADR-0000
+- `docs/architecture/13_mission_planning_architecture.md:141` — **authority** — a delegated authority,
+- `docs/architecture/13_mission_planning_architecture.md:256` — **authority** — 3.6 Authority Must Be Explicit
+- `docs/architecture/13_mission_planning_architecture.md:269` — **authority** — No task may inherit unlimited authority merely because its parent mission was
+- `docs/architecture/13_mission_planning_architecture.md:323` — **authority** — Safety, legality, integrity, reversibility, privacy, and authority take
+- `docs/architecture/13_mission_planning_architecture.md:346` — **service** — backend services,
+- `docs/architecture/13_mission_planning_architecture.md:444` — **service** — a software service,
+- `docs/architecture/13_mission_planning_architecture.md:481` — **executive director** — Executive Director
+- `docs/architecture/13_mission_planning_architecture.md:491` — **service** — Execution Services
+- `docs/architecture/13_mission_planning_architecture.md:501` — **authority** — The Commander is the highest mission authority.
+- `docs/architecture/13_mission_planning_architecture.md:516` — **authority** — an explicitly delegated human authority,
+- `docs/architecture/13_mission_planning_architecture.md:523` — **executive director** — 5.2 Executive Director
+- `docs/architecture/13_mission_planning_architecture.md:525` — **executive director** — The Executive Director owns cross-mission coordination.
+- `docs/architecture/13_mission_planning_architecture.md:527` — **executive director** — The Executive Director:
+- `docs/architecture/13_mission_planning_architecture.md:539` — **executive director** — The Executive Director does not personally generate every task or command.
+- `docs/architecture/13_mission_planning_architecture.md:564` — **service** — It produces execution-ready plans for authorized execution services.
+- `docs/architecture/13_mission_planning_architecture.md:634` — **service** — 5.7 Execution Services
+- `docs/architecture/13_mission_planning_architecture.md:636` — **service** — Execution Services perform authorized activities and commands.
+- `docs/architecture/13_mission_planning_architecture.md:648` — **service** — Execution Services must reject plan elements that exceed their authorization
+- `docs/architecture/13_mission_planning_architecture.md:694` — **service** — All identified services are safely configured for extended vacancy, monitoring
+- `docs/architecture/13_mission_planning_architecture.md:923` — **authority** — authority,
+- `docs/architecture/13_mission_planning_architecture.md:1047` — **authority** — approving authority,
+- `docs/architecture/13_mission_planning_architecture.md:1119` — **executive director** — the Executive Director,
+- `docs/architecture/13_mission_planning_architecture.md:1120` — **service** — policy services,
+- `docs/architecture/13_mission_planning_architecture.md:1121` — **service** — safety services,
+- `docs/architecture/13_mission_planning_architecture.md:1204` — **authority** — authority,
+- `docs/architecture/13_mission_planning_architecture.md:1262` — **service** — Invalid transitions must be rejected by the planning service.
+- `docs/architecture/13_mission_planning_architecture.md:1294` — **authority** — Capabilities may not grant themselves authority.
+- `docs/architecture/13_mission_planning_architecture.md:1297` — **service** — # 11. Initial Service Boundaries
+- `docs/architecture/13_mission_planning_architecture.md:1299` — **service** — The initial implementation should preserve the following service boundaries:
+- `docs/architecture/13_mission_planning_architecture.md:1301` — **service** — MissionService
+- `docs/architecture/13_mission_planning_architecture.md:1302` — **service** — PlanningService
+- `docs/architecture/13_mission_planning_architecture.md:1304` — **service** — PlanningSessionService
+- `docs/architecture/13_mission_planning_architecture.md:1305` — **service** — PlanValidationService
+- `docs/architecture/13_mission_planning_architecture.md:1306` — **service** — DependencyService
+- `docs/architecture/13_mission_planning_architecture.md:1307` — **service** — AuthorizationMappingService
+- `docs/architecture/13_mission_planning_architecture.md:1308` — **service** — RiskPlanningService
+- `docs/architecture/13_mission_planning_architecture.md:1309` — **service** — CapabilityResolutionService
+- `docs/architecture/13_mission_planning_architecture.md:1310` — **service** — PlanExplanationService
+- `docs/architecture/13_mission_planning_architecture.md:1326` — **service** — ├── service.py
+- `docs/architecture/13_mission_planning_architecture.md:1354` — **service** — and initial service boundaries.
+- `docs/architecture/13_mission_planning_architecture.md:1379` — **authority** — No plan is authority.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:11` — **service** — JARVIS is a collection of independent services working together to provide an intelligent, persistent assistant that follows the user across operating systems and hardware platforms.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:31` — **service** — JARVIS is designed around services rather than features.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:35` — **service** — Services should remain stable.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:37` — **service** — Applications and capabilities are built on top of these core services.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:41` — **service** — # Core Services
+- `docs/architecture/JARVIS_ARCHITECTURE.md:58` — **service** — The Runtime service provides the foundation on which every other service depends.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:91` — **service** — Doctor continuously verifies that required services, storage, models, and dependencies remain healthy.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:165` — **service** — # Supporting Services
+- `docs/architecture/JARVIS_ARCHITECTURE.md:167` — **service** — Additional services extend the platform without changing the core architecture.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:180` — **service** — Supporting services consume the core services.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:186` — **service** — # Service Relationships
+- `docs/architecture/JARVIS_ARCHITECTURE.md:209` — **service** — Supporting Services
+- `docs/architecture/JARVIS_ARCHITECTURE.md:222` — **service** — Each service owns one domain.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:230` — **service** — Services communicate through stable interfaces.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:232` — **service** — Changes within one service should not require changes throughout the system.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:238` — **service** — Whenever practical, new functionality should be introduced through plugins rather than modifications to existing services.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:258` — **service** — Cloud services enhance JARVIS but do not define it.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:264` — **authority** — The user remains the final authority.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:282` — **service** — The architecture should allow new services and capabilities without redesigning the core system.
+- `docs/architecture/JARVIS_ARCHITECTURE.md:293` — **service** — * Which core service does it belong to?
+- `docs/architecture/JARVIS_ARCHITECTURE.md:294` — **service** — * Can an existing service already perform this work?
+- `docs/architecture/JARVIS_ARCHITECTURE.md:296` — **service** — * Can it be removed without affecting unrelated services?
+- `docs/architecture/architecture_blueprint.md:4` — **governance** — **Phase:** Stabilization Phase II-A — Architecture Governance
+- `docs/architecture/architecture_blueprint.md:11` — **service** — Before adding a new directory, package, service, or major module, every developer must answer:
+- `docs/architecture/architecture_blueprint.md:38` — **service** — ├── Core Services
+- `docs/architecture/architecture_blueprint.md:70` — **service** — - Service initialization
+- `docs/architecture/architecture_blueprint.md:88` — **service** — core/bootstrap/services/runtime.py
+- `docs/architecture/architecture_blueprint.md:101` — **service** — # 6. Core Services
+- `docs/architecture/architecture_blueprint.md:106` — **service** — core/bootstrap/services/
+- `docs/architecture/architecture_blueprint.md:113` — **service** — - Runtime services
+- `docs/architecture/architecture_blueprint.md:114` — **service** — - Capability services
+- `docs/architecture/architecture_blueprint.md:115` — **service** — - Virtual environment services
+- `docs/architecture/architecture_blueprint.md:204` — **service** — - Discovery services
+- `docs/architecture/architecture_blueprint.md:317` — **service** — - Object services
+- `docs/architecture/architecture_blueprint.md:332` — **service** — - Registry services
+- `docs/architecture/architecture_blueprint.md:451` — **organization** — - Library organization
+- `docs/architecture/architecture_intelligence.md:78` — **governance** — - **V-B1:** Dependency governance.
+- `docs/architecture/architecture_intelligence.md:89` — **authority** — Human authority approves source changes, migrations, deletions, and releases.
+- `docs/architecture/assimilation_core.md:20` — **service** — Extraction Service
+- `docs/architecture/assimilation_core.md:22` — **service** — Persistence Service
+- `docs/architecture/assimilation_core.md:26` — **service** — State Service
+- `docs/architecture/assimilation_core.md:41` — **service** — ### ExtractionService
+- `docs/architecture/assimilation_core.md:49` — **service** — ### DocumentPersistenceService
+- `docs/architecture/assimilation_core.md:55` — **service** — ### AttemptJournalService
+- `docs/architecture/assimilation_core.md:61` — **service** — ### AssimilationStateService
+- `docs/architecture/assimilation_core.md:100` — **service** — Services never call each other.
+- `docs/architecture/assimilation_core.md:110` — **service** — Services are transaction-neutral.
+- `docs/architecture/bootstrap_canonical.md:41` — **service** — - start services
+- `docs/architecture/bootstrap_canonical.md:70` — **service** — It manually initializes bootstrap services such as:
+- `docs/architecture/cognition/00_overview.md:20` — **authority** — - executive authority;
+- `docs/architecture/cognition/00_overview.md:100` — **authority** — Reasoning may not assume planning or executive authority.
+- `docs/architecture/cognition/01_cognitive_object_model.md:5` — **authority** — and justification references, authority, attributes, canonical serialization, and
+- `docs/architecture/cognition/genesis_vi_a3_cognitive_state_machine.md:47` — **authority** — -> AWAITING_AUTHORITY (optional)
+- `docs/architecture/cognition/genesis_vi_a5_executive_session.md:10` — **authority** — > mission identity, executive identity, authority, and lifecycle continuity.
+- `docs/architecture/cognition/genesis_vi_a5_executive_session.md:21` — **authority** — - session-level authority inheritance;
+- `docs/architecture/cognitive_semantic_articulation.md:71` — **authority** — relationships, and requested outcomes. Execution authority remains excluded.
+- `docs/architecture/commanders_bridge_foundation.md:6` — **mission control** — MC-1002 establishes Mission Control's first operational workspace. The browser
+- `docs/architecture/convergence/genesis_1a1_reasoning_contract_audit.md:202` — **service** — The next audit increment should inspect orchestration in `core/reasoning/service.py` and determine how the existing contracts participate in a complete reasoning session.
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:3` — **service** — "canonical_service": "ReasoningEngine",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:7` — **governance** — "evolution_policy": "Wrap the service with lifecycle and governance layers rather than absorbing those concerns into ReasoningEngine.",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:7` — **service** — "evolution_policy": "Wrap the service with lifecycle and governance layers rather than absorbing those concerns into ReasoningEngine.",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:8` — **service** — "service_present": true
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:33` — **service** — "title": "ReasoningEngine service exists"
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:463` — **service** — "module": "core.reasoning.service",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:465` — **service** — "path": "core/reasoning/service.py"
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:539` — **service** — "core.reasoning.service"
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:1959` — **service** — "core.reasoning.service",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:1968` — **service** — "core.reasoning.service": {
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2029` — **service** — "module": "core.reasoning.service",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2030` — **service** — "path": "core/reasoning/service.py",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2260` — **service** — "purpose": "Certify the canonical Reasoning Engine service boundary before architecture-baseline synthesis.",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2261` — **service** — "required_service": "ReasoningEngine",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2262` — **service** — "services": [
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2309` — **service** — "module": "core.reasoning.service",
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2311` — **service** — "path": "core/reasoning/service.py"
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2321` — **service** — "service_count": 1
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json:2323` — **service** — "title": "Reasoning Service Audit"
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:1` — **service** — # Genesis I-A2 — Reasoning Service Audit
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:10` — **service** — Certify the canonical Reasoning Engine service boundary before architecture-baseline synthesis.
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:18` — **service** — | Canonical services | 1 |
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:28` — **service** — | `I-A2-003` ReasoningEngine service exists | **PASS** | count=1 |
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:34` — **service** — ## Canonical Service
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:38` — **service** — - Module: `core.reasoning.service`
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:39` — **service** — - Source: `core/reasoning/service.py:32`
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:53` — **governance** — The canonical `ReasoningEngine` remains the deterministic reasoning service. Future lifecycle, governance, provenance, adaptive control, calibration, and learning concerns must wrap this service through explicit extension layers.
+- `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.md:53` — **service** — The canonical `ReasoningEngine` remains the deterministic reasoning service. Future lifecycle, governance, provenance, adaptive control, calibration, and learning concerns must wrap this service through explicit extension layers.
+- `docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.json:51` — **governance** — "Do not introduce executive governance into the adapter; governance belongs to a future ReasoningSession or Executive integration layer.",
+- `docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.json:403` — **service** — "core.reasoning.service.ReasoningEngine",
+- `docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.md:152` — **governance** — - Do not introduce executive governance into the adapter; governance belongs to a future ReasoningSession or Executive integration layer.
+- `docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.md:161` — **governance** — The future `ReasoningSession` will provide execution context, governance, budgets, and lifecycle state around this existing pipeline.
+- `docs/architecture/convergence/genesis_1a3_knowledge_integration_audit.md:167` — **service** — I-A4 will consolidate the contract, service, knowledge-adapter, and pipeline findings into one authoritative architecture map before the Reasoning Session model is introduced.
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:61` — **governance** — "compatibility_requirement": "Governance must be explicit and serialized.",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:63` — **governance** — "name": "ExecutiveReasoningGovernance",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:140` — **governance** — "ExecutiveReasoningGovernance"
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:249` — **governance** — "Executive governance"
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:307` — **service** — "core/reasoning/service.py",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:385` — **governance** — "change_governance": {
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:467` — **authority** — "rationale": "Recommendations are advisory outputs, not executive authority.",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:501` — **authority** — "rationale": "Authority boundaries must remain explicit.",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:503` — **authority** — "title": "No Hidden Executive Authority",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:540` — **governance** — "capability": "Executive Governance",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:560` — **authority** — "executive_summary": "The existing Reasoning Engine is a coherent deterministic subsystem. Genesis will evolve it through a ReasoningSession envelope, structured provenance, executive governance, adaptive reasoning, calibration, and governe
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:560` — **governance** — "executive_summary": "The existing Reasoning Engine is a coherent deterministic subsystem. Genesis will evolve it through a ReasoningSession envelope, structured provenance, executive governance, adaptive reasoning, calibration, and governe
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:635` — **service** — "path": "docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:637` — **service** — "title": "Reasoning Service Audit"
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:649` — **executive director** — "Executive Director",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.json:650` — **governance** — "ExecutiveReasoningGovernance",
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:11` — **authority** — The existing Reasoning Engine is a coherent deterministic subsystem. Genesis will evolve it through a ReasoningSession envelope, structured provenance, executive governance, adaptive reasoning, calibration, and governed learning while prese
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:11` — **governance** — The existing Reasoning Engine is a coherent deterministic subsystem. Genesis will evolve it through a ReasoningSession envelope, structured provenance, executive governance, adaptive reasoning, calibration, and governed learning while prese
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:18` — **service** — | Genesis I-A2 | `GENESIS-I-A2` | `docs/architecture/convergence/genesis_1a2_reasoning_service_audit.json` | `d9746235a837e00522640452a751286753ad2f97a91e981a681c318bb624bb3c` |
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:148` — **governance** — - Executive governance
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:208` — **service** — - `core/reasoning/service.py`
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:358` — **authority** — **Rationale:** Recommendations are advisory outputs, not executive authority.
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:384` — **authority** — ### RE-C-009 — No Hidden Executive Authority
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:388` — **authority** — **Rationale:** Authority boundaries must remain explicit.
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:450` — **governance** — ### `ExecutiveReasoningGovernance`
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:470` — **governance** — **Compatibility requirement:** Governance must be explicit and serialized.
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:555` — **executive director** — Executive Director
+- `docs/architecture/convergence/genesis_1a4_reasoning_architecture_baseline.md:557` — **governance** — ExecutiveReasoningGovernance
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:30` — **service** — "to": "core.cognition.workspace.core.cognition.workspace.service"
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:145` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:149` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:153` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:157` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:161` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:186` — **service** — "to": "core.cognition.integration.service"
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:214` — **service** — "to": "core.cognition.integration.core.cognition.integration.service"
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:245` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:249` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:253` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:257` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:261` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.json:265` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:22` — **service** — - `core.cognition.workspace` → `core.cognition.workspace.core.cognition.workspace.service`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:49` — **service** — - `core.cognition.workspace.service` → `core.cognition.workspace.__future__`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:50` — **service** — - `core.cognition.workspace.service` → `core.cognition.workspace.core.cognition.workspace.enums`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:51` — **service** — - `core.cognition.workspace.service` → `core.cognition.workspace.core.cognition.workspace.errors`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:52` — **service** — - `core.cognition.workspace.service` → `core.cognition.workspace.core.cognition.workspace.models`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:53` — **service** — - `core.cognition.workspace.service` → `core.cognition.workspace.dataclasses`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:59` — **service** — - `core.cognition.integration` → `core.cognition.integration.service`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:66` — **service** — - `core.cognition.integration.director` → `core.cognition.integration.core.cognition.integration.service`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:74` — **service** — - `core.cognition.integration.service` → `core.cognition.integration.__future__`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:75` — **service** — - `core.cognition.integration.service` → `core.cognition.integration.core.cognition.integration.contracts`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:76` — **service** — - `core.cognition.integration.service` → `core.cognition.integration.core.cognition.integration.models`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:77` — **service** — - `core.cognition.integration.service` → `core.cognition.integration.core.cognition.integration.pipeline`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:78` — **service** — - `core.cognition.integration.service` → `core.cognition.integration.core.cognition.workspace`
+- `docs/architecture/convergence/genesis_3f1_dependency_graph.md:79` — **service** — - `core.cognition.integration.service` → `core.cognition.integration.dataclasses`
+- `docs/architecture/convergence/genesis_3f1_public_api.json:14` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_public_api.json:126` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_public_api.json:137` — **service** — "module": "core.cognition.workspace.service"
+- `docs/architecture/convergence/genesis_3f1_public_api.json:144` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_public_api.json:173` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_public_api.json:201` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_public_api.json:215` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_public_api.json:223` — **service** — "module": "core.cognition.integration.service"
+- `docs/architecture/convergence/genesis_3f1_public_api.json:231` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_public_api.json:251` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_public_api.md:17` — **service** — - `CognitiveWorkspaceService`
+- `docs/architecture/convergence/genesis_3f1_public_api.md:37` — **service** — - `CognitiveWorkspaceIntegrationService`
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:36` — **service** — "to": "core.cognition.workspace.core.cognition.workspace.service"
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:151` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:155` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:159` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:163` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:167` — **service** — "from": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:192` — **service** — "to": "core.cognition.integration.service"
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:220` — **service** — "to": "core.cognition.integration.core.cognition.integration.service"
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:251` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:255` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:259` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:263` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:267` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:271` — **service** — "from": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:300` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:321` — **service** — "core.cognition.workspace.core.cognition.workspace.service"
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:469` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:487` — **service** — "module": "core.cognition.workspace.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:488` — **service** — "path": "core/cognition/workspace/service.py",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:496` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:512` — **service** — "core.cognition.integration.service"
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:542` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:551` — **service** — "core.cognition.integration.core.cognition.integration.service"
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:588` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:610` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:626` — **service** — "module": "core.cognition.integration.service",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:627` — **service** — "path": "core/cognition/integration/service.py",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:644` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:756` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:767` — **service** — "module": "core.cognition.workspace.service"
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:774` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:803` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:831` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:845` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:853` — **service** — "module": "core.cognition.integration.service"
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:861` — **service** — "CognitiveWorkspaceIntegrationService",
+- `docs/architecture/convergence/genesis_3f1_snapshot.json:881` — **service** — "CognitiveWorkspaceService",
+- `docs/architecture/convergence/genesis_iv_b4_final_canonical_convergence.md:46` — **governance** — not create governance ownership.
+- `docs/architecture/convergence/genesis_iv_b4_final_canonical_convergence.md:59` — **governance** — - governance of every direct Observation definition;
+- `docs/architecture/convergence/genesis_iv_b4b_behavioral_compatibility.md:6` — **governance** — of the Genesis IV-B3 compatibility surface while retaining IV-B4 governance.
+- `docs/architecture/convergence/genesis_vi_b0_integration_contract_convergence.md:4` — **authority** — **Authority:** Genesis VI
+- `docs/architecture/convergence/genesis_vi_b0_integration_contract_convergence.md:12` — **mission control** — 2. strongly typed executive projections used by Mission Control.
+- `docs/architecture/convergence/genesis_vi_b0_integration_contract_convergence.md:29` — **mission control** — ├── Mission Control
+- `docs/architecture/convergence/genesis_vi_b0_integration_contract_convergence.md:66` — **mission control** — removing the Mission Control contract family. This is additive convergence,
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:4` — **authority** — **Authority:** Genesis VI
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:15` — **service** — Runtime Services
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:28` — **service** — ExecutiveProjectionService
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:35` — **mission control** — Operations API Mission Control UI
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:50` — **service** — - `core.integration.service`
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:51` — **service** — - `ExecutiveProjectionService`
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:52` — **service** — - `ExecutiveIntegrationService` compatibility service
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:64` — **service** — 9. `ProjectionStatus.UNKNOWN` is valid for indeterminate service state.
+- `docs/architecture/convergence/genesis_vi_b0_projection_plane.md:65` — **service** — 10. The legacy repository-analysis service remains available during migration.
+- `docs/architecture/convergence/genesis_vi_b0a_projection_compatibility.md:16` — **service** — service.projection_envelopes() -> tuple[ProjectionEnvelope, ...]
+- `docs/architecture/convergence/genesis_vi_b0a_projection_compatibility.md:17` — **service** — service.executive_projection() -> ExecutiveProjection
+- `docs/architecture/convergence/genesis_vi_b0a_projection_compatibility.md:23` — **service** — service.all_projections() -> dict
+- `docs/architecture/convergence/phase_9c1_inventory.json:16` — **authority** — "# 10. Architectural Authority",
+- `docs/architecture/convergence/phase_9c1_inventory.json:54` — **service** — "# 44. Service Layer",
+- `docs/architecture/convergence/phase_9c1_inventory.json:136` — **executive director** — "# 55. Executive Director",
+- `docs/architecture/convergence/phase_9c1_inventory.json:257` — **service** — "# 72. Reasoning Services",
+- `docs/architecture/convergence/phase_9c1_inventory.json:258` — **service** — "# 73. Evidence Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:259` — **service** — "# 74. Claim Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:260` — **service** — "# 75. Hypothesis Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:261` — **service** — "# 76. Contradiction Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:262` — **service** — "# 77. Confidence Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:263` — **service** — "# 78. Risk Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:264` — **service** — "# 79. Alternative Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:265` — **service** — "# 80. Decision Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:266` — **service** — "# 81. Verification Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:267` — **service** — "# 82. Explanation Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:271` — **authority** — "# 86. Decision Authority",
+- `docs/architecture/convergence/phase_9c1_inventory.json:292` — **mission control** — "# 107. Mission Control Integration",
+- `docs/architecture/convergence/phase_9c1_inventory.json:338` — **service** — "# 11. Initial Service Boundaries",
+- `docs/architecture/convergence/phase_9c1_inventory.json:353` — **service** — "# Core Services",
+- `docs/architecture/convergence/phase_9c1_inventory.json:359` — **service** — "# Supporting Services",
+- `docs/architecture/convergence/phase_9c1_inventory.json:360` — **service** — "# Service Relationships",
+- `docs/architecture/convergence/phase_9c1_inventory.json:395` — **service** — "# 6. Core Services",
+- `docs/architecture/convergence/phase_9c1_inventory.json:434` — **service** — "### ExtractionService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:435` — **service** — "### DocumentPersistenceService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:436` — **service** — "### AttemptJournalService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:437` — **service** — "### AssimilationStateService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:511` — **executive director** — "# JARVIS Gen 2 Phase I \u2014 Executive Director and Mission Engine",
+- `docs/architecture/convergence/phase_9c1_inventory.json:529` — **executive director** — "title": "JARVIS Gen 2 Phase I \u2014 Executive Director and Mission Engine"
+- `docs/architecture/convergence/phase_9c1_inventory.json:682` — **service** — "# Extraction and Chunking Service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:689` — **service** — "## ExtractionService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:694` — **service** — "## ExtractionService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:703` — **service** — "path": "docs/architecture/milestones/phase_vi_e4_extraction_service.md",
+- `docs/architecture/convergence/phase_9c1_inventory.json:755` — **service** — "## Service-state contract",
+- `docs/architecture/convergence/phase_9c1_inventory.json:902` — **service** — "## KnowledgeService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:972` — **service** — "# Knowledge Engine Service Architecture",
+- `docs/architecture/convergence/phase_9c1_inventory.json:975` — **service** — "# Public Services",
+- `docs/architecture/convergence/phase_9c1_inventory.json:978` — **service** — "## Services",
+- `docs/architecture/convergence/phase_9c1_inventory.json:984` — **service** — "path": "docs/architecture/service_architecture.md",
+- `docs/architecture/convergence/phase_9c1_inventory.json:987` — **service** — "title": "Knowledge Engine Service Architecture"
+- `docs/architecture/convergence/phase_9c1_inventory.json:1024` — **mission control** — "# JARVIS Mission Control UI Design Language",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1054` — **mission control** — "title": "JARVIS Mission Control UI Design Language"
+- `docs/architecture/convergence/phase_9c1_inventory.json:1058` — **mission control** — "# JARVIS Mission Control User Experience",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1077` — **mission control** — "title": "JARVIS Mission Control User Experience"
+- `docs/architecture/convergence/phase_9c1_inventory.json:1081` — **mission control** — "# JARVIS Mission Control Screen Architecture",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1089` — **mission control** — "title": "JARVIS Mission Control Screen Architecture"
+- `docs/architecture/convergence/phase_9c1_inventory.json:1093` — **mission control** — "# JARVIS Mission Control Navigation Model",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1117` — **mission control** — "title": "JARVIS Mission Control Navigation Model"
+- `docs/architecture/convergence/phase_9c1_inventory.json:1324` — **mission control** — "# JARVIS Mission Control",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1336` — **authority** — "# 11. Source Authority",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1407` — **mission control** — "title": "JARVIS Mission Control"
+- `docs/architecture/convergence/phase_9c1_inventory.json:1433` — **authority** — "# 22. Decision Authority",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1463` — **governance** — "# 52. Tag Governance",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1511` — **mission control** — "# JARVIS Mission Control UI",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1519` — **mission control** — "title": "JARVIS Mission Control UI"
+- `docs/architecture/convergence/phase_9c1_inventory.json:1682` — **authority** — "## FP-009 \u2014 Human Authority",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1703` — **governance** — "# GV-0001 \u2014 Executive Governance",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1706` — **authority** — "# 3. Authority",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1707` — **governance** — "# 4. Governance Principles",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1709` — **authority** — "## GV-002 \u2014 Human Authority",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1715` — **governance** — "## GV-008 \u2014 Separation of Governance and Implementation",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1716` — **governance** — "# 5. Governance Responsibilities",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1725` — **governance** — "path": "docs/standards/foundation/GV-0001_Governance.md",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1728` — **governance** — "title": "GV-0001 \u2014 Executive Governance"
+- `docs/architecture/convergence/phase_9c1_inventory.json:1735` — **authority** — "# 3. Authority",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1819` — **service** — "PlanningService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:1846` — **service** — "PlanningService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:2227` — **executive director** — "module_docstring": "Top-level Executive Director facade for JARVIS Gen 2.",
+- `docs/architecture/convergence/phase_9c1_inventory.json:2574` — **service** — "PlanningService",
+- `docs/architecture/convergence/phase_9c1_inventory.json:2663` — **service** — "module": "core.executive.planning.service",
+- `docs/architecture/convergence/phase_9c1_inventory.json:2665` — **service** — "PlanningService"
+- `docs/architecture/convergence/phase_9c1_inventory.json:3055` — **mission control** — "module_docstring": "Canonical immutable planning contracts for JARVIS.\n\nThe contracts in this module describe plan data. They do not perform execution,\nauthorization, or autonomous mission control.",
+- `docs/architecture/convergence/phase_9c1_inventory.json:3348` — **service** — "module_docstring": "Application service for immutable mission-plan lifecycle operations.",
+- `docs/architecture/convergence/phase_9c1_inventory.json:3349` — **service** — "path": "core/executive/planning/service.py",
+- `docs/architecture/convergence/phase_9c1_inventory.json:3358` — **service** — "name": "PlanningService"
+- `docs/architecture/convergence/phase_9c1_inventory.json:3512` — **service** — "module_docstring": "Deterministic and explainable mission-planning engine.\n\nPhase IX-C3 establishes analysis contracts first. Graph construction,\nreadiness evaluation, scoring, and recommendation services are added in\nthe subsequent bo
+- `docs/architecture/convergence/phase_9c1_inventory.json:3940` — **director registry** — "module_docstring": "Capability-aware director registry used by the Mission Engine.",
+- `docs/architecture/convergence/phase_9c1_inventory.json:4077` — **service** — "class:PlanningService@core/executive/planning/service.py:112",
+- `docs/architecture/convergence/phase_9c1_inventory.json:4135` — **service** — "core/executive/planning/service.py",
+- `docs/architecture/convergence/phase_9c1_inventory.json:4148` — **service** — "Treat core/executive/planning/ as the leading canonical candidate because it already contains service, repository, validation, dependency, model, enum, and error layers.",
+- `docs/architecture/convergence/phase_9c1_inventory.md:32` — **service** — | core/executive/planning/service.py | 211 | yes | PlanningService | 52884c1f12ea |
+- `docs/architecture/convergence/phase_9c1_inventory.md:61` — **service** — - `core/executive/planning/service.py`
+- `docs/architecture/convergence/phase_9c1_inventory.md:111` — **service** — - Treat core/executive/planning/ as the leading canonical candidate because it already contains service, repository, validation, dependency, model, enum, and error layers.
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:83` — **authority** — approving_authority="commander",
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:137` — **executive director** — 33: description="JARVIS Gen 2 Executive Director and Mission Engine",
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:307` — **service** — core/executive/planning/service.py
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:335` — **director registry** — 1: """Capability-aware director registry used by the Mission Engine."""
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:394` — **service** — 18: AcquisitionMissionService,
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:396` — **service** — 126: service = AcquisitionMissionService()
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:402` — **service** — 187: service = AcquisitionMissionService()
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:403` — **service** — 211: result = AcquisitionMissionService().create_mission(
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:405` — **service** — 230: service = AcquisitionMissionService()
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:410` — **service** — 22: AcquisitionMissionService,
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:411` — **service** — 96: mission = AcquisitionMissionService().create_mission(
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:412` — **service** — 206: mission = AcquisitionMissionService().create_mission(
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:415` — **service** — 46: AcquisitionMissionService,
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:416` — **service** — 258: AcquisitionMissionService()
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:445` — **service** — 71: "AcquisitionMissionService",
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:448` — **service** — knowledge_engine/acquisition/handoff/service.py
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:465` — **service** — 22: AcquisitionMissionService,
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:471` — **service** — 31: "AcquisitionMissionService",
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:506` — **service** — knowledge_engine/acquisition/missions/service.py
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:515` — **service** — 41: class AcquisitionMissionService:
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:527` — **service** — 234: "AcquisitionMissionService",
+- `docs/architecture/convergence/phase_9c2_collision_analysis.txt:658` — **service** — knowledge_engine/source_registry/service.py
+- `docs/architecture/convergence_c1_executive_conversation.md:5` — **service** — JARVIS exposes one canonical conversation boundary to the operator. Text, and later voice, enter the same service. The service compiles the request into one or more provisional objectives, persists the exchange, invokes the active JARVIS an
+- `docs/architecture/convergence_c1_executive_conversation.md:13` — **service** — -> ExecutiveConversationService
+- `docs/architecture/convergence_c1_executive_conversation.md:23` — **service** — 1. The UI does not invoke model services directly.
+- `docs/architecture/convergence_c2_director_activation.md:5` — **director registry** — C-2 puts the existing Executive Director, Mission Planner, Director Registry,
+- `docs/architecture/convergence_c2_director_activation.md:5` — **executive director** — C-2 puts the existing Executive Director, Mission Planner, Director Registry,
+- `docs/architecture/convergence_c2_director_activation.md:13` — **service** — -> ExecutiveConversationService
+- `docs/architecture/convergence_c2a_certification_repair.md:11` — **service** — patch `conversation_service.answer_handler`, which is no longer the active
+- `docs/architecture/convergence_c2a_certification_repair.md:32` — **service** — No production service, route, Director, mission, or orchestration implementation
+- `docs/architecture/convergence_c3_capability_routing.md:3` — **director registry** — C-3 establishes the canonical deterministic capability router between compiled operator objectives and the existing Director Registry.
+- `docs/architecture/convergence_c3_capability_routing.md:7` — **director registry** — C-3 does not add a second Director registry and does not invoke an LLM for routing. The existing registry remains authoritative.
+- `docs/architecture/convergence_c4_knowledge_grounding.md:26` — **service** — - Existing C-1 through C-3 behavior remains available when no grounding service is injected.
+- `docs/architecture/convergence_c6_executive_observability.md:10` — **service** — - `core.observability.ExecutiveObservabilityService`
+- `docs/architecture/evidence_engine.md:129` — **service** — - expose stable application services;
+- `docs/architecture/evidence_engine.md:156` — **service** — runtime service
+- `docs/architecture/executive_cognitive_lifecycle.md:5` — **authority** — **Authority:** Executive Architecture
+- `docs/architecture/executive_cognitive_lifecycle.md:107` — **service** — - external services
+- `docs/architecture/executive_cognitive_lifecycle.md:363` — **organization** — Experience transforms outcomes into organizational learning.
+- `docs/architecture/executive_cognitive_lifecycle.md:363` — **organizational** — Experience transforms outcomes into organizational learning.
+- `docs/architecture/executive_cognitive_lifecycle.md:512` — **governance** — Executive governance
+- `docs/architecture/executive_integration_architecture.md:24` — **service** — Domain service or facade
+- `docs/architecture/executive_integration_architecture.md:39` — **mission control** — Mission Control UI
+- `docs/architecture/executive_integration_architecture.md:127` — **governance** — 10. Governance
+- `docs/architecture/executive_projection_contract.md:5` — **mission control** — Define the stable read model consumed by Mission Control.
+- `docs/architecture/executive_projection_contract.md:58` — **service** — "services": [],
+- `docs/architecture/gen2_capability_routing.md:7` — **director registry** — The planner determines what a task requires. The Director Registry chooses the
+- `docs/architecture/gen2_mission_engine.md:1` — **executive director** — # JARVIS Gen 2 Phase I — Executive Director and Mission Engine
+- `docs/architecture/gen2_mission_engine.md:68` — **service** — be local Python services, subprocesses, remote services, OS specialists, or
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:7` — **authority** — **Authority:** Executive Architecture Council
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:108` — **authority** — ## Principle 6 — Explicit Authority
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:141` — **service** — Service Audit
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:224` — **service** — - Enumerate services
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:263` — **service** — # Phase 4 — Service Audit
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:267` — **service** — Define canonical service boundaries.
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:273` — **service** — - Service ownership
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:280` — **service** — Service certification
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:350` — **authority** — - Authority boundaries
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:423` — **governance** — - Governance integration
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:481` — **authority** — # Human Authority
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:493` — **authority** — - Authority changes
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:500` — **governance** — # Genesis Governance
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:513` — **authority** — - Human authority rules
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:551` — **service** — ✓ Service Audit
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:575` — **governance** — ✓ Add governance
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:583` — **authority** — ✗ Change authority
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:603` — **authority** — Authority shall never be ambiguous.
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:653` — **service** — service_audit.md
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:654` — **service** — service_audit.json
+- `docs/architecture/genesis/GENESIS_LIFECYCLE.md:712` — **authority** — understandability, determinism, architectural integrity, or human authority.
+- `docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md:21` — **governance** — lifecycle, governance, persistence, replay, and executive integration may be
+- `docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md:29` — **governance** — Executive Governance Future Genesis II phases
+- `docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md:57` — **governance** — belongs to future executive governance.
+- `docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md:88` — **authority** — - Creating authority
+- `docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md:122` — **authority** — 12. Executive authority is not embedded in the data contract.
+- `docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md:131` — **service** — - Session creation service
+- `docs/architecture/genesis/reasoning/GENESIS_II_A1_REASONING_SESSION_CONTRACT.md:170` — **service** — - No lifecycle service has been introduced.
+- `docs/architecture/genesis/reasoning/GENESIS_II_A2_REASONING_SESSION_LIFECYCLE.md:8` — **authority** — **Authority:** Executive Architecture Council
+- `docs/architecture/genesis/reasoning/GENESIS_II_A2_REASONING_SESSION_LIFECYCLE.md:24` — **authority** — processes, authorize missions, create plans, or exercise Executive authority.
+- `docs/architecture/genesis/reasoning/GENESIS_II_A2_REASONING_SESSION_LIFECYCLE.md:100` — **governance** — reasons, actors, evidence provenance, budgets, Executive governance,
+- `docs/architecture/genesis/reasoning/GENESIS_II_A3_CONSTITUTIONAL_REASONING_CONTEXT.md:147` — **governance** — context-governance phase requires them.
+- `docs/architecture/genesis/reasoning/GENESIS_II_A3_CONSTITUTIONAL_REASONING_CONTEXT.md:202` — **governance** — > Reasoning without context is inference without governance.
+- `docs/architecture/genesis/reasoning/GENESIS_II_A4_CANONICAL_EVIDENCE_MODEL.md:35` — **service** — - acquisition and observation services;
+- `docs/architecture/genesis/reasoning/GENESIS_II_A4_CANONICAL_EVIDENCE_MODEL.md:232` — **service** — network services;
+- `docs/architecture/genesis/reasoning/GENESIS_II_A4_CANONICAL_EVIDENCE_MODEL.md:681` — **authority** — It is never implicitly executable authority.
+- `docs/architecture/genesis_3a3a_cognitive_workspace_public_surface_restoration.md:29` — **service** — - `CognitiveWorkspaceService`
+- `docs/architecture/genesis_3a4_cognitive_workspace_integration.md:13` — **service** — `WorkspaceIntegrationRequest -> WorkspaceIntegrationPipeline -> CognitiveWorkspaceService -> CognitiveWorkspaceRepository -> WorkspaceIntegrationResult`
+- `docs/architecture/genesis_cognitive_workspace_foundation.md:36` — **service** — - a service layer for valid state transitions.
+- `docs/architecture/genesis_cognitive_workspace_foundation.md:67` — **service** — All service operations return a new workspace object.
+- `docs/architecture/genesis_iv_a4_executive_evidence_correlation.md:68` — **authority** — - determine source authority policies;
+- `docs/architecture/genesis_iv_a6a1_executive_decision_foundation.md:11` — **service** — decision records, deterministic synthesis, repository persistence, and service
+- `docs/architecture/genesis_iv_a7_executive_decision_engine.md:4` — **authority** — Convert evaluated Courses of Action into one constitutionally admissible, authority-valid, deterministic Executive Decision. Selection is owned here; execution is not.
+- `docs/architecture/genesis_iv_a7_executive_decision_engine.md:7` — **authority** — Constitutional compliance and authority are evaluated before score ranking. Failed gates cannot be overridden by a numerical score. Confidence and weighted-score thresholds are policy-owned.
+- `docs/architecture/genesis_iv_a8_executive_mission_compiler.md:9` — **authority** — authority.
+- `docs/architecture/genesis_iv_a8_executive_mission_compiler.md:26` — **governance** — - governance and constitutional references; and
+- `docs/architecture/genesis_iv_b1_executive_integration_visibility_fabric.md:6` — **mission control** — knowledge readiness, API projection, telemetry, and Mission Control visibility.
+- `docs/architecture/genesis_iv_b1_executive_integration_visibility_fabric.md:10` — **mission control** — and UI-neutral Mission Control projection.
+- `docs/architecture/genesis_iv_b1_executive_integration_visibility_fabric.md:22` — **mission control** — Runtime Health Executive API Mission Control UI
+- `docs/architecture/genesis_ui_a2_executive_projection_framework.md:5` — **mission control** — Create the canonical read-model integration plane that converts domain subsystem state into stable, transparent, versioned projections for FastAPI and Mission Control.
+- `docs/architecture/genesis_ui_a2_executive_projection_framework.md:17` — **service** — 4. Domain services remain authoritative.
+- `docs/architecture/genesis_ui_a2_executive_projection_framework.md:18` — **service** — 5. FastAPI consumes the integration service rather than internal databases.
+- `docs/architecture/genesis_ui_a3_capability_discovery_registration.md:21` — **service** — Each capability is bound directly to the process-wide `OperationsService`.
+- `docs/architecture/genesis_ui_a3_capability_discovery_registration.md:52` — **authority** — UI-A4 and must include authority, dry-run, audit, provenance, and policy checks.
+- `docs/architecture/genesis_ui_a41_knowledge_inventory_projection.md:17` — **service** — KnowledgeInventoryService
+- `docs/architecture/genesis_ui_a41_knowledge_inventory_projection.md:26` — **service** — ExecutiveProjectionService
+- `docs/architecture/genesis_ui_a41_knowledge_inventory_projection.md:29` — **mission control** — Mission Control API
+- `docs/architecture/genesis_ui_a41_knowledge_inventory_projection.md:34` — **service** — The service reports:
+- `docs/architecture/genesis_ui_a41_knowledge_inventory_projection.md:72` — **mission control** — configurable maximum file count. This prevents the Mission Control projection
+- `docs/architecture/genesis_vi_a63_executive_checkpoint_store.md:100` — **authority** — - VI-A6.8: persistence certification authority
+- `docs/architecture/genesis_vi_a64_executive_integrity_engine.md:4` — **authority** — **Authority:** ADR-0023 — Executive Evidence and Trust Model
+- `docs/architecture/genesis_vi_a66_executive_lifecycle_manager.md:71` — **mission control** — - Mission Control status panels,
+- `docs/architecture/genesis_vi_a66_executive_lifecycle_manager.md:79` — **mission control** — Mission Control should consume lifecycle state rather than inventing it.
+- `docs/architecture/genesis_vi_a67_executive_timeline_engine.md:34` — **mission control** — ## Mission Control
+- `docs/architecture/genesis_vi_a67_executive_timeline_engine.md:36` — **mission control** — Mission Control can now display genuine Executive activity rather than
+- `docs/architecture/genesis_vi_a68_part_b.md:22` — **mission control** — Mission Control
+- `docs/architecture/genesis_vi_a68_timeline_repository_foundation.md:10` — **authority** — The VI-A6.7 Timeline Engine remains the sole creator and chronological authority
+- `docs/architecture/genesis_vi_a68_timeline_repository_foundation.md:56` — **mission control** — background event dispatch, SQLite, or Mission Control integration. Those remain
+- `docs/architecture/genesis_vii_a0_pack_4b2_capability_orchestration.md:5` — **authority** — **Authority:** Genesis VII-A0
+- `docs/architecture/genesis_vii_a0_pack_4b2_capability_orchestration.md:10` — **executive director** — The Executive Director does not select or invoke concrete tools directly. It submits a
+- `docs/architecture/genesis_vii_a0_pack_4b2_capability_orchestration.md:25` — **mission control** — 7. Mission Control consumes only the read-only observability snapshot.
+- `docs/architecture/genesis_vii_a0_pack_4b2_capability_orchestration.md:36` — **service** — - `CapabilityObservabilityService`
+- `docs/architecture/genesis_vii_b0_integration_audit.md:11` — **executive director** — - Executive Director and capability APIs
+- `docs/architecture/genesis_vii_b0_integration_audit.md:13` — **mission control** — - Mission Control shell and projections
+- `docs/architecture/genesis_vii_c0a1_organizational_constitution_audit.md:1` — **organization** — # Genesis VII-C0A-1 — Organizational Constitution Audit
+- `docs/architecture/genesis_vii_c0a1_organizational_constitution_audit.md:1` — **organizational** — # Genesis VII-C0A-1 — Organizational Constitution Audit
+- `docs/architecture/genesis_vii_c0a1_organizational_constitution_audit.md:4` — **organization** — **Purpose:** Determine whether JARVIS already possesses a canonical Organizational Constitution before creating a new one.
+- `docs/architecture/genesis_vii_c0a1_organizational_constitution_audit.md:4` — **organizational** — **Purpose:** Determine whether JARVIS already possesses a canonical Organizational Constitution before creating a new one.
+- `docs/architecture/genesis_vii_c0a1_organizational_constitution_audit.md:6` — **mission control** — The audit searches constitutional documents, architecture and ADR material, Executive implementation, routes, and Mission Control. It classifies the result as `already_exists`, `partially_exists`, or `does_not_exist` and writes evidence-lin
+- `docs/architecture/governance/constitutional_analysis_engine.md:27` — **authority** — - `constitutional_authority.json`
+- `docs/architecture/governance/constitutional_analysis_engine.md:32` — **authority** — C2 uses deterministic text normalization, exact duplicate detection, bounded lexical similarity, normative polarity, domain matching, and document-authority ranking.
+- `docs/architecture/governance/constitutional_analysis_engine.md:36` — **authority** — ## Authority hierarchy
+- `docs/architecture/governance/constitutional_analysis_engine.md:46` — **authority** — Authority resolution is advisory evidence for later ratification. C2 does not itself ratify, repeal, or rewrite doctrine.
+- `docs/architecture/governance/constitutional_article_intelligence.md:13` — **authority** — - authority distribution;
+- `docs/architecture/governance/constitutional_article_intelligence.md:23` — **authority** — - `constitutional_authority_distribution.json`
+- `docs/architecture/governance/constitutional_authority_graph.md:1` — **authority** — # Genesis VII-C4.3 Pack 3B-1 — Constitutional Authority Graph
+- `docs/architecture/governance/constitutional_authority_graph.md:5` — **authority** — Project the Pack 3A structural graph into a deterministic semantic authority graph that distinguishes constitutional articles, governed artifacts, governance domains, authority classes, and authorization relationships.
+- `docs/architecture/governance/constitutional_authority_graph.md:5` — **governance** — Project the Pack 3A structural graph into a deterministic semantic authority graph that distinguishes constitutional articles, governed artifacts, governance domains, authority classes, and authorization relationships.
+- `docs/architecture/governance/constitutional_authority_graph.md:9` — **authority** — ## Upstream authority
+- `docs/architecture/governance/constitutional_authority_graph.md:23` — **authority** — - `authority_class`
+- `docs/architecture/governance/constitutional_authority_graph.md:25` — **governance** — - `governance_domain`
+- `docs/architecture/governance/constitutional_authority_graph.md:27` — **authority** — ## Authority classes
+- `docs/architecture/governance/constitutional_authority_graph.md:40` — **authority** — - hotspot labels map to their equivalent authority class
+- `docs/architecture/governance/constitutional_authority_graph.md:48` — **authority** — - `supports_authority_class`
+- `docs/architecture/governance/constitutional_authority_graph.md:58` — **authority** — - both endpoints exist in the authority graph.
+- `docs/architecture/governance/constitutional_authority_graph.md:68` — **governance** — - governance-domain count;
+- `docs/architecture/governance/constitutional_authority_graph.md:70` — **authority** — - authority-class distribution;
+- `docs/architecture/governance/constitutional_authority_graph.md:72` — **authority** — - authority-utilization ratio.
+- `docs/architecture/governance/constitutional_authority_graph.md:76` — **authority** — The authority query service supports:
+- `docs/architecture/governance/constitutional_authority_graph.md:76` — **service** — The authority query service supports:
+- `docs/architecture/governance/constitutional_authority_graph.md:80` — **authority** — - articles by authority class;
+- `docs/architecture/governance/constitutional_authority_graph.md:91` — **authority** — - `constitutional_authority_graph.json`
+- `docs/architecture/governance/constitutional_authority_graph.md:92` — **authority** — - `constitutional_authority_nodes.json`
+- `docs/architecture/governance/constitutional_authority_graph.md:93` — **authority** — - `constitutional_authority_edges.json`
+- `docs/architecture/governance/constitutional_authority_graph.md:94` — **authority** — - `constitutional_authority_metrics.json`
+- `docs/architecture/governance/constitutional_authority_graph.md:95` — **authority** — - `constitutional_authority_integrity.json`
+- `docs/architecture/governance/constitutional_authority_graph.md:96` — **authority** — - `constitutional_authority_summary.md`
+- `docs/architecture/governance/constitutional_authority_graph.md:100` — **authority** — Pack 3B-1 establishes constitutional authority semantics. Pack 3B-2 will add repository, directorate, and capability projections. Pack 3B-3 will add ADR projection, cross-projection queries, reporting, and final Pack 3B certification.
+- `docs/architecture/governance/constitutional_authority_graph.md:100` — **directorate** — Pack 3B-1 establishes constitutional authority semantics. Pack 3B-2 will add repository, directorate, and capability projections. Pack 3B-3 will add ADR projection, cross-projection queries, reporting, and final Pack 3B certification.
+- `docs/architecture/governance/constitutional_compliance_certification_framework.md:67` — **governance** — ## Governance boundary
+- `docs/architecture/governance/constitutional_compliance_engine.md:26` — **governance** — "domain": "governance"
+- `docs/architecture/governance/constitutional_compliance_engine.md:64` — **service** — - network services
+- `docs/architecture/governance/constitutional_compliance_engine.md:74` — **governance** — ## Governance boundary
+- `docs/architecture/governance/constitutional_directorate_foundation.md:1` — **directorate** — # Genesis VII-C4.3 Pack 3B-2B.1 — Directorate Foundation
+- `docs/architecture/governance/constitutional_directorate_foundation.md:5` — **directorate** — Establish the canonical organizational vocabulary and deterministic foundation for the JARVIS directorate projection.
+- `docs/architecture/governance/constitutional_directorate_foundation.md:5` — **organization** — Establish the canonical organizational vocabulary and deterministic foundation for the JARVIS directorate projection.
+- `docs/architecture/governance/constitutional_directorate_foundation.md:5` — **organizational** — Establish the canonical organizational vocabulary and deterministic foundation for the JARVIS directorate projection.
+- `docs/architecture/governance/constitutional_directorate_foundation.md:11` — **directorate** — - canonical directorates;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:12` — **organization** — - organizational root;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:12` — **organizational** — - organizational root;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:15` — **directorate** — - directorate node and edge contracts;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:19` — **directorate** — It does not yet assign ownership domains to directorates. That belongs to Pack 3B-2B.2.
+- `docs/architecture/governance/constitutional_directorate_foundation.md:21` — **directorate** — ## Canonical directorates
+- `docs/architecture/governance/constitutional_directorate_foundation.md:23` — **directorate** — - Executive Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:23` — **executive director** — - Executive Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:24` — **directorate** — - Governance Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:24` — **governance** — - Governance Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:25` — **directorate** — - Knowledge Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:26` — **directorate** — - Reasoning Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:27` — **directorate** — - Software Engineering Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:28` — **directorate** — - Planning Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:29` — **directorate** — - Operations Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:30` — **directorate** — - Intelligence Acquisition Directorate
+- `docs/architecture/governance/constitutional_directorate_foundation.md:34` — **directorate** — - `directorate`
+- `docs/architecture/governance/constitutional_directorate_foundation.md:37` — **organization** — - `organizational_unit`
+- `docs/architecture/governance/constitutional_directorate_foundation.md:37` — **organizational** — - `organizational_unit`
+- `docs/architecture/governance/constitutional_directorate_foundation.md:56` — **authority** — - authority graph fingerprint;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:61` — **directorate** — - all canonical directorates exist;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:65` — **directorate** — - supervisory edges connect the organization root to directorates;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:65` — **organization** — - supervisory edges connect the organization root to directorates;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:66` — **directorate** — - responsibility edges connect directorates to responsibilities;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:71` — **directorate** — `artifacts/audit/km0000-c4_3-pack3b2b1/constitutional_directorate_foundation.json`
+- `docs/architecture/governance/constitutional_directorate_foundation.md:79` — **directorate** — - directorate graph queries;
+- `docs/architecture/governance/constitutional_directorate_foundation.md:80` — **directorate** — - directorate metrics;
+- `docs/architecture/governance/constitutional_directorate_projection.md:1` — **directorate** — # Genesis VII-C4.3 Pack 3B-2B.2 — Directorate Projection
+- `docs/architecture/governance/constitutional_directorate_projection.md:5` — **directorate** — Assign every repository ownership domain from Pack 3B-2B.1 to a canonical directorate and expose the result through deterministic graph, query, metric, and reporting layers.
+- `docs/architecture/governance/constitutional_directorate_projection.md:15` — **directorate** — - `core/governance` → Governance Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:15` — **governance** — - `core/governance` → Governance Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:16` — **directorate** — - `core/knowledge` → Knowledge Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:17` — **directorate** — - `core/reasoning` → Reasoning Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:18` — **directorate** — - `core/planning` → Planning Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:19` — **directorate** — - `core/operations` → Operations Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:20` — **directorate** — - `core/acquisition` → Intelligence Acquisition Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:21` — **directorate** — - `tests`, `dev`, `scripts`, and unmatched `core` domains → Software Engineering Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:22` — **directorate** — - executive documentation and executive packages → Executive Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:22` — **executive director** — - executive documentation and executive packages → Executive Directorate
+- `docs/architecture/governance/constitutional_directorate_projection.md:38` — **directorate** — - list canonical directorates;
+- `docs/architecture/governance/constitutional_directorate_projection.md:41` — **directorate** — - show domains owned by a directorate;
+- `docs/architecture/governance/constitutional_directorate_projection.md:42` — **directorate** — - show domains maintained by a directorate;
+- `docs/architecture/governance/constitutional_directorate_projection.md:43` — **directorate** — - show responsibilities of a directorate;
+- `docs/architecture/governance/constitutional_directorate_projection.md:53` — **directorate** — - ownership distribution by directorate;
+- `docs/architecture/governance/constitutional_directorate_projection.md:60` — **directorate** — - `constitutional_directorate_projection.json`
+- `docs/architecture/governance/constitutional_directorate_projection.md:61` — **directorate** — - `constitutional_directorate_nodes.json`
+- `docs/architecture/governance/constitutional_directorate_projection.md:62` — **directorate** — - `constitutional_directorate_edges.json`
+- `docs/architecture/governance/constitutional_directorate_projection.md:63` — **directorate** — - `constitutional_directorate_metrics.json`
+- `docs/architecture/governance/constitutional_directorate_projection.md:64` — **directorate** — - `constitutional_directorate_integrity.json`
+- `docs/architecture/governance/constitutional_directorate_projection.md:65` — **directorate** — - `constitutional_directorate_summary.md`
+- `docs/architecture/governance/constitutional_executive_governance.md:1` — **governance** — # Genesis VII-C4.3 Pack 3B-2B.3 — Executive Governance
+- `docs/architecture/governance/constitutional_executive_governance.md:5` — **directorate** — Transform the certified Directorate Projection into a deterministic executive decision service.
+- `docs/architecture/governance/constitutional_executive_governance.md:5` — **service** — Transform the certified Directorate Projection into a deterministic executive decision service.
+- `docs/architecture/governance/constitutional_executive_governance.md:9` — **service** — The service resolves repository owner, maintainers, certifiers, reviewers, affected domains, affected capabilities, unresolved paths, and deterministic impact fingerprints.
+- `docs/architecture/governance/constitutional_executive_governance.md:22` — **authority** — Authority resolution uses the longest matching repository ownership-domain path.
+- `docs/architecture/governance/constitutional_executive_governance.md:28` — **governance** — - `constitutional_executive_governance.json`
+- `docs/architecture/governance/constitutional_executive_governance.md:29` — **governance** — - `constitutional_executive_governance_summary.md`
+- `docs/architecture/governance/constitutional_executive_governance.md:33` — **service** — This pack certifies the service layer. UI and route integration remain downstream work.
+- `docs/architecture/governance/constitutional_extraction_engine.md:15` — **governance** — The engine does not ratify doctrine. It extracts candidate claims from repository evidence. Ratification remains a separate governance act.
+- `docs/architecture/governance/constitutional_extraction_engine.md:56` — **authority** — - Assign executive authority.
+- `docs/architecture/governance/constitutional_extraction_engine.md:58` — **governance** — Those responsibilities belong to later constitutional governance phases.
+- `docs/architecture/governance/constitutional_graph_foundation.md:5` — **authority** — Establish the deterministic graph substrate required to represent and traverse constitutional authority across the JARVIS repository.
+- `docs/architecture/governance/constitutional_graph_foundation.md:7` — **directorate** — Pack 3A converts the certified Pack 2 article-usage registry into canonical nodes and edges. It does not yet infer directorates, capabilities, ADR relationships, or higher-order organizational dependencies. Those belong to Packs 3B and 3C.
+- `docs/architecture/governance/constitutional_graph_foundation.md:7` — **organization** — Pack 3A converts the certified Pack 2 article-usage registry into canonical nodes and edges. It does not yet infer directorates, capabilities, ADR relationships, or higher-order organizational dependencies. Those belong to Packs 3B and 3C.
+- `docs/architecture/governance/constitutional_graph_foundation.md:7` — **organizational** — Pack 3A converts the certified Pack 2 article-usage registry into canonical nodes and edges. It does not yet infer directorates, capabilities, ADR relationships, or higher-order organizational dependencies. Those belong to Packs 3B and 3C.
+- `docs/architecture/governance/constitutional_graph_foundation.md:15` — **authority** — The Pack 2 article-intelligence fingerprint is preserved as the immediate upstream authority.
+- `docs/architecture/governance/constitutional_graph_foundation.md:73` — **authority** — Pack 3A establishes graph contracts and infrastructure. Pack 3B will add authority, repository, directorate, capability, ADR, and architectural graph projections. Pack 3C will add traceability matrices, advanced traversal, impact analysis,
+- `docs/architecture/governance/constitutional_graph_foundation.md:73` — **directorate** — Pack 3A establishes graph contracts and infrastructure. Pack 3B will add authority, repository, directorate, capability, ADR, and architectural graph projections. Pack 3C will add traceability matrices, advanced traversal, impact analysis,
+- `docs/architecture/governance/constitutional_repository_projection.md:5` — **authority** — Project the Pack 3B-1 authority graph into a deterministic semantic model of the JARVIS repository.
+- `docs/architecture/governance/constitutional_repository_projection.md:11` — **authority** — `artifacts/audit/km0000-c4_3-pack3b1/constitutional_authority_graph.json`
+- `docs/architecture/governance/constitutional_repository_projection.md:13` — **authority** — It preserves the Pack 2 article-intelligence fingerprint, Pack 3A graph-foundation fingerprint, and Pack 3B-1 authority-graph fingerprint.
+- `docs/architecture/governance/constitutional_repository_projection.md:33` — **service** — The query service exposes packages, modules, tests, verification artifacts, children, recursive descendants, artifacts under a path, and unknown artifacts.
+- `docs/architecture/governance/constitutional_repository_projection.md:48` — **directorate** — Pack 3B-2A establishes repository semantics. Pack 3B-2B should establish directorate projection. Pack 3B-2C should establish capability projection and ownership relationships.
+- `docs/architecture/governance/repository_wide_constitutional_audit.md:9` — **governance** — The initial release audits textual governance and engineering artifacts:
+- `docs/architecture/governance_audit_certification.md:1` — **governance** — # Genesis VII-C0 Pack 1B — Governance Audit Certification
+- `docs/architecture/governance_audit_certification.md:20` — **governance** — from core.governance.audit import RepositoryInventoryVerifier
+- `docs/architecture/governance_audit_certification.md:26` — **governance** — The governance convention established by this pack is:
+- `docs/architecture/jarvis_engineering_standard.md:28` — **service** — services, providers, directors, and mission interfaces.
+- `docs/architecture/jarvis_engineering_standard.md:59` — **service** — - Services own focused business operations.
+- `docs/architecture/jarvis_engineering_standard.md:85` — **service** — Service
+- `docs/architecture/knowledge_awareness_contract.md:30` — **authority** — - authority level
+- `docs/architecture/knowledge_system_inventory.txt:6` — **service** — core/catalog/__pycache__/service_registry.cpython-310.pyc
+- `docs/architecture/knowledge_system_inventory.txt:61` — **service** — core/knowledge_catalog/__pycache__/service.cpython-310.pyc
+- `docs/architecture/knowledge_system_inventory.txt:62` — **service** — core/knowledge_catalog/__pycache__/service.cpython-312.pyc
+- `docs/architecture/knowledge_system_inventory.txt:68` — **service** — core/knowledge_catalog/service.py
+- `docs/architecture/layers.yaml:16` — **service** — - services
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:3` — **service** — # Extraction and Chunking Service
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:18` — **service** — delegating extraction to a dedicated service while preserving existing
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:45` — **service** — Phase VI-E4 introduces a dedicated Extraction Service.
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:80` — **service** — ExtractionService
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:93` — **service** — ## ExtractionService
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:98` — **service** — knowledge_engine/assimilation/services/extraction.py
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:125` — **service** — The service returns an immutable value object.
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:155` — **service** — extraction = self.extraction_service.extract(
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:162` — **service** — - DocumentPersistenceService
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:163` — **service** — - AttemptJournalService
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:164` — **service** — - AssimilationStateService
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:178` — **service** — - service composition
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:189` — **service** — ## ExtractionService
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:207` — **service** — extraction_service: ExtractionService | None = None
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:213` — **service** — self.extraction_service = (
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:214` — **service** — extraction_service
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:215` — **service** — or ExtractionService()
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:264` — **service** — ✓ ExtractionService owns extraction
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:284` — **service** — - ExtractionService compiles successfully
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:297` — **service** — Phase VI-E4 represents the completion of the service-oriented refactoring of
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:301` — **service** — all delegated to dedicated services, the Runner becomes a true orchestration
+- `docs/architecture/milestones/phase_vi_e4_extraction_service.md:308` — **service** — Phase VI-E4 serves as the final service extraction milestone before the
+- `docs/architecture/milestones/phase_vi_f2_architecture_contracts.md:17` — **service** — - service isolation
+- `docs/architecture/milestones/phase_vi_f2_architecture_contracts.md:22` — **service** — - public service APIs
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:14` — **service** — Following the service extraction milestones (VI-E1 through VI-E4), the
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:27` — **service** — services:
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:29` — **service** — - AssimilationStateService
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:30` — **service** — - DocumentPersistenceService
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:31` — **service** — - AttemptJournalService
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:32` — **service** — - ExtractionService
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:35` — **service** — future modification from bypassing those services or introducing new
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:56` — **service** — Service Service Service Service
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:71` — **service** — - service composition
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:97` — **service** — state_service
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:98` — **service** — persistence_service
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:99` — **service** — attempt_service
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:100` — **service** — extraction_service
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:111` — **service** — The Runner supports dependency injection for every collaborating service.
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:115` — **service** — - AssimilationStateService
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:116` — **service** — - DocumentPersistenceService
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:117` — **service** — - AttemptJournalService
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:118` — **service** — - ExtractionService
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:122` — **service** — The Runner may construct default service instances only when a dependency
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:129` — **service** — When no services are injected, the Runner shall construct default instances
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:130` — **service** — of every required service.
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:132` — **service** — Each Runner instance receives an independent service graph.
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:219` — **service** — ✓ Service boundaries remain explicit.
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:288` — **service** — specialized services.
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:295` — **executive director** — pipelines, and higher-level orchestration by the Executive Director—can be
+- `docs/architecture/milestones/phase_vi_f3_runner_composition.md:299` — **service** — new services rather than by acquiring additional implementation logic.
+- `docs/architecture/milestones/phase_vi_f4_performance_contracts.md:35` — **service** — - independent default service composition
+- `docs/architecture/milestones/phase_vi_f4_performance_contracts.md:59` — **service** — ## Service-state contract
+- `docs/architecture/milestones/phase_vi_f4_performance_contracts.md:61` — **service** — ExtractionService must not accumulate hidden mutable state between calls.
+- `docs/architecture/milestones/phase_vi_f4_performance_contracts.md:63` — **service** — The service configuration before and after repeated extraction must remain
+- `docs/architecture/milestones/phase_vi_f4_performance_contracts.md:82` — **service** — Each Runner must receive independent default service instances.
+- `docs/architecture/milestones/phase_vii_a3_provenance_persistence.md:24` — **campaign** — - campaign identity
+- `docs/architecture/milestones/phase_vii_a3_provenance_persistence.md:32` — **service** — ProvenanceService
+- `docs/architecture/milestones/phase_vii_a4_durable_admission_workflow.md:10` — **service** — The intake service automatically loads durable checksum memory, evaluates the
+- `docs/architecture/milestones/phase_vii_a4_durable_admission_workflow.md:18` — **service** — AcquisitionIntakeService
+- `docs/architecture/milestones/phase_vii_a4_durable_admission_workflow.md:19` — **service** — ├── ProvenanceService.known_checksums()
+- `docs/architecture/milestones/phase_vii_a4_durable_admission_workflow.md:21` — **service** — └── ProvenanceService.record_decision()
+- `docs/architecture/milestones/phase_vii_a5_acquisition_missions.md:22` — **service** — AcquisitionMissionService
+- `docs/architecture/milestones/phase_vii_a6_assimilation_handoff.md:20` — **service** — AssimilationHandoffService
+- `docs/architecture/operations_layer.md:14` — **mission control** — - Mission Control web interface
+- `docs/architecture/operations_layer.md:61` — **mission control** — These belong to later Mission Control sprints.
+- `docs/architecture/overview.md:73` — **service** — KnowledgeService
+- `docs/architecture/overview.md:180` — **organization** — Defines logical organization.
+- `docs/architecture/overview.md:275` — **service** — ## KnowledgeService
+- `docs/architecture/overview.md:360` — **service** — KnowledgeService
+- `docs/architecture/overview.md:392` — **service** — KnowledgeService.search()
+- `docs/architecture/overview.md:474` — **service** — It should only ask the Knowledge Service.
+- `docs/architecture/overview.md:486` — **service** — * KnowledgeService
+- `docs/architecture/phase_ii_a_consolidation.md:70` — **service** — * Services
+- `docs/architecture/phase_ii_a_consolidation.md:169` — **organization** — * Library Organization
+- `docs/architecture/service_architecture.md:1` — **service** — # Knowledge Engine Service Architecture
+- `docs/architecture/service_architecture.md:5` — **service** — **Phase:** Phase III-D — Service Consolidation
+- `docs/architecture/service_architecture.md:11` — **service** — The Service Layer is the public API of the Knowledge Engine.
+- `docs/architecture/service_architecture.md:15` — **service** — Instead they should communicate through the canonical services.
+- `docs/architecture/service_architecture.md:24` — **service** — Knowledge Services
+- `docs/architecture/service_architecture.md:33` — **service** — # Public Services
+- `docs/architecture/service_architecture.md:35` — **service** — - ExtractionService
+- `docs/architecture/service_architecture.md:36` — **service** — - ChunkingService
+- `docs/architecture/service_architecture.md:37` — **service** — - EmbeddingService
+- `docs/architecture/service_architecture.md:38` — **service** — - WorkflowRegistryService
+- `docs/architecture/service_architecture.md:39` — **service** — - RetrievalService
+- `docs/architecture/service_architecture.md:40` — **service** — - GraphService
+- `docs/architecture/service_architecture.md:54` — **service** — ## Services
+- `docs/architecture/service_architecture.md:58` — **service** — Services delegate to the production implementation.
+- `docs/architecture/service_architecture.md:91` — **service** — Services
+- `docs/architecture/testing/CANONICAL_CONSTITUTIONAL_FIXTURES.md:6` — **authority** — **Authority:** ADR-0018
+- `docs/architecture/testing/CANONICAL_CONSTITUTIONAL_FIXTURES.md:7` — **governance** — **Subsystem:** Engineering Governance
+- `docs/architecture/testing/CANONICAL_CONSTITUTIONAL_FIXTURES.md:35` — **authority** — the creating authority.
+- `docs/architecture/ui/00_design_language.md:1` — **mission control** — # JARVIS Mission Control UI Design Language
+- `docs/architecture/ui/00_design_language.md:6` — **mission control** — Mission Control interface.
+- `docs/architecture/ui/00_design_language.md:39` — **mission control** — Within five seconds of opening Mission Control, the user should be able to
+- `docs/architecture/ui/00_design_language.md:188` — **mission control** — The Mission Control interface must support:
+- `docs/architecture/ui/01_user_experience.md:1` — **mission control** — # JARVIS Mission Control User Experience
+- `docs/architecture/ui/01_user_experience.md:23` — **mission control** — 5. Enter Mission Control
+- `docs/architecture/ui/01_user_experience.md:36` — **service** — - mission services,
+- `docs/architecture/ui/01_user_experience.md:37` — **service** — - knowledge services,
+- `docs/architecture/ui/01_user_experience.md:58` — **mission control** — JARVIS must present a startup Commander Brief before or as Mission Control
+- `docs/architecture/ui/01_user_experience.md:165` — **mission control** — - workstation: full Mission Control,
+- `docs/architecture/ui/02_screen_architecture.md:1` — **mission control** — # JARVIS Mission Control Screen Architecture
+- `docs/architecture/ui/02_screen_architecture.md:34` — **mission control** — Mission Tools extend Mission Control without permanently occupying the
+- `docs/architecture/ui/02_screen_architecture.md:43` — **executive director** — • the Executive Director,
+- `docs/architecture/ui/03_navigation_model.md:1` — **mission control** — # JARVIS Mission Control Navigation Model
+- `docs/architecture/ui/03_navigation_model.md:13` — **mission control** — Mission Control interface.
+- `docs/architecture/ui/03_navigation_model.md:69` — **mission control** — - Mission Control
+- `docs/architecture/ui/03_navigation_model.md:77` — **mission control** — Mission Control is the default destination after startup.
+- `docs/architecture/ui/03_navigation_model.md:208` — **mission control** — The user can always return to Mission Control in one action.
+- `docs/architecture/ui/03_navigation_model.md:233` — **mission control** — - from Mission Control,
+- `docs/architecture/ui/03_navigation_model.md:325` — **mission control** — ✓ Mission Control is one action away.
+- `docs/architecture/ui/03_navigation_model.md:343` — **mission control** — Mission Control navigation is organized around operational capability rather
+- `docs/architecture/ui/04_operational_context.md:9` — **mission control** — Program: Mission Control Architecture
+- `docs/architecture/ui/04_operational_context.md:68` — **mission control** — Mission Control displays Operational Context.
+- `docs/architecture/ui/04_operational_context.md:70` — **mission control** — Mission Control does not own Operational Context.
+- `docs/architecture/ui/04_operational_context.md:113` — **mission control** — • Build Mission Control
+- `docs/architecture/ui/04_operational_context.md:181` — **executive director** — Normally this owner is the Executive Director.
+- `docs/architecture/ui/04_operational_context.md:218` — **mission control** — Build Mission Control
+- `docs/architecture/ui/04_operational_context.md:400` — **mission control** — • Mission Control,
+- `docs/architecture/ui/04_operational_context.md:440` — **service** — Operational Context is owned by backend services.
+- `docs/architecture/ui/04_operational_context.md:442` — **mission control** — Mission Control visualizes Operational Context.
+- `docs/architecture/ui/04_operational_context.md:444` — **mission control** — Mission Control never becomes the authoritative owner.
+- `docs/architecture/ui/04_operational_context.md:446` — **executive director** — The Executive Director coordinates Mission state.
+- `docs/architecture/ui/04_operational_context.md:551` — **mission control** — Background Missions remain visible through Mission Control and SITREP.
+- `docs/architecture/ui/04_operational_context.md:684` — **service** — Backend services own:
+- `docs/architecture/ui/04_operational_context.md:702` — **service** — Backend services are the authoritative source of Operational Context.
+- `docs/architecture/ui/04_operational_context.md:708` — **mission control** — Mission Control owns presentation only.
+- `docs/architecture/ui/04_operational_context.md:710` — **mission control** — Mission Control may control:
+- `docs/architecture/ui/04_operational_context.md:722` — **mission control** — Mission Control never owns operational state.
+- `docs/architecture/ui/04_operational_context.md:740` — **mission control** — • Mission Control visualizes Operational Context.
+- `docs/architecture/ui/04_operational_context.md:835` — **mission control** — JARVIS and serves as the operational backbone of Mission Control.
+- `docs/architecture/ui/05_commander_brief.md:9` — **mission control** — Program: Mission Control Architecture
+- `docs/architecture/ui/05_commander_brief.md:18` — **mission control** — operator when Mission Control begins a new session.
+- `docs/architecture/ui/05_commander_brief.md:50` — **executive director** — • Executive Director,
+- `docs/architecture/ui/05_commander_brief.md:56` — **service** — • Device Services,
+- `docs/architecture/ui/05_commander_brief.md:58` — **service** — • Verification Services,
+- `docs/architecture/ui/05_commander_brief.md:100` — **mission control** — Secondary information remains available through Mission Control.
+- `docs/architecture/ui/05_commander_brief.md:109` — **mission control** — Mission Control reduces uncertainty before it enables action.
+- `docs/architecture/ui/05_commander_brief.md:267` — **executive director** — • Executive Director availability,
+- `docs/architecture/ui/05_commander_brief.md:289` — **service** — All required services available.
+- `docs/architecture/ui/05_commander_brief.md:326` — **mission control** — Mission Control Architecture
+- `docs/architecture/ui/05_commander_brief.md:434` — **executive director** — • Executive Director,
+- `docs/architecture/ui/05_commander_brief.md:476` — **mission control** — The Commander Brief may be recalled at any time from Mission Control.
+- `docs/architecture/ui/05_commander_brief.md:635` — **mission control** — Only after these responsibilities are fulfilled does Mission Control transition
+- `docs/architecture/ui/05_commander_brief.md:639` — **mission control** — Mission Control.
+- `docs/architecture/ui/06_mission_workspace.md:9` — **mission control** — Program: Mission Control Architecture
+- `docs/architecture/ui/06_mission_workspace.md:18` — **mission control** — Mission Control.
+- `docs/architecture/ui/06_mission_workspace.md:87` — **service** — Displayed Mission state derives from authoritative backend services.
+- `docs/architecture/ui/06_mission_workspace.md:306` — **service** — It renders state owned by backend services.
+- `docs/architecture/ui/06_mission_workspace.md:568` — **authority** — Approvals represent decisions that require operator authority.
+- `docs/architecture/ui/06_mission_workspace.md:586` — **service** — • requesting Director or service.
+- `docs/architecture/ui/06_mission_workspace.md:645` — **executive director** — • Executive Director recommendation,
+- `docs/architecture/ui/06_mission_workspace.md:777` — **executive director** — Director Capability exposes Executive Director and subordinate Director
+- `docs/architecture/ui/06_mission_workspace.md:1134` — **mission control** — • remote Mission control,
+- `docs/architecture/ui/06_mission_workspace.md:1213` — **mission control** — Mission Control.
+- `docs/architecture/ui/07_operator_experience.md:9` — **mission control** — Program: Mission Control Architecture
+- `docs/architecture/ui/07_operator_experience.md:37` — **mission control** — Mission Control.
+- `docs/architecture/ui/07_operator_experience.md:134` — **authority** — • preserving operator authority.
+- `docs/architecture/ui/08_mission_lifecycle.md:7` — **authority** — operator or authorized authority decision.
+- `docs/architecture/ui/08_mission_lifecycle.md:428` — **mission control** — • Mission Control,
+- `docs/architecture/ui/08_mission_lifecycle.md:534` — **executive director** — • the Executive Director,
+- `docs/architecture/ui/08_mission_lifecycle.md:540` — **service** — • an approved automation service,
+- `docs/architecture/ui/08_mission_lifecycle.md:832` — **mission control** — Mission Control.
+- `docs/architecture/ui/08_mission_lifecycle.md:903` — **organization** — • Mission is the primary organizational unit of JARVIS.
+- `docs/architecture/ui/08_mission_lifecycle.md:903` — **organizational** — • Mission is the primary organizational unit of JARVIS.
+- `docs/architecture/ui/08_mission_lifecycle.md:984` — **organization** — Mission is therefore the primary organizational unit of JARVIS.
+- `docs/architecture/ui/08_mission_lifecycle.md:984` — **organizational** — Mission is therefore the primary organizational unit of JARVIS.
+- `docs/architecture/ui/09_sitrep.md:1` — **mission control** — # JARVIS Mission Control
+- `docs/architecture/ui/09_sitrep.md:7` — **authority** — Authority: Mission Control Architecture
+- `docs/architecture/ui/09_sitrep.md:7` — **mission control** — Authority: Mission Control Architecture
+- `docs/architecture/ui/09_sitrep.md:28` — **mission control** — SITREP is the operational intelligence layer of Mission Control.
+- `docs/architecture/ui/09_sitrep.md:45` — **service** — SITREP derives information from authoritative services.
+- `docs/architecture/ui/09_sitrep.md:269` — **authority** — # 11. Source Authority
+- `docs/architecture/ui/09_sitrep.md:273` — **service** — Mission state belongs to Mission services.
+- `docs/architecture/ui/09_sitrep.md:275` — **service** — Approvals belong to authorization services.
+- `docs/architecture/ui/09_sitrep.md:281` — **service** — Security belongs to security services.
+- `docs/architecture/ui/09_sitrep.md:536` — **service** — • widespread service failure,
+- `docs/architecture/ui/09_sitrep.md:899` — **service** — • widespread service failure,
+- `docs/architecture/ui/09_sitrep.md:1239` — **service** — • resolving actor or service,
+- `docs/architecture/ui/09_sitrep.md:1346` — **service** — SITREP item state is managed by the SITREP service.
+- `docs/architecture/ui/09_sitrep.md:1348` — **service** — The SITREP service may change presentation state based upon:
+- `docs/architecture/ui/09_sitrep.md:1362` — **service** — The SITREP service must not change the authoritative state of the condition it
+- `docs/architecture/ui/09_sitrep.md:1363` — **service** — reports unless it invokes the responsible backend service through an authorized
+- `docs/architecture/ui/09_sitrep.md:1644` — **service** — devices, and services.
+- `docs/architecture/ui/09_sitrep.md:1972` — **service** — Each action must be routed through the authoritative backend service
+- `docs/architecture/ui/09_sitrep.md:1995` — **organization** — • organizational policy,
+- `docs/architecture/ui/09_sitrep.md:1995` — **organizational** — • organizational policy,
+- `docs/architecture/ui/09_sitrep.md:2034` — **service** — • recovered services,
+- `docs/architecture/ui/09_sitrep.md:2127` — **service** — • Every action routes through authoritative backend services.
+- `docs/architecture/ui/09_sitrep.md:2163` — **service** — ✓ Actions route through authoritative backend services.
+- `docs/architecture/ui/09_sitrep.md:2173` — **mission control** — SITREP is the operational intelligence layer of JARVIS Mission Control.
+- `docs/architecture/ui/10_mission_journal.md:458` — **authority** — • authority granted,
+- `docs/architecture/ui/10_mission_journal.md:486` — **authority** — • decision authority,
+- `docs/architecture/ui/10_mission_journal.md:516` — **authority** — # 22. Decision Authority
+- `docs/architecture/ui/10_mission_journal.md:518` — **authority** — Every recorded decision must identify who or what possessed authority.
+- `docs/architecture/ui/10_mission_journal.md:714` — **service** — • actor or service responsible,
+- `docs/architecture/ui/10_mission_journal.md:829` — **authority** — • review authority,
+- `docs/architecture/ui/10_mission_journal.md:953` — **authority** — • ambiguous authority,
+- `docs/architecture/ui/10_mission_journal.md:957` — **service** — • external service failure,
+- `docs/architecture/ui/10_mission_journal.md:986` — **authority** — • reviewing authority.
+- `docs/architecture/ui/10_mission_journal.md:1141` — **authority** — Recommendations must be routed through the authority responsible for the
+- `docs/architecture/ui/10_mission_journal.md:1340` — **governance** — # 52. Tag Governance
+- `docs/architecture/ui/10_mission_journal.md:1344` — **governance** — Tag governance should support:
+- `docs/architecture/ui/10_mission_journal.md:1362` — **service** — The Knowledge Engine taxonomy and ontology services should assist tag
+- `docs/architecture/ui/10_mission_journal.md:1960` — **organization** — • organizational policy,
+- `docs/architecture/ui/10_mission_journal.md:1960` — **organizational** — • organizational policy,
+- `docs/architecture/ui/README.md:1` — **mission control** — # JARVIS Mission Control UI
+- `docs/architecture/ui/README.md:4` — **mission control** — specifications for the JARVIS Gen 2 Mission Control interface.
+- `docs/architecture/ui/README.md:24` — **mission control** — for the Mission Control UI.
+- `docs/architecture/ui/genesis_vi_a2_executive_mission_control.md:1` — **mission control** — # Genesis VI-A2 — Executive Mission Control
+- `docs/architecture/ui/genesis_vi_a2_executive_mission_control.md:7` — **mission control** — > Repository note: the identifier `Genesis VI-A2` already exists in this repository for deterministic working memory. This document uses the qualified name **Genesis VI-A2 Executive Mission Control** and unique verifier filenames to preserv
+- `docs/architecture/ui/genesis_vi_a2_executive_mission_control.md:21` — **service** — It returns `OperationsService.executive().to_dict()`. The existing `/operations/status` aggregate remains compatible and continues to include the same Executive projection.
+- `docs/constitution/ENGINEERING_CONSTITUTION.md:4` — **authority** — **Authority:** Commander-approved engineering doctrine
+- `docs/constitution/ENGINEERING_CONSTITUTION.md:10` — **authority** — understanding, automation does not outrun authority, and growth does not create
+- `docs/constitution/ENGINEERING_CONSTITUTION.md:21` — **authority** — 7. **Human Authority:** Deletion, breaking migration, and release approval require explicit human authority.
+- `docs/constitution/ENGINEERING_CONSTITUTION.md:23` — **authority** — 9. **Least Authority:** Read-only intelligence remains separate from source-changing automation.
+- `docs/constitution/KM-0000_KNOWLEDGE_CONSTITUTION.md:9` — **authority** — **Authority:**
+- `docs/constitution/UI-0001-commanders_bridge_constitution.md:225` — **authority** — ## The Human Gives Authority
+- `docs/constitution/UI-0001-commanders_bridge_constitution.md:237` — **authority** — Authority always remains visible.
+- `docs/constitution/UI-0001-commanders_bridge_constitution.md:255` — **mission control** — Mission Control is not a website.
+- `docs/constitution/UI-0001-commanders_bridge_constitution.md:257` — **mission control** — Mission Control is not an office application.
+- `docs/constitution/UI-0001-commanders_bridge_constitution.md:259` — **mission control** — Mission Control is an operational instrument.
+- `docs/constitution/UI-0001-commanders_bridge_constitution.md:383` — **mission control** — Every addition to Mission Control shall answer the following questions:
+- `docs/constitution/UI-0001-commanders_bridge_constitution.md:413` — **mission control** — Mission Control is not intended to imitate consumer software.
+- `docs/constitution/executive.md:3` — **authority** — This file is the constitutional authority for the Executive layer.
+- `docs/constitution/executive.md:14` — **authority** — Authority: Supreme Executive Governance Document
+- `docs/constitution/executive.md:14` — **governance** — Authority: Supreme Executive Governance Document
+- `docs/constitution/executive.md:28` — **authority** — The Executive is the constitutional authority responsible for transforming observations
+- `docs/constitution/executive.md:32` — **authority** — determinism, and human authority.
+- `docs/constitution/executive.md:40` — **authority** — Whenever software behavior conflicts with constitutional authority, the Constitution
+- `docs/constitution/executive.md:46` — **governance** — cognition, planning, decision-making, mission execution, governance, and future
+- `docs/constitution/executive.md:50` — **authority** — Authority
+- `docs/constitution/executive.md:56` — **authority** — Authority answers:
+- `docs/constitution/executive.md:63` — **executive director** — Executive Director
+- `docs/constitution/executive.md:66` — **organization** — Organizational policy
+- `docs/constitution/executive.md:66` — **organizational** — Organizational policy
+- `docs/constitution/executive.md:67` — **authority** — Legal authority
+- `docs/constitution/executive.md:69` — **authority** — An AI may advise an authority, but it is not automatically an authority.
+- `docs/constitution/executive.md:74` — **authority** — The active authority currently directing a mission and responsible for accepting or rejecting recommendations and decisions.
+- `docs/constitution/executive.md:84` — **executive director** — Executive Director
+- `docs/constitution/executive.md:170` — **authority** — Recommendations remain advisory until accepted by authority.
+- `docs/constitution/executive.md:236` — **service** — Deploy service
+- `docs/constitution/executive.md:347` — **authority** — Authority precedes execution.
+- `docs/constitution/executive.md:356` — **authority** — Accountability accompanies authority.
+- `docs/constitution/executive.md:380` — **authority** — Never redefine constitutional authority.
+- `docs/constitution/executive.md:384` — **authority** — Never exceed delegated authority.
+- `docs/constitution/executive.md:414` — **authority** — Every action has authority.
+- `docs/constitution/executive.md:426` — **governance** — Governance Lifecycle
+- `docs/constitution/executive.md:444` — **authority** — | Article | Responsible Package or Authority | Governing ADRs and Whitepapers | Architecture and Constitutional Specifications | Verification and Certification Evidence | Primary Implementation Modules and Public Surfaces | Executive Capabi
+- `docs/constitution/executive.md:446` — **authority** — | **I — Constitutional Authority** | `docs/constitution`; `core/executive` | `ADR-0018-constitutional-first-principles.md`; `ADR-0019-executive-governance.md`; `CONST-0001` | `docs/constitution/executive.md`; `docs/constitution/architecture
+- `docs/constitution/executive.md:446` — **governance** — | **I — Constitutional Authority** | `docs/constitution`; `core/executive` | `ADR-0018-constitutional-first-principles.md`; `ADR-0019-executive-governance.md`; `CONST-0001` | `docs/constitution/executive.md`; `docs/constitution/architecture
+- `docs/constitution/executive.md:447` — **executive director** — | **II — Purpose of the Executive** | `core/executive`; `core/cognition` | `WP-0011`; `ADR-0019-executive-governance.md`; `ADR-0020-genesis-iv-cognition-architecture-constitution.md` | `docs/architecture/11_cognitive_architecture.md`; `docs
+- `docs/constitution/executive.md:447` — **governance** — | **II — Purpose of the Executive** | `core/executive`; `core/cognition` | `WP-0011`; `ADR-0019-executive-governance.md`; `ADR-0020-genesis-iv-cognition-architecture-constitution.md` | `docs/architecture/11_cognitive_architecture.md`; `docs
+- `docs/constitution/executive.md:448` — **authority** — | **III — Authority and Delegation** | `core/executive`; mission and executive-session authority boundaries | `ADR-0019-executive-governance.md`; `ADR-0031` Executive Decision Boundary | `docs/constitution/executive.md`; `docs/specification
+- `docs/constitution/executive.md:448` — **governance** — | **III — Authority and Delegation** | `core/executive`; mission and executive-session authority boundaries | `ADR-0019-executive-governance.md`; `ADR-0031` Executive Decision Boundary | `docs/constitution/executive.md`; `docs/specification
+- `docs/constitution/executive.md:449` — **governance** — | **IV — Separation of Powers** | `core/evidence`; `core/reasoning`; `core/cognition`; `core/executive`; execution and oversight boundaries | `ADR-0020-genesis-iv-cognition-architecture-constitution.md`; `ADR-0021-cognitive-object-model.md`
+- `docs/constitution/executive.md:455` — **authority** — | **X — Executive Decision** | `core/executive`; `core/cognition`; decision boundary | `WP-0012`; `ADR-0031` Executive Decision Boundary | `docs/specifications/decisions_episode.md`; Executive session and cognition-cycle architecture | Gene
+- `docs/constitution/executive.md:457` — **authority** — | **XII — Executive Execution** | Execution subsystem; `core/executive`; operations routes and activity lifecycle | Execution Constitution; Executive governance and decision-boundary ADRs | `docs/constitution/execution.md`; `docs/specificat
+- `docs/constitution/executive.md:457` — **governance** — | **XII — Executive Execution** | Execution subsystem; `core/executive`; operations routes and activity lifecycle | Execution Constitution; Executive governance and decision-boundary ADRs | `docs/constitution/execution.md`; `docs/specificat
+- `docs/constitution/executive.md:458` — **authority** — | **XIII — Safety** | Executive governance, execution subsystem, integrity engine and Commander oversight | Constitutional first principles; Executive governance ADR; future dedicated safety-policy ADR | `docs/constitution/executive.md`; `d
+- `docs/constitution/executive.md:458` — **governance** — | **XIII — Safety** | Executive governance, execution subsystem, integrity engine and Commander oversight | Constitutional first principles; Executive governance ADR; future dedicated safety-policy ADR | `docs/constitution/executive.md`; `d
+- `docs/constitution/executive.md:459` — **authority** — | **XIV — Transparency** | `core/evidence`; `core/executive`; operations API; executive integration and UI projection layers | `ADR-0017-progressive-workspace-tools.md`; `ADR-EXEC-0001-canonical-integration-plane.md`; evidence and governanc
+- `docs/constitution/executive.md:459` — **governance** — | **XIV — Transparency** | `core/evidence`; `core/executive`; operations API; executive integration and UI projection layers | `ADR-0017-progressive-workspace-tools.md`; `ADR-EXEC-0001-canonical-integration-plane.md`; evidence and governanc
+- `docs/constitution/executive.md:459` — **mission control** — | **XIV — Transparency** | `core/evidence`; `core/executive`; operations API; executive integration and UI projection layers | `ADR-0017-progressive-workspace-tools.md`; `ADR-EXEC-0001-canonical-integration-plane.md`; evidence and governanc
+- `docs/constitution/executive.md:462` — **authority** — | **XVII — Constitutional Governance and Amendment** | Commander; `docs/constitution`; `docs/decisions`; engineering certification authority | `ADR-0018-constitutional-first-principles.md`; `ADR-0019-executive-governance.md`; future amendme
+- `docs/constitution/executive.md:462` — **governance** — | **XVII — Constitutional Governance and Amendment** | Commander; `docs/constitution`; `docs/decisions`; engineering certification authority | `ADR-0018-constitutional-first-principles.md`; `ADR-0019-executive-governance.md`; future amendme
+- `docs/constitution/executive.md:463` — **authority** — | **XVIII — Normative Requirements** | Engineering OS; repository verification framework; package owners | Engineering Constitution; architecture and ownership ADRs; constitutional first principles | `docs/constitution/ENGINEERING_CONSTITUT
+- `docs/constitution/executive.md:463` — **governance** — | **XVIII — Normative Requirements** | Engineering OS; repository verification framework; package owners | Engineering Constitution; architecture and ownership ADRs; constitutional first principles | `docs/constitution/ENGINEERING_CONSTITUT
+- `docs/constitution/executive.md:464` — **authority** — | **XIX — Constitutional Compliance** | Future `core/governance` or `core/compliance`; `dev/verification`; audits and certification authority | `CONST-0001`; constitutional governance ADR; proposed Genesis IV-G2 Constitutional Enforcement A
+- `docs/constitution/executive.md:464` — **governance** — | **XIX — Constitutional Compliance** | Future `core/governance` or `core/compliance`; `dev/verification`; audits and certification authority | `CONST-0001`; constitutional governance ADR; proposed Genesis IV-G2 Constitutional Enforcement A
+- `docs/constitution/executive.md:473` — **authority** — Constitutional Authority
+- `docs/constitution/executive.md:479` — **authority** — This Constitution is the highest governing authority of the Executive Operating System.
+- `docs/constitution/executive.md:489` — **authority** — Executive authority shall descend through the following hierarchy:
+- `docs/constitution/executive.md:510` — **authority** — Authority never flows upward.
+- `docs/constitution/executive.md:531` — **authority** — human authority,
+- `docs/constitution/executive.md:550` — **authority** — No phase shall establish doctrine inconsistent with previous constitutional authority.
+- `docs/constitution/executive.md:598` — **authority** — The Executive shall not invent authority beyond that delegated by the Commander.
+- `docs/constitution/executive.md:610` — **authority** — override constitutional authority;
+- `docs/constitution/executive.md:618` — **authority** — The Commander remains the ultimate decision authority.
+- `docs/constitution/executive.md:625` — **authority** — Autonomy exists only within explicitly delegated authority.
+- `docs/constitution/executive.md:636` — **authority** — Authority and Delegation
+- `docs/constitution/executive.md:640` — **authority** — # 3.1 — Source of Authority
+- `docs/constitution/executive.md:642` — **authority** — Executive authority originates exclusively from the Commander.
+- `docs/constitution/executive.md:644` — **authority** — No component possesses inherent authority.
+- `docs/constitution/executive.md:652` — **authority** — # 3.2 — Delegated Authority
+- `docs/constitution/executive.md:654` — **authority** — Delegated authority shall possess:
+- `docs/constitution/executive.md:668` — **authority** — Delegated authority shall never exceed constitutional limits.
+- `docs/constitution/executive.md:673` — **authority** — expand authority;
+- `docs/constitution/executive.md:684` — **authority** — originating authority;
+- `docs/constitution/executive.md:685` — **authority** — approving authority;
+- `docs/constitution/executive.md:686` — **authority** — executing authority.
+- `docs/constitution/executive.md:730` — **authority** — The Commander may revoke delegated authority at any time.
+- `docs/constitution/executive.md:740` — **authority** — Delegated authority shall always remain subordinate to:
+- `docs/constitution/executive.md:742` — **authority** — Constitutional authority.
+- `docs/constitution/executive.md:743` — **authority** — Human authority.
+- `docs/constitution/executive.md:761` — **authority** — No single component shall simultaneously possess unrestricted authority to:
+- `docs/constitution/executive.md:770` — **authority** — The concentration of executive authority within a single subsystem is prohibited.
+- `docs/constitution/executive.md:775` — **authority** — Executive authority shall be divided into constitutional domains.
+- `docs/constitution/executive.md:851` — **authority** — Execution shall never reinterpret constitutional authority.
+- `docs/constitution/executive.md:903` — **authority** — Assertions without evidence possess no constitutional authority.
+- `docs/constitution/executive.md:1145` — **authority** — Authority: Supreme Executive Governance Document
+- `docs/constitution/executive.md:1145` — **governance** — Authority: Supreme Executive Governance Document
+- `docs/constitution/executive.md:1359` — **authority** — Decision constitutes the formal commitment of authority to a selected Course of Action.
+- `docs/constitution/executive.md:1366` — **authority** — # 10.2 — Decision Authority
+- `docs/constitution/executive.md:1368` — **authority** — Decision authority remains exclusively with constitutionally authorized actors.
+- `docs/constitution/executive.md:1370` — **authority** — The Executive shall never assume decision authority absent explicit delegation.
+- `docs/constitution/executive.md:1379` — **authority** — approving authority;
+- `docs/constitution/executive.md:1523` — **authority** — Execution shall never create authority.
+- `docs/constitution/executive.md:1525` — **authority** — Execution shall faithfully implement authority already granted.
+- `docs/constitution/executive.md:1547` — **authority** — constitutional authority;
+- `docs/constitution/executive.md:1569` — **authority** — adaptation remains within delegated authority;
+- `docs/constitution/executive.md:1595` — **authority** — constitutional authority is revoked;
+- `docs/constitution/executive.md:1630` — **authority** — Constitutional authority
+- `docs/constitution/executive.md:1692` — **authority** — Executive authority shall remain observable.
+- `docs/constitution/executive.md:1694` — **authority** — Opaque authority is constitutionally prohibited.
+- `docs/constitution/executive.md:1707` — **authority** — governing authority.
+- `docs/constitution/executive.md:1783` — **authority** — Knowledge without provenance possesses reduced constitutional authority.
+- `docs/constitution/executive.md:1803` — **authority** — authority;
+- `docs/constitution/executive.md:1828` — **governance** — Policy changes require constitutional governance.
+- `docs/constitution/executive.md:1864` — **governance** — governance.
+- `docs/constitution/executive.md:1870` — **authority** — Part IV establishes the constitutional governance of executive execution, operational safety, transparency, and determinism. These Articles ensure that authorized plans are executed faithfully, that safety takes precedence over expediency,
+- `docs/constitution/executive.md:1870` — **governance** — Part IV establishes the constitutional governance of executive execution, operational safety, transparency, and determinism. These Articles ensure that authorized plans are executed faithfully, that safety takes precedence over expediency,
+- `docs/constitution/executive.md:1876` — **authority** — Commander Authority
+- `docs/constitution/executive.md:1908` — **authority** — At this point, the Constitution defines how executive authority is exercised from
+- `docs/constitution/executive.md:1912` — **governance** — TITLE V – Constitutional Governance
+- `docs/constitution/executive.md:1963` — **authority** — Knowledge lacking provenance shall not acquire constitutional authority.
+- `docs/constitution/executive.md:1989` — **authority** — responsible authority;
+- `docs/constitution/executive.md:1995` — **organization** — # 16.7 — Organizational Continuity
+- `docs/constitution/executive.md:1995` — **organizational** — # 16.7 — Organizational Continuity
+- `docs/constitution/executive.md:2008` — **governance** — Constitutional Governance and Amendment
+- `docs/constitution/executive.md:2014` — **authority** — Temporary engineering convenience shall never supersede constitutional authority.
+- `docs/constitution/executive.md:2024` — **governance** — advancement of Executive governance;
+- `docs/constitution/executive.md:2103` — **authority** — May denotes discretionary authority within constitutional limits.
+- `docs/constitution/executive.md:2112` — **authority** — Claims of compliance unsupported by evidence possess no constitutional authority.
+- `docs/constitution/executive.md:2115` — **governance** — # 18.3 — Governance Before Implementation
+- `docs/constitution/executive.md:2119` — **authority** — Constitutional authority
+- `docs/constitution/executive.md:2125` — **governance** — Implementation shall follow governance rather than define it.
+- `docs/constitution/executive.md:2151` — **authority** — # 18.6 — Repository Authority
+- `docs/constitution/executive.md:2166` — **governance** — Compliance exists to preserve architectural integrity, deterministic behavior, governance, accountability, and long-term maintainability. No implementation convenience, operational necessity, or future enhancement shall supersede the Consti
+- `docs/constitution/executive.md:2172` — **service** — Every subsystem, module, service, interface, data structure, workflow, policy, and operational process shall demonstrate compliance with this Constitution.
+- `docs/constitution/executive.md:2179` — **governance** — * Verification of governance boundaries.
+- `docs/constitution/executive.md:2191` — **authority** — # 19.3 Verification Authority
+- `docs/constitution/executive.md:2195` — **authority** — Verification Authority includes:
+- `docs/constitution/executive.md:2200` — **governance** — * Governance verification procedures.
+- `docs/constitution/executive.md:2204` — **authority** — Recommendations regarding compliance may be generated by reasoning systems; however, only an authorized Verification Authority may certify constitutional compliance.
+- `docs/constitution/executive.md:2206` — **authority** — Verification Authority shall remain independent from implementation whenever practical.
+- `docs/constitution/executive.md:2215` — **governance** — Minor deviations having no impact on correctness, safety, governance, or architectural integrity.
+- `docs/constitution/executive.md:2236` — **governance** — Violations that compromise architectural integrity, deterministic behavior, interoperability, governance, or verified functionality.
+- `docs/constitution/executive.md:2243` — **governance** — * broken governance boundaries
+- `docs/constitution/executive.md:2250` — **authority** — Violations that compromise safety, constitutional authority, security, integrity, trustworthiness, or reliable operation.
+- `docs/constitution/executive.md:2259` — **governance** — * intentional violation of governance controls
+- `docs/constitution/executive.md:2279` — **authority** — Temporary workarounds shall not constitute remediation unless explicitly approved by Constitutional Authority.
+- `docs/constitution/executive.md:2296` — **governance** — * governance validation;
+- `docs/constitution/executive.md:2336` — **authority** — * responsible authority;
+- `docs/constitution/executive.md:2343` — **governance** — Audit records shall be complete, immutable where required, and retained according to established governance policy.
+- `docs/constitution/executive.md:2351` — **service** — The Certification Appendix defines the minimum constitutional requirements that every Executive capability, subsystem, package, service, interface, and architectural component shall satisfy before being declared Constitutionally Certified.
+- `docs/constitution/executive.md:2355` — **authority** — Certification is the formal demonstration that an implementation faithfully satisfies its Constitutional authority.
+- `docs/constitution/executive.md:2363` — **authority** — ### 1. Constitutional Authority
+- `docs/constitution/executive.md:2365` — **authority** — The implementing component SHALL identify the Constitutional Article or Articles from which it derives authority.
+- `docs/constitution/executive.md:2367` — **authority** — No implementation may exist without constitutional authority.
+- `docs/constitution/executive.md:2371` — **authority** — ### 2. Architectural Authority
+- `docs/constitution/executive.md:2381` — **authority** — ### 3. Implementation Authority
+- `docs/constitution/executive.md:2389` — **service** — - Services
+- `docs/constitution/executive.md:2396` — **authority** — ### 4. Verification Authority
+- `docs/constitution/executive.md:2412` — **authority** — ### 5. Certification Authority
+- `docs/constitution/executive.md:2463` — **authority** — - responsible authority
+- `docs/constitution/executive.md:2487` — **authority** — Certification SHALL NEVER establish constitutional authority.
+- `docs/constitution/executive.md:2489` — **authority** — Only the Constitution grants authority.
+- `docs/constitution/executive.md:2501` — **authority** — No implementation, capability, subsystem, service, interface, or artifact shall exist outside this chain of constitutional authority.
+- `docs/constitution/executive.md:2501` — **service** — No implementation, capability, subsystem, service, interface, or artifact shall exist outside this chain of constitutional authority.
+- `docs/constitution/executive.md:2552` — **authority** — Forward Traceability demonstrates how Constitutional authority flows downward through the Executive Operating System.
+- `docs/constitution/executive.md:2571` — **authority** — Reverse Traceability demonstrates that every implementation derives its authority from the Constitution.
+- `docs/constitution/executive.md:2582` — **authority** — - governing Constitutional authority
+- `docs/constitution/executive.md:2587` — **authority** — - governing Constitutional authority
+- `docs/constitution/executive.md:2597` — **authority** — - governing Constitutional authority
+- `docs/constitution/executive.md:2599` — **authority** — No implementation SHALL possess undefined authority.
+- `docs/constitution/executive.md:2613` — **service** — - Services
+- `docs/constitution/executive.md:2630` — **authority** — Constitutional Drift exists whenever an implementation no longer reflects its governing Constitutional authority.
+- `docs/constitution/executive.md:2639` — **authority** — - conflicting constitutional authority
+- `docs/constitution/executive.md:2650` — **authority** — - Constitutional authority is identified.
+- `docs/constitution/executive.md:2651` — **authority** — - Whitepaper authority is identified.
+- `docs/constitution/executive.md:2652` — **authority** — - ADR authority is identified.
+- `docs/constitution/executive.md:2653` — **authority** — - Architecture authority is identified.
+- `docs/constitution/executive.md:2654` — **authority** — - Engineering authority is identified.
+- `docs/constitution/executive.md:2655` — **authority** — - Implementation authority is identified.
+- `docs/constitution/executive.md:2656` — **authority** — - Verification authority is identified.
+- `docs/constitution/executive.md:2657` — **authority** — - Certification authority is identified.
+- `docs/constitution/executive.md:2692` — **authority** — Every Executive capability SHALL derive its authority from the Constitution.
+- `docs/constitution/executive.md:2694` — **authority** — Nothing within the Executive Operating System exists outside Constitutional authority.
+- `docs/constitution/executive.md:2698` — **authority** — This Constitution establishes the governing authority for the JARVIS Executive Operating System.
+- `docs/constitution/executive.md:2703` — **authority** — executive authority;
+- `docs/constitution/executive.md:2704` — **authority** — delegated authority;
+- `docs/constitution/executive.md:2711` — **authority** — decision authority;
+- `docs/constitution/executive.md:2718` — **governance** — constitutional governance;
+- `docs/constitution/executive.md:2739` — **authority** — Every mission shall preserve constitutional authority.
+- `docs/constitution/executive.md:2747` — **authority** — The Commander shall remain the ultimate authority.
+- `docs/constitution/executive.md:2798` — **authority** — **Ratification Authority**
+- `docs/constitution/executive.md:2819` — **authority** — artifacts shall derive their authority from this document.
+- `docs/constitution/executive.md:2827` — **authority** — It shall serve as the constitutional authority for all Executive cognition, reasoning, decision-making, planning, execution, governance, and future architectural evolution until lawfully amended in accordance with Article XVII.
+- `docs/constitution/executive.md:2827` — **governance** — It shall serve as the constitutional authority for all Executive cognition, reasoning, decision-making, planning, execution, governance, and future architectural evolution until lawfully amended in accordance with Article XVII.
+- `docs/constitution/executive.md:2832` — **authority** — With Parts I–V complete, the Constitution now defines the Executive Operating System from foundational authority through enduring governance:
+- `docs/constitution/executive.md:2832` — **governance** — With Parts I–V complete, the Constitution now defines the Executive Operating System from foundational authority through enduring governance:
+- `docs/decisions/ADR-0000.md:8` — **governance** — - **Scope:** Entire JARVIS architecture, governance, and product direction
+- `docs/decisions/ADR-0000.md:106` — **authority** — JARVIS does not replace human authority.
+- `docs/decisions/ADR-0004-doctor-framework.md:25` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0006-Jarvis-Librarian-Knowledge-Gap-Analysis.md:6` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0006-bootstrap-architecture.md:29` — **service** — As additional startup responsibilities are introduced—including knowledge initialization, plugin discovery, database migrations, and service verification—the launcher would become increasingly difficult to maintain.
+- `docs/decisions/ADR-0006-bootstrap-architecture.md:41` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0006-knowledge-ontology.md:88` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0006-knowledge-ontology.md:113` — **organization** — Collections are organizational containers.
+- `docs/decisions/ADR-0006-knowledge-ontology.md:113` — **organizational** — Collections are organizational containers.
+- `docs/decisions/ADR-0007-inspect-early-reuse-forever.md:338` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0007-knowledge-lifecycle.md:125` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0007-knowledge-pipeline-architecture.md:9` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0008-knowledge-catalog-metadata-model.md:6` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:52` — **service** — Service
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:68` — **governance** — > This ADR was created before the JARVIS ADR governance policy was established.
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:130` — **service** — - Call one or more Services
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:140` — **service** — ## 4. Service
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:152` — **service** — Services SHALL remain lightweight.
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:154` — **service** — Services SHALL NOT duplicate algorithms.
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:176` — **service** — They may evolve internally but remain the public API consumed by Services.
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:212` — **service** — Service
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:239` — **service** — Service → CLI
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:267` — **service** — Service
+- `docs/decisions/ADR-0008-layered-capability-architecture.md:341` — **service** — Services become stable integration boundaries.
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:51` — **authority** — Sources provide Authority.
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:275` — **authority** — # Authority
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:277` — **authority** — Every evidence source has an authority score.
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:321` — **authority** — Authority influences confidence.
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:323` — **authority** — Authority never replaces evidence.
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:333` — **authority** — Source authority
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:421` — **authority** — Authority
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:495` — **campaign** — # Knowledge Campaigns
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:497` — **campaign** — Campaigns are groups of acquisition goals.
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:513` — **campaign** — Campaigns measure progress using graph coverage.
+- `docs/decisions/ADR-0012-knowledge-coverage-graph.md:651` — **campaign** — Knowledge Campaigns
+- `docs/decisions/ADR-0013-gap-analysis-engine.md:13` — **campaign** — JARVIS now has a Knowledge Coverage Graph ontology containing domains, disciplines, subjects, concepts, prerequisites, and campaigns.
+- `docs/decisions/ADR-0013-gap-analysis-engine.md:28` — **campaign** — - known campaigns
+- `docs/decisions/ADR-0015-semantic-extraction-engine.md:412` — **authority** — Authority scoring
+- `docs/decisions/ADR-0017-progressive-workspace-tools.md:13` — **mission control** — Mission Control contains capabilities used by operators, engineers,
+- `docs/decisions/ADR-0017-progressive-workspace-tools.md:27` — **mission control** — Mission Control adopts Progressive Workspace Tools.
+- `docs/decisions/ADR-0018-constitutional-first-principles.md:33` — **governance** — Standards shall follow governance.
+- `docs/decisions/ADR-0018-operational-memory.md:105` — **service** — Maintained through Mission Journals, AARs, Mission Packages, and archival services.
+- `docs/decisions/ADR-0018.md:219` — **organization** — This structure becomes the standard organizational model for Genesis.
+- `docs/decisions/ADR-0018.md:219` — **organizational** — This structure becomes the standard organizational model for Genesis.
+- `docs/decisions/ADR-0019-canonical-evidence-model.md:14` — **governance** — lifecycle governance, canonical reasoning fixtures, constitutional reasoning
+- `docs/decisions/ADR-0019-canonical-evidence-model.md:208` — **governance** — - Typed vocabularies could expand without governance.
+- `docs/decisions/ADR-0019-executive-governance.md:1` — **governance** — # ADR-0019 — Executive Governance
+- `docs/decisions/ADR-0019-executive-governance.md:9` — **governance** — The Executive requires a permanent governance model to ensure architectural evolution remains deliberate, traceable, and consistent with FP-0000.
+- `docs/decisions/ADR-0019-executive-governance.md:13` — **authority** — Adopt GV-0001 as the governing standard for constitutional authority, architectural evolution, and standards management.
+- `docs/decisions/ADR-0019-executive-governance.md:17` — **authority** — - Constitutional authority is formally established.
+- `docs/decisions/ADR-0019-executive-governance.md:18` — **governance** — - Architectural evolution requires governance.
+- `docs/decisions/ADR-0019-executive-governance.md:20` — **authority** — - The Executive remains subordinate to human authority.
+- `docs/decisions/ADR-0020-genesis-iv-cognition-architecture-constitution.md:155` — **organization** — the reorganization temporarily delays new feature development.
+- `docs/decisions/ADR-0022-observation-engine.md:22` — **governance** — normalization, lifecycle governance, registry-backed retrieval, conservative
+- `docs/decisions/ADR-0024-cognitive-workspace-integration-engine.md:12` — **service** — Introduce `core.cognition.integration` as a thin, deterministic layer over the certified workspace public API. Integration contracts are immutable. The pipeline maps seeds into canonical workspace models. The service owns repository coordin
+- `docs/decisions/ADR-0032-executive-course-of-action-generation.md:13` — **governance** — Decision synthesis receives multiple auditable candidates. Planning and operations retain ownership of decomposition and execution. This prevents cognition from bypassing executive governance.
+- `docs/decisions/ADR-0034-executive-decision-engine.md:5` — **authority** — Create `core.cognition.executive_decision` as the canonical owner of deterministic Executive selection. Constitutional and authority gates precede ranking. The engine may select or abstain, but it may not execute. Rejected candidates and tr
+- `docs/decisions/ADR-0036-executive-execution-orchestrator-boundary.md:10` — **authority** — scheduling, authority gates, retry policy, rollback coordination, and
+- `docs/decisions/ADR-0037-executive-integration-visibility-fabric.md:10` — **mission control** — Executive API contracts, and Mission Control projections.
+- `docs/decisions/ADR-0039-observation-migration-strategy.md:26` — **governance** — The repository can certify governance without pretending that migration is
+- `docs/decisions/ADR-EA-0001-executive-academy-charter.md:24` — **governance** — - Future Academy phases inherit canonical names, boundaries, and governance.
+- `docs/decisions/ADR-EXEC-0001-canonical-integration-plane.md:39` — **governance** — - Introduces schema governance.
+- `docs/decisions/ADR-EXEC-0002-executive-projection-bus.md:9` — **mission control** — Executive Projection Bus. Mission Control shall not call subsystem internals.
+- `docs/decisions/ADR-EXEC-0002-projection-provider-architecture.md:8` — **service** — All UI-facing subsystem state passes through registered `ProjectionProvider` adapters and versioned `ProjectionEnvelope` contracts. The `ExecutiveProjectionService` is the canonical read facade.
+- `docs/decisions/ADR-EXEC-0002-projection-provider-architecture.md:15` — **service** — - Existing domain services remain authoritative.
+- `docs/decisions/ADR-EXEC-0003-capability-discovery-registration.md:18` — **service** — services
+- `docs/decisions/ADR-EXEC-0003-capability-discovery-registration.md:26` — **mission control** — - Mission Control can show what JARVIS can actually do.
+- `docs/decisions/ADR-EXEC-0004-knowledge-inventory-projection.md:8` — **mission control** — JARVIS contains multiple mature knowledge stores, but Mission Control cannot
+- `docs/decisions/ADR-EXEC-0004-knowledge-inventory-projection.md:25` — **mission control** — - Mission Control gains truthful knowledge-estate visibility.
+- `docs/decisions/ADR-GENESIS-II-A3B.md:4` — **governance** — **Decision scope:** Genesis verification governance
+- `docs/decisions/ADR-GENESIS-III-A1.md:9` — **service** — JARVIS already possesses reasoning contracts, reasoning services, knowledge

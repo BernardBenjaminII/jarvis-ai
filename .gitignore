@@ -121,3 +121,39 @@ Thumbs.db
 
 # Local migration backups
 .migration_backups/
+
+# ============================================================
+# JARVIS runtime / generated state
+# ============================================================
+
+# Runtime operational artifacts
+artifacts/runtime/
+
+# Python runtime/cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local databases and SQLite transient files
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+
+# Runtime locks / corruption snapshots
+*.lock
+*.corrupt.*
+
+# Development repair/backup copies
+*.before_*
+*.bak
+*.backup
+
+# Large generated audit datasets
+docs/audits/genesis_ix_a5_8_pack2/materializer_eligibility.json
+docs/audits/genesis_ix_a4_retrieval_architecture.json

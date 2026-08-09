@@ -12,8 +12,9 @@ from core.executive.timeline import (
     ExecutiveTimelineRepository,
     TimelineEvent,
     TimelineEventDraft,
-    TimelineEventKind,
-    TimelineSubsystem,
+)
+from core.executive.timeline.repository_contracts import (
+    TimelineRepositoryConflictError,
 )
 
 from .contracts import (
@@ -25,12 +26,20 @@ from .contracts import (
 
 @dataclass(frozen=True, slots=True)
 class ExecutiveSubscription:
+    """Opaque handle for one Event Bus subscription."""
+
     subscription_id: str
     subscriber_name: str
 
 
 class ExecutiveEventBus:
-    """Canonical publish/persist/notify boundary for Executive events."""
+    """
+    Canonical synchronous publication boundary.
+
+    Repository persistence is authoritative. A stale in-memory engine may be
+    rejected by repository conflict detection; the bus then reloads the disk
+    authority, rebuilds its engine, and retries the semantic draft once.
+    """
 
     def __init__(
         self,
@@ -41,7 +50,10 @@ class ExecutiveEventBus:
         self._repository = repository
         self._event_id_factory = event_id_factory
         self._engine = self._new_engine()
-        self._subscribers: dict[str, tuple[str, ExecutiveEventSubscriber]] = {}
+        self._subscribers: dict[
+            str,
+            tuple[str, ExecutiveEventSubscriber],
+        ] = {}
         self._lock = RLock()
 
     @property
@@ -65,6 +77,7 @@ class ExecutiveEventBus:
     ) -> ExecutiveSubscription:
         if not callable(subscriber):
             raise TypeError("subscriber must be callable.")
+
         subscription_id = str(uuid4())
         subscriber_name = (
             str(name).strip()
@@ -72,38 +85,61 @@ class ExecutiveEventBus:
             else getattr(
                 subscriber,
                 "__qualname__",
-                getattr(subscriber, "__name__", type(subscriber).__name__),
+                getattr(
+                    subscriber,
+                    "__name__",
+                    type(subscriber).__name__,
+                ),
             )
         )
+
         if not subscriber_name:
             raise ValueError("subscriber name cannot be empty.")
-        with self._lock:
-            self._subscribers[subscription_id] = (subscriber_name, subscriber)
-        return ExecutiveSubscription(subscription_id, subscriber_name)
 
-    def unsubscribe(self, subscription: ExecutiveSubscription | str) -> bool:
+        with self._lock:
+            self._subscribers[subscription_id] = (
+                subscriber_name,
+                subscriber,
+            )
+
+        return ExecutiveSubscription(
+            subscription_id=subscription_id,
+            subscriber_name=subscriber_name,
+        )
+
+    def unsubscribe(
+        self,
+        subscription: ExecutiveSubscription | str,
+    ) -> bool:
         subscription_id = (
             subscription.subscription_id
             if isinstance(subscription, ExecutiveSubscription)
             else str(subscription)
         )
-        with self._lock:
-            return self._subscribers.pop(subscription_id, None) is not None
 
-    def publish(self, draft: TimelineEventDraft) -> ExecutivePublication:
-        draft.validate()
         with self._lock:
-            event = self._engine.append(draft)
-            try:
-                self._repository.append(event)
-            except Exception:
-                self._engine = self._new_engine()
-                raise
+            return (
+                self._subscribers.pop(subscription_id, None)
+                is not None
+            )
+
+    def publish(
+        self,
+        draft: TimelineEventDraft,
+    ) -> ExecutivePublication:
+        draft.validate()
+
+        with self._lock:
+            event = self._commit_with_stale_writer_retry(draft)
             subscribers = tuple(self._subscribers.items())
 
         delivered = 0
         failures: list[ExecutiveSubscriberFailure] = []
-        for subscription_id, (subscriber_name, subscriber) in subscribers:
+
+        for subscription_id, (
+            subscriber_name,
+            subscriber,
+        ) in subscribers:
             try:
                 subscriber(event)
                 delivered += 1
@@ -116,11 +152,31 @@ class ExecutiveEventBus:
                         message=str(exc),
                     )
                 )
+
         return ExecutivePublication(
             event=event,
             delivered_subscribers=delivered,
             subscriber_failures=tuple(failures),
         )
+
+    def _commit_with_stale_writer_retry(
+        self,
+        draft: TimelineEventDraft,
+    ) -> TimelineEvent:
+        for attempt in (1, 2):
+            event = self._engine.append(draft)
+
+            try:
+                self._repository.append(event)
+                return event
+            except TimelineRepositoryConflictError:
+                self._repository.reload()
+                self._engine = self._new_engine()
+
+                if attempt == 2:
+                    raise
+
+        raise RuntimeError("Unreachable Event Bus retry state.")
 
     def publish_many(
         self,
@@ -129,9 +185,13 @@ class ExecutiveEventBus:
         return tuple(self.publish(draft) for draft in drafts)
 
     def latest(self, limit: int = 25) -> tuple[TimelineEvent, ...]:
+        self._repository.reload()
+        self._engine = self._new_engine()
         return self._repository.latest(limit=limit)
 
     def verify(self):
+        self._repository.reload()
+        self._engine = self._new_engine()
         return self._repository.verify()
 
     def _new_engine(self) -> ExecutiveTimelineEngine:
@@ -139,17 +199,3 @@ class ExecutiveEventBus:
             event_id_factory=self._event_id_factory,
             initial_events=self._repository.events,
         )
-
-    @staticmethod
-    def _validate_closed_registry(draft: TimelineEventDraft) -> None:
-        if not isinstance(draft, TimelineEventDraft):
-            raise TypeError("ExecutiveEventBus accepts only TimelineEventDraft.")
-        draft.validate()
-        if type(draft.subsystem) is not TimelineSubsystem:
-            raise TypeError(
-                "subsystem must be a constitutional TimelineSubsystem member."
-            )
-        if type(draft.kind) is not TimelineEventKind:
-            raise TypeError(
-                "kind must be a constitutional TimelineEventKind member."
-            )

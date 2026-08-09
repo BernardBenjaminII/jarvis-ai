@@ -1,0 +1,35 @@
+{
+  "processed": 4,
+  "results": [
+    {
+      "candidate_id": "id:88897",
+      "detail": "Genesis X-A2.2 final recovery exhausted: OCR_LOW_QUALITY: OCR output did not pass quality gate.",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Jihad Afghani/LION OF PANJSHIR.PDF",
+      "stage": "UNRECOVERABLE"
+    },
+    {
+      "candidate_id": "id:88921",
+      "detail": "OCR passed quality gate.",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/WrightArabicGrammarVol2.pdf",
+      "stage": "COMPLETE"
+    },
+    {
+      "candidate_id": "id:88974",
+      "detail": "OCR passed quality gate.",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Language/wortbat-porter-4thed.pdf",
+      "stage": "COMPLETE"
+    },
+    {
+      "candidate_id": "id:89110",
+      "detail": "OCR passed quality gate.",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Social Studies/Karl Marx and Friedrich Engels - Ebook Collection/Marx Engels/Karl Marx/Marx_Mathematical_Manuscripts_1881.pdf",
+      "stage": "COMPLETE"
+    }
+  ],
+  "stage_counts": {
+    "COMPLETE": 89261,
+    "EXCLUDED_METADATA": 9,
+    "EXCLUDED_POLICY": 1,
+    "UNRECOVERABLE": 1
+  }
+}

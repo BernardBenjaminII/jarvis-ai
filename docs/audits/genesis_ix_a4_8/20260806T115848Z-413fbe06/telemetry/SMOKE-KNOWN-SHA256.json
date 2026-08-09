@@ -1,0 +1,24 @@
+{
+  "accepted_evidence": 0,
+  "available": true,
+  "citation_count": 0,
+  "citations": [],
+  "confidence": 0.0,
+  "conflict_count": 0,
+  "conflicts": [],
+  "generated_at": "2026-08-06T11:58:48.806158+00:00",
+  "metadata": {
+    "channel": "text",
+    "mode": "full",
+    "synthesis_invoked": false
+  },
+  "query": "What is SHA-256?",
+  "rank_scores": [],
+  "recommended_action": "Acquire and assimilate authoritative sources, then retry.",
+  "rejected_evidence": 8,
+  "request_id": "executive-request",
+  "session_id": "644f88e02bda456f849682133182fb69",
+  "source_paths": [],
+  "state": "unknown",
+  "uncertainty_note": "No qualified evidence is available for a reliable answer."
+}

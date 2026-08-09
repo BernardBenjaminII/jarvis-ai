@@ -1,0 +1,345 @@
+{
+  "checks": [
+    {
+      "actual": "core.conversation.service.ExecutiveConversationService",
+      "code": "RUNTIME-CONVERSATION_SERVICE",
+      "detail": "Certification uses exact module and class identity, not class-name matching.",
+      "expected": "core.conversation.service.ExecutiveConversationService",
+      "label": "Live conversation service identity",
+      "status": "PASS"
+    },
+    {
+      "actual": "core.conversation.compiler.ExecutiveRequestCompiler",
+      "code": "RUNTIME-COMPILER",
+      "detail": "Certification uses exact module and class identity, not class-name matching.",
+      "expected": "core.conversation.compiler.ExecutiveRequestCompiler",
+      "label": "Live compiler identity",
+      "status": "PASS"
+    },
+    {
+      "actual": "core.conversation.repository.ConversationRepository",
+      "code": "RUNTIME-REPOSITORY",
+      "detail": "Certification uses exact module and class identity, not class-name matching.",
+      "expected": "core.conversation.repository.ConversationRepository",
+      "label": "Live repository identity",
+      "status": "PASS"
+    },
+    {
+      "actual": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "code": "RUNTIME-ORCHESTRATOR",
+      "detail": "Certification uses exact module and class identity, not class-name matching.",
+      "expected": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "label": "Live orchestrator identity",
+      "status": "PASS"
+    },
+    {
+      "actual": "core.conversation.grounding.CatalogGroundingService",
+      "code": "RUNTIME-GROUNDING_SERVICE",
+      "detail": "Certification uses exact module and class identity, not class-name matching.",
+      "expected": "core.conversation.grounding.CatalogGroundingService",
+      "label": "Live grounding service identity",
+      "status": "PASS"
+    },
+    {
+      "actual": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService",
+      "code": "RUNTIME-AWARENESS_SERVICE",
+      "detail": "Certification uses exact module and class identity, not class-name matching.",
+      "expected": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService",
+      "label": "Live awareness service identity",
+      "status": "PASS"
+    },
+    {
+      "actual": "core.executive.director.ExecutiveDirector",
+      "code": "RUNTIME-DIRECTOR",
+      "detail": "Certification uses exact module and class identity, not class-name matching.",
+      "expected": "core.executive.director.ExecutiveDirector",
+      "label": "Live director identity",
+      "status": "PASS"
+    },
+    {
+      "actual": null,
+      "code": "RUNTIME-LEGACY-BYPASS",
+      "detail": "The Executive conversation service must use the orchestrator rather than the legacy answer handler.",
+      "expected": null,
+      "label": "Legacy answer handler is disabled",
+      "status": "PASS"
+    },
+    {
+      "actual": "CatalogGroundingService._search_catalog",
+      "code": "RUNTIME-SEARCH-HANDLER",
+      "detail": "The live grounding service must delegate through its canonical catalog-search adapter.",
+      "expected": "CatalogGroundingService._search_catalog",
+      "label": "Grounding uses its canonical search handler",
+      "status": "PASS"
+    },
+    {
+      "actual": "core.knowledge_catalog.search.search_catalog",
+      "code": "RUNTIME-CANONICAL-SEARCH",
+      "detail": "The imported catalog search function must be the canonical production implementation.",
+      "expected": "core.knowledge_catalog.search.search_catalog",
+      "label": "Canonical search function identity",
+      "status": "PASS"
+    },
+    {
+      "actual": "core.knowledge_catalog.materialization.search.search_runtime_knowledge",
+      "code": "RUNTIME-MATERIALIZED-SEARCH",
+      "detail": "Runtime retrieval must resolve to IX-A3 materialized knowledge search.",
+      "expected": "core.knowledge_catalog.materialization.search.search_runtime_knowledge",
+      "label": "Runtime search function identity",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "RUNTIME-SYNTHESIS",
+      "detail": "A callable synthesis endpoint must be injected into the orchestrator.",
+      "expected": true,
+      "label": "Synthesis handler is callable",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "RUNTIME-DATABASE",
+      "detail": "The live grounding service database path must resolve to an existing SQLite file.",
+      "expected": true,
+      "label": "Catalog database exists",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "RUNTIME-TABLE-RUNTIME_DOCUMENTS",
+      "detail": "The live Mark I retrieval corpus must contain populated runtime_documents.",
+      "expected": true,
+      "label": "runtime_documents is present and populated",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "RUNTIME-TABLE-RUNTIME_CHUNKS",
+      "detail": "The live Mark I retrieval corpus must contain populated runtime_chunks.",
+      "expected": true,
+      "label": "runtime_chunks is present and populated",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "RUNTIME-TABLE-RUNTIME_CHUNKS_FTS",
+      "detail": "The live Mark I retrieval corpus must contain populated runtime_chunks_fts.",
+      "expected": true,
+      "label": "runtime_chunks_fts is present and populated",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "SOURCE-GROUND",
+      "detail": "The canonical orchestrator must invoke grounding before answer synthesis.",
+      "expected": true,
+      "label": "Orchestrator calls grounding service",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "SOURCE-AWARENESS",
+      "detail": "Knowledge awareness must consume the GroundingResult.",
+      "expected": true,
+      "label": "Orchestrator assesses grounding",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "SOURCE-GROUNDING-SYNTHESIS",
+      "detail": "Retrieved evidence must be added to the synthesis prompt.",
+      "expected": true,
+      "label": "Grounding contributes to synthesis input",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "SOURCE-AWARENESS-SYNTHESIS",
+      "detail": "Knowledge awareness state must influence synthesis.",
+      "expected": true,
+      "label": "Knowledge state contributes to synthesis input",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "SOURCE-SYNTHESIS-HANDLER",
+      "detail": "The grounded prompt must reach the configured synthesis handler.",
+      "expected": true,
+      "label": "Orchestrator invokes synthesis handler",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "SOURCE-CANONICAL-DELEGATION",
+      "detail": "core.knowledge_catalog.search.search_catalog must use runtime materialized retrieval.",
+      "expected": true,
+      "label": "Canonical search delegates to runtime search",
+      "status": "PASS"
+    },
+    {
+      "actual": true,
+      "code": "SOURCE-FTS",
+      "detail": "Mark I retrieval must use the certified SQLite FTS path.",
+      "expected": true,
+      "label": "Runtime search uses FTS",
+      "status": "PASS"
+    }
+  ],
+  "checks_executed": 23,
+  "checks_failed": 0,
+  "checks_passed": 23,
+  "generated_at": "2026-08-04T22:13:05.272050+00:00",
+  "overall_status": "EXCELLENT",
+  "repository_root": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+  "runtime_snapshot": {
+    "answer_handler": null,
+    "awareness_service": {
+      "module": "core.knowledge_awareness.service",
+      "qualified_type": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService",
+      "type": "ExecutiveKnowledgeAwarenessService"
+    },
+    "canonical_search": {
+      "bound_owner": null,
+      "module": "core.knowledge_catalog.search",
+      "name": "search_catalog",
+      "qualname": "search_catalog",
+      "signature": "(query: 'str', db_path: 'Path' = PosixPath('/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite'), limit: 'int' = 25) -> 'list[dict]'"
+    },
+    "catalog_database": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+    "compiler": {
+      "module": "core.conversation.compiler",
+      "qualified_type": "core.conversation.compiler.ExecutiveRequestCompiler",
+      "type": "ExecutiveRequestCompiler"
+    },
+    "conversation_ask": {
+      "bound_owner": {
+        "module": "core.conversation.service",
+        "qualified_type": "core.conversation.service.ExecutiveConversationService",
+        "type": "ExecutiveConversationService"
+      },
+      "module": "core.conversation.service",
+      "name": "ask",
+      "qualname": "ExecutiveConversationService.ask",
+      "signature": "(operator_input: 'str', *, session_id: 'str | None' = None, mode: 'str' = 'full', channel: 'str' = 'text', metadata: 'dict[str, Any] | None' = None) -> 'ExecutiveConversationResponse'"
+    },
+    "conversation_service": {
+      "module": "core.conversation.service",
+      "qualified_type": "core.conversation.service.ExecutiveConversationService",
+      "type": "ExecutiveConversationService"
+    },
+    "database": {
+      "exists": true,
+      "path": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "tables": {
+        "catalog_documents": {
+          "exists": true,
+          "row_count": 3684
+        },
+        "chunk_embeddings": {
+          "exists": true,
+          "row_count": 5
+        },
+        "document_subjects": {
+          "exists": true,
+          "row_count": 3572
+        },
+        "runtime_chunks": {
+          "exists": true,
+          "row_count": 4674
+        },
+        "runtime_chunks_fts": {
+          "exists": true,
+          "row_count": 4674
+        },
+        "runtime_documents": {
+          "exists": true,
+          "row_count": 69
+        }
+      }
+    },
+    "director": {
+      "module": "core.executive.director",
+      "qualified_type": "core.executive.director.ExecutiveDirector",
+      "type": "ExecutiveDirector"
+    },
+    "expected_types": {
+      "awareness_service": {
+        "module": "builtins",
+        "qualified_type": "builtins.type",
+        "type": "type"
+      },
+      "compiler": {
+        "module": "builtins",
+        "qualified_type": "builtins.type",
+        "type": "type"
+      },
+      "conversation_service": {
+        "module": "builtins",
+        "qualified_type": "builtins.type",
+        "type": "type"
+      },
+      "director": {
+        "module": "builtins",
+        "qualified_type": "builtins.type",
+        "type": "type"
+      },
+      "grounding_service": {
+        "module": "builtins",
+        "qualified_type": "builtins.type",
+        "type": "type"
+      },
+      "orchestrator": {
+        "module": "builtins",
+        "qualified_type": "builtins.type",
+        "type": "type"
+      },
+      "repository": {
+        "module": "builtins",
+        "qualified_type": "builtins.type",
+        "type": "type"
+      }
+    },
+    "grounding_search_handler": {
+      "bound_owner": {
+        "module": "core.conversation.grounding",
+        "qualified_type": "core.conversation.grounding.CatalogGroundingService",
+        "type": "CatalogGroundingService"
+      },
+      "module": "core.conversation.grounding",
+      "name": "_search_catalog",
+      "qualname": "CatalogGroundingService._search_catalog",
+      "signature": "(query: 'str', limit: 'int') -> 'Iterable[Mapping[str, Any]]'"
+    },
+    "grounding_service": {
+      "module": "core.conversation.grounding",
+      "qualified_type": "core.conversation.grounding.CatalogGroundingService",
+      "type": "CatalogGroundingService"
+    },
+    "observability_service": null,
+    "orchestrator": {
+      "module": "core.conversation.orchestrator",
+      "qualified_type": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "type": "ExecutiveConversationOrchestrator"
+    },
+    "repository": {
+      "module": "core.conversation.repository",
+      "qualified_type": "core.conversation.repository.ConversationRepository",
+      "type": "ConversationRepository"
+    },
+    "runtime_search": {
+      "bound_owner": null,
+      "module": "core.knowledge_catalog.materialization.search",
+      "name": "search_runtime_knowledge",
+      "qualname": "search_runtime_knowledge",
+      "signature": "(query: 'str', *, db_path: 'str | Path' = PosixPath('/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite'), limit: 'int' = 8) -> 'list[dict[str, Any]]'"
+    },
+    "synthesis_handler": {
+      "bound_owner": null,
+      "module": "core.src.brain",
+      "name": "route_question",
+      "qualname": "route_question",
+      "signature": "(question: str)"
+    }
+  },
+  "schema_version": "genesis_ix_a4_1b_pack3a_v1"
+}

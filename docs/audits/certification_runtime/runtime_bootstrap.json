@@ -1,0 +1,90 @@
+{
+  "catalog_database": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+  "checks": [
+    {
+      "actual": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+      "code": "REPOSITORY",
+      "detail": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+      "label": "Repository root",
+      "status": "PASS"
+    },
+    {
+      "actual": [
+        "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+        "/usr/lib/python312.zip",
+        "/usr/lib/python3.12",
+        "/usr/lib/python3.12/lib-dynload",
+        "/media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu/lib/python3.12/site-packages"
+      ],
+      "code": "SYS_PATH",
+      "detail": "Repository root must be present in sys.path.",
+      "label": "Repository import path",
+      "status": "PASS"
+    },
+    {
+      "actual": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+      "code": "CWD",
+      "detail": "Certification executes from the repository root.",
+      "label": "Effective working directory",
+      "status": "PASS"
+    },
+    {
+      "actual": "/media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu",
+      "code": "VENV",
+      "detail": "Certification should execute in the JARVIS virtual environment.",
+      "label": "Virtual environment",
+      "status": "PASS"
+    },
+    {
+      "actual": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/__init__.py",
+      "code": "IMPORT:core",
+      "detail": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/__init__.py",
+      "label": "Import core",
+      "status": "PASS"
+    },
+    {
+      "actual": null,
+      "code": "IMPORT:core.src",
+      "detail": "",
+      "label": "Import core.src",
+      "status": "PASS"
+    },
+    {
+      "actual": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/__init__.py",
+      "code": "IMPORT:core.executive",
+      "detail": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/__init__.py",
+      "label": "Import core.executive",
+      "status": "PASS"
+    },
+    {
+      "actual": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/__init__.py",
+      "code": "IMPORT:core.conversation",
+      "detail": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/__init__.py",
+      "label": "Import core.conversation",
+      "status": "PASS"
+    },
+    {
+      "actual": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/knowledge_catalog/__init__.py",
+      "code": "IMPORT:core.knowledge_catalog",
+      "detail": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/knowledge_catalog/__init__.py",
+      "label": "Import core.knowledge_catalog",
+      "status": "PASS"
+    },
+    {
+      "actual": "/media/abdullah/JARVIS_RUNTIME_L/knowledge/catalog.sqlite",
+      "code": "CATALOG",
+      "detail": "SQLite catalog opened successfully.",
+      "label": "Knowledge catalog",
+      "status": "PASS"
+    }
+  ],
+  "effective_cwd": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+  "initial_cwd": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+  "knowledge_root": "/media/abdullah/JARVIS_RUNTIME_L/knowledge",
+  "python_executable": "/media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu/bin/python",
+  "python_version": "3.12.3",
+  "repository_root": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+  "runtime_root": "/media/abdullah/JARVIS_RUNTIME_L",
+  "status": "EXCELLENT",
+  "virtual_environment": "/media/abdullah/JARVIS_RUNTIME_L/venvs/ubuntu"
+}

@@ -1,0 +1,24 @@
+{
+  "accepted_evidence": 0,
+  "available": true,
+  "citation_count": 0,
+  "citations": [],
+  "confidence": 0.0,
+  "conflict_count": 0,
+  "conflicts": [],
+  "generated_at": "2026-08-06T11:58:48.953861+00:00",
+  "metadata": {
+    "channel": "text",
+    "mode": "full",
+    "synthesis_invoked": false
+  },
+  "query": "Explain the internal architecture of the Quantum Banana Warp Core Mk XII.",
+  "rank_scores": [],
+  "recommended_action": "Acquire and assimilate authoritative sources, then retry.",
+  "rejected_evidence": 8,
+  "request_id": "executive-request",
+  "session_id": "8d527490fb064c789f52f3138b86a291",
+  "source_paths": [],
+  "state": "unknown",
+  "uncertainty_note": "No qualified evidence is available for a reliable answer."
+}

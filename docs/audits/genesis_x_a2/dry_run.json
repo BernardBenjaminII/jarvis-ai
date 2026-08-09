@@ -1,0 +1,1361 @@
+[
+  {
+    "candidate_id": "id:11",
+    "chars": 85314,
+    "detail": "EPUB sections=30",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Ethical Hacking With Python, JavaScript and Kali Linux/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking.epub",
+    "status": "RECOVERABLE",
+    "strategy": "epub_zip_spine"
+  },
+  {
+    "candidate_id": "id:14",
+    "chars": 85314,
+    "detail": "EPUB sections=30",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking.epub",
+    "status": "RECOVERABLE",
+    "strategy": "epub_zip_spine"
+  },
+  {
+    "candidate_id": "id:15",
+    "chars": 699678,
+    "detail": "EPUB sections=20",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu EPUB/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu.epub",
+    "status": "RECOVERABLE",
+    "strategy": "epub_zip_spine"
+  },
+  {
+    "candidate_id": "id:205",
+    "chars": 699678,
+    "detail": "EPUB sections=20",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu EPUB/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu.epub",
+    "status": "RECOVERABLE",
+    "strategy": "epub_zip_spine"
+  },
+  {
+    "candidate_id": "id:207",
+    "chars": 1679854,
+    "detail": "EPUB sections=19",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Linux Kernel Programming by Kaiwan N. Billimoria EPUB/Linux Kernel Programming by Kaiwan N. Billimoria.epub",
+    "status": "RECOVERABLE",
+    "strategy": "epub_zip_spine"
+  },
+  {
+    "candidate_id": "id:212",
+    "chars": 1152212,
+    "detail": "EPUB sections=60",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Java and Android Application Development for Dummies eBook Set/Java and Android Application Development for Dummies eBook Set.epub",
+    "status": "RECOVERABLE",
+    "strategy": "epub_zip_spine"
+  },
+  {
+    "candidate_id": "id:215",
+    "chars": 85314,
+    "detail": "EPUB sections=30",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking/Hacking With Kali Linux - A Comprehensive, Step-By-Step Beginner's Guide to Learn Ethical Hacking.epub",
+    "status": "RECOVERABLE",
+    "strategy": "epub_zip_spine"
+  },
+  {
+    "candidate_id": "id:7",
+    "chars": 699678,
+    "detail": "EPUB sections=20",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Ethical Hacking With Python, JavaScript and Kali Linux/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu EPUB/Mastering Kali Linux for Advanced Penetration Testing by Vijay Kumar Velu.epub",
+    "status": "RECOVERABLE",
+    "strategy": "epub_zip_spine"
+  },
+  {
+    "candidate_id": "id:709",
+    "chars": 0,
+    "detail": "No usable native text; pages=1409",
+    "pages": 1409,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Holy-Quran-Short-Commentary.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:717",
+    "chars": 0,
+    "detail": "No usable native text; pages=416",
+    "pages": 416,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:736",
+    "chars": 0,
+    "detail": "No usable native text; pages=978",
+    "pages": 978,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/THE NOBLE QURAN [without recitation].pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:737",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/001.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:738",
+    "chars": 0,
+    "detail": "No usable native text; pages=65",
+    "pages": 65,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/002.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:739",
+    "chars": 0,
+    "detail": "No usable native text; pages=40",
+    "pages": 40,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/003.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:740",
+    "chars": 0,
+    "detail": "No usable native text; pages=35",
+    "pages": 35,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/004.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:741",
+    "chars": 0,
+    "detail": "No usable native text; pages=29",
+    "pages": 29,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/005.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:742",
+    "chars": 0,
+    "detail": "No usable native text; pages=31",
+    "pages": 31,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/006.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:743",
+    "chars": 0,
+    "detail": "No usable native text; pages=31",
+    "pages": 31,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/007.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:744",
+    "chars": 0,
+    "detail": "No usable native text; pages=12",
+    "pages": 12,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/008.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:745",
+    "chars": 0,
+    "detail": "No usable native text; pages=27",
+    "pages": 27,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/009.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:746",
+    "chars": 0,
+    "detail": "No usable native text; pages=18",
+    "pages": 18,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/010.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:747",
+    "chars": 0,
+    "detail": "No usable native text; pages=18",
+    "pages": 18,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/011.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:748",
+    "chars": 0,
+    "detail": "No usable native text; pages=16",
+    "pages": 16,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/012.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:749",
+    "chars": 0,
+    "detail": "No usable native text; pages=8",
+    "pages": 8,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/013.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:750",
+    "chars": 0,
+    "detail": "No usable native text; pages=10",
+    "pages": 10,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/014.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:751",
+    "chars": 0,
+    "detail": "No usable native text; pages=9",
+    "pages": 9,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/015.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:752",
+    "chars": 0,
+    "detail": "No usable native text; pages=21",
+    "pages": 21,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/016.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:753",
+    "chars": 0,
+    "detail": "No usable native text; pages=17",
+    "pages": 17,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/017.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:754",
+    "chars": 0,
+    "detail": "No usable native text; pages=17",
+    "pages": 17,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/018.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:755",
+    "chars": 0,
+    "detail": "No usable native text; pages=12",
+    "pages": 12,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/019.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:756",
+    "chars": 0,
+    "detail": "No usable native text; pages=15",
+    "pages": 15,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/020.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:757",
+    "chars": 0,
+    "detail": "No usable native text; pages=14",
+    "pages": 14,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/021.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:758",
+    "chars": 0,
+    "detail": "No usable native text; pages=13",
+    "pages": 13,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/022.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:759",
+    "chars": 0,
+    "detail": "No usable native text; pages=12",
+    "pages": 12,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/023.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:760",
+    "chars": 0,
+    "detail": "No usable native text; pages=13",
+    "pages": 13,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/024.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:761",
+    "chars": 0,
+    "detail": "No usable native text; pages=10",
+    "pages": 10,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/025.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:762",
+    "chars": 0,
+    "detail": "No usable native text; pages=16",
+    "pages": 16,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/026.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:763",
+    "chars": 0,
+    "detail": "No usable native text; pages=12",
+    "pages": 12,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/027.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:764",
+    "chars": 0,
+    "detail": "No usable native text; pages=13",
+    "pages": 13,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/028.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:765",
+    "chars": 0,
+    "detail": "No usable native text; pages=11",
+    "pages": 11,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/029.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:766",
+    "chars": 0,
+    "detail": "No usable native text; pages=9",
+    "pages": 9,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/030.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:767",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/031.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:768",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/032.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:769",
+    "chars": 0,
+    "detail": "No usable native text; pages=14",
+    "pages": 14,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/033.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:770",
+    "chars": 0,
+    "detail": "No usable native text; pages=9",
+    "pages": 9,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/034.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:771",
+    "chars": 0,
+    "detail": "No usable native text; pages=7",
+    "pages": 7,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/035.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:772",
+    "chars": 0,
+    "detail": "No usable native text; pages=9",
+    "pages": 9,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/036.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:773",
+    "chars": 0,
+    "detail": "No usable native text; pages=13",
+    "pages": 13,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/037.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:774",
+    "chars": 0,
+    "detail": "No usable native text; pages=9",
+    "pages": 9,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/038.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:775",
+    "chars": 0,
+    "detail": "No usable native text; pages=12",
+    "pages": 12,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/039.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:776",
+    "chars": 0,
+    "detail": "No usable native text; pages=13",
+    "pages": 13,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/040.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:777",
+    "chars": 0,
+    "detail": "No usable native text; pages=10",
+    "pages": 10,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/041.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:778",
+    "chars": 0,
+    "detail": "No usable native text; pages=10",
+    "pages": 10,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/042.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:779",
+    "chars": 0,
+    "detail": "No usable native text; pages=11",
+    "pages": 11,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/043.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:780",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/044.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:781",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/045.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:782",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/046.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:783",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/047.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:784",
+    "chars": 0,
+    "detail": "No usable native text; pages=5",
+    "pages": 5,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/048.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:785",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/049.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:786",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/050.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:787",
+    "chars": 0,
+    "detail": "No usable native text; pages=7",
+    "pages": 7,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/051.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:788",
+    "chars": 0,
+    "detail": "No usable native text; pages=5",
+    "pages": 5,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/052.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:789",
+    "chars": 0,
+    "detail": "No usable native text; pages=7",
+    "pages": 7,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/053.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:790",
+    "chars": 0,
+    "detail": "No usable native text; pages=5",
+    "pages": 5,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/054.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:791",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/055.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:792",
+    "chars": 0,
+    "detail": "No usable native text; pages=7",
+    "pages": 7,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/056.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:793",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/057.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:794",
+    "chars": 0,
+    "detail": "No usable native text; pages=5",
+    "pages": 5,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/058.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:795",
+    "chars": 0,
+    "detail": "No usable native text; pages=5",
+    "pages": 5,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/059.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:796",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/060.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:797",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/061.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:798",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/062.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:799",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/063.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:800",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/064.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:801",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/065.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:802",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/066.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:803",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/067.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:804",
+    "chars": 0,
+    "detail": "No usable native text; pages=6",
+    "pages": 6,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/068.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:805",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/069.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:806",
+    "chars": 0,
+    "detail": "No usable native text; pages=5",
+    "pages": 5,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/070.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:807",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/071.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:808",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/072.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:809",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/073.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:810",
+    "chars": 0,
+    "detail": "No usable native text; pages=5",
+    "pages": 5,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/074.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:811",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/075.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:812",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/076.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:813",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/077.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:814",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/078.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:815",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/079.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:816",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/080.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:817",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/081.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:818",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/082.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:819",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/083.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:820",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/084.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:821",
+    "chars": 0,
+    "detail": "No usable native text; pages=4",
+    "pages": 4,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/085.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:822",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/086.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:823",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/087.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:824",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/088.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:825",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/089.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:826",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/090.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:827",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/091.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:828",
+    "chars": 0,
+    "detail": "No usable native text; pages=3",
+    "pages": 3,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/092.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:829",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/093.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:830",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/094.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:831",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/095.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:832",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/096.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:833",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/097.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:834",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/098.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:835",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/099.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:836",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/100.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:837",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/101.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:838",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/102.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:839",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/103.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:840",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/104.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:841",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/105.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:842",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/106.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:843",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/107.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:844",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/108.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:845",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/109.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:846",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/110.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:847",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/111.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:848",
+    "chars": 0,
+    "detail": "No usable native text; pages=2",
+    "pages": 2,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/112.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:849",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/113.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:850",
+    "chars": 0,
+    "detail": "No usable native text; pages=1",
+    "pages": 1,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Al Quranil Hakeem/2- Quran e-book (en+ar) - pdf/Quran separated by Surah/114.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:867",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Hayatus Sahabah/._Hayatus Sahabah vol. 1.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Hayatus Sahabah/._Hayatus Sahabah vol. 1.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:868",
+    "chars": 0,
+    "detail": "No usable native text; pages=416",
+    "pages": 416,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/History of the Caliphs/Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:871",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/History of the Caliphs/._Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/History of the Caliphs/._Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:874",
+    "chars": 0,
+    "detail": "No usable native text; pages=13",
+    "pages": 13,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/GED/RelativeResourceManager.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:881",
+    "chars": 0,
+    "detail": "No usable native text; pages=59",
+    "pages": 59,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Hand-to-Hand/Brutal self defense secrets of Bouncers e-book-SHAREGO/Wellard, Paul - The Secrets of Street Self-Defence.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:88897",
+    "chars": 0,
+    "detail": "No usable native text; pages=0",
+    "pages": 0,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Jihad Afghani/LION OF PANJSHIR.PDF",
+    "status": "UNRECOVERABLE",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:88915",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Wortbat Porter 4th ed.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Wortbat Porter 4th ed.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:88916",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Mawrid.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Mawrid.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:88918",
+    "chars": 0,
+    "detail": "No usable native text; pages=1257",
+    "pages": 1257,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/Mawrid.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:88919",
+    "chars": 0,
+    "detail": "No usable native text; pages=816",
+    "pages": 816,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/Wortbat Porter 4th ed.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:88920",
+    "chars": 0,
+    "detail": "No usable native text; pages=166",
+    "pages": 166,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/WrightArabicGrammarVol1.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:88921",
+    "chars": 0,
+    "detail": "No usable native text; pages=233",
+    "pages": 233,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/WrightArabicGrammarVol2.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:88930",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC - Arabic Class Notes Part 04.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC - Arabic Class Notes Part 04.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:88931",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC-Arabic Class Notes Part 01.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC-Arabic Class Notes Part 01.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:88974",
+    "chars": 0,
+    "detail": "No usable native text; pages=816",
+    "pages": 816,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Language/wortbat-porter-4thed.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:89010",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Litterature/._la ta7zan.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Litterature/._la ta7zan.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:89013",
+    "chars": 0,
+    "detail": "No usable native text; pages=16",
+    "pages": 16,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Marskmanship/Full-Auto Conversion - Select Fire AK-47.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:89057",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Phys Ed/10 bodybuilding ebooks- six pack abs, muscle building workouts strength turbulence training pdf/._The Stubborn Fat Solution - Flatten Your Abs.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Phys Ed/10 bodybuilding ebooks- six pack abs, muscle building workouts strength turbulence training pdf/._The Stubborn Fat Solution - Flatten Your Abs.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:89073",
+    "chars": 0,
+    "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Sirat/._Ar-Raheeq Al-Makhtum(the sealed nectar)Biography of Prophet Of Islam[eng]e-book.pdf'.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Sirat/._Ar-Raheeq Al-Makhtum(the sealed nectar)Biography of Prophet Of Islam[eng]e-book.pdf",
+    "status": "FAILED",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:89076",
+    "chars": 66683,
+    "detail": "Recovered with PyMuPDF; pages=25",
+    "pages": 25,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Social Studies/Guevara, Che - Guerilla Warfare.pdf",
+    "status": "RECOVERABLE",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:89110",
+    "chars": 0,
+    "detail": "No usable native text; pages=157",
+    "pages": 157,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Social Studies/Karl Marx and Friedrich Engels - Ebook Collection/Marx Engels/Karl Marx/Marx_Mathematical_Manuscripts_1881.pdf",
+    "status": "OCR_REQUIRED",
+    "strategy": "pdf_scan_classifier"
+  },
+  {
+    "candidate_id": "id:89124",
+    "chars": 4245462,
+    "detail": "Recovered with PyMuPDF; pages=735",
+    "pages": 735,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Yahood-Nasiri/NIV Holy Bible.pdf",
+    "status": "RECOVERABLE",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:89127",
+    "chars": 27684,
+    "detail": "Recovered with PyMuPDF; pages=36",
+    "pages": 36,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Yahood-Nasiri/sine-data,_Dead_See_Scrolls,_The_Qumran_Library,_EN.pdf",
+    "status": "RECOVERABLE",
+    "strategy": "pymupdf"
+  },
+  {
+    "candidate_id": "id:89755",
+    "chars": 10380,
+    "detail": "Legacy retry.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Yahood-Nasiri/pt/pt25a27.htm",
+    "status": "RECOVERABLE",
+    "strategy": "legacy"
+  },
+  {
+    "candidate_id": "id:89784",
+    "chars": 3612,
+    "detail": "Legacy retry.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Yahood-Nasiri/pt/pt25b27.htm",
+    "status": "RECOVERABLE",
+    "strategy": "legacy"
+  },
+  {
+    "candidate_id": "id:89786",
+    "chars": 13380,
+    "detail": "Legacy retry.",
+    "pages": null,
+    "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Yahood-Nasiri/pt/pt25b29.htm",
+    "status": "RECOVERABLE",
+    "strategy": "legacy"
+  }
+]

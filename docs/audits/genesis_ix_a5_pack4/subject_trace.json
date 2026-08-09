@@ -1,0 +1,2379 @@
+{
+  "classification": "SUBJECT_METADATA_MISSING_CRITICAL",
+  "probes": [
+    {
+      "candidates": [
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "735",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6068717736629531,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "735"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "4247",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.16131486724770305,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "4247"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "4136",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.16172945282404833,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "4136"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "678",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.16132121661431548,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "678"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "4165",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.16091035709865156,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "4165"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "225",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.16057820890406121,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "225"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "4211",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.1602313884397214,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "4211"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "890",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.15980740393699044,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "890"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "455",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.15935951946309015,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "455"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "cryptography",
+            "cybersecurity",
+            "hashing",
+            "security",
+            "sha256",
+            "sha_256"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "2826",
+          "candidate_subjects": [],
+          "decision": "rejected_low_relevance",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.15928174149130678,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "cybersecurity",
+            "cryptography"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/FM_3-05-70_US_Army_Survival_Manual_2018.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "2826"
+        }
+      ],
+      "detected_subjects": [
+        "cybersecurity",
+        "cryptography"
+      ],
+      "dominant_diagnosis": "MISSING_SUBJECT_METADATA",
+      "expected_subjects": [
+        "cybersecurity",
+        "cryptography"
+      ],
+      "normalized_query": "sha-256",
+      "probe_id": "SUBJECT-SHA256",
+      "qualified_count": 0,
+      "query": "SHA-256",
+      "query_tokens": [
+        "sha-256"
+      ],
+      "raw_count": 10
+    },
+    {
+      "candidates": [
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "845",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.4091462871175342,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "845"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "584",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.28513651988399197,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "584"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "4251",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.4087346865838882,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/geography/geodata/Licence_for_the_use_of_Copernicus_DEM_instances.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "4251"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "582",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.28561572379237704,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "582"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "579",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.28541477855148195,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "579"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "578",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.2852317085595285,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "578"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "3737",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.2956198360938384,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/SAS Survival Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "3737"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1449",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.2847703930103738,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/RRToolkit.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1449"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "2092",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.2845705257061205,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/disaster_response/fema_nuc-detonation-planning-guide.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "2092"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_programming",
+            "data",
+            "database",
+            "fts",
+            "full_text_search",
+            "information_retrieval",
+            "programming",
+            "retrieval",
+            "search",
+            "software",
+            "software_engineering",
+            "sqlite"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "523",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.29486896620697306,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "retrieval",
+            "database",
+            "programming"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "523"
+        }
+      ],
+      "detected_subjects": [
+        "retrieval",
+        "database",
+        "programming"
+      ],
+      "dominant_diagnosis": "MISSING_SUBJECT_METADATA",
+      "expected_subjects": [
+        "retrieval",
+        "database",
+        "programming"
+      ],
+      "normalized_query": "full text search",
+      "probe_id": "SUBJECT-FTS",
+      "qualified_count": 0,
+      "query": "full text search",
+      "query_tokens": [
+        "full",
+        "text",
+        "search"
+      ],
+      "raw_count": 10
+    },
+    {
+      "candidates": [
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "690",
+          "candidate_subjects": [],
+          "decision": "accepted",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.9090626569775769,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 1.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "690"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "695",
+          "candidate_subjects": [],
+          "decision": "accepted",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.9089967899960052,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 1.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "695"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "214",
+          "candidate_subjects": [],
+          "decision": "accepted",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.4867224715914472,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.3886527598866988,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "214"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "885",
+          "candidate_subjects": [],
+          "decision": "accepted",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.9087540971637863,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 1.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "885"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "217",
+          "candidate_subjects": [],
+          "decision": "accepted",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.41084996016693176,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.3886527598866988,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "217"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "859",
+          "candidate_subjects": [],
+          "decision": "accepted",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.9082506945505027,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 1.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "859"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "458",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.3332272766660053,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "458"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "673",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.3333534989177477,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "673"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "672",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.33303625734766895,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "672"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "c_programming",
+            "computer_architecture",
+            "computer_programming",
+            "computer_science",
+            "computing",
+            "programming",
+            "software",
+            "software_engineering"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "675",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.408461805937879,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "programming",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "675"
+        }
+      ],
+      "detected_subjects": [
+        "programming",
+        "computer_science"
+      ],
+      "dominant_diagnosis": "MISSING_SUBJECT_METADATA",
+      "expected_subjects": [
+        "programming",
+        "computer_science"
+      ],
+      "normalized_query": "professional c programming",
+      "probe_id": "SUBJECT-C",
+      "qualified_count": 6,
+      "query": "professional C programming",
+      "query_tokens": [
+        "professional",
+        "c",
+        "programming"
+      ],
+      "raw_count": 10
+    },
+    {
+      "candidates": [
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "4112",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6065329586738508,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "4112"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "4111",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6075858289448361,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "4111"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "3957",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6102529434992907,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "3957"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "709",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.3930662366860285,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "709"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "2089",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.3935976671744333,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/disaster_response/fema_nuc-detonation-planning-guide.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "2089"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "251",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.379177299761157,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "251"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "3736",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.3791019128221627,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/SAS Survival Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "3736"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "255",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.37867658571568347,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "255"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "4241",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.3781629611030853,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "4241"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "computer_architecture",
+            "computer_science",
+            "computing",
+            "hardware",
+            "programming",
+            "software_engineering",
+            "systems"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "230",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.3776617018998161,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "computer_architecture",
+            "computer_science"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "230"
+        }
+      ],
+      "detected_subjects": [
+        "computer_architecture",
+        "computer_science"
+      ],
+      "dominant_diagnosis": "MISSING_SUBJECT_METADATA",
+      "expected_subjects": [
+        "computer_architecture",
+        "computer_science"
+      ],
+      "normalized_query": "computer architecture",
+      "probe_id": "SUBJECT-COMPUTER-ARCH",
+      "qualified_count": 0,
+      "query": "computer architecture",
+      "query_tokens": [
+        "computer",
+        "architecture"
+      ],
+      "raw_count": 10
+    },
+    {
+      "candidates": [
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1416",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6072212222989807,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1416"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1417",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.60701238552659,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1417"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1560",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6069646975775663,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/cbrn/DoDI 3150.09 - CBRN Survivability Policy - 2023.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1560"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1413",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6067775287736403,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1413"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1405",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6069111619437897,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1405"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1159",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6066715021163809,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1159"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1169",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6064464455521209,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1169"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1410",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.6063707330938489,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1410"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1160",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.60613724046355,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1160"
+        },
+        {
+          "alias_matches": [],
+          "aliases_considered": [
+            "architecture",
+            "executive",
+            "executive_director",
+            "governance",
+            "jarvis",
+            "leadership",
+            "management",
+            "mission_control",
+            "organization"
+          ],
+          "candidate_domain": "",
+          "candidate_id": "1158",
+          "candidate_subjects": [],
+          "decision": "rejected_subject_mismatch",
+          "diagnosis": "MISSING_SUBJECT_METADATA",
+          "exact_matches": [],
+          "final_score": 0.605847269129491,
+          "metadata": {
+            "available_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "missing_metadata": true,
+          "overlap_score": 0.0,
+          "query_subjects": [
+            "executive",
+            "governance",
+            "jarvis"
+          ],
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "taxonomy_mismatch": false,
+          "threshold": 0.35,
+          "title": "1158"
+        }
+      ],
+      "detected_subjects": [
+        "executive",
+        "governance",
+        "jarvis"
+      ],
+      "dominant_diagnosis": "MISSING_SUBJECT_METADATA",
+      "expected_subjects": [
+        "executive",
+        "governance",
+        "jarvis"
+      ],
+      "normalized_query": "executive director",
+      "probe_id": "SUBJECT-EXECUTIVE-DIRECTOR",
+      "qualified_count": 0,
+      "query": "Executive Director",
+      "query_tokens": [
+        "executive",
+        "director"
+      ],
+      "raw_count": 10
+    },
+    {
+      "candidates": [],
+      "detected_subjects": [
+        "medicine",
+        "health"
+      ],
+      "dominant_diagnosis": null,
+      "expected_subjects": [
+        "medicine",
+        "health"
+      ],
+      "normalized_query": "anca vasculitis",
+      "probe_id": "SUBJECT-ANCA",
+      "qualified_count": 0,
+      "query": "ANCA vasculitis",
+      "query_tokens": [
+        "anca",
+        "vasculitis"
+      ],
+      "raw_count": 0
+    }
+  ],
+  "recommendations": [
+    "Run a catalog subject-metadata backfill before changing qualification weights.",
+    "Measure metadata coverage by table and source collection."
+  ],
+  "status": "FAILED",
+  "summary": {
+    "candidate_count": 50,
+    "diagnoses": {
+      "MISSING_SUBJECT_METADATA": 50
+    },
+    "heatmap": {
+      "computer_architecture": {
+        "acceptance_rate": 0.0,
+        "accepted": 0,
+        "alias_matches": 0,
+        "average_subject_score": 0.0,
+        "candidates": 10,
+        "exact_matches": 0,
+        "missing_metadata": 10,
+        "taxonomy_mismatches": 0
+      },
+      "cybersecurity": {
+        "acceptance_rate": 0.0,
+        "accepted": 0,
+        "alias_matches": 0,
+        "average_subject_score": 0.0,
+        "candidates": 10,
+        "exact_matches": 0,
+        "missing_metadata": 10,
+        "taxonomy_mismatches": 0
+      },
+      "executive": {
+        "acceptance_rate": 0.0,
+        "accepted": 0,
+        "alias_matches": 0,
+        "average_subject_score": 0.0,
+        "candidates": 10,
+        "exact_matches": 0,
+        "missing_metadata": 10,
+        "taxonomy_mismatches": 0
+      },
+      "medicine": {
+        "acceptance_rate": 0.0,
+        "accepted": 0,
+        "alias_matches": 0,
+        "average_subject_score": 0.0,
+        "candidates": 0,
+        "exact_matches": 0,
+        "missing_metadata": 0,
+        "taxonomy_mismatches": 0
+      },
+      "programming": {
+        "acceptance_rate": 0.6,
+        "accepted": 6,
+        "alias_matches": 0,
+        "average_subject_score": 0.47773055197733977,
+        "candidates": 10,
+        "exact_matches": 0,
+        "missing_metadata": 10,
+        "taxonomy_mismatches": 0
+      },
+      "retrieval": {
+        "acceptance_rate": 0.0,
+        "accepted": 0,
+        "alias_matches": 0,
+        "average_subject_score": 0.0,
+        "candidates": 10,
+        "exact_matches": 0,
+        "missing_metadata": 10,
+        "taxonomy_mismatches": 0
+      }
+    },
+    "missing_subject_metadata": 50,
+    "probe_count": 6,
+    "taxonomy_mismatches": 0,
+    "top_diagnosis": "MISSING_SUBJECT_METADATA",
+    "zero_subject_scores": 44
+  }
+}

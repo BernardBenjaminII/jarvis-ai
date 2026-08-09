@@ -1,0 +1,1822 @@
+{
+  "classification": "QUALIFICATION_RECALL_CRITICAL",
+  "probes": [
+    {
+      "candidates": [
+        {
+          "candidate_id": "735",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6068717736629531,
+          "lexical_score": 1.0,
+          "margin": 0.2568717736629531,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 1,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "735"
+        },
+        {
+          "candidate_id": "4247",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.16131486724770305,
+          "lexical_score": 0.0,
+          "margin": -0.18868513275229692,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 2,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "4247"
+        },
+        {
+          "candidate_id": "4136",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.16172945282404833,
+          "lexical_score": 0.0,
+          "margin": -0.18827054717595165,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 3,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "4136"
+        },
+        {
+          "candidate_id": "678",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.16132121661431548,
+          "lexical_score": 0.0,
+          "margin": -0.1886787833856845,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 4,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "678"
+        },
+        {
+          "candidate_id": "4165",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.16091035709865156,
+          "lexical_score": 0.0,
+          "margin": -0.18908964290134841,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 5,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "4165"
+        },
+        {
+          "candidate_id": "225",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.16057820890406121,
+          "lexical_score": 0.0,
+          "margin": -0.18942179109593876,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 6,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "225"
+        },
+        {
+          "candidate_id": "4211",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.1602313884397214,
+          "lexical_score": 0.0,
+          "margin": -0.18976861156027858,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 7,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "4211"
+        },
+        {
+          "candidate_id": "890",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.15980740393699044,
+          "lexical_score": 0.0,
+          "margin": -0.19019259606300953,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 8,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "890"
+        },
+        {
+          "candidate_id": "455",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.15935951946309015,
+          "lexical_score": 0.0,
+          "margin": -0.19064048053690982,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 9,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "455"
+        },
+        {
+          "candidate_id": "2826",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.15928174149130678,
+          "lexical_score": 0.0,
+          "margin": -0.1907182585086932,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 10,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/FM_3-05-70_US_Army_Survival_Manual_2018.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "2826"
+        }
+      ],
+      "dominant_failure": "LEXICAL",
+      "expectation": "known",
+      "probe_id": "KNOWN-SHA256",
+      "qualified_count": 0,
+      "qualified_error": null,
+      "query": "SHA-256",
+      "raw_count": 10,
+      "raw_error": null,
+      "recommendations": [
+        "Investigate dominant rejection class: LEXICAL."
+      ]
+    },
+    {
+      "candidates": [],
+      "dominant_failure": null,
+      "expectation": "known",
+      "probe_id": "KNOWN-SQLITE",
+      "qualified_count": 0,
+      "qualified_error": null,
+      "query": "SQLite",
+      "raw_count": 0,
+      "raw_error": null,
+      "recommendations": [
+        "Repair retrieval for this query before tuning qualification."
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "845",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.4091462871175342,
+          "lexical_score": 1.0,
+          "margin": 0.059146287117534224,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 1,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "845"
+        },
+        {
+          "candidate_id": "584",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.28513651988399197,
+          "lexical_score": 0.6463236032247686,
+          "margin": -0.06486348011600801,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 2,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "584"
+        },
+        {
+          "candidate_id": "4251",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.4087346865838882,
+          "lexical_score": 1.0,
+          "margin": 0.058734686583888196,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 3,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/geography/geodata/Licence_for_the_use_of_Copernicus_DEM_instances.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "4251"
+        },
+        {
+          "candidate_id": "582",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.28561572379237704,
+          "lexical_score": 0.6463236032247686,
+          "margin": -0.06438427620762294,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 4,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "582"
+        },
+        {
+          "candidate_id": "579",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.28541477855148195,
+          "lexical_score": 0.6463236032247686,
+          "margin": -0.06458522144851803,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 5,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "579"
+        },
+        {
+          "candidate_id": "578",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.2852317085595285,
+          "lexical_score": 0.6463236032247686,
+          "margin": -0.06476829144047147,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 6,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "578"
+        },
+        {
+          "candidate_id": "3737",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.2956198360938384,
+          "lexical_score": 0.6768381983876157,
+          "margin": -0.05438016390616157,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 7,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/SAS Survival Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "3737"
+        },
+        {
+          "candidate_id": "1449",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.2847703930103738,
+          "lexical_score": 0.6463236032247686,
+          "margin": -0.06522960698962615,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 8,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/RRToolkit.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1449"
+        },
+        {
+          "candidate_id": "2092",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.2845705257061205,
+          "lexical_score": 0.6463236032247686,
+          "margin": -0.06542947429387946,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 9,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/disaster_response/fema_nuc-detonation-planning-guide.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "2092"
+        },
+        {
+          "candidate_id": "523",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.29486896620697306,
+          "lexical_score": 0.6768381983876157,
+          "margin": -0.05513103379302692,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 10,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "523"
+        }
+      ],
+      "dominant_failure": "SUBJECT",
+      "expectation": "known",
+      "probe_id": "KNOWN-FTS",
+      "qualified_count": 0,
+      "qualified_error": null,
+      "query": "full text search",
+      "raw_count": 10,
+      "raw_error": null,
+      "recommendations": [
+        "Investigate dominant rejection class: SUBJECT."
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "690",
+          "confidence_score": null,
+          "decision": "accepted",
+          "explanation": "accepted by strong phrase match",
+          "final_score": 0.9090626569775769,
+          "lexical_score": 1.0,
+          "margin": 0.559062656977577,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 1.0,
+          "raw_rank": 1,
+          "rejection_reason": null,
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 1.0,
+          "threshold": 0.35,
+          "title": "690"
+        },
+        {
+          "candidate_id": "695",
+          "confidence_score": null,
+          "decision": "accepted",
+          "explanation": "accepted by strong phrase match",
+          "final_score": 0.9089967899960052,
+          "lexical_score": 1.0,
+          "margin": 0.5589967899960052,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 1.0,
+          "raw_rank": 2,
+          "rejection_reason": null,
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 1.0,
+          "threshold": 0.35,
+          "title": "695"
+        },
+        {
+          "candidate_id": "214",
+          "confidence_score": null,
+          "decision": "accepted",
+          "explanation": "final 0.487 meets 0.350",
+          "final_score": 0.4867224715914472,
+          "lexical_score": 1.0,
+          "margin": 0.13672247159144724,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 3,
+          "rejection_reason": null,
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.3886527598866988,
+          "threshold": 0.35,
+          "title": "214"
+        },
+        {
+          "candidate_id": "885",
+          "confidence_score": null,
+          "decision": "accepted",
+          "explanation": "accepted by strong phrase match",
+          "final_score": 0.9087540971637863,
+          "lexical_score": 1.0,
+          "margin": 0.5587540971637863,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 1.0,
+          "raw_rank": 4,
+          "rejection_reason": null,
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 1.0,
+          "threshold": 0.35,
+          "title": "885"
+        },
+        {
+          "candidate_id": "217",
+          "confidence_score": null,
+          "decision": "accepted",
+          "explanation": "final 0.411 meets 0.350",
+          "final_score": 0.41084996016693176,
+          "lexical_score": 0.7835543228665541,
+          "margin": 0.06084996016693178,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 5,
+          "rejection_reason": null,
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.3886527598866988,
+          "threshold": 0.35,
+          "title": "217"
+        },
+        {
+          "candidate_id": "859",
+          "confidence_score": null,
+          "decision": "accepted",
+          "explanation": "accepted by strong phrase match",
+          "final_score": 0.9082506945505027,
+          "lexical_score": 1.0,
+          "margin": 0.5582506945505027,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 1.0,
+          "raw_rank": 6,
+          "rejection_reason": null,
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 1.0,
+          "threshold": 0.35,
+          "title": "859"
+        },
+        {
+          "candidate_id": "458",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.3332272766660053,
+          "lexical_score": 0.7835543228665541,
+          "margin": -0.016772723333994655,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 7,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "458"
+        },
+        {
+          "candidate_id": "673",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.3333534989177477,
+          "lexical_score": 0.7835543228665541,
+          "margin": -0.016646501082252296,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 8,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "673"
+        },
+        {
+          "candidate_id": "672",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.33303625734766895,
+          "lexical_score": 0.7835543228665541,
+          "margin": -0.016963742652331026,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 9,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "672"
+        },
+        {
+          "candidate_id": "675",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.408461805937879,
+          "lexical_score": 1.0,
+          "margin": 0.05846180593787903,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 10,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "675"
+        }
+      ],
+      "dominant_failure": "SUBJECT",
+      "expectation": "known",
+      "probe_id": "KNOWN-C",
+      "qualified_count": 6,
+      "qualified_error": null,
+      "query": "professional C programming",
+      "raw_count": 10,
+      "raw_error": null,
+      "recommendations": [
+        "Preserve the accepted path as permanent regression coverage."
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "4112",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6065329586738508,
+          "lexical_score": 1.0,
+          "margin": 0.25653295867385084,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 1,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "4112"
+        },
+        {
+          "candidate_id": "4111",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6075858289448361,
+          "lexical_score": 1.0,
+          "margin": 0.25758582894483617,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 2,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "4111"
+        },
+        {
+          "candidate_id": "3957",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6102529434992907,
+          "lexical_score": 1.0,
+          "margin": 0.26025294349929073,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 3,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "3957"
+        },
+        {
+          "candidate_id": "709",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.3930662366860285,
+          "lexical_score": 0.5170345094888888,
+          "margin": 0.04306623668602855,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 4,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024/Seacord R. Effective C. An Introduction to Professional C Programming 2ed 2024.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "709"
+        },
+        {
+          "candidate_id": "2089",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.3935976671744333,
+          "lexical_score": 0.5170345094888888,
+          "margin": 0.04359766717443331,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 5,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/disaster_response/fema_nuc-detonation-planning-guide.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "2089"
+        },
+        {
+          "candidate_id": "251",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.379177299761157,
+          "lexical_score": 0.4829654905111112,
+          "margin": 0.029177299761157016,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 6,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "251"
+        },
+        {
+          "candidate_id": "3736",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.3791019128221627,
+          "lexical_score": 0.4829654905111112,
+          "margin": 0.029101912822162734,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 7,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/SAS Survival Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "3736"
+        },
+        {
+          "candidate_id": "255",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.37867658571568347,
+          "lexical_score": 0.4829654905111112,
+          "margin": 0.02867658571568349,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 8,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "255"
+        },
+        {
+          "candidate_id": "4241",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.3781629611030853,
+          "lexical_score": 0.4829654905111112,
+          "margin": 0.028162961103085304,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 9,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "4241"
+        },
+        {
+          "candidate_id": "230",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.3776617018998161,
+          "lexical_score": 0.4829654905111112,
+          "margin": 0.02766170189981615,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 10,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Excercises/Programming/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step/Arduino Programming - The Ultimate Beginner's Guide To Learn Arduino Programming Step By Step.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "230"
+        }
+      ],
+      "dominant_failure": "SUBJECT",
+      "expectation": "known",
+      "probe_id": "KNOWN-COMPUTER-ARCH",
+      "qualified_count": 0,
+      "qualified_error": null,
+      "query": "computer architecture",
+      "raw_count": 10,
+      "raw_error": null,
+      "recommendations": [
+        "Investigate dominant rejection class: SUBJECT."
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "1416",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6072212222989807,
+          "lexical_score": 1.0,
+          "margin": 0.2572212222989807,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 1,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1416"
+        },
+        {
+          "candidate_id": "1417",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.60701238552659,
+          "lexical_score": 1.0,
+          "margin": 0.25701238552659,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 2,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1417"
+        },
+        {
+          "candidate_id": "1560",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6069646975775663,
+          "lexical_score": 1.0,
+          "margin": 0.25696469757756635,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 3,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/cbrn/DoDI 3150.09 - CBRN Survivability Policy - 2023.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1560"
+        },
+        {
+          "candidate_id": "1413",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6067775287736403,
+          "lexical_score": 1.0,
+          "margin": 0.25677752877364035,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 4,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1413"
+        },
+        {
+          "candidate_id": "1405",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6069111619437897,
+          "lexical_score": 1.0,
+          "margin": 0.2569111619437897,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 5,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1405"
+        },
+        {
+          "candidate_id": "1159",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6066715021163809,
+          "lexical_score": 1.0,
+          "margin": 0.2566715021163809,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 6,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1159"
+        },
+        {
+          "candidate_id": "1169",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6064464455521209,
+          "lexical_score": 1.0,
+          "margin": 0.2564464455521209,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 7,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1169"
+        },
+        {
+          "candidate_id": "1410",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.6063707330938489,
+          "lexical_score": 1.0,
+          "margin": 0.25637073309384895,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 8,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1410"
+        },
+        {
+          "candidate_id": "1160",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.60613724046355,
+          "lexical_score": 1.0,
+          "margin": 0.25613724046355,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 9,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1160"
+        },
+        {
+          "candidate_id": "1158",
+          "confidence_score": null,
+          "decision": "rejected_subject_mismatch",
+          "explanation": "subject 0.000 below 0.100",
+          "final_score": 0.605847269129491,
+          "lexical_score": 1.0,
+          "margin": 0.2558472691294911,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.5,
+          "raw_rank": 10,
+          "rejection_reason": "SUBJECT",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1158"
+        }
+      ],
+      "dominant_failure": "SUBJECT",
+      "expectation": "known",
+      "probe_id": "KNOWN-EXECUTIVE-DIRECTOR",
+      "qualified_count": 0,
+      "qualified_error": null,
+      "query": "Executive Director",
+      "raw_count": 10,
+      "raw_error": null,
+      "recommendations": [
+        "Investigate dominant rejection class: SUBJECT."
+      ]
+    },
+    {
+      "candidates": [],
+      "dominant_failure": null,
+      "expectation": "possible",
+      "probe_id": "POSSIBLE-ANCA",
+      "qualified_count": 0,
+      "qualified_error": null,
+      "query": "ANCA vasculitis",
+      "raw_count": 0,
+      "raw_error": null,
+      "recommendations": [
+        "Repair retrieval for this query before tuning qualification."
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "2997",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.05850889062905753,
+          "lexical_score": 0.0,
+          "margin": -0.29149110937094247,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 1,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/FM_3-05.70_Survival.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "2997"
+        },
+        {
+          "candidate_id": "2730",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.058339374781458155,
+          "lexical_score": 0.0,
+          "margin": -0.2916606252185418,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 2,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/FM_3-05-70_US_Army_Survival_Manual_2018.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "2730"
+        },
+        {
+          "candidate_id": "3268",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.000 below 0.200",
+          "final_score": 0.058036910411146204,
+          "lexical_score": 0.0,
+          "margin": -0.29196308958885375,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 3,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/FM_3-05.70_US_Army_Survival_Manual.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "3268"
+        },
+        {
+          "candidate_id": "463",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.189 below 0.200",
+          "final_score": 0.1242543921358747,
+          "lexical_score": 0.18922685388425456,
+          "margin": -0.2257456078641253,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 4,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "463"
+        },
+        {
+          "candidate_id": "1630",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.155 below 0.200",
+          "final_score": 0.11393267918621171,
+          "lexical_score": 0.1552285953451934,
+          "margin": -0.23606732081378828,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 5,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/nuclear/fema_incident-annex_nuclear-radiological.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "1630"
+        },
+        {
+          "candidate_id": "3570",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.167 below 0.200",
+          "final_score": 0.11807919167591135,
+          "lexical_score": 0.1667719851417862,
+          "margin": -0.23192080832408862,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 6,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/survival/SAS Survival Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "3570"
+        },
+        {
+          "candidate_id": "456",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.189 below 0.200",
+          "final_score": 0.1259573193338031,
+          "lexical_score": 0.18922685388425456,
+          "margin": -0.22404268066619687,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 7,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "456"
+        },
+        {
+          "candidate_id": "902",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.155 below 0.200",
+          "final_score": 0.11387576654105783,
+          "lexical_score": 0.1552285953451934,
+          "margin": -0.23612423345894215,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 8,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/i1680e.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "902"
+        },
+        {
+          "candidate_id": "455",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.155 below 0.200",
+          "final_score": 0.11345310436042998,
+          "lexical_score": 0.1552285953451934,
+          "margin": -0.23654689563957,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 9,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Development/Hacking/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final/Porter L. Learn AI-assisted Python Programming...Copilot...ChatGPT 2023 Final.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "455"
+        },
+        {
+          "candidate_id": "3958",
+          "confidence_score": null,
+          "decision": "rejected_low_relevance",
+          "explanation": "lexical 0.155 below 0.200",
+          "final_score": 0.11310389773165379,
+          "lexical_score": 0.1552285953451934,
+          "margin": -0.23689610226834618,
+          "metadata": {
+            "diagnostic_keys": [
+              "accepted",
+              "decision",
+              "explanation",
+              "query",
+              "score",
+              "source_id",
+              "source_path"
+            ]
+          },
+          "phrase_score": 0.0,
+          "raw_rank": 10,
+          "rejection_reason": "LEXICAL",
+          "retrieval_score": null,
+          "source_path": "/media/abdullah/JARVISDATA/Knowledge/engineering/electronics/Practical Electronics Handbook.pdf",
+          "subject_score": 0.0,
+          "threshold": 0.35,
+          "title": "3958"
+        }
+      ],
+      "dominant_failure": "LEXICAL",
+      "expectation": "unknown",
+      "probe_id": "GAP-QUANTUM-BANANA",
+      "qualified_count": 0,
+      "qualified_error": null,
+      "query": "Quantum Banana Warp Core Mk XII",
+      "raw_count": 10,
+      "raw_error": null,
+      "recommendations": [
+        "Investigate dominant rejection class: LEXICAL."
+      ]
+    }
+  ],
+  "recommendations": [
+    "Do not modify qualification behavior until candidate diagnostics are reviewed.",
+    "Promote each known probe into permanent regression coverage.",
+    "Prioritize the dominant rejection class: SUBJECT."
+  ],
+  "status": "FAILED",
+  "summary": {
+    "known_probe_count": 6,
+    "known_qualified_hits": 1,
+    "known_qualified_recall": 0.16666666666666666,
+    "known_raw_hits": 5,
+    "known_raw_recall": 0.8333333333333334,
+    "probe_error_count": 0,
+    "rejection_reasons": {
+      "LEXICAL": 19,
+      "SUBJECT": 35
+    },
+    "top_failure": "SUBJECT"
+  }
+}

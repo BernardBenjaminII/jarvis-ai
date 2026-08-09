@@ -65,36 +65,58 @@ class ExecutiveTimelineRepository:
         if findings:
             raise TimelineRepositoryIntegrityError("; ".join(findings))
 
+    def _read_disk_events_unlocked(
+        self,
+    ) -> tuple[TimelineEvent, ...]:
+        return tuple(
+            TimelineEventSerializer.loads(line)
+            for line in self._storage.iter_lines()
+        )
+
     def reload(self) -> tuple[TimelineEvent, ...]:
         with self._lock:
-            events = tuple(
-                TimelineEventSerializer.loads(line)
-                for line in self._storage.iter_lines()
-            )
-            self._certify_candidate(events)
-            self._events = events
-            self._indexes = TimelineRepositoryIndexes.build(events)
-            return events
+            with self._storage.exclusive():
+                events = self._read_disk_events_unlocked()
+                self._certify_candidate(events)
+                self._events = events
+                self._indexes = TimelineRepositoryIndexes.build(events)
+                return events
 
     def append(self, event: TimelineEvent) -> TimelineEvent:
         return self.append_many((event,))[0]
 
-    def append_many(self, events: Iterable[TimelineEvent]) -> tuple[TimelineEvent, ...]:
+    def append_many(
+        self,
+        events: Iterable[TimelineEvent],
+    ) -> tuple[TimelineEvent, ...]:
         incoming = tuple(events)
         if not incoming:
             return ()
+
         with self._lock:
-            candidate = self._events + incoming
-            try:
-                self._certify_candidate(candidate)
-            except TimelineRepositoryIntegrityError as exc:
-                raise TimelineRepositoryConflictError(str(exc)) from exc
-            self._storage.append_many(
-                TimelineEventSerializer.dump_line(event) for event in incoming
-            )
-            self._events = candidate
-            self._indexes = TimelineRepositoryIndexes.build(candidate)
-            return incoming
+            with self._storage.exclusive():
+                disk_events = self._read_disk_events_unlocked()
+                self._certify_candidate(disk_events)
+                candidate = disk_events + incoming
+
+                try:
+                    self._certify_candidate(candidate)
+                except TimelineRepositoryIntegrityError as exc:
+                    self._events = disk_events
+                    self._indexes = TimelineRepositoryIndexes.build(
+                        disk_events
+                    )
+                    raise TimelineRepositoryConflictError(
+                        str(exc)
+                    ) from exc
+
+                self._storage.append_many_unlocked(
+                    TimelineEventSerializer.dump_line(event)
+                    for event in incoming
+                )
+                self._events = candidate
+                self._indexes = TimelineRepositoryIndexes.build(candidate)
+                return incoming
 
     def get(self, event_id: str) -> TimelineEvent | None:
         sequence = self._indexes.by_event_id.get(event_id)

@@ -19,6 +19,7 @@ class GroundingEvidence:
     query: str
     subject: str
     source_path: str
+    excerpt: str
     confidence: float
     assigned_by: str
 
@@ -29,6 +30,7 @@ class GroundingEvidence:
             "query": self.query,
             "subject": self.subject,
             "source_path": self.source_path,
+            "excerpt": self.excerpt,
             "confidence": self.confidence,
             "assigned_by": self.assigned_by,
         }
@@ -114,6 +116,8 @@ class GroundingResult:
                     f"- [{item.subject}] {item.source_path} "
                     f"(confidence={item.confidence:.3f}, assigned_by={item.assigned_by})"
                 )
+                if item.excerpt:
+                    lines.append(f"  EXCERPT: {item.excerpt}")
         else:
             lines.append("- No catalog evidence was retrieved.")
         if self.gaps:
@@ -142,8 +146,13 @@ class CatalogGroundingService:
         self.search_handler = search_handler or self._search_catalog
 
     def _search_catalog(self, query: str, limit: int) -> Iterable[Mapping[str, Any]]:
-        from core.knowledge_catalog.search import search_catalog
-        return search_catalog(query, db_path=self.database_path, limit=limit)
+        from core.knowledge_catalog.qualified_search import search_qualified_catalog
+
+        return search_qualified_catalog(
+            query,
+            db_path=self.database_path,
+            limit=limit,
+        )
 
     def ground(self, context: ExecutiveRequestContext) -> GroundingResult:
         grounded: list[ObjectiveGrounding] = []
@@ -208,6 +217,7 @@ class CatalogGroundingService:
                     query=objective.text,
                     subject=subject,
                     source_path=source_path,
+                    excerpt=str(data.get("excerpt") or data.get("chunk_text") or ""),
                     confidence=max(0.0, min(1.0, confidence)),
                     assigned_by=str(data.get("assigned_by") or "catalog"),
                 )

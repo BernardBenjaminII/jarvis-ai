@@ -1,0 +1,25 @@
+{
+  "average_duration_ms": 178.547345,
+  "domains": {
+    "Gap Detection": {
+      "errors": 0,
+      "failed": 0,
+      "passed": 1,
+      "skipped": 0,
+      "total": 1
+    },
+    "Retrieval": {
+      "errors": 0,
+      "failed": 1,
+      "passed": 0,
+      "skipped": 0,
+      "total": 1
+    }
+  },
+  "errors": 0,
+  "failed": 1,
+  "pass_rate": 0.5,
+  "passed": 1,
+  "skipped": 0,
+  "total": 2
+}

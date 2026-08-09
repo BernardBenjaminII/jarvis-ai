@@ -1,0 +1,98 @@
+[
+  {
+    "classification": "no_identity_join",
+    "error": null,
+    "identity_pair": null,
+    "matched_source_rows": null,
+    "source_match_rate": null,
+    "source_rows": 0,
+    "source_stage": "physical_catalog_registry",
+    "source_table": "documents",
+    "target_rows": 0,
+    "target_stage": "search_metadata_registry",
+    "target_table": "knowledge_index",
+    "target_to_source_ratio": 0.0
+  },
+  {
+    "classification": "no_identity_join",
+    "error": null,
+    "identity_pair": null,
+    "matched_source_rows": null,
+    "source_match_rate": null,
+    "source_rows": 0,
+    "source_stage": "search_metadata_registry",
+    "source_table": "knowledge_index",
+    "target_rows": 0,
+    "target_stage": "library_registry",
+    "target_table": "library_catalog",
+    "target_to_source_ratio": 0.0
+  },
+  {
+    "classification": "weak_lineage",
+    "error": null,
+    "identity_pair": [
+      "document_path",
+      "file_path"
+    ],
+    "matched_source_rows": 0,
+    "source_match_rate": 0.0,
+    "source_rows": 0,
+    "source_stage": "library_registry",
+    "source_table": "library_catalog",
+    "target_rows": 90003,
+    "target_stage": "classified_files",
+    "target_table": "knowledge_classifications",
+    "target_to_source_ratio": 0.0
+  },
+  {
+    "classification": "weak_lineage",
+    "error": null,
+    "identity_pair": [
+      "file_path",
+      "file_path"
+    ],
+    "matched_source_rows": 13,
+    "source_match_rate": 0.00014443962979011812,
+    "source_rows": 90003,
+    "source_stage": "classified_files",
+    "source_table": "knowledge_classifications",
+    "target_rows": 69,
+    "target_stage": "runtime_documents",
+    "target_table": "runtime_documents",
+    "target_to_source_ratio": 0.0007666411119629346
+  },
+  {
+    "classification": "strong_lineage",
+    "error": null,
+    "identity_pair": [
+      "id",
+      "document_id"
+    ],
+    "matched_source_rows": 69,
+    "source_match_rate": 1.0,
+    "source_rows": 69,
+    "source_stage": "runtime_documents",
+    "source_table": "runtime_documents",
+    "target_rows": 4674,
+    "target_stage": "runtime_chunks",
+    "target_table": "runtime_chunks",
+    "target_to_source_ratio": 67.73913043478261
+  },
+  {
+    "classification": "weak_lineage",
+    "error": null,
+    "identity_pair": [
+      "id",
+      "document_id"
+    ],
+    "matched_source_rows": 69,
+    "source_match_rate": 0.014762516046213094,
+    "source_rows": 4674,
+    "source_stage": "runtime_chunks",
+    "source_table": "runtime_chunks",
+    "target_rows": 4674,
+    "target_stage": "runtime_fts",
+    "target_table": "runtime_chunks_fts",
+    "target_to_source_ratio": 1.0
+  }
+]

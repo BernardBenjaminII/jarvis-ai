@@ -1,0 +1,2430 @@
+{
+  "classification": "PARTIAL_METADATA_RECONSTRUCTION_REQUIRED",
+  "databases": [
+    {
+      "errors": [],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "idx_chunks_document",
+          "sql": "CREATE INDEX idx_chunks_document ON chunks(document_path)",
+          "table": "chunks"
+        },
+        {
+          "name": "idx_concepts_name",
+          "sql": "CREATE INDEX idx_concepts_name ON concepts(name)",
+          "table": "concepts"
+        },
+        {
+          "name": "idx_document_pages_document",
+          "sql": "CREATE INDEX idx_document_pages_document\n\t\tON document_pages(document_path)",
+          "table": "document_pages"
+        },
+        {
+          "name": "idx_document_pages_page",
+          "sql": "CREATE INDEX idx_document_pages_page\n\t\tON document_pages(page_number)",
+          "table": "document_pages"
+        },
+        {
+          "name": "idx_documents_category",
+          "sql": "CREATE INDEX idx_documents_category ON documents(category)",
+          "table": "documents"
+        },
+        {
+          "name": "idx_documents_extension",
+          "sql": "CREATE INDEX idx_documents_extension ON documents(extension)",
+          "table": "documents"
+        },
+        {
+          "name": "idx_documents_filename",
+          "sql": "CREATE INDEX idx_documents_filename\n\t\tON documents(filename)",
+          "table": "documents"
+        },
+        {
+          "name": "idx_documents_sha256",
+          "sql": "CREATE INDEX idx_documents_sha256 ON documents(sha256)",
+          "table": "documents"
+        },
+        {
+          "name": "idx_inspections_inspector",
+          "sql": "CREATE INDEX idx_inspections_inspector\nON inspections(inspector)",
+          "table": "inspections"
+        },
+        {
+          "name": "idx_inspections_status",
+          "sql": "CREATE INDEX idx_inspections_status\nON inspections(status)",
+          "table": "inspections"
+        },
+        {
+          "name": "idx_knowledge_index_category",
+          "sql": "CREATE INDEX idx_knowledge_index_category\n\t\tON knowledge_index(category)",
+          "table": "knowledge_index"
+        },
+        {
+          "name": "idx_knowledge_index_extension",
+          "sql": "CREATE INDEX idx_knowledge_index_extension\n\t\tON knowledge_index(extension)",
+          "table": "knowledge_index"
+        },
+        {
+          "name": "idx_knowledge_index_provider",
+          "sql": "CREATE INDEX idx_knowledge_index_provider\n\t\tON knowledge_index(provider)",
+          "table": "knowledge_index"
+        },
+        {
+          "name": "idx_knowledge_index_title",
+          "sql": "CREATE INDEX idx_knowledge_index_title\n\t\tON knowledge_index(title)",
+          "table": "knowledge_index"
+        },
+        {
+          "name": "idx_library_author",
+          "sql": "CREATE INDEX idx_library_author\n\t\tON library_catalog(author)",
+          "table": "library_catalog"
+        },
+        {
+          "name": "idx_library_category",
+          "sql": "CREATE INDEX idx_library_category\n\t\tON library_catalog(category)",
+          "table": "library_catalog"
+        },
+        {
+          "name": "idx_library_title",
+          "sql": "CREATE INDEX idx_library_title\n\t\tON library_catalog(title)",
+          "table": "library_catalog"
+        },
+        {
+          "name": "idx_structure_document",
+          "sql": "CREATE INDEX idx_structure_document ON document_structure(document_path)",
+          "table": "document_structure"
+        },
+        {
+          "name": "idx_structure_document_page",
+          "sql": "CREATE INDEX idx_structure_document_page\n\t\tON document_structure(document_path, page)",
+          "table": "document_structure"
+        },
+        {
+          "name": "idx_structure_title",
+          "sql": "CREATE INDEX idx_structure_title ON document_structure(title)",
+          "table": "document_structure"
+        },
+        {
+          "name": "sqlite_autoindex_document_pages_1",
+          "sql": "",
+          "table": "document_pages"
+        },
+        {
+          "name": "sqlite_autoindex_document_text_1",
+          "sql": "",
+          "table": "document_text"
+        },
+        {
+          "name": "sqlite_autoindex_documents_1",
+          "sql": "",
+          "table": "documents"
+        },
+        {
+          "name": "sqlite_autoindex_inspections_1",
+          "sql": "",
+          "table": "inspections"
+        },
+        {
+          "name": "sqlite_autoindex_knowledge_index_1",
+          "sql": "",
+          "table": "knowledge_index"
+        },
+        {
+          "name": "sqlite_autoindex_library_catalog_1",
+          "sql": "",
+          "table": "library_catalog"
+        }
+      ],
+      "name": "catalog.sqlite",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/.jarvis/catalog.sqlite",
+      "size_bytes": 115118080,
+      "tables": [
+        {
+          "column_count": 7,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "document_path",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "chunk_index",
+              "not_null": true,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "text",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "source_page",
+              "not_null": false,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "structure_title",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "created_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 0
+            },
+            {
+              "coverage": 0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 0,
+              "name": "source_page",
+              "present_count": 0
+            },
+            {
+              "coverage": 0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 0,
+              "name": "structure_title",
+              "present_count": 0
+            }
+          ],
+          "name": "chunks",
+          "row_count": 0,
+          "sql": "CREATE TABLE chunks (\n                    id INTEGER PRIMARY KEY AUTOINCREMENT,\n                    document_path TEXT NOT NULL,\n                    chunk_index INTEGER NOT NULL,\n                    text TEXT NOT NULL,\n                    source_page INTEGER,\n                    structure_title TEXT,\n                    created_at TEXT DEFAULT CURRENT_TIMESTAMP\n                )"
+        },
+        {
+          "column_count": 6,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "name",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "document_path",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "chunk_id",
+              "not_null": false,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "confidence",
+              "not_null": false,
+              "primary_key": false,
+              "type": "REAL"
+            },
+            {
+              "name": "created_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 0
+            },
+            {
+              "coverage": 0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 0,
+              "name": "confidence",
+              "present_count": 0
+            }
+          ],
+          "name": "concepts",
+          "row_count": 0,
+          "sql": "CREATE TABLE concepts (\n                    id INTEGER PRIMARY KEY AUTOINCREMENT,\n                    name TEXT NOT NULL,\n                    document_path TEXT NOT NULL,\n                    chunk_id INTEGER,\n                    confidence REAL,\n                    created_at TEXT DEFAULT CURRENT_TIMESTAMP\n                )"
+        },
+        {
+          "column_count": 5,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "document_path",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "page_number",
+              "not_null": true,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "text",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "extracted_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 0
+            }
+          ],
+          "name": "document_pages",
+          "row_count": 0,
+          "sql": "CREATE TABLE document_pages (\n    \t\t    id INTEGER PRIMARY KEY AUTOINCREMENT,\n\t\t    document_path TEXT NOT NULL,\n\t\t    page_number INTEGER NOT NULL,\n\t\t    text TEXT NOT NULL,\n\t\t    extracted_at TEXT DEFAULT CURRENT_TIMESTAMP,\n\t\t    UNIQUE(document_path, page_number)\n\t\t)"
+        },
+        {
+          "column_count": 3,
+          "columns": [
+            {
+              "name": "document_path",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            },
+            {
+              "name": "page_number",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            },
+            {
+              "name": "text",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            }
+          ],
+          "is_fts": true,
+          "metadata_columns": [
+            {
+              "coverage": 0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 0
+            }
+          ],
+          "name": "document_pages_fts",
+          "row_count": 0,
+          "sql": "CREATE VIRTUAL TABLE document_pages_fts\n\t\tUSING fts5(\n\t\t    document_path,\n\t\t    page_number UNINDEXED,\n\t\t    text\n\t\t)"
+        },
+        {
+          "column_count": 2,
+          "columns": [
+            {
+              "name": "k",
+              "not_null": true,
+              "primary_key": true,
+              "type": ""
+            },
+            {
+              "name": "v",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            }
+          ],
+          "is_fts": true,
+          "metadata_columns": [],
+          "name": "document_pages_fts_config",
+          "row_count": 1,
+          "sql": "CREATE TABLE 'document_pages_fts_config'(k PRIMARY KEY, v) WITHOUT ROWID"
+        },
+        {
+          "column_count": 4,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "c0",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            },
+            {
+              "name": "c1",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            },
+            {
+              "name": "c2",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            }
+          ],
+          "is_fts": true,
+          "metadata_columns": [],
+          "name": "document_pages_fts_content",
+          "row_count": 0,
+          "sql": "CREATE TABLE 'document_pages_fts_content'(id INTEGER PRIMARY KEY, c0, c1, c2)"
+        },
+        {
+          "column_count": 2,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "block",
+              "not_null": false,
+              "primary_key": false,
+              "type": "BLOB"
+            }
+          ],
+          "is_fts": true,
+          "metadata_columns": [],
+          "name": "document_pages_fts_data",
+          "row_count": 2,
+          "sql": "CREATE TABLE 'document_pages_fts_data'(id INTEGER PRIMARY KEY, block BLOB)"
+        },
+        {
+          "column_count": 2,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "sz",
+              "not_null": false,
+              "primary_key": false,
+              "type": "BLOB"
+            }
+          ],
+          "is_fts": true,
+          "metadata_columns": [],
+          "name": "document_pages_fts_docsize",
+          "row_count": 0,
+          "sql": "CREATE TABLE 'document_pages_fts_docsize'(id INTEGER PRIMARY KEY, sz BLOB)"
+        },
+        {
+          "column_count": 3,
+          "columns": [
+            {
+              "name": "segid",
+              "not_null": true,
+              "primary_key": true,
+              "type": ""
+            },
+            {
+              "name": "term",
+              "not_null": true,
+              "primary_key": true,
+              "type": ""
+            },
+            {
+              "name": "pgno",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            }
+          ],
+          "is_fts": true,
+          "metadata_columns": [],
+          "name": "document_pages_fts_idx",
+          "row_count": 0,
+          "sql": "CREATE TABLE 'document_pages_fts_idx'(segid, term, pgno, PRIMARY KEY(segid, term)) WITHOUT ROWID"
+        },
+        {
+          "column_count": 9,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "document_path",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "title",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "level",
+              "not_null": true,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "page",
+              "not_null": false,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "order_index",
+              "not_null": true,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "parent_title",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "source",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "created_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 1.0,
+              "distinct_count": 80,
+              "examples": [
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/nuclear/fema_nuclear-detonation-preparedness_communicating-in-the-immediate-aftermath_v3_2024.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/incoming/review_medical/Encyclopedia Of Pain - 3 Volume Set (Malestrom).pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/incoming/review_reference/effak_spanish.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/nuclear/fema_incident-annex_nuclear-radiological.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/military/doctrine/US_Army_FM_3-06.11_Urban_Terrain.pdf"
+              ],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 15612
+            },
+            {
+              "coverage": 0.9139123750960799,
+              "distinct_count": 8982,
+              "examples": [
+                "\u25aa",
+                "Featured",
+                "Top",
+                "Introduction",
+                "Correo Electr\u00f3nico:"
+              ],
+              "missing_count": 1344,
+              "name": "title",
+              "present_count": 14268
+            },
+            {
+              "coverage": 0.8668332052267487,
+              "distinct_count": 1957,
+              "examples": [
+                "P",
+                "S",
+                "C",
+                "A",
+                "M"
+              ],
+              "missing_count": 2079,
+              "name": "parent_title",
+              "present_count": 13533
+            },
+            {
+              "coverage": 1.0,
+              "distinct_count": 1,
+              "examples": [
+                "pdf_toc"
+              ],
+              "missing_count": 0,
+              "name": "source",
+              "present_count": 15612
+            }
+          ],
+          "name": "document_structure",
+          "row_count": 15612,
+          "sql": "CREATE TABLE document_structure (\n                    id INTEGER PRIMARY KEY AUTOINCREMENT,\n                    document_path TEXT NOT NULL,\n                    title TEXT NOT NULL,\n                    level INTEGER NOT NULL,\n                    page INTEGER,\n                    order_index INTEGER NOT NULL,\n                    parent_title TEXT,\n                    source TEXT NOT NULL,\n                    created_at TEXT DEFAULT CURRENT_TIMESTAMP\n                )"
+        },
+        {
+          "column_count": 7,
+          "columns": [
+            {
+              "name": "document_path",
+              "not_null": false,
+              "primary_key": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "extractor",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "text",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "checksum",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "status",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "error",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "extracted_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 0
+            }
+          ],
+          "name": "document_text",
+          "row_count": 0,
+          "sql": "CREATE TABLE document_text (\n                    document_path TEXT PRIMARY KEY,\n                    extractor TEXT NOT NULL,\n                    text TEXT,\n                    checksum TEXT,\n                    status TEXT NOT NULL,\n                    error TEXT,\n                    extracted_at TEXT DEFAULT CURRENT_TIMESTAMP\n                )"
+        },
+        {
+          "column_count": 12,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "path",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "relative_path",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "filename",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "extension",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "size_bytes",
+              "not_null": true,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "modified_time",
+              "not_null": true,
+              "primary_key": false,
+              "type": "REAL"
+            },
+            {
+              "name": "sha256",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "category",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "status",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "first_seen",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "last_seen",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 1.0,
+              "distinct_count": 50619,
+              "examples": [
+                "/media/abdullah/JARVISDATA/Knowledge/COLLECTIONS.md",
+                "/media/abdullah/JARVISDATA/Knowledge/README.md",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Seed_Saving.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Square_Foot_Gardening.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/i1680e.pdf"
+              ],
+              "missing_count": 0,
+              "name": "path",
+              "present_count": 50619
+            },
+            {
+              "coverage": 1.0,
+              "distinct_count": 50619,
+              "examples": [
+                "zim/wikipedia/wikipedia_en_medicine_nopic_2026-01.zim",
+                "zim/wikipedia/wikipedia_en_all_nopic_2025-12.zim",
+                "zim/wikipedia/phet_en_all_2025-03.zim",
+                "zim/wikipedia/earthscience.zim",
+                "zim/wikibooks/woodworking.zim"
+              ],
+              "missing_count": 0,
+              "name": "relative_path",
+              "present_count": 50619
+            },
+            {
+              "coverage": 0.9999604891443924,
+              "distinct_count": 10,
+              "examples": [
+                "geography",
+                "religion",
+                "emergency",
+                "zim",
+                "medical"
+              ],
+              "missing_count": 2,
+              "name": "category",
+              "present_count": 50617
+            }
+          ],
+          "name": "documents",
+          "row_count": 50619,
+          "sql": "CREATE TABLE documents (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    path TEXT NOT NULL UNIQUE,\n    relative_path TEXT NOT NULL,\n    filename TEXT NOT NULL,\n    extension TEXT NOT NULL,\n    size_bytes INTEGER NOT NULL,\n    modified_time REAL NOT NULL,\n    sha256 TEXT NOT NULL,\n    category TEXT,\n    status TEXT NOT NULL,\n    first_seen TEXT DEFAULT CURRENT_TIMESTAMP,\n    last_seen TEXT DEFAULT CURRENT_TIMESTAMP\n)"
+        },
+        {
+          "column_count": 6,
+          "columns": [
+            {
+              "name": "document_path",
+              "not_null": false,
+              "primary_key": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "inspector",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "status",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "metadata_json",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "error",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "inspected_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 1.0,
+              "distinct_count": 36721,
+              "examples": [
+                "/media/abdullah/JARVISDATA/Knowledge/COLLECTIONS.md",
+                "/media/abdullah/JARVISDATA/Knowledge/README.md",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Seed_Saving.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Square_Foot_Gardening.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/i1680e.pdf"
+              ],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 36721
+            }
+          ],
+          "name": "inspections",
+          "row_count": 36721,
+          "sql": "CREATE TABLE inspections (\n    document_path TEXT PRIMARY KEY,\n    inspector TEXT NOT NULL,\n    status TEXT NOT NULL,\n    metadata_json TEXT,\n    error TEXT,\n    inspected_at TEXT DEFAULT CURRENT_TIMESTAMP\n)"
+        },
+        {
+          "column_count": 15,
+          "columns": [
+            {
+              "name": "document_path",
+              "not_null": false,
+              "primary_key": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "filename",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "extension",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "category",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "provider",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "title",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "author",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "subject",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "keywords",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "pages",
+              "not_null": false,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "toc_entries",
+              "not_null": false,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "structure_terms",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "language",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "fingerprint",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "indexed_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 1.0,
+              "distinct_count": 50619,
+              "examples": [
+                "/media/abdullah/JARVISDATA/Knowledge/COLLECTIONS.md",
+                "/media/abdullah/JARVISDATA/Knowledge/README.md",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Seed_Saving.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Square_Foot_Gardening.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/i1680e.pdf"
+              ],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 50619
+            },
+            {
+              "coverage": 0.9999604891443924,
+              "distinct_count": 10,
+              "examples": [
+                "geography",
+                "religion",
+                "emergency",
+                "zim",
+                "medical"
+              ],
+              "missing_count": 2,
+              "name": "category",
+              "present_count": 50617
+            },
+            {
+              "coverage": 0.9999802445721963,
+              "distinct_count": 50574,
+              "examples": [
+                "Internet Archive: Page Not Found",
+                "Imam Nawawi's Rawdat al-Talibin",
+                "\u0631\u064e\u0648\u0627\u0647\u064f \u0627\u0644\u0633\u0651\u0650\u062a\u0651\u064e\u0629\u064f- Sahih Bukhari, Sahih Muslim, Abu Dawood, Tirmizi, Nasai, Ibn Majah",
+                "401 Authorization Required",
+                "DSpace"
+              ],
+              "missing_count": 1,
+              "name": "title",
+              "present_count": 50618
+            },
+            {
+              "coverage": 0.00478081352851696,
+              "distinct_count": 97,
+              "examples": [
+                "CMAJ",
+                "Imam Abu Zakariyya al-Nawawi",
+                "\u0627\u0644\u0627\u0645\u0627\u0645 \u0627\u0644\u0646\u0648\u0648\u064a",
+                "cmaj37",
+                "www.islamreligion.com website"
+              ],
+              "missing_count": 50377,
+              "name": "author",
+              "present_count": 242
+            },
+            {
+              "coverage": 0.0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 50619,
+              "name": "subject",
+              "present_count": 0
+            },
+            {
+              "coverage": 0.0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 50619,
+              "name": "keywords",
+              "present_count": 0
+            },
+            {
+              "coverage": 0.0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 50619,
+              "name": "language",
+              "present_count": 0
+            }
+          ],
+          "name": "knowledge_index",
+          "row_count": 50619,
+          "sql": "CREATE TABLE knowledge_index (\n\n\t\t    document_path TEXT PRIMARY KEY,\n\n\t\t    filename TEXT NOT NULL,\n\n\t\t    extension TEXT NOT NULL,\n\n\t\t    category TEXT,\n\n\t\t    provider TEXT,\n\n\t\t    title TEXT,\n\n\t\t    author TEXT,\n\n\t\t    subject TEXT,\n\n\t\t    keywords TEXT,\n\n\t\t    pages INTEGER,\n\n\t\t    toc_entries INTEGER DEFAULT 0,\n\n\t\t    structure_terms TEXT,\n\n\t\t    language TEXT,\n\n\t\t    fingerprint TEXT NOT NULL,\n\n\t\t    indexed_at TEXT DEFAULT CURRENT_TIMESTAMP\n\n\t\t)"
+        },
+        {
+          "column_count": 18,
+          "columns": [
+            {
+              "name": "document_path",
+              "not_null": false,
+              "primary_key": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "filename",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "extension",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "category",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "provider",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "title",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "subtitle",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "author",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "publisher",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "publication_year",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "edition",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "isbn",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "subject",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "keywords",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "language",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "pages",
+              "not_null": false,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "fingerprint",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "cataloged_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 1.0,
+              "distinct_count": 11420,
+              "examples": [
+                "/media/abdullah/JARVISDATA/Knowledge/COLLECTIONS.md",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/bushcraft/Bushcraft.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/Civil Defense Manual.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/cbrn/A12.CD.M2.P1 Civil Defence Manual of Basic Training volume II Basic Chemical warfare.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/cbrn/B2I3597 Chemical, Biological, Radiological, and Nuclear Defense.pdf"
+              ],
+              "missing_count": 0,
+              "name": "document_path",
+              "present_count": 11420
+            },
+            {
+              "coverage": 0.9999124343257443,
+              "distinct_count": 7,
+              "examples": [
+                "geography",
+                "religion",
+                "emergency",
+                "incoming",
+                "military"
+              ],
+              "missing_count": 1,
+              "name": "category",
+              "present_count": 11419
+            },
+            {
+              "coverage": 1.0,
+              "distinct_count": 11405,
+              "examples": [
+                "Imam Nawawi's Rawdat al-Talibin",
+                "Internet Archive: Page Not Found",
+                "(anonymous)",
+                "3dprinting.stackexchange.com_en_all_2026-02.zim",
+                "414163093-bug-out-bag-essentials-pdf.pdf"
+              ],
+              "missing_count": 0,
+              "name": "title",
+              "present_count": 11420
+            },
+            {
+              "coverage": 0.0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 11420,
+              "name": "subtitle",
+              "present_count": 0
+            },
+            {
+              "coverage": 0.01234676007005254,
+              "distinct_count": 12,
+              "examples": [
+                "CMAJ",
+                "Imam Abu Zakariyya al-Nawawi",
+                "\u0627\u0644\u0627\u0645\u0627\u0645 \u0627\u0644\u0646\u0648\u0648\u064a",
+                "cmaj37",
+                "(anonymous)"
+              ],
+              "missing_count": 11279,
+              "name": "author",
+              "present_count": 141
+            },
+            {
+              "coverage": 0.0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 11420,
+              "name": "subject",
+              "present_count": 0
+            },
+            {
+              "coverage": 0.0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 11420,
+              "name": "keywords",
+              "present_count": 0
+            },
+            {
+              "coverage": 0.0,
+              "distinct_count": 0,
+              "examples": [],
+              "missing_count": 11420,
+              "name": "language",
+              "present_count": 0
+            }
+          ],
+          "name": "library_catalog",
+          "row_count": 11420,
+          "sql": "CREATE TABLE library_catalog (\n\n\t\t    document_path TEXT PRIMARY KEY,\n\n\t\t    filename TEXT NOT NULL,\n\n\t\t    extension TEXT NOT NULL,\n\n\t\t    category TEXT,\n\n\t\t    provider TEXT,\n\n\t\t    title TEXT,\n\n\t\t    subtitle TEXT,\n\n\t\t    author TEXT,\n\n\t\t    publisher TEXT,\n\n\t\t    publication_year TEXT,\n\n\t\t    edition TEXT,\n\n\t\t    isbn TEXT,\n\n\t\t    subject TEXT,\n\n\t\t    keywords TEXT,\n\n\t\t    language TEXT,\n\n\t\t    pages INTEGER,\n\n\t\t    fingerprint TEXT NOT NULL,\n\n\t\t    cataloged_at TEXT DEFAULT CURRENT_TIMESTAMP\n\n\t\t)"
+        },
+        {
+          "column_count": 2,
+          "columns": [
+            {
+              "name": "name",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            },
+            {
+              "name": "seq",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [],
+          "name": "sqlite_sequence",
+          "row_count": 2,
+          "sql": "CREATE TABLE sqlite_sequence(name,seq)"
+        }
+      ]
+    },
+    {
+      "errors": [],
+      "foreign_keys": [
+        {
+          "from_column": "item_id",
+          "table": "attempts",
+          "to_column": "item_id",
+          "to_table": "acquisitions"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_acquisitions_status",
+          "sql": "CREATE INDEX idx_acquisitions_status\n            ON acquisitions(status)",
+          "table": "acquisitions"
+        },
+        {
+          "name": "idx_attempts_item",
+          "sql": "CREATE INDEX idx_attempts_item\n            ON attempts(item_id)",
+          "table": "attempts"
+        },
+        {
+          "name": "sqlite_autoindex_acquisitions_1",
+          "sql": "",
+          "table": "acquisitions"
+        }
+      ],
+      "name": "acquisitions.sqlite",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/00_catalog/acquisitions.sqlite",
+      "size_bytes": 53248,
+      "tables": [
+        {
+          "column_count": 18,
+          "columns": [
+            {
+              "name": "item_id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "category",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "title",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "author",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "format",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "filename",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "source",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "rights",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "status",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "selected_url",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "local_path",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "sha256",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "size_bytes",
+              "not_null": false,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "attempts",
+              "not_null": true,
+              "primary_key": false,
+              "type": "INTEGER"
+            },
+            {
+              "name": "last_error",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "first_seen_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "updated_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "completed_at",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [
+            {
+              "coverage": 1.0,
+              "distinct_count": 9,
+              "examples": [
+                "01_strategy/western",
+                "04_military_doctrine/marine_corps",
+                "05_cybersecurity/nist",
+                "01_strategy/classical",
+                "05_cybersecurity/cisa"
+              ],
+              "missing_count": 0,
+              "name": "category",
+              "present_count": 24
+            },
+            {
+              "coverage": 1.0,
+              "distinct_count": 24,
+              "examples": [
+                "Thoughts of Marcus Aurelius Antoninus",
+                "The Reality of War: A Companion to Clausewitz",
+                "The Prince",
+                "The Influence of Sea Power Upon History, 1660-1783",
+                "The Book of War: Sun Tzu and Wu Tzu"
+              ],
+              "missing_count": 0,
+              "name": "title",
+              "present_count": 24
+            },
+            {
+              "coverage": 1.0,
+              "distinct_count": 16,
+              "examples": [
+                "United States Marine Corps",
+                "National Institute of Standards and Technology",
+                "Sun Tzu; Lionel Giles",
+                "Niccolo Machiavelli",
+                "Cybersecurity and Infrastructure Security Agency"
+              ],
+              "missing_count": 0,
+              "name": "author",
+              "present_count": 24
+            },
+            {
+              "coverage": 1.0,
+              "distinct_count": 6,
+              "examples": [
+                "Project Gutenberg",
+                "United States Marine Corps",
+                "NIST",
+                "CISA",
+                "CIA Center for the Study of Intelligence"
+              ],
+              "missing_count": 0,
+              "name": "source",
+              "present_count": 24
+            },
+            {
+              "coverage": 1.0,
+              "distinct_count": 24,
+              "examples": [
+                "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/owasp/owasp_web_security_testing_guide_v4.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/nist/nist_sp_800_61r3_incident_response.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/nist/nist_csf_2_0_resource_overview.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/nist/nist_csf_2_0.pdf",
+                "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/cisa/cisa_incident_response_plan_basics.pdf"
+              ],
+              "missing_count": 0,
+              "name": "local_path",
+              "present_count": 24
+            }
+          ],
+          "name": "acquisitions",
+          "row_count": 24,
+          "sql": "CREATE TABLE acquisitions (\n            item_id TEXT PRIMARY KEY,\n            category TEXT NOT NULL,\n            title TEXT NOT NULL,\n            author TEXT NOT NULL,\n            format TEXT NOT NULL,\n            filename TEXT NOT NULL,\n            source TEXT NOT NULL,\n            rights TEXT NOT NULL,\n            status TEXT NOT NULL DEFAULT 'pending',\n            selected_url TEXT,\n            local_path TEXT,\n            sha256 TEXT,\n            size_bytes INTEGER,\n            attempts INTEGER NOT NULL DEFAULT 0,\n            last_error TEXT,\n            first_seen_at TEXT NOT NULL,\n            updated_at TEXT NOT NULL,\n            completed_at TEXT\n        )"
+        },
+        {
+          "column_count": 6,
+          "columns": [
+            {
+              "name": "id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "item_id",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "attempted_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "url",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "result",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "details",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [],
+          "name": "attempts",
+          "row_count": 13,
+          "sql": "CREATE TABLE attempts (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            item_id TEXT NOT NULL,\n            attempted_at TEXT NOT NULL,\n            url TEXT NOT NULL,\n            result TEXT NOT NULL,\n            details TEXT,\n            FOREIGN KEY(item_id) REFERENCES acquisitions(item_id)\n        )"
+        },
+        {
+          "column_count": 2,
+          "columns": [
+            {
+              "name": "name",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            },
+            {
+              "name": "seq",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [],
+          "name": "sqlite_sequence",
+          "row_count": 1,
+          "sql": "CREATE TABLE sqlite_sequence(name,seq)"
+        }
+      ]
+    },
+    {
+      "errors": [
+        "DatabaseError: file is not a database"
+      ],
+      "foreign_keys": [],
+      "indexes": [],
+      "name": "Thumbs.db",
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Sirat/Thumbs.db",
+      "size_bytes": 23552,
+      "tables": []
+    },
+    {
+      "errors": [],
+      "foreign_keys": [
+        {
+          "from_column": "session_id",
+          "table": "conversation_messages",
+          "to_column": "session_id",
+          "to_table": "conversation_sessions"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_conversation_messages_session",
+          "sql": "CREATE INDEX idx_conversation_messages_session\n                    ON conversation_messages(session_id, created_at)",
+          "table": "conversation_messages"
+        },
+        {
+          "name": "sqlite_autoindex_conversation_messages_1",
+          "sql": "",
+          "table": "conversation_messages"
+        },
+        {
+          "name": "sqlite_autoindex_conversation_sessions_1",
+          "sql": "",
+          "table": "conversation_sessions"
+        }
+      ],
+      "name": "conversation.sqlite",
+      "path": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/.runtime/conversation/conversation.sqlite",
+      "size_bytes": 1273856,
+      "tables": [
+        {
+          "column_count": 7,
+          "columns": [
+            {
+              "name": "message_id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "session_id",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "role",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "content",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "created_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "request_id",
+              "not_null": false,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "metadata_json",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [],
+          "name": "conversation_messages",
+          "row_count": 129,
+          "sql": "CREATE TABLE conversation_messages (\n                    message_id TEXT PRIMARY KEY,\n                    session_id TEXT NOT NULL,\n                    role TEXT NOT NULL,\n                    content TEXT NOT NULL,\n                    created_at TEXT NOT NULL,\n                    request_id TEXT,\n                    metadata_json TEXT NOT NULL DEFAULT '{}',\n                    FOREIGN KEY(session_id) REFERENCES conversation_sessions(session_id)\n                )"
+        },
+        {
+          "column_count": 4,
+          "columns": [
+            {
+              "name": "session_id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "created_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "updated_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "metadata_json",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [],
+          "name": "conversation_sessions",
+          "row_count": 54,
+          "sql": "CREATE TABLE conversation_sessions (\n                    session_id TEXT PRIMARY KEY,\n                    created_at TEXT NOT NULL,\n                    updated_at TEXT NOT NULL,\n                    metadata_json TEXT NOT NULL DEFAULT '{}'\n                )"
+        }
+      ]
+    },
+    {
+      "errors": [],
+      "foreign_keys": [
+        {
+          "from_column": "mission_id",
+          "table": "mission_events",
+          "to_column": "mission_id",
+          "to_table": "missions"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_events_mission_id",
+          "sql": "CREATE INDEX idx_events_mission_id\n                ON mission_events(mission_id)\n                ",
+          "table": "mission_events"
+        },
+        {
+          "name": "idx_missions_status",
+          "sql": "CREATE INDEX idx_missions_status\n                ON missions(status)\n                ",
+          "table": "missions"
+        },
+        {
+          "name": "sqlite_autoindex_missions_1",
+          "sql": "",
+          "table": "missions"
+        }
+      ],
+      "name": "missions.sqlite",
+      "path": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/.runtime/executive/missions.sqlite",
+      "size_bytes": 2732032,
+      "tables": [
+        {
+          "column_count": 5,
+          "columns": [
+            {
+              "name": "event_id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "INTEGER"
+            },
+            {
+              "name": "mission_id",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "event_type",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "payload_json",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "created_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [],
+          "name": "mission_events",
+          "row_count": 1026,
+          "sql": "CREATE TABLE mission_events (\n                    event_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                    mission_id TEXT NOT NULL,\n                    event_type TEXT NOT NULL,\n                    payload_json TEXT NOT NULL,\n                    created_at TEXT NOT NULL,\n                    FOREIGN KEY (mission_id) REFERENCES missions(mission_id)\n                )"
+        },
+        {
+          "column_count": 6,
+          "columns": [
+            {
+              "name": "mission_id",
+              "not_null": false,
+              "primary_key": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "objective",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "status",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "payload_json",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "created_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            },
+            {
+              "name": "updated_at",
+              "not_null": true,
+              "primary_key": false,
+              "type": "TEXT"
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [],
+          "name": "missions",
+          "row_count": 102,
+          "sql": "CREATE TABLE missions (\n                    mission_id TEXT PRIMARY KEY,\n                    objective TEXT NOT NULL,\n                    status TEXT NOT NULL,\n                    payload_json TEXT NOT NULL,\n                    created_at TEXT NOT NULL,\n                    updated_at TEXT NOT NULL\n                )"
+        },
+        {
+          "column_count": 2,
+          "columns": [
+            {
+              "name": "name",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            },
+            {
+              "name": "seq",
+              "not_null": false,
+              "primary_key": false,
+              "type": ""
+            }
+          ],
+          "is_fts": false,
+          "metadata_columns": [],
+          "name": "sqlite_sequence",
+          "row_count": 1,
+          "sql": "CREATE TABLE sqlite_sequence(name,seq)"
+        }
+      ]
+    }
+  ],
+  "executive_compatibility": {
+    "concepts": {
+      "aliases_found": [
+        "keywords"
+      ],
+      "coverage": 0.0,
+      "locations": [
+        {
+          "column": "keywords",
+          "database": "catalog.sqlite",
+          "table": "knowledge_index"
+        },
+        {
+          "column": "keywords",
+          "database": "catalog.sqlite",
+          "table": "library_catalog"
+        }
+      ],
+      "present": true,
+      "recommendation": "reconstruct"
+    },
+    "confidence": {
+      "aliases_found": [
+        "confidence"
+      ],
+      "coverage": 0,
+      "locations": [
+        {
+          "column": "confidence",
+          "database": "catalog.sqlite",
+          "table": "concepts"
+        }
+      ],
+      "present": true,
+      "recommendation": "reconstruct"
+    },
+    "provenance": {
+      "aliases_found": [
+        "source",
+        "path"
+      ],
+      "coverage": 1.0,
+      "locations": [
+        {
+          "column": "source",
+          "database": "catalog.sqlite",
+          "table": "document_structure"
+        },
+        {
+          "column": "source",
+          "database": "acquisitions.sqlite",
+          "table": "acquisitions"
+        },
+        {
+          "column": "path",
+          "database": "catalog.sqlite",
+          "table": "documents"
+        }
+      ],
+      "present": true,
+      "recommendation": "map_existing"
+    },
+    "relationships": {
+      "aliases_found": [],
+      "coverage": 0,
+      "locations": [],
+      "present": false,
+      "recommendation": "reconstruct"
+    },
+    "subject": {
+      "aliases_found": [
+        "subject",
+        "category"
+      ],
+      "coverage": 0.6448967210581441,
+      "locations": [
+        {
+          "column": "subject",
+          "database": "catalog.sqlite",
+          "table": "knowledge_index"
+        },
+        {
+          "column": "subject",
+          "database": "catalog.sqlite",
+          "table": "library_catalog"
+        },
+        {
+          "column": "category",
+          "database": "catalog.sqlite",
+          "table": "documents"
+        },
+        {
+          "column": "category",
+          "database": "catalog.sqlite",
+          "table": "knowledge_index"
+        },
+        {
+          "column": "category",
+          "database": "catalog.sqlite",
+          "table": "library_catalog"
+        },
+        {
+          "column": "category",
+          "database": "acquisitions.sqlite",
+          "table": "acquisitions"
+        }
+      ],
+      "present": true,
+      "recommendation": "map_existing"
+    },
+    "taxonomy": {
+      "aliases_found": [],
+      "coverage": 0,
+      "locations": [],
+      "present": false,
+      "recommendation": "reconstruct"
+    },
+    "title": {
+      "aliases_found": [
+        "title"
+      ],
+      "coverage": 0.9826842613453493,
+      "locations": [
+        {
+          "column": "title",
+          "database": "catalog.sqlite",
+          "table": "document_structure"
+        },
+        {
+          "column": "title",
+          "database": "catalog.sqlite",
+          "table": "knowledge_index"
+        },
+        {
+          "column": "title",
+          "database": "catalog.sqlite",
+          "table": "library_catalog"
+        },
+        {
+          "column": "title",
+          "database": "acquisitions.sqlite",
+          "table": "acquisitions"
+        }
+      ],
+      "present": true,
+      "recommendation": "map_existing"
+    }
+  },
+  "recommendations": [
+    "Map existing metadata fields into the Executive contract before rebuilding them.",
+    "Reconstruct only fields proven absent or effectively empty.",
+    "Do not alter catalog data until the census reports are reviewed."
+  ],
+  "status": "FAILED",
+  "summary": {
+    "database_count": 5,
+    "fts_table_count": 6,
+    "fts_tables": [
+      {
+        "database": "catalog.sqlite",
+        "rows": 0,
+        "table": "document_pages_fts"
+      },
+      {
+        "database": "catalog.sqlite",
+        "rows": 1,
+        "table": "document_pages_fts_config"
+      },
+      {
+        "database": "catalog.sqlite",
+        "rows": 0,
+        "table": "document_pages_fts_content"
+      },
+      {
+        "database": "catalog.sqlite",
+        "rows": 2,
+        "table": "document_pages_fts_data"
+      },
+      {
+        "database": "catalog.sqlite",
+        "rows": 0,
+        "table": "document_pages_fts_docsize"
+      },
+      {
+        "database": "catalog.sqlite",
+        "rows": 0,
+        "table": "document_pages_fts_idx"
+      }
+    ],
+    "mappable_requirements": [
+      "title",
+      "subject",
+      "provenance"
+    ],
+    "metadata_fields": {
+      "author": {
+        "coverage": 0.006557852504712953,
+        "examples": [
+          "CMAJ",
+          "Imam Abu Zakariyya al-Nawawi",
+          "\u0627\u0644\u0627\u0645\u0627\u0645 \u0627\u0644\u0646\u0648\u0648\u064a",
+          "cmaj37",
+          "www.islamreligion.com website",
+          "(anonymous)",
+          "United States Marine Corps",
+          "National Institute of Standards and Technology"
+        ],
+        "field": "author",
+        "locations": [
+          {
+            "column": "author",
+            "database": "catalog.sqlite",
+            "table": "knowledge_index"
+          },
+          {
+            "column": "author",
+            "database": "catalog.sqlite",
+            "table": "library_catalog"
+          },
+          {
+            "column": "author",
+            "database": "acquisitions.sqlite",
+            "table": "acquisitions"
+          }
+        ],
+        "present": 407,
+        "rows": 62063
+      },
+      "category": {
+        "coverage": 0.9999556273406578,
+        "examples": [
+          "geography",
+          "religion",
+          "emergency",
+          "zim",
+          "medical",
+          "incoming",
+          "military",
+          "01_strategy/western"
+        ],
+        "field": "category",
+        "locations": [
+          {
+            "column": "category",
+            "database": "catalog.sqlite",
+            "table": "documents"
+          },
+          {
+            "column": "category",
+            "database": "catalog.sqlite",
+            "table": "knowledge_index"
+          },
+          {
+            "column": "category",
+            "database": "catalog.sqlite",
+            "table": "library_catalog"
+          },
+          {
+            "column": "category",
+            "database": "acquisitions.sqlite",
+            "table": "acquisitions"
+          }
+        ],
+        "present": 112677,
+        "rows": 112682
+      },
+      "confidence": {
+        "coverage": 0,
+        "examples": [],
+        "field": "confidence",
+        "locations": [
+          {
+            "column": "confidence",
+            "database": "catalog.sqlite",
+            "table": "concepts"
+          }
+        ],
+        "present": 0,
+        "rows": 0
+      },
+      "document_path": {
+        "coverage": 1.0,
+        "examples": [
+          "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/nuclear/fema_nuclear-detonation-preparedness_communicating-in-the-immediate-aftermath_v3_2024.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/incoming/review_medical/Encyclopedia Of Pain - 3 Volume Set (Malestrom).pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/incoming/review_reference/effak_spanish.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/emergency/civil_defense/nuclear/fema_incident-annex_nuclear-radiological.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/military/doctrine/US_Army_FM_3-06.11_Urban_Terrain.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/COLLECTIONS.md",
+          "/media/abdullah/JARVISDATA/Knowledge/README.md",
+          "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Seed_Saving.pdf"
+        ],
+        "field": "document_path",
+        "locations": [
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "chunks"
+          },
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "concepts"
+          },
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "document_pages"
+          },
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "document_pages_fts"
+          },
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "document_structure"
+          },
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "document_text"
+          },
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "inspections"
+          },
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "knowledge_index"
+          },
+          {
+            "column": "document_path",
+            "database": "catalog.sqlite",
+            "table": "library_catalog"
+          }
+        ],
+        "present": 114372,
+        "rows": 114372
+      },
+      "keywords": {
+        "coverage": 0.0,
+        "examples": [],
+        "field": "keywords",
+        "locations": [
+          {
+            "column": "keywords",
+            "database": "catalog.sqlite",
+            "table": "knowledge_index"
+          },
+          {
+            "column": "keywords",
+            "database": "catalog.sqlite",
+            "table": "library_catalog"
+          }
+        ],
+        "present": 0,
+        "rows": 62039
+      },
+      "language": {
+        "coverage": 0.0,
+        "examples": [],
+        "field": "language",
+        "locations": [
+          {
+            "column": "language",
+            "database": "catalog.sqlite",
+            "table": "knowledge_index"
+          },
+          {
+            "column": "language",
+            "database": "catalog.sqlite",
+            "table": "library_catalog"
+          }
+        ],
+        "present": 0,
+        "rows": 62039
+      },
+      "local_path": {
+        "coverage": 1.0,
+        "examples": [
+          "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/owasp/owasp_web_security_testing_guide_v4.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/nist/nist_sp_800_61r3_incident_response.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/nist/nist_csf_2_0_resource_overview.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/nist/nist_csf_2_0.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/Downloads/05_cybersecurity/cisa/cisa_incident_response_plan_basics.pdf"
+        ],
+        "field": "local_path",
+        "locations": [
+          {
+            "column": "local_path",
+            "database": "acquisitions.sqlite",
+            "table": "acquisitions"
+          }
+        ],
+        "present": 24,
+        "rows": 24
+      },
+      "parent_title": {
+        "coverage": 0.8668332052267487,
+        "examples": [
+          "P",
+          "S",
+          "C",
+          "A",
+          "M"
+        ],
+        "field": "parent_title",
+        "locations": [
+          {
+            "column": "parent_title",
+            "database": "catalog.sqlite",
+            "table": "document_structure"
+          }
+        ],
+        "present": 13533,
+        "rows": 15612
+      },
+      "path": {
+        "coverage": 1.0,
+        "examples": [
+          "/media/abdullah/JARVISDATA/Knowledge/COLLECTIONS.md",
+          "/media/abdullah/JARVISDATA/Knowledge/README.md",
+          "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Seed_Saving.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/Square_Foot_Gardening.pdf",
+          "/media/abdullah/JARVISDATA/Knowledge/emergency/agriculture/i1680e.pdf"
+        ],
+        "field": "path",
+        "locations": [
+          {
+            "column": "path",
+            "database": "catalog.sqlite",
+            "table": "documents"
+          }
+        ],
+        "present": 50619,
+        "rows": 50619
+      },
+      "relative_path": {
+        "coverage": 1.0,
+        "examples": [
+          "zim/wikipedia/wikipedia_en_medicine_nopic_2026-01.zim",
+          "zim/wikipedia/wikipedia_en_all_nopic_2025-12.zim",
+          "zim/wikipedia/phet_en_all_2025-03.zim",
+          "zim/wikipedia/earthscience.zim",
+          "zim/wikibooks/woodworking.zim"
+        ],
+        "field": "relative_path",
+        "locations": [
+          {
+            "column": "relative_path",
+            "database": "catalog.sqlite",
+            "table": "documents"
+          }
+        ],
+        "present": 50619,
+        "rows": 50619
+      },
+      "source": {
+        "coverage": 1.0,
+        "examples": [
+          "pdf_toc",
+          "Project Gutenberg",
+          "United States Marine Corps",
+          "NIST",
+          "CISA",
+          "CIA Center for the Study of Intelligence"
+        ],
+        "field": "source",
+        "locations": [
+          {
+            "column": "source",
+            "database": "catalog.sqlite",
+            "table": "document_structure"
+          },
+          {
+            "column": "source",
+            "database": "acquisitions.sqlite",
+            "table": "acquisitions"
+          }
+        ],
+        "present": 15636,
+        "rows": 15636
+      },
+      "source_page": {
+        "coverage": 0,
+        "examples": [],
+        "field": "source_page",
+        "locations": [
+          {
+            "column": "source_page",
+            "database": "catalog.sqlite",
+            "table": "chunks"
+          }
+        ],
+        "present": 0,
+        "rows": 0
+      },
+      "structure_title": {
+        "coverage": 0,
+        "examples": [],
+        "field": "structure_title",
+        "locations": [
+          {
+            "column": "structure_title",
+            "database": "catalog.sqlite",
+            "table": "chunks"
+          }
+        ],
+        "present": 0,
+        "rows": 0
+      },
+      "subject": {
+        "coverage": 0.0,
+        "examples": [],
+        "field": "subject",
+        "locations": [
+          {
+            "column": "subject",
+            "database": "catalog.sqlite",
+            "table": "knowledge_index"
+          },
+          {
+            "column": "subject",
+            "database": "catalog.sqlite",
+            "table": "library_catalog"
+          }
+        ],
+        "present": 0,
+        "rows": 62039
+      },
+      "subtitle": {
+        "coverage": 0.0,
+        "examples": [],
+        "field": "subtitle",
+        "locations": [
+          {
+            "column": "subtitle",
+            "database": "catalog.sqlite",
+            "table": "library_catalog"
+          }
+        ],
+        "present": 0,
+        "rows": 11420
+      },
+      "title": {
+        "coverage": 0.9826842613453493,
+        "examples": [
+          "\u25aa",
+          "Featured",
+          "Top",
+          "Introduction",
+          "Correo Electr\u00f3nico:",
+          "Internet Archive: Page Not Found",
+          "Imam Nawawi's Rawdat al-Talibin",
+          "\u0631\u064e\u0648\u0627\u0647\u064f \u0627\u0644\u0633\u0651\u0650\u062a\u0651\u064e\u0629\u064f- Sahih Bukhari, Sahih Muslim, Abu Dawood, Tirmizi, Nasai, Ibn Majah"
+        ],
+        "field": "title",
+        "locations": [
+          {
+            "column": "title",
+            "database": "catalog.sqlite",
+            "table": "document_structure"
+          },
+          {
+            "column": "title",
+            "database": "catalog.sqlite",
+            "table": "knowledge_index"
+          },
+          {
+            "column": "title",
+            "database": "catalog.sqlite",
+            "table": "library_catalog"
+          },
+          {
+            "column": "title",
+            "database": "acquisitions.sqlite",
+            "table": "acquisitions"
+          }
+        ],
+        "present": 76330,
+        "rows": 77675
+      }
+    },
+    "missing_requirements": [
+      "taxonomy",
+      "concepts",
+      "relationships",
+      "confidence"
+    ],
+    "table_count": 24
+  }
+}

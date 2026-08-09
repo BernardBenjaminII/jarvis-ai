@@ -1,0 +1,592 @@
+{
+  "callables": [
+    {
+      "attribute": "ask",
+      "bound": true,
+      "module": "core.conversation.service",
+      "owner": "conversation_service",
+      "public": true,
+      "qualname": "ExecutiveConversationService.ask",
+      "signature": "(operator_input: 'str', *, session_id: 'str | None' = None, mode: 'str' = 'full', channel: 'str' = 'text', metadata: 'dict[str, Any] | None' = None) -> 'ExecutiveConversationResponse'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/service.py",
+      "source_line": 42
+    },
+    {
+      "attribute": "history",
+      "bound": true,
+      "module": "core.conversation.service",
+      "owner": "conversation_service",
+      "public": true,
+      "qualname": "ExecutiveConversationService.history",
+      "signature": "(session_id: 'str', *, limit: 'int' = 100) -> 'list[dict[str, Any]]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/service.py",
+      "source_line": 168
+    },
+    {
+      "attribute": "_normalize_answer",
+      "bound": false,
+      "module": "core.conversation.service",
+      "owner": "conversation_service",
+      "public": false,
+      "qualname": "ExecutiveConversationService._normalize_answer",
+      "signature": "(value: 'Any') -> 'str'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/service.py",
+      "source_line": 171
+    },
+    {
+      "attribute": "execute",
+      "bound": true,
+      "module": "core.conversation.orchestrator",
+      "owner": "orchestrator",
+      "public": true,
+      "qualname": "ExecutiveConversationOrchestrator.execute",
+      "signature": "(context: 'ExecutiveRequestContext') -> 'OrchestrationResult'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py",
+      "source_line": 87
+    },
+    {
+      "attribute": "synthesis_handler",
+      "bound": false,
+      "module": "core.src.brain",
+      "owner": "orchestrator",
+      "public": true,
+      "qualname": "route_question",
+      "signature": "(question: str)",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/src/brain.py",
+      "source_line": 16
+    },
+    {
+      "attribute": "_assignment",
+      "bound": false,
+      "module": "core.conversation.orchestrator",
+      "owner": "orchestrator",
+      "public": false,
+      "qualname": "ExecutiveConversationOrchestrator._assignment",
+      "signature": "(objective_id: 'str', mission: 'Mission') -> 'DirectorAssignment'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py",
+      "source_line": 205
+    },
+    {
+      "attribute": "_normalize_answer",
+      "bound": false,
+      "module": "core.conversation.orchestrator",
+      "owner": "orchestrator",
+      "public": false,
+      "qualname": "ExecutiveConversationOrchestrator._normalize_answer",
+      "signature": "(value: 'Any') -> 'str'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py",
+      "source_line": 229
+    },
+    {
+      "attribute": "create_mission",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.create_mission",
+      "signature": "(objective: 'str', *, context: 'dict[str, Any] | None' = None) -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 88
+    },
+    {
+      "attribute": "director_catalog",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.director_catalog",
+      "signature": "() -> 'list[dict[str, Any]]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 165
+    },
+    {
+      "attribute": "execute_mission",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.execute_mission",
+      "signature": "(mission_id: 'str') -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 142
+    },
+    {
+      "attribute": "get_mission",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.get_mission",
+      "signature": "(mission_id: 'str') -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 150
+    },
+    {
+      "attribute": "list_missions",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.list_missions",
+      "signature": "(*, status: 'str | None' = None, limit: 'int' = 50) -> 'list[Mission]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 153
+    },
+    {
+      "attribute": "mission_events",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.mission_events",
+      "signature": "(mission_id: 'str') -> 'list[dict[str, Any]]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 161
+    },
+    {
+      "attribute": "plan_mission",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.plan_mission",
+      "signature": "(mission: 'Mission') -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 106
+    },
+    {
+      "attribute": "submit",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.submit",
+      "signature": "(objective: 'str', *, context: 'dict[str, Any] | None' = None, execute: 'bool' = True) -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 129
+    },
+    {
+      "attribute": "ground",
+      "bound": true,
+      "module": "core.conversation.grounding",
+      "owner": "grounding_service",
+      "public": true,
+      "qualname": "CatalogGroundingService.ground",
+      "signature": "(context: 'ExecutiveRequestContext') -> 'GroundingResult'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/grounding.py",
+      "source_line": 152
+    },
+    {
+      "attribute": "search_for_director",
+      "bound": true,
+      "module": "core.conversation.grounding",
+      "owner": "grounding_service",
+      "public": true,
+      "qualname": "CatalogGroundingService.search_for_director",
+      "signature": "(objective: 'str', context: 'dict[str, Any]') -> 'dict[str, Any]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/grounding.py",
+      "source_line": 161
+    },
+    {
+      "attribute": "search_handler",
+      "bound": true,
+      "module": "core.conversation.grounding",
+      "owner": "grounding_service",
+      "public": true,
+      "qualname": "CatalogGroundingService._search_catalog",
+      "signature": "(query: 'str', limit: 'int') -> 'Iterable[Mapping[str, Any]]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/grounding.py",
+      "source_line": 148
+    },
+    {
+      "attribute": "_ground_objective",
+      "bound": true,
+      "module": "core.conversation.grounding",
+      "owner": "grounding_service",
+      "public": false,
+      "qualname": "CatalogGroundingService._ground_objective",
+      "signature": "(objective: 'CompiledObjective') -> 'ObjectiveGrounding'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/grounding.py",
+      "source_line": 178
+    },
+    {
+      "attribute": "_search_catalog",
+      "bound": true,
+      "module": "core.conversation.grounding",
+      "owner": "grounding_service",
+      "public": false,
+      "qualname": "CatalogGroundingService._search_catalog",
+      "signature": "(query: 'str', limit: 'int') -> 'Iterable[Mapping[str, Any]]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/grounding.py",
+      "source_line": 148
+    },
+    {
+      "attribute": "assess",
+      "bound": true,
+      "module": "core.knowledge_awareness.service",
+      "owner": "awareness_service",
+      "public": true,
+      "qualname": "ExecutiveKnowledgeAwarenessService.assess",
+      "signature": "(grounding: 'GroundingResult') -> 'ExecutiveKnowledgeState'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/knowledge_awareness/service.py",
+      "source_line": 20
+    },
+    {
+      "attribute": "_answerability",
+      "bound": false,
+      "module": "core.knowledge_awareness.service",
+      "owner": "awareness_service",
+      "public": false,
+      "qualname": "ExecutiveKnowledgeAwarenessService._answerability",
+      "signature": "(score: 'float') -> 'str'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/knowledge_awareness/service.py",
+      "source_line": 97
+    },
+    {
+      "attribute": "_evidence",
+      "bound": false,
+      "module": "core.knowledge_awareness.service",
+      "owner": "awareness_service",
+      "public": false,
+      "qualname": "ExecutiveKnowledgeAwarenessService._evidence",
+      "signature": "(objective: 'ObjectiveGrounding') -> 'tuple[EvidenceItem, ...]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/knowledge_awareness/service.py",
+      "source_line": 81
+    },
+    {
+      "attribute": "_maturity",
+      "bound": false,
+      "module": "core.knowledge_awareness.service",
+      "owner": "awareness_service",
+      "public": false,
+      "qualname": "ExecutiveKnowledgeAwarenessService._maturity",
+      "signature": "(score: 'float') -> 'str'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/knowledge_awareness/service.py",
+      "source_line": 94
+    }
+  ],
+  "director_hook": {
+    "candidates": [
+      {
+        "method": "submit",
+        "reasons": [
+          "referenced by orchestrator",
+          "accepts runtime input"
+        ],
+        "score": 60
+      },
+      {
+        "method": "plan_mission",
+        "reasons": [
+          "accepts runtime input"
+        ],
+        "score": 10
+      },
+      {
+        "method": "mission_events",
+        "reasons": [
+          "accepts runtime input"
+        ],
+        "score": 10
+      },
+      {
+        "method": "list_missions",
+        "reasons": [
+          "accepts runtime input"
+        ],
+        "score": 10
+      },
+      {
+        "method": "get_mission",
+        "reasons": [
+          "accepts runtime input"
+        ],
+        "score": 10
+      },
+      {
+        "method": "execute_mission",
+        "reasons": [
+          "accepts runtime input"
+        ],
+        "score": 10
+      },
+      {
+        "method": "director_catalog",
+        "reasons": [
+          "accepts runtime input"
+        ],
+        "score": 10
+      },
+      {
+        "method": "create_mission",
+        "reasons": [
+          "accepts runtime input"
+        ],
+        "score": 10
+      }
+    ],
+    "method": "submit",
+    "module": "core.executive.director",
+    "qualified_name": "ExecutiveDirector.submit",
+    "reasons": [
+      "referenced by orchestrator",
+      "accepts runtime input"
+    ],
+    "score": 60,
+    "signature": "(objective: 'str', *, context: 'dict[str, Any] | None' = None, execute: 'bool' = True) -> 'Mission'",
+    "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+    "source_line": 129,
+    "status": "resolved"
+  },
+  "director_methods": [
+    {
+      "attribute": "create_mission",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.create_mission",
+      "signature": "(objective: 'str', *, context: 'dict[str, Any] | None' = None) -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 88
+    },
+    {
+      "attribute": "director_catalog",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.director_catalog",
+      "signature": "() -> 'list[dict[str, Any]]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 165
+    },
+    {
+      "attribute": "execute_mission",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.execute_mission",
+      "signature": "(mission_id: 'str') -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 142
+    },
+    {
+      "attribute": "get_mission",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.get_mission",
+      "signature": "(mission_id: 'str') -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 150
+    },
+    {
+      "attribute": "list_missions",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.list_missions",
+      "signature": "(*, status: 'str | None' = None, limit: 'int' = 50) -> 'list[Mission]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 153
+    },
+    {
+      "attribute": "mission_events",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.mission_events",
+      "signature": "(mission_id: 'str') -> 'list[dict[str, Any]]'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 161
+    },
+    {
+      "attribute": "plan_mission",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.plan_mission",
+      "signature": "(mission: 'Mission') -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 106
+    },
+    {
+      "attribute": "submit",
+      "bound": true,
+      "module": "core.executive.director",
+      "owner": "director",
+      "public": true,
+      "qualname": "ExecutiveDirector.submit",
+      "signature": "(objective: 'str', *, context: 'dict[str, Any] | None' = None, execute: 'bool' = True) -> 'Mission'",
+      "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/executive/director.py",
+      "source_line": 129
+    }
+  ],
+  "edges": [
+    {
+      "evidence": "conversation_service.orchestrator",
+      "relation": "owns",
+      "source": "conversation_service",
+      "target": "orchestrator"
+    },
+    {
+      "evidence": "orchestrator.director",
+      "relation": "owns",
+      "source": "orchestrator",
+      "target": "director"
+    },
+    {
+      "evidence": "orchestrator.grounding_service",
+      "relation": "owns",
+      "source": "orchestrator",
+      "target": "grounding_service"
+    },
+    {
+      "evidence": "orchestrator.awareness_service",
+      "relation": "owns",
+      "source": "orchestrator",
+      "target": "awareness_service"
+    },
+    {
+      "evidence": "orchestrator.synthesis_handler",
+      "relation": "owns",
+      "source": "orchestrator",
+      "target": "synthesis_handler"
+    },
+    {
+      "evidence": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py:99",
+      "relation": "source_call",
+      "source": "orchestrator.execute",
+      "target": "self.grounding_service.ground"
+    },
+    {
+      "evidence": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py:136",
+      "relation": "source_call",
+      "source": "orchestrator.execute",
+      "target": "self.director.submit"
+    },
+    {
+      "evidence": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py:175",
+      "relation": "source_call",
+      "source": "orchestrator.execute",
+      "target": "grounding.synthesis_input"
+    },
+    {
+      "evidence": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py:177",
+      "relation": "source_call",
+      "source": "orchestrator.execute",
+      "target": "knowledge_state.synthesis_input"
+    },
+    {
+      "evidence": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py:178",
+      "relation": "source_call",
+      "source": "orchestrator.execute",
+      "target": "self.synthesis_handler"
+    },
+    {
+      "evidence": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py:118",
+      "relation": "source_call",
+      "source": "orchestrator.execute",
+      "target": "self.awareness_service.assess"
+    },
+    {
+      "evidence": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py:135",
+      "relation": "source_call",
+      "source": "orchestrator.execute",
+      "target": "grounding.for_objective"
+    },
+    {
+      "evidence": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py:146",
+      "relation": "source_call",
+      "source": "orchestrator.execute",
+      "target": "objective_grounding.to_dict"
+    }
+  ],
+  "generated_at": "2026-08-04T22:01:09.871260+00:00",
+  "ix_a4_3b_repair_contract": {
+    "action": "patch_resolved_director_method",
+    "instructions": "Replace hard-coded director.execute with the resolved callable and guard with callable inspection.",
+    "method": "submit"
+  },
+  "objects": {
+    "awareness_service": {
+      "module": "core.knowledge_awareness.service",
+      "qualified_type": "core.knowledge_awareness.service.ExecutiveKnowledgeAwarenessService",
+      "type": "ExecutiveKnowledgeAwarenessService"
+    },
+    "conversation_service": {
+      "module": "core.conversation.service",
+      "qualified_type": "core.conversation.service.ExecutiveConversationService",
+      "type": "ExecutiveConversationService"
+    },
+    "director": {
+      "module": "core.executive.director",
+      "qualified_type": "core.executive.director.ExecutiveDirector",
+      "type": "ExecutiveDirector"
+    },
+    "grounding_service": {
+      "module": "core.conversation.grounding",
+      "qualified_type": "core.conversation.grounding.CatalogGroundingService",
+      "type": "CatalogGroundingService"
+    },
+    "orchestrator": {
+      "module": "core.conversation.orchestrator",
+      "qualified_type": "core.conversation.orchestrator.ExecutiveConversationOrchestrator",
+      "type": "ExecutiveConversationOrchestrator"
+    }
+  },
+  "orchestrator_flow": {
+    "calls": [
+      {
+        "absolute_line": 99,
+        "target": "self.grounding_service.ground"
+      },
+      {
+        "absolute_line": 136,
+        "target": "self.director.submit"
+      },
+      {
+        "absolute_line": 175,
+        "target": "grounding.synthesis_input"
+      },
+      {
+        "absolute_line": 177,
+        "target": "knowledge_state.synthesis_input"
+      },
+      {
+        "absolute_line": 178,
+        "target": "self.synthesis_handler"
+      },
+      {
+        "absolute_line": 118,
+        "target": "self.awareness_service.assess"
+      },
+      {
+        "absolute_line": 135,
+        "target": "grounding.for_objective"
+      },
+      {
+        "absolute_line": 146,
+        "target": "objective_grounding.to_dict"
+      }
+    ],
+    "director_referenced": true,
+    "entry_method": "execute",
+    "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py",
+    "source_line": 87,
+    "status": "resolved"
+  },
+  "repository_root": "/media/abdullah/JARVISDATA/Projects/jarvis-ai",
+  "schema_version": "genesis_ix_a4_3c_v1",
+  "verdict": {
+    "blocking": false,
+    "classification": "DIRECTOR_HOOK_RESOLVED",
+    "reason": "Actual Director hook is 'submit'."
+  }
+}

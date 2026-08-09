@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "code": "NORMALIZE-DICT",
+      "detail": "AuditReport",
+      "status": "PASS"
+    },
+    {
+      "code": "STATUS-STABLE",
+      "detail": "FAILED",
+      "status": "PASS"
+    },
+    {
+      "code": "JSON-STABLE",
+      "detail": "NO_SEARCHABLE_KNOWLEDGE",
+      "status": "PASS"
+    },
+    {
+      "code": "MARKDOWN-STABLE",
+      "detail": "title rendered",
+      "status": "PASS"
+    },
+    {
+      "code": "WRITE-JSON",
+      "detail": "/tmp/tmpl_www82o/report.json",
+      "status": "PASS"
+    },
+    {
+      "code": "WRITE-MARKDOWN",
+      "detail": "/tmp/tmpl_www82o/report.md",
+      "status": "PASS"
+    },
+    {
+      "code": "IDEMPOTENT",
+      "detail": "existing EngineeringReport returned unchanged",
+      "status": "PASS"
+    }
+  ],
+  "classification": "ENGINEERING_REPORT_FRAMEWORK_CERTIFIED",
+  "generated_at": "2026-08-06T18:01:08.960400+00:00",
+  "kind": "audit",
+  "metadata": {},
+  "recommendations": [
+    "Use normalize_report() at legacy boundaries.",
+    "Return EngineeringReport subclasses from new tools."
+  ],
+  "schema_version": "genesis_ix_a5_pack2_cert_v1",
+  "status": "EXCELLENT",
+  "summary": {
+    "checks_executed": 7,
+    "checks_failed": 0,
+    "checks_passed": 7
+  },
+  "title": "Genesis IX-A5 Pack 2 \u2014 Engineering Report Framework Certification",
+  "warnings": []
+}

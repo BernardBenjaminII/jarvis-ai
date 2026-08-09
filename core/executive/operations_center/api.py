@@ -35,6 +35,7 @@ from .transport import (
     ExecutiveSnapshotPublisher,
 )
 
+from core.executive.events import get_default_executive_event_bus
 
 EXECUTIVE_API_PREFIX = "/operations/executive"
 EXECUTIVE_API_TAG = "Executive Operations Center"
@@ -190,47 +191,39 @@ async def executive_status(
 
 
 @router.get("/events")
-async def executive_events() -> dict[str, Any]:
-    """
-    Report the current Executive Event integration state.
+async def executive_events(
+    limit: int = Query(default=100, ge=0, le=1000),
+) -> dict[str, Any]:
+    """Return authoritative constitutional Executive events."""
 
-    Pack 2 establishes the API contract but does not invent an event history.
-    The authoritative Event Registry is connected in Pack 4.
-    """
-    metrics = await asyncio.to_thread(
-        runtime.metrics_service.snapshot,
-        force_refresh=False,
-    )
-    event_metric = metrics.metrics.get("executive_events")
+    print("***** CANONICAL PACK 4 EVENTS ROUTE *****", flush=True)
 
-    configured = (
-        event_metric is not None
-        and event_metric.state is not MetricState.NOT_CONFIGURED
+    event_bus = get_default_executive_event_bus()
+    events = await asyncio.to_thread(
+        event_bus.latest,
+        limit,
     )
+    integrity = await asyncio.to_thread(event_bus.verify)
 
     return _transport_response(
         resource="executive_events",
         data={
-            "integration_state": (
-                event_metric.state.value
-                if event_metric is not None
-                else MetricState.NOT_CONFIGURED.value
-            ),
-            "configured": configured,
-            "event_count": (
-                event_metric.value
-                if event_metric is not None
-                else None
-            ),
-            "events": [],
-            "message": (
-                "The Executive Event Registry transport is established. "
-                "Authoritative event retrieval is reserved for Pack 4."
-            ),
+            "integration_state": "configured",
+            "configured": True,
+            "event_count": len(event_bus.events),
+            "returned_count": len(events),
+            "events": [
+                {
+                    **event.material(),
+                    "event_fingerprint": event.event_fingerprint,
+                }
+                for event in events
+            ],
+            "integrity_certified": integrity.certified,
+            "terminal_fingerprint": integrity.terminal_fingerprint,
             "schema_version": "1.0.0",
         },
     )
-
 
 @router.get("/live/status")
 async def executive_live_status() -> dict[str, Any]:

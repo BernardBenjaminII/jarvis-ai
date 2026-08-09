@@ -1,0 +1,209 @@
+{
+  "plans": [
+    {
+      "candidate_id": "id:867",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Hayatus Sahabah/._Hayatus Sahabah vol. 1.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/Hayatus Sahabah/._Hayatus Sahabah vol. 1.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:871",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/History of the Caliphs/._Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Deen/History of the Caliphs/._Biographies of the Rightly-Guided Caliphs _ Ibn Kathir.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:88897",
+      "chars": 0,
+      "detail": "PDF is openable with 0 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Jihad Afghani/LION OF PANJSHIR.PDF",
+      "quality_score": 0.0,
+      "status": "OCR_CANDIDATE",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:88915",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Wortbat Porter 4th ed.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Wortbat Porter 4th ed.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:88916",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Mawrid.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/._Mawrid.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:88921",
+      "chars": 0,
+      "detail": "PDF is openable with 233 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 233,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/WrightArabicGrammarVol2.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_CANDIDATE",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:88930",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC - Arabic Class Notes Part 04.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC - Arabic Class Notes Part 04.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:88931",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC-Arabic Class Notes Part 01.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Grammar/ARIC/._ARIC-Arabic Class Notes Part 01.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:88974",
+      "chars": 0,
+      "detail": "PDF is openable with 816 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 816,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Languages/Arabic Language/wortbat-porter-4thed.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_CANDIDATE",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:89010",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Litterature/._la ta7zan.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Litterature/._la ta7zan.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:89013",
+      "chars": 0,
+      "detail": "PDF is openable with 16 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 16,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Marskmanship/Full-Auto Conversion - Select Fire AK-47.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_CANDIDATE",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:89057",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Phys Ed/10 bodybuilding ebooks- six pack abs, muscle building workouts strength turbulence training pdf/._The Stubborn Fat Solution - Flatten Your Abs.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Phys Ed/10 bodybuilding ebooks- six pack abs, muscle building workouts strength turbulence training pdf/._The Stubborn Fat Solution - Flatten Your Abs.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:89073",
+      "chars": 0,
+      "detail": "FileDataError: Failed to open file '/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Sirat/._Ar-Raheeq Al-Makhtum(the sealed nectar)Biography of Prophet Of Islam[eng]e-book.pdf'.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 0,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Sirat/._Ar-Raheeq Al-Makhtum(the sealed nectar)Biography of Prophet Of Islam[eng]e-book.pdf",
+      "quality_score": 0.0,
+      "status": "REPAIR_REQUIRED",
+      "strategy": "pdf_structure",
+      "text": ""
+    },
+    {
+      "candidate_id": "id:89110",
+      "chars": 0,
+      "detail": "PDF is openable with 157 pages.",
+      "pages_attempted": 0,
+      "pages_recovered": 0,
+      "pages_total": 157,
+      "path": "/media/abdullah/JARVISDATA/Knowledge/Xfer_Staged_Files/EBooks/Social Studies/Karl Marx and Friedrich Engels - Ebook Collection/Marx Engels/Karl Marx/Marx_Mathematical_Manuscripts_1881.pdf",
+      "quality_score": 0.0,
+      "status": "OCR_CANDIDATE",
+      "strategy": "pdf_structure",
+      "text": ""
+    }
+  ],
+  "policy": {
+    "dpi": 180,
+    "languages": "eng",
+    "max_pages": 80,
+    "max_seconds_per_page": 45,
+    "minimum_chars": 120,
+    "minimum_quality": 0.45
+  },
+  "selected": 14,
+  "status_counts": {
+    "OCR_CANDIDATE": 5,
+    "REPAIR_REQUIRED": 9
+  },
+  "tesseract": {
+    "available": true,
+    "languages": [
+      "ara",
+      "eng",
+      "osd"
+    ],
+    "path": "/usr/bin/tesseract",
+    "version": "tesseract 5.3.4"
+  }
+}

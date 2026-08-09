@@ -1,0 +1,18 @@
+{
+  "diagnostic_repairs": 2,
+  "production_repairs": 0,
+  "repairs": [
+    {
+      "details": [
+        "Added canonical Director dispatch resolver import.",
+        "Replaced hard-coded expression: original_execute = director.execute",
+        "Replaced hard-coded expression: patch(director, \"execute\", traced_execute)"
+      ],
+      "path": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/retrieval/gap_trace/tracer.py",
+      "replacements": 2,
+      "status": "repaired"
+    }
+  ],
+  "resolved_director_method": "submit",
+  "schema_version": "genesis_ix_a4_4_v1"
+}

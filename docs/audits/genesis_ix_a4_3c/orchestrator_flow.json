@@ -1,0 +1,41 @@
+{
+  "calls": [
+    {
+      "absolute_line": 99,
+      "target": "self.grounding_service.ground"
+    },
+    {
+      "absolute_line": 136,
+      "target": "self.director.submit"
+    },
+    {
+      "absolute_line": 175,
+      "target": "grounding.synthesis_input"
+    },
+    {
+      "absolute_line": 177,
+      "target": "knowledge_state.synthesis_input"
+    },
+    {
+      "absolute_line": 178,
+      "target": "self.synthesis_handler"
+    },
+    {
+      "absolute_line": 118,
+      "target": "self.awareness_service.assess"
+    },
+    {
+      "absolute_line": 135,
+      "target": "grounding.for_objective"
+    },
+    {
+      "absolute_line": 146,
+      "target": "objective_grounding.to_dict"
+    }
+  ],
+  "director_referenced": true,
+  "entry_method": "execute",
+  "source_file": "/media/abdullah/JARVISDATA/Projects/jarvis-ai/core/conversation/orchestrator.py",
+  "source_line": 87,
+  "status": "resolved"
+}

@@ -1,0 +1,51 @@
+{
+  "checks": [
+    {
+      "code": "MARKDOWN",
+      "detail": "canonical markdown rendered",
+      "status": "PASS"
+    },
+    {
+      "code": "TERMINAL",
+      "detail": "terminal classification rendered",
+      "status": "PASS"
+    },
+    {
+      "code": "JSON",
+      "detail": "NO_SEARCHABLE_KNOWLEDGE",
+      "status": "PASS"
+    },
+    {
+      "code": "SUMMARY",
+      "detail": "FAILED",
+      "status": "PASS"
+    },
+    {
+      "code": "LEGACY-MARKDOWN",
+      "detail": "legacy mapping normalized",
+      "status": "PASS"
+    },
+    {
+      "code": "FILES",
+      "detail": "renderer outputs persisted",
+      "status": "PASS"
+    }
+  ],
+  "classification": "ENGINEERING_REPORT_RENDERER_CERTIFIED",
+  "generated_at": "2026-08-06T18:01:08.557771+00:00",
+  "kind": "audit",
+  "metadata": {},
+  "recommendations": [
+    "Use EngineeringReportRenderer for all new output surfaces.",
+    "Normalize legacy inputs only at compatibility boundaries."
+  ],
+  "schema_version": "genesis_ix_a5_pack2_1_cert_v1",
+  "status": "EXCELLENT",
+  "summary": {
+    "checks_executed": 6,
+    "checks_failed": 0,
+    "checks_passed": 6
+  },
+  "title": "Genesis IX-A5 Pack 2.1 \u2014 Engineering Report Renderer Certification",
+  "warnings": []
+}
