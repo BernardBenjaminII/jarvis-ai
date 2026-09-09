@@ -1,18 +1,40 @@
+"use strict";
 (() => {
-  "use strict";
-  const incidents=[
-    {id:"fixture-red-sea",x:58,y:48,severity:"critical",region:"Red Sea",title:"Maritime threat posture elevated",summary:"Demonstration record for the normalized SITREP contract.",confidence:92,changed:"Multiple authoritative advisories raised the operating-risk language.",why:"Regional transit and dependent logistics may be affected.",action:"Review exposed routes and personnel movement.",recommendation:"Prepare alternate routing; await verified operational direction.",consequence:"Late action can narrow safe routing options.",sources:["State Department","MARAD","UKMTO"]},
-    {id:"fixture-europe",x:55,y:29,severity:"high",region:"Eastern Europe",title:"Airspace disruption watch",summary:"Demonstration record; not a live intelligence report.",confidence:84,changed:"Navigation restrictions expanded in the simulated reporting set.",why:"Civil travel routes may require rapid changes.",action:"Validate current and planned routes.",recommendation:"Maintain elevated watch and prepare alternatives.",consequence:"Personnel movement may be delayed.",sources:["State Department","FAA NOTAM"]},
-    {id:"fixture-sahel",x:46,y:47,severity:"watch",region:"Sahel",title:"Consular posture watch",summary:"Demonstration record for source and confidence presentation.",confidence:67,changed:"Simulated advisory language became more restrictive.",why:"Access and movement assumptions may change.",action:"Review relevant travel exposure.",recommendation:"Monitor for an authoritative update.",consequence:"Departure options could narrow.",sources:["State Department","Embassy notice"]}
-  ];
-  let root;
-  const view=i=>`<button aria-label="Close incident">×</button><small>${i.severity.toUpperCase()} · ${i.region} · ${i.confidence}% CONFIDENCE</small><h2>${i.title}</h2>${[["WHAT CHANGED",i.changed],["WHY IT MATTERS",i.why],["REQUIRED ACTION",i.action],["JARVIS RECOMMENDATION",i.recommendation],["CONSEQUENCE OF INACTION",i.consequence],["PROVENANCE",i.sources.join(" · ")]].map(([a,b])=>`<section><label>${a}</label><p>${b}</p></section>`).join("")}`;
-  function select(i){const d=root.querySelector(".sitrep-detail");d.innerHTML=view(i);d.hidden=false;d.querySelector("button").onclick=()=>d.hidden=true}
-  function mount(host){
-    host.innerHTML=`<button class="jarvis-workspace-close" onclick="JARVIS_WORKSPACES.close()">← Return to chat</button><div class="jarvis-callable-status">SITREP · DEVELOPMENT FIXTURES · LIVE INGESTION DISABLED</div><main class="sitrep"><section class="sitrep-map"><div class="sitrep-title"><small>COMMON OPERATING PICTURE</small><h2>Global Situation</h2></div><svg viewBox="0 0 1200 620"><path class="sitrep-grid" d="M0 155H1200M0 310H1200M0 465H1200M300 0V620M600 0V620M900 0V620"/><path class="sitrep-land" d="M75 115l90-58 132 14 63 56-39 54-67 9-30 50-82-3-55-48zM275 256l60 27 28 83-24 135-45 62-29-72 14-85-35-82zM494 113l65-35 82 25 29 61-61 30-37-24-53 18-43-29zM575 211l72 14 59 99-32 162-69-25-43-112zM661 88l180-37 196 52 86 97-99 45-79-28-78 53-90-25-76-58zM920 391l90-45 98 38 11 76-92 53-98-40z"/></svg><div class="sitrep-fixture">No fixture may be promoted as live intelligence.</div><aside class="sitrep-detail" hidden></aside></section><aside class="sitrep-feed"><header><small>PRIORITY INTELLIGENCE</small><h2>Operational Queue</h2></header><div class="sitrep-cards"></div></aside></main>`;
-    root=host.querySelector(".sitrep");
-    const map=root.querySelector(".sitrep-map"),cards=root.querySelector(".sitrep-cards");
-    incidents.forEach(i=>{const m=document.createElement("button");m.className=`sitrep-marker ${i.severity}`;m.style.left=i.x+"%";m.style.top=i.y+"%";m.ariaLabel=i.title;m.onclick=()=>select(i);map.append(m);const c=document.createElement("article");c.className="sitrep-card";c.innerHTML=`<small>${i.severity.toUpperCase()} · ${i.region}</small><h3>${i.title}</h3><p>${i.summary}</p><div class="sitrep-meta"><span>${i.sources.length} SOURCES</span><span>${i.confidence}% CONFIDENCE</span></div>`;c.onclick=()=>select(i);cards.append(c)});
+  let root, map, markerLayer, snapshot;
+  let selectedLevel = 0;
+  const colors={critical:"#ff4f64",high:"#ffad42",watch:"#4aa8ff",info:"#59e0ac"};
+  const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const safeUrl=value=>{try{const url=new URL(String(value),window.location.origin);return ["https:","http:"].includes(url.protocol)?url.href:"#"}catch{return "#"}};
+  const when=value=>value?new Date(value).toLocaleString():"Publication time unavailable";
+  const visible=i=>!selectedLevel||Number(i.advisory_level)===selectedLevel;
+  const detail=i=>{const source=i.source||{};return `<button aria-label="Close incident">×</button><small>${esc(i.severity).toUpperCase()} · ${esc(i.region)} · ${esc(i.operational_state)}</small><h2>${esc(i.title)}</h2><section><label>AUTHORITATIVE SUMMARY</label><p>${esc(i.summary)}</p></section><section><label>ADVISORY LEVEL</label><p>${i.advisory_level?`Level ${esc(i.advisory_level)}`:"Not specified"}</p></section><section><label>PUBLISHED</label><p>${esc(when(i.published_at))}</p></section><section><label>PROVENANCE</label><p>${esc(source.publisher)} · ${esc(source.authority)}</p><p><a href="${safeUrl(source.url)}" target="_blank" rel="noopener noreferrer">Open authoritative source</a></p></section>`};
+  function select(i){const panel=root.querySelector(".sitrep-detail");panel.innerHTML=detail(i);panel.hidden=false;panel.querySelector("button").onclick=()=>{panel.hidden=true}}
+  function initMap(){
+    const canvas=root.querySelector(".sitrep-map-canvas");
+    if(typeof window.L!=="object"){canvas.innerHTML='<div class="sitrep-map-fallback">Interactive map library unavailable.<br>Advisory queue remains operational.</div>';return}
+    if(map){map.remove()}
+    map=L.map(canvas,{zoomControl:true,attributionControl:true,preferCanvas:true,minZoom:2,worldCopyJump:true}).setView([22,8],2);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:9,minZoom:2,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+    markerLayer=L.layerGroup().addTo(map);
+    window.setTimeout(()=>map.invalidateSize(),0);
   }
-  window.JARVIS_SITREP=Object.freeze({mount});
+  function drawMarkers(incidents){
+    if(!markerLayer)return;markerLayer.clearLayers();
+    incidents.filter(visible).forEach(i=>{const lat=i.location?.latitude,lon=i.location?.longitude;if(!Number.isFinite(lat)||!Number.isFinite(lon))return;const marker=L.circleMarker([lat,lon],{radius:Number(i.advisory_level)>=4?6:4.5,color:"#07110f",weight:1.5,fillColor:colors[i.severity]||colors.watch,fillOpacity:.9});marker.bindTooltip(`${esc(i.region)} · Level ${esc(i.advisory_level)}`,{direction:"top",opacity:.95});marker.on("click",()=>select(i));marker.addTo(markerLayer)})
+  }
+  function render(current){
+    snapshot=current;const state=String(current.operational_state||"UNAVAILABLE").toUpperCase();const incidents=Array.isArray(current.incidents)?current.incidents:[];const shown=incidents.filter(visible);
+    root.querySelector(".sitrep-live-state").textContent=`SITREP · ${state} · ${incidents.length} AUTHORITATIVE RECORDS`;
+    root.querySelectorAll(".sitrep-filter").forEach(button=>button.classList.toggle("active",Number(button.dataset.level)===selectedLevel));
+    const cards=root.querySelector(".sitrep-cards");cards.replaceChildren();
+    if(!shown.length){const empty=document.createElement("article");empty.className="sitrep-empty";empty.textContent=state==="UNAVAILABLE"?"No authoritative SITREP source is currently available.":"No records match this advisory-level filter.";cards.append(empty)}
+    shown.forEach(i=>{const card=document.createElement("article");card.className=`sitrep-card level-${esc(i.advisory_level)}`;card.innerHTML=`<small>LEVEL ${esc(i.advisory_level)} · ${esc(i.region)}</small><h3>${esc(i.title)}</h3><p>${esc(i.summary)}</p><div class="sitrep-meta"><span>${esc(i.country_code||"INTL")}</span><span>${esc(when(i.published_at))}</span></div>`;card.onclick=()=>select(i);cards.append(card)});
+    drawMarkers(incidents);const source=current.sources?.[0];root.querySelector(".sitrep-source-state").textContent=source?`${source.publisher} · ${source.record_count} records · ${when(source.retrieved_at)}`:"Source connection unavailable";
+  }
+  async function load(){try{const response=await fetch("/operations/sitrep",{headers:{Accept:"application/json"},cache:"no-store"});if(!response.ok)throw new Error(`SITREP request failed: ${response.status}`);render(await response.json())}catch(error){render({operational_state:"UNAVAILABLE",incidents:[],sources:[],errors:[{message:String(error)}]})}}
+  function mount(host){
+    host.innerHTML=`<button class="jarvis-workspace-close" onclick="JARVIS_WORKSPACES.close()">← Return to chat</button><div class="jarvis-callable-status sitrep-live-state">SITREP · CONNECTING</div><main class="sitrep"><section class="sitrep-map"><div class="sitrep-map-canvas"></div><div class="sitrep-map-heading"><small>COMMON OPERATING PICTURE</small><h2>Global Situation</h2></div><div class="sitrep-legend"><span><i class="l4"></i>L4</span><span><i class="l3"></i>L3</span><span><i class="l2"></i>L2</span><span><i class="l1"></i>L1</span></div><div class="sitrep-source-state">Connecting to authoritative source…</div><aside class="sitrep-detail" hidden></aside></section><aside class="sitrep-feed"><header><small>STATE DEPARTMENT</small><h2>Travel Advisories</h2><div class="sitrep-filters">${[[0,"ALL"],[4,"L4"],[3,"L3"],[2,"L2"],[1,"L1"]].map(([level,label])=>`<button class="sitrep-filter" data-level="${level}">${label}</button>`).join("")}</div></header><div class="sitrep-cards"><article class="sitrep-empty">Loading…</article></div></aside></main>`;
+    root=host;root.querySelectorAll(".sitrep-filter").forEach(button=>button.onclick=()=>{selectedLevel=Number(button.dataset.level);if(snapshot)render(snapshot)});initMap();load();
+  }
+  window.JARVIS_SITREP=Object.freeze({mount,refresh:load});
 })();

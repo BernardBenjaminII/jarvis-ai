@@ -11,6 +11,7 @@ from core.integration.bus import get_default_projection_bus
 from core.integration.errors import ProjectionProviderNotFoundError
 from core.operations import OperationsService
 from core.observability import get_default_observability_service
+from core.sitrep import get_sitrep_service
 
 router = APIRouter(prefix="/operations", tags=["operations"])
 _service = OperationsService()
@@ -75,6 +76,11 @@ def operations_timeline(
     limit: int = Query(default=100, ge=0, le=1000),
 ) -> dict:
     return get_operations_service().timeline(limit=limit).to_dict()
+
+@router.get("/sitrep")
+def operations_sitrep(refresh: bool = Query(default=False)) -> dict[str, Any]:
+    """Return authoritative read-only SITREP records and source health."""
+    return get_sitrep_service().snapshot(force_refresh=refresh)
 
 
 
