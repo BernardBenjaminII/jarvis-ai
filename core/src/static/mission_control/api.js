@@ -370,6 +370,7 @@
                 requestId,
                 endpoint,
                 method,
+                handleTimeoutLocally: options.handleTimeoutLocally === true,
             };
 
             this.requestSequence += 1;
@@ -701,8 +702,13 @@
             this.unsubscribers.push(
                 application.events.on(
                     ExecutiveApiEvents.REQUEST_FAILED,
-                    ({ error }) => {
+                    ({ error, handleTimeoutLocally }) => {
                         application.setLoading(false);
+
+                        // The caller still receives and displays this timeout.
+                        if (handleTimeoutLocally && error.name === "ExecutiveApiTimeoutError") {
+                            return;
+                        }
 
                         application.reportError(
                             new ExecutiveApiError(

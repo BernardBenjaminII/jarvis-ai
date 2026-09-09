@@ -2,6 +2,14 @@ import os
 import requests
 from openai import OpenAI
 
+
+# GENESIS_UI_CONVERSATION_R4_R1
+def _debug(message: str) -> None:
+    """Emit model diagnostics only when explicitly enabled."""
+    if os.getenv("JARVIS_DEBUG", "").strip().casefold() in {"1", "true", "yes", "on"}:
+        print(message)
+
+
 # ============================================================
 # OLLAMA HEALTH CHECK
 # ============================================================
@@ -33,7 +41,7 @@ def query_local(prompt: str):
         }
     }
 
-    print(f"[DEBUG] Sending to Ollama: {payload}")
+    _debug(f"[DEBUG] Sending to Ollama: {payload}")
 
     response = requests.post(
         "http://127.0.0.1:11434/api/generate",
@@ -41,8 +49,8 @@ def query_local(prompt: str):
         timeout=120
     )
 
-    print(f"[DEBUG] Ollama status: {response.status_code}")
-    print(f"[DEBUG] Ollama raw response: {response.text}")
+    _debug(f"[DEBUG] Ollama status: {response.status_code}")
+    _debug(f"[DEBUG] Ollama raw response: {response.text}")
 
     if response.status_code != 200:
         raise Exception(
@@ -97,14 +105,15 @@ def query_llm(
     model: str = "mistral:latest",
     max_tokens: int = 1024,
     temperature: float = 0.3,
+    system: str | None = None,
 ) -> str:
 
     try:
 
-        print(f"[DEBUG] MODEL={model}")
-        print(f"[DEBUG] MAX_TOKENS={max_tokens}")
-        print(f"[DEBUG] TEMPERATURE={temperature}")
-        print(f"[DEBUG] PROMPT={prompt}")
+        _debug(f"[DEBUG] MODEL={model}")
+        _debug(f"[DEBUG] MAX_TOKENS={max_tokens}")
+        _debug(f"[DEBUG] TEMPERATURE={temperature}")
+        _debug(f"[DEBUG] PROMPT={prompt}")
 
         payload = {
             "model": model,
@@ -116,7 +125,12 @@ def query_llm(
             }
         }
 
-        print(f"[DEBUG] PAYLOAD={payload}")
+        # An explicit per-request system prompt replaces a model's default
+        # persona. Legacy callers that omit it retain their existing behavior.
+        if system is not None:
+            payload["system"] = system
+
+        _debug(f"[DEBUG] PAYLOAD={payload}")
 
         response = requests.post(
             "http://127.0.0.1:11434/api/generate",
@@ -124,8 +138,8 @@ def query_llm(
             timeout=300
         )
 
-        print(f"[DEBUG] STATUS={response.status_code}")
-        print(f"[DEBUG] RESPONSE={response.text}")
+        _debug(f"[DEBUG] STATUS={response.status_code}")
+        _debug(f"[DEBUG] RESPONSE={response.text}")
 
         if response.status_code != 200:
             return (

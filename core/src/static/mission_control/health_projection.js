@@ -316,6 +316,8 @@
                     await window.JARVIS_API.dashboard({
                         refresh: forceRefresh,
                         timeoutMilliseconds: 30000,
+                        retryAttempts: 0,
+                        handleTimeoutLocally: true,
                     });
 
                 const dashboard =
@@ -1085,33 +1087,7 @@
                 new ExecutiveHealthRuntimeProjection()
             );
 
-            const lifecycle = window.JARVIS.state.get(
-                "application.lifecycle",
-                "created"
-            );
-
-            if (
-                lifecycle === "ready" &&
-                window.JARVIS.controllers &&
-                typeof window.JARVIS.controllers.initializeAll ===
-                    "function"
-            ) {
-                void window.JARVIS.controllers.initializeAll();
-            } else {
-                const readyEvent =
-                    window.JARVIS.runtimeEvents
-                        ?.APPLICATION_READY;
-
-                if (readyEvent) {
-                    window.JARVIS.events.once(
-                        readyEvent,
-                        () => {
-                            void window.JARVIS.controllers
-                                .initializeAll();
-                        }
-                    );
-                }
-            }
+            /* Callable workspace: defer the 30-second dashboard request. */
         } catch (error) {
             window.JARVIS.reportError(
                 error,

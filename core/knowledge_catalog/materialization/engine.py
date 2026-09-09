@@ -6,6 +6,8 @@ import json
 import mimetypes
 import re
 import sqlite3
+import zipfile
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterator
@@ -84,10 +86,70 @@ def _read_pdf(path: Path) -> str:
             parts.append(value)
     return '\n\n'.join(parts)
 
+def _docx_xml_text(payload: bytes) -> str:
+    root = ET.fromstring(payload)
+    paragraphs = []
+    for paragraph in root.iter():
+        if paragraph.tag.rsplit('}', 1)[-1] != 'p':
+            continue
+        fragments = []
+        for node in paragraph.iter():
+            tag = node.tag.rsplit('}', 1)[-1]
+            if tag == 't' and node.text:
+                fragments.append(node.text)
+            elif tag == 'tab':
+                fragments.append('\t')
+            elif tag in {'br', 'cr'}:
+                fragments.append('\n')
+        value = ''.join(fragments).strip()
+        if value:
+            paragraphs.append(value)
+    return '\n'.join(paragraphs)
+
+def _read_docx(path: Path) -> str:
+    try:
+        with zipfile.ZipFile(path) as archive:
+            names = set(archive.namelist())
+            if 'word/document.xml' not in names:
+                raise ValueError('DOCX package has no word/document.xml part.')
+            ordered = ['word/document.xml']
+            ordered.extend(sorted(
+                name for name in names
+                if re.fullmatch(
+                    r'word/(?:header\d+|footer\d+|footnotes|endnotes|comments)\.xml',
+                    name,
+                )
+            ))
+            parts = []
+            for name in ordered:
+                value = _docx_xml_text(archive.read(name)).strip()
+                if value:
+                    parts.append(value)
+    except zipfile.BadZipFile as exc:
+        raise ValueError('DOCX package is not a valid ZIP container.') from exc
+    except ET.ParseError as exc:
+        raise ValueError('DOCX contains malformed WordprocessingML.') from exc
+    return '\n\n'.join(parts)
+
 def extract_text(path: Path) -> str:
     suffix = path.suffix.lower()
+    if suffix == ".epub":
+        from core.knowledge_catalog.advanced_extraction.epub import extract_epub
+        result = extract_epub(path)
+        if isinstance(result, tuple):
+            text = result[0] if result else ""
+        elif isinstance(result, str):
+            text = result
+        else:
+            text = getattr(result, "text", "")
+        text = str(text or "")
+        if not text.strip():
+            raise ValueError("EPUB extractor produced no usable text.")
+        return text
     if suffix == '.pdf':
         return _read_pdf(path)
+    if suffix == '.docx':
+        return _read_docx(path)
     if suffix not in _TEXT_SUFFIXES:
         raise ValueError(f'Unsupported materialization type: {suffix or "<none>"}')
     raw = path.read_text(encoding='utf-8', errors='replace')

@@ -59,6 +59,10 @@ INTENT_KEYWORDS = {
         "find", "search", "compare", "recommend", "best",
         "what is", "explain", "deep dive", "overview", "learn",
         "research", "look up",
+        # GENESIS_UI_CONVERSATION_R4_R1
+        # Defensive-security requests use the existing research specialist.
+        "network hardening", "network security", "cybersecurity",
+        "harden", "hardening", "firewall", "segmentation",
     ],
     "assistant": [
         "hello", "hi", "hey", "thanks", "thank you", "who are you",

@@ -30,5 +30,10 @@
     const a=$("#ga-action"); if(a){a.hidden=!x.recommended_action;a.textContent=x.recommended_action||"";}
   }
   async function refresh(){try{const r=await fetch(ENDPOINT,{cache:"no-store"});if(!r.ok)throw Error(`HTTP ${r.status}`);render(await r.json());}catch(e){render({state:"unavailable",uncertainty_note:`Telemetry unavailable: ${e.message||e}`});}}
-  document.addEventListener("DOMContentLoaded",()=>{ensure();refresh();setInterval(refresh,5000);});
+  let timer=null;
+  document.addEventListener("jarvis:workspace-open",(event)=>{
+    if(event.detail?.workspace!=="evidence")return;
+    ensure();refresh();
+    if(!timer)timer=setInterval(refresh,5000);
+  });
 })();

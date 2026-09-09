@@ -569,26 +569,8 @@
                 new ExecutiveStatusBannerProjection()
             );
 
-            const lifecycle = window.JARVIS.state.get(
-                "application.lifecycle",
-                "created"
-            );
-
-            if (
-                lifecycle === "ready" &&
-                window.JARVIS.controllers &&
-                typeof window.JARVIS.controllers.initializeAll ===
-                    "function"
-            ) {
-                void window.JARVIS.controllers.initializeAll();
-            } else {
-                window.JARVIS.events.once(
-                    window.JARVIS.runtimeEvents.APPLICATION_READY,
-                    () => {
-                        void window.JARVIS.controllers.initializeAll();
-                    }
-                );
-            }
+            /* Callable workspace: registration is cheap; initialization and
+               network retrieval occur only when the operator opens Operations. */
         } catch (error) {
             window.JARVIS.reportError(
                 error,

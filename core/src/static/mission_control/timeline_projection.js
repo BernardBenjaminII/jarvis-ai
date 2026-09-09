@@ -884,19 +884,8 @@
                 new ExecutiveEventTimelineProjection()
             );
 
-            const lifecycle = window.JARVIS.state.get(
-                "application.lifecycle",
-                "created"
-            );
-
-            if (
-                lifecycle === "ready" &&
-                window.JARVIS.controllers &&
-                typeof window.JARVIS.controllers.initializeAll ===
-                    "function"
-            ) {
-                void window.JARVIS.controllers.initializeAll();
-            }
+            /* Callable workspace: history, websocket, and fallback polling
+               start only when Timeline is requested. */
         } catch (error) {
             window.JARVIS.reportError(error, {
                 source: MODULE_NAME,

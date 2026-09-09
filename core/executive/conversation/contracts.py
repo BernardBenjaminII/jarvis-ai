@@ -50,6 +50,7 @@ class WorkspaceConversationResponse:
     sources: tuple[dict[str, Any], ...] = ()
     evidence: tuple[dict[str, Any], ...] = ()
     activity: tuple[dict[str, str], ...] = ()
+    technical_details: Any | None = None
     error: dict[str, str] | None = None
 
     def to_dict(self) -> dict[str, Any]:
@@ -62,5 +63,6 @@ class WorkspaceConversationResponse:
             "sources": list(self.sources),
             "evidence": list(self.evidence),
             "activity": list(self.activity),
+            "technical_details": self.technical_details,
             "error": self.error,
         }

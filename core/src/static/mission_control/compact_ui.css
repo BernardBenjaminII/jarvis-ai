@@ -1,0 +1,136 @@
+/* JARVIS UI Revision 2
+   Conversation first · bottom line first · detail on demand
+   Keeps telemetry/API bindings intact while removing dashboard dominance. */
+
+.knowledge-home-mount{margin-bottom:var(--space-3)}
+.executive-view{padding-top:var(--space-3)}
+
+/* The page is now the JARVIS workspace, not a permanent Commander Brief. */
+#commander-brief>.view-header{display:none}
+
+/* Grounded telemetry remains live in the DOM/API, but its useful values are
+   copied into the answer metrics instead of consuming a separate hero block. */
+#grounded-answer-projection{display:none!important}
+
+/* Conversation receives the visual priority. */
+.knowledge-workspace{gap:.55rem}
+.knowledge-workspace-header{padding:.1rem 0 .25rem}
+.knowledge-workspace-header .section-eyebrow{margin-bottom:.15rem}
+.knowledge-workspace-header>div>p:last-child{margin-top:.2rem}
+.knowledge-conversation-stack{gap:.55rem}
+.knowledge-answer-panel{padding:.75rem .9rem}
+.knowledge-question-panel{padding:.65rem .9rem}
+.knowledge-question-panel textarea{min-height:3.25rem}
+.knowledge-detail-panel summary{padding:.55rem .75rem}
+.knowledge-result-metrics{gap:1rem;flex-wrap:wrap}
+.knowledge-grounding-secondary{opacity:.72}
+
+/* Executive status becomes a single clickable bottom-line alert. */
+#executive-status-banner{
+    padding:.55rem .75rem;
+    min-height:0;
+    align-items:center;
+    gap:.65rem;
+    cursor:pointer;
+}
+#executive-status-banner .status-banner-leading{align-items:center;gap:.65rem}
+#executive-status-banner .status-banner-symbol{
+    width:1.65rem;height:1.65rem;flex-basis:1.65rem;font-size:.78rem
+}
+#executive-status-banner .status-banner-label{display:none}
+#executive-status-banner .status-banner-heading{font-size:.9rem;line-height:1.25}
+#executive-status-banner .status-banner-message{display:none}
+#executive-status-banner .status-banner-metadata{display:none}
+#executive-status-banner::after{
+    content:'›';margin-left:auto;color:var(--color-text-muted);
+    font-size:1.05rem;transition:transform var(--transition-fast)
+}
+#executive-status-banner[data-expanded="true"]{align-items:flex-start}
+#executive-status-banner[data-expanded="true"] .status-banner-message{display:block;margin-top:.25rem}
+#executive-status-banner[data-expanded="true"] .status-banner-metadata{
+    display:flex;margin-left:auto;gap:var(--space-3)
+}
+#executive-status-banner[data-expanded="true"]::after{transform:rotate(90deg)}
+
+/* Generic compact disclosure rows. */
+.compact-dashboard-section{margin-top:var(--space-2)!important}
+.compact-dashboard-section>.section-header{
+    margin-bottom:0;
+    padding:.55rem 0;
+    align-items:center;
+    cursor:pointer;
+    min-height:2.5rem;
+}
+.compact-dashboard-section>.section-header>div{
+    display:flex;align-items:baseline;gap:.6rem;min-width:max-content
+}
+.compact-dashboard-section>.section-header .section-eyebrow{
+    display:none
+}
+.compact-dashboard-section>.section-header .section-title{
+    margin:0;font-size:.9rem
+}
+.compact-dashboard-section>.section-header:hover .section-title{
+    text-decoration:underline;text-underline-offset:.2rem
+}
+.compact-section-summary{
+    margin-left:auto;
+    color:var(--color-text-muted);
+    font-family:var(--font-family-mono);
+    font-size:.68rem;
+    text-align:right;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.compact-section-toggle{
+    margin-left:var(--space-2);
+    border:0;background:transparent;color:var(--color-text-muted);
+    font:inherit;cursor:pointer;padding:.15rem .3rem
+}
+.compact-section-toggle::after{
+    content:'›';display:inline-block;font-size:1.05rem;
+    transition:transform var(--transition-fast)
+}
+.compact-dashboard-section[data-expanded="true"] .compact-section-toggle::after{
+    transform:rotate(90deg)
+}
+.compact-section-body[hidden]{display:none!important}
+.compact-dashboard-section[data-expanded="true"]>.section-header{
+    margin-bottom:var(--space-3)
+}
+
+/* When Executive Summary is deliberately opened, retain the original cards,
+   but reduce their footprint. */
+#executive-metric-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:var(--space-2)
+}
+#executive-metric-grid .metric-card{
+    padding:.55rem .7rem;box-shadow:none;min-height:0
+}
+#executive-metric-grid .metric-card-icon{display:none}
+#executive-metric-grid .metric-card-value{margin-top:.2rem;font-size:.95rem}
+#executive-metric-grid .metric-card-state{
+    margin-top:.05rem;font-size:.62rem;white-space:nowrap;
+    overflow:hidden;text-overflow:ellipsis
+}
+
+/* Active Workstreams no longer owns a full page. It is a disclosure row;
+   original navigation cards remain available after expansion. */
+.workstream-grid{gap:var(--space-2)}
+.workstream-card{padding:.7rem}
+.workstream-card-header p{display:none}
+.workstream-card-body{margin-top:.35rem}
+.workstream-card-footer{margin-top:.35rem}
+
+/* Keep the default desktop surface tight. */
+#commander-brief .dashboard-section{margin-top:var(--space-2)}
+
+@media(max-width:88rem){
+    #executive-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:58rem){
+    .compact-section-summary{display:none}
+    #executive-status-banner[data-expanded="true"] .status-banner-metadata{display:none}
+}

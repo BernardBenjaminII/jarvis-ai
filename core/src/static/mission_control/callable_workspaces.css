@@ -1,0 +1,15 @@
+:root{--cw-bg:#07110f;--cw-panel:#0b1816;--cw-line:rgba(126,245,194,.18);--cw-accent:#65efb9}
+#jarvis-workspace-launcher{display:flex;align-items:center;gap:.35rem;margin-left:auto}
+#jarvis-r32-status>.r322-status-details{display:none!important}
+#jarvis-workspace-launcher button{border:1px solid var(--cw-line);background:transparent;color:#67726f;padding:.48rem .72rem;border-radius:.42rem;cursor:pointer;font:600 .7rem/1 system-ui;letter-spacing:.04em}
+#jarvis-workspace-launcher button:hover,#jarvis-workspace-launcher button[aria-pressed=true]{background:rgba(101,239,185,.09);color:#17201d;border-color:rgba(55,155,115,.5)}
+#jarvis-workspace-host{position:fixed;inset:0;z-index:900;background:var(--cw-bg);color:#e6efeb;overflow:auto;padding:4.5rem 1.25rem 2rem}
+#jarvis-workspace-host[hidden]{display:none}.jarvis-workspace-close{position:fixed;top:1rem;left:1rem;z-index:1001;border:1px solid var(--cw-line);background:#0b1816;color:#d9e7e1;padding:.55rem .8rem;border-radius:.4rem;cursor:pointer}
+.jarvis-callable-status{position:fixed;left:50%;top:.85rem;transform:translateX(-50%);z-index:1001;color:#78958c;font:600 .68rem ui-monospace,monospace;letter-spacing:.08em}
+#jarvis-system{max-width:1250px;margin:auto}.jarvis-system-header{border-bottom:1px solid var(--cw-line);padding:0 0 1rem}.jarvis-system-header small{color:var(--cw-accent);letter-spacing:.12em}.jarvis-system-header h1{margin:.25rem 0}
+.jarvis-system-tabs{display:flex;gap:.4rem;flex-wrap:wrap;padding:1rem 0}.jarvis-system-tabs button{border:1px solid var(--cw-line);background:#0b1816;color:#9eb5ae;padding:.65rem .85rem;border-radius:.4rem;cursor:pointer}.jarvis-system-tabs button[aria-selected=true]{color:var(--cw-accent);background:#10251f}
+#jarvis-system-content{border:1px solid var(--cw-line);background:var(--cw-panel);padding:1rem;min-height:22rem}.jarvis-system-empty{color:#8da39c;padding:2rem;text-align:center}
+#jarvis-r32-operations,.knowledge-result-metrics,.knowledge-inspection{display:none!important}
+.jarvis-workspace-active .skip-link{display:none!important}
+#jarvis-workspace-host .knowledge-result-metrics{display:grid!important}#jarvis-workspace-host .knowledge-inspection{display:block!important}#jarvis-workspace-host #jarvis-r32-operations{display:block!important}
+@media(max-width:760px){#jarvis-workspace-launcher{width:100%;justify-content:flex-end;margin-top:.5rem}#jarvis-workspace-host{padding:4rem .7rem 1rem}.jarvis-callable-status{display:none}}

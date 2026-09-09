@@ -1,0 +1,17 @@
+/* JARVIS UI R3.1 — Executive Shell Compression */
+#jarvis-r31-shell{width:min(1180px,calc(100% - 32px));margin:18px auto 28px}
+#jarvis-r31-status{display:flex;align-items:center;gap:12px;min-height:44px;padding:10px 14px;border:1px solid var(--border-color,rgba(127,127,127,.22));border-radius:12px;background:var(--surface,rgba(127,127,127,.035))}
+#jarvis-r31-status strong{margin-right:auto}
+#jarvis-r31-status .r31-state{font-weight:700}
+#jarvis-r31-status button,#jarvis-r31-ops>summary{cursor:pointer}
+#jarvis-r31-knowledge{margin-top:16px}
+#jarvis-r31-ops{margin-top:20px;border-top:1px solid var(--border-color,rgba(127,127,127,.18));padding-top:12px}
+#jarvis-r31-ops>summary{list-style:none;display:flex;align-items:center;min-height:46px;font-weight:700}
+#jarvis-r31-ops>summary::-webkit-details-marker{display:none}
+#jarvis-r31-ops>summary::after{content:"Expand";margin-left:auto;opacity:.62;font-size:.84rem;font-weight:500}
+#jarvis-r31-ops[open]>summary::after{content:"Collapse"}
+#jarvis-r31-ops-body{display:grid;gap:12px;padding-top:8px}
+#jarvis-r31-ops-body [data-r31-event-stream]{max-height:420px;overflow:auto}
+#jarvis-r31-shell .r31-moved{margin-top:0!important;margin-bottom:0!important}
+#jarvis-r31-knowledge textarea{min-height:116px}
+@media(max-width:720px){#jarvis-r31-shell{width:min(100% - 20px,1180px);margin-top:10px}#jarvis-r31-status{flex-wrap:wrap}}

@@ -1,0 +1,172 @@
+/* JARVIS UI Revision 3.2 — Conversation-First DOM Repair */
+
+#jarvis-r32-shell {
+    width: min(1180px, calc(100% - 32px));
+    margin: 18px auto 30px;
+}
+
+#jarvis-r32-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid rgba(127,127,127,.22);
+    border-radius: 12px;
+}
+
+#jarvis-r32-status strong {
+    margin-right: auto;
+    font-weight: 700;
+}
+
+#jarvis-r32-status button,
+#jarvis-r32-operations > summary,
+#jarvis-r32-grounding summary {
+    cursor: pointer;
+}
+
+#jarvis-r32-conversation {
+    margin-top: 16px;
+}
+
+#jarvis-r32-conversation > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+#jarvis-r32-conversation textarea {
+    min-height: 120px;
+}
+
+#jarvis-r32-grounding {
+    margin-top: 14px;
+}
+
+#jarvis-r32-grounding > details {
+    padding-top: 10px;
+    border-top: 1px solid rgba(127,127,127,.18);
+}
+
+#jarvis-r32-grounding summary {
+    list-style: none;
+    font-weight: 650;
+}
+
+#jarvis-r32-grounding summary::-webkit-details-marker,
+#jarvis-r32-operations > summary::-webkit-details-marker {
+    display: none;
+}
+
+#jarvis-r32-grounding summary::after {
+    content: "Expand";
+    float: right;
+    opacity: .6;
+    font-size: .82rem;
+    font-weight: 500;
+}
+
+#jarvis-r32-grounding details[open] summary::after {
+    content: "Collapse";
+}
+
+#jarvis-r32-operations {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(127,127,127,.18);
+}
+
+#jarvis-r32-operations > summary {
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    list-style: none;
+    font-weight: 700;
+}
+
+#jarvis-r32-operations > summary::after {
+    content: "Expand";
+    margin-left: auto;
+    opacity: .62;
+    font-size: .82rem;
+    font-weight: 500;
+}
+
+#jarvis-r32-operations[open] > summary::after {
+    content: "Collapse";
+}
+
+#jarvis-r32-operations-body {
+    display: grid;
+    gap: 14px;
+    padding-top: 10px;
+}
+
+#jarvis-r32-operations-body [data-r32-event-stream="true"] {
+    max-height: 440px;
+    overflow: auto;
+}
+
+#jarvis-r32-shell .r32-moved {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+@media (max-width: 720px) {
+    #jarvis-r32-shell {
+        width: calc(100% - 20px);
+        margin-top: 10px;
+    }
+
+    #jarvis-r32-status {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ==================================================================
+   JARVIS UI Revision 3.2.2
+   Native Knowledge Container Consolidation
+   ================================================================== */
+
+#jarvis-r32-shell[data-revision="3.2.2"] {
+    display: block;
+}
+
+#jarvis-r32-shell[data-revision="3.2.2"]
+#jarvis-r32-conversation {
+    display: block;
+    width: 100%;
+}
+
+#jarvis-r32-shell[data-revision="3.2.2"]
+.r322-native-knowledge {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+#jarvis-r32-shell[data-revision="3.2.2"]
+#jarvis-r32-grounding:empty {
+    display: none;
+}
+
+#jarvis-r32-shell[data-revision="3.2.2"]
+.r322-grounding-disclosure {
+    margin-top: 12px;
+}
+
+#jarvis-r32-shell[data-revision="3.2.2"]
+#jarvis-r32-operations {
+    margin-top: 16px;
+}
+
+/*
+ * Historical executive events remain callable but do not dominate the
+ * conversation-first workspace.
+ */
+#jarvis-r32-shell[data-revision="3.2.2"]
+[data-r32-event-stream="true"] {
+    max-height: 420px;
+    overflow: auto;
+}

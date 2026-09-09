@@ -9,7 +9,7 @@
     const APPLICATION_NAME = "JARVIS Executive Operations Center";
     const APPLICATION_VERSION = "Genesis VII-A0 Pack 3A-3.1";
     const STORAGE_NAMESPACE = "jarvis.executive_operations";
-    const DEFAULT_VIEW = "commander-brief";
+    const DEFAULT_VIEW = "knowledge";
 
     const ApplicationLifecycle = Object.freeze({
         CREATED: "created",
@@ -450,6 +450,23 @@
                     { source: "controller-registry" }
                 );
             }
+        }
+
+        async initialize(name) {
+            const controller = this.controllers.get(name);
+            if (!controller || this.initialized.has(name)) {
+                return controller ?? null;
+            }
+            if (typeof controller.initialize === "function") {
+                await controller.initialize(this.application);
+            }
+            this.initialized.add(name);
+            this.application.state.set(
+                `runtime.controllers.${name}`,
+                { state: "ready", initializedAt: nowIso() },
+                { source: "controller-registry" }
+            );
+            return controller;
         }
 
         async stopAll() {

@@ -157,3 +157,24 @@ __pycache__/
 # Large generated audit datasets
 docs/audits/genesis_ix_a5_8_pack2/materializer_eligibility.json
 docs/audits/genesis_ix_a4_retrieval_architecture.json
+
+# Local generated state and patch history (2026-09 baseline)
+.genesis-health-backups/
+.genesis-mode-fix-backups/
+.knowledge_backups/
+.maintenance/
+.remediation_backups/
+.ui_backups/
+backups/
+artifacts/genesis_as1/
+artifacts/genesis_recall/
+jarvis_ui_revision_2_1_hotfix/
+
+*.zip
+*.before-*
+*.pre_*
+*.bak
+*.backup
+*.backup_*
+*_backup
+*_backup_*

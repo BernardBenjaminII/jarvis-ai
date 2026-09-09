@@ -15,7 +15,7 @@ from core.conversation import (
 from core.executive.director import ExecutiveDirector
 from core.knowledge_catalog.config import DEFAULT_CATALOG_DB
 from core.knowledge_awareness import ExecutiveKnowledgeAwarenessService
-from core.src.brain import route_question
+from core.src.brain import route_question, synthesize_grounded_answer
 
 router = APIRouter()
 
@@ -48,7 +48,7 @@ executive_director = ExecutiveDirector(
 )
 conversation_orchestrator = ExecutiveConversationOrchestrator(
     director=executive_director,
-    synthesis_handler=route_question,
+    synthesis_handler=synthesize_grounded_answer,
     grounding_service=catalog_grounding,
     awareness_service=knowledge_awareness,
 )

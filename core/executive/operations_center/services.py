@@ -47,16 +47,22 @@ class TimedCache(Generic[T]):
         self._lock = threading.RLock()
 
     def get_or_create(self, factory: Callable[[], T]) -> T:
-        now = time.monotonic()
-
         with self._lock:
+            now = time.monotonic()
+
             if self._entry and now < self._entry.expires_at:
                 return self._entry.value
 
             value = factory()
+
+            # TTL begins when collection completes, not when it starts.
+            # Expensive collectors must not produce entries that are already
+            # expired by the time their result becomes available.
+            expires_at = time.monotonic() + self._ttl_seconds
+
             self._entry = _CacheEntry(
                 value=value,
-                expires_at=now + self._ttl_seconds,
+                expires_at=expires_at,
             )
             return value
 
@@ -105,7 +111,7 @@ class ExecutiveMetricsService:
         *,
         paths: RuntimePaths | None = None,
         collector: MetricsCollector | None = None,
-        cache_ttl_seconds: float = 5.0,
+        cache_ttl_seconds: float = 60.0,
     ) -> None:
         resolved_paths = paths or RuntimePaths.from_environment()
         self._collector = collector or MetricsCollector(resolved_paths)

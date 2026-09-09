@@ -1,4 +1,6 @@
 from __future__ import annotations
+from core.retrieval.semantic_index.provider import EmbeddingContextLengthError
+from core.retrieval.semantic_index.service_context import ContextAdaptiveSemanticService
 import sqlite3, time, uuid
 from pathlib import Path
 from .identity import stable_chunk_uuid
@@ -15,6 +17,8 @@ class SemanticIndexService:
         self.provider_name=provider_name
         self.model=model
         self.provider=OllamaEmbeddingProvider(base_url=ollama_url,model=model)
+        self.semantic_db=Path(semantic_db)
+        self.ollama_url=ollama_url
 
     def runtime_ro(self):
         c=sqlite3.connect(f"file:{self.runtime_catalog.resolve()}?mode=ro",uri=True,timeout=30.0)
@@ -72,46 +76,148 @@ class SemanticIndexService:
         return rows
 
     def embed(self, *, limit=100, batch_size=16):
-        selected=self._pending(limit)
-        run_id="X-B1.1-"+uuid.uuid4().hex[:12]
-        complete=0; failed=0
-        with self.store.connect() as c:
-            c.execute("""INSERT INTO semantic_runs(run_id,started_at,provider,model,selected)
-                         VALUES(?,?,?,?,?)""",(run_id,now(),self.provider_name,self.model,len(selected)))
-            c.commit()
+                selected=self._pending(limit)
+                run_id="X-B1.1-"+uuid.uuid4().hex[:12]
+                complete=0
+                failed=0
 
-        for i in range(0,len(selected),batch_size):
-            batch=selected[i:i+batch_size]
-            texts=[r["chunk_text"] for r in batch]
-            try:
-                vectors=self.provider.embed_batch(texts)
                 with self.store.connect() as c:
-                    c.execute("BEGIN IMMEDIATE")
-                    for row,vec in zip(batch,vectors):
-                        cid=int(row["id"])
-                        bridge=c.execute("SELECT chunk_uuid FROM chunk_identity_bridge WHERE runtime_chunk_id=?",(cid,)).fetchone()
+                    c.execute(
+                        "INSERT INTO semantic_runs(run_id,started_at,provider,model,selected) VALUES(?,?,?,?,?)",
+                        (run_id,now(),self.provider_name,self.model,len(selected)),
+                    )
+                    c.commit()
+
+                def mark_retry(rows,exc):
+                    detail=f"{type(exc).__name__}: {exc}"
+                    with self.store.connect() as c:
+                        c.execute("BEGIN IMMEDIATE")
+                        for row in rows:
+                            c.execute(
+                                "UPDATE embedding_campaign SET stage='RETRY',attempts=attempts+1,detail=?,updated_at=? WHERE runtime_chunk_id=?",
+                                (detail,now(),int(row["id"])),
+                            )
+                        c.commit()
+
+                def write_complete(row,vec):
+                    cid=int(row["id"])
+                    with self.store.connect() as c:
+                        c.execute("BEGIN IMMEDIATE")
+                        bridge=c.execute(
+                            "SELECT chunk_uuid FROM chunk_identity_bridge WHERE runtime_chunk_id=?",
+                            (cid,),
+                        ).fetchone()
+                        if bridge is None:
+                            raise RuntimeError(f"Missing chunk_identity_bridge row for runtime_chunk_id={cid}")
                         raw,dim,vsha=pack_vector(vec)
-                        c.execute("""INSERT OR REPLACE INTO semantic_vectors
-                          (runtime_chunk_id,chunk_uuid,provider,model,dimensions,vector_blob,vector_sha256,created_at)
-                          VALUES(?,?,?,?,?,?,?,?)""",(cid,str(bridge["chunk_uuid"]),self.provider_name,self.model,dim,raw,vsha,now()))
-                        c.execute("""UPDATE embedding_campaign SET stage='COMPLETE',attempts=attempts+1,
-                          detail='',updated_at=? WHERE runtime_chunk_id=?""",(now(),cid))
-                        complete+=1
-                    c.commit()
-            except Exception as exc:
+                        c.execute(
+                            "INSERT OR REPLACE INTO semantic_vectors "
+                            "(runtime_chunk_id,chunk_uuid,provider,model,dimensions,vector_blob,vector_sha256,created_at) "
+                            "VALUES(?,?,?,?,?,?,?,?)",
+                            (cid,str(bridge["chunk_uuid"]),self.provider_name,self.model,dim,raw,vsha,now()),
+                        )
+                        c.execute(
+                            "UPDATE embedding_campaign SET stage='COMPLETE',attempts=attempts+1,detail='',updated_at=? "
+                            "WHERE runtime_chunk_id=?",
+                            (now(),cid),
+                        )
+                        c.commit()
+
+                for i in range(0,len(selected),batch_size):
+                    batch=selected[i:i+batch_size]
+                    texts=[r["chunk_text"] for r in batch]
+                    try:
+                        vectors=self.provider.embed_batch(texts)
+                        if len(vectors)!=len(batch):
+                            raise RuntimeError("Embedding provider response cardinality mismatch")
+
+                        with self.store.connect() as c:
+                            c.execute("BEGIN IMMEDIATE")
+                            batch_complete=0
+                            for row,vec in zip(batch,vectors):
+                                cid=int(row["id"])
+                                bridge=c.execute(
+                                    "SELECT chunk_uuid FROM chunk_identity_bridge WHERE runtime_chunk_id=?",
+                                    (cid,),
+                                ).fetchone()
+                                if bridge is None:
+                                    raise RuntimeError(f"Missing chunk_identity_bridge row for runtime_chunk_id={cid}")
+                                raw,dim,vsha=pack_vector(vec)
+                                c.execute(
+                                    "INSERT OR REPLACE INTO semantic_vectors "
+                                    "(runtime_chunk_id,chunk_uuid,provider,model,dimensions,vector_blob,vector_sha256,created_at) "
+                                    "VALUES(?,?,?,?,?,?,?,?)",
+                                    (cid,str(bridge["chunk_uuid"]),self.provider_name,self.model,dim,raw,vsha,now()),
+                                )
+                                c.execute(
+                                    "UPDATE embedding_campaign SET stage='COMPLETE',attempts=attempts+1,detail='',updated_at=? "
+                                    "WHERE runtime_chunk_id=?",
+                                    (now(),cid),
+                                )
+                                batch_complete+=1
+                            c.commit()
+                        complete+=batch_complete
+
+                    except EmbeddingContextLengthError:
+                        for row in batch:
+                            try:
+                                vec=self.provider.embed_batch([row["chunk_text"]])[0]
+                                write_complete(row,vec)
+                                complete+=1
+
+                            except EmbeddingContextLengthError:
+                                cid=int(row["id"])
+                                try:
+                                    context_service=ContextAdaptiveSemanticService(
+                                        runtime_catalog=self.runtime_catalog,
+                                        semantic_db=self.semantic_db,
+                                        model=self.model,
+                                        ollama_url=self.ollama_url,
+                                    )
+                                    prepared=context_service.prepare_rejected(limit=1,runtime_chunk_id=cid)
+                                    if prepared.get('selected') != 1: raise RuntimeError(f"Exact-ID fragment preparation failed for runtime_chunk_id={cid}; result={prepared!r}")
+                                    result=context_service.embed_fragments(
+                                        limit=1000000,
+                                        batch_size=1,
+                                        runtime_chunk_id=cid,
+                                    )
+                                    with self.store.connect() as c:
+                                        state=c.execute(
+                                            "SELECT stage FROM embedding_campaign WHERE runtime_chunk_id=?",
+                                            (cid,),
+                                        ).fetchone()
+                                    if state is None or state["stage"]!="COMPLETE_FRAGMENTED":
+                                        raise RuntimeError(
+                                            f"Fragment recovery did not reach COMPLETE_FRAGMENTED "
+                                            f"for runtime_chunk_id={cid}; result={result!r}"
+                                        )
+                                    complete+=1
+                                except Exception as frag_exc:
+                                    mark_retry([row],frag_exc)
+                                    failed+=1
+
+                            except Exception as singleton_exc:
+                                mark_retry([row],singleton_exc)
+                                failed+=1
+
+                    except Exception as exc:
+                        mark_retry(batch,exc)
+                        failed+=len(batch)
+
                 with self.store.connect() as c:
-                    c.execute("BEGIN IMMEDIATE")
-                    for row in batch:
-                        c.execute("""UPDATE embedding_campaign SET stage='RETRY',attempts=attempts+1,
-                          detail=?,updated_at=? WHERE runtime_chunk_id=?""",
-                          (f"{type(exc).__name__}: {exc}",now(),int(row["id"])))
-                        failed+=1
+                    c.execute(
+                        "UPDATE semantic_runs SET completed_at=?,complete=?,failed=? WHERE run_id=?",
+                        (now(),complete,failed,run_id),
+                    )
                     c.commit()
 
-        with self.store.connect() as c:
-            c.execute("""UPDATE semantic_runs SET completed_at=?,complete=?,failed=? WHERE run_id=?""",
-                      (now(),complete,failed,run_id)); c.commit()
-        return {"run_id":run_id,"selected":len(selected),"complete":complete,"failed":failed,**self.store.counts()}
+                return {
+                    "run_id":run_id,
+                    "selected":len(selected),
+                    "complete":complete,
+                    "failed":failed,
+                    **self.store.counts(),
+                }
 
     def semantic_search(self, query: str, *, limit=10, scan_limit=None):
         # Foundation search: exact brute-force cosine over stored vectors.

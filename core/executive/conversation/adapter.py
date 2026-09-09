@@ -124,6 +124,12 @@ class ExecutiveConversationAdapter:
                 "metadata.knowledge_grounding.matches",
                 default=(),
             ))
+            technical_details = first(
+                data,
+                "technical_details",
+                "metadata.technical_details",
+                default=None,
+            )
             activity.extend([
                 {"stage": "Grounding", "status": "completed",
                  "detail": "Knowledge grounding completed."},
@@ -147,6 +153,7 @@ class ExecutiveConversationAdapter:
                     for index, value in enumerate(evidence_raw)
                 ),
                 activity=tuple(activity),
+                technical_details=technical_details,
             )
         except Exception as exc:
             message = str(exc).splitlines()[0][:500] or "Conversation failed."

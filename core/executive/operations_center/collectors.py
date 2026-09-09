@@ -525,6 +525,16 @@ class MetricsCollector:
         return sum(1 for item in path.rglob("*") if item.is_file())
 
     def _knowledge_files_metric(self) -> ExecutiveMetric:
+        if os.environ.get("JARVIS_DASHBOARD_RECURSIVE_INVENTORY", "").lower() not in {"1", "true", "yes"}:
+            return ExecutiveMetric(
+                identifier="knowledge_files",
+                name="Knowledge Files",
+                value=None,
+                state=MetricState.NOT_CONFIGURED,
+                source="JARVIS_DASHBOARD_RECURSIVE_INVENTORY",
+                description="Recursive file inventory is disabled for dashboard refreshes.",
+            )
+
         path = self._paths.knowledge_root
 
         if not path.is_dir():
@@ -559,6 +569,16 @@ class MetricsCollector:
         )
 
     def _project_files_metric(self) -> ExecutiveMetric:
+        if os.environ.get("JARVIS_DASHBOARD_RECURSIVE_INVENTORY", "").lower() not in {"1", "true", "yes"}:
+            return ExecutiveMetric(
+                identifier="project_files",
+                name="Project Files",
+                value=None,
+                state=MetricState.NOT_CONFIGURED,
+                source="JARVIS_DASHBOARD_RECURSIVE_INVENTORY",
+                description="Recursive file inventory is disabled for dashboard refreshes.",
+            )
+
         path = self._paths.project_root
 
         try:

@@ -46,6 +46,7 @@ class OrchestrationResult:
     grounding: GroundingResult | None = None
     knowledge_state: ExecutiveKnowledgeState | None = None
     transparency: MissionTransparencySnapshot | None = None
+    technical_details: Any | None = None
 
     def metadata(self) -> dict[str, Any]:
         metadata = {
@@ -63,6 +64,8 @@ class OrchestrationResult:
         if self.transparency is not None:
             metadata["mission_transparency"] = self.transparency.to_dict()
             metadata["observability"] = "executive_mission_transparency"
+        if self.technical_details is not None:
+            metadata["technical_details"] = self.technical_details
         return metadata
 
 
@@ -85,10 +88,62 @@ class ExecutiveConversationOrchestrator:
         self.observability_service = observability_service
 
     def execute(self, context: ExecutiveRequestContext) -> OrchestrationResult:
+        from core.conversation.catalog_status import (
+            catalog_status_request,
+            catalog_topic_request,
+            inspect_catalog,
+            inspect_catalog_topic,
+            render_catalog_status,
+            render_catalog_topic,
+        )
+        from core.conversation.filename_lookup import filename_request, lookup_filename, render_lookup
+
+        catalog_topic = catalog_topic_request(context.operator_input)
+        if catalog_topic is not None and self.grounding_service is not None:
+            inventory = inspect_catalog_topic(self.grounding_service.database_path, catalog_topic)
+            return OrchestrationResult(
+                answer=render_catalog_topic(inventory), assignments=(),
+                trace=(ConversationTraceEvent(
+                    stage="knowledge.catalog_inventory",
+                    status="completed" if inventory["status"] != "unavailable" else "gap",
+                    detail="Read-only catalog metadata lookup; passage retrieval bypassed.",
+                    data=inventory,
+                ),),
+                technical_details={"catalog_inventory": inventory},
+            )
+
+        if catalog_status_request(context.operator_input) and self.grounding_service is not None:
+            inspection = inspect_catalog(self.grounding_service.database_path)
+            return OrchestrationResult(
+                answer=render_catalog_status(inspection),
+                assignments=(),
+                trace=(ConversationTraceEvent(
+                    stage="knowledge.catalog_status",
+                    status="completed" if inspection["status"] == "available" else "gap",
+                    detail="Read-only deterministic catalog inspection; document retrieval bypassed.",
+                    data=inspection,
+                ),),
+                technical_details={"catalog_status": inspection},
+            )
+
+        filename = filename_request(context.operator_input)
+        if filename is not None and self.grounding_service is not None:
+            lookup = lookup_filename(self.grounding_service.database_path, filename)
+            return OrchestrationResult(
+                answer=render_lookup(lookup), assignments=(),
+                trace=(ConversationTraceEvent(
+                    stage="knowledge.filename_lookup",
+                    status="completed" if lookup["status"] != "unavailable" else "gap",
+                    detail="Read-only exact filename lookup.", data=lookup,
+                ),),
+                technical_details={"filename_lookup": lookup},
+            )
+
         trace: list[ConversationTraceEvent] = []
         assignments: list[DirectorAssignment] = []
         grounding: GroundingResult | None = None
         knowledge_state: ExecutiveKnowledgeState | None = None
+        grounding_qualification: Any | None = None
 
         if self.grounding_service is not None:
             trace.append(ConversationTraceEvent(
@@ -97,6 +152,16 @@ class ExecutiveConversationOrchestrator:
                 detail="Searching the canonical knowledge catalog for objective evidence.",
             ))
             grounding = self.grounding_service.ground(context)
+
+            # Snapshot the qualification produced by this request before
+            # director execution can perform another catalog search and
+            # replace the ContextVar's current value.
+            from core.knowledge_catalog.qualified_search import (
+                get_last_qualification_result,
+            )
+
+            grounding_qualification = get_last_qualification_result()
+
             trace.append(ConversationTraceEvent(
                 stage="knowledge.grounding",
                 status="completed" if grounding.evidence else "gap",
@@ -184,8 +249,39 @@ class ExecutiveConversationOrchestrator:
                 self,
                 context,
                 synthesis_input,
+                qualification=grounding_qualification,
             )
-        answer = self._normalize_answer(self.synthesis_handler(synthesis_input))
+        grounded_plan = getattr(self, "_last_grounded_answer_plan", None)
+        grounded_state = str(
+            getattr(getattr(grounded_plan, "state", None), "value", "")
+        ).casefold()
+        if grounded_plan is not None and grounded_state == "unknown":
+            # Fail closed before the model is invoked.  UNKNOWN means there is
+            # no qualified basis for synthesis; model knowledge and web-style
+            # citations must not be substituted for catalog evidence.
+            from core.conversation.grounded_answer.integration import (
+                ensure_grounded_answer_service,
+            )
+
+            synthesis_result = ensure_grounded_answer_service(
+                self
+            ).engine.deterministic_answer(grounded_plan)
+        else:
+            synthesis_result = self.synthesis_handler(synthesis_input)
+        technical_details = None
+
+        if isinstance(synthesis_result, dict):
+            technical_details = synthesis_result.get("technical_details")
+
+        answer = self._normalize_answer(synthesis_result)
+
+        if knowledge_state is not None:
+            from core.conversation.grounded_answer.integration import (
+                enforce_grounded_answer_output,
+            )
+
+            answer = enforce_grounded_answer_output(self, answer)
+
         trace.append(ConversationTraceEvent(
             stage="executive.synthesis",
             status="completed",
@@ -197,6 +293,7 @@ class ExecutiveConversationOrchestrator:
             trace=tuple(trace),
             grounding=grounding,
             knowledge_state=knowledge_state,
+            technical_details=technical_details,
         )
         transparency = (
             None
@@ -210,6 +307,7 @@ class ExecutiveConversationOrchestrator:
             grounding=grounding,
             knowledge_state=knowledge_state,
             transparency=transparency,
+            technical_details=technical_details,
         )
 
     @staticmethod

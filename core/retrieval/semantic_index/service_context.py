@@ -36,95 +36,94 @@ class ContextAdaptiveSemanticService:
                 "fragment_stage_counts":stages,"target_chars":self.target_chars,
                 "overlap_chars":self.overlap_chars}
 
-    def prepare_rejected(self,limit=100):
+    def prepare_rejected(self,limit=100,runtime_chunk_id=None):
         with self.store.connect() as c:
-            rows=[dict(r) for r in c.execute("""SELECT e.runtime_chunk_id,b.chunk_uuid
-              FROM embedding_campaign e JOIN chunk_identity_bridge b
-              ON b.runtime_chunk_id=e.runtime_chunk_id
-              WHERE e.stage='REJECTED' AND lower(e.detail) LIKE '%context length%'
-              ORDER BY e.runtime_chunk_id LIMIT ?""",(int(limit),))]
-        if not rows:return {"selected":0,"fragments_created":0,"chunks_requeued":0}
-        ids=[int(r["runtime_chunk_id"]) for r in rows]
-        marks=",".join("?" for _ in ids)
+            if runtime_chunk_id is None:
+                rows=[dict(r) for r in c.execute("""SELECT e.runtime_chunk_id,b.chunk_uuid FROM embedding_campaign e JOIN chunk_identity_bridge b ON b.runtime_chunk_id=e.runtime_chunk_id WHERE e.stage='REJECTED' AND lower(e.detail) LIKE '%context length%' ORDER BY e.runtime_chunk_id LIMIT ?""",(int(limit),))]
+            else:
+                rows=[dict(r) for r in c.execute("""SELECT e.runtime_chunk_id,b.chunk_uuid FROM embedding_campaign e JOIN chunk_identity_bridge b ON b.runtime_chunk_id=e.runtime_chunk_id WHERE e.runtime_chunk_id=? AND e.stage IN ('PENDING','RETRY','REJECTED','FRAGMENTED') ORDER BY e.runtime_chunk_id""",(int(runtime_chunk_id),))]
+        if not rows:return {'selected':0,'fragments_created':0,'chunks_requeued':0}
+        ids=[int(r['runtime_chunk_id']) for r in rows]
+        marks=','.join('?' for _ in ids)
         with self._runtime() as rdb:
-            chunks={int(r["id"]):str(r["chunk_text"]) for r in rdb.execute(
-                f"SELECT id,chunk_text FROM runtime_chunks WHERE id IN ({marks})",ids)}
+            chunks={int(r['id']):str(r['chunk_text']) for r in rdb.execute(f'SELECT id,chunk_text FROM runtime_chunks WHERE id IN ({marks})',ids)}
         created=0
         with self.store.connect() as c:
-            c.execute("BEGIN IMMEDIATE")
+            c.execute('BEGIN IMMEDIATE')
             for row in rows:
-                cid=int(row["runtime_chunk_id"]); text=chunks[cid]
+                cid=int(row['runtime_chunk_id']); text=chunks[cid]
                 parts=list(split_text(text,target_chars=self.target_chars,overlap_chars=self.overlap_chars))
                 for idx,(start,end,value) in enumerate(parts):
-                    fu=fragment_uuid(str(row["chunk_uuid"]),idx,value)
-                    sha=hashlib.sha256(value.encode("utf-8",errors="ignore")).hexdigest()
+                    fu=fragment_uuid(str(row['chunk_uuid']),idx,value)
+                    sha=hashlib.sha256(value.encode('utf-8',errors='ignore')).hexdigest()
                     before=c.total_changes
-                    c.execute("""INSERT OR IGNORE INTO semantic_fragments(
-                      fragment_uuid,runtime_chunk_id,fragment_index,start_char,end_char,
-                      fragment_text,fragment_sha256,stage,attempts,detail,created_at,updated_at)
-                      VALUES(?,?,?,?,?,?,?,'PENDING',0,'',?,?)""",
-                      (fu,cid,idx,start,end,value,sha,now(),now()))
+                    c.execute("""INSERT OR IGNORE INTO semantic_fragments(fragment_uuid,runtime_chunk_id,fragment_index,start_char,end_char,fragment_text,fragment_sha256,stage,attempts,detail,created_at,updated_at,parent_fragment_uuid,fragment_depth,fragment_path,is_leaf) VALUES(?,?,?,?,?,?,?,'PENDING',0,'',?,?,NULL,0,?,1)""",(fu,cid,idx,start,end,value,sha,now(),now(),str(idx)))
                     if c.total_changes>before: created+=1
-                c.execute("""UPDATE embedding_campaign SET stage='FRAGMENTED',
-                  detail='Context overflow adapted into semantic fragments.',updated_at=?
-                  WHERE runtime_chunk_id=?""",(now(),cid))
+                c.execute("""UPDATE embedding_campaign SET stage='FRAGMENTED',detail='Context overflow adapted into semantic fragments.',updated_at=? WHERE runtime_chunk_id=?""",(now(),cid))
             c.commit()
-        return {"selected":len(rows),"fragments_created":created,"chunks_requeued":len(rows)}
+        return {'selected':len(rows),'fragments_created':created,'chunks_requeued':len(rows)}
 
-    def embed_fragments(self,limit=200,batch_size=8):
-        with self.store.connect() as c:
-            rows=[dict(r) for r in c.execute("""SELECT fragment_uuid,runtime_chunk_id,
-              fragment_index,fragment_text FROM semantic_fragments
-              WHERE stage IN ('PENDING','RETRY')
-              ORDER BY runtime_chunk_id,fragment_index LIMIT ?""",(int(limit),))]
-        complete=failed=0
-        for i in range(0,len(rows),max(1,int(batch_size))):
-            batch=rows[i:i+max(1,int(batch_size))]
-            try:
-                vectors=self.provider.embed_batch([r["fragment_text"] for r in batch])
-                validate_vectors(vectors,len(batch),self.expected_dimensions)
+    def embed_fragments(self,limit=200,batch_size=8, runtime_chunk_id=None):
                 with self.store.connect() as c:
-                    c.execute("BEGIN IMMEDIATE")
-                    for row,vec in zip(batch,vectors):
-                        raw,dim,vsha=pack_vector(vec)
-                        c.execute("""INSERT OR REPLACE INTO semantic_fragment_vectors(
-                          fragment_uuid,runtime_chunk_id,fragment_index,provider,model,
-                          dimensions,vector_blob,vector_sha256,created_at)
-                          VALUES(?,?,?,?,?,?,?,?,?)""",
-                          (row["fragment_uuid"],row["runtime_chunk_id"],row["fragment_index"],
-                           self.provider_name,self.model,dim,raw,vsha,now()))
-                        c.execute("""UPDATE semantic_fragments SET stage='COMPLETE',
-                          attempts=attempts+1,detail='',updated_at=? WHERE fragment_uuid=?""",
-                          (now(),row["fragment_uuid"]))
-                        complete+=1
-                    c.commit()
-            except Exception as exc:
-                f=classify_exception(exc)
+                    if runtime_chunk_id is None:
+                        rows=c.execute("""SELECT fragment_uuid,runtime_chunk_id,
+                               fragment_index,fragment_text FROM semantic_fragments
+                               WHERE stage IN ('PENDING','RETRY')
+                               ORDER BY runtime_chunk_id,fragment_index LIMIT ?""",
+                               (limit,)).fetchall()
+                    else:
+                        rows=c.execute("""SELECT fragment_uuid,runtime_chunk_id,
+                               fragment_index,fragment_text FROM semantic_fragments
+                               WHERE runtime_chunk_id=? AND stage IN ('PENDING','RETRY')
+                               ORDER BY fragment_index""",
+                               (int(runtime_chunk_id),)).fetchall()
+                complete=failed=0
+                for i in range(0,len(rows),max(1,int(batch_size))):
+                    batch=rows[i:i+max(1,int(batch_size))]
+                    try:
+                        vectors=self.provider.embed_batch([r["fragment_text"] for r in batch])
+                        validate_vectors(vectors,len(batch),self.expected_dimensions)
+                        with self.store.connect() as c:
+                            c.execute("BEGIN IMMEDIATE")
+                            for row,vec in zip(batch,vectors):
+                                raw,dim,vsha=pack_vector(vec)
+                                c.execute("""INSERT OR REPLACE INTO semantic_fragment_vectors(
+                                  fragment_uuid,runtime_chunk_id,fragment_index,provider,model,
+                                  dimensions,vector_blob,vector_sha256,created_at)
+                                  VALUES(?,?,?,?,?,?,?,?,?)""",
+                                  (row["fragment_uuid"],row["runtime_chunk_id"],row["fragment_index"],
+                                   self.provider_name,self.model,dim,raw,vsha,now()))
+                                c.execute("""UPDATE semantic_fragments SET stage='COMPLETE',
+                                  attempts=attempts+1,detail='',updated_at=? WHERE fragment_uuid=?""",
+                                  (now(),row["fragment_uuid"]))
+                                complete+=1
+                            c.commit()
+                    except Exception as exc:
+                        f=classify_exception(exc)
+                        with self.store.connect() as c:
+                            c.execute("BEGIN IMMEDIATE")
+                            for row in batch:
+                                c.execute("""UPDATE semantic_fragments SET stage='RETRY',
+                                  attempts=attempts+1,detail=?,updated_at=? WHERE fragment_uuid=?""",
+                                  (f.detail,now(),row["fragment_uuid"]))
+                                failed+=1
+                            c.commit()
+                promoted=0
                 with self.store.connect() as c:
+                    parents=([int(runtime_chunk_id)] if runtime_chunk_id is not None else [int(r["runtime_chunk_id"]) for r in c.execute("SELECT DISTINCT runtime_chunk_id FROM semantic_fragments")])
                     c.execute("BEGIN IMMEDIATE")
-                    for row in batch:
-                        c.execute("""UPDATE semantic_fragments SET stage='RETRY',
-                          attempts=attempts+1,detail=?,updated_at=? WHERE fragment_uuid=?""",
-                          (f.detail,now(),row["fragment_uuid"]))
-                        failed+=1
+                    for cid in parents:
+                        total=int(c.execute("SELECT COUNT(*) FROM semantic_fragments WHERE runtime_chunk_id=?",(cid,)).fetchone()[0])
+                        done=int(c.execute("SELECT COUNT(*) FROM semantic_fragments WHERE runtime_chunk_id=? AND stage='COMPLETE'",(cid,)).fetchone()[0])
+                        if total and total==done:
+                            c.execute("""UPDATE embedding_campaign SET stage='COMPLETE_FRAGMENTED',
+                              detail='Semantic coverage provided by fragment vectors.',
+                              failure_class='',http_status=NULL,provider_error='',updated_at=?
+                              WHERE runtime_chunk_id=?""",(now(),cid))
+                            promoted+=1
                     c.commit()
-        promoted=0
-        with self.store.connect() as c:
-            parents=[int(r["runtime_chunk_id"]) for r in c.execute(
-                "SELECT DISTINCT runtime_chunk_id FROM semantic_fragments")]
-            c.execute("BEGIN IMMEDIATE")
-            for cid in parents:
-                total=int(c.execute("SELECT COUNT(*) FROM semantic_fragments WHERE runtime_chunk_id=?",(cid,)).fetchone()[0])
-                done=int(c.execute("SELECT COUNT(*) FROM semantic_fragments WHERE runtime_chunk_id=? AND stage='COMPLETE'",(cid,)).fetchone()[0])
-                if total and total==done:
-                    c.execute("""UPDATE embedding_campaign SET stage='COMPLETE_FRAGMENTED',
-                      detail='Semantic coverage provided by fragment vectors.',
-                      failure_class='',http_status=NULL,provider_error='',updated_at=?
-                      WHERE runtime_chunk_id=?""",(now(),cid))
-                    promoted+=1
-            c.commit()
-        return {"selected_fragments":len(rows),"complete_fragments":complete,
-                "failed_fragments":failed,"promoted_parent_chunks":promoted,**self.audit()}
+                return {"selected_fragments":len(rows),"complete_fragments":complete,
+                        "failed_fragments":failed,"promoted_parent_chunks":promoted,**self.audit()}
 
     def certify(self):
         a=self.audit()
