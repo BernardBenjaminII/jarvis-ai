@@ -1012,6 +1012,37 @@ def normalize_conversational_query(query: str) -> str:
 
     normalized = original
 
+    # Separate local-source framing from the task, retaining domain constraints.
+    # Named-source constructions such as "According to RFC 9110" are untouched.
+    source_topic = ""
+    wrapper = re.fullmatch(
+        r"according\s+to\s+my\s+local\s+"
+        r"(?:(?P<topic>[A-Za-z][A-Za-z -]{0,79}?)\s+)?"
+        r"(?:references|sources|materials|documents)\s*,\s*(?P<task>.+)",
+        normalized, flags=re.IGNORECASE,
+    )
+    if wrapper:
+        normalized = wrapper.group("task").strip()
+        source_topic = (wrapper.group("topic") or "").strip()
+
+    task = re.fullmatch(
+        r"what\s+should\s+I\s+consider\s+when\s+(?P<task>.+)",
+        normalized, flags=re.IGNORECASE,
+    )
+    if task:
+        normalized = task.group("task").strip()
+
+    if source_topic:
+        def scope_form(token):
+            # Narrow inflection comparison only for retaining source scope.
+            # It does not rewrite identifiers or the user's task text.
+            token = token.casefold()
+            return token[:-3] if len(token) > 6 and token.endswith("ing") else token
+        task_terms = {scope_form(t) for t in re.findall(r"[A-Za-z]+", normalized)}
+        source_terms = {scope_form(t) for t in re.findall(r"[A-Za-z]+", source_topic)}
+        if not source_terms.issubset(task_terms):
+            normalized = source_topic + " " + normalized
+
     for pattern in _CONVERSATIONAL_QUERY_PATTERNS:
         candidate = re.sub(
             pattern,
@@ -1125,13 +1156,15 @@ def _r1_1_merge_rows(
     return merged
 
 
-def search_qualified_catalog(
+def _search_qualified_catalog_impl(
     query: str,
     *,
     db_path: Path = DEFAULT_CATALOG_DB,
     limit: int = 25,
     engine: QualificationEngine | None = None,
+    search_handler: Any = None,
 ) -> list[dict[str, Any]]:
+    active_search = search_handler or search_catalog
     requested_limit = max(1, int(limit))
 
     raw_limit = max(
@@ -1158,7 +1191,7 @@ def search_qualified_catalog(
     # --------------------------------------------------------------
 
     original_rows = list(
-        search_catalog(
+        active_search(
             original_query,
             db_path=db_path,
             limit=raw_limit,
@@ -1171,7 +1204,7 @@ def search_qualified_catalog(
 
     if normalization_applied:
         normalized_rows = list(
-            search_catalog(
+            active_search(
                 normalized_query,
                 db_path=db_path,
                 limit=raw_limit,
@@ -1479,3 +1512,68 @@ def get_last_qualification_trace() -> dict[str, Any] | None:
 def clear_last_qualification_state() -> None:
     _LAST_RESULT.set(None)
     _LAST_TRACE.set(None)
+
+class _LexicalPreflightUnavailable(Exception):
+    pass
+
+
+def search_qualified_catalog(
+    query: str,
+    *,
+    db_path: Path = DEFAULT_CATALOG_DB,
+    limit: int = 25,
+    engine: QualificationEngine | None = None,
+) -> list[dict[str, Any]]:
+    """Qualify fast lexical evidence before paying for a full vector scan.
+
+    Uses the same qualification and rescue implementation in both lanes.
+    No confidence thresholds are relaxed. A lexical miss/rejection or an
+    unavailable FTS lane falls back to the existing full catalog backend.
+    """
+    import sqlite3
+    import time
+    from core.knowledge_catalog.materialization.search import (
+        _lexical_fts_rows, _fts_query, _extract_symbol_identifiers,
+    )
+    started = time.monotonic()
+    cache = {}
+    preflight_error = None
+    rows = []
+    def lexical_search(text, *, db_path, limit):
+        # Original and normalized requests often differ only by punctuation.
+        key = (_fts_query(text), str(db_path), limit)
+        if key not in cache:
+            try:
+                cache[key] = _lexical_fts_rows(text, db_path=db_path, limit=limit)
+            except (sqlite3.Error, OSError) as exc:
+                raise _LexicalPreflightUnavailable(type(exc).__name__) from exc
+        return cache[key]
+    # Preserve the existing special handling for C++, .NET and other literal
+    # identifiers rather than relying on their lossy FTS tokenization.
+    symbol_query = bool(_extract_symbol_identifiers(query))
+    if not symbol_query:
+        try:
+            rows = _search_qualified_catalog_impl(
+                query, db_path=db_path, limit=limit, engine=engine,
+                search_handler=lexical_search,
+            )
+        except _LexicalPreflightUnavailable as exc:
+            preflight_error = str(exc)
+    elapsed = round(time.monotonic() - started, 6)
+    lane = "qualified_lexical" if rows else "hybrid_fallback"
+    if not rows:
+        rows = _search_qualified_catalog_impl(query, db_path=db_path, limit=limit, engine=engine)
+    trace = get_last_qualification_trace()
+    if trace is not None:
+        trace.update({
+            "retrieval_lane": lane,
+            "hybrid_invoked": lane == "hybrid_fallback",
+            "lexical_preflight_seconds": elapsed,
+            "lexical_unique_searches": len(cache),
+            "lexical_preflight_error": preflight_error,
+            "symbol_query": symbol_query,
+        })
+        _LAST_TRACE.set(trace)
+    return rows
+
+

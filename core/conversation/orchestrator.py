@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from copy import copy
 from typing import Any, Callable
 
 from core.conversation.contracts import ConversationTraceEvent, ExecutiveRequestContext
@@ -80,14 +81,46 @@ class ExecutiveConversationOrchestrator:
         grounding_service: CatalogGroundingService | None = None,
         awareness_service: ExecutiveKnowledgeAwarenessService | None = None,
         observability_service: ExecutiveObservabilityService | None = None,
+        creative_handler: SynthesisHandler | None = None,
     ) -> None:
         self.director = director
         self.synthesis_handler = synthesis_handler
         self.grounding_service = grounding_service
         self.awareness_service = awareness_service
         self.observability_service = observability_service
+        self.creative_handler = creative_handler
 
     def execute(self, context: ExecutiveRequestContext) -> OrchestrationResult:
+        # The API owns one orchestrator. Mutable answer plans belong to a request,
+        # not to that process-wide instance. Services remain shared as before.
+        worker = copy(self)
+        for name in ("_last_grounded_answer_plan", "_last_grounded_answer_response",
+                     "_last_grounded_answer_telemetry", "_grounded_answer_output_fallback"):
+            setattr(worker, name, None)
+        return worker._execute_request(context)
+
+    def _execute_request(self, context: ExecutiveRequestContext) -> OrchestrationResult:
+        from core.conversation.request_routing import request_route, runtime_answer
+        route = request_route(context.operator_input)
+        if route == "runtime":
+            from core.src.cognition.platform_status import snapshot
+            state = snapshot()
+            return self._direct_result(runtime_answer(state), route, {"runtime": state})
+        if route in {"creative", "social"} and self.creative_handler is not None:
+            answer = self._normalize_answer(self.creative_handler(context.operator_input))
+            if not answer.strip() or "[LLM ERROR]" in answer:
+                raise RuntimeError("Creative generation failed; check the local model service.")
+            return self._direct_result(answer, route, {"source_kind": "generated_text"})
+        if route == "disk_command":
+            from core.src.cognition.platform_status import snapshot
+            from core.conversation.command_documentation import disk_command_answer
+            from core.conversation.bounded_catalog import bounded_command_grounding
+            grounding, search_status = bounded_command_grounding(self.grounding_service, context)
+            result = disk_command_answer(grounding, snapshot())
+            result["technical_details"]["catalog_search"] = search_status
+            if search_status["status"] == "timeout":
+                result["answer"] += "\n\nThe catalog search timed out; it did not establish whether relevant material exists."
+            return self._direct_result(result["answer"], route, result["technical_details"])
         from core.conversation.catalog_status import (
             catalog_status_request,
             catalog_topic_request,
@@ -308,6 +341,18 @@ class ExecutiveConversationOrchestrator:
             knowledge_state=knowledge_state,
             transparency=transparency,
             technical_details=technical_details,
+        )
+
+    @staticmethod
+    def _direct_result(answer, route, details):
+        return OrchestrationResult(
+            answer=answer, assignments=(),
+            trace=(ConversationTraceEvent(
+                stage="request.routed", status="completed",
+                detail=f"Request handled through the {route} route.",
+                data={"route": route, "source_kind": details.get("source_kind", route)},
+            ),),
+            technical_details={"request_route": route, **details},
         )
 
     @staticmethod

@@ -18,7 +18,9 @@ class RuntimePaths:
 
 
 def get_runtime_paths() -> RuntimePaths:
-    env = "windows" if platform.system() == "Windows" else "unix"
+    from core.bootstrap.discovery.platform import detect_platform
+
+    env = detect_platform()
 
     runtime = RuntimeLocator(env).locate()
 

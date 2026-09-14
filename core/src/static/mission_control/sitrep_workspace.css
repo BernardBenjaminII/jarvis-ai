@@ -11,3 +11,58 @@
 @media(max-width:900px){.sitrep{grid-template-columns:1fr;height:auto}.sitrep-map{height:56vh;min-height:27rem}.sitrep-feed{border-left:0;border-top:1px solid rgba(101,239,185,.18);max-height:32rem}.sitrep-map-heading{left:3.7rem}.sitrep-legend{top:auto;bottom:3.4rem;right:.7rem}.sitrep-layer-panel{top:4.3rem;right:.7rem}}
 @media print{.sitrep{display:block;height:auto;overflow:visible}.sitrep-map{height:29rem;break-inside:avoid}.sitrep-feed{max-height:none;overflow:visible}.sitrep-detail{display:none}.leaflet-control-container{display:none}.sitrep-layer-panel{display:none}}
 .sitrep-layer-panel button{display:block;width:100%;border:0;background:transparent;color:#78918a;text-align:left;padding:5px 0;cursor:pointer;font:inherit}.sitrep-layer-panel button.active{color:#d7e6e0}.layer-nuclear,.nuclear-dot{background:#f5d76e!important;box-shadow:0 0 8px rgba(245,215,110,.7)}.nuclear-event{border-left-color:#f5d76e!important;background:linear-gradient(90deg,rgba(245,215,110,.08),transparent)}
+
+.sitrep-tabs{display:flex;flex-wrap:wrap;gap:.35rem}.sitrep-tab{padding:.45rem .6rem;border:1px solid #315e53;background:#0b1916;color:#a9c7bc;cursor:pointer}.sitrep-tab.active{background:#65efb9;color:#07110f}.sitrep-news-controls{display:grid;gap:.6rem;margin-top:.7rem}.sitrep-news-controls label{font-size:.8rem;display:flex;align-items:center;gap:.6rem}.sitrep-news-controls input,.sitrep-news-controls select{min-width:0;flex:1;background:#10231e;color:#e2eee9;border:1px solid #315e53;padding:.45rem}.sitrep-news-controls small{font-size:.63rem;letter-spacing:0!important}.sitrep-health{padding:.7rem 1rem;color:#a9c7bc;font-size:.75rem;border-bottom:1px solid #315e53}.sitrep-health summary{cursor:pointer}.sitrep-health p{overflow-wrap:anywhere}.security-physical:before{background:#ff995e}.security-cyber:before{background:#c39cff}.sitrep-card.aged{opacity:.72}.sitrep-card:focus-visible{outline:2px solid #65efb9;outline-offset:-3px}.sitrep [hidden]{display:none!important}
+
+@media print {
+  body.jarvis-workspace-active > :not(#jarvis-workspace-host){display:none!important}
+  body.jarvis-workspace-active #jarvis-workspace-host{position:static!important;inset:auto!important;padding:0!important;overflow:visible!important;background:white!important;color:#17201d!important}
+  #jarvis-workspace-host .jarvis-workspace-close{display:none!important}
+  #jarvis-workspace-host .jarvis-callable-status{position:static!important;transform:none!important;display:block!important;margin-bottom:1rem}
+  #jarvis-workspace-host .sitrep-feed header{position:static!important}
+}
+
+/* R6.2: one scrolling workspace; news must never be trapped below controls. */
+@media screen {
+  body.jarvis-workspace-active #jarvis-workspace-host {
+    box-sizing:border-box!important;
+    height:100vh!important;height:100dvh!important;
+    max-height:100dvh!important;
+    overflow-y:scroll!important;overflow-x:hidden!important;
+    overscroll-behavior-y:contain;
+    scrollbar-gutter:stable;
+    -webkit-overflow-scrolling:touch;
+  }
+  #jarvis-workspace-host .sitrep {
+    height:auto!important;max-height:none!important;min-height:0!important;
+    overflow:visible!important;align-items:start;
+  }
+  #jarvis-workspace-host .sitrep-feed {
+    height:auto!important;max-height:none!important;min-height:0!important;
+    overflow:visible!important;min-width:0;
+  }
+  #jarvis-workspace-host .sitrep-feed > header {position:static!important}
+  #jarvis-workspace-host .sitrep-cards {
+    height:auto!important;max-height:none!important;overflow:visible!important;
+  }
+  #jarvis-workspace-host .sitrep-map {
+    position:sticky;top:0;align-self:start;
+    height:calc(100vh - 8rem);height:calc(100dvh - 8rem);
+    min-height:20rem;max-height:55rem;
+  }
+  #jarvis-workspace-host .sitrep-detail {
+    position:fixed;top:4rem;bottom:1rem;right:1rem;height:auto;
+    max-height:calc(100dvh - 5rem);z-index:1100;
+    width:min(29rem,calc(100vw - 2rem));overflow-y:auto;
+  }
+  #jarvis-workspace-host .sitrep-card {overflow-wrap:anywhere}
+  #jarvis-workspace-host {scrollbar-width:auto;scrollbar-color:#65efb9 #0b1816}
+  #jarvis-workspace-host::-webkit-scrollbar {width:12px}
+  #jarvis-workspace-host::-webkit-scrollbar-thumb {background:#315e53;border:2px solid #0b1816;border-radius:6px}
+}
+@media screen and (max-width:900px) {
+  #jarvis-workspace-host .sitrep {grid-template-columns:minmax(0,1fr)}
+  #jarvis-workspace-host .sitrep-map {
+    position:relative;top:auto;height:42vh;height:42dvh;min-height:16rem;max-height:28rem;
+  }
+}

@@ -1,5 +1,6 @@
 from __future__ import annotations
 import re
+from .output_quality import output_issue, source_excerpt_answer
 from typing import Any
 from core.knowledge_catalog.qualified_search import get_last_qualification_result
 from .contracts import GroundedAnswerExecutionRequest, GroundedAnswerRuntimeContext
@@ -23,7 +24,7 @@ def build_runtime_request(context: Any, qualification: Any):
     metadata=dict(getattr(context,"metadata",{}) or {})
     return GroundedAnswerExecutionRequest(
         context=GroundedAnswerRuntimeContext(
-            request_id=str(metadata.get("request_id") or metadata.get("correlation_id") or "executive-request"),
+            request_id=str(getattr(context,"request_id","") or metadata.get("request_id") or metadata.get("correlation_id") or "executive-request"),
             session_id=str(metadata.get("session_id") or getattr(context,"session_id","") or "executive-session"),
             operator_input=str(getattr(context,"operator_input","") or ""),
             mode=str(getattr(context,"mode","full") or "full"),
@@ -43,7 +44,11 @@ def augment_synthesis_input(
     # with older integrations that do not yet provide it explicitly.
     if qualification is _QUALIFICATION_UNSET:
         qualification = get_last_qualification_result()
-    if qualification is None: return synthesis_input
+    if qualification is None:
+        for name in ("_last_grounded_answer_plan", "_last_grounded_answer_response",
+                     "_last_grounded_answer_telemetry", "_grounded_answer_output_fallback"):
+            setattr(orchestrator, name, None)
+        return synthesis_input
     service=ensure_grounded_answer_service(orchestrator)
     request=build_runtime_request(context,qualification)
     response=service.plan(request)
@@ -133,10 +138,12 @@ def enforce_grounded_answer_output(orchestrator: Any, answer: str) -> str:
                 violation = True
                 break
 
-    if not violation:
+    issue = output_issue(answer, citations) if not violation else "legacy_citation_check"
+    if not violation and issue is None:
         return answer
+    setattr(orchestrator, "_grounded_answer_output_reason", issue)
 
-    fallback = service.engine.deterministic_answer(plan)
+    fallback = source_excerpt_answer(plan)
     setattr(orchestrator, "_grounded_answer_output_fallback", True)
     return fallback
 

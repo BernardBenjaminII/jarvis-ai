@@ -80,7 +80,7 @@ def operations_timeline(
 @router.get("/sitrep")
 def operations_sitrep(refresh: bool = Query(default=False)) -> dict[str, Any]:
     """Return authoritative read-only SITREP records and source health."""
-    return get_sitrep_service().snapshot(force_refresh=refresh)
+    return get_sitrep_service().snapshot_background(force_refresh=refresh)
 
 
 

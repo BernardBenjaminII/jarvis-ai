@@ -190,7 +190,7 @@ def synthesize_grounded_answer(synthesis_prompt: str):
         model=model,
         max_tokens=plan["max_tokens"],
         temperature=plan["temperature"],
-        system=build_system_prompt(intent),
+        system=build_system_prompt(intent, context),
     )
 
     return (
@@ -306,7 +306,7 @@ def route_question(question: str):
         model=model,
         max_tokens=plan["max_tokens"],
         temperature=plan["temperature"],
-        system=build_system_prompt(intent),
+        system=build_system_prompt(intent, context),
     )
 
     #
@@ -319,3 +319,33 @@ def route_question(question: str):
         f"{model}] "
         f"{response}"
     )
+
+
+def generate_creative_answer(question: str):
+    """Generation-only handler selected by the conservative conversation router.
+
+    Never calls the tool planner, executor, recon agent, or factual catalog gate.
+    """
+    context = build_context(check_network=False)
+    intent = "writing"
+    model = choose_model(intent)
+    system = build_system_prompt(intent, context) + (
+        "\nThis request is creative writing or a social exchange. Produce the requested "
+        "text directly. Do not claim catalog support, add factual citations, or claim "
+        "to have executed any action. Do not invent personal facts about the recipient. "
+        "Write in the user's voice. Never sign as JARVIS or include a mode label. "
+        "For a short greeting, use one to three sentences without a formal sign-off."
+    )
+    response = query_llm(
+        prompt=build_prompt(context, question, intent), model=model,
+        max_tokens=512, temperature=0.6, system=system,
+    )
+    import re
+    lines = str(response).rstrip().splitlines()
+    if lines and re.fullmatch(r"(?:[-*]\s*)?JARVIS(?:\s+Writing Mode)?[.!]?", lines[-1].strip(), re.I):
+        lines.pop()
+        while lines and not lines[-1].strip():
+            lines.pop()
+        if lines and lines[-1].strip().lower().rstrip(",") in {"best regards", "regards", "sincerely"}:
+            lines.pop()
+    return "\n".join(lines).strip()

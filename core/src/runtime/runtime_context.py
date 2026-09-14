@@ -34,17 +34,9 @@ def get_runtime_context() -> RuntimeContext:
     # Determine environment
     # ------------------------------------------------------
 
-    system = platform.system().lower()
+    from core.bootstrap.discovery.platform import detect_platform
 
-    if system == "windows":
-        environment = "windows"
-
-    elif system == "darwin":
-        environment = "macos"
-
-    else:
-        # Later we can distinguish ubuntu/kali/etc.
-        environment = "ubuntu"
+    environment = detect_platform()
 
     # ------------------------------------------------------
     # Locate runtime

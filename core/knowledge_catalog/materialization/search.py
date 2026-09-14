@@ -252,23 +252,27 @@ def _lexical_fts_rows(
         conn.row_factory = sqlite3.Row
         rows = conn.execute(
             """
+            WITH top_hits AS MATERIALIZED (
+                SELECT rowid, rank
+                FROM runtime_chunks_fts
+                WHERE runtime_chunks_fts MATCH ? AND rank MATCH 'bm25()'
+                ORDER BY rank
+                LIMIT ?
+            )
             SELECT
                 c.id AS chunk_id,
                 c.document_id,
                 d.title,
                 d.file_path,
                 c.chunk_text,
-                bm25(runtime_chunks_fts) AS rank
-            FROM runtime_chunks_fts
-            JOIN runtime_chunks c
-                ON c.id = runtime_chunks_fts.rowid
-            JOIN runtime_documents d
-                ON d.id = c.document_id
-            WHERE runtime_chunks_fts MATCH ?
-            ORDER BY rank, d.file_path, c.chunk_index
+                h.rank
+            FROM top_hits h
+            JOIN runtime_chunks c ON c.id = h.rowid
+            JOIN runtime_documents d ON d.id = c.document_id
+            ORDER BY h.rank, d.file_path, c.chunk_index
             LIMIT ?
             """,
-            (fts_query, max(1, int(limit))),
+            (fts_query, max(400, int(limit) * 4), max(1, int(limit))),
         ).fetchall()
 
     output = []
