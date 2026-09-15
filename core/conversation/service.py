@@ -16,6 +16,7 @@ from core.conversation.contracts import (
 )
 from core.conversation.orchestrator import ExecutiveConversationOrchestrator
 from core.conversation.repository import ConversationRepository
+from core.conversation.sitrep_context import answer_sitrep, wants_sitrep
 
 
 AnswerHandler = Callable[[str], Any]
@@ -82,7 +83,15 @@ class ExecutiveConversationService:
         )
 
         try:
-            if self.orchestrator is not None:
+            if wants_sitrep(context.operator_input):
+                answer, sitrep_metadata = answer_sitrep(context.operator_input)
+                response_metadata = {"mode": mode, "channel": channel, **sitrep_metadata}
+                trace.append(ConversationTraceEvent(
+                    stage="sitrep.context", status="completed",
+                    detail="Answered from the shared SITREP snapshot with source attribution.",
+                    data=sitrep_metadata,
+                ))
+            elif self.orchestrator is not None:
                 trace.append(
                     ConversationTraceEvent(
                         stage="executive.dispatch",
