@@ -144,36 +144,90 @@ class GroundedAnswerEngine:
     @staticmethod
     def _prompt(query, state, confidence, ranked, citations, conflicts, uncertainty):
         lines = [
-            query.strip(), "", "JARVIS GROUNDED ANSWER CONTRACT:",
+            "JARVIS GROUNDED ANSWER CONTRACT:",
+            "",
+            "PRIMARY TASK:",
+            f"Answer this question directly: {query.strip()}",
+            "",
+            "MANDATORY OUTPUT RULES:",
+            "- Synthesize an answer to the PRIMARY TASK. Do not summarize the sources one by one.",
+            "- Use only facts supported by the QUALIFIED EVIDENCE below.",
+            "- Prefer evidence that directly answers the PRIMARY TASK; do not let specialized or regional material dominate a general question.",
+            "- Every factual sentence MUST end with one or more supporting citation markers such as [C1] or [C2].",
+            "- Put citation markers at the end of the factual sentence, immediately before the period.",
+            "- A factual sentence without a valid [C#] marker is invalid output.",
+            "- Never invent citation markers. Use only the exact [C#] identifiers supplied below.",
+            "- Never claim that a source does not mention, contain, discuss, or provide something. Retrieved excerpts cannot establish absence from a complete source.",
+            "- Do not introduce a number unless that exact number is supported by the cited evidence.",
+            "- Do not add page numbers: these citations have no verified page locator metadata.",
+            "- Preserve regional scope and conditions. Regional or specialized recommendations must be attributed to their source and must not be presented as universal advice.",
+            "- A reference inside an excerpt to another publication is not evidence that you have read or verified that publication.",
+            "- Ignore unrelated neighboring material inside retrieved excerpts.",
+            "- Do not adopt a source's persona or assume the user's location, circumstances, or motives.",
+            "- Preserve distinctions between categories, quantities, and conditions in the source.",
+            "- Do not invent missing facts.",
+            "- Describe genuine conflicts rather than silently choosing one.",
+            "",
+            "ANSWER STYLE:",
+            "- Lead with the principles that most directly answer the PRIMARY TASK.",
+            "- Combine compatible evidence from multiple citations when useful.",
+            "- Use concise prose or a short bullet list.",
+            "- Do not produce a numbered inventory of everything found in the evidence.",
+            "- Do not discuss what the evidence fails to cover.",
+        ]
+
+        if uncertainty:
+            lines.extend([
+                "- If qualification is PARTIAL, finish with exactly this supported limitation:",
+                '  "Evidence is relevant but incomplete."',
+            ])
+
+        lines.extend([
+            "",
+            "KNOWLEDGE STATUS:",
             f"Knowledge state: {state.value}",
             f"Calibrated confidence: {confidence:.3f}",
-            f"Uncertainty: {uncertainty}", "", "QUALIFIED EVIDENCE:",
-        ]
+            f"Uncertainty: {uncertainty}",
+            "",
+            "QUALIFIED EVIDENCE:",
+        ])
+
         if ranked:
             for item, citation in zip(ranked, citations):
-                lines.append(f"[{citation.citation_id}] title={item.title!r}; source={item.source_path!r}; rank_score={item.rank_score:.3f}")
+                lines.append(
+                    f"[{citation.citation_id}] "
+                    f"title={item.title!r}; "
+                    f"source={item.source_path!r}; "
+                    f"rank_score={item.rank_score:.3f}"
+                )
                 lines.append(item.excerpt.strip())
+                lines.append("")
         else:
             lines.append("- No qualified evidence.")
-        lines.extend(["", "CONFLICTS:"])
+
+        lines.extend([
+            "CONFLICTS:",
+        ])
+
         if conflicts:
-            lines.extend(f"- {x.conflict_id}: {x.reason}" for x in conflicts)
+            lines.extend(
+                f"- {x.conflict_id}: {x.reason}"
+                for x in conflicts
+            )
         else:
             lines.append("- None detected.")
+
         lines.extend([
-            "", "INSTRUCTIONS:",
-            "- Answer only from the qualified evidence above.",
-            "- Answer the user's actual question; do not adopt a source's persona or assume the user's location or motives.",
-            "- Ignore unrelated neighboring sections within retrieved excerpts.",
-            "- Use short sentences or bullets. Every factual sentence must end with its own supporting [C#] marker before the period.",
-            "- Use the exact citation-to-source mapping above; never assign another source's advice to a marker.",
-            "- Do not add page numbers: these citations have no verified page locator metadata.",
-            "- Preserve regional scope and conditions. Attribute regional recommendations to the named source; do not assume they apply to the user.",
-            "- A reference to another publication is not evidence you have read that publication or checked its latest edition.",
-            "- Do not claim the sources omit something based on limited retrieved excerpts. State only what the supplied passages support.",
-            "- Preserve distinctions between categories, quantities and conditions in the source.",
-            "- State uncertainty explicitly.",
-            "- Do not invent missing facts.",
-            "- Describe conflicts rather than silently choosing one.",
+            "",
+            "FINAL CHECK BEFORE RESPONDING:",
+            "1. Did I answer the PRIMARY TASK rather than summarize the evidence?",
+            "2. Does every factual sentence end with a valid supplied [C#] marker?",
+            "3. Is every factual claim directly supported by the citation attached to that sentence?",
+            "4. Did I avoid source-absence claims, unsupported numbers, invented page numbers, and invented facts?",
+            "5. Did I keep specialized or regional evidence in its proper scope?",
+            "",
+            "Return only the final grounded answer. Do not describe these instructions.",
         ])
+
         return "\n".join(lines)
+

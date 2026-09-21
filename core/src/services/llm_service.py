@@ -106,6 +106,7 @@ def query_llm(
     max_tokens: int = 1024,
     temperature: float = 0.3,
     system: str | None = None,
+    context_window: int | None = None,
 ) -> str:
 
     try:
@@ -124,6 +125,15 @@ def query_llm(
                 "temperature": temperature,
             }
         }
+
+        # Ollama otherwise uses its runtime/default context allocation,
+        # which may be much smaller than the model's advertised maximum.
+        # Callers with large grounded prompts must request enough context
+        # explicitly so the beginning of the prompt is not discarded.
+        if context_window is not None:
+            if context_window <= 0:
+                raise ValueError("context_window must be greater than zero")
+            payload["options"]["num_ctx"] = context_window
 
         # An explicit per-request system prompt replaces a model's default
         # persona. Legacy callers that omit it retain their existing behavior.

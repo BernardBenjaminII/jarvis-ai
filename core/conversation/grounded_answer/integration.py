@@ -1,6 +1,6 @@
 from __future__ import annotations
 import re
-from .output_quality import output_issue, source_excerpt_answer
+from .output_quality import output_issue_detail, source_excerpt_answer
 from typing import Any
 from core.knowledge_catalog.qualified_search import get_last_qualification_result
 from .contracts import GroundedAnswerExecutionRequest, GroundedAnswerRuntimeContext
@@ -81,6 +81,174 @@ def _content_terms(value: str) -> set[str]:
     }
 
 
+def _normalize_citation_groups(answer: str) -> str:
+    """Normalize grouped citations to canonical individual [C#] markers."""
+
+    pattern = re.compile(
+        r"\[(C\d+(?:\s*,\s*C\d+)+)\]"
+    )
+
+    def replace(match):
+        citation_ids = re.findall(r"C\d+", match.group(1))
+        return " ".join(
+            f"[{citation_id}]"
+            for citation_id in citation_ids
+        )
+
+    return pattern.sub(replace, str(answer or ""))
+
+
+def build_grounded_answer_repair_prompt(
+    orchestrator: Any,
+    failed_answer: str,
+) -> str | None:
+    """Build one conservative, extractive evidence-alignment repair request."""
+    plan = getattr(orchestrator, "_last_grounded_answer_plan", None)
+    if plan is None:
+        return None
+
+    citations = tuple(getattr(plan, "citations", ()) or ())
+    if not citations:
+        return None
+
+    query = str(getattr(plan, "query", "") or "").strip()
+    detail = getattr(
+        orchestrator,
+        "_grounded_answer_output_detail",
+        None,
+    )
+
+    if isinstance(detail, dict):
+        reason = str(
+            detail.get("reason") or "validation_failure"
+        )
+        failed_sentence = str(
+            detail.get("sentence") or ""
+        ).strip()
+    else:
+        reason = str(
+            getattr(
+                orchestrator,
+                "_grounded_answer_output_reason",
+                "validation_failure",
+            )
+            or "validation_failure"
+        )
+        failed_sentence = ""
+
+    evidence_blocks = []
+
+    for citation in citations:
+        citation_id = str(
+            getattr(citation, "citation_id", "") or ""
+        ).strip()
+        excerpt = str(
+            getattr(citation, "excerpt", "") or ""
+        ).strip()
+
+        if not citation_id or not excerpt:
+            continue
+
+        evidence_blocks.append(
+            f"[{citation_id}]\n{excerpt}"
+        )
+
+    if not evidence_blocks:
+        return None
+
+    evidence = "\n\n".join(evidence_blocks)
+
+    return f"""JARVIS GROUNDED ANSWER EXTRACTIVE REPAIR CONTRACT:
+
+PRIMARY TASK:
+Repair the failed answer to the ORIGINAL QUESTION using ONLY the
+QUALIFIED EVIDENCE supplied below.
+
+This is an evidence-alignment repair, not a new answer from memory.
+
+ORIGINAL QUESTION:
+{query}
+
+FAILED ANSWER:
+{failed_answer}
+
+VALIDATION FAILURE:
+{reason}
+
+FIRST FAILED SENTENCE:
+{failed_sentence or "(not isolated by validator)"}
+
+MANDATORY REPAIR METHOD:
+
+For every factual sentence you keep:
+
+1. SELECT the supporting citation before writing the sentence.
+
+2. Write the claim using the SAME important nouns, verbs, and modifiers
+   that appear in the selected evidence excerpt.
+
+3. Prefer a concise proposition copied or minimally transformed from the
+   evidence over a broader paraphrase.
+
+4. DO NOT replace evidence terminology with synonyms merely to improve
+   style.
+
+5. DO NOT preserve a claim merely because it sounds correct.
+   If the supplied excerpt does not directly support it, DELETE it.
+
+6. Every factual sentence MUST contain one or more supplied citation
+   markers such as [C1].
+
+7. Use ONLY the supplied citation IDs.
+
+8. When multiple citations are necessary, write:
+   [C1] [C2]
+   Never write:
+   [C1, C2]
+
+9. A citation does not make an unsupported sentence valid.
+   The words of the sentence itself must closely align with the cited
+   evidence.
+
+10. Do not add facts, explanations, recommendations, causal claims,
+    examples, or implications that are absent from the cited excerpt.
+
+11. Do not add a number unless that exact number occurs in the evidence
+    cited for that sentence.
+
+12. Do not claim that a source or the evidence lacks information.
+
+13. Prefer SHORTER, directly supported sentences over comprehensive
+    prose.
+
+14. It is acceptable to omit material from the failed answer.
+
+15. Do not discuss the repair process, validation, prompts, evidence
+    scoring, or these instructions.
+
+16. Answer the ORIGINAL QUESTION directly.
+
+17. Return ONLY the repaired answer.
+
+IMPORTANT EXAMPLE OF THE REQUIRED STYLE:
+
+If evidence says:
+"Cultivars of some vegetable crops are genetically resistant to certain
+pests."
+
+Prefer:
+"Some vegetable crop cultivars are genetically resistant to certain
+pests [C4]."
+
+Do NOT broaden it to:
+"Choose pest-resistant crop varieties whenever possible [C4]."
+
+QUALIFIED EVIDENCE:
+{evidence}
+"""
+
+
+
 def enforce_grounded_answer_output(orchestrator: Any, answer: str) -> str:
     """Return model prose only when every citation is valid and supported.
 
@@ -88,6 +256,15 @@ def enforce_grounded_answer_output(orchestrator: Any, answer: str) -> str:
     preserves qualified evidence and valid [C#] citations without laundering
     unsupported model claims through authoritative-looking markers.
     """
+    answer = _normalize_citation_groups(answer)
+
+    # Validation may run more than once for a request. Reset attempt-local
+    # state so a successful repair cannot inherit the primary attempt's
+    # fallback/reason/detail values.
+    setattr(orchestrator, "_grounded_answer_output_fallback", False)
+    setattr(orchestrator, "_grounded_answer_output_reason", None)
+    setattr(orchestrator, "_grounded_answer_output_detail", None)
+
     plan = getattr(orchestrator, "_last_grounded_answer_plan", None)
     if plan is None:
         return answer
@@ -138,9 +315,23 @@ def enforce_grounded_answer_output(orchestrator: Any, answer: str) -> str:
                 violation = True
                 break
 
-    issue = output_issue(answer, citations) if not violation else "legacy_citation_check"
+    detail = (
+        output_issue_detail(answer, citations)
+        if not violation
+        else {
+            "reason": "legacy_citation_check",
+            "sentence_index": None,
+            "sentence": None,
+            "citation_ids": [],
+        }
+    )
+    issue = detail["reason"] if detail else None
+
+    setattr(orchestrator, "_grounded_answer_output_detail", detail)
+
     if not violation and issue is None:
         return answer
+
     setattr(orchestrator, "_grounded_answer_output_reason", issue)
 
     fallback = source_excerpt_answer(plan)

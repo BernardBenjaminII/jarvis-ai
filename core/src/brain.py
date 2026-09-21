@@ -163,6 +163,22 @@ def synthesize_grounded_answer(synthesis_prompt: str):
         "\n\nJARVIS KNOWLEDGE GROUNDING:",
         1,
     )[0].strip()
+
+    # The Executive pipeline may carry both an intermediate raw-grounding
+    # representation and the final GroundedAnswerEngine contract. The model
+    # should synthesize from the final contract only: it already contains the
+    # primary task, qualified evidence, citation mapping, knowledge state,
+    # conflicts, and output requirements.
+    grounded_contract_marker = "JARVIS GROUNDED ANSWER CONTRACT:"
+    grounded_contract_pos = synthesis_prompt.find(grounded_contract_marker)
+
+    if grounded_contract_pos >= 0:
+        model_synthesis_prompt = synthesis_prompt[grounded_contract_pos:].strip()
+    else:
+        # Preserve compatibility for callers that do not yet supply the final
+        # grounded-answer contract.
+        model_synthesis_prompt = synthesis_prompt
+
     classification = classify_intent(operator_input)
 
     intent = classification["intent"]
@@ -182,15 +198,19 @@ def synthesize_grounded_answer(synthesis_prompt: str):
     )
 
     response = query_llm(
-        prompt=build_prompt(
-            context,
-            synthesis_prompt,
-            intent,
-        ),
+        # Grounded synthesis already carries the operator question,
+        # catalog grounding, knowledge state, grounded-answer contract,
+        # qualified evidence, and citation mapping. Do not wrap it in the
+        # legacy conversational prompt: that duplicates the system prompt
+        # and obscures the grounded-answer contract inside a much larger
+        # user payload. The dedicated Ollama system field below remains the
+        # authoritative conversational/system instruction layer.
+        prompt=model_synthesis_prompt,
         model=model,
         max_tokens=plan["max_tokens"],
         temperature=plan["temperature"],
         system=build_system_prompt(intent, context),
+        context_window=16384,
     )
 
     return (

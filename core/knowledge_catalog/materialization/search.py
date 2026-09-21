@@ -307,19 +307,26 @@ def search_runtime_knowledge(
     """
     Runtime knowledge retrieval.
 
-    GENESIS_RECALL_R4_R11_A5_R9_R11
+    GENESIS_RECALL_R4_R11_A5_R9_R12
 
-    The production semantic/hybrid retrieval pipeline is now the
-    primary runtime retrieval path.
+    The production semantic/hybrid retrieval pipeline is the primary
+    runtime retrieval path.
 
-    HybridSemanticRetrievalService already performs semantic vector
-    retrieval, lexical/title reranking, deduplication, source-family
-    suppression, canonical/fragment competition, and diversity
-    handling.
+    Exact lexical FTS recall is evaluated alongside semantic/hybrid
+    retrieval so newly materialized exact-topic evidence remains
+    available.
 
-    This adapter preserves the historical row contract consumed by
-    qualified_search while carrying the certified modern retrieval
-    scores forward explicitly.
+    When both retrieval lanes identify the same runtime chunk, their
+    evidence is MERGED rather than allowing the lexical row to suppress
+    the certified semantic/hybrid scores.
+
+    This preserves:
+      - full runtime chunk text from lexical recall,
+      - exact lexical recall compatibility,
+      - semantic score,
+      - hybrid score,
+      - production hybrid confidence,
+      - durable chunk/document identity.
 
     Read only. No database mutation occurs here.
     """
@@ -341,6 +348,8 @@ def search_runtime_knowledge(
         / "semantic_index.sqlite"
     )
 
+    requested_limit = max(1, int(limit))
+
     service = HybridSemanticRetrievalService(
         runtime_catalog=runtime_catalog,
         semantic_db=semantic_db,
@@ -348,84 +357,147 @@ def search_runtime_knowledge(
 
     result = service.search(
         normalized,
-        top_k=max(1, int(limit)),
+        top_k=requested_limit,
         candidate_pool=max(
             50,
-            max(1, int(limit)),
+            requested_limit,
         ),
     )
 
-    # Exact lexical recall is evaluated alongside semantic retrieval.  Put it
-    # first so newly materialized, exact-topic evidence cannot be crowded out
-    # by a stale semantic candidate pool.  Qualification remains authoritative.
+    # ------------------------------------------------------------------
+    # Exact lexical recall.
+    #
+    # Keep lexical evidence first so exact-topic material cannot be
+    # crowded out merely because semantic coverage is incomplete.
+    # ------------------------------------------------------------------
+
     output = _lexical_fts_rows(
         normalized,
         db_path=runtime_catalog,
-        limit=max(1, int(limit)),
+        limit=requested_limit,
     )
 
-    seen_chunk_ids = {
-        int(row["chunk_id"])
-        for row in output
-    }
+    # Index existing lexical rows by durable runtime chunk identity.
+    #
+    # IMPORTANT:
+    # Previous behavior used a seen_chunk_ids set and skipped hybrid
+    # candidates whose chunk had already been found by FTS. That erased
+    # the semantic/hybrid scores for exactly the chunks where both lanes
+    # agreed.
+    rows_by_chunk_id: dict[int, dict[str, Any]] = {}
 
-    for candidate in result.candidates:
-        chunk_id = int(candidate.runtime_chunk_id)
+    for row in output:
+        chunk_id = row.get("chunk_id")
 
-        if chunk_id in seen_chunk_ids:
+        if chunk_id is None:
             continue
 
-        seen_chunk_ids.add(chunk_id)
-        output.append(
-            {
-                "subject": str(
-                    candidate.document_title
-                    or "runtime knowledge"
-                ),
-                "title": str(
-                    candidate.document_title
-                    or "runtime knowledge"
-                ),
-                "file_path": str(
-                    candidate.file_path
-                    or ""
-                ),
-                "source_path": str(
-                    candidate.file_path
-                    or ""
-                ),
-                "chunk_id": chunk_id,
-                "document_id": int(
-                    candidate.runtime_document_id
-                ),
-                "excerpt": str(
-                    candidate.text_preview
-                    or ""
-                ),
-                "chunk_text": str(
-                    candidate.text_preview
-                    or ""
-                ),
+        rows_by_chunk_id[int(chunk_id)] = row
 
-                # Certified modern retrieval signals.
-                "hybrid_score": float(
-                    candidate.hybrid_score
-                ),
-                "semantic_score": float(
-                    candidate.semantic_score
-                ),
+    # ------------------------------------------------------------------
+    # Merge semantic/hybrid evidence.
+    # ------------------------------------------------------------------
 
-                # Preserve the historical confidence field for
-                # downstream compatibility. It now reflects the
-                # selected production hybrid score rather than an
-                # unrelated ordinal BM25 conversion.
-                "confidence": float(
-                    candidate.hybrid_score
-                ),
+    for candidate in result.candidates:
 
-                "assigned_by":
-                    "runtime_semantic_hybrid",
-            }
+        chunk_id = int(candidate.runtime_chunk_id)
+
+        hybrid_score = float(
+            candidate.hybrid_score
         )
 
-    return output[:max(1, int(limit))]
+        semantic_score = float(
+            candidate.semantic_score
+        )
+
+        existing = rows_by_chunk_id.get(chunk_id)
+
+        if existing is not None:
+            # ----------------------------------------------------------
+            # Same runtime evidence discovered independently by both
+            # retrieval lanes.
+            #
+            # Preserve the full lexical chunk text, but attach the
+            # certified modern retrieval signals.
+            # ----------------------------------------------------------
+
+            existing["hybrid_score"] = hybrid_score
+            existing["semantic_score"] = semantic_score
+
+            # Preserve the original lexical confidence for diagnostics.
+            lexical_confidence = existing.get("confidence")
+
+            if lexical_confidence is not None:
+                try:
+                    existing["lexical_confidence"] = float(
+                        lexical_confidence
+                    )
+                except (TypeError, ValueError):
+                    pass
+
+            # Production confidence should represent the strongest
+            # modern retrieval judgment once hybrid evidence exists.
+            existing["confidence"] = hybrid_score
+
+            existing["assigned_by"] = (
+                "runtime_fts_semantic_hybrid"
+            )
+
+            existing["retrieval_lanes"] = [
+                "runtime_fts_recall",
+                "runtime_semantic_hybrid",
+            ]
+
+            continue
+
+        # --------------------------------------------------------------
+        # Semantic/hybrid-only candidate.
+        # --------------------------------------------------------------
+
+        row = {
+            "subject": str(
+                candidate.document_title
+                or "runtime knowledge"
+            ),
+            "title": str(
+                candidate.document_title
+                or "runtime knowledge"
+            ),
+            "file_path": str(
+                candidate.file_path
+                or ""
+            ),
+            "source_path": str(
+                candidate.file_path
+                or ""
+            ),
+            "chunk_id": chunk_id,
+            "document_id": int(
+                candidate.runtime_document_id
+            ),
+            "excerpt": str(
+                candidate.text_preview
+                or ""
+            ),
+            "chunk_text": str(
+                candidate.text_preview
+                or ""
+            ),
+
+            "hybrid_score": hybrid_score,
+            "semantic_score": semantic_score,
+
+            "confidence": hybrid_score,
+
+            "assigned_by":
+                "runtime_semantic_hybrid",
+
+            "retrieval_lanes": [
+                "runtime_semantic_hybrid",
+            ],
+        }
+
+        output.append(row)
+        rows_by_chunk_id[chunk_id] = row
+
+    return output[:requested_limit]

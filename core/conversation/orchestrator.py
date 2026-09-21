@@ -308,12 +308,215 @@ class ExecutiveConversationOrchestrator:
 
         answer = self._normalize_answer(synthesis_result)
 
+        # GENESIS_GROUNDED_OUTPUT_DIAGNOSTIC_R1
+        # Preserve the model response before grounded-output enforcement.
+        # Diagnostic only: this does not alter validation or user-visible output.
+        self._grounded_answer_pre_enforcement = answer
+        self._grounded_answer_output_reason = None
+
         if knowledge_state is not None:
             from core.conversation.grounded_answer.integration import (
+                build_grounded_answer_repair_prompt,
                 enforce_grounded_answer_output,
             )
 
-            answer = enforce_grounded_answer_output(self, answer)
+            primary_answer = answer
+            answer = enforce_grounded_answer_output(
+                self,
+                primary_answer,
+            )
+
+            primary_failed = bool(
+                getattr(
+                    self,
+                    "_grounded_answer_output_fallback",
+                    False,
+                )
+            )
+
+            self._grounded_answer_repair_attempted = False
+            self._grounded_answer_repair_input = None
+            self._grounded_answer_repair_output = None
+            self._grounded_answer_repair_reason = None
+            self._grounded_answer_repair_detail = None
+            self._grounded_answer_repair_accepted = None
+            self._grounded_answer_primary_failure_reason = None
+            self._grounded_answer_primary_failure_detail = None
+
+            # One constrained repair attempt is permitted when qualified
+            # evidence exists but the primary model answer fails grounded
+            # output validation. The same validators are then applied again.
+            if primary_failed and grounded_state != "unknown":
+                repair_prompt = build_grounded_answer_repair_prompt(
+                    self,
+                    primary_answer,
+                )
+
+                if repair_prompt:
+                    primary_failure_reason = getattr(
+                        self,
+                        "_grounded_answer_output_reason",
+                        None,
+                    )
+                    primary_failure_detail = getattr(
+                        self,
+                        "_grounded_answer_output_detail",
+                        None,
+                    )
+
+                    self._grounded_answer_repair_attempted = True
+                    self._grounded_answer_repair_input = repair_prompt
+
+                    repair_result = self.synthesis_handler(
+                        repair_prompt
+                    )
+                    repair_answer = self._normalize_answer(
+                        repair_result
+                    )
+
+                    self._grounded_answer_repair_output = (
+                        repair_answer
+                    )
+
+                    answer = enforce_grounded_answer_output(
+                        self,
+                        repair_answer,
+                    )
+
+                    repair_failed = bool(
+                        getattr(
+                            self,
+                            "_grounded_answer_output_fallback",
+                            False,
+                        )
+                    )
+
+                    self._grounded_answer_repair_accepted = (
+                        not repair_failed
+                    )
+                    self._grounded_answer_repair_detail = getattr(
+                        self,
+                        "_grounded_answer_output_detail",
+                        None,
+                    )
+
+                    if repair_failed:
+                        self._grounded_answer_repair_reason = (
+                            getattr(
+                                self,
+                                "_grounded_answer_output_reason",
+                                None,
+                            )
+                        )
+                    else:
+                        self._grounded_answer_repair_reason = None
+
+                    # Preserve the original failure separately for
+                    # request-local diagnostics.
+                    self._grounded_answer_primary_failure_reason = (
+                        primary_failure_reason
+                    )
+                    self._grounded_answer_primary_failure_detail = (
+                        primary_failure_detail
+                    )
+
+        # GENESIS_GROUNDED_OUTPUT_DIAGNOSTIC_R2
+        # Transport request-local synthesis/validation diagnostics with the
+        # result. The orchestrator executes on a request-local worker copy,
+        # so these values must not be read from the process-wide instance.
+        if technical_details is None:
+            technical_details = {}
+        elif not isinstance(technical_details, dict):
+            technical_details = {
+                "synthesis_technical_details": technical_details,
+            }
+        else:
+            technical_details = dict(technical_details)
+
+        technical_details["grounded_output_diagnostic"] = {
+            "pre_enforcement_answer": getattr(
+                self,
+                "_grounded_answer_pre_enforcement",
+                None,
+            ),
+            "fallback": getattr(
+                self,
+                "_grounded_answer_output_fallback",
+                None,
+            ),
+            "reason": getattr(
+                self,
+                "_grounded_answer_output_reason",
+                None,
+            ),
+            "plan_state": str(
+                getattr(
+                    getattr(
+                        getattr(self, "_last_grounded_answer_plan", None),
+                        "state",
+                        None,
+                    ),
+                    "value",
+                    getattr(
+                        getattr(
+                            getattr(self, "_last_grounded_answer_plan", None),
+                            "state",
+                            None,
+                        ),
+                        "value",
+                        "",
+                    ),
+                )
+            ),
+            "citation_ids": [
+                getattr(citation, "citation_id", None)
+                for citation in (
+                    getattr(
+                        getattr(self, "_last_grounded_answer_plan", None),
+                        "citations",
+                        (),
+                    )
+                    or ()
+                )
+            ],
+            "primary_failure_reason": getattr(
+                self,
+                "_grounded_answer_primary_failure_reason",
+                None,
+            ),
+            "primary_failure_detail": getattr(
+                self,
+                "_grounded_answer_primary_failure_detail",
+                None,
+            ),
+            "repair": {
+                "attempted": getattr(
+                    self,
+                    "_grounded_answer_repair_attempted",
+                    False,
+                ),
+                "accepted": getattr(
+                    self,
+                    "_grounded_answer_repair_accepted",
+                    None,
+                ),
+                "reason": getattr(
+                    self,
+                    "_grounded_answer_repair_reason",
+                    None,
+                ),
+                "detail": getattr(
+                    self,
+                    "_grounded_answer_repair_detail",
+                    None,
+                ),
+                "output": getattr(
+                    self,
+                    "_grounded_answer_repair_output",
+                    None,
+                ),
+            },
+        }
 
         trace.append(ConversationTraceEvent(
             stage="executive.synthesis",

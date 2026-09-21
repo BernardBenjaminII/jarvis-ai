@@ -10,36 +10,142 @@ def terms(text):
     return {w.lower() for w in re.findall(r'[A-Za-z]{3,}', text) if w.lower() not in STOP}
 
 def sentences(text):
-    # Retain citation parentheses with their sentence; protect decimal values.
-    text = re.sub(r'^\[JARVIS/[^\]]+\]\s*', '', text.strip())
-    return [s.strip(' -*\t') for s in re.split(r'(?<=[.!?])\s+(?=[A-Z\[(])|\n+', text) if s.strip()]
+    """Split prose while preserving numbered-list items as sentences."""
+    text = re.sub(
+        r'^\[JARVIS/[^\]]+\]\s*',
+        '',
+        str(text or '').strip(),
+    )
+
+    # Numbered list items often arrive on one line:
+    #
+    #   1. First item. 2. Second item.
+    #
+    # Protect list ordinals before ordinary sentence splitting so ``1.``
+    # never becomes an independent sentence.
+    ordinal_token = "__JARVIS_ORDINAL_{}__"
+
+    ordinals = []
+
+    def protect_ordinal(match):
+        ordinals.append(match.group(1))
+        return ordinal_token.format(len(ordinals) - 1)
+
+    protected = re.sub(
+        r'(?<!\d)(\d+)\.\s+(?=[A-Z])',
+        protect_ordinal,
+        text,
+    )
+
+    parts = [
+        part.strip(' -*\t')
+        for part in re.split(
+            r'(?<=[.!?])\s+(?=[A-Z\[(])|\n+',
+            protected,
+        )
+        if part.strip()
+    ]
+
+    restored = []
+
+    for part in parts:
+        for index, number in enumerate(ordinals):
+            part = part.replace(
+                ordinal_token.format(index),
+                f"{number}. ",
+            )
+
+        restored.append(part.strip())
+
+    return restored
+
+
+def output_issue_detail(answer, citations):
+    """Return structured details for the first output-quality violation."""
+    mapping = {c.citation_id: c.excerpt for c in citations}
+
+    for index, sentence in enumerate(sentences(answer), start=1):
+        ids = MARKER.findall(sentence)
+
+        def issue(reason, **extra):
+            return {
+                "reason": reason,
+                "sentence_index": index,
+                "sentence": sentence,
+                "citation_ids": ids,
+                **extra,
+            }
+
+        if PAGE.search(sentence):
+            return issue("page_locator_not_supported_by_citation_schema")
+
+        if ABSENCE.search(sentence):
+            return issue("unverified_source_absence_claim")
+
+        if not ids:
+            # A colon-terminated lead-in or heading may organize the answer
+            # without asserting an independently checkable factual claim.
+            # Keep the exemption narrow: numbered statements and source-
+            # absence claims remain subject to validation.
+            if (
+                sentence.endswith(":")
+                and not re.search(r"\\b\\d+(?:[.,]\\d+)*\\b", sentence)
+                and not ABSENCE.search(sentence)
+            ):
+                continue
+
+            if sentence == "Evidence is relevant but incomplete.":
+                continue
+
+            return issue("uncited_sentence")
+
+        unknown = [i for i in ids if i not in mapping]
+        if unknown:
+            return issue(
+                "unknown_citation",
+                unknown_citation_ids=unknown,
+            )
+
+        claim = MARKER.sub("", sentence)
+        evidence = " ".join(mapping[i] for i in ids)
+
+        a = terms(claim)
+        b = terms(evidence)
+
+        overlap_ratio = (
+            len(a & b) / len(a)
+            if a
+            else 0.0
+        )
+
+        if not a or overlap_ratio < .45:
+            return issue(
+                "weak_sentence_support",
+                term_overlap_ratio=overlap_ratio,
+            )
+
+        numbers = set(
+            re.findall(r"\\b\\d+(?:[.,]\\d+)*\\b", claim)
+        )
+        evidence_numbers = set(
+            re.findall(r"\\b\\d+(?:[.,]\\d+)*\\b", evidence)
+        )
+
+        unsupported_numbers = sorted(numbers - evidence_numbers)
+
+        if unsupported_numbers:
+            return issue(
+                "unsupported_number",
+                unsupported_numbers=unsupported_numbers,
+            )
+
+    return None
+
 
 def output_issue(answer, citations):
-    mapping = {c.citation_id: c.excerpt for c in citations}
-    for sentence in sentences(answer):
-        ids = MARKER.findall(sentence)
-        if PAGE.search(sentence):
-            return 'page_locator_not_supported_by_citation_schema'
-        if ABSENCE.search(sentence):
-            return 'unverified_source_absence_claim'
-        if not ids:
-            # Short headings and the exact evidence limitation are permitted.
-            if sentence.endswith(':') and len(sentence.split()) <= 8:
-                continue
-            if sentence == 'Evidence is relevant but incomplete.':
-                continue
-            return 'uncited_sentence'
-        if any(i not in mapping for i in ids):
-            return 'unknown_citation'
-        claim = MARKER.sub('', sentence)
-        evidence = ' '.join(mapping[i] for i in ids)
-        a, b = terms(claim), terms(evidence)
-        if not a or len(a & b) / len(a) < .45:
-            return 'weak_sentence_support'
-        numbers = set(re.findall(r'\b\d+(?:[.,]\d+)*\b', claim))
-        if not numbers <= set(re.findall(r'\b\d+(?:[.,]\d+)*\b', evidence)):
-            return 'unsupported_number'
-    return None
+    """Backward-compatible reason-only output-quality check."""
+    detail = output_issue_detail(answer, citations)
+    return detail["reason"] if detail else None
 
 def source_excerpt_answer(plan):
     """Quote short, query-matching source sentences; never invent a paraphrase."""
