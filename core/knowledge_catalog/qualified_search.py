@@ -509,13 +509,15 @@ def _gate_repair_should_rescue(
     if phrase_match:
         return True, "exact_core_phrase"
 
-    # For 3+ meaningful terms, complete token coverage can substitute
-    # for adjacency because OCR and PDF extraction frequently split
-    # words/phrases irregularly.
-    if len(tokens) >= 3:
-        return True, "complete_core_term_coverage"
-
-    return False, "two_term_query_requires_phrase"
+    # Complete token coverage alone is not sufficient evidence of
+    # topical identity.  Unrelated domains can contain every query term
+    # while using those terms in different semantic relationships.
+    #
+    # OCR-tolerant rescue remains available above through the stronger
+    # subject-aligned path.  This final path therefore requires the
+    # exact core phrase rather than padding the result set with merely
+    # co-occurring query terms.
+    return False, "core_phrase_required"
 
 
 
