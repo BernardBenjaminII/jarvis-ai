@@ -8,12 +8,13 @@ from .state_department import StateDepartmentTravelAdvisoryProvider
 from .nuclear_sites import NuclearSiteProvider
 from .nuclear_events import NrcEventProvider
 from .security_news import default_security_providers, group_reports
+from .global_security import global_security_providers
 
 COLLECTIONS={'incidents':'incidents','sites':'nuclear_sites','events':'nuclear_events','security_events':'security_events'}
 
 class SitrepService:
     def __init__(self, *, providers=None, cache_ttl_seconds=900.0, monotonic=time.monotonic):
-        self._providers=tuple(providers) if providers is not None else (StateDepartmentTravelAdvisoryProvider(),NuclearSiteProvider(),NrcEventProvider(),*default_security_providers())
+        self._providers=tuple(providers) if providers is not None else (StateDepartmentTravelAdvisoryProvider(),NuclearSiteProvider(),NrcEventProvider(),*default_security_providers(),*global_security_providers())
         self._cache_ttl_seconds=cache_ttl_seconds
         self._monotonic=monotonic
         self._lock=threading.RLock()

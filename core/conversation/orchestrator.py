@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from copy import copy
+from time import perf_counter
 from typing import Any, Callable
 
 from core.conversation.contracts import ConversationTraceEvent, ExecutiveRequestContext
@@ -100,6 +101,19 @@ class ExecutiveConversationOrchestrator:
         return worker._execute_request(context)
 
     def _execute_request(self, context: ExecutiveRequestContext) -> OrchestrationResult:
+        # GENESIS_PERFORMANCE_R1
+        perf_started = perf_counter()
+        perf_trace = {
+            "grounding_ms": None,
+            "synthesis_preparation_ms": None,
+            "primary_llm_ms": None,
+            "primary_validation_ms": None,
+            "repair_prompt_ms": None,
+            "repair_llm_ms": None,
+            "repair_validation_ms": None,
+            "orchestration_total_ms": None,
+        }
+
         from core.conversation.request_routing import request_route, runtime_answer
         route = request_route(context.operator_input)
         if route == "runtime":
@@ -184,7 +198,11 @@ class ExecutiveConversationOrchestrator:
                 status="processing",
                 detail="Searching the canonical knowledge catalog for objective evidence.",
             ))
+            _perf_stage = perf_counter()
             grounding = self.grounding_service.ground(context)
+            perf_trace["grounding_ms"] = round(
+                (perf_counter() - _perf_stage) * 1000.0, 2
+            )
 
             # Snapshot the qualification produced by this request before
             # director execution can perform another catalog search and
@@ -268,6 +286,7 @@ class ExecutiveConversationOrchestrator:
             status="processing",
             detail="Synthesizing director activity and grounded evidence.",
         ))
+        _perf_stage = perf_counter()
         synthesis_input = context.operator_input
         if grounding is not None:
             synthesis_input = grounding.synthesis_input(synthesis_input)
@@ -284,10 +303,15 @@ class ExecutiveConversationOrchestrator:
                 synthesis_input,
                 qualification=grounding_qualification,
             )
+        perf_trace["synthesis_preparation_ms"] = round(
+            (perf_counter() - _perf_stage) * 1000.0, 2
+        )
+
         grounded_plan = getattr(self, "_last_grounded_answer_plan", None)
         grounded_state = str(
             getattr(getattr(grounded_plan, "state", None), "value", "")
         ).casefold()
+        _perf_stage = perf_counter()
         if grounded_plan is not None and grounded_state == "unknown":
             # Fail closed before the model is invoked.  UNKNOWN means there is
             # no qualified basis for synthesis; model knowledge and web-style
@@ -301,6 +325,10 @@ class ExecutiveConversationOrchestrator:
             ).engine.deterministic_answer(grounded_plan)
         else:
             synthesis_result = self.synthesis_handler(synthesis_input)
+        perf_trace["primary_llm_ms"] = round(
+            (perf_counter() - _perf_stage) * 1000.0, 2
+        )
+
         technical_details = None
 
         if isinstance(synthesis_result, dict):
@@ -321,9 +349,13 @@ class ExecutiveConversationOrchestrator:
             )
 
             primary_answer = answer
+            _perf_stage = perf_counter()
             answer = enforce_grounded_answer_output(
                 self,
                 primary_answer,
+            )
+            perf_trace["primary_validation_ms"] = round(
+                (perf_counter() - _perf_stage) * 1000.0, 2
             )
 
             primary_failed = bool(
@@ -347,9 +379,13 @@ class ExecutiveConversationOrchestrator:
             # evidence exists but the primary model answer fails grounded
             # output validation. The same validators are then applied again.
             if primary_failed and grounded_state != "unknown":
+                _perf_stage = perf_counter()
                 repair_prompt = build_grounded_answer_repair_prompt(
                     self,
                     primary_answer,
+                )
+                perf_trace["repair_prompt_ms"] = round(
+                    (perf_counter() - _perf_stage) * 1000.0, 2
                 )
 
                 if repair_prompt:
@@ -367,8 +403,12 @@ class ExecutiveConversationOrchestrator:
                     self._grounded_answer_repair_attempted = True
                     self._grounded_answer_repair_input = repair_prompt
 
+                    _perf_stage = perf_counter()
                     repair_result = self.synthesis_handler(
                         repair_prompt
+                    )
+                    perf_trace["repair_llm_ms"] = round(
+                        (perf_counter() - _perf_stage) * 1000.0, 2
                     )
                     repair_answer = self._normalize_answer(
                         repair_result
@@ -378,9 +418,13 @@ class ExecutiveConversationOrchestrator:
                         repair_answer
                     )
 
+                    _perf_stage = perf_counter()
                     answer = enforce_grounded_answer_output(
                         self,
                         repair_answer,
+                    )
+                    perf_trace["repair_validation_ms"] = round(
+                        (perf_counter() - _perf_stage) * 1000.0, 2
                     )
 
                     repair_failed = bool(
@@ -432,6 +476,11 @@ class ExecutiveConversationOrchestrator:
             }
         else:
             technical_details = dict(technical_details)
+
+        perf_trace["orchestration_total_ms"] = round(
+            (perf_counter() - perf_started) * 1000.0, 2
+        )
+        technical_details["performance_r1"] = perf_trace
 
         technical_details["grounded_output_diagnostic"] = {
             "pre_enforcement_answer": getattr(

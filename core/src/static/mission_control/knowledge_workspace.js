@@ -19,6 +19,13 @@
         mounted: false,
         submitting: false,
         sessionId: null,
+
+        // SITREP R8 executive projection
+        sitrepSnapshot: null,
+        sitrepLoading: false,
+        sitrepTimer: null,
+        sitrepScrollTimer: null,
+        sitrepScrollIndex: 0,
     };
 
     const byId = (id) => document.getElementById(id);
@@ -717,37 +724,637 @@
         }
     }
 
+
+    /*
+     * SITREP R8 — compact Executive security projection.
+     * Uses the same authoritative /operations/sitrep endpoint as
+     * the full SITREP workspace. It does not invent placeholder events.
+     */
+
+    function sitrepSeverity(item) {
+        const raw = value(item?.severity).trim().toLowerCase();
+
+        if (["critical", "severe", "extreme"].includes(raw)) {
+            return "critical";
+        }
+
+        if (["high", "major"].includes(raw)) {
+            return "high";
+        }
+
+        if (["medium", "moderate", "watch"].includes(raw)) {
+            return "medium";
+        }
+
+        return "low";
+    }
+
+    function sitrepSeverityRank(item) {
+        return {
+            critical: 4,
+            high: 3,
+            medium: 2,
+            low: 1,
+        }[sitrepSeverity(item)] || 0;
+    }
+
+    function sitrepWhen(item) {
+        const raw = item?.published_at;
+
+        if (!raw) {
+            return "TIME N/A";
+        }
+
+        const date = new Date(raw);
+
+        if (Number.isNaN(date.getTime())) {
+            return "TIME N/A";
+        }
+
+        return date.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+    }
+
+    function sitrepAge(item) {
+        const raw = item?.published_at;
+
+        if (!raw) {
+            return 0;
+        }
+
+        const timestamp = new Date(raw).getTime();
+        return Number.isFinite(timestamp) ? timestamp : 0;
+    }
+
+    function sitrepVisibleEvents(snapshot) {
+        const events = Array.isArray(snapshot?.security_events)
+            ? snapshot.security_events.slice()
+            : [];
+
+        if (!events.length) {
+            return [];
+        }
+
+        const LIMIT = 20;
+
+        const severityRank = {
+            critical: 6,
+            extreme: 6,
+            severe: 6,
+            high: 5,
+            major: 5,
+            medium: 4,
+            moderate: 4,
+            watch: 3,
+            low: 2,
+            info: 1,
+        };
+
+        const domainOrder = [
+            "military",
+            "physical",
+            "aviation",
+            "maritime",
+            "cyber",
+            "disaster",
+            "reference",
+        ];
+
+        function timestamp(event) {
+            const value = Date.parse(
+                event?.published_at || ""
+            );
+
+            return Number.isFinite(value)
+                ? value
+                : 0;
+        }
+
+        function priority(event) {
+            const fusion = Number(
+                event?.fusion_score
+            );
+
+            if (Number.isFinite(fusion)) {
+                return fusion;
+            }
+
+            const severity = String(
+                event?.severity || "low"
+            ).toLowerCase();
+
+            return (
+                (severityRank[severity] || 0) * 100
+            );
+        }
+
+        function compare(a, b) {
+            const scoreDelta =
+                priority(b) - priority(a);
+
+            if (scoreDelta !== 0) {
+                return scoreDelta;
+            }
+
+            return timestamp(b) - timestamp(a);
+        }
+
+        events.sort(compare);
+
+        /*
+         * Reserve representation for every active operational
+         * domain. This is a display-balancing rule, not an
+         * intelligence-confidence judgment.
+         *
+         * Two records are reserved for each active core domain
+         * when possible. Remaining positions are filled globally
+         * by fusion priority.
+         */
+        const CORE_RESERVE = 2;
+
+        const buckets = new Map();
+
+        for (const event of events) {
+            const category = String(
+                event?.category || "physical"
+            ).toLowerCase();
+
+            if (!buckets.has(category)) {
+                buckets.set(category, []);
+            }
+
+            buckets.get(category).push(event);
+        }
+
+        for (const bucket of buckets.values()) {
+            bucket.sort(compare);
+        }
+
+        const selected = [];
+        const selectedIds = new Set();
+
+        function identity(event) {
+            return String(
+                event?.id ||
+                [
+                    event?.category || "",
+                    event?.published_at || "",
+                    event?.title || "",
+                ].join("|")
+            );
+        }
+
+        function add(event) {
+            if (!event || selected.length >= LIMIT) {
+                return;
+            }
+
+            const id = identity(event);
+
+            if (selectedIds.has(id)) {
+                return;
+            }
+
+            selectedIds.add(id);
+            selected.push(event);
+        }
+
+        // Known operational domains first.
+        for (const category of domainOrder) {
+            const bucket = buckets.get(category);
+
+            if (!bucket?.length) {
+                continue;
+            }
+
+            for (
+                let i = 0;
+                i < Math.min(
+                    CORE_RESERVE,
+                    bucket.length
+                );
+                i += 1
+            ) {
+                add(bucket[i]);
+            }
+        }
+
+        /*
+         * Future/unknown categories should not disappear simply
+         * because the UI predates them. Give each one a single
+         * representative if room remains.
+         */
+        const known = new Set(domainOrder);
+
+        for (const [category, bucket] of buckets) {
+            if (
+                known.has(category) ||
+                !bucket.length ||
+                selected.length >= LIMIT
+            ) {
+                continue;
+            }
+
+            add(bucket[0]);
+        }
+
+        // Fill all remaining positions from global priority.
+        for (const event of events) {
+            if (selected.length >= LIMIT) {
+                break;
+            }
+
+            add(event);
+        }
+
+        // Domain reservation controls inclusion only.
+        // Actual presentation remains priority ordered.
+        selected.sort(compare);
+
+        return selected.slice(0, LIMIT);
+    }
+
+    function renderSitrepProjection(snapshot) {
+        if (!byId("knowledge-sitrep")) {
+            return;
+        }
+
+        state.sitrepSnapshot = snapshot;
+
+        const events = sitrepVisibleEvents(snapshot);
+        const operationalState =
+            value(snapshot?.operational_state, "UNAVAILABLE").toUpperCase();
+
+        const counts = {
+            critical: 0,
+            high: 0,
+            medium: 0,
+            low: 0,
+        };
+
+        events.forEach((item) => {
+            counts[sitrepSeverity(item)] += 1;
+        });
+
+        const metric = (id, number) => {
+            const element = byId(id);
+
+            if (element) {
+                element.textContent = String(number);
+            }
+        };
+
+        metric("knowledge-sitrep-critical", counts.critical);
+        metric("knowledge-sitrep-high", counts.high);
+        metric("knowledge-sitrep-medium", counts.medium);
+        metric("knowledge-sitrep-low", counts.low);
+        metric("knowledge-sitrep-total", events.length);
+
+        /*
+         * R8.3 DATASET VISIBILITY
+         *
+         * The executive feed is intentionally bounded, but this
+         * summary describes the complete normalized backend dataset.
+         * Counts are descriptive only; fusion_score remains a
+         * presentation/triage score, not verification.
+         */
+        const allEvents = Array.isArray(snapshot?.security_events)
+            ? snapshot.security_events
+            : [];
+
+        const categoryCounts = allEvents.reduce(
+            (counts, item) => {
+                const category = String(
+                    item?.category || "unknown"
+                ).toLowerCase();
+
+                counts[category] =
+                    (counts[category] || 0) + 1;
+
+                return counts;
+            },
+            {},
+        );
+
+        const corpus = byId("knowledge-sitrep-corpus");
+
+        if (corpus) {
+            const orderedCategories = [
+                "military",
+                "physical",
+                "aviation",
+                "maritime",
+                "cyber",
+                "disaster",
+                "reference",
+            ];
+
+            const known = new Set(orderedCategories);
+
+            const categoryParts = orderedCategories
+                .filter((name) => categoryCounts[name])
+                .map(
+                    (name) =>
+                        `${name.toUpperCase()} ${categoryCounts[name]}`
+                );
+
+            Object.keys(categoryCounts)
+                .filter((name) => !known.has(name))
+                .sort()
+                .forEach((name) => {
+                    categoryParts.push(
+                        `${name.toUpperCase()} ${categoryCounts[name]}`
+                    );
+                });
+
+            corpus.innerHTML = `
+                <strong>${allEvents.length} INGESTED</strong>
+                <span>${events.length} PRIORITY DISPLAYED</span>
+                ${
+                    categoryParts.length
+                        ? `<span>${escapeHtml(categoryParts.join(" · "))}</span>`
+                        : ""
+                }
+            `;
+        }
+
+        const status = byId("knowledge-sitrep-state");
+
+        if (status) {
+            status.textContent = operationalState;
+            status.dataset.state = operationalState.toLowerCase();
+        }
+
+        const feed = byId("knowledge-sitrep-feed");
+
+        if (feed) {
+            if (!events.length) {
+                feed.innerHTML = `
+                    <div class="knowledge-sitrep-placeholder">
+                        ${
+                            snapshot?.refreshing
+                                ? "Fetching security sources…"
+                                : "No current security reports are available. An empty queue does not mean there are no threats."
+                        }
+                    </div>
+                `;
+            } else {
+                feed.innerHTML = events
+                    .map((item, index) => {
+                        const severity = sitrepSeverity(item);
+                        const source =
+                            item?.source?.publisher ||
+                            item?.sources?.[0]?.publisher ||
+                            "SOURCE";
+
+                        const reports =
+                            Number(item?.report_count || 1);
+
+                        return `
+                            <article
+                                class="knowledge-sitrep-item severity-${severity}"
+                                data-sitrep-index="${index}"
+                            >
+                                <div class="knowledge-sitrep-severity">
+                                    ${escapeHtml(severity.toUpperCase())}
+                                </div>
+
+                                <time>
+                                    ${escapeHtml(sitrepWhen(item))}
+                                </time>
+
+                                <div class="knowledge-sitrep-event">
+                                    <strong>
+                                        ${escapeHtml(item?.title || "Untitled security report")}
+                                    </strong>
+
+                                    <span>
+                                        ${escapeHtml(
+                                            item?.category
+                                                ? value(item.category).toUpperCase()
+                                                : "SECURITY"
+                                        )}
+                                        ·
+                                        ${escapeHtml(source)}
+                                        ${
+                                            reports > 1
+                                                ? ` · ${reports} REPORTS`
+                                                : ""
+                                        }
+                                    </span>
+                                </div>
+                            </article>
+                        `;
+                    })
+                    .join("");
+            }
+        }
+
+        const sources = Array.isArray(snapshot?.sources)
+            ? snapshot.sources
+            : [];
+
+        const liveSources =
+            sources.filter(
+                (source) =>
+                    value(source?.state).toUpperCase() === "LIVE",
+            ).length;
+
+        const health = byId("knowledge-sitrep-source-health");
+
+        if (health) {
+            let updated = "UPDATE TIME N/A";
+
+            if (snapshot?.generated_at) {
+                const date = new Date(snapshot.generated_at);
+
+                if (!Number.isNaN(date.getTime())) {
+                    updated = `UPDATED ${date.toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                    })}`;
+                }
+            }
+
+            health.textContent =
+                `${liveSources}/${sources.length} LIVE SOURCES · ${updated}`;
+        }
+
+        startSitrepRoll();
+    }
+
+    function startSitrepRoll() {
+        clearInterval(state.sitrepScrollTimer);
+
+        const feed = byId("knowledge-sitrep-feed");
+
+        if (!feed) {
+            return;
+        }
+
+        const items = [...feed.querySelectorAll(".knowledge-sitrep-item")];
+
+        if (items.length < 2) {
+            return;
+        }
+
+        state.sitrepScrollIndex = 0;
+
+        state.sitrepScrollTimer = window.setInterval(() => {
+            if (!feed.isConnected) {
+                clearInterval(state.sitrepScrollTimer);
+                return;
+            }
+
+            state.sitrepScrollIndex =
+                (state.sitrepScrollIndex + 1) % items.length;
+
+            items[state.sitrepScrollIndex].scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+            });
+        }, 4200);
+    }
+
+    async function loadSitrepProjection() {
+        if (
+            state.sitrepLoading ||
+            !byId("knowledge-sitrep")
+        ) {
+            return;
+        }
+
+        state.sitrepLoading = true;
+        clearTimeout(state.sitrepTimer);
+
+        const controller = new AbortController();
+        const timeout = window.setTimeout(
+            () => controller.abort(),
+            10000,
+        );
+
+        try {
+            const response = await fetch(
+                "/operations/sitrep",
+                {
+                    headers: {
+                        Accept: "application/json",
+                    },
+                    cache: "no-store",
+                    signal: controller.signal,
+                },
+            );
+
+            if (!response.ok) {
+                throw new Error(
+                    `SITREP request failed: ${response.status}`,
+                );
+            }
+
+            renderSitrepProjection(
+                await response.json(),
+            );
+        } catch (error) {
+            const retained = state.sitrepSnapshot
+                ? JSON.parse(
+                    JSON.stringify(state.sitrepSnapshot),
+                )
+                : {
+                    security_events: [],
+                    sources: [],
+                };
+
+            retained.operational_state =
+                state.sitrepSnapshot
+                    ? "STALE"
+                    : "UNAVAILABLE";
+
+            retained.refreshing = false;
+
+            renderSitrepProjection(retained);
+        } finally {
+            clearTimeout(timeout);
+            state.sitrepLoading = false;
+
+            state.sitrepTimer =
+                window.setTimeout(
+                    loadSitrepProjection,
+                    state.sitrepSnapshot?.refreshing
+                        ? 2500
+                        : 60000,
+                );
+        }
+    }
+
     function markup() {
         return `
 <section
     class="knowledge-workspace knowledge-workspace--conversation-first"
     aria-labelledby="knowledge-workspace-title"
 >
-    <header class="knowledge-workspace-header">
-        <div class="knowledge-workspace-identity">
-            <p class="section-eyebrow">
-                Interactive Knowledge
-            </p>
+    <section
+        class="knowledge-sitrep"
+        id="knowledge-sitrep"
+        aria-labelledby="knowledge-sitrep-title"
+    >
+        <header class="knowledge-sitrep-header">
+            <div>
+                <p class="section-eyebrow">Operational Intelligence</p>
+                <h3 id="knowledge-sitrep-title">Live Security Picture</h3>
+            </div>
 
-            <h3 id="knowledge-workspace-title">
-                JARVIS
-            </h3>
+            <span
+                id="knowledge-sitrep-state"
+                class="knowledge-sitrep-state"
+                data-state="connecting"
+            >
+                CONNECTING
+            </span>
+        </header>
 
-            <p>
-                Ask the Executive knowledge system.
-                Grounding and operational detail remain
-                available beneath the response.
-            </p>
+        <div class="knowledge-sitrep-metrics">
+            <span><strong id="knowledge-sitrep-critical">0</strong> CRITICAL</span>
+            <span><strong id="knowledge-sitrep-high">0</strong> HIGH</span>
+            <span><strong id="knowledge-sitrep-medium">0</strong> MEDIUM</span>
+            <span><strong id="knowledge-sitrep-low">0</strong> LOW / INFO</span>
+            <span><strong id="knowledge-sitrep-total">0</strong> PRIORITY</span>
         </div>
 
-        <span
-            id="knowledge-live-status"
-            class="knowledge-status-badge"
-            data-status="ready"
+        <div
+            id="knowledge-sitrep-corpus"
+            class="knowledge-sitrep-corpus"
+            aria-live="polite"
         >
-            Ready
-        </span>
-    </header>
+            Waiting for operational dataset…
+        </div>
+
+        <div
+            id="knowledge-sitrep-feed"
+            class="knowledge-sitrep-feed"
+            aria-live="polite"
+        >
+            <div class="knowledge-sitrep-placeholder">
+                Connecting to the operational picture…
+            </div>
+        </div>
+
+        <footer class="knowledge-sitrep-footer">
+            <span id="knowledge-sitrep-source-health">
+                Connecting to authoritative sources…
+            </span>
+
+            <button
+                id="knowledge-open-sitrep"
+                class="knowledge-sitrep-open"
+                type="button"
+            >
+                Open SITREP →
+            </button>
+        </footer>
+    </section>
 
 
     <main class="knowledge-conversation">
@@ -1053,6 +1660,29 @@
         );
 
         state.mounted = true;
+
+        byId("knowledge-open-sitrep")?.addEventListener(
+            "click",
+            () => {
+                const trigger = document.querySelector(
+                    '[data-command="open-sitrep"], [data-open-view="sitrep"], [data-view="sitrep"]',
+                );
+
+                if (trigger instanceof HTMLElement) {
+                    trigger.click();
+                    return;
+                }
+
+                if (
+                    window.JARVIS_WORKSPACES &&
+                    typeof window.JARVIS_WORKSPACES.open === "function"
+                ) {
+                    window.JARVIS_WORKSPACES.open("sitrep");
+                }
+            },
+        );
+
+        loadSitrepProjection();
 
         setActivity(
             "Knowledge Workspace",

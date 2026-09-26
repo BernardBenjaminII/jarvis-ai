@@ -608,3 +608,230 @@
         border-bottom: 0;
     }
 }
+
+
+/* =================================================================
+ * SITREP R8 — Executive Live Security Picture
+ * ================================================================= */
+
+.knowledge-sitrep {
+    overflow: hidden;
+    margin-bottom: 1.15rem;
+    border: 1px solid var(--knowledge-border-strong);
+    border-radius: 0.85rem;
+    background: rgba(5, 14, 12, 0.78);
+}
+
+.knowledge-sitrep-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1rem 0.7rem;
+    border-bottom: 1px solid var(--knowledge-border);
+}
+
+.knowledge-sitrep-header h3 {
+    margin: 0.12rem 0 0;
+    font-size: 1.12rem;
+}
+
+.knowledge-sitrep-state {
+    flex: 0 0 auto;
+    padding: 0.3rem 0.55rem;
+    border: 1px solid rgba(101, 239, 185, 0.3);
+    border-radius: 999px;
+    color: #65efb9;
+    font: 600 0.66rem ui-monospace, monospace;
+    letter-spacing: 0.08em;
+}
+
+.knowledge-sitrep-state[data-state="stale"],
+.knowledge-sitrep-state[data-state="unavailable"] {
+    color: #ffad42;
+    border-color: rgba(255, 173, 66, 0.38);
+}
+
+.knowledge-sitrep-metrics {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-bottom: 1px solid var(--knowledge-border);
+}
+
+.knowledge-sitrep-metrics span {
+    padding: 0.55rem 0.7rem;
+    border-right: 1px solid var(--knowledge-border);
+    color: var(--knowledge-text-muted);
+    font: 0.62rem ui-monospace, monospace;
+    letter-spacing: 0.06em;
+    text-align: center;
+}
+
+.knowledge-sitrep-metrics span:last-child {
+    border-right: 0;
+}
+
+.knowledge-sitrep-metrics strong {
+    margin-right: 0.25rem;
+    color: inherit;
+    font-size: 0.78rem;
+}
+
+#knowledge-sitrep-critical {
+    color: #ff4f64;
+}
+
+#knowledge-sitrep-high {
+    color: #ffad42;
+}
+
+.knowledge-sitrep-feed {
+    height: 12.25rem;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+.knowledge-sitrep-item {
+    display: grid;
+    grid-template-columns: 5.4rem 4.6rem minmax(0, 1fr);
+    align-items: center;
+    min-height: 4.05rem;
+    border-bottom: 1px solid var(--knowledge-border);
+    position: relative;
+}
+
+.knowledge-sitrep-item:last-child {
+    border-bottom: 0;
+}
+
+.knowledge-sitrep-item::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+}
+
+.knowledge-sitrep-item.severity-critical::before {
+    background: #ff4f64;
+}
+
+.knowledge-sitrep-item.severity-high::before {
+    background: #ffad42;
+}
+
+.knowledge-sitrep-item.severity-medium::before {
+    background: #4aa8ff;
+}
+
+.knowledge-sitrep-item.severity-low::before {
+    background: #59e0ac;
+}
+
+.knowledge-sitrep-severity,
+.knowledge-sitrep-item time {
+    padding: 0 0.8rem;
+    color: var(--knowledge-text-muted);
+    font: 600 0.66rem ui-monospace, monospace;
+}
+
+.severity-critical .knowledge-sitrep-severity {
+    color: #ff4f64;
+}
+
+.severity-high .knowledge-sitrep-severity {
+    color: #ffad42;
+}
+
+.severity-medium .knowledge-sitrep-severity {
+    color: #4aa8ff;
+}
+
+.knowledge-sitrep-event {
+    min-width: 0;
+    padding: 0.65rem 0.9rem 0.65rem 0;
+}
+
+.knowledge-sitrep-event strong {
+    display: block;
+    overflow: hidden;
+    color: inherit;
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.knowledge-sitrep-event span {
+    display: block;
+    margin-top: 0.18rem;
+    overflow: hidden;
+    color: var(--knowledge-text-muted);
+    font: 0.61rem ui-monospace, monospace;
+    letter-spacing: 0.035em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.knowledge-sitrep-placeholder {
+    display: grid;
+    place-items: center;
+    min-height: 12.25rem;
+    padding: 1rem;
+    color: var(--knowledge-text-muted);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.knowledge-sitrep-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 2.8rem;
+    padding: 0.55rem 0.75rem 0.55rem 1rem;
+    border-top: 1px solid var(--knowledge-border);
+    background: rgba(0, 0, 0, 0.12);
+}
+
+#knowledge-sitrep-source-health {
+    color: var(--knowledge-text-muted);
+    font: 0.63rem ui-monospace, monospace;
+}
+
+.knowledge-sitrep-open {
+    flex: 0 0 auto;
+    border: 0;
+    background: transparent;
+    color: #65efb9;
+    cursor: pointer;
+    font: 600 0.68rem ui-monospace, monospace;
+}
+
+.knowledge-sitrep-open:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 680px) {
+    .knowledge-sitrep-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .knowledge-sitrep-metrics span {
+        border-bottom: 1px solid var(--knowledge-border);
+    }
+
+    .knowledge-sitrep-item {
+        grid-template-columns: 4.7rem minmax(0, 1fr);
+    }
+
+    .knowledge-sitrep-item time {
+        display: none;
+    }
+
+    .knowledge-sitrep-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

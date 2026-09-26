@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import heapq
 import sqlite3
+from time import perf_counter
 from pathlib import Path
 from typing import Iterable
 
@@ -49,6 +50,10 @@ class SemanticVectorSearchService:
             base_url=ollama_url,
             model=self.model,
         )
+
+        # PERFORMANCE_R2_DIAGNOSTIC
+        # Diagnostic only. Does not alter retrieval behavior.
+        self.last_performance_r2 = None
 
     def _semantic_connect(self):
         c = sqlite3.connect(
@@ -387,36 +392,71 @@ class SemanticVectorSearchService:
         scope: str = "all",
         scan_limit: int | None = None,
     ) -> SemanticSearchResult:
+        # PERFORMANCE_R2_DIAGNOSTIC
+        perf_started = perf_counter()
+
         top_k = max(1, int(top_k))
         scope = str(scope).lower().strip()
         if scope not in {"all", "canonical", "fragment"}:
             raise ValueError("scope must be one of: all, canonical, fragment")
 
+        stage = perf_counter()
         q = self._query_vector(query)
+        query_embedding_ms = round((perf_counter() - stage) * 1000.0, 2)
 
         combined = []
         scanned_canonical = 0
         scanned_fragments = 0
+        canonical_scan_ms = 0.0
+        fragment_scan_ms = 0.0
 
         # Each side keeps top_k. The final merge then keeps the global top_k.
         if scope in {"all", "canonical"}:
+            stage = perf_counter()
             h, scanned_canonical = self._scan_canonical(
                 q,
                 k=top_k,
                 scan_limit=scan_limit,
             )
+            canonical_scan_ms = round((perf_counter() - stage) * 1000.0, 2)
             combined.extend(h)
 
         if scope in {"all", "fragment"}:
+            stage = perf_counter()
             h, scanned_fragments = self._scan_fragments(
                 q,
                 k=top_k,
                 scan_limit=scan_limit,
             )
+            fragment_scan_ms = round((perf_counter() - stage) * 1000.0, 2)
             combined.extend(h)
 
-        combined = sorted(combined, key=lambda x: x[0], reverse=True)[:top_k]
+        combined = sorted(
+            combined,
+            key=lambda x: x[0],
+            reverse=True,
+        )[:top_k]
+
+        stage = perf_counter()
         candidates = self._hydrate(combined)
+        hydration_ms = round((perf_counter() - stage) * 1000.0, 2)
+
+        self.last_performance_r2 = {
+            "query": str(query),
+            "scope": scope,
+            "top_k": top_k,
+            "scan_limit": scan_limit,
+            "query_embedding_ms": query_embedding_ms,
+            "canonical_scan_ms": canonical_scan_ms,
+            "canonical_scanned": scanned_canonical,
+            "fragment_scan_ms": fragment_scan_ms,
+            "fragment_scanned": scanned_fragments,
+            "hydration_ms": hydration_ms,
+            "vector_total_ms": round(
+                (perf_counter() - perf_started) * 1000.0,
+                2,
+            ),
+        }
 
         return SemanticSearchResult(
             query=str(query),

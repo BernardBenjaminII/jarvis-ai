@@ -37,31 +37,224 @@ def canonical_url(value, host=None):
     except ValueError: return None
 
 def group_reports(records, now=None):
-    """Merge repeated URLs/exact normalized headlines only; never infer corroboration."""
+    """
+    Merge repeated URLs/exact normalized headlines only; never infer
+    corroboration.
+
+    R8.2 adds:
+      - category-aware retention
+      - a larger normalized event pool
+      - deterministic display-priority scoring
+
+    fusion_score is a presentation/triage value only. It is not a
+    verification score, intelligence-confidence judgment, or claim
+    that an event is independently corroborated.
+    """
     now = now or datetime.now(timezone.utc)
-    groups, aliases = {}, {}
+
+    groups = {}
+    aliases = {}
+
+    retention_days = {
+        'aviation': 365,
+        'maritime': 365,
+        'reference': 365,
+        'physical': 90,
+        'military': 90,
+        'cyber': 90,
+        'disaster': 30,
+    }
+
+    severity_weight = {
+        'critical': 400,
+        'extreme': 400,
+        'severe': 400,
+        'high': 300,
+        'major': 300,
+        'medium': 200,
+        'moderate': 200,
+        'watch': 150,
+        'low': 100,
+        'info': 50,
+    }
+
+    # Small domain weights prevent massive feeds from receiving an
+    # accidental advantage purely from volume. They do not express
+    # strategic importance.
+    domain_weight = {
+        'physical': 35,
+        'military': 35,
+        'aviation': 30,
+        'maritime': 30,
+        'cyber': 20,
+        'disaster': 10,
+        'reference': 0,
+    }
+
     for original in records:
         stamp = date(original.get('published_at'))
-        if not stamp or stamp < now - timedelta(days=30) or stamp > now + timedelta(days=1): continue
+
+        if not stamp:
+            continue
+
+        category = str(
+            original.get('category') or 'physical'
+        ).lower()
+
+        max_age = retention_days.get(category, 90)
+
+        if (
+            stamp < now - timedelta(days=max_age)
+            or stamp > now + timedelta(days=1)
+        ):
+            continue
+
         item = dict(original)
-        title_key = (item['category'], re.sub(r'\W+', ' ', item['title'].lower()).strip())
-        url_key = canonical_url(item['source']['url'])
-        key = aliases.get(('url', url_key)) or aliases.get(('title', title_key)) or item['id']
-        aliases[('url', url_key)] = aliases[('title', title_key)] = key
+
+        title = str(item.get('title') or '').strip()
+
+        if not title:
+            continue
+
+        title_key = (
+            category,
+            re.sub(
+                r'\W+',
+                ' ',
+                title.lower()
+            ).strip(),
+        )
+
+        source = item.get('source') or {}
+        source_url = source.get('url')
+
+        url_key = (
+            canonical_url(source_url)
+            if source_url
+            else None
+        )
+
+        key = None
+
+        if url_key:
+            key = aliases.get(('url', url_key))
+
+        if key is None:
+            key = aliases.get(('title', title_key))
+
+        if key is None:
+            key = (
+                item.get('id')
+                or f"{category}:{title_key[1]}"
+            )
+
+        if url_key:
+            aliases[('url', url_key)] = key
+
+        aliases[('title', title_key)] = key
+
         if key not in groups:
-            item['sources'] = [item['source']]
+            item['sources'] = (
+                [source]
+                if source
+                else []
+            )
+
             item['report_count'] = 1
-            item['age_hours'] = max(0, (now-stamp).total_seconds()/3600)
+
+            item['age_hours'] = max(
+                0,
+                (now - stamp).total_seconds() / 3600,
+            )
+
             groups[key] = item
+
         else:
             existing = groups[key]
-            if item['source'] not in existing['sources']:
-                existing['sources'].append(item['source'])
+
+            if (
+                source
+                and source not in existing['sources']
+            ):
+                existing['sources'].append(source)
                 existing['report_count'] += 1
-            if existing.get('operational_state') == 'STALE' and item.get('operational_state') == 'LIVE':
+
+            if (
+                existing.get('operational_state') == 'STALE'
+                and item.get('operational_state') == 'LIVE'
+            ):
                 existing['operational_state'] = 'LIVE'
-        groups[key]['verification'] = 'Publisher report; not independently verified by JARVIS'
-    return sorted(groups.values(), key=lambda x: x['published_at'], reverse=True)[:150]
+
+        groups[key]['verification'] = (
+            'Publisher report; not independently verified by JARVIS'
+        )
+
+    events = list(groups.values())
+
+    for item in events:
+        severity = str(
+            item.get('severity') or 'watch'
+        ).lower()
+
+        category = str(
+            item.get('category') or 'physical'
+        ).lower()
+
+        age_hours = float(
+            item.get('age_hours') or 0
+        )
+
+        # Recency contributes 0–100 points and decays across
+        # approximately 30 days.
+        recency_score = max(
+            0.0,
+            100.0 - (
+                age_hours / (24.0 * 30.0)
+            ) * 100.0,
+        )
+
+        source_count = max(
+            1,
+            len(item.get('sources') or []),
+        )
+
+        # This rewards multiple publisher records only as a queue
+        # ordering signal. It does NOT claim independent confirmation.
+        publisher_bonus = min(
+            30,
+            max(0, source_count - 1) * 10,
+        )
+
+        fusion_score = (
+            severity_weight.get(severity, 100)
+            + domain_weight.get(category, 0)
+            + recency_score
+            + publisher_bonus
+        )
+
+        item['fusion_score'] = round(
+            fusion_score,
+            2,
+        )
+
+        item['fusion_basis'] = {
+            'severity': severity,
+            'category': category,
+            'age_hours': round(age_hours, 1),
+            'publisher_count': source_count,
+        }
+
+    events.sort(
+        key=lambda item: (
+            float(item.get('fusion_score') or 0),
+            item.get('published_at') or '',
+        ),
+        reverse=True,
+    )
+
+    # Normalized pool. The Executive UI will project a much smaller
+    # balanced subset from this collection.
+    return events[:500]
 
 class SecurityFeed:
     def __init__(self, provider_id, publisher, url, category, *, opener=urlopen, clock=None):
