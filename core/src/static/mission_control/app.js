@@ -1121,13 +1121,59 @@
 
                 await this.controllers.initializeAll();
 
+                // Verify the Executive backend rather than reporting the
+                // Pack 3A-3.1 placeholder DISCONNECTED state.
                 this.setConnectionState(
-                    ConnectionState.DISCONNECTED,
+                    ConnectionState.CONNECTING,
                     {
                         source: "bootstrap",
-                        reason: "Live transport not connected in Pack 3A-3.1",
+                        reason: "Checking Executive backend health",
                     }
                 );
+
+                try {
+                    const healthResponse = await fetch("/health", {
+                        method: "GET",
+                        cache: "no-store",
+                        headers: {
+                            "Accept": "application/json",
+                        },
+                    });
+
+                    if (!healthResponse.ok) {
+                        throw new Error(
+                            `Health endpoint returned HTTP ${healthResponse.status}`
+                        );
+                    }
+
+                    const health = await healthResponse.json();
+
+                    if (health?.status === "online") {
+                        this.setConnectionState(
+                            ConnectionState.CONNECTED,
+                            {
+                                source: "health-probe",
+                                reason: "Executive backend online",
+                            }
+                        );
+                    } else {
+                        this.setConnectionState(
+                            ConnectionState.DEGRADED,
+                            {
+                                source: "health-probe",
+                                reason: `Unexpected health status: ${health?.status ?? "unknown"}`,
+                            }
+                        );
+                    }
+                } catch (error) {
+                    this.setConnectionState(
+                        ConnectionState.DISCONNECTED,
+                        {
+                            source: "health-probe",
+                            reason: error?.message ?? "Executive backend unavailable",
+                        }
+                    );
+                }
 
                 this.setLifecycle(ApplicationLifecycle.READY);
 
