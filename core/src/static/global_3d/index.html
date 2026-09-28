@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JARVIS Global 3D</title>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/cesium@1.134.1/Build/Cesium/Widgets/widgets.css">
+
+    <link rel="stylesheet"
+          href="/static/global_3d/global_3d.css?v=11">
+</head>
+
+<body>
+<div id="app">
+
+    <header class="topbar">
+        <div>
+            <div class="eyebrow">
+                JARVIS // COMMON OPERATING PICTURE
+            </div>
+            <h1>GLOBAL 3D</h1>
+        </div>
+
+        <div class="top-actions">
+            <button id="resetView">RESET VIEW</button>
+
+            <div class="system-status">
+                <span id="liveIndicator" class="indicator"></span>
+                <span id="systemState">CONNECTING</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="cesiumContainer"></div>
+
+        <button id="leftToggle"
+                class="panel-toggle left-toggle"
+                title="Toggle layers">
+            ☰
+        </button>
+
+        <button id="rightToggle"
+                class="panel-toggle right-toggle"
+                title="Toggle SITREP">
+            ◫
+        </button>
+
+        <aside id="leftPanel" class="panel left-panel">
+
+            <section>
+                <h2>LAYERS</h2>
+
+                <label class="layer-row">
+                    <input id="layerIncidents"
+                           type="checkbox"
+                           checked>
+                    <span class="legend advisory"></span>
+                    Travel / Incidents
+                    <strong id="incidentCount">0</strong>
+                </label>
+
+                <label class="layer-row">
+                    <input id="layerNuclear"
+                           type="checkbox"
+                           checked>
+                    <span class="legend nuclear"></span>
+                    Nuclear Sites
+                    <strong id="nuclearCount">0</strong>
+                </label>
+
+                <label class="layer-row">
+                    <input id="layerSecurity"
+                           type="checkbox"
+                           checked>
+                    <span class="legend security"></span>
+                    Located Security
+                    <strong id="securityCount">0</strong>
+                </label>
+            </section>
+
+            <section>
+                <h2>TIME WINDOW</h2>
+
+                <select id="ageFilter">
+                    <option value="0">All records</option>
+                    <option value="24">Last 24 hours</option>
+                    <option value="72">Last 72 hours</option>
+                    <option value="168">Last 7 days</option>
+                    <option value="720">Last 30 days</option>
+                </select>
+
+                <div class="hint">
+                    Static facilities remain visible regardless of age.
+                </div>
+            </section>
+
+            <section>
+                <h2>PLANNED LAYERS</h2>
+                <div class="planned">Maritime / AIS</div>
+                <div class="planned">Weather</div>
+                <div class="planned">Ocean / Currents</div>
+                <div class="planned">Tides / Sea Level</div>
+                <div class="planned">Aviation</div>
+                <div class="planned">GPS / Local Position</div>
+                <div class="planned">SDR / RF Sensors</div>
+            </section>
+
+        </aside>
+
+        <aside id="rightPanel" class="panel right-panel">
+
+            <h2>LIVE SITREP</h2>
+
+            <div class="metric">
+                <span>STATE</span>
+                <strong id="operationalState">---</strong>
+            </div>
+
+            <div class="metric">
+                <span>SOURCES</span>
+                <strong id="sourceCount">0</strong>
+            </div>
+
+            <div class="metric">
+                <span>SECURITY</span>
+                <strong id="totalSecurityCount">0</strong>
+            </div>
+
+            <div class="metric">
+                <span>NUCLEAR EVENTS</span>
+                <strong id="nuclearEventCount">0</strong>
+            </div>
+
+            <div class="metric">
+                <span>ERRORS</span>
+                <strong id="errorCount">0</strong>
+            </div>
+
+            <div class="metric">
+                <span>DISPLAYED</span>
+                <strong id="displayedCount">0</strong>
+            </div>
+
+            <div id="eventDetail" class="event-detail">
+                Select an object on the globe.
+            </div>
+
+        </aside>
+
+        <div class="severity-key">
+            <span><i class="sev critical"></i>CRITICAL</span>
+            <span><i class="sev high"></i>HIGH</span>
+            <span><i class="sev watch"></i>WATCH</span>
+            <span><i class="sev normal"></i>REFERENCE</span>
+        </div>
+
+        <div class="bottom-status">
+            <span id="generatedAt">WAITING FOR SITREP</span>
+            <span id="cameraPosition"></span>
+        </div>
+
+    </main>
+</div>
+
+<script src="https://unpkg.com/cesium@1.134.1/Build/Cesium/Cesium.js"></script>
+<script src="/static/global_3d/global_3d.js?v=11"></script>
+</body>
+</html>
