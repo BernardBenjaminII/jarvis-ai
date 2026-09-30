@@ -304,3 +304,136 @@ select {
         display: none;
     }
 }
+
+/* JARVIS_SPACE_R87_CSS_START */
+
+.legend.space-weather {
+    background: #5fe5aa;
+    box-shadow:
+        0 0 6px rgba(95, 229, 170, .55);
+}
+
+.space-weather-row strong {
+    font-size: 10px;
+}
+
+.space-weather-panel {
+    border-top:
+        1px solid rgba(95, 229, 170, .14);
+}
+
+.space-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.space-metrics > div,
+.space-scales {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 0;
+
+    padding: 5px 6px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        rgba(0,0,0,.18);
+}
+
+.space-metrics span,
+.space-scales span {
+    opacity: .58;
+    font-size: 9px;
+}
+
+.space-metrics strong,
+.space-scales strong {
+    font-size: 10px;
+    text-align: right;
+}
+
+.space-scales {
+    margin-top: 5px;
+}
+
+.space-source-state {
+    margin-top: 5px;
+
+    font-size: 9px;
+
+    line-height: 1.35;
+
+    opacity: .55;
+
+    overflow-wrap: anywhere;
+}
+
+/* JARVIS_SPACE_R87_CSS_END */
+
+/* JARVIS_SPACE_R89B_CSS_START */
+
+.space-layer-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 7px;
+    margin-bottom: 3px;
+
+    padding-top: 6px;
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+
+    font-size: 9px;
+    letter-spacing: .12em;
+
+    opacity: .72;
+}
+
+.space-layer-heading strong {
+    font-size: 10px;
+    letter-spacing: normal;
+}
+
+.legend.sat-station {
+    background: #ffffff;
+    box-shadow:
+        0 0 6px rgba(255,255,255,.55);
+}
+
+.legend.sat-gps {
+    background: #61d9ff;
+    box-shadow:
+        0 0 6px rgba(97,217,255,.45);
+}
+
+.legend.sat-weather {
+    background: #77ef9e;
+    box-shadow:
+        0 0 6px rgba(119,239,158,.45);
+}
+
+.satellite-row {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.satellite-status {
+    margin: 3px 0 5px 22px;
+
+    font-size: 8px;
+
+    opacity: .5;
+
+    overflow-wrap: anywhere;
+}
+
+/* JARVIS_SPACE_R89B_CSS_END */

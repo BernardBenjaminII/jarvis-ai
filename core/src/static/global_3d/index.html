@@ -9,7 +9,7 @@
           href="https://unpkg.com/cesium@1.134.1/Build/Cesium/Widgets/widgets.css">
 
     <link rel="stylesheet"
-          href="/static/global_3d/global_3d.css?v=11">
+          href="/static/global_3d/global_3d.css?v=14">
 </head>
 
 <body>
@@ -79,6 +79,60 @@
                     Located Security
                     <strong id="securityCount">0</strong>
                 </label>
+
+                <!-- JARVIS_SPACE_R87_UI_START -->
+                <label class="layer-row space-weather-row">
+                    <input id="layerSpaceWeather"
+                           type="checkbox"
+                           checked>
+                    <span class="legend space-weather"></span>
+                    Space Weather
+                    <strong id="spaceWeatherState">---</strong>
+                </label>
+                <!-- JARVIS_SPACE_R87_UI_END -->
+
+                <!-- JARVIS_SPACE_R89B_UI_START -->
+
+                <div class="space-layer-heading">
+                    SATELLITES
+                    <strong id="satelliteTotalCount">0</strong>
+                </div>
+
+                <label class="layer-row satellite-row">
+                    <input id="layerSatStations"
+                           type="checkbox"
+                           checked>
+                    <span class="legend sat-station"></span>
+                    Stations
+                    <strong id="satStationCount">0</strong>
+                </label>
+
+                <label class="layer-row satellite-row">
+                    <input id="layerSatGps"
+                           type="checkbox"
+                           checked>
+                    <span class="legend sat-gps"></span>
+                    GPS
+                    <strong id="satGpsCount">0</strong>
+                </label>
+
+                <label class="layer-row satellite-row">
+                    <input id="layerSatWeather"
+                           type="checkbox"
+                           checked>
+                    <span class="legend sat-weather"></span>
+                    Weather
+                    <strong id="satWeatherCount">0</strong>
+                </label>
+
+                <div class="satellite-status"
+                     id="satelliteStatus">
+                    Waiting for CelesTrak
+                </div>
+
+                <!-- JARVIS_SPACE_R89B_UI_END -->
+
+
             </section>
 
             <section>
@@ -96,6 +150,55 @@
                     Static facilities remain visible regardless of age.
                 </div>
             </section>
+
+
+            <!-- JARVIS_SPACE_R87_STATUS_START -->
+            <section id="spaceWeatherPanel"
+                     class="space-weather-panel">
+
+                <h2>SPACE WEATHER</h2>
+
+                <div class="space-metrics">
+
+                    <div>
+                        <span>KP</span>
+                        <strong id="spaceKp">---</strong>
+                    </div>
+
+                    <div>
+                        <span>SOLAR WIND</span>
+                        <strong id="spaceWind">---</strong>
+                    </div>
+
+                    <div>
+                        <span>MAG FIELD</span>
+                        <strong id="spaceMag">---</strong>
+                    </div>
+
+                    <div>
+                        <span>ALERTS</span>
+                        <strong id="spaceAlerts">0</strong>
+                    </div>
+
+                    <div>
+                        <span>AURORA</span>
+                        <strong id="spaceAurora">---</strong>
+                    </div>
+
+                </div>
+
+                <div class="space-scales">
+                    <span>NOAA</span>
+                    <strong id="spaceScales">G- / R- / S-</strong>
+                </div>
+
+                <div class="space-source-state"
+                     id="spaceSourceState">
+                    Waiting for NOAA SWPC
+                </div>
+
+            </section>
+            <!-- JARVIS_SPACE_R87_STATUS_END -->
 
             <section>
                 <h2>PLANNED LAYERS</h2>
@@ -166,6 +269,7 @@
 </div>
 
 <script src="https://unpkg.com/cesium@1.134.1/Build/Cesium/Cesium.js"></script>
-<script src="/static/global_3d/global_3d.js?v=11"></script>
+<script src="/static/geospatial/geospatial_state.js"></script>
+<script src="/static/global_3d/global_3d.js?v=14"></script>
 </body>
 </html>

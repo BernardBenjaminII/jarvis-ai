@@ -29,6 +29,24 @@ def main():
     rep = sub.add_parser("report")
     rep.add_argument("mission")
 
+    prop = sub.add_parser("propose-httpx")
+    prop.add_argument("task")
+
+    lp = sub.add_parser("proposals")
+    lp.add_argument("mission")
+    lp.add_argument(
+        "--state",
+        choices=["proposed", "approved", "rejected"],
+    )
+
+    ap = sub.add_parser("approve")
+    ap.add_argument("proposal")
+    ap.add_argument("--reviewer", required=True)
+
+    rp = sub.add_parser("reject")
+    rp.add_argument("proposal")
+    rp.add_argument("--reviewer", required=True)
+
     args = p.parse_args()
 
     store = LiveMissionStore(path=args.db)
@@ -55,6 +73,33 @@ def main():
 
     elif args.command == "report":
         out = store.report(args.mission)
+
+    elif args.command == "propose-httpx":
+        out = {
+            "proposal_ids":
+                store.propose_httpx_from_subfinder(args.task)
+        }
+
+    elif args.command == "proposals":
+        out = {
+            "proposals":
+                store.proposals(args.mission, args.state)
+        }
+
+    elif args.command == "approve":
+        out = {
+            "task_id": store.approve_proposal(
+                args.proposal,
+                args.reviewer,
+            )
+        }
+
+    elif args.command == "reject":
+        store.reject_proposal(
+            args.proposal,
+            args.reviewer,
+        )
+        out = {"state": "rejected"}
 
     print(json.dumps(out, indent=2, sort_keys=True))
 

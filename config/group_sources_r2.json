@@ -1,0 +1,16 @@
+{
+  "groups": [
+    "IS",
+    "JNIM",
+    "Al-Shabaab",
+    "TTP",
+    "JAS",
+    "AQAP"
+  ],
+  "since_year": 2026,
+  "disabled_sources": [
+    "critical_threats",
+    "gdelt",
+    "un_monitoring"
+  ]
+}

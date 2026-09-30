@@ -1,6 +1,10 @@
 (() => {
     "use strict";
 
+    // JARVIS_GEOSPATIAL_R1_3D
+    const geo = () => window.JARVIS_GEOSPATIAL;
+    const sharedInitial = geo()?.get();
+
     const HOME = {
         longitude: 12,
         latitude: 25,
@@ -44,13 +48,23 @@
         });
     }
 
-    viewer.camera.setView({
-        destination: Cesium.Cartesian3.fromDegrees(
-            HOME.longitude,
-            HOME.latitude,
-            HOME.altitude
-        )
-    });
+    {
+        const vp = sharedInitial?.viewport || {};
+
+        const lon = Number(vp.longitude);
+        const lat = Number(vp.latitude);
+        const altitude = Number(vp.altitude);
+
+        viewer.camera.setView({
+            destination: Cesium.Cartesian3.fromDegrees(
+                Number.isFinite(lon) ? lon : HOME.longitude,
+                Number.isFinite(lat) ? lat : HOME.latitude,
+                Number.isFinite(altitude) && altitude > 0
+                    ? altitude
+                    : HOME.altitude
+            )
+        });
+    }
 
     const groups = {
         incidents: [],
@@ -312,9 +326,24 @@
             const visible =
                 document.getElementById(id).checked;
 
+            geo()?.setLayer(group, visible);
+
             for (const entity of groups[group]) {
                 entity.show = visible;
             }
+        }
+    }
+
+    const sharedLayers = sharedInitial?.layers || {};
+
+    for (const [group,id] of Object.entries({
+        incidents:"layerIncidents",
+        nuclear:"layerNuclear",
+        security:"layerSecurity"
+    })) {
+        if(group in sharedLayers){
+            document.getElementById(id).checked =
+                sharedLayers[group] !== false;
         }
     }
 
@@ -348,8 +377,222 @@
         return null;
     }
 
-    function renderDetail(item) {
+
+function satelliteValue(
+    value,
+    suffix = ""
+) {
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return "—";
+    }
+
+    return `${value}${suffix}`;
+}
+
+
+function renderSatelliteDossier(record) {
+    selectedRecord = record;
+    geo()?.setSelectedRecord(record);
+
+    const detail =
+        document.getElementById(
+            "eventDetail"
+        );
+
+    if (!detail) {
+        return false;
+    }
+
+    const group =
+        String(
+            record.satellite_group || ""
+        );
+
+    const typeLabel =
+        group === "gps"
+            ? "GPS / Navigation"
+            : group === "weather"
+                ? "Weather Satellite"
+                : group === "stations"
+                    ? "Space Station"
+                    : "Satellite";
+
+    const altitude =
+        Number(record.altitude_km);
+
+    const velocity =
+        Number(record.velocity_km_s);
+
+    const inclination =
+        Number(record.inclination_deg);
+
+    const period =
+        Number(record.period_minutes);
+
+    const elementAge =
+        Number(record.element_age_hours);
+
+    const latitude =
+        Number(record.location?.latitude);
+
+    const longitude =
+        Number(record.location?.longitude);
+
+    const sourceUrl =
+        record.source?.url ||
+        "https://celestrak.org/";
+
+    detail.innerHTML = `
+        <div class="event-title">
+            ${escapeHtml(
+                record.name ||
+                "SATELLITE"
+            )}
+        </div>
+
+        <br>
+
+        TYPE:
+        ${escapeHtml(typeLabel)}
+        <br>
+
+        NORAD:
+        ${escapeHtml(
+            satelliteValue(
+                record.norad_id
+            )
+        )}
+        <br>
+
+        OBJECT ID:
+        ${escapeHtml(
+            satelliteValue(
+                record.object_id
+            )
+        )}
+        <br>
+
+        ALTITUDE:
+        ${escapeHtml(
+            Number.isFinite(altitude)
+                ? `${altitude.toFixed(1)} km`
+                : "—"
+        )}
+        <br>
+
+        VELOCITY:
+        ${escapeHtml(
+            Number.isFinite(velocity)
+                ? `${velocity.toFixed(3)} km/s`
+                : "—"
+        )}
+        <br>
+
+        INCLINATION:
+        ${escapeHtml(
+            Number.isFinite(inclination)
+                ? `${inclination.toFixed(2)}°`
+                : "—"
+        )}
+        <br>
+
+        PERIOD:
+        ${escapeHtml(
+            Number.isFinite(period)
+                ? `${period.toFixed(2)} min`
+                : "—"
+        )}
+        <br>
+
+        ELEMENT AGE:
+        ${escapeHtml(
+            Number.isFinite(elementAge)
+                ? `${elementAge.toFixed(1)} h`
+                : "—"
+        )}
+        <br>
+
+        LAT / LON:
+        ${escapeHtml(
+            Number.isFinite(latitude) &&
+            Number.isFinite(longitude)
+                ? `${latitude.toFixed(2)}° / ${longitude.toFixed(2)}°`
+                : "—"
+        )}
+        <br>
+
+        SOURCE:
+        CelesTrak
+
+        <br><br>
+
+        <div class="event-actions">
+            <button id="focusSelected">
+                FOCUS
+            </button>
+
+            <button id="openSource">
+                SOURCE
+            </button>
+        </div>
+    `;
+
+    document
+        .getElementById(
+            "focusSelected"
+        )
+        ?.addEventListener(
+            "click",
+            () => {
+                focusRecord(record);
+            }
+        );
+
+    document
+        .getElementById(
+            "openSource"
+        )
+        ?.addEventListener(
+            "click",
+            () => {
+                window.open(
+                    sourceUrl,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+            }
+        );
+
+    window
+        .JarvisSatelliteTracking
+        ?.showSelectedOrbit(
+            record
+        );
+
+    return true;
+}
+
+function renderDetail(item) {
+        if (
+            item?.kind === "satellite"
+        ) {
+            renderSatelliteDossier(
+                item
+            );
+
+            return;
+        }
+
+        window
+            .JarvisSatelliteTracking
+            ?.clearSelectedOrbit();
+
         selectedRecord = item;
+        geo()?.setSelectedRecord(item);
 
         const detail =
             document.getElementById("eventDetail");
@@ -438,13 +681,36 @@
     function focusRecord(item) {
         if (!validLocation(item)) return;
 
+        const objectAltitude =
+            Number(item.altitude_km);
+
+        const cameraHeight =
+            item?.kind === "satellite" &&
+            Number.isFinite(objectAltitude)
+                ? (
+                    objectAltitude
+                    * 1000
+                    + Math.max(
+                        500000,
+                        objectAltitude
+                        * 1000
+                        * 0.12
+                    )
+                )
+                : 1200000;
+
         viewer.camera.flyTo({
             destination:
                 Cesium.Cartesian3.fromDegrees(
-                    Number(item.location.longitude),
-                    Number(item.location.latitude),
-                    1200000
+                    Number(
+                        item.location.longitude
+                    ),
+                    Number(
+                        item.location.latitude
+                    ),
+                    cameraHeight
                 ),
+
             duration: 1.1
         });
     }
@@ -455,8 +721,14 @@
 
         if (!entity?.properties) {
             selectedRecord = null;
+
+            window
+                .JarvisSatelliteTracking
+                ?.clearSelectedOrbit();
+
             detail.textContent =
                 "Select an object on the globe.";
+
             return;
         }
 
@@ -502,6 +774,12 @@
 
         document.getElementById("cameraPosition").textContent =
             `${lat}° ${lon}° / ${altitude} km`;
+
+        geo()?.setViewport({
+            latitude:Number(lat),
+            longitude:Number(lon),
+            altitude:Math.round(p.height)
+        });
     });
 
     async function refresh() {
@@ -539,8 +817,114 @@
         }
     }
 
+
+    const commandCenterButton = document.createElement("button");
+    commandCenterButton.type = "button";
+    commandCenterButton.textContent = "COMMAND CENTER";
+    commandCenterButton.className = "command-center-return";
+    commandCenterButton.style.position = "fixed";
+    commandCenterButton.style.top = "14px";
+    commandCenterButton.style.right = "160px";
+    commandCenterButton.style.zIndex = "10000";
+    commandCenterButton.onclick = () => {
+        window.location.href = "/bridge";
+    };
+    document.body.append(commandCenterButton);
+
     refresh();
 
     // Operational display refresh.
     setInterval(refresh, 60000);
+
+
+    // JARVIS_SPACE_R87_FRONTEND
+    {
+        const base =
+            new URL(
+                ".",
+                document.currentScript.src
+            );
+
+        const spaceScript =
+            document.createElement("script");
+
+        spaceScript.src =
+            new URL(
+                "space_weather.js?v=1",
+                base
+            ).href;
+
+        spaceScript.onload = () => {
+            if (
+                window.JarvisSpaceWeather &&
+                typeof window.JarvisSpaceWeather.mount ===
+                    "function"
+            ) {
+                window.JarvisSpaceWeather.mount(viewer);
+            }
+        };
+
+        spaceScript.onerror = () =>
+            console.error(
+                "Space weather layer could not load"
+            );
+
+        document.head.appendChild(
+            spaceScript
+        );
+    }
+
+
+    // JARVIS_SPACE_R89B_SATELLITES
+    {
+        const base =
+            new URL(
+                ".",
+                document.currentScript.src
+            );
+
+        const satelliteScript =
+            document.createElement(
+                "script"
+            );
+
+        satelliteScript.src =
+            new URL(
+                "satellite_tracking.js?v=1",
+                base
+            ).href;
+
+        satelliteScript.onload = () => {
+            window
+                .JarvisSatelliteTracking
+                ?.mount(viewer);
+        };
+
+        satelliteScript.onerror = () =>
+            console.error(
+                "Satellite tracking layer could not load"
+            );
+
+        document.head.appendChild(
+            satelliteScript
+        );
+    }
+
+    // JARVIS_GROUP_ACTIVITY_R1
+    {
+        const base = new URL('.', document.currentScript.src);
+        const layerScript = document.createElement('script');
+        layerScript.src = new URL('group_activity.js', base).href;
+        layerScript.onload = () => window.JarvisGroupActivity.mount(viewer, base);
+        layerScript.onerror = () => console.error('Group activity layer could not load');
+        document.head.appendChild(layerScript);
+    }
+
+    // JARVIS_GROUP_SOURCES_R2
+    {
+        const sourceInbox = document.createElement('script');
+        sourceInbox.src = new URL('group_reports.js', document.currentScript.src).href;
+        sourceInbox.onerror = () => console.error('Group source inbox failed to load');
+        document.head.appendChild(sourceInbox);
+    }
 })();

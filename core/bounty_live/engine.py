@@ -72,6 +72,23 @@ class LiveMissionStore:
             CREATE UNIQUE INDEX IF NOT EXISTS task_unique
                 ON tasks(mission,capability,target);
 
+            CREATE TABLE IF NOT EXISTS proposals (
+                id TEXT PRIMARY KEY,
+                mission TEXT NOT NULL,
+                parent_task TEXT NOT NULL,
+                capability TEXT NOT NULL,
+                target TEXT NOT NULL,
+                state TEXT NOT NULL,
+                created REAL NOT NULL,
+                reviewed REAL,
+                reviewer TEXT,
+                evidence TEXT NOT NULL,
+                evidence_sha256 TEXT NOT NULL,
+                UNIQUE(mission,capability,target),
+                FOREIGN KEY(mission) REFERENCES missions(id),
+                FOREIGN KEY(parent_task) REFERENCES tasks(id)
+            );
+
             CREATE TABLE IF NOT EXISTS events (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 mission TEXT NOT NULL,
@@ -366,6 +383,310 @@ class LiveMissionStore:
 
         return evidence
 
+    def propose_httpx_from_subfinder(self, task_id):
+        """Create reviewable HTTPX proposals from completed subfinder evidence.
+
+        No network execution occurs here.
+        """
+        with self.db() as db:
+            task = db.execute(
+                "SELECT * FROM tasks WHERE id=?",
+                (task_id,),
+            ).fetchone()
+
+            if not task:
+                raise ValueError("Unknown parent task")
+
+            if task["capability"] != "subfinder":
+                raise ValueError("Parent task must be subfinder")
+
+            if task["state"] != "completed" or not task["evidence"]:
+                raise ValueError("Parent subfinder task is not completed")
+
+            mission = db.execute(
+                "SELECT * FROM missions WHERE id=?",
+                (task["mission"],),
+            ).fetchone()
+
+            if not mission or mission["state"] != "ready":
+                raise ValueError("Mission is not ready")
+
+            scope = self.authorization_store.live_scope(
+                mission["authorization"]
+            )
+
+            evidence = json.loads(task["evidence"])
+
+            discovered = (
+                evidence.get("result", {}).get("accepted", [])
+            )
+
+            proposals = []
+
+            for candidate in discovered:
+                # Authorization is rechecked before a proposal exists.
+                target = scope.require(candidate, "httpx")
+
+                record = {
+                    "schema": "jarvis-bounty-proposal-r5.2",
+                    "mission_id": mission["id"],
+                    "parent_task": task_id,
+                    "capability": "httpx",
+                    "target": target,
+                    "authorization_id": mission["authorization"],
+                    "scope_sha256": scope.evidence()["scope_sha256"],
+                    "created_at": time.time(),
+                }
+
+                raw = json.dumps(
+                    record,
+                    sort_keys=True,
+                    separators=(",", ":"),
+                )
+
+                digest = hashlib.sha256(
+                    raw.encode()
+                ).hexdigest()
+
+                pid = str(uuid.uuid4())
+
+                try:
+                    db.execute(
+                        """
+                        INSERT INTO proposals(
+                            id,mission,parent_task,capability,target,
+                            state,created,evidence,evidence_sha256
+                        ) VALUES(?,?,?,?,?,'proposed',?,?,?)
+                        """,
+                        (
+                            pid,
+                            mission["id"],
+                            task_id,
+                            "httpx",
+                            target,
+                            time.time(),
+                            raw,
+                            digest,
+                        ),
+                    )
+
+                    self._event(
+                        db,
+                        mission["id"],
+                        "proposed",
+                        f"httpx:{target} from {task_id}",
+                    )
+
+                except sqlite3.IntegrityError:
+                    row = db.execute(
+                        """
+                        SELECT id FROM proposals
+                        WHERE mission=? AND capability=? AND target=?
+                        """,
+                        (
+                            mission["id"],
+                            "httpx",
+                            target,
+                        ),
+                    ).fetchone()
+
+                    pid = row["id"]
+
+                proposals.append(pid)
+
+        return proposals
+
+    def proposals(self, mission, state=None):
+        with self.db() as db:
+            if state is None:
+                rows = db.execute(
+                    """
+                    SELECT * FROM proposals
+                    WHERE mission=?
+                    ORDER BY created,target
+                    """,
+                    (mission,),
+                ).fetchall()
+            else:
+                rows = db.execute(
+                    """
+                    SELECT * FROM proposals
+                    WHERE mission=? AND state=?
+                    ORDER BY created,target
+                    """,
+                    (mission, state),
+                ).fetchall()
+
+        result = []
+
+        for row in rows:
+            item = dict(row)
+
+            if item["evidence"]:
+                item["evidence"] = json.loads(
+                    item["evidence"]
+                )
+
+            result.append(item)
+
+        return result
+
+    def approve_proposal(self, proposal_id, reviewer):
+        """Approve one proposal and create its normal queued task.
+
+        Approval does not execute the task.
+        """
+        if not isinstance(reviewer, str) or not reviewer.strip():
+            raise ValueError("Reviewer identity required")
+
+        with self.db() as db:
+            proposal = db.execute(
+                "SELECT * FROM proposals WHERE id=?",
+                (proposal_id,),
+            ).fetchone()
+
+            if not proposal:
+                raise ValueError("Unknown proposal")
+
+            if proposal["state"] == "approved":
+                existing = db.execute(
+                    """
+                    SELECT id FROM tasks
+                    WHERE mission=? AND capability=? AND target=?
+                    """,
+                    (
+                        proposal["mission"],
+                        proposal["capability"],
+                        proposal["target"],
+                    ),
+                ).fetchone()
+
+                if existing:
+                    return existing["id"]
+
+                raise ValueError(
+                    "Approved proposal has no corresponding task"
+                )
+
+            if proposal["state"] != "proposed":
+                raise ValueError("Proposal is not reviewable")
+
+            mission = db.execute(
+                "SELECT * FROM missions WHERE id=?",
+                (proposal["mission"],),
+            ).fetchone()
+
+            if not mission or mission["state"] != "ready":
+                raise ValueError("Mission is not ready")
+
+            # Authorization and scope are rechecked at approval time.
+            scope = self.authorization_store.live_scope(
+                mission["authorization"]
+            )
+
+            target = scope.require(
+                proposal["target"],
+                proposal["capability"],
+            )
+
+            raw = proposal["evidence"]
+
+            if hashlib.sha256(raw.encode()).hexdigest() != \
+                    proposal["evidence_sha256"]:
+                raise ValueError("Proposal evidence digest mismatch")
+
+            task_id = str(uuid.uuid4())
+
+            try:
+                db.execute(
+                    """
+                    INSERT INTO tasks(
+                        id,mission,capability,target,state,created
+                    ) VALUES(?,?,?,?,?,?)
+                    """,
+                    (
+                        task_id,
+                        mission["id"],
+                        proposal["capability"],
+                        target,
+                        "queued",
+                        time.time(),
+                    ),
+                )
+
+            except sqlite3.IntegrityError:
+                existing = db.execute(
+                    """
+                    SELECT id FROM tasks
+                    WHERE mission=? AND capability=? AND target=?
+                    """,
+                    (
+                        mission["id"],
+                        proposal["capability"],
+                        target,
+                    ),
+                ).fetchone()
+
+                task_id = existing["id"]
+
+            db.execute(
+                """
+                UPDATE proposals
+                SET state='approved',reviewed=?,reviewer=?
+                WHERE id=?
+                """,
+                (
+                    time.time(),
+                    reviewer.strip(),
+                    proposal_id,
+                ),
+            )
+
+            self._event(
+                db,
+                mission["id"],
+                "proposal_approved",
+                f"{proposal_id}:{reviewer.strip()}",
+            )
+
+        return task_id
+
+    def reject_proposal(self, proposal_id, reviewer):
+        if not isinstance(reviewer, str) or not reviewer.strip():
+            raise ValueError("Reviewer identity required")
+
+        with self.db() as db:
+            proposal = db.execute(
+                "SELECT * FROM proposals WHERE id=?",
+                (proposal_id,),
+            ).fetchone()
+
+            if not proposal:
+                raise ValueError("Unknown proposal")
+
+            if proposal["state"] != "proposed":
+                raise ValueError("Proposal is not reviewable")
+
+            db.execute(
+                """
+                UPDATE proposals
+                SET state='rejected',reviewed=?,reviewer=?
+                WHERE id=?
+                """,
+                (
+                    time.time(),
+                    reviewer.strip(),
+                    proposal_id,
+                ),
+            )
+
+            self._event(
+                db,
+                proposal["mission"],
+                "proposal_rejected",
+                f"{proposal_id}:{reviewer.strip()}",
+            )
+
     def report(self, mission):
         with self.db() as db:
             m = db.execute(
@@ -399,5 +720,6 @@ class LiveMissionStore:
         return {
             "mission": dict(m),
             "tasks": tasks,
+            "proposals": self.proposals(mission),
             "events": events,
         }

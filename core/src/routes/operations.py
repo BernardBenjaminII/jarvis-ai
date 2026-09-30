@@ -13,7 +13,173 @@ from core.operations import OperationsService
 from core.observability import get_default_observability_service
 from core.sitrep import get_sitrep_service
 
+
+# JARVIS_SPACE_R89A_IMPORT
+from core.space_monitor.satellites import (
+    satellite_snapshot,
+    satellite_health,
+    satellite_orbit_track,
+)
+
+# JARVIS_SPACE_R87_IMPORT
+from core.space_monitor.service import (
+    build_space_weather_snapshot,
+    space_monitor_health,
+)
+
 router = APIRouter(prefix="/operations", tags=["operations"])
+
+# JARVIS_SPACE_R87_ROUTES_START
+
+@router.get("/space")
+def get_space_monitor():
+    """
+    Jarvis Space Monitor root manifest.
+
+    R8.7 provides authoritative NOAA SWPC space-weather data.
+    R8.8+ will add NEO and orbital monitoring without changing
+    this root contract.
+    """
+    health = space_monitor_health()
+
+    return {
+        "schema": "jarvis.space.r8.7",
+        "status": health["status"],
+        "sources_ok": health["sources_ok"],
+        "sources_total": health["sources_total"],
+        "capabilities": {
+            "space_weather": True,
+            "near_earth_objects": False,
+            "orbital_objects": False,
+            "local_rf_sensor": False,
+        },
+        "endpoints": {
+            "weather": "/operations/space/weather",
+            "aurora": "/operations/space/weather/aurora",
+            "health": "/operations/space/health",
+        },
+    }
+
+
+@router.get("/space/weather")
+def get_space_weather():
+    """
+    Current normalized NOAA SWPC space-weather snapshot.
+    """
+    return build_space_weather_snapshot()
+
+
+@router.get("/space/weather/aurora")
+def get_space_aurora():
+    """
+    Current NOAA OVATION auroral probability grid.
+
+    Kept as a separate endpoint because the full coordinate
+    set is much larger than the normal weather summary.
+    """
+    snapshot = build_space_weather_snapshot()
+
+    return {
+        "schema": "jarvis.space.aurora.r8.7",
+        "generated_at": snapshot["generated_at"],
+        "aurora": snapshot["aurora"],
+        "source": next(
+            (
+                source
+                for source in snapshot["sources"]
+                if source["name"] == "aurora"
+            ),
+            None,
+        ),
+    }
+
+
+@router.get("/space/health")
+def get_space_health():
+    """
+    Health/status of authoritative remote space sources.
+    """
+    return space_monitor_health()
+
+# JARVIS_SPACE_R87_ROUTES_END
+
+# JARVIS_SPACE_R89A_ROUTES
+
+@router.get("/space/satellites")
+def get_space_satellites(
+    groups: str | None = None,
+):
+    """
+    Current propagated locations for useful satellite groups.
+
+    groups:
+        stations,gps,weather
+    """
+
+    selected = None
+
+    if groups:
+        selected = [
+            value.strip()
+            for value in groups.split(",")
+            if value.strip()
+        ]
+
+    try:
+        return satellite_snapshot(
+            selected
+        )
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
+
+
+@router.get("/space/satellites/health")
+def get_space_satellite_health():
+    return satellite_health()
+
+
+
+# JARVIS_SPACE_R89C_ROUTES
+
+@router.get("/space/satellites/{norad_id}/track")
+def get_space_satellite_track(
+    norad_id: int,
+    minutes_back: int = 45,
+    minutes_forward: int = 45,
+):
+    """
+    Return a short propagated orbit/ground track for one selected satellite.
+    """
+
+    minutes_back = max(
+        0,
+        min(minutes_back, 180),
+    )
+
+    minutes_forward = max(
+        0,
+        min(minutes_forward, 180),
+    )
+
+    try:
+        return satellite_orbit_track(
+            norad_id,
+            minutes_back=minutes_back,
+            minutes_forward=minutes_forward,
+        )
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=404,
+            detail=str(exc),
+        ) from exc
+
+
+
 _service = OperationsService()
 
 

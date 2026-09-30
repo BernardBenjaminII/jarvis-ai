@@ -1,5 +1,8 @@
 "use strict";
 (() => {
+  // JARVIS_GEOSPATIAL_R1_2D
+  const geo=()=>window.JARVIS_GEOSPATIAL;
+
   let root, map, markerLayer, snapshot;
   let selectedLevel = 0;
   let newsTab="security", newsDays=7, newsQuery="", pollTimer, loading=false;
@@ -27,7 +30,9 @@
     }[securityClass(category)]||"#ff995e";
   }
   function securityShown(){const cutoff=Date.now()-newsDays*86400000;return (snapshot?.security_events||[]).filter(i=>new Date(i.published_at).getTime()>=cutoff&&(newsTab==="security"||newsTab===i.category)&&(!newsQuery||`${i.title} ${i.summary} ${i.source?.publisher||""}`.toLowerCase().includes(newsQuery.toLowerCase())))}
-  function select(i){const panel=root.querySelector(".sitrep-detail");panel.innerHTML=i.kind==="security_event"?securityDetail(i):detail(i);panel.hidden=false;panel.querySelector("button").onclick=()=>{panel.hidden=true}}
+  function select(i){
+    geo()?.setSelectedRecord(i);
+    const panel=root.querySelector(".sitrep-detail");panel.innerHTML=i.kind==="security_event"?securityDetail(i):detail(i);panel.hidden=false;panel.querySelector("button").onclick=()=>{panel.hidden=true}}
   function initMap(){
     const canvas=root.querySelector(".sitrep-map-canvas");
     if(typeof window.L!=="object"){canvas.innerHTML='<div class="sitrep-map-fallback">Interactive map library unavailable.<br>Advisory queue remains operational.</div>';return}
@@ -35,7 +40,23 @@
     map=L.map(canvas,{zoomControl:true,scrollWheelZoom:false,attributionControl:true,preferCanvas:true,minZoom:2,worldCopyJump:true}).setView([22,8],2);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:9,minZoom:2,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
     markerLayer=L.layerGroup().addTo(map);
-    map.on("zoomend",()=>{if(snapshot)drawMarkers(snapshot.incidents||[])});
+    map.on("zoomend",()=>{
+      if(snapshot)drawMarkers(snapshot.incidents||[]);
+      const center=map.getCenter();
+      geo()?.setViewport({
+        latitude:center.lat,
+        longitude:center.lng,
+        zoom:map.getZoom()
+      });
+    });
+    map.on("moveend",()=>{
+      const center=map.getCenter();
+      geo()?.setViewport({
+        latitude:center.lat,
+        longitude:center.lng,
+        zoom:map.getZoom()
+      });
+    });
     window.setTimeout(()=>map.invalidateSize(),0);
   }
   function drawMarkers(incidents){
@@ -79,11 +100,99 @@
     clearTimeout(pollTimer);
     host.innerHTML=`<button class="jarvis-workspace-close" onclick="JARVIS_WORKSPACES.close()">← Return to chat</button><div class="jarvis-callable-status sitrep-live-state">SITREP · CONNECTING</div><main class="sitrep"><section class="sitrep-map"><div class="sitrep-map-canvas"></div><div class="sitrep-map-heading"><small>COMMON OPERATING PICTURE</small><h2>Global Situation</h2></div><div class="sitrep-layer-panel"><strong>LAYERS</strong><button class="sitrep-layer active" data-layer="travel"><i class="layer-on"></i>Travel advisories</button><button class="sitrep-layer active" data-layer="nuclear"><i class="layer-nuclear"></i>Nuclear sites + notices</button></div><div class="sitrep-legend"><span><i class="l4"></i>L4</span><span><i class="l3"></i>L3</span><span><i class="l2"></i>L2</span><span><i class="l1"></i>L1</span><span><i class="nuclear-dot"></i>Nuclear</span></div><div class="sitrep-source-state">Connecting to authoritative sources…</div><aside class="sitrep-detail" hidden></aside></section><aside class="sitrep-feed"><header><small>OFFICIAL + PUBLIC REFERENCE</small><h2>Security Watch</h2><div class="sitrep-tabs">${[["security","Security"],["physical","Physical"],["aviation","Aviation"],["maritime","Maritime"],["cyber","Cyber"],["disaster","Disaster"],["reference","Advisories / nuclear"]].map(([tab,label])=>`<button class="sitrep-tab" data-tab="${tab}">${label}</button>`).join("")}</div><div class="sitrep-news-controls"><label>Window <select class="sitrep-days"><option value="1">24 hours</option><option value="3">3 days</option><option value="7" selected>7 days</option><option value="30">30 days</option></select></label><label>Search <input class="sitrep-search" type="search" placeholder="Place, threat, product…"></label><small>Reported developments · coverage is incomplete</small></div><div class="sitrep-filters">${[[0,"ALL"],[4,"L4"],[3,"L3"],[2,"L2"],[1,"L1"]].map(([level,label])=>`<button class="sitrep-filter" data-level="${level}">${label}</button>`).join("")}</div></header><details class="sitrep-health"><summary>Source health</summary></details><div class="sitrep-cards"><article class="sitrep-empty">Loading…</article></div></aside></main>`;
     root=host;
+
+    const shared=geo()?.get();
+    if(shared){
+      showTravel=shared.layers.incidents!==false;
+      showNuclear=shared.layers.nuclear!==false;
+
+      if(shared.timeWindowHours){
+        const candidate=Math.max(
+          1,
+          Math.round(Number(shared.timeWindowHours)/24)
+        );
+
+        if([1,3,7,30].includes(candidate)){
+          newsDays=candidate;
+        }
+      }
+    }
+
+    root.querySelectorAll(".sitrep-layer").forEach(button=>{
+      const layer=button.dataset.layer;
+      button.classList.toggle(
+        "active",
+        layer==="travel" ? showTravel : showNuclear
+      );
+    });
+
     root.querySelector(".sitrep-days").value=String(newsDays);root.querySelector(".sitrep-search").value=newsQuery;
     root.querySelectorAll(".sitrep-tab").forEach(b=>b.onclick=()=>{newsTab=b.dataset.tab;if(snapshot)render(snapshot)});
-    root.querySelector(".sitrep-days").onchange=e=>{newsDays=Number(e.target.value);if(snapshot)render(snapshot)};
+    root.querySelector(".sitrep-days").onchange=e=>{
+      newsDays=Number(e.target.value);
+      geo()?.setTimeWindowHours(newsDays*24);
+      if(snapshot)render(snapshot);
+    };
     root.querySelector(".sitrep-search").oninput=e=>{newsQuery=e.target.value;if(snapshot)render(snapshot)};
-    root.querySelectorAll(".sitrep-filter").forEach(button=>button.onclick=()=>{selectedLevel=Number(button.dataset.level);if(snapshot)render(snapshot)});root.querySelectorAll(".sitrep-layer").forEach(button=>button.onclick=()=>{const travel=button.dataset.layer==="travel";if(travel)showTravel=!showTravel;else showNuclear=!showNuclear;button.classList.toggle("active",travel?showTravel:showNuclear);if(snapshot)render(snapshot)});initMap();load();
+    root.querySelectorAll(".sitrep-filter").forEach(button=>button.onclick=()=>{selectedLevel=Number(button.dataset.level);if(snapshot)render(snapshot)});
+    root.querySelectorAll(".sitrep-layer").forEach(button=>button.onclick=()=>{
+      const travel=button.dataset.layer==="travel";
+
+      if(travel){
+        showTravel=!showTravel;
+        geo()?.setLayer("incidents",showTravel);
+      }else{
+        showNuclear=!showNuclear;
+        geo()?.setLayer("nuclear",showNuclear);
+      }
+
+      button.classList.toggle(
+        "active",
+        travel?showTravel:showNuclear
+      );
+
+      if(snapshot)render(snapshot);
+    });
+
+    const open3d=document.createElement("a");
+    open3d.className="sitrep-open-global-3d";
+    open3d.href="/global-3d";
+    open3d.textContent="OPEN GLOBAL 3D";
+    open3d.style.pointerEvents="auto";
+    open3d.style.position="relative";
+    open3d.style.zIndex="1000";
+
+    open3d.addEventListener("click",()=>{
+      if(map){
+        const center=map.getCenter();
+
+        geo()?.setViewport({
+          latitude:center.lat,
+          longitude:center.lng,
+          zoom:map.getZoom()
+        });
+      }
+    });
+
+    root.querySelector(".sitrep-map-heading")?.append(open3d);
+
+    initMap();
+
+    if(shared?.viewport && map){
+      const lat=Number(shared.viewport.latitude);
+      const lon=Number(shared.viewport.longitude);
+      const zoom=Number(shared.viewport.zoom);
+
+      if(
+        Number.isFinite(lat) &&
+        Number.isFinite(lon) &&
+        Number.isFinite(zoom)
+      ){
+        map.setView([lat,lon],Math.max(2,Math.min(9,zoom)));
+      }
+    }
+
+    load();
   }
   window.JARVIS_SITREP=Object.freeze({mount,refresh:load});
 })();
