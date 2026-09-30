@@ -23,6 +23,7 @@ from core.src.routes.executive_operations import (
     router as executive_operations_router,
     runtime as operations_center_runtime,
 )
+from core.src.routes.marine import router as marine_router
 from core.src.routes.mission_control import (
     router as mission_control_router,
 )
@@ -89,6 +90,7 @@ app.mount(
 
 app.include_router(mission_control_router)
 app.include_router(operations_router)
+app.include_router(marine_router)
 app.include_router(platform_status_router)
 app.include_router(executive_event_runtime_router)
 app.include_router(executive_operations_router)
