@@ -178,3 +178,5 @@ jarvis_ui_revision_2_1_hotfix/
 *.backup_*
 *_backup
 *_backup_*
+
+.venv.windows-*/
