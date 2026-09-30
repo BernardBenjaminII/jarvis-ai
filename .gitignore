@@ -180,3 +180,9 @@ jarvis_ui_revision_2_1_hotfix/
 *_backup_*
 
 .venv.windows-*/
+
+# Generated Jarvis development backups / audits
+artifacts/*_backups/
+artifacts/*_audit_*.txt
+requirements.txt.bak.*
+artifacts/group_sources_r2/
