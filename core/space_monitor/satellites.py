@@ -528,3 +528,619 @@ def satellite_orbit_track(
         "step_seconds": step_seconds,
         "points": points,
     }
+
+
+
+# ============================================================================
+# JARVIS SPACE R8.9D — OBSERVER GEOMETRY / PASS PREDICTION
+# ============================================================================
+
+def _geodetic_to_ecef(
+    latitude_deg: float,
+    longitude_deg: float,
+    altitude_km: float = 0.0,
+) -> tuple[float, float, float]:
+    """
+    WGS-84 geodetic coordinates -> ECEF kilometers.
+    """
+
+    lat = math.radians(latitude_deg)
+    lon = math.radians(longitude_deg)
+
+    a = 6378.137
+    e2 = 6.69437999014e-3
+
+    sin_lat = math.sin(lat)
+    cos_lat = math.cos(lat)
+
+    n = a / math.sqrt(
+        1.0 - e2 * sin_lat * sin_lat
+    )
+
+    x = (
+        n + altitude_km
+    ) * cos_lat * math.cos(lon)
+
+    y = (
+        n + altitude_km
+    ) * cos_lat * math.sin(lon)
+
+    z = (
+        n * (1.0 - e2)
+        + altitude_km
+    ) * sin_lat
+
+    return x, y, z
+
+
+def _eci_to_ecef_xyz(
+    x: float,
+    y: float,
+    z: float,
+    jd: float,
+) -> tuple[float, float, float]:
+    theta = _gmst(jd)
+
+    return (
+        math.cos(theta) * x
+        + math.sin(theta) * y,
+
+        -math.sin(theta) * x
+        + math.cos(theta) * y,
+
+        z,
+    )
+
+
+def _topocentric(
+    satellite_ecef: tuple[float, float, float],
+    observer_latitude: float,
+    observer_longitude: float,
+    observer_altitude_km: float,
+) -> dict[str, float]:
+    """
+    ECEF satellite position -> observer azimuth/elevation/range.
+    """
+
+    sx, sy, sz = satellite_ecef
+
+    ox, oy, oz = _geodetic_to_ecef(
+        observer_latitude,
+        observer_longitude,
+        observer_altitude_km,
+    )
+
+    dx = sx - ox
+    dy = sy - oy
+    dz = sz - oz
+
+    lat = math.radians(
+        observer_latitude
+    )
+
+    lon = math.radians(
+        observer_longitude
+    )
+
+    east = (
+        -math.sin(lon) * dx
+        + math.cos(lon) * dy
+    )
+
+    north = (
+        -math.sin(lat)
+        * math.cos(lon)
+        * dx
+        - math.sin(lat)
+        * math.sin(lon)
+        * dy
+        + math.cos(lat)
+        * dz
+    )
+
+    up = (
+        math.cos(lat)
+        * math.cos(lon)
+        * dx
+        + math.cos(lat)
+        * math.sin(lon)
+        * dy
+        + math.sin(lat)
+        * dz
+    )
+
+    range_km = math.sqrt(
+        east * east
+        + north * north
+        + up * up
+    )
+
+    if range_km <= 0:
+        raise ValueError(
+            "Invalid observer/satellite range"
+        )
+
+    elevation = math.degrees(
+        math.asin(
+            max(
+                -1.0,
+                min(
+                    1.0,
+                    up / range_km,
+                ),
+            )
+        )
+    )
+
+    azimuth = (
+        math.degrees(
+            math.atan2(
+                east,
+                north,
+            )
+        )
+        + 360.0
+    ) % 360.0
+
+    return {
+        "azimuth_deg":
+            round(azimuth, 2),
+
+        "elevation_deg":
+            round(elevation, 2),
+
+        "range_km":
+            round(range_km, 2),
+    }
+
+
+def _find_satellite_row(
+    norad_id: int,
+) -> tuple[str, dict[str, Any]]:
+    for group in GROUPS:
+        for row in _fetch_group(group):
+            if int(
+                row.get(
+                    "NORAD_CAT_ID",
+                    -1,
+                )
+            ) == int(norad_id):
+                return group, row
+
+    raise ValueError(
+        f"NORAD object {norad_id} "
+        "not found in tracked groups"
+    )
+
+
+def _look_angle(
+    sat: Satrec,
+    when: datetime,
+    observer_latitude: float,
+    observer_longitude: float,
+    observer_altitude_km: float,
+) -> dict[str, Any] | None:
+
+    jd, fr = _jday(when)
+
+    error, position, velocity = sat.sgp4(
+        jd,
+        fr,
+    )
+
+    if error != 0:
+        return None
+
+    ecef = _eci_to_ecef_xyz(
+        position[0],
+        position[1],
+        position[2],
+        jd + fr,
+    )
+
+    look = _topocentric(
+        ecef,
+        observer_latitude,
+        observer_longitude,
+        observer_altitude_km,
+    )
+
+    look["time"] = when.isoformat()
+
+    return look
+
+
+def satellite_pass_prediction(
+    norad_id: int,
+    observer_latitude: float,
+    observer_longitude: float,
+    observer_altitude_m: float = 0.0,
+    hours: float = 24.0,
+    min_elevation_deg: float = 0.0,
+    step_seconds: int = 30,
+) -> dict[str, Any]:
+    """
+    Predict the next horizon pass for one tracked satellite.
+
+    This is operational visualization / planning output based on
+    current CelesTrak orbital elements and SGP4 propagation.
+    """
+
+    from datetime import timedelta
+
+    group, row = _find_satellite_row(
+        norad_id
+    )
+
+    sat = _satrec_from_omm(row)
+
+    observer_altitude_km = (
+        observer_altitude_m
+        / 1000.0
+    )
+
+    start = utc_now()
+
+    current = _look_angle(
+        sat,
+        start,
+        observer_latitude,
+        observer_longitude,
+        observer_altitude_km,
+    )
+
+    if current is None:
+        raise ValueError(
+            "Unable to propagate current satellite position"
+        )
+
+    threshold = float(
+        min_elevation_deg
+    )
+
+    currently_visible = (
+        current["elevation_deg"]
+        >= threshold
+    )
+
+    active = currently_visible
+
+    rise_time = (
+        start.isoformat()
+        if currently_visible
+        else None
+    )
+
+    rise_azimuth = (
+        current["azimuth_deg"]
+        if currently_visible
+        else None
+    )
+
+    peak_time = (
+        start.isoformat()
+        if currently_visible
+        else None
+    )
+
+    peak_elevation = (
+        current["elevation_deg"]
+        if currently_visible
+        else -90.0
+    )
+
+    peak_azimuth = (
+        current["azimuth_deg"]
+        if currently_visible
+        else None
+    )
+
+    set_time = None
+    set_azimuth = None
+
+    previous = current
+
+    end = (
+        start
+        + timedelta(
+            hours=max(
+                0.25,
+                min(
+                    float(hours),
+                    72.0,
+                ),
+            )
+        )
+    )
+
+    when = (
+        start
+        + timedelta(
+            seconds=step_seconds
+        )
+    )
+
+    while when <= end:
+        look = _look_angle(
+            sat,
+            when,
+            observer_latitude,
+            observer_longitude,
+            observer_altitude_km,
+        )
+
+        if look is None:
+            when += timedelta(
+                seconds=step_seconds
+            )
+            continue
+
+        elevation = look[
+            "elevation_deg"
+        ]
+
+        prev_elevation = previous[
+            "elevation_deg"
+        ]
+
+        if (
+            not active
+            and prev_elevation < threshold
+            and elevation >= threshold
+        ):
+            active = True
+
+            rise_time = look["time"]
+            rise_azimuth = look[
+                "azimuth_deg"
+            ]
+
+            peak_time = look["time"]
+            peak_elevation = elevation
+            peak_azimuth = look[
+                "azimuth_deg"
+            ]
+
+        if active:
+            if elevation > peak_elevation:
+                peak_elevation = elevation
+                peak_time = look["time"]
+                peak_azimuth = look[
+                    "azimuth_deg"
+                ]
+
+            if (
+                prev_elevation >= threshold
+                and elevation < threshold
+            ):
+                set_time = look["time"]
+                set_azimuth = look[
+                    "azimuth_deg"
+                ]
+                break
+
+        previous = look
+
+        when += timedelta(
+            seconds=step_seconds
+        )
+
+    next_pass = None
+
+    if rise_time is not None:
+        next_pass = {
+            "rise_time": rise_time,
+            "rise_azimuth_deg":
+                round(
+                    rise_azimuth,
+                    2,
+                )
+                if rise_azimuth is not None
+                else None,
+
+            "peak_time": peak_time,
+            "max_elevation_deg":
+                round(
+                    peak_elevation,
+                    2,
+                ),
+
+            "peak_azimuth_deg":
+                round(
+                    peak_azimuth,
+                    2,
+                )
+                if peak_azimuth is not None
+                else None,
+
+            "set_time": set_time,
+
+            "set_azimuth_deg":
+                round(
+                    set_azimuth,
+                    2,
+                )
+                if set_azimuth is not None
+                else None,
+        }
+
+    return {
+        "schema":
+            "jarvis.space.satellite.pass.r8.9d",
+
+        "generated_at":
+            start.isoformat(),
+
+        "norad_id":
+            int(norad_id),
+
+        "name":
+            row.get("OBJECT_NAME"),
+
+        "group":
+            group,
+
+        "observer": {
+            "latitude":
+                observer_latitude,
+
+            "longitude":
+                observer_longitude,
+
+            "altitude_m":
+                observer_altitude_m,
+
+            "min_elevation_deg":
+                threshold,
+        },
+
+        "current": current,
+
+        "currently_above_threshold":
+            currently_visible,
+
+        "next_pass":
+            next_pass,
+
+        "prediction_hours":
+            hours,
+
+        "element_epoch":
+            row.get("EPOCH"),
+    }
+
+
+def satellites_above_observer(
+    observer_latitude: float,
+    observer_longitude: float,
+    observer_altitude_m: float = 0.0,
+    min_elevation_deg: float = 0.0,
+) -> dict[str, Any]:
+    """
+    Current tracked satellites above observer threshold.
+    """
+
+    when = utc_now()
+
+    observer_altitude_km = (
+        observer_altitude_m
+        / 1000.0
+    )
+
+    visible: list[
+        dict[str, Any]
+    ] = []
+
+    counts = {
+        "stations": 0,
+        "gps": 0,
+        "weather": 0,
+    }
+
+    total_catalog = 0
+
+    for group in GROUPS:
+        rows = _fetch_group(group)
+
+        total_catalog += len(rows)
+
+        for row in rows:
+            try:
+                sat = _satrec_from_omm(
+                    row
+                )
+
+                look = _look_angle(
+                    sat,
+                    when,
+                    observer_latitude,
+                    observer_longitude,
+                    observer_altitude_km,
+                )
+
+                if look is None:
+                    continue
+
+                if (
+                    look["elevation_deg"]
+                    < min_elevation_deg
+                ):
+                    continue
+
+                counts[group] += 1
+
+                visible.append({
+                    "norad_id":
+                        row.get(
+                            "NORAD_CAT_ID"
+                        ),
+
+                    "name":
+                        row.get(
+                            "OBJECT_NAME"
+                        ),
+
+                    "group":
+                        group,
+
+                    "azimuth_deg":
+                        look[
+                            "azimuth_deg"
+                        ],
+
+                    "elevation_deg":
+                        look[
+                            "elevation_deg"
+                        ],
+
+                    "range_km":
+                        look[
+                            "range_km"
+                        ],
+
+                    "element_epoch":
+                        row.get("EPOCH"),
+                })
+
+            except Exception:
+                continue
+
+    visible.sort(
+        key=lambda item:
+            item["elevation_deg"],
+        reverse=True,
+    )
+
+    return {
+        "schema":
+            "jarvis.space.observer.r8.9d",
+
+        "generated_at":
+            when.isoformat(),
+
+        "observer": {
+            "latitude":
+                observer_latitude,
+
+            "longitude":
+                observer_longitude,
+
+            "altitude_m":
+                observer_altitude_m,
+
+            "min_elevation_deg":
+                min_elevation_deg,
+        },
+
+        "catalog_total":
+            total_catalog,
+
+        "visible_total":
+            len(visible),
+
+        "counts":
+            counts,
+
+        "visible":
+            visible,
+    }

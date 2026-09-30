@@ -19,7 +19,9 @@ from core.space_monitor.satellites import (
     satellite_snapshot,
     satellite_health,
     satellite_orbit_track,
-)
+
+    satellite_pass_prediction,
+    satellites_above_observer,)
 
 # JARVIS_SPACE_R87_IMPORT
 from core.space_monitor.service import (
@@ -141,6 +143,74 @@ def get_space_satellites(
 def get_space_satellite_health():
     return satellite_health()
 
+
+
+
+# JARVIS_SPACE_R89D_ROUTES
+
+@router.get("/space/observer")
+def get_space_observer(
+    lat: float,
+    lon: float,
+    alt_m: float = 0.0,
+    min_elevation_deg: float = 0.0,
+):
+    if not -90.0 <= lat <= 90.0:
+        raise HTTPException(
+            status_code=400,
+            detail="Latitude must be between -90 and 90",
+        )
+
+    if not -180.0 <= lon <= 180.0:
+        raise HTTPException(
+            status_code=400,
+            detail="Longitude must be between -180 and 180",
+        )
+
+    return satellites_above_observer(
+        observer_latitude=lat,
+        observer_longitude=lon,
+        observer_altitude_m=alt_m,
+        min_elevation_deg=min_elevation_deg,
+    )
+
+
+@router.get("/space/satellites/{norad_id}/pass")
+def get_space_satellite_pass(
+    norad_id: int,
+    lat: float,
+    lon: float,
+    alt_m: float = 0.0,
+    hours: float = 24.0,
+    min_elevation_deg: float = 0.0,
+):
+    if not -90.0 <= lat <= 90.0:
+        raise HTTPException(
+            status_code=400,
+            detail="Latitude must be between -90 and 90",
+        )
+
+    if not -180.0 <= lon <= 180.0:
+        raise HTTPException(
+            status_code=400,
+            detail="Longitude must be between -180 and 180",
+        )
+
+    try:
+        return satellite_pass_prediction(
+            norad_id=norad_id,
+            observer_latitude=lat,
+            observer_longitude=lon,
+            observer_altitude_m=alt_m,
+            hours=hours,
+            min_elevation_deg=min_elevation_deg,
+        )
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=404,
+            detail=str(exc),
+        ) from exc
 
 
 # JARVIS_SPACE_R89C_ROUTES

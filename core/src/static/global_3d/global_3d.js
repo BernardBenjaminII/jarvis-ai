@@ -399,9 +399,7 @@ function renderSatelliteDossier(record) {
     geo()?.setSelectedRecord(record);
 
     const detail =
-        document.getElementById(
-            "eventDetail"
-        );
+        document.getElementById("eventDetail");
 
     if (!detail) {
         return false;
@@ -448,10 +446,7 @@ function renderSatelliteDossier(record) {
 
     detail.innerHTML = `
         <div class="event-title">
-            ${escapeHtml(
-                record.name ||
-                "SATELLITE"
-            )}
+            ${escapeHtml(record.name || "SATELLITE")}
         </div>
 
         <br>
@@ -462,17 +457,13 @@ function renderSatelliteDossier(record) {
 
         NORAD:
         ${escapeHtml(
-            satelliteValue(
-                record.norad_id
-            )
+            satelliteValue(record.norad_id)
         )}
         <br>
 
         OBJECT ID:
         ${escapeHtml(
-            satelliteValue(
-                record.object_id
-            )
+            satelliteValue(record.object_id)
         )}
         <br>
 
@@ -528,7 +519,14 @@ function renderSatelliteDossier(record) {
         SOURCE:
         CelesTrak
 
-        <br><br>
+        <div
+            id="satellitePassInfo"
+            class="satellite-pass-info">
+            OBSERVER:
+            waiting for location
+        </div>
+
+        <br>
 
         <div class="event-actions">
             <button id="focusSelected">
@@ -542,20 +540,14 @@ function renderSatelliteDossier(record) {
     `;
 
     document
-        .getElementById(
-            "focusSelected"
-        )
+        .getElementById("focusSelected")
         ?.addEventListener(
             "click",
-            () => {
-                focusRecord(record);
-            }
+            () => focusRecord(record)
         );
 
     document
-        .getElementById(
-            "openSource"
-        )
+        .getElementById("openSource")
         ?.addEventListener(
             "click",
             () => {
@@ -569,14 +561,23 @@ function renderSatelliteDossier(record) {
 
     window
         .JarvisSatelliteTracking
-        ?.showSelectedOrbit(
-            record
-        );
+        ?.showSelectedOrbit(record);
 
     return true;
 }
 
 function renderDetail(item) {
+
+        // JARVIS_SPACE_R89C_CANONICAL_DISPATCH
+        if (item?.kind === "satellite") {
+            renderSatelliteDossier(item);
+            return;
+        }
+
+        window
+            .JarvisSatelliteTracking
+            ?.clearSelectedOrbit();
+
         if (
             item?.kind === "satellite"
         ) {
@@ -890,7 +891,7 @@ function renderDetail(item) {
 
         satelliteScript.src =
             new URL(
-                "satellite_tracking.js?v=1",
+                "satellite_tracking.js?v=3",
                 base
             ).href;
 

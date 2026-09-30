@@ -9,7 +9,7 @@
           href="https://unpkg.com/cesium@1.134.1/Build/Cesium/Widgets/widgets.css">
 
     <link rel="stylesheet"
-          href="/static/global_3d/global_3d.css?v=14">
+          href="/static/global_3d/global_3d.css?v=17">
 </head>
 
 <body>
@@ -125,10 +125,31 @@
                     <strong id="satWeatherCount">0</strong>
                 </label>
 
+                <label class="layer-row satellite-row satellite-priority-row">
+                    <input
+                        id="satHighValueOnly"
+                        type="checkbox">
+                    <span class="legend sat-priority"></span>
+                    High Value Only
+                    <strong id="satHighValueCount">0</strong>
+                </label>
+
                 <div class="satellite-status"
                      id="satelliteStatus">
                     Waiting for CelesTrak
                 </div>
+
+                <div class="satellite-observer-status"
+                     id="satObserverStatus">
+                    Observer location unavailable
+                </div>
+
+                <button
+                    type="button"
+                    class="satellite-location-button"
+                    id="satUseBrowserLocation">
+                    USE LOCATION
+                </button>
 
                 <!-- JARVIS_SPACE_R89B_UI_END -->
 
@@ -270,6 +291,6 @@
 
 <script src="https://unpkg.com/cesium@1.134.1/Build/Cesium/Cesium.js"></script>
 <script src="/static/geospatial/geospatial_state.js"></script>
-<script src="/static/global_3d/global_3d.js?v=14"></script>
+<script src="/static/global_3d/global_3d.js?v=17"></script>
 </body>
 </html>
