@@ -186,3 +186,4 @@ artifacts/*_backups/
 artifacts/*_audit_*.txt
 requirements.txt.bak.*
 artifacts/group_sources_r2/
+.venv-windows-backup/
