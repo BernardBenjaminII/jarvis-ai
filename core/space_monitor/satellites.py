@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import json
 import math
+import os
 import time
 from datetime import datetime, timezone
 from threading import RLock
+from pathlib import Path
 from typing import Any
 
 import requests
@@ -19,7 +22,28 @@ GROUPS = {
     "weather": "WEATHER",
 }
 
-CACHE_TTL = 900
+
+MIRROR_BASE = (
+    "https://raw.githubusercontent.com/"
+    "satvisorcom/satvisor-data/master/"
+    "celestrak/json"
+)
+
+MIRROR_GROUPS = {
+    "stations": "stations.json",
+    "gps": "gps-ops.json",
+    "weather": "weather.json",
+}
+
+CACHE_TTL = 7200
+STALE_CACHE_TTL = 7 * 24 * 60 * 60
+
+CACHE_DIR = Path(
+    os.environ.get(
+        "JARVIS_SATELLITE_CACHE_DIR",
+        "/mnt/jarvis_runtime/cache/satellites",
+    )
+)
 _TIMEOUT = (5, 20)
 _LOCK = RLock()
 _CACHE: dict[str, tuple[float, list[dict[str, Any]]]] = {}
@@ -55,8 +79,133 @@ def parse_utc_datetime(value: str) -> datetime:
     return dt
 
 
+def _cache_file(group: str) -> Path:
+    return CACHE_DIR / f"{group}.json"
+
+
+def _load_disk_cache(
+    group: str,
+) -> tuple[float, list[dict[str, Any]]] | None:
+    path = _cache_file(group)
+
+    try:
+        raw = json.loads(path.read_text())
+
+        fetched_at = float(raw["fetched_at"])
+        payload = raw["payload"]
+
+        if not isinstance(payload, list):
+            return None
+
+        return fetched_at, payload
+
+    except (
+        FileNotFoundError,
+        KeyError,
+        TypeError,
+        ValueError,
+        json.JSONDecodeError,
+    ):
+        return None
+
+
+def _save_disk_cache(
+    group: str,
+    fetched_at: float,
+    payload: list[dict[str, Any]],
+) -> None:
+    CACHE_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    destination = _cache_file(group)
+    temporary = destination.with_suffix(".json.tmp")
+
+    temporary.write_text(
+        json.dumps(
+            {
+                "fetched_at": fetched_at,
+                "payload": payload,
+            },
+            separators=(",", ":"),
+        )
+    )
+
+    temporary.replace(destination)
+
+
+def _fetch_mirror_group(
+    group: str,
+) -> list[dict[str, Any]]:
+    """
+    Fetch CelesTrak-compatible OMM JSON from the
+    GitHub mirror when direct CelesTrak access fails.
+    """
+
+    filename = MIRROR_GROUPS[group]
+
+    url = (
+        f"{MIRROR_BASE}/{filename}"
+    )
+
+    response = requests.get(
+        url,
+        headers={
+            "User-Agent":
+                "Jarvis-Space-Monitor/8.9A"
+        },
+        timeout=_TIMEOUT,
+    )
+
+    response.raise_for_status()
+
+    payload = response.json()
+
+    if not isinstance(payload, list):
+        raise ValueError(
+            f"Satellite mirror {group} returned "
+            "non-list payload"
+        )
+
+    rows = [
+        row
+        for row in payload
+        if isinstance(row, dict)
+    ]
+
+    if not rows:
+        raise ValueError(
+            f"Satellite mirror {group} "
+            "returned no records"
+        )
+
+    fetched_at = time.time()
+
+    with _LOCK:
+        _CACHE[group] = (
+            fetched_at,
+            rows,
+        )
+
+    try:
+        _save_disk_cache(
+            group,
+            fetched_at,
+            rows,
+        )
+    except OSError:
+        pass
+
+    return rows
+
+
 def _fetch_group(group: str) -> list[dict[str, Any]]:
     now = time.time()
+
+    # -----------------------------------------------------
+    # Level 1 — RAM cache
+    # -----------------------------------------------------
 
     with _LOCK:
         cached = _CACHE.get(group)
@@ -64,33 +213,125 @@ def _fetch_group(group: str) -> list[dict[str, Any]]:
         if cached and now - cached[0] < CACHE_TTL:
             return cached[1]
 
+    # -----------------------------------------------------
+    # Level 2 — persistent disk cache
+    # -----------------------------------------------------
+
+    disk_cached = _load_disk_cache(group)
+
+    if disk_cached:
+        fetched_at, payload = disk_cached
+
+        if now - fetched_at < CACHE_TTL:
+            with _LOCK:
+                _CACHE[group] = (
+                    fetched_at,
+                    payload,
+                )
+
+            return payload
+
+    # -----------------------------------------------------
+    # Level 3 — live CelesTrak
+    # -----------------------------------------------------
+
     celestrak_group = GROUPS[group]
 
-    response = requests.get(
-        BASE,
-        params={
-            "GROUP": celestrak_group,
-            "FORMAT": "JSON",
-        },
-        headers={
-            "User-Agent": "Jarvis-Space-Monitor/8.9A"
-        },
-        timeout=_TIMEOUT,
-    )
-
-    response.raise_for_status()
-    payload = response.json()
-
-    if not isinstance(payload, list):
-        raise ValueError(
-            f"CelesTrak {group} returned non-list payload"
+    try:
+        response = requests.get(
+            BASE,
+            params={
+                "GROUP": celestrak_group,
+                "FORMAT": "JSON",
+            },
+            headers={
+                "User-Agent":
+                    "Jarvis-Space-Monitor/8.9A"
+            },
+            timeout=_TIMEOUT,
         )
 
-    with _LOCK:
-        _CACHE[group] = (now, payload)
+        response.raise_for_status()
+        payload = response.json()
 
-    return payload
+        if not isinstance(payload, list):
+            raise ValueError(
+                f"CelesTrak {group} returned "
+                "non-list payload"
+            )
 
+        fetched_at = time.time()
+
+        with _LOCK:
+            _CACHE[group] = (
+                fetched_at,
+                payload,
+            )
+
+        try:
+            _save_disk_cache(
+                group,
+                fetched_at,
+                payload,
+            )
+        except OSError:
+            # Satellite service must remain operational
+            # even if persistent-cache storage fails.
+            pass
+
+        return payload
+
+    except (
+        requests.RequestException,
+        ValueError,
+    ) as direct_error:
+
+        # -------------------------------------------------
+        # Level 4 — GitHub CelesTrak-compatible mirror
+        # -------------------------------------------------
+
+        try:
+            return _fetch_mirror_group(
+                group
+            )
+
+        except (
+            requests.RequestException,
+            ValueError,
+        ) as mirror_error:
+
+            # ---------------------------------------------
+            # Level 5 — stale last-known-good disk cache
+            # ---------------------------------------------
+
+            if disk_cached:
+                fetched_at, payload = (
+                    disk_cached
+                )
+
+                if (
+                    now - fetched_at
+                    <= STALE_CACHE_TTL
+                ):
+
+                    # Prevent every browser refresh from
+                    # retrying both upstream sources.
+                    with _LOCK:
+                        _CACHE[group] = (
+                            now,
+                            payload,
+                        )
+
+                    return payload
+
+            raise RuntimeError(
+                "Satellite acquisition failed "
+                f"for {group}: "
+                f"CelesTrak={type(direct_error).__name__}: "
+                f"{direct_error}; "
+                f"mirror={type(mirror_error).__name__}: "
+                f"{mirror_error}"
+            ) from mirror_error
 
 def _jday(dt: datetime) -> tuple[float, float]:
     from sgp4.api import jday

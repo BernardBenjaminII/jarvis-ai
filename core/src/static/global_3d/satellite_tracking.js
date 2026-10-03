@@ -173,7 +173,139 @@
     }
 
 
+
+    async function refreshObserverFromJarvis() {
+        try {
+            const response = await fetch(
+                "/api/sensors/observer",
+                {
+                    headers: {
+                        Accept: "application/json"
+                    },
+                    cache: "no-store"
+                }
+            );
+
+            if (!response.ok) {
+                return false;
+            }
+
+            const data = await response.json();
+
+            const latitude = Number(data?.latitude);
+            const longitude = Number(data?.longitude);
+            const altitude = Number(data?.altitude_m ?? 0);
+
+            const liveFix =
+                data?.state === "fix" &&
+                data?.available === true &&
+                Number.isFinite(latitude) &&
+                Number.isFinite(longitude) &&
+                latitude >= -90 &&
+                latitude <= 90 &&
+                longitude >= -180 &&
+                longitude <= 180;
+
+            if (!liveFix) {
+
+                /*
+                 * Never retain a stale observer that originally
+                 * came from Jarvis' dynamic GNSS broker.
+                 *
+                 * Browser/manual observers are preserved as
+                 * fallback because they have no dynamic source
+                 * marker.
+                 */
+                if (
+                    observer &&
+                    (
+                        observer.source === "gpsd" ||
+                        observer.source === "mobile_gnss"
+                    )
+                ) {
+                    observer = null;
+
+                    try {
+                        localStorage.removeItem(
+                            OBSERVER_STORAGE_KEY
+                        );
+                    } catch (error) {
+                        console.warn(
+                            "Unable to clear stale Jarvis observer:",
+                            error
+                        );
+                    }
+                }
+
+                return false;
+            }
+
+            saveObserver({
+                latitude,
+                longitude,
+
+                altitude_m:
+                    Number.isFinite(altitude)
+                        ? altitude
+                        : 0,
+
+                source:
+                    data.source || "jarvis",
+
+                node_id:
+                    data.node_id || null,
+
+                heading_deg:
+                    Number.isFinite(
+                        Number(data.heading_deg)
+                    )
+                        ? Number(data.heading_deg)
+                        : null,
+
+                speed_mps:
+                    Number.isFinite(
+                        Number(data.speed_mps)
+                    )
+                        ? Number(data.speed_mps)
+                        : null,
+
+                horizontal_accuracy_m:
+                    Number.isFinite(
+                        Number(
+                            data.horizontal_accuracy_m
+                        )
+                    )
+                        ? Number(
+                            data.horizontal_accuracy_m
+                        )
+                        : null,
+
+                timestamp:
+                    data.timestamp || null,
+
+                age_seconds:
+                    Number.isFinite(
+                        Number(data.age_seconds)
+                    )
+                        ? Number(data.age_seconds)
+                        : null
+            });
+
+            return true;
+
+        } catch (error) {
+
+            console.warn(
+                "Jarvis observer broker unavailable:",
+                error
+            );
+
+            return false;
+        }
+    }
+
     async function refreshObserverSummary() {
+        await refreshObserverFromJarvis();
         if (!observer) {
             text(
                 "satObserverStatus",

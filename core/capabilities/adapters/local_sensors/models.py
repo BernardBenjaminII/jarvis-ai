@@ -45,8 +45,68 @@ class GPSStatus(BaseModel):
     detail: str | None = None
 
 
+class MobileSensorStatus(BaseModel):
+    state: Literal[
+        "online",
+        "stale",
+        "no_data",
+        "error",
+    ]
+    available: bool = False
+
+    node_id: str | None = None
+
+    received_at: str | None = None
+    age_seconds: float | None = None
+
+    latitude: float | None = None
+    longitude: float | None = None
+    altitude_m: float | None = None
+    horizontal_accuracy_m: float | None = None
+
+    heading_deg: float | None = None
+    speed_mps: float | None = None
+
+    capabilities: list[str] = []
+
+    detail: str | None = None
+
+
+class ObserverStatus(BaseModel):
+    state: Literal[
+        "fix",
+        "unavailable",
+    ]
+
+    available: bool = False
+
+    source: Literal[
+        "gpsd",
+        "mobile_gnss",
+    ] | None = None
+
+    node_id: str | None = None
+
+    latitude: float | None = None
+    longitude: float | None = None
+    altitude_m: float | None = None
+
+    heading_deg: float | None = None
+    speed_mps: float | None = None
+
+    horizontal_accuracy_m: float | None = None
+
+    timestamp: str | None = None
+    age_seconds: float | None = None
+
+    detail: str | None = None
+
+
 class SensorSnapshot(BaseModel):
     schema: str = "jarvis.local_sensors.r1"
     host: str
+
     sdr: SDRStatus
     gps: GPSStatus
+    mobile: MobileSensorStatus
+    observer: ObserverStatus
