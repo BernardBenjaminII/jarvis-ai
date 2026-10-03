@@ -56,8 +56,14 @@ class MobileSensorStatus(BaseModel):
 
     node_id: str | None = None
 
+    # Node / transport freshness.
     received_at: str | None = None
     age_seconds: float | None = None
+
+    # Actual GNSS observation freshness.
+    observed_at: str | None = None
+    fix_age_seconds: float | None = None
+    fix_stale: bool = False
 
     latitude: float | None = None
     longitude: float | None = None

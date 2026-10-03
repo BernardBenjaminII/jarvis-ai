@@ -122,3 +122,72 @@ def test_observer_rejects_invalid_coordinates():
     )
 
     assert observer.state == "unavailable"
+
+
+def test_observer_rejects_online_mobile_with_stale_gnss_fix():
+
+    gps = GPSStatus(
+        state="no_device",
+        available=False,
+        fix=False,
+    )
+
+    mobile = MobileSensorStatus(
+        state="online",
+        available=True,
+        node_id="IPHONE-14-PRO-MAX",
+        received_at="2026-10-03T21:40:30+00:00",
+        age_seconds=1.0,
+        observed_at="2026-10-03T21:39:00+00:00",
+        fix_age_seconds=90.0,
+        fix_stale=True,
+        latitude=49.99,
+        longitude=8.27,
+    )
+
+    observer = observer_status(
+        gps=gps,
+        mobile=mobile,
+    )
+
+    assert observer.state == "unavailable"
+    assert observer.available is False
+    assert observer.source is None
+    assert "mobile_gnss=stale" in observer.detail
+
+
+def test_observer_uses_actual_mobile_fix_timestamp():
+
+    gps = GPSStatus(
+        state="no_device",
+        available=False,
+        fix=False,
+    )
+
+    mobile = MobileSensorStatus(
+        state="online",
+        available=True,
+        node_id="IPHONE-14-PRO-MAX",
+        received_at="2026-10-03T21:40:30+00:00",
+        age_seconds=1.0,
+        observed_at="2026-10-03T21:40:20+00:00",
+        fix_age_seconds=10.0,
+        fix_stale=False,
+        latitude=49.99,
+        longitude=8.27,
+    )
+
+    observer = observer_status(
+        gps=gps,
+        mobile=mobile,
+    )
+
+    assert observer.state == "fix"
+    assert observer.source == "mobile_gnss"
+
+    assert (
+        observer.timestamp
+        == "2026-10-03T21:40:20+00:00"
+    )
+
+    assert observer.age_seconds == 10.0

@@ -64,6 +64,7 @@ def observer_status(
     if (
         mobile.state == "online"
         and mobile.available
+        and not mobile.fix_stale
         and _valid_coordinates(
             mobile.latitude,
             mobile.longitude,
@@ -82,8 +83,8 @@ def observer_status(
             horizontal_accuracy_m=(
                 mobile.horizontal_accuracy_m
             ),
-            timestamp=mobile.received_at,
-            age_seconds=mobile.age_seconds,
+            timestamp=mobile.observed_at,
+            age_seconds=mobile.fix_age_seconds,
             detail=(
                 "Observer position supplied by "
                 "live mobile GNSS telemetry."
@@ -100,6 +101,11 @@ def observer_status(
     if mobile.state != "online":
         reasons.append(
             f"mobile={mobile.state}"
+        )
+
+    elif mobile.fix_stale:
+        reasons.append(
+            "mobile_gnss=stale"
         )
 
     detail = (

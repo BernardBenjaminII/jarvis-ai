@@ -36,6 +36,13 @@ _STALE_SECONDS = float(
     )
 )
 
+_GNSS_STALE_SECONDS = float(
+    os.getenv(
+        "JARVIS_MOBILE_GNSS_STALE_SECONDS",
+        "30",
+    )
+)
+
 _LOCK = threading.Lock()
 
 
@@ -137,21 +144,16 @@ def ingest_mobile_telemetry(
     }
 
 
-def _packet_age_seconds(
-    packet: dict[str, Any],
+def _timestamp_age_seconds(
+    timestamp: Any,
 ) -> tuple[str | None, float | None]:
-    jarvis_meta = packet.get("_jarvis")
+    """Return normalized age for an ISO-8601 timestamp."""
 
-    if not isinstance(jarvis_meta, dict):
-        return None, None
-
-    received_at = jarvis_meta.get("received_at")
-
-    if not isinstance(received_at, str):
+    if not isinstance(timestamp, str):
         return None, None
 
     try:
-        value = received_at.replace(
+        value = timestamp.replace(
             "Z",
             "+00:00",
         )
@@ -168,10 +170,35 @@ def _packet_age_seconds(
             - observed.astimezone(timezone.utc)
         ).total_seconds()
 
-        return received_at, max(0.0, age)
+        return timestamp, max(0.0, age)
 
     except ValueError:
-        return received_at, None
+        return timestamp, None
+
+
+def _packet_age_seconds(
+    packet: dict[str, Any],
+) -> tuple[str | None, float | None]:
+    """Return node/transport age from Jarvis receive time."""
+
+    jarvis_meta = packet.get("_jarvis")
+
+    if not isinstance(jarvis_meta, dict):
+        return None, None
+
+    return _timestamp_age_seconds(
+        jarvis_meta.get("received_at")
+    )
+
+
+def _fix_age_seconds(
+    packet: dict[str, Any],
+) -> tuple[str | None, float | None]:
+    """Return age of the actual mobile GNSS observation."""
+
+    return _timestamp_age_seconds(
+        packet.get("observed_at")
+    )
 
 
 def _capabilities(
@@ -232,6 +259,10 @@ def mobile_status() -> MobileSensorStatus:
         _packet_age_seconds(packet)
     )
 
+    observed_at, fix_age_seconds = (
+        _fix_age_seconds(packet)
+    )
+
     location = packet.get("location")
 
     if not isinstance(location, dict):
@@ -279,6 +310,25 @@ def mobile_status() -> MobileSensorStatus:
         else magnetic_heading
     )
 
+    has_coordinates = (
+        latitude is not None
+        and longitude is not None
+    )
+
+    if not has_coordinates:
+        fix_stale = False
+
+    elif fix_age_seconds is None:
+        # Coordinates exist, but Jarvis cannot establish when
+        # they were actually observed. Do not promote them as
+        # a live GNSS fix.
+        fix_stale = True
+
+    else:
+        fix_stale = (
+            fix_age_seconds > _GNSS_STALE_SECONDS
+        )
+
     if age_seconds is None:
         state = "error"
         available = False
@@ -310,6 +360,13 @@ def mobile_status() -> MobileSensorStatus:
             if age_seconds is not None
             else None
         ),
+        observed_at=observed_at,
+        fix_age_seconds=(
+            round(fix_age_seconds, 3)
+            if fix_age_seconds is not None
+            else None
+        ),
+        fix_stale=fix_stale,
         latitude=latitude,
         longitude=longitude,
         altitude_m=altitude,
