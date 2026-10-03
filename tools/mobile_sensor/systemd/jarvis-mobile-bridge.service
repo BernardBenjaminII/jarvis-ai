@@ -1,0 +1,19 @@
+[Unit]
+Description=JARVIS Mobile Sensor USB Bridge
+After=network.target jarvis-mobile-usb-tunnel.service
+Wants=jarvis-mobile-usb-tunnel.service
+
+[Service]
+Type=simple
+User=abdullah
+WorkingDirectory=/home/abdullah/Projects/AI/jarvis-ai
+
+EnvironmentFile=/etc/jarvis/mobile-sensor.env
+
+ExecStart=/usr/bin/python3 -u /home/abdullah/Projects/AI/jarvis-ai/tools/mobile_sensor/usb_bridge.py
+
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

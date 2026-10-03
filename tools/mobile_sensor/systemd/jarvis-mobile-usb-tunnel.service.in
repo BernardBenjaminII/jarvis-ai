@@ -1,0 +1,20 @@
+[Unit]
+Description=JARVIS iPhone USB Tunnel
+After=usbmuxd.service
+Wants=usbmuxd.service
+
+[Service]
+Type=simple
+User=abdullah
+
+ExecStart=/usr/bin/iproxy \
+    --udid __IPHONE_UDID__ \
+    --local \
+    --source 127.0.0.1 \
+    8765:8765
+
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
