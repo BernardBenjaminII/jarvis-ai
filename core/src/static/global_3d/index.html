@@ -9,7 +9,7 @@
           href="https://unpkg.com/cesium@1.134.1/Build/Cesium/Widgets/widgets.css">
 
     <link rel="stylesheet"
-          href="/static/global_3d/global_3d.css?v=21">
+          href="/static/global_3d/global_3d.css?v=22">
 </head>
 
 <body>
@@ -179,11 +179,29 @@
                         Detecting receiver
                     </div>
 
+                    <!-- JARVIS_LOCAL_POSITION_R2_START -->
+
+                    <div class="local-sensor-row">
+                        <span class="local-sensor-indicator"
+                              id="localPositionIndicator"></span>
+
+                        <span>POSITION</span>
+
+                        <strong id="localPositionState">
+                            CHECKING
+                        </strong>
+                    </div>
+
+                    <div class="local-sensor-detail"
+                         id="localPositionDetail">
+                        Resolving best position source
+                    </div>
+
                     <div class="local-sensor-row">
                         <span class="local-sensor-indicator"
                               id="localGpsIndicator"></span>
 
-                        <span>GPS</span>
+                        <span>HOST GPS</span>
 
                         <strong id="localGpsState">
                             CHECKING
@@ -194,6 +212,8 @@
                          id="localGpsDetail">
                         Checking gpsd
                     </div>
+
+                    <!-- JARVIS_LOCAL_POSITION_R2_END -->
 
                     <div class="local-sensor-refresh"
                          id="localSensorRefresh">
@@ -598,8 +618,9 @@
 
 <script src="https://unpkg.com/cesium@1.134.1/Build/Cesium/Cesium.js"></script>
 <script src="/static/geospatial/geospatial_state.js"></script>
-<script src="/static/global_3d/global_3d.js?v=17"></script>
-<script src="/static/global_3d/local_sensors.js?v=1"></script>
+<script src="/static/global_3d/global_3d.js?v=18"></script>
+<script src="/static/global_3d/own_position.js?v=1"></script>
+<script src="/static/global_3d/local_sensors.js?v=2"></script>
 <script src="/static/global_3d/rf_switchboard.js?v=1"></script>
 <script src="/static/global_3d/rf_fm_tuner.js?v=6"></script>
 <script src="/static/global_3d/rf_radio_mode_switch.js?v=1"></script>

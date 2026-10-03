@@ -43,13 +43,20 @@
             "offline"
         );
 
-        if (state === "ready" || state === "fix") {
+        if (
+            state === "ready" ||
+            state === "fix" ||
+            state === "online" ||
+            state === "live"
+        ) {
             node.classList.add("ready");
             return;
         }
 
         if (
             state === "no_fix" ||
+            state === "stale" ||
+            state === "stale_fix" ||
             state === "busy" ||
             state === "permission_denied"
         ) {
@@ -117,6 +124,190 @@
         );
     }
 
+    // JARVIS_LOCAL_POSITION_R2
+    function renderPosition(observer, mobile) {
+        /*
+         * POSITION represents Jarvis' best positioning state.
+         *
+         * It is intentionally different from HOST GPS:
+         *   POSITION = fused/selected observer capability
+         *   HOST GPS = gpsd hardware state on Xperion
+         */
+
+        if (
+            observer?.state === "fix" &&
+            observer?.available === true &&
+            Number.isFinite(Number(observer.latitude)) &&
+            Number.isFinite(Number(observer.longitude))
+        ) {
+            const source =
+                observer.source === "gpsd"
+                    ? "GPSD"
+                    : observer.source === "mobile_gnss"
+                        ? "MOBILE GNSS"
+                        : String(
+                            observer.source || "GNSS"
+                        ).toUpperCase();
+
+            const lat =
+                Number(observer.latitude).toFixed(5);
+
+            const lon =
+                Number(observer.longitude).toFixed(5);
+
+            const pieces = [
+                observer.node_id || null,
+                source,
+                `${lat}, ${lon}`,
+
+                observer.altitude_m != null
+                    ? `${Number(
+                        observer.altitude_m
+                    ).toFixed(0)} m`
+                    : null,
+
+                observer.horizontal_accuracy_m != null
+                    ? `±${Number(
+                        observer.horizontal_accuracy_m
+                    ).toFixed(1)} m`
+                    : null,
+
+                observer.age_seconds != null
+                    ? `FIX ${Number(
+                        observer.age_seconds
+                    ).toFixed(0)} s`
+                    : null,
+            ]
+                .filter(Boolean);
+
+            setText(
+                "localPositionState",
+                "LIVE"
+            );
+
+            setIndicator(
+                "localPositionIndicator",
+                "live"
+            );
+
+            setText(
+                "localPositionDetail",
+                pieces.join(" · ")
+            );
+
+            return;
+        }
+
+
+        /*
+         * No authoritative live observer fix exists.
+         *
+         * If the mobile node is still online and has coordinates,
+         * show them explicitly as LAST KNOWN / STALE FIX rather
+         * than pretending Jarvis has no positioning capability.
+         */
+
+        if (
+            mobile?.state === "online" &&
+            mobile?.available === true &&
+            Number.isFinite(Number(mobile.latitude)) &&
+            Number.isFinite(Number(mobile.longitude))
+        ) {
+            const lat =
+                Number(mobile.latitude).toFixed(5);
+
+            const lon =
+                Number(mobile.longitude).toFixed(5);
+
+            const pieces = [
+                mobile.node_id || "MOBILE",
+                "MOBILE GNSS",
+                `${lat}, ${lon}`,
+
+                mobile.altitude_m != null
+                    ? `${Number(
+                        mobile.altitude_m
+                    ).toFixed(0)} m`
+                    : null,
+
+                mobile.horizontal_accuracy_m != null
+                    ? `±${Number(
+                        mobile.horizontal_accuracy_m
+                    ).toFixed(1)} m`
+                    : null,
+
+                mobile.fix_age_seconds != null
+                    ? `FIX ${Number(
+                        mobile.fix_age_seconds
+                    ).toFixed(0)} s`
+                    : null,
+            ]
+                .filter(Boolean);
+
+            const stale =
+                mobile.fix_stale === true;
+
+            setText(
+                "localPositionState",
+                stale
+                    ? "STALE FIX"
+                    : "NO LIVE FIX"
+            );
+
+            setIndicator(
+                "localPositionIndicator",
+                stale
+                    ? "stale_fix"
+                    : "no_fix"
+            );
+
+            setText(
+                "localPositionDetail",
+                pieces.join(" · ")
+            );
+
+            return;
+        }
+
+
+        if (mobile?.state === "stale") {
+            setText(
+                "localPositionState",
+                "OFFLINE"
+            );
+
+            setIndicator(
+                "localPositionIndicator",
+                "offline"
+            );
+
+            setText(
+                "localPositionDetail",
+                "Mobile sensor node disconnected or stale"
+            );
+
+            return;
+        }
+
+
+        setText(
+            "localPositionState",
+            "UNAVAILABLE"
+        );
+
+        setIndicator(
+            "localPositionIndicator",
+            "offline"
+        );
+
+        setText(
+            "localPositionDetail",
+            observer?.detail ||
+                "No position source available"
+        );
+    }
+
+
     function renderGps(gps) {
         const state = gps?.state || "no_device";
 
@@ -171,6 +362,12 @@
         );
 
         renderSdr(snapshot?.sdr);
+
+        renderPosition(
+            snapshot?.observer,
+            snapshot?.mobile
+        );
+
         renderGps(snapshot?.gps);
 
         setText(
@@ -186,12 +383,22 @@
         );
 
         setText(
+            "localPositionState",
+            "ERROR"
+        );
+
+        setText(
             "localGpsState",
             "ERROR"
         );
 
         setIndicator(
             "localSdrIndicator",
+            "error"
+        );
+
+        setIndicator(
+            "localPositionIndicator",
             "error"
         );
 

@@ -1586,3 +1586,78 @@ button {
 
 /* JARVIS_RF_R6_LAYOUT_END */
 
+
+
+/* JARVIS_GLOBAL3D_SIDEBAR_SCROLL_R1_START */
+
+/*
+ * Global 3D owns the browser viewport, so the document itself
+ * intentionally does not scroll.
+ *
+ * The left operational sidebar therefore becomes its own
+ * viewport-bounded scrolling workspace.
+ */
+
+.left-panel {
+    max-height: calc(100vh - 108px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+
+    scrollbar-gutter: stable;
+}
+
+
+/*
+ * RF previously had its own 48vh scrollbar.
+ *
+ * Now that the complete left sidebar scrolls, allow the normal
+ * RF switchboard to participate in that single scroll surface.
+ * This avoids nested sidebar/RF scrollbars.
+ *
+ * Expanded RF mode keeps its dedicated overflow rules elsewhere.
+ */
+
+#rfSwitchboard:not(.rf-expanded) {
+    max-height: none;
+
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
+
+/*
+ * Compact scrollbar that remains consistent with Global 3D.
+ */
+
+.left-panel {
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(120,230,200,.45)
+        rgba(0,0,0,.18);
+}
+
+.left-panel::-webkit-scrollbar {
+    width: 7px;
+}
+
+.left-panel::-webkit-scrollbar-track {
+    background:
+        rgba(0,0,0,.18);
+}
+
+.left-panel::-webkit-scrollbar-thumb {
+    background:
+        rgba(120,230,200,.38);
+
+    border-radius: 8px;
+}
+
+.left-panel::-webkit-scrollbar-thumb:hover {
+    background:
+        rgba(120,230,200,.62);
+}
+
+/* JARVIS_GLOBAL3D_SIDEBAR_SCROLL_R1_END */

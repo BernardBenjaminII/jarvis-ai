@@ -32,6 +32,10 @@
         terrainProvider: new Cesium.EllipsoidTerrainProvider()
     });
 
+    // JARVIS_OWN_POSITION_R1_VIEWER
+    // Expose the existing Cesium viewer to independent Global 3D layers.
+    window.JARVIS_GLOBAL_3D_VIEWER = viewer;
+
     viewer.scene.globe.enableLighting = true;
 
     // Earth must occlude markers on the far hemisphere.
