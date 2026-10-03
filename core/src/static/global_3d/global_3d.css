@@ -505,3 +505,1084 @@ select {
 }
 
 /* JARVIS_SPACE_R89E_CSS_END */
+
+/* JARVIS_LOCAL_SENSORS_R1_CSS_START */
+
+.local-sensor-panel {
+    border-top:
+        1px solid
+        rgba(120, 230, 200, .18);
+
+    padding-top: 12px;
+}
+
+.local-sensor-host {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 0 0 8px 0;
+
+    font-size: 8px;
+    opacity: .58;
+}
+
+.local-sensor-host strong {
+    margin-left: auto;
+    color: var(--green);
+}
+
+.local-sensor-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 8px 0 2px 0;
+
+    font-size: 10px;
+}
+
+.local-sensor-row strong {
+    margin-left: auto;
+    font-size: 9px;
+}
+
+.local-sensor-indicator {
+    width: 8px;
+    height: 8px;
+
+    flex: 0 0 8px;
+
+    border-radius: 50%;
+
+    background: #777;
+}
+
+.local-sensor-indicator.ready {
+    background: var(--green);
+    box-shadow:
+        0 0 7px
+        rgba(80, 255, 170, .55);
+}
+
+.local-sensor-indicator.warning {
+    background: #f2c94c;
+    box-shadow:
+        0 0 7px
+        rgba(242, 201, 76, .4);
+}
+
+.local-sensor-indicator.offline {
+    background: var(--red);
+    box-shadow:
+        0 0 7px
+        rgba(255, 80, 80, .38);
+}
+
+.local-sensor-detail {
+    margin:
+        2px 0 5px 16px;
+
+    font-size: 8px;
+    line-height: 1.35;
+
+    opacity: .68;
+
+    overflow-wrap: anywhere;
+}
+
+.local-sensor-refresh {
+    margin-top: 8px;
+
+    font-size: 7px;
+    letter-spacing: .05em;
+
+    opacity: .42;
+}
+
+/* JARVIS_LOCAL_SENSORS_R1_CSS_END */
+
+/* JARVIS_RF_R2_CSS_START */
+
+/*
+ * RF / SDR readability pass.
+ *
+ * Goals:
+ * - readable from normal desktop viewing distance
+ * - preserve the compact Global 3D sidebar
+ * - give RF output enough working room
+ * - prevent long data from stretching the entire interface
+ */
+
+.rf-switchboard {
+    box-sizing: border-box;
+
+    width: 100%;
+    min-width: 0;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid
+        rgba(120,230,200,.22);
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+.rf-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 8px;
+}
+
+.rf-header h2 {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.2;
+
+    letter-spacing: .07em;
+}
+
+.rf-header strong {
+    flex: 0 0 auto;
+
+    font-size: 11px;
+    line-height: 1.2;
+
+    color: var(--green);
+}
+
+
+/* ---------------------------------------------------------
+   CONTROLS
+   --------------------------------------------------------- */
+
+.rf-control {
+    display: grid;
+
+    grid-template-columns:
+        82px minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 8px 0;
+
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.rf-control > span {
+    font-weight: 600;
+
+    letter-spacing: .035em;
+
+    opacity: .88;
+}
+
+.rf-control input,
+.rf-control select {
+    box-sizing: border-box;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 31px;
+
+    padding: 6px 7px;
+
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.2;
+
+    color: inherit;
+
+    background:
+        rgba(0,0,0,.30);
+
+    border:
+        1px solid
+        rgba(120,230,200,.34);
+
+    border-radius: 2px;
+}
+
+
+/* Make the tuned frequency especially easy to read. */
+
+#rfFrequency {
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: .03em;
+}
+
+
+/* Stronger focus indication during operation. */
+
+.rf-control input:focus,
+.rf-control select:focus {
+    outline: none;
+
+    border-color:
+        rgba(120,230,200,.72);
+
+    background:
+        rgba(0,0,0,.42);
+}
+
+
+/* ---------------------------------------------------------
+   SCANNER RANGE
+   --------------------------------------------------------- */
+
+.rf-scan-controls {
+    display: none;
+
+    margin-top: 4px;
+}
+
+
+/* ---------------------------------------------------------
+   START / STOP CONTROLS
+   --------------------------------------------------------- */
+
+.rf-buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.rf-buttons button {
+    min-width: 0;
+    min-height: 33px;
+
+    padding: 7px 8px;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: .035em;
+
+    color: inherit;
+
+    background:
+        rgba(0,0,0,.28);
+
+    border:
+        1px solid
+        rgba(120,230,200,.42);
+
+    cursor: pointer;
+}
+
+.rf-buttons button:hover {
+    background:
+        rgba(120,230,200,.08);
+
+    border-color:
+        rgba(120,230,200,.68);
+}
+
+
+/* ---------------------------------------------------------
+   CURRENT TASK / STATUS DETAIL
+   --------------------------------------------------------- */
+
+.rf-detail {
+    margin-top: 10px;
+
+    font-size: 11px;
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
+
+    opacity: .86;
+}
+
+
+/* ---------------------------------------------------------
+   SDR / RF OUTPUT WINDOW
+   --------------------------------------------------------- */
+
+.rf-output {
+    box-sizing: border-box;
+
+    width: 100%;
+
+    min-height: 120px;
+    max-height: 220px;
+
+    margin: 8px 0 0 0;
+    padding: 8px;
+
+    overflow-x: auto;
+    overflow-y: auto;
+
+    resize: vertical;
+
+    font-family:
+        "DejaVu Sans Mono",
+        "Liberation Mono",
+        monospace;
+
+    font-size: 11px;
+    line-height: 1.45;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+
+    background:
+        rgba(0,0,0,.34);
+
+    border:
+        1px solid
+        rgba(120,230,200,.22);
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE FIT
+   Keep it usable when the browser becomes narrow.
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .rf-control {
+        grid-template-columns:
+            72px minmax(0, 1fr);
+
+        gap: 6px;
+
+        font-size: 11px;
+    }
+
+    .rf-output {
+        min-height: 110px;
+        max-height: 180px;
+    }
+}
+
+
+/*
+ * If the control column gets extremely narrow, stack each
+ * label above its field instead of crushing the input.
+ */
+
+@media (max-width: 650px) {
+
+    .rf-control {
+        grid-template-columns: 1fr;
+
+        gap: 4px;
+    }
+
+    .rf-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .rf-output {
+        max-height: 160px;
+    }
+}
+
+
+/* JARVIS_RF_R3_SPECTRUM_CSS_START */
+
+.rf-spectrum-panel {
+    margin-top: 10px;
+    padding: 8px;
+
+    background:
+        rgba(0,0,0,.30);
+
+    border:
+        1px solid
+        rgba(120,230,200,.24);
+}
+
+.rf-spectrum-panel[hidden] {
+    display: none;
+}
+
+.rf-spectrum-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 7px;
+
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+.rf-spectrum-header strong {
+    font-size: 11px;
+
+    letter-spacing: .07em;
+
+    color: var(--green);
+}
+
+.rf-spectrum-header span {
+    min-width: 0;
+
+    text-align: right;
+
+    opacity: .68;
+}
+
+.rf-spectrum-canvas {
+    display: block;
+
+    width: 100%;
+    height: 180px;
+
+    background:
+        rgba(0,0,0,.26);
+
+    border:
+        1px solid
+        rgba(120,230,200,.16);
+}
+
+.rf-spectrum-peaks {
+    margin-top: 7px;
+
+    font-family:
+        "DejaVu Sans Mono",
+        "Liberation Mono",
+        monospace;
+
+    font-size: 10px;
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
+
+    opacity: .84;
+}
+
+.rf-output-label {
+    margin-top: 10px;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: .06em;
+
+    opacity: .55;
+}
+
+/*
+ * Once spectrum data is being visualized, the text area
+ * becomes a concise activity window rather than a CSV dump.
+ */
+
+.rf-output {
+    min-height: 76px;
+    max-height: 150px;
+}
+
+
+/* Slightly more room on larger desktop displays. */
+
+@media (min-width: 1400px) {
+
+    .rf-spectrum-canvas {
+        height: 200px;
+    }
+}
+
+/* JARVIS_RF_R3_SPECTRUM_CSS_END */
+
+/* JARVIS_RF_R2_CSS_END */
+
+
+/* JARVIS_RF_R4_FM_TUNER_CSS_START */
+
+.rf-fm-tuner {
+    margin: 10px 0;
+    padding: 9px;
+
+    border:
+        1px solid
+        rgba(120,230,200,.28);
+
+    background:
+        rgba(0,0,0,.27);
+}
+
+.rf-fm-tuner[hidden] {
+    display: none;
+}
+
+.rf-fm-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 7px;
+
+    font-size: 10px;
+}
+
+.rf-fm-title strong {
+    font-size: 12px;
+    letter-spacing: .08em;
+}
+
+.rf-fm-title span {
+    opacity: .6;
+}
+
+.rf-fm-main {
+    display: grid;
+    grid-template-columns:
+        38px
+        minmax(0,1fr)
+        38px;
+
+    gap: 5px;
+}
+
+#rfFmFrequency {
+    width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    font-family: inherit;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    padding: 7px 4px;
+}
+
+.rf-fm-main button {
+    font-size: 15px;
+}
+
+.rf-fm-step {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0,1fr));
+
+    gap: 4px;
+
+    margin-top: 6px;
+}
+
+.rf-fm-step button {
+    min-width: 0;
+
+    padding:
+        6px 2px;
+
+    font-size: 9px;
+}
+
+#rfFmSelect {
+    font-weight: 700;
+}
+
+.rf-fm-section-label,
+.rf-fm-favorite-header {
+    margin-top: 9px;
+
+    font-size: 9px;
+
+    letter-spacing: .06em;
+
+    opacity: .7;
+}
+
+.rf-fm-favorite-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#rfFmSaveFavorite {
+    padding: 3px 6px;
+
+    font-size: 9px;
+}
+
+.rf-fm-channels {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    margin-top: 5px;
+}
+
+.rf-fm-channel {
+    padding: 5px 7px;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+}
+
+.rf-fm-channel.active {
+    font-weight: 700;
+
+    outline:
+        1px solid
+        rgba(120,230,200,.65);
+}
+
+.rf-fm-empty {
+    font-size: 9px;
+
+    opacity: .5;
+}
+
+/* JARVIS_RF_R4_FM_TUNER_CSS_END */
+
+/* JARVIS_RF_R5_AUDIO_CSS_START */
+
+.rf-radio-audio-status {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        auto
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 9px;
+    padding: 6px 7px;
+
+    border:
+        1px solid
+        rgba(120,230,200,.20);
+
+    background:
+        rgba(0,0,0,.24);
+
+    font-size: 9px;
+}
+
+.rf-radio-audio-status > span:first-child {
+    opacity: .55;
+
+    letter-spacing: .06em;
+}
+
+#rfRadioAudioState {
+    font-size: 10px;
+}
+
+#rfRadioAudioOutput {
+    overflow: hidden;
+
+    text-align: right;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    opacity: .65;
+}
+
+/* JARVIS_RF_R5_AUDIO_CSS_END */
+
+/* JARVIS_RF_RADIO_GLOBAL_SWITCH_CSS_START */
+
+.rf-radio-mode-switch-global {
+    display: grid !important;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 6px;
+
+    width: 100%;
+
+    margin:
+        10px 0 8px 0;
+
+    padding: 0;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.rf-radio-mode-switch-global
+.rf-radio-mode {
+    display: block !important;
+
+    min-width: 0;
+    min-height: 36px;
+
+    padding: 7px 10px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: .12em;
+
+    cursor: pointer;
+
+    opacity: .58;
+
+    border:
+        1px solid
+        rgba(120,230,200,.30);
+
+    background:
+        rgba(0,0,0,.35);
+}
+
+.rf-radio-mode-switch-global
+.rf-radio-mode.active {
+    opacity: 1;
+
+    border-color:
+        rgba(120,230,200,.90);
+
+    background:
+        rgba(120,230,200,.16);
+
+    box-shadow:
+        inset 0 0 12px
+        rgba(120,230,200,.10);
+}
+
+/* JARVIS_RF_RADIO_GLOBAL_SWITCH_CSS_END */
+
+/* ==========================================================
+   JARVIS RF R6 — COMPACT SIDEBAR + EXPANDED CONSOLE
+   ========================================================== */
+
+/*
+ * Normal sidebar state.
+ *
+ * RF gets its own internal scroll area instead of pushing
+ * everything below it out of the viewport.
+ */
+
+#rfSwitchboard {
+    position: relative;
+
+    max-height: 48vh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+}
+
+
+/*
+ * Header stays visible while RF controls scroll.
+ */
+
+#rfSwitchboard .rf-header {
+    position: sticky;
+    top: 0;
+
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    background:
+        rgba(7,16,20,.96);
+}
+
+
+/*
+ * Push state indicator away from title while leaving room
+ * for the expand button.
+ */
+
+#rfSwitchboard .rf-header h2 {
+    margin-right: auto;
+}
+
+
+/*
+ * Expand control.
+ */
+
+.rf-expand-toggle {
+    flex: 0 0 auto;
+
+    min-height: 25px;
+
+    padding: 4px 6px;
+
+    font-family: inherit;
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: .06em;
+
+    border:
+        1px solid
+        rgba(120,230,200,.34);
+
+    background:
+        rgba(0,0,0,.28);
+
+    cursor: pointer;
+}
+
+
+/*
+ * Hidden close control in normal sidebar mode.
+ */
+
+.rf-expanded-close {
+    display: none;
+}
+
+
+/*
+ * Dim the globe slightly while expanded.
+ * Does not destroy or move the globe DOM.
+ */
+
+.rf-panel-backdrop {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 998;
+
+    background:
+        rgba(0,0,0,.28);
+}
+
+body.rf-console-open
+.rf-panel-backdrop {
+    display: block;
+}
+
+
+/*
+ * Expanded RF console.
+ *
+ * This removes RF from the narrow sidebar layout and floats
+ * it above Global 3D.
+ */
+
+#rfSwitchboard.rf-expanded {
+    position: fixed !important;
+
+    top: 64px !important;
+    left: clamp(
+        290px,
+        20vw,
+        360px
+    ) !important;
+
+    width:
+        min(
+            560px,
+            calc(100vw - 390px)
+        ) !important;
+
+    min-width: 400px;
+
+    max-width: 620px;
+
+    height: auto !important;
+
+    max-height:
+        calc(100vh - 90px) !important;
+
+    margin: 0 !important;
+
+    padding: 14px !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    z-index: 999 !important;
+
+    border:
+        1px solid
+        rgba(120,230,200,.55) !important;
+
+    background:
+        rgba(5,12,16,.97) !important;
+
+    box-shadow:
+        0 18px 55px
+        rgba(0,0,0,.60);
+}
+
+
+/*
+ * Bigger controls only while expanded.
+ */
+
+#rfSwitchboard.rf-expanded
+.rf-control {
+    gap: 7px;
+}
+
+#rfSwitchboard.rf-expanded
+input,
+
+#rfSwitchboard.rf-expanded
+select,
+
+#rfSwitchboard.rf-expanded
+button {
+    font-size: 12px;
+}
+
+
+/*
+ * Give spectrum usable room in expanded mode.
+ */
+
+#rfSwitchboard.rf-expanded
+#rfSpectrumCanvas {
+    width: 100% !important;
+
+    min-height: 250px;
+    max-height: 310px;
+}
+
+
+/*
+ * Radio tuner receives proper width.
+ */
+
+#rfSwitchboard.rf-expanded
+.rf-fm-main {
+    grid-template-columns:
+        48px
+        minmax(180px,1fr)
+        48px;
+}
+
+#rfSwitchboard.rf-expanded
+#rfFmFrequency {
+    font-size: 28px;
+}
+
+
+/*
+ * Detected channels/favorites can wrap normally.
+ */
+
+#rfSwitchboard.rf-expanded
+.rf-fm-channels {
+    gap: 6px;
+}
+
+#rfSwitchboard.rf-expanded
+.rf-fm-channel {
+    font-size: 11px;
+
+    padding:
+        6px 9px;
+}
+
+
+/*
+ * Close button in expanded mode.
+ */
+
+#rfSwitchboard.rf-expanded
+.rf-expanded-close {
+    display: block;
+
+    position: absolute;
+
+    top: 7px;
+    right: 7px;
+
+    z-index: 6;
+
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+
+    font-size: 20px;
+    line-height: 25px;
+
+    border:
+        1px solid
+        rgba(120,230,200,.35);
+
+    background:
+        rgba(0,0,0,.45);
+
+    cursor: pointer;
+}
+
+
+/*
+ * Leave enough room in expanded header for X button.
+ */
+
+#rfSwitchboard.rf-expanded
+.rf-header {
+    padding-right: 32px;
+}
+
+
+/*
+ * Small-window fallback.
+ */
+
+@media
+(max-width: 900px) {
+
+    #rfSwitchboard.rf-expanded {
+        top: 45px !important;
+
+        left: 12px !important;
+        right: 12px !important;
+
+        width: auto !important;
+
+        min-width: 0;
+
+        max-width: none;
+
+        max-height:
+            calc(100vh - 60px)
+            !important;
+    }
+}
+
+/* JARVIS_RF_R6_LAYOUT_END */
+

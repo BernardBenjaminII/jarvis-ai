@@ -9,7 +9,7 @@
           href="https://unpkg.com/cesium@1.134.1/Build/Cesium/Widgets/widgets.css">
 
     <link rel="stylesheet"
-          href="/static/global_3d/global_3d.css?v=17">
+          href="/static/global_3d/global_3d.css?v=21">
 </head>
 
 <body>
@@ -150,6 +150,313 @@
                     id="satUseBrowserLocation">
                     USE LOCATION
                 </button>
+
+                <!-- JARVIS_LOCAL_SENSORS_R1_UI_START -->
+                <section
+                    id="localSensorPanel"
+                    class="local-sensor-panel">
+
+                    <h2>LOCAL SENSORS</h2>
+
+                    <div class="local-sensor-host">
+                        HOST
+                        <strong id="localSensorHost">---</strong>
+                    </div>
+
+                    <div class="local-sensor-row">
+                        <span class="local-sensor-indicator"
+                              id="localSdrIndicator"></span>
+
+                        <span>SDR</span>
+
+                        <strong id="localSdrState">
+                            CHECKING
+                        </strong>
+                    </div>
+
+                    <div class="local-sensor-detail"
+                         id="localSdrDetail">
+                        Detecting receiver
+                    </div>
+
+                    <div class="local-sensor-row">
+                        <span class="local-sensor-indicator"
+                              id="localGpsIndicator"></span>
+
+                        <span>GPS</span>
+
+                        <strong id="localGpsState">
+                            CHECKING
+                        </strong>
+                    </div>
+
+                    <div class="local-sensor-detail"
+                         id="localGpsDetail">
+                        Checking gpsd
+                    </div>
+
+                    <div class="local-sensor-refresh"
+                         id="localSensorRefresh">
+                        Awaiting sensor snapshot
+                    </div>
+                </section>
+                <!-- JARVIS_LOCAL_SENSORS_R1_UI_END -->
+
+                <!-- JARVIS_RF_R2_UI_START -->
+                <section
+                    id="rfSwitchboard"
+                    class="rf-switchboard">
+
+                    <div class="rf-header">
+                        <h2>RF / AIR OPS</h2>
+
+                        <strong id="rfState">
+                            IDLE
+                        </strong>
+                    </div>
+
+                    <label class="rf-control">
+                        <span>TASK</span>
+
+                        <select id="rfTask">
+                            <option value="adsb">
+                                ADS-B Aircraft
+                            </option>
+
+                            <option value="fm">
+                                FM Radio
+                            </option>
+
+                            <option value="rf_scan">
+                                RF Spectrum Scan
+                            </option>
+
+                            <option value="manual">
+                                Manual Receiver
+                            </option>
+                        </select>
+                    </label>
+
+                    <label class="rf-control">
+                        <span>FREQ MHz</span>
+
+                        <input
+                            id="rfFrequency"
+                            type="number"
+                            value="1090.000"
+                            step="0.001">
+                    </label>
+
+                    <!-- JARVIS_RF_R4_FM_TUNER_UI_START -->
+
+                    <!-- JARVIS_RF_RADIO_GLOBAL_SWITCH_START -->
+                    <div
+                        id="rfRadioModeSwitch"
+                        class="rf-radio-mode-switch rf-radio-mode-switch-global">
+
+                        <button
+                            id="rfRadioModeFm"
+                            class="rf-radio-mode"
+                            type="button">
+                            FM
+                        </button>
+
+                        <button
+                            id="rfRadioModeAm"
+                            class="rf-radio-mode"
+                            type="button">
+                            AM
+                        </button>
+
+                    </div>
+                    <!-- JARVIS_RF_RADIO_GLOBAL_SWITCH_END -->
+
+<section
+                        id="rfFmTuner"
+                        class="rf-fm-tuner"
+                        hidden>
+
+                        <div class="rf-fm-title">
+                            <strong>FM TUNER</strong>
+                            <span>87.5–108.0 MHz</span>
+                        </div>
+
+                        <div class="rf-fm-main">
+                            <button
+                                type="button"
+                                id="rfFmPrevPeak"
+                                title="Previous detected channel">
+                                ◀
+                            </button>
+
+                            <input
+                                id="rfFmFrequency"
+                                type="number"
+                                min="87.5"
+                                max="108"
+                                step="0.1"
+                                value="100.0"
+                                aria-label="FM frequency">
+
+                            <button
+                                type="button"
+                                id="rfFmNextPeak"
+                                title="Next detected channel">
+                                ▶
+                            </button>
+                        </div>
+
+                        <div class="rf-fm-step">
+                            <button
+                                type="button"
+                                data-fm-step="-1">
+                                −1.0
+                            </button>
+
+                            <button
+                                type="button"
+                                data-fm-step="-0.1">
+                                −0.1
+                            </button>
+
+                            <button
+                                type="button"
+                                id="rfFmSelect">
+                                SELECT
+                            </button>
+
+                            <button
+                                type="button"
+                                data-fm-step="0.1">
+                                +0.1
+                            </button>
+
+                            <button
+                                type="button"
+                                data-fm-step="1">
+                                +1.0
+                            </button>
+                        </div>
+
+                        <div class="rf-fm-section-label">
+                            DETECTED
+                        </div>
+
+                        <div
+                            id="rfFmDetected"
+                            class="rf-fm-channels">
+                            <span class="rf-fm-empty">
+                                Run an FM spectrum scan first.
+                            </span>
+                        </div>
+
+                        <div class="rf-fm-favorite-header">
+                            <span>FAVORITES</span>
+
+                            <button
+                                type="button"
+                                id="rfFmSaveFavorite">
+                                ☆ SAVE
+                            </button>
+                        </div>
+
+                        <div
+                            id="rfFmFavorites"
+                            class="rf-fm-channels">
+                        </div>
+
+                    </section>
+                    <!-- JARVIS_RF_R4_FM_TUNER_UI_END -->
+
+
+                    <label class="rf-control">
+                        <span>GAIN</span>
+
+                        <input
+                            id="rfGain"
+                            value="auto">
+                    </label>
+
+                    <div
+                        id="rfScanControls"
+                        class="rf-scan-controls">
+
+                        <label class="rf-control">
+                            <span>START MHz</span>
+                            <input
+                                id="rfScanStart"
+                                type="number"
+                                value="88"
+                                step="0.1">
+                        </label>
+
+                        <label class="rf-control">
+                            <span>STOP MHz</span>
+                            <input
+                                id="rfScanStop"
+                                type="number"
+                                value="108"
+                                step="0.1">
+                        </label>
+                    </div>
+
+                    <div class="rf-buttons">
+                        <button
+                            id="rfStart"
+                            type="button">
+                            START TASK
+                        </button>
+
+                        <button
+                            id="rfStop"
+                            type="button">
+                            STOP
+                        </button>
+                    </div>
+
+                    <div
+                        id="rfDetail"
+                        class="rf-detail">
+                        No RF task active.
+                    </div>
+
+                    <!-- JARVIS_RF_R3_SPECTRUM_UI_START -->
+                    <div
+                        id="rfSpectrumPanel"
+                        class="rf-spectrum-panel"
+                        hidden>
+
+                        <div class="rf-spectrum-header">
+                            <strong>SPECTRUM</strong>
+
+                            <span id="rfSpectrumMeta">
+                                Awaiting sweep
+                            </span>
+                        </div>
+
+                        <canvas
+                            id="rfSpectrumCanvas"
+                            class="rf-spectrum-canvas"
+                            height="180"></canvas>
+
+                        <div
+                            id="rfSpectrumPeaks"
+                            class="rf-spectrum-peaks">
+                        </div>
+                    </div>
+
+                    <div class="rf-output-label">
+                        ACTIVITY / DECODER OUTPUT
+                    </div>
+                    <!-- JARVIS_RF_R3_SPECTRUM_UI_END -->
+
+                    <pre
+                        id="rfOutput"
+                        class="rf-output"></pre>
+
+                </section>
+                <!-- JARVIS_RF_R2_UI_END -->
+
 
                 <!-- JARVIS_SPACE_R89B_UI_END -->
 
@@ -292,5 +599,10 @@
 <script src="https://unpkg.com/cesium@1.134.1/Build/Cesium/Cesium.js"></script>
 <script src="/static/geospatial/geospatial_state.js"></script>
 <script src="/static/global_3d/global_3d.js?v=17"></script>
+<script src="/static/global_3d/local_sensors.js?v=1"></script>
+<script src="/static/global_3d/rf_switchboard.js?v=1"></script>
+<script src="/static/global_3d/rf_fm_tuner.js?v=6"></script>
+<script src="/static/global_3d/rf_radio_mode_switch.js?v=1"></script>
+<script src="/static/global_3d/rf_panel_layout.js?v=1"></script>
 </body>
 </html>
