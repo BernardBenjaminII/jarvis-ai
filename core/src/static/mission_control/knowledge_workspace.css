@@ -835,3 +835,70 @@
         flex-direction: column;
     }
 }
+
+/* JARVIS_KNOWLEDGE_SCROLLING_CHAT_R1 */
+
+.knowledge-answer.knowledge-chat-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 430px;
+    min-height: 180px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    padding: 0.9rem;
+}
+
+.knowledge-chat-message {
+    width: min(92%, 860px);
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 0.75rem;
+    line-height: 1.48;
+}
+
+.knowledge-chat-message--user {
+    align-self: flex-end;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.knowledge-chat-message--jarvis {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.knowledge-chat-message--error {
+    align-self: flex-start;
+    border-style: dashed;
+}
+
+.knowledge-chat-message--pending {
+    opacity: 0.72;
+}
+
+.knowledge-chat-message-label {
+    margin-bottom: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.68;
+}
+
+.knowledge-chat-message-content {
+    overflow-wrap: anywhere;
+}
+
+.knowledge-chat-thread::-webkit-scrollbar {
+    width: 0.55rem;
+}
+
+.knowledge-chat-thread::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.knowledge-chat-thread::-webkit-scrollbar-track {
+    background: transparent;
+}

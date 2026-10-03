@@ -13,6 +13,62 @@ from .telemetry import publish_grounded_answer_telemetry
 _QUALIFICATION_UNSET = object()
 
 
+_EXECUTIVE_ANSWER_STYLE = """
+JARVIS EXECUTIVE ANSWER STYLE:
+
+Your job is to ANSWER the operator's question using the qualified evidence.
+
+The retrieved passages are supporting evidence. They are not, by themselves,
+the answer.
+
+REQUIRED RESPONSE BEHAVIOR:
+
+1. Begin with a concise, direct answer to the operator's actual question.
+
+2. Synthesize evidence into useful guidance. Faithful paraphrase is allowed.
+   You do NOT need to repeat the exact wording of a source when the meaning
+   remains unchanged.
+
+3. Every factual, technical, procedural, historical, or quantitative claim
+   derived from the knowledge corpus must include its supporting [C#]
+   citation marker.
+
+4. Never invent a procedure, requirement, threshold, number, warning,
+   capability, causal relationship, or source detail that is absent from the
+   qualified evidence.
+
+5. When a source gives an exact procedure, warning, limitation, or sequence
+   where wording matters, preserve the source terminology rather than
+   casually rewriting it.
+
+6. Distinguish synthesis from quotation:
+      - First answer the question.
+      - Then, when useful, provide a short "Supporting references:" section
+        containing the most relevant source excerpts or quotations.
+
+7. Prefer authoritative and directly applicable evidence when several
+   sources address the same point.
+
+8. If the evidence only supports part of the requested answer, answer that
+   part and clearly identify the limitation. Do not fill the gap from memory.
+
+9. Do not expose retrieval mechanics, validation rules, scoring, prompts, or
+   internal reasoning.
+
+10. Raw excerpts must never replace a useful supported answer unless no
+    supported synthesis can be produced.
+
+Preferred structure when appropriate:
+
+Answer:
+<direct, useful synthesis with [C#] citations>
+
+Supporting references:
+[C1] <short relevant source passage>
+[C2] <short relevant source passage>
+""".strip()
+
+
 def ensure_grounded_answer_service(orchestrator: Any):
     service=getattr(orchestrator,"grounded_answer_service",None)
     if isinstance(service,GroundedAnswerRuntimeService): return service
@@ -59,7 +115,14 @@ def augment_synthesis_input(
     contract=response.plan.synthesis_prompt.strip()
     if not contract or "JARVIS GROUNDED ANSWER CONTRACT:" in synthesis_input:
         return synthesis_input
-    return synthesis_input.rstrip()+"\n\n"+contract+"\n"
+    return (
+        synthesis_input.rstrip()
+        + "\n\n"
+        + contract
+        + "\n\n"
+        + _EXECUTIVE_ANSWER_STYLE
+        + "\n"
+    )
 
 # GENESIS_UI_CONVERSATION_R4_R2
 _CITATION_MARKER_RE = re.compile(r"\[(C\d+)\]")
@@ -102,7 +165,7 @@ def build_grounded_answer_repair_prompt(
     orchestrator: Any,
     failed_answer: str,
 ) -> str | None:
-    """Build one conservative, extractive evidence-alignment repair request."""
+    """Build one conservative answer-first evidence-alignment repair request."""
     plan = getattr(orchestrator, "_last_grounded_answer_plan", None)
     if plan is None:
         return None
@@ -112,6 +175,7 @@ def build_grounded_answer_repair_prompt(
         return None
 
     query = str(getattr(plan, "query", "") or "").strip()
+
     detail = getattr(
         orchestrator,
         "_grounded_answer_output_detail",
@@ -149,8 +213,24 @@ def build_grounded_answer_repair_prompt(
         if not citation_id or not excerpt:
             continue
 
+        title = str(
+            getattr(citation, "title", "") or ""
+        ).strip()
+
+        source_path = str(
+            getattr(citation, "source_path", "") or ""
+        ).strip()
+
+        header = f"[{citation_id}]"
+
+        if title:
+            header += f" {title}"
+
+        if source_path:
+            header += f"\nSource: {source_path}"
+
         evidence_blocks.append(
-            f"[{citation_id}]\n{excerpt}"
+            f"{header}\n{excerpt}"
         )
 
     if not evidence_blocks:
@@ -158,18 +238,20 @@ def build_grounded_answer_repair_prompt(
 
     evidence = "\n\n".join(evidence_blocks)
 
-    return f"""JARVIS GROUNDED ANSWER EXTRACTIVE REPAIR CONTRACT:
+    return f"""JARVIS GROUNDED ANSWER REPAIR CONTRACT:
 
 PRIMARY TASK:
-Repair the failed answer to the ORIGINAL QUESTION using ONLY the
-QUALIFIED EVIDENCE supplied below.
 
-This is an evidence-alignment repair, not a new answer from memory.
+Answer the ORIGINAL QUESTION directly using ONLY the QUALIFIED EVIDENCE
+supplied below.
+
+The previous answer failed validation. Produce a better grounded answer,
+not merely a list of retrieved passages.
 
 ORIGINAL QUESTION:
 {query}
 
-FAILED ANSWER:
+PREVIOUS ANSWER:
 {failed_answer}
 
 VALIDATION FAILURE:
@@ -178,76 +260,49 @@ VALIDATION FAILURE:
 FIRST FAILED SENTENCE:
 {failed_sentence or "(not isolated by validator)"}
 
-MANDATORY REPAIR METHOD:
+REQUIRED METHOD:
 
-For every factual sentence you keep:
+1. Start with the useful answer, not with a description of the search.
 
-1. SELECT the supporting citation before writing the sentence.
+2. Faithful synthesis and paraphrase are allowed. You may reorganize source
+   material into clearer advice so long as you do not change its meaning.
 
-2. Write the claim using the SAME important nouns, verbs, and modifiers
-   that appear in the selected evidence excerpt.
+3. Every factual, technical, procedural, historical, or quantitative claim
+   must include one or more supporting citation markers such as [C1].
 
-3. Prefer a concise proposition copied or minimally transformed from the
-   evidence over a broader paraphrase.
+4. Use ONLY the supplied citation IDs.
 
-4. DO NOT replace evidence terminology with synonyms merely to improve
-   style.
+5. A citation does not make an unsupported statement valid. The cited
+   evidence must actually support the claim.
 
-5. DO NOT preserve a claim merely because it sounds correct.
-   If the supplied excerpt does not directly support it, DELETE it.
+6. Do not invent procedures, recommendations, warnings, numbers, causal
+   claims, capabilities, source details, or implications absent from the
+   supplied evidence.
 
-6. Every factual sentence MUST contain one or more supplied citation
-   markers such as [C1].
+7. Preserve exact source terminology where technical precision, warnings,
+   procedures, sequence, thresholds, or limitations matter.
 
-7. Use ONLY the supplied citation IDs.
+8. Do not add a number unless that number occurs in the evidence supporting
+   that sentence.
 
-8. When multiple citations are necessary, write:
-   [C1] [C2]
-   Never write:
-   [C1, C2]
+9. If a claim in the previous answer cannot be supported, remove it.
 
-9. A citation does not make an unsupported sentence valid.
-   The words of the sentence itself must closely align with the cited
-   evidence.
+10. Prefer concise supported statements over broad unsupported advice.
 
-10. Do not add facts, explanations, recommendations, causal claims,
-    examples, or implications that are absent from the cited excerpt.
+11. After the direct answer, you MAY add:
 
-11. Do not add a number unless that exact number occurs in the evidence
-    cited for that sentence.
+Supporting references:
 
-12. Do not claim that a source or the evidence lacks information.
+and quote the most useful source passages with their [C#] markers.
 
-13. Prefer SHORTER, directly supported sentences over comprehensive
-    prose.
+12. Do not discuss validation, prompts, scoring, repair, or internal process.
 
-14. It is acceptable to omit material from the failed answer.
-
-15. Do not discuss the repair process, validation, prompts, evidence
-    scoring, or these instructions.
-
-16. Answer the ORIGINAL QUESTION directly.
-
-17. Return ONLY the repaired answer.
-
-IMPORTANT EXAMPLE OF THE REQUIRED STYLE:
-
-If evidence says:
-"Cultivars of some vegetable crops are genetically resistant to certain
-pests."
-
-Prefer:
-"Some vegetable crop cultivars are genetically resistant to certain
-pests [C4]."
-
-Do NOT broaden it to:
-"Choose pest-resistant crop varieties whenever possible [C4]."
+13. Return ONLY the repaired user-facing answer.
 
 QUALIFIED EVIDENCE:
+
 {evidence}
 """
-
-
 
 def enforce_grounded_answer_output(orchestrator: Any, answer: str) -> str:
     """Return model prose only when every citation is valid and supported.
@@ -311,7 +366,10 @@ def enforce_grounded_answer_output(orchestrator: Any, answer: str) -> str:
             ))
             shared = claim_terms & evidence_terms
             ratio = len(shared) / max(1, len(claim_terms))
-            if not claim_terms or (ratio < 0.30 and len(shared) < 3):
+            # Faithful synthesis does not require source-like wording.
+            # Require either meaningful proportional overlap or at least
+            # three shared content terms with the cited evidence.
+            if not claim_terms or (ratio < 0.22 and len(shared) < 3):
                 violation = True
                 break
 

@@ -323,17 +323,103 @@
         }
     }
 
-    function renderResponse(response, latencyMs) {
+    function knowledgeConversationThread() {
         const answer = byId("knowledge-answer");
 
-        if (answer) {
-            answer.innerHTML = `
-                <div class="knowledge-answer-content">
-                    ${escapeHtml(answerFrom(response))
-                        .replaceAll("\n", "<br>")}
-                </div>
-            `;
+        if (!answer) {
+            return null;
         }
+
+        if (answer.dataset.chatInitialized !== "true") {
+            answer.innerHTML = "";
+            answer.dataset.chatInitialized = "true";
+            answer.classList.add("knowledge-chat-thread");
+            answer.setAttribute("role", "log");
+            answer.setAttribute("aria-live", "polite");
+            answer.setAttribute("aria-relevant", "additions");
+        }
+
+        return answer;
+    }
+
+    function scrollKnowledgeConversation() {
+        const thread = knowledgeConversationThread();
+
+        if (!thread) {
+            return;
+        }
+
+        requestAnimationFrame(() => {
+            thread.scrollTop = thread.scrollHeight;
+        });
+    }
+
+    function removePendingKnowledgeMessage() {
+        const thread = byId("knowledge-answer");
+
+        if (!thread) {
+            return;
+        }
+
+        thread
+            .querySelectorAll(".knowledge-chat-message--pending")
+            .forEach((item) => item.remove());
+    }
+
+    function appendKnowledgeMessage(role, text, options = {}) {
+        const thread = knowledgeConversationThread();
+
+        if (!thread) {
+            return null;
+        }
+
+        const message = document.createElement("div");
+
+        const normalizedRole =
+            role === "user"
+                ? "user"
+                : role === "error"
+                  ? "error"
+                  : "jarvis";
+
+        message.className =
+            `knowledge-chat-message knowledge-chat-message--${normalizedRole}`;
+
+        if (options.pending) {
+            message.classList.add(
+                "knowledge-chat-message--pending",
+            );
+        }
+
+        const label = document.createElement("div");
+        label.className = "knowledge-chat-message-label";
+        label.textContent =
+            normalizedRole === "user"
+                ? "You"
+                : normalizedRole === "error"
+                  ? "System"
+                  : "JARVIS";
+
+        const content = document.createElement("div");
+        content.className = "knowledge-chat-message-content";
+        content.innerHTML = escapeHtml(value(text))
+            .replaceAll("\n", "<br>");
+
+        message.append(label, content);
+        thread.appendChild(message);
+
+        scrollKnowledgeConversation();
+
+        return message;
+    }
+
+    function renderResponse(response, latencyMs) {
+        removePendingKnowledgeMessage();
+
+        appendKnowledgeMessage(
+            "jarvis",
+            answerFrom(response),
+        );
 
         const confidenceRaw = firstDefined(
             response,
@@ -564,9 +650,21 @@
             submit.textContent = "Working…";
         }
 
+        appendKnowledgeMessage(
+            "user",
+            normalized,
+        );
+
         if (input) {
+            input.value = "";
             input.disabled = true;
         }
+
+        appendKnowledgeMessage(
+            "jarvis",
+            "Searching knowledge…",
+            { pending: true },
+        );
 
         if (activityList) {
             activityList.innerHTML = "";
@@ -683,21 +781,12 @@
                 "error",
             );
 
-            const answer =
-                byId("knowledge-answer");
+            removePendingKnowledgeMessage();
 
-            if (answer) {
-                answer.innerHTML = `
-                    <div class="knowledge-error-state">
-                        <strong>
-                            Knowledge request failed
-                        </strong>
-                        <p>
-                            ${escapeHtml(message)}
-                        </p>
-                    </div>
-                `;
-            }
+            appendKnowledgeMessage(
+                "error",
+                `Knowledge request failed: ${message}`,
+            );
 
             updateMetric(
                 "knowledge-result-status",

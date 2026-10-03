@@ -118,10 +118,20 @@ def output_issue_detail(answer, citations):
             else 0.0
         )
 
-        if not a or overlap_ratio < .45:
+        shared_terms = a & b
+
+        # This is deliberately a conservative lexical support heuristic,
+        # not an entailment engine.  A faithful paraphrase may use different
+        # wording, so require either reasonable proportional overlap or at
+        # least three shared content terms with the cited evidence.
+        if not a or (
+            overlap_ratio < .22
+            and len(shared_terms) < 3
+        ):
             return issue(
                 "weak_sentence_support",
                 term_overlap_ratio=overlap_ratio,
+                shared_content_terms=sorted(shared_terms),
             )
 
         numbers = set(
@@ -150,7 +160,10 @@ def output_issue(answer, citations):
 def source_excerpt_answer(plan):
     """Quote short, query-matching source sentences; never invent a paraphrase."""
     query_terms = terms(plan.query)
-    lines = ['Relevant passages from your local references:']
+    lines = [
+        "I could not validate a fully synthesized answer from the available "
+        "evidence. The strongest directly supported passages are:"
+    ]
     included = []
     for citation in plan.citations:
         # Repair PDF line-wrap hyphens, then whitespace; words are otherwise retained.
@@ -175,7 +188,10 @@ def source_excerpt_answer(plan):
     lines.append('\nSources:')
     for c in included:
         lines.append(f'- [{c.citation_id}] {c.title}')
-    lines.append('\nThese are source excerpts, not a complete or location-specific plan.')
+    lines.append(
+        '\nThese passages are the conservative fallback because a synthesized '
+        'answer could not be validated against the retrieved evidence.'
+    )
     if plan.conflicts:
         lines.append('Potential conflicts between sources require review.')
     return '\n'.join(lines)

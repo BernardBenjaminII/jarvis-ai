@@ -114,6 +114,51 @@ class ExecutiveConversationOrchestrator:
             "orchestration_total_ms": None,
         }
 
+        # Resolve conversational ambiguity before routing or knowledge
+        # retrieval. A short follow-up such as "Physical." resumes the
+        # unresolved parent request within the same executive session.
+        from core.conversation.clarification import process_clarification
+
+        clarification = process_clarification(
+            session_id=str(
+                getattr(context, "session_id", "")
+                or (getattr(context, "metadata", {}) or {}).get("session_id")
+                or "executive-session"
+            ),
+            operator_input=context.operator_input,
+        )
+
+        if clarification.requires_clarification:
+            return self._direct_result(
+                clarification.prompt or "Please clarify your request.",
+                "clarification",
+                {
+                    "clarification_required": True,
+                    "clarification_kind": "security_domain",
+                    "original_input": clarification.original_input,
+                },
+            )
+
+        if clarification.resolved and clarification.resolved_input:
+            # ExecutiveRequestContext is a dataclass in the live runtime.
+            # dataclasses.replace also works when the dataclass is frozen and
+            # avoids mutating a request object shared with another component.
+            from dataclasses import is_dataclass, replace
+
+            if is_dataclass(context):
+                context = replace(
+                    context,
+                    operator_input=clarification.resolved_input,
+                )
+            else:
+                # Compatibility path for a future/non-dataclass context.
+                try:
+                    context.operator_input = clarification.resolved_input
+                except Exception as exc:
+                    raise RuntimeError(
+                        "Could not apply resolved clarification to request context"
+                    ) from exc
+
         from core.conversation.request_routing import request_route, runtime_answer
         route = request_route(context.operator_input)
         if route == "runtime":
