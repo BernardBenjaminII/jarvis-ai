@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class SDRStatus(BaseModel):
@@ -45,6 +45,22 @@ class GPSStatus(BaseModel):
     detail: str | None = None
 
 
+class MobileSensorChannelStatus(BaseModel):
+    """Independent health/freshness for one mobile sensor family."""
+
+    state: Literal[
+        "live",
+        "stale",
+        "no_data",
+    ] = "no_data"
+
+    available: bool = False
+    observed_at: str | None = None
+    age_seconds: float | None = None
+    stale_after_seconds: float | None = None
+    detail: str | None = None
+
+
 class MobileSensorStatus(BaseModel):
     state: Literal[
         "online",
@@ -73,7 +89,15 @@ class MobileSensorStatus(BaseModel):
     heading_deg: float | None = None
     speed_mps: float | None = None
 
-    capabilities: list[str] = []
+    capabilities: list[str] = Field(default_factory=list)
+
+    channels: dict[str, MobileSensorChannelStatus] = Field(
+        default_factory=dict
+    )
+
+    live_channels: list[str] = Field(default_factory=list)
+    stale_channels: list[str] = Field(default_factory=list)
+    no_data_channels: list[str] = Field(default_factory=list)
 
     detail: str | None = None
 
