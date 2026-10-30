@@ -481,3 +481,135 @@ def test_r911e_refuses_nonstale_quarantine(tmp_path):
             older_than=300,
             now=1400,
         )
+
+
+def test_r911f2_persists_execution_owner(
+    tmp_path, monkeypatch
+):
+    import os
+    from core.bounty_worker.process_identity import (
+        current_identity,
+    )
+
+    _, auth, missions = setup(tmp_path)
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    monkeypatch.setattr(
+        engine,
+        "enumerate_subdomains",
+        lambda scope, target, cancel=None: {
+            "state": "completed",
+            "returncode": 0,
+            "accepted": [],
+            "rejected": [],
+        },
+    )
+
+    monkeypatch.setattr(
+        missions,
+        "_tool_metadata",
+        lambda capability: {
+            "binary_path": "/fixture/subfinder",
+            "tool_version": "test",
+        },
+    )
+
+    missions.run(task)
+
+    with missions.db() as db:
+        row = db.execute(
+            "SELECT * FROM tasks WHERE id=?",
+            (task,),
+        ).fetchone()
+
+    owner = current_identity()
+
+    assert row["state"] == "completed"
+    assert row["owner_pid"] == os.getpid()
+    assert row["owner_boot_id"] == owner["boot_id"]
+    assert row["owner_start_ticks"] == owner["start_ticks"]
+    assert row["owner_started"] is not None
+
+
+def test_r911f3_live_owner_status(tmp_path, monkeypatch):
+    from core.bounty_worker.process_identity import (
+        current_identity,
+    )
+
+    _, auth, missions = setup(tmp_path)
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    owner = current_identity()
+
+    with missions.db() as db:
+        db.execute(
+            """
+            UPDATE tasks
+            SET state='running',
+                started=1000,
+                owner_pid=?,
+                owner_boot_id=?,
+                owner_start_ticks=?,
+                owner_started=1000
+            WHERE id=?
+            """,
+            (
+                owner["pid"],
+                owner["boot_id"],
+                owner["start_ticks"],
+                task,
+            ),
+        )
+
+    status = missions.execution_owner_status(task)
+
+    assert status["owner_status"] == "same_process"
+    assert status["child_processes_confirmed_stopped"] is False
+    assert status["automatic_retry_allowed"] is False
+
+
+def test_r911f3_replaced_owner_status(tmp_path):
+    from core.bounty_worker.process_identity import (
+        current_identity,
+    )
+
+    _, auth, missions = setup(tmp_path)
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    owner = current_identity()
+
+    with missions.db() as db:
+        db.execute(
+            """
+            UPDATE tasks
+            SET state='running',
+                started=1000,
+                owner_pid=?,
+                owner_boot_id=?,
+                owner_start_ticks=?,
+                owner_started=1000
+            WHERE id=?
+            """,
+            (
+                owner["pid"],
+                owner["boot_id"],
+                owner["start_ticks"] + 1,
+                task,
+            ),
+        )
+
+    status = missions.execution_owner_status(task)
+
+    assert status["owner_status"] == (
+        "absent_or_replaced"
+    )
+    assert status["automatic_retry_allowed"] is False

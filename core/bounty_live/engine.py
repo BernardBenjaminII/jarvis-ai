@@ -16,6 +16,7 @@ from core.bounty_adapters import (
     resolve_dns,
 )
 from core.bounty_authorization import AuthorizationStore, AuthorizationDenied
+from core.bounty_worker.process_identity import current_identity, identity_status
 
 
 def _default_db():
@@ -101,6 +102,22 @@ class LiveMissionStore:
                 detail TEXT
             );
             """)
+
+            # R9.11F.2: backward-compatible ownership schema.
+            existing = {
+                row["name"]
+                for row in db.execute("PRAGMA table_info(tasks)")
+            }
+            for name, kind in (
+                ("owner_pid", "INTEGER"),
+                ("owner_boot_id", "TEXT"),
+                ("owner_start_ticks", "INTEGER"),
+                ("owner_started", "REAL"),
+            ):
+                if name not in existing:
+                    db.execute(
+                        f"ALTER TABLE tasks ADD COLUMN {name} {kind}"
+                    )
 
     def _event(self, db, mission, kind, detail=""):
         db.execute(
@@ -334,13 +351,31 @@ class LiveMissionStore:
                 task["capability"],
             )
 
+            owner = current_identity()
+            if owner is None:
+                raise RuntimeError(
+                    "Cannot establish Linux execution ownership"
+                )
+
             db.execute(
                 """
                 UPDATE tasks
-                SET state='running', started=?
-                WHERE id=?
+                SET state='running',
+                    started=?,
+                    owner_pid=?,
+                    owner_boot_id=?,
+                    owner_start_ticks=?,
+                    owner_started=?
+                WHERE id=? AND state='queued'
                 """,
-                (time.time(), task_id),
+                (
+                    time.time(),
+                    owner["pid"],
+                    owner["boot_id"],
+                    owner["start_ticks"],
+                    time.time(),
+                    task_id,
+                ),
             )
 
             db.execute(
@@ -786,6 +821,44 @@ class LiveMissionStore:
                 "proposal_rejected",
                 f"{proposal_id}:{reviewer.strip()}",
             )
+
+    def execution_owner_status(self, task_id):
+        """Read-only status of a task's Python execution owner.
+
+        This does not establish child-process termination.
+        """
+        with self.db() as db:
+            row = db.execute(
+                """
+                SELECT id, mission, state, started,
+                       owner_pid, owner_boot_id,
+                       owner_start_ticks, owner_started
+                FROM tasks WHERE id=?
+                """,
+                (task_id,),
+            ).fetchone()
+
+        if row is None:
+            raise ValueError("Unknown task")
+
+        identity = {
+            "pid": row["owner_pid"],
+            "boot_id": row["owner_boot_id"],
+            "start_ticks": row["owner_start_ticks"],
+        }
+
+        observed = identity_status(identity)
+
+        return {
+            "task_id": task_id,
+            "mission_id": row["mission"],
+            "task_state": row["state"],
+            "owner_identity": identity,
+            "owner_started": row["owner_started"],
+            "owner_status": observed,
+            "child_processes_confirmed_stopped": False,
+            "automatic_retry_allowed": False,
+        }
 
     def quarantine_interrupted(
         self, task_id, *,
