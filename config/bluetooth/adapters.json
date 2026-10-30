@@ -1,0 +1,16 @@
+{
+  "schema": "jarvis.bluetooth.adapters.r1",
+  "controllers": {
+    "mobile_sensor": {
+      "address": "A0:AD:9F:73:C8:61",
+      "hardware": "ASUS USB-BT500",
+      "purpose": "Dedicated iPhone BLE telemetry",
+      "exclusive": true
+    },
+    "general": {
+      "address": "50:BB:B5:E6:6F:3F",
+      "hardware": "Internal Realtek Bluetooth",
+      "purpose": "General Bluetooth peripherals"
+    }
+  }
+}
