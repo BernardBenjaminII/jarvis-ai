@@ -164,3 +164,320 @@ def test_r912_execution_limit_is_stage_aware(
         )
         == 41
     )
+
+
+def test_r911_concurrent_claim_executes_only_once(
+    tmp_path, monkeypatch
+):
+    """Two workers must never execute the same task."""
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+
+    _, auth, missions = setup(tmp_path)
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    entered = threading.Event()
+    release = threading.Event()
+    calls = []
+
+    def fake_discovery(scope, target, cancel=None):
+        calls.append(target)
+        entered.set()
+        assert release.wait(timeout=5)
+        return {
+            "state": "completed",
+            "returncode": 0,
+            "accepted": [],
+            "rejected": [],
+        }
+
+    monkeypatch.setattr(
+        engine, "enumerate_subdomains", fake_discovery
+    )
+    monkeypatch.setattr(
+        missions, "_tool_metadata",
+        lambda capability: {
+            "binary_path": "/test/subfinder",
+            "tool_version": "fixture",
+        },
+    )
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        first = pool.submit(missions.run, task)
+        try:
+            assert entered.wait(timeout=5)
+
+            # First worker has claimed the task but has
+            # not yet completed its simulated execution.
+            import pytest
+            with pytest.raises(ValueError):
+                missions.run(task)
+        finally:
+            release.set()
+
+        result = first.result(timeout=5)
+
+    assert result["result"]["state"] == "completed"
+    assert calls == ["example.com"]
+
+    report = missions.report(mission)
+    assert report["mission"]["used"] == 1
+
+    matching = [
+        item for item in report["tasks"]
+        if item["id"] == task
+    ]
+    assert len(matching) == 1
+    assert matching[0]["state"] == "completed"
+
+
+def test_r911b_adapter_exception_finalizes_failed(
+    tmp_path, monkeypatch
+):
+    """An adapter exception must not strand a running task."""
+    _, auth, missions = setup(tmp_path)
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    def broken_adapter(scope, target, cancel=None):
+        raise RuntimeError("synthetic private detail")
+
+    monkeypatch.setattr(
+        engine, "enumerate_subdomains", broken_adapter
+    )
+    monkeypatch.setattr(
+        missions, "_tool_metadata",
+        lambda capability: {
+            "binary_path": "/test/subfinder",
+            "tool_version": "fixture",
+        },
+    )
+
+    evidence = missions.run(task)
+
+    assert evidence["result"]["state"] == "failed"
+    assert evidence["result"]["error_type"] == "RuntimeError"
+
+    report = missions.report(mission)
+    matching = [
+        item for item in report["tasks"]
+        if item["id"] == task
+    ]
+
+    assert matching[0]["state"] == "failed"
+    assert matching[0]["finished"] is not None
+    assert matching[0]["evidence_sha256"]
+    assert report["mission"]["used"] == 1
+
+    # Raw exception contents must not leak into evidence.
+    assert "synthetic private detail" not in str(evidence)
+
+
+def test_r911c_revocation_during_execution(
+    tmp_path, monkeypatch
+):
+    """Revoked tasks must never commit discovery evidence."""
+    import pytest
+    from core.bounty_authorization import AuthorizationDenied
+
+    auths, auth, missions = setup(tmp_path)
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    monkeypatch.setattr(
+        missions, "_tool_metadata",
+        lambda capability: {
+            "binary_path": "/test/subfinder",
+            "tool_version": "fixture",
+        },
+    )
+
+    def revoke_during_execution(scope, target, cancel=None):
+        auths.revoke(auth, "synthetic test revocation")
+        return {
+            "state": "completed",
+            "returncode": 0,
+            "accepted": ["a.example.com"],
+            "rejected": [],
+        }
+
+    monkeypatch.setattr(
+        engine, "enumerate_subdomains",
+        revoke_during_execution,
+    )
+
+    with pytest.raises(AuthorizationDenied):
+        missions.run(task)
+
+    report = missions.report(mission)
+    matching = [
+        row for row in report["tasks"]
+        if row["id"] == task
+    ]
+
+    assert len(matching) == 1
+    assert matching[0]["state"] == "failed"
+    assert matching[0]["finished"] is not None
+    assert matching[0]["evidence"] is None
+    assert matching[0]["evidence_sha256"] is None
+    assert report["mission"]["used"] == 1
+
+
+def test_r911d_identifies_stale_running_tasks_without_mutation(
+    tmp_path,
+):
+    """Identify suspicious execution without changing its state."""
+    _, auth, missions = setup(tmp_path)
+
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    with missions.db() as db:
+        db.execute(
+            """
+            UPDATE tasks
+            SET state='running', started=1000
+            WHERE id=?
+            """,
+            (task,),
+        )
+
+    candidates = missions.interrupted_candidates(
+        older_than=300, now=1400
+    )
+
+    assert len(candidates) == 1
+    assert candidates[0]["id"] == task
+    assert candidates[0]["age_seconds"] == 400
+    assert candidates[0]["recovery_status"] == (
+        "requires_operator_review"
+    )
+
+    assert missions.interrupted_candidates(
+        older_than=500, now=1400
+    ) == []
+
+    with missions.db() as db:
+        row = db.execute(
+            "SELECT state FROM tasks WHERE id=?",
+            (task,),
+        ).fetchone()
+
+    assert row["state"] == "running"
+
+
+def test_r911d_rejects_invalid_threshold(tmp_path):
+    import pytest
+
+    _, _, missions = setup(tmp_path)
+
+    for value in (0, -1, 86401, float("nan"), True):
+        with pytest.raises(ValueError):
+            missions.interrupted_candidates(
+                older_than=value
+            )
+
+
+def test_r911e_manual_quarantine_preserves_budget(tmp_path):
+    import pytest
+
+    _, auth, missions = setup(tmp_path)
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    # Simulate an abandoned task without executing a tool.
+    with missions.db() as db:
+        db.execute(
+            "UPDATE tasks SET state='running', started=1000 "
+            "WHERE id=?",
+            (task,),
+        )
+        db.execute(
+            "UPDATE missions SET used=1 WHERE id=?",
+            (mission,),
+        )
+
+    with pytest.raises(ValueError):
+        missions.quarantine_interrupted(
+            task,
+            reviewer="tester",
+            now=1400,
+        )
+
+    result = missions.quarantine_interrupted(
+        task,
+        reviewer="tester",
+        termination_confirmed=True,
+        older_than=300,
+        now=1400,
+    )
+
+    assert result["state"] == "interrupted"
+    assert result["retry_automatically"] is False
+
+    report = missions.report(mission)
+    assert report["mission"]["used"] == 1
+
+    with missions.db() as db:
+        row = db.execute(
+            "SELECT state, finished FROM tasks WHERE id=?",
+            (task,),
+        ).fetchone()
+        event = db.execute(
+            "SELECT kind FROM events "
+            "WHERE mission=? ORDER BY id DESC LIMIT 1",
+            (mission,),
+        ).fetchone()
+
+    assert row["state"] == "interrupted"
+    assert row["finished"] == 1400
+    assert event["kind"] == "interrupted_quarantined"
+
+    with pytest.raises(ValueError):
+        missions.quarantine_interrupted(
+            task,
+            reviewer="tester",
+            termination_confirmed=True,
+            now=1500,
+        )
+
+    # An interrupted task must not be executed again.
+    with pytest.raises(ValueError):
+        missions.run(task)
+
+
+def test_r911e_refuses_nonstale_quarantine(tmp_path):
+    import pytest
+
+    _, auth, missions = setup(tmp_path)
+    mission = missions.create(auth, budget=5)
+    task = missions.queue(
+        mission, "subfinder", "example.com"
+    )
+
+    with missions.db() as db:
+        db.execute(
+            "UPDATE tasks SET state='running', started=1200 "
+            "WHERE id=?",
+            (task,),
+        )
+
+    with pytest.raises(ValueError):
+        missions.quarantine_interrupted(
+            task,
+            reviewer="tester",
+            termination_confirmed=True,
+            older_than=300,
+            now=1400,
+        )

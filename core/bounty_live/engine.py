@@ -283,6 +283,11 @@ class LiveMissionStore:
 
     def run(self, task_id, *, cancel=None):
         with self.db() as db:
+            # R9.11A: serialize task claims across workers.
+            # Acquire the SQLite write reservation before
+            # reading task state or mission budget.
+            db.execute("BEGIN IMMEDIATE")
+
             task = db.execute(
                 "SELECT * FROM tasks WHERE id=?",
                 (task_id,),
@@ -353,30 +358,45 @@ class LiveMissionStore:
         capability = task["capability"]
         target = task["target"]
 
-        tool = self._tool_metadata(capability)
+        # R9.11B: adapter exceptions become durable failures.
+        # Never retry automatically or expose raw exception text.
+        try:
+            tool = self._tool_metadata(capability)
 
-        if capability == "subfinder":
-            result = enumerate_subdomains(
-                scope,
-                target,
-                cancel=cancel,
-            )
-        elif capability == "dnsx":
-            result = resolve_dns(
-                scope,
-                target,
-                cancel=cancel,
-            )
-        elif capability == "httpx":
-            result = probe_http(
-                scope,
-                target,
-                cancel=cancel,
-            )
-        else:
-            raise ValueError(
-                "Unsupported live capability"
-            )
+            if capability == "subfinder":
+                result = enumerate_subdomains(
+                    scope,
+                    target,
+                    cancel=cancel,
+                )
+            elif capability == "dnsx":
+                result = resolve_dns(
+                    scope,
+                    target,
+                    cancel=cancel,
+                )
+            elif capability == "httpx":
+                result = probe_http(
+                    scope,
+                    target,
+                    cancel=cancel,
+                )
+            else:
+                raise ValueError(
+                    "Unsupported live capability"
+                )
+
+        except Exception as exc:
+            tool = {
+                "binary_path": None,
+                "tool_version": None,
+            }
+            result = {
+                "state": "failed",
+                "returncode": None,
+                "error_type": type(exc).__name__,
+                "error": "Adapter execution failed",
+            }
 
         evidence = {
             "schema": "jarvis-bounty-live-r5.1",
@@ -414,10 +434,30 @@ class LiveMissionStore:
                 (mission["id"],),
             ).fetchone()
 
-            # Authorization must still be valid at commit time.
-            self.authorization_store.live_scope(
-                current_mission["authorization"]
-            )
+            # R9.11C: do not accept results after revocation.
+            # Persist a terminal failure before propagating denial.
+            try:
+                self.authorization_store.live_scope(
+                    current_mission["authorization"]
+                )
+            except AuthorizationDenied:
+                db.execute(
+                    """
+                    UPDATE tasks
+                    SET state='failed', finished=?,
+                        evidence=NULL, evidence_sha256=NULL
+                    WHERE id=? AND state='running'
+                    """,
+                    (time.time(), task_id),
+                )
+                self._event(
+                    db, mission["id"],
+                    "authorization_lost", task_id,
+                )
+                # An exception leaving the context manager
+                # would roll back the failure record.
+                db.commit()
+                raise
 
             db.execute(
                 """
@@ -746,6 +786,139 @@ class LiveMissionStore:
                 "proposal_rejected",
                 f"{proposal_id}:{reviewer.strip()}",
             )
+
+    def quarantine_interrupted(
+        self, task_id, *,
+        reviewer,
+        termination_confirmed=False,
+        older_than=300,
+        now=None,
+    ):
+        """Manually quarantine a confirmed-stopped worker task.
+
+        Never terminate or replay a process automatically.
+        """
+        import math
+
+        if not isinstance(reviewer, str) or not reviewer.strip():
+            raise ValueError("Reviewer is required")
+        if termination_confirmed is not True:
+            raise ValueError("Worker termination must be confirmed")
+        if (
+            isinstance(older_than, bool)
+            or not isinstance(older_than, (int, float))
+            or not math.isfinite(older_than)
+            or not 1 <= older_than <= 86400
+        ):
+            raise ValueError("Invalid age threshold")
+
+        current = time.time() if now is None else now
+        if (
+            isinstance(current, bool)
+            or not isinstance(current, (int, float))
+            or not math.isfinite(current)
+        ):
+            raise ValueError("Invalid current time")
+
+        with self.db() as db:
+            db.execute("BEGIN IMMEDIATE")
+            row = db.execute(
+                "SELECT id, mission, state, started "
+                "FROM tasks WHERE id=?",
+                (task_id,),
+            ).fetchone()
+
+            if row is None:
+                raise ValueError("Unknown task")
+            if (
+                row["state"] != "running"
+                or row["started"] is None
+                or row["started"] > current - older_than
+            ):
+                raise ValueError(
+                    "Task is not eligible for quarantine"
+                )
+
+            result = db.execute(
+                """
+                UPDATE tasks
+                SET state='interrupted', finished=?
+                WHERE id=? AND state='running'
+                """,
+                (current, task_id),
+            )
+
+            if result.rowcount != 1:
+                raise ValueError("Task state changed")
+
+            self._event(
+                db,
+                row["mission"],
+                "interrupted_quarantined",
+                json.dumps({
+                    "task_id": task_id,
+                    "reviewer": reviewer.strip()[:200],
+                    "termination_confirmed": True,
+                }, sort_keys=True),
+            )
+
+        return {
+            "task_id": task_id,
+            "state": "interrupted",
+            "retry_automatically": False,
+        }
+
+    def interrupted_candidates(self, *, older_than=300, now=None):
+        """Read-only identification of possibly abandoned tasks.
+
+        Age alone never proves that a worker has stopped.
+        No tasks are modified or automatically retried.
+        """
+        if (
+            isinstance(older_than, bool)
+            or not isinstance(older_than, (int, float))
+            or not 1 <= older_than <= 86400
+        ):
+            raise ValueError("Invalid age threshold")
+
+        import math
+        if not math.isfinite(older_than):
+            raise ValueError("Invalid age threshold")
+
+        current = time.time() if now is None else now
+        if (
+            isinstance(current, bool)
+            or not isinstance(current, (int, float))
+            or not math.isfinite(current)
+        ):
+            raise ValueError("Invalid current time")
+
+        cutoff = current - older_than
+
+        with self.db() as db:
+            rows = db.execute(
+                """
+                SELECT t.id, t.mission, t.capability,
+                       t.target, t.started,
+                       m.authorization
+                FROM tasks AS t
+                JOIN missions AS m ON m.id=t.mission
+                WHERE t.state='running'
+                  AND t.started IS NOT NULL
+                  AND t.started <= ?
+                ORDER BY t.started, t.id
+                """,
+                (cutoff,),
+            ).fetchall()
+
+        return [
+            {
+                **dict(row),
+                "age_seconds": current - row["started"],
+                "recovery_status": "requires_operator_review",
+            }
+            for row in rows
+        ]
 
     def report(self, mission):
         with self.db() as db:
