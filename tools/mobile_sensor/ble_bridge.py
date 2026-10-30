@@ -110,6 +110,10 @@ class JarvisBLEBridge:
         self.rx_buffer = bytearray()
         self.stop_event = asyncio.Event()
         self.disconnected_event = asyncio.Event()
+        self.last_frame_at = 0.0
+        self.session_started_at = 0.0
+        self.telemetry_timeout = 15.0
+        self.initial_grace = 20.0
         self._last_metric_log = 0.0
 
     def request_stop(self) -> None:
@@ -223,6 +227,7 @@ class JarvisBLEBridge:
                 continue
 
             self.metrics.frames_rx += 1
+            self.last_frame_at = time.monotonic()
             try:
                 self.queue.put_nowait(encoded)
             except asyncio.QueueFull:
@@ -234,7 +239,7 @@ class JarvisBLEBridge:
                 except asyncio.QueueEmpty:
                     pass
                 try:
-                    self.queue.put_nowait(raw)
+                    self.queue.put_nowait(encoded)
                 except asyncio.QueueFull:
                     pass
 
@@ -305,6 +310,8 @@ class JarvisBLEBridge:
                 raise RuntimeError("BleakClient returned without a connection")
 
             self.metrics.connected_at = time.time()
+            self.session_started_at = time.monotonic()
+            self.last_frame_at = 0.0
             logging.info("BLE connected")
 
             # Read-only handshake first. Failure here is useful: it proves whether
@@ -344,6 +351,22 @@ class JarvisBLEBridge:
                 and not self.stop_event.is_set()
                 and not self.disconnected_event.is_set()
             ):
+                now = time.monotonic()
+                reference = self.last_frame_at or self.session_started_at
+                timeout = (
+                    self.telemetry_timeout
+                    if self.last_frame_at
+                    else self.initial_grace
+                )
+
+                if reference and now - reference > timeout:
+                    logging.warning(
+                        "BLE TELEMETRY STALL: %.1fs without valid frames; "
+                        "reconnecting",
+                        now - reference,
+                    )
+                    break
+
                 await asyncio.sleep(0.5)
 
             if client.is_connected:
