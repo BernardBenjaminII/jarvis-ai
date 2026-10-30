@@ -82,6 +82,8 @@ class AuthorizationStore:
         include,
         exclude=(),
         capabilities=("subfinder", "httpx"),
+        logical_capabilities=None,
+        approved_providers=None,
         reviewer,
         source_material,
         ttl=86400,
@@ -95,6 +97,8 @@ class AuthorizationStore:
             include=include,
             exclude=exclude,
             allowed_capabilities=capabilities,
+            logical_capabilities=logical_capabilities,
+            approved_providers=approved_providers,
             reviewed_by=reviewer,
             source_material=source_material,
         )
@@ -109,7 +113,15 @@ class AuthorizationStore:
             "program": evidence["program"],
             "include": evidence["include"],
             "exclude": evidence["exclude"],
-            "allowed_capabilities": evidence["allowed_capabilities"],
+            "allowed_capabilities": evidence[
+                "allowed_capabilities"
+            ],
+            "logical_capabilities": evidence[
+                "logical_capabilities"
+            ],
+            "approved_providers": evidence[
+                "approved_providers"
+            ],
             "reviewed_by": evidence["reviewed_by"],
             "source_digest": evidence["source_digest"],
             "reviewed_at": evidence["reviewed_at"],
@@ -194,11 +206,39 @@ class AuthorizationStore:
         if check != row["scope_sha256"]:
             raise AuthorizationDenied("Scope digest mismatch")
 
+        providers = tuple(
+            raw.get(
+                "approved_providers",
+                raw.get(
+                    "allowed_capabilities",
+                    (),
+                ),
+            )
+        )
+
+        logical_capabilities = raw.get(
+            "logical_capabilities"
+        )
+
+        if logical_capabilities is None:
+            from core.bounty_scope.model import (
+                logical_capabilities_for_providers,
+            )
+
+            logical_capabilities = (
+                logical_capabilities_for_providers(
+                    providers
+                )
+            )
+
         scope = LiveScope(
             program=raw["program"],
             include=tuple(raw["include"]),
             exclude=tuple(raw["exclude"]),
-            allowed_capabilities=tuple(raw["allowed_capabilities"]),
+            allowed_capabilities=providers,
+            logical_capabilities=tuple(
+                logical_capabilities
+            ),
             reviewed_by=raw["reviewed_by"],
             source_digest=raw["source_digest"],
             reviewed_at=raw["reviewed_at"],

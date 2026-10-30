@@ -118,3 +118,358 @@ class CatalogTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+def test_review_record_preserves_policy_text():
+    with tempfile.TemporaryDirectory() as tmp:
+        catalog = Catalog(
+            Path(tmp) / "catalog.sqlite"
+        )
+
+        raw = json.dumps(
+            {
+                "data": [
+                    {
+                        "type": "program",
+                        "attributes": {
+                            "handle": "review-demo",
+                            "name": "Review Demo",
+                            "offers_bounties": True,
+                            "submission_state": "open",
+                            "policy": "Synthetic policy text",
+                        },
+                    }
+                ],
+                "links": {},
+            }
+        ).encode()
+
+        catalog.save(
+            "hackerone-api",
+            time.time(),
+            [(1, raw, time.time())],
+            "complete",
+        )
+
+        record = catalog.review_record(
+            "review-demo"
+        )
+
+        assert (
+            record["policy_text"]
+            == "Synthetic policy text"
+        )
+
+        assert (
+            record["testing_authorized"]
+            is False
+        )
+
+
+# === JARVIS R9.9D PROGRAM OPPORTUNITY TESTS ===
+
+
+def test_r99c_policy_parser_extracts_payout_without_authorizing():
+    from core.bounty_catalog.opportunity import (
+        parse_policy_signals,
+    )
+
+    signals = parse_policy_signals(
+        """
+        Researchers may use narrowly scoped scanners
+        against authorized assets.
+
+        Critical vulnerabilities may receive up to
+        $10,000.
+        """
+    )
+
+    assert signals.payout_max_mention == 10000
+
+    assert (
+        signals.automation_policy
+        == "explicitly_permitted"
+    )
+
+    assert (
+        signals.policy_confidence
+        == "heuristic_requires_human_policy_review"
+    )
+
+
+def test_r99c_policy_parser_detects_automation_restriction():
+    from core.bounty_catalog.opportunity import (
+        parse_policy_signals,
+    )
+
+    signals = parse_policy_signals(
+        """
+        Automated scanners, crawlers, scripts,
+        and bots are prohibited.
+        """
+    )
+
+    assert (
+        signals.automation_policy
+        == "explicitly_prohibited"
+    )
+
+    assert signals.automation_restrict_evidence
+
+
+def test_r99c_policy_parser_mixed_rules_require_review():
+    from core.bounty_catalog.opportunity import (
+        parse_policy_signals,
+    )
+
+    signals = parse_policy_signals(
+        """
+        Automated scanners are allowed only on the
+        documented test host.
+
+        Do not use scanners against production systems.
+        """
+    )
+
+    assert (
+        signals.automation_policy
+        == "mixed_context_review_required"
+    )
+
+    assert signals.automation_permit_evidence
+    assert signals.automation_restrict_evidence
+
+
+def test_r99c_program_score_never_authorizes_testing():
+    from core.bounty_catalog.opportunity import (
+        score_program,
+    )
+
+    result = score_program(
+        {
+            "handle": "example-paid",
+            "name": "Example Paid",
+            "offers_bounties": True,
+            "submission_state": "open",
+            "state": "public_mode",
+            "currency": "usd",
+            "open_scope": True,
+            "gold_standard_safe_harbor": True,
+            "triage_active": True,
+            "fast_payments": True,
+            "policy": (
+                "Narrowly scoped scanners are allowed. "
+                "Maximum bounty $15,000."
+            ),
+        }
+    )
+
+    assert result["lane"] == "POLICY_REVIEW"
+
+    assert (
+        result["policy_signals"]["automation_policy"]
+        == "explicitly_permitted"
+    )
+
+    assert result["policy_reward_max_mention"] == 15000
+    assert result["policy_review_required"] is True
+
+    assert result["testing_authorized"] is False
+    assert result["execution_enabled"] is False
+    assert result["automatic_execution_ready"] is False
+
+
+def test_r99c_restricted_automation_never_enters_auto_lane():
+    from core.bounty_catalog.opportunity import (
+        score_program,
+    )
+
+    result = score_program(
+        {
+            "handle": "restricted",
+            "name": "Restricted Program",
+            "offers_bounties": True,
+            "submission_state": "open",
+            "state": "public_mode",
+            "currency": "usd",
+            "open_scope": True,
+            "gold_standard_safe_harbor": True,
+            "triage_active": True,
+            "fast_payments": False,
+            "policy": (
+                "Automated tools and scanners are prohibited. "
+                "Maximum bounty $5,000."
+            ),
+        }
+    )
+
+    assert not result["lane"].startswith("AUTO_")
+
+    assert (
+        result["policy_signals"]["automation_policy"]
+        == "explicitly_prohibited"
+    )
+
+    assert result["execution_enabled"] is False
+
+
+def test_r99c_paused_program_is_skipped():
+    from core.bounty_catalog.opportunity import (
+        score_program,
+    )
+
+    result = score_program(
+        {
+            "handle": "paused",
+            "name": "Paused Program",
+            "offers_bounties": True,
+            "submission_state": "paused",
+            "state": "public_mode",
+            "currency": "usd",
+            "open_scope": True,
+            "policy": (
+                "Maximum bounty $25,000."
+            ),
+        }
+    )
+
+    assert result["lane"] == "SKIP"
+    assert result["testing_authorized"] is False
+    assert result["execution_enabled"] is False
+
+
+def test_r99c_rank_catalog_is_analysis_only(tmp_path):
+    import json
+    import time
+
+    from core.bounty_catalog.store import Catalog
+    from core.bounty_catalog.opportunity import (
+        rank_catalog,
+    )
+
+    catalog = Catalog(
+        tmp_path / "r99c.sqlite"
+    )
+
+    raw = json.dumps(
+        {
+            "data": [
+                {
+                    "type": "program",
+                    "attributes": {
+                        "handle": "alpha",
+                        "name": "Alpha",
+                        "offers_bounties": True,
+                        "submission_state": "open",
+                        "state": "public_mode",
+                        "currency": "usd",
+                        "open_scope": True,
+                        "gold_standard_safe_harbor": True,
+                        "triage_active": True,
+                        "fast_payments": True,
+                        "policy": (
+                            "Narrowly scoped scanners are allowed "
+                            "against authorized assets. "
+                            "Maximum bounty $10,000."
+                        ),
+                    },
+                },
+                {
+                    "type": "program",
+                    "attributes": {
+                        "handle": "beta",
+                        "name": "Beta",
+                        "offers_bounties": True,
+                        "submission_state": "open",
+                        "state": "public_mode",
+                        "currency": "usd",
+                        "open_scope": False,
+                        "gold_standard_safe_harbor": True,
+                        "triage_active": True,
+                        "fast_payments": False,
+                        "policy": (
+                            "Automated scanners are prohibited. "
+                            "Bounty range $500 - $3,000."
+                        ),
+                    },
+                },
+                {
+                    "type": "program",
+                    "attributes": {
+                        "handle": "gamma",
+                        "name": "Gamma",
+                        "offers_bounties": True,
+                        "submission_state": "paused",
+                        "state": "public_mode",
+                        "currency": "usd",
+                        "open_scope": True,
+                        "policy": (
+                            "Maximum bounty $20,000."
+                        ),
+                    },
+                },
+            ],
+            "links": {},
+        }
+    ).encode()
+
+    now = time.time()
+
+    catalog.save(
+        "hackerone-api",
+        now,
+        [
+            (
+                1,
+                raw,
+                now,
+            )
+        ],
+        "complete",
+    )
+
+    result = rank_catalog(
+        catalog
+    )
+
+    assert (
+        result["schema"]
+        == "jarvis-bounty-program-opportunity-r9.9c"
+    )
+
+    assert result["program_count"] == 3
+    assert result["network_requests"] == 0
+    assert result["testing_authorized"] is False
+    assert result["execution_enabled"] is False
+
+    assert result["payout_values_authoritative"] is False
+
+    by_handle = {
+        item["handle"]: item
+        for item in result["opportunities"]
+    }
+
+    assert (
+        by_handle["alpha"]["lane"]
+        == "POLICY_REVIEW"
+    )
+
+    assert (
+        by_handle["alpha"]["policy_reward_max_mention"]
+        == 10000
+    )
+
+    assert not (
+        by_handle["beta"]["lane"]
+        .startswith("AUTO_")
+    )
+
+    assert (
+        by_handle["gamma"]["lane"]
+        == "SKIP"
+    )
+
+    for item in result["opportunities"]:
+        assert item["testing_authorized"] is False
+        assert item["execution_enabled"] is False
+        assert item["automatic_execution_ready"] is False

@@ -28,7 +28,10 @@ from core.src.routes.mission_control import (
     router as mission_control_router,
 )
 from core.src.routes.operations import router as operations_router
+from core.src.routes.bounty_agent import router as bounty_agent_router
 from core.src.routes.platform_status import router as platform_status_router
+from core.src.routes.platform_workspace import router as platform_workspace_router
+from core.src.routes.kali_arsenal import router as kali_arsenal_router
 from core.src.routes.sensors import router as sensors_router
 from core.src.routes.rf import router as rf_router
 
@@ -94,6 +97,9 @@ app.include_router(mission_control_router)
 app.include_router(operations_router)
 app.include_router(marine_router)
 app.include_router(platform_status_router)
+app.include_router(platform_workspace_router)
+app.include_router(kali_arsenal_router)
+app.include_router(bounty_agent_router)
 app.include_router(sensors_router)
 app.include_router(rf_router)
 app.include_router(executive_event_runtime_router)

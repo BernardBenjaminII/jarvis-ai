@@ -1,0 +1,560 @@
+.jarvis-bounty-agent{max-width:1450px;margin:0 auto;padding:28px 32px 60px}.jba-header,.jba-section-head{display:flex;justify-content:space-between;align-items:center;gap:20px}.jba-header{padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12)}.jba-header h1,.jba-section-head h2{margin:4px 0 0}.jba-header small,.jba-section-head small,.jba-metrics small{opacity:.65;letter-spacing:.08em;font-size:11px}.jba-header button,.jba-actions button,.jba-start button,.jba-decision button{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.045);color:inherit;padding:8px 12px;cursor:pointer}.jba-safety{margin:18px 0;padding:13px 15px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025);font-size:12px}.jba-start{margin:22px 0;padding:18px;border:1px solid rgba(255,255,255,.1)}.jba-start h2{margin-top:0}.jba-start-grid{display:grid;grid-template-columns:2fr 1.3fr .5fr auto;gap:10px;align-items:end}.jba-start-grid label{font-size:11px;opacity:.8}.jba-start-grid input{display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:8px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.15);color:inherit}.jba-help,.jba-muted{opacity:.65;font-size:12px}.jba-session{display:grid;grid-template-columns:1fr 170px auto;gap:14px;align-items:center;padding:12px 4px;border-top:1px solid rgba(255,255,255,.08)}.jba-session strong,.jba-session span{display:block}.jba-session>div>span{font-size:12px;opacity:.65;margin-top:3px}.jba-state{font-size:11px;letter-spacing:.05em;text-transform:uppercase}.jba-actions,.jba-decision{display:flex;gap:7px;justify-content:flex-end;align-items:center}#jba-detail{margin-top:32px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}.jba-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.jba-metrics>div{border:1px solid rgba(255,255,255,.1);padding:14px}.jba-metrics strong{display:block;font-size:24px;margin-top:5px}.jba-option{display:grid;grid-template-columns:70px 1fr 260px;gap:18px;align-items:start;padding:16px 4px;border-top:1px solid rgba(255,255,255,.08)}.jba-score{font-size:26px;font-weight:700}.jba-option-main strong{font-size:16px}.jba-option-main>span{display:block;font-size:11px;opacity:.65;margin:4px 0 9px}.jba-option-main ul{margin:8px 0;padding-left:18px;font-size:12px}.jba-option-main p{font-size:12px;opacity:.8}.jba-decision{flex-wrap:wrap}.jba-decision>span{width:100%;text-align:right;font-size:10px;opacity:.65;text-transform:uppercase}.jba-error{padding:14px;border:1px solid rgba(255,255,255,.18)}@media(max-width:900px){.jba-start-grid,.jba-session,.jba-option{grid-template-columns:1fr}.jba-metrics{grid-template-columns:repeat(2,1fr)}.jba-actions,.jba-decision{justify-content:flex-start}.jba-decision>span{text-align:left}}
+/* JARVIS R8.6 — SESSION-BOUND REVIEW */
+
+.jba-session-selected {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+}
+
+.jba-session-id {
+  display: block;
+  margin-top: 0.25rem;
+  opacity: 0.58;
+  font-family: monospace;
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.jba-review-identity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.4rem;
+  opacity: 0.68;
+  font-size: 0.72rem;
+}
+
+.jba-review-identity span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.jba-review-identity code {
+  font-family: monospace;
+  overflow-wrap: anywhere;
+}
+
+/* JARVIS R8.9 — DNS EVIDENCE PIPELINE */
+
+.jba-pipeline {
+  margin: 24px 0;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.02);
+}
+
+.jba-pipeline h3 {
+  margin: 4px 0 0;
+}
+
+.jba-pipeline-list {
+  margin-top: 12px;
+}
+
+.jba-pipeline-target {
+  padding: 14px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.jba-pipeline-target:first-child {
+  border-top: 0;
+}
+
+.jba-pipeline-target-head {
+  margin-bottom: 9px;
+}
+
+.jba-pipeline-target-head strong {
+  font-family: monospace;
+  font-size: .9rem;
+}
+
+.jba-pipeline-stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 8px;
+}
+
+.jba-pipeline-stage {
+  min-height: 74px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.jba-pipeline-stage small {
+  display: block;
+  opacity: .55;
+  letter-spacing: .08em;
+  font-size: 10px;
+}
+
+.jba-pipeline-stage strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.jba-pipeline-stage span {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  opacity: .78;
+}
+
+.jba-pipeline-stage code {
+  display: block;
+  margin-top: 7px;
+  font-size: 10px;
+  opacity: .7;
+  overflow-wrap: anywhere;
+}
+
+@media(max-width:900px) {
+  .jba-pipeline-stages {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* JARVIS R9.2B — HUMAN PURSUIT INVESTIGATION PLAN */
+
+.jba-investigation-plans {
+  margin: 26px 0;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.025);
+}
+
+.jba-investigation-plans h3,
+.jba-investigation-plan h3 {
+  margin: 4px 0 0;
+}
+
+.jba-investigation-plan-list {
+  margin-top: 14px;
+}
+
+.jba-investigation-plan {
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.jba-investigation-plan:first-child {
+  border-top: 0;
+}
+
+.jba-plan-safety {
+  margin: 14px 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  font-size: 12px;
+  opacity: .86;
+}
+
+.jba-plan-basis {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.jba-plan-basis > div {
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.jba-plan-basis small,
+.jba-plan-evidence > small,
+.jba-plan-actions-head small {
+  display: block;
+  opacity: .55;
+  letter-spacing: .08em;
+  font-size: 10px;
+}
+
+.jba-plan-basis strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.jba-plan-evidence {
+  margin: 14px 0;
+}
+
+.jba-plan-evidence ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 12px;
+}
+
+.jba-plan-recommendation {
+  margin: 12px 0;
+  font-size: 12px;
+  opacity: .82;
+}
+
+.jba-plan-actions {
+  margin-top: 18px;
+}
+
+.jba-plan-actions-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.jba-plan-actions-head span {
+  font-size: 10px;
+  opacity: .65;
+  text-transform: uppercase;
+}
+
+.jba-plan-action {
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.jba-plan-action-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.jba-plan-action-head strong {
+  font-size: 12px;
+}
+
+.jba-plan-lock {
+  flex: 0 0 auto;
+  font-size: 9px;
+  letter-spacing: .06em;
+  opacity: .62;
+}
+
+.jba-plan-action-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 7px;
+  font-size: 10px;
+  opacity: .72;
+}
+
+.jba-plan-action-meta code {
+  font-family: monospace;
+}
+
+.jba-plan-action p {
+  margin: 8px 0 0;
+  font-size: 11px;
+  opacity: .72;
+}
+
+.jba-plan-boundaries {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.jba-plan-boundaries span {
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,.08);
+  font-size: 10px;
+  opacity: .72;
+}
+
+.jba-plan-boundaries strong {
+  display: block;
+  margin-top: 3px;
+}
+
+@media(max-width:900px) {
+  .jba-plan-basis,
+  .jba-plan-boundaries {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .jba-plan-action-head {
+    flex-direction: column;
+  }
+}
+
+/* JARVIS R9.3 — PER-ACTION HUMAN APPROVAL */
+
+.jba-plan-action-decision {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.jba-plan-action-decision button {
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.045);
+  color: inherit;
+  padding: 7px 11px;
+  cursor: pointer;
+}
+
+.jba-plan-review {
+  margin-top: 8px;
+  font-size: 10px;
+  opacity: .68;
+}
+
+.jba-plan-lock {
+  text-transform: uppercase;
+}
+
+
+/* JARVIS R9.4 — ACTION EXECUTION PROPOSAL */
+
+.jba-plan-proposal-control {
+  margin-top: 10px;
+}
+
+.jba-plan-proposal-control button {
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.045);
+  color: inherit;
+  padding: 7px 11px;
+  cursor: pointer;
+}
+
+.jba-action-proposal {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.jba-action-proposal small {
+  display: block;
+  opacity: .55;
+  letter-spacing: .08em;
+  font-size: 10px;
+}
+
+.jba-action-proposal > strong {
+  display: block;
+  margin: 5px 0 9px;
+  font-size: 12px;
+}
+
+.jba-action-proposal > div {
+  margin-top: 4px;
+  font-size: 10px;
+  opacity: .76;
+}
+
+.jba-action-proposal p {
+  margin: 9px 0 0;
+  font-size: 11px;
+  opacity: .74;
+}
+
+
+/* JARVIS R9.5 — MANUAL EVIDENCE REVIEW */
+
+.jba-plan-review-control {
+  margin-top: 10px;
+}
+
+.jba-plan-review-control button {
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.045);
+  color: inherit;
+  padding: 7px 11px;
+  cursor: pointer;
+}
+
+.jba-evidence-review {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.11);
+}
+
+.jba-evidence-review > small,
+.jba-evidence-review-section > small {
+  display: block;
+  opacity: .55;
+  letter-spacing: .08em;
+  font-size: 10px;
+}
+
+.jba-evidence-review > strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.jba-evidence-review-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 8px;
+  font-size: 10px;
+  opacity: .75;
+}
+
+.jba-evidence-review-section {
+  margin-top: 14px;
+}
+
+.jba-evidence-review-section ul {
+  margin: 7px 0 0;
+  padding-left: 18px;
+  font-size: 11px;
+}
+
+.jba-hypothesis {
+  margin-top: 8px;
+  padding: 9px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.jba-hypothesis strong,
+.jba-hypothesis span,
+.jba-hypothesis code {
+  display: block;
+}
+
+.jba-hypothesis span {
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.jba-hypothesis code {
+  margin-top: 5px;
+  font-size: 10px;
+  opacity: .7;
+}
+
+
+/* JARVIS R9.6C — HYPOTHESIS DECISIONS */
+
+.jba-hypothesis-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.jba-hypothesis-controls button {
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: inherit;
+  padding: 5px 9px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.jba-hypothesis-state {
+  margin-top: 7px;
+  font-size: 10px;
+  opacity: .75;
+  text-transform: uppercase;
+}
+
+.jba-validation-lock {
+  margin-top: 8px;
+  padding: 7px;
+  border: 1px solid rgba(255,255,255,.09);
+  font-size: 10px;
+  opacity: .75;
+}
+
+
+/* JARVIS R9.7C — VALIDATION AUTHORIZATION PROPOSAL */
+
+.jba-validation-proposal-control {
+  margin-top: 8px;
+}
+
+.jba-validation-proposal-control button {
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: inherit;
+  padding: 6px 9px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.jba-validation-proposal {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.10);
+  font-size: 10px;
+}
+
+.jba-validation-proposal > small {
+  display: block;
+  opacity: .55;
+  letter-spacing: .08em;
+}
+
+.jba-validation-proposal > strong {
+  display: block;
+  margin: 5px 0 8px;
+}
+
+.jba-validation-proposal > div {
+  margin-top: 4px;
+}
+
+.jba-validation-warning {
+  margin-top: 10px !important;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,.15);
+  font-weight: 600;
+}
+
+
+/* JARVIS R9.7F — CAPABILITY POLICY REVIEW */
+
+.jba-policy-review-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.jba-policy-review-controls button {
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: inherit;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.jba-policy-review {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.10);
+  font-size: 10px;
+}
+
+.jba-policy-review > small {
+  display: block;
+  opacity: .55;
+  letter-spacing: .08em;
+}
+
+.jba-policy-review > strong {
+  display: block;
+  margin: 5px 0 8px;
+}
+
+.jba-policy-review > div {
+  margin-top: 5px;
+}
+
+.jba-policy-review ul {
+  margin: 5px 0 0;
+  padding-left: 18px;
+}

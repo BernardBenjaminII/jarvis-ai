@@ -20,6 +20,53 @@ class ScopeDenied(ValueError):
     pass
 
 
+# R8.7B
+#
+# Authorization now distinguishes WHAT Jarvis may do from WHICH
+# concrete provider may perform it.
+#
+# The legacy R5 provider names remain supported during migration.
+LIVE_LOGICAL_CAPABILITIES = {
+    "subdomain_discovery",
+    "dns_resolution",
+    "http_probe",
+}
+
+LIVE_APPROVED_PROVIDERS = {
+    "subfinder",
+    "dnsx",
+    "httpx",
+}
+
+PROVIDER_LOGICAL_CAPABILITIES = {
+    "subfinder": (
+        "subdomain_discovery",
+    ),
+    "dnsx": (
+        "dns_resolution",
+    ),
+    "httpx": (
+        "http_probe",
+    ),
+}
+
+
+def logical_capabilities_for_providers(providers):
+    result = set()
+
+    for provider in providers:
+        provider = str(provider).strip().lower()
+
+        result.update(
+            PROVIDER_LOGICAL_CAPABILITIES.get(
+                provider,
+                (),
+            )
+        )
+
+    return tuple(sorted(result))
+
+
 _HOST_RE = re.compile(
     r"(?=^.{1,253}$)"
     r"(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+"
@@ -83,6 +130,7 @@ class LiveScope:
     include: tuple[str, ...]
     exclude: tuple[str, ...]
     allowed_capabilities: tuple[str, ...]
+    logical_capabilities: tuple[str, ...]
     reviewed_by: str
     source_digest: str
     reviewed_at: float
@@ -95,6 +143,8 @@ class LiveScope:
         include,
         exclude=(),
         allowed_capabilities=("subfinder", "httpx"),
+        logical_capabilities=None,
+        approved_providers=None,
         reviewed_by: str,
         source_material: str,
     ) -> "LiveScope":
@@ -114,17 +164,73 @@ class LiveScope:
         if not included:
             raise ScopeDenied("At least one included host pattern required")
 
-        permitted = {"subfinder", "httpx"}
+        # Backward compatibility:
+        #
+        # R5 callers supplied concrete providers through
+        # allowed_capabilities. R8.7B keeps accepting that form.
+        if approved_providers is None:
+            approved_providers = allowed_capabilities
 
-        capabilities = tuple(
-            sorted({str(x).strip().lower() for x in allowed_capabilities})
+        providers = tuple(
+            sorted({
+                str(x).strip().lower()
+                for x in approved_providers
+            })
         )
 
-        if not capabilities:
-            raise ScopeDenied("At least one capability required")
+        if not providers:
+            raise ScopeDenied(
+                "At least one approved provider required"
+            )
 
-        if any(x not in permitted for x in capabilities):
-            raise ScopeDenied("Unsupported R5 capability")
+        if any(
+            provider not in LIVE_APPROVED_PROVIDERS
+            for provider in providers
+        ):
+            raise ScopeDenied(
+                "Unsupported live provider"
+            )
+
+        if logical_capabilities is None:
+            logical = logical_capabilities_for_providers(
+                providers
+            )
+        else:
+            logical = tuple(
+                sorted({
+                    str(x).strip().lower()
+                    for x in logical_capabilities
+                })
+            )
+
+        if not logical:
+            raise ScopeDenied(
+                "At least one logical capability required"
+            )
+
+        if any(
+            capability not in LIVE_LOGICAL_CAPABILITIES
+            for capability in logical
+        ):
+            raise ScopeDenied(
+                "Unsupported logical capability"
+            )
+
+        # Every approved provider must correspond to at least
+        # one explicitly authorized logical capability.
+        for provider in providers:
+            provided = set(
+                PROVIDER_LOGICAL_CAPABILITIES.get(
+                    provider,
+                    (),
+                )
+            )
+
+            if not provided.intersection(logical):
+                raise ScopeDenied(
+                    f"Provider {provider} has no authorized "
+                    "logical capability"
+                )
 
         digest = hashlib.sha256(
             source_material.encode("utf-8")
@@ -134,11 +240,33 @@ class LiveScope:
             program=program.strip(),
             include=included,
             exclude=excluded,
-            allowed_capabilities=capabilities,
+            allowed_capabilities=providers,
+            logical_capabilities=logical,
             reviewed_by=reviewed_by.strip(),
             source_digest=digest,
             reviewed_at=time.time(),
         )
+
+    @property
+    def approved_providers(self) -> tuple[str, ...]:
+        """
+        Concrete execution providers approved by the reviewer.
+
+        allowed_capabilities remains as a compatibility alias for
+        legacy R5 callers and persisted records.
+        """
+        return self.allowed_capabilities
+
+    def require_capability(self, capability: str) -> str:
+        capability = str(capability).strip().lower()
+
+        if capability not in self.logical_capabilities:
+            raise ScopeDenied(
+                f"Logical capability not authorized: "
+                f"{capability}"
+            )
+
+        return capability
 
     def permits_host(self, host: str) -> bool:
         host = normalize_host(host)
@@ -187,7 +315,19 @@ class LiveScope:
             "program": self.program,
             "include": list(self.include),
             "exclude": list(self.exclude),
-            "allowed_capabilities": list(self.allowed_capabilities),
+            # Legacy provider authorization field.
+            "allowed_capabilities": list(
+                self.allowed_capabilities
+            ),
+
+            # R8.7B canonical authorization concepts.
+            "logical_capabilities": list(
+                self.logical_capabilities
+            ),
+            "approved_providers": list(
+                self.approved_providers
+            ),
+
             "reviewed_by": self.reviewed_by,
             "source_digest": self.source_digest,
             "reviewed_at": self.reviewed_at,

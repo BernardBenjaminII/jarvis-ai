@@ -19,6 +19,7 @@ class AdapterUnavailable(RuntimeError):
 _ALLOWED = {
     "subfinder",
     "httpx",
+    "dnsx",
 }
 
 
@@ -39,10 +40,18 @@ def binary(name: str) -> str:
     return path
 
 
-def execute(argv, *, timeout=30, output_limit=1048576, cancel=None):
+def execute(
+    argv,
+    *,
+    timeout=30,
+    output_limit=1048576,
+    cancel=None,
+    stdin_text=None,
+):
     return run_bounded(
         argv,
         timeout=timeout,
         output_limit=output_limit,
         cancel=cancel,
+        stdin_text=stdin_text,
     )

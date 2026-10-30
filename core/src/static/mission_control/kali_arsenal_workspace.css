@@ -1,0 +1,197 @@
+.jarvis-kali-arsenal {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jka-header,
+.jka-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.jka-header small,
+.jka-section-head small {
+  opacity: 0.55;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+}
+
+.jka-header h1,
+.jka-section-head h2,
+.jka-tool-group h3 {
+  margin: 2px 0 0;
+}
+
+.jka-header button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  color: inherit;
+  cursor: pointer;
+}
+
+.jka-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.jka-summary article {
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+  background: rgba(255,255,255,.035);
+}
+
+.jka-summary small {
+  display: block;
+  opacity: .55;
+  margin-bottom: 5px;
+}
+
+.jka-summary strong {
+  font-size: 1.1rem;
+}
+
+.jka-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jka-section-head > span {
+  opacity: .6;
+  font-size: .78rem;
+}
+
+.jka-capability-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  );
+  gap: 8px;
+}
+
+.jka-capability {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 10px;
+  align-items: center;
+
+  padding: 11px 12px;
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 9px;
+
+  background: rgba(255,255,255,.025);
+}
+
+.jka-capability-status,
+.jka-tool-status {
+  font-weight: 800;
+}
+
+.jka-capability strong {
+  display: block;
+}
+
+.jka-capability small {
+  display: block;
+  opacity: .55;
+  margin-top: 2px;
+}
+
+.jka-capability code {
+  opacity: .72;
+  font-size: .72rem;
+  text-align: right;
+}
+
+.jka-tool-group {
+  margin-top: 8px;
+}
+
+.jka-tool-group h3 {
+  opacity: .68;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+
+.jka-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(260px, 1fr)
+  );
+  gap: 8px;
+}
+
+.jka-tool {
+  padding: 12px;
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 9px;
+
+  background: rgba(255,255,255,.025);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.jka-tool-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jka-tool small {
+  opacity: .58;
+}
+
+.jka-tool code {
+  opacity: .62;
+  font-size: .70rem;
+  overflow-wrap: anywhere;
+}
+
+.jka-loading,
+.jka-error {
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+  opacity: .75;
+}
+
+@media (max-width: 900px) {
+  .jka-summary {
+    grid-template-columns:
+      repeat(2, minmax(130px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .jarvis-kali-arsenal {
+    padding: 14px;
+  }
+
+  .jka-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .jka-capability {
+    grid-template-columns: 24px 1fr;
+  }
+
+  .jka-capability code {
+    grid-column: 2;
+    text-align: left;
+  }
+}

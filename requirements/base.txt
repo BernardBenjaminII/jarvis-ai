@@ -3,3 +3,6 @@ uvicorn
 requests
 pyyaml
 python-dotenv
+
+# System/runtime inspection
+psutil

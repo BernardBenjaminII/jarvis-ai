@@ -111,3 +111,56 @@ def test_budget_enforced(tmp_path):
     report = missions.report(mid)
 
     assert report["mission"]["used"] == 1
+
+
+def test_r912_execution_limit_is_stage_aware(
+    tmp_path,
+):
+    auth_store = AuthorizationStore(
+        tmp_path / "auth-r912.sqlite"
+    )
+
+    auth = auth_store.create(
+        program="r912",
+        include=[
+            "example.com",
+            "*.example.com",
+        ],
+        logical_capabilities=[
+            "subdomain_discovery",
+            "dns_resolution",
+            "http_probe",
+        ],
+        approved_providers=[
+            "subfinder",
+            "dnsx",
+            "httpx",
+        ],
+        reviewer="tester",
+        source_material="r912 fixture",
+        ttl=3600,
+    )
+
+    missions = LiveMissionStore(
+        tmp_path / "live-r912.sqlite",
+        authorization_store=auth_store,
+    )
+
+    mid = missions.create(
+        auth,
+        budget=20,
+    )
+
+    report = missions.report(mid)
+    mission = report["mission"]
+    scope = auth_store.live_scope(auth)
+
+    assert mission["budget"] == 20
+
+    assert (
+        missions._execution_limit(
+            mission,
+            scope,
+        )
+        == 41
+    )

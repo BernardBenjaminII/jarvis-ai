@@ -10,7 +10,11 @@ import time
 import uuid
 from pathlib import Path
 
-from core.bounty_adapters import enumerate_subdomains, probe_http
+from core.bounty_adapters import (
+    enumerate_subdomains,
+    probe_http,
+    resolve_dns,
+)
 from core.bounty_authorization import AuthorizationStore, AuthorizationDenied
 
 
@@ -103,6 +107,45 @@ class LiveMissionStore:
             "INSERT INTO events(mission,at,kind,detail) VALUES(?,?,?,?)",
             (mission, time.time(), kind, detail),
         )
+
+    def _execution_limit(self, mission, scope):
+        """
+        R9.1.2
+
+        mission["budget"] is a TARGET budget, not a raw
+        subprocess/task budget.
+
+        A DNS-gated mission may require:
+            1 discovery task
+            N DNS tasks
+            N HTTP tasks
+
+        where N <= target budget.
+        """
+        target_budget = int(
+            mission["budget"]
+        )
+
+        per_target = 0
+
+        if (
+            "dns_resolution"
+            in scope.logical_capabilities
+        ):
+            per_target += 1
+
+        if (
+            "http_probe"
+            in scope.logical_capabilities
+        ):
+            per_target += 1
+
+        # Discovery is the single seed-stage task.
+        return 1 + (
+            target_budget
+            * per_target
+        )
+
 
     def create(self, authorization, *, budget=100):
         if type(budget) is not int or not 1 <= budget <= 1000:
@@ -265,12 +308,21 @@ class LiveMissionStore:
             if mission["state"] != "ready":
                 raise ValueError("Mission is not ready")
 
-            if mission["used"] >= mission["budget"]:
-                raise ValueError("Mission budget exhausted")
-
             scope = self.authorization_store.live_scope(
                 mission["authorization"]
             )
+
+            execution_limit = (
+                self._execution_limit(
+                    mission,
+                    scope,
+                )
+            )
+
+            if mission["used"] >= execution_limit:
+                raise ValueError(
+                    "Mission execution budget exhausted"
+                )
 
             scope.require(
                 task["target"],
@@ -309,6 +361,12 @@ class LiveMissionStore:
                 target,
                 cancel=cancel,
             )
+        elif capability == "dnsx":
+            result = resolve_dns(
+                scope,
+                target,
+                cancel=cancel,
+            )
         elif capability == "httpx":
             result = probe_http(
                 scope,
@@ -316,7 +374,9 @@ class LiveMissionStore:
                 cancel=cancel,
             )
         else:
-            raise ValueError("Unsupported live capability")
+            raise ValueError(
+                "Unsupported live capability"
+            )
 
         evidence = {
             "schema": "jarvis-bounty-live-r5.1",

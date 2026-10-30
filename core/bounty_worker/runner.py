@@ -10,17 +10,63 @@ import subprocess
 import time
 
 
-def run_bounded(argv, *, timeout=5, output_limit=65536, cancel=None):
+def run_bounded(
+    argv,
+    *,
+    timeout=5,
+    output_limit=65536,
+    cancel=None,
+    stdin_text=None,
+):
     if os.name != 'posix':
         raise RuntimeError('R2 runner requires POSIX process groups')
     if not 0 < timeout <= 30 or not 1 <= output_limit <= 1048576:
         raise ValueError('Invalid execution limits')
+
+    if stdin_text is not None:
+        if not isinstance(stdin_text, str):
+            raise ValueError('stdin_text must be text')
+
+        stdin_bytes = stdin_text.encode('utf-8')
+
+        # This runner only supports small fixed adapter inputs,
+        # never arbitrary bulk process input.
+        if len(stdin_bytes) > 4096:
+            raise ValueError('stdin_text exceeds 4096 bytes')
+    else:
+        stdin_bytes = None
+
     if cancel is not None and cancel.is_set():
         return {'state': 'cancelled', 'output': '', 'bytes': 0, 'returncode': None}
+
     deadline = time.monotonic() + timeout
-    process = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
-                               stderr=subprocess.STDOUT, shell=False, start_new_session=True,
-                               env={'PATH': '/usr/bin:/bin', 'LANG': 'C.UTF-8'}, close_fds=True)
+
+    process = subprocess.Popen(
+        argv,
+        stdin=(
+            subprocess.PIPE
+            if stdin_bytes is not None
+            else subprocess.DEVNULL
+        ),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        shell=False,
+        start_new_session=True,
+        env={
+            'PATH': '/usr/bin:/bin',
+            'LANG': 'C.UTF-8',
+        },
+        close_fds=True,
+    )
+
+    if stdin_bytes is not None:
+        try:
+            process.stdin.write(stdin_bytes)
+            process.stdin.flush()
+        except BrokenPipeError:
+            pass
+        finally:
+            process.stdin.close()
     output = bytearray()
     state = 'completed'
     selector = selectors.DefaultSelector()

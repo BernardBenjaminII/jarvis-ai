@@ -21,8 +21,31 @@ def main():
     c.add_argument(
         "--capability",
         action="append",
-        choices=["subfinder", "httpx"],
+        choices=[
+            "subdomain_discovery",
+            "dns_resolution",
+            "http_probe",
+            # Legacy provider aliases remain accepted.
+            "subfinder",
+            "dnsx",
+            "httpx",
+        ],
         default=[],
+        help=(
+            "Authorized logical capability. "
+            "Legacy provider names remain accepted."
+        ),
+    )
+    c.add_argument(
+        "--provider",
+        action="append",
+        choices=[
+            "subfinder",
+            "dnsx",
+            "httpx",
+        ],
+        default=[],
+        help="Approved concrete execution provider.",
     )
     c.add_argument("--reviewer", required=True)
     c.add_argument("--source-file", required=True)
@@ -45,17 +68,69 @@ def main():
             encoding="utf-8"
         )
 
-        capabilities = (
+        capability_aliases = {
+            "subfinder": "subdomain_discovery",
+            "dnsx": "dns_resolution",
+            "httpx": "http_probe",
+        }
+
+        provider_aliases = {
+            "subfinder": "subfinder",
+            "dnsx": "dnsx",
+            "httpx": "httpx",
+        }
+
+        requested = (
             args.capability
             if args.capability
-            else ["subfinder", "httpx"]
+            else [
+                "subdomain_discovery",
+                "http_probe",
+            ]
         )
+
+        logical_capabilities = sorted({
+            capability_aliases.get(
+                item,
+                item,
+            )
+            for item in requested
+        })
+
+        providers = set(args.provider)
+
+        # Preserve the old CLI behavior:
+        # --capability subfinder/httpx also approves that
+        # concrete provider.
+        for item in requested:
+            if item in provider_aliases:
+                providers.add(
+                    provider_aliases[item]
+                )
+
+        # Default provider selection for logical capabilities.
+        if not providers:
+            if (
+                "subdomain_discovery"
+                in logical_capabilities
+            ):
+                providers.add("subfinder")
+
+            if (
+                "dns_resolution"
+                in logical_capabilities
+            ):
+                providers.add("dnsx")
+
+            if "http_probe" in logical_capabilities:
+                providers.add("httpx")
 
         auth = store.create(
             program=args.program,
             include=args.include,
             exclude=args.exclude,
-            capabilities=capabilities,
+            logical_capabilities=logical_capabilities,
+            approved_providers=sorted(providers),
             reviewer=args.reviewer,
             source_material=source,
             ttl=args.ttl,

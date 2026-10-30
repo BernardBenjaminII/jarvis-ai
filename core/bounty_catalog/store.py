@@ -88,6 +88,89 @@ class Catalog:
         return {'latest_run': dict(latest) if latest else None, 'programs': result,
                 'testing_authorized': False}
 
+    def review_record(self, handle, source='hackerone-api'):
+        """
+        Return the newest complete catalog observation for
+        human review.
+
+        Unlike list(), this retains policy_text. It still does
+        not authorize testing or create execution tasks.
+        """
+        if source not in (
+            'hackerone-api',
+            'hackerone-import',
+        ):
+            raise DiscoveryError(
+                'Unsupported review source'
+            )
+
+        with self.connect() as db:
+            row = db.execute(
+                """
+                SELECT
+                    o.*,
+                    p.url,
+                    p.sha256,
+                    r.status
+                FROM observations o
+                JOIN pages p
+                  ON p.run=o.run
+                 AND p.number=o.page
+                JOIN runs r
+                  ON r.id=o.run
+                WHERE
+                    o.source=?
+                    AND o.handle=?
+                ORDER BY
+                    o.observed DESC,
+                    o.rowid DESC
+                LIMIT 1
+                """,
+                (source, handle),
+            ).fetchone()
+
+            latest = db.execute(
+                """
+                SELECT *
+                FROM runs
+                WHERE source=?
+                ORDER BY finished DESC,rowid DESC
+                LIMIT 1
+                """,
+                (source,),
+            ).fetchone()
+
+        if not row:
+            raise DiscoveryError(
+                'Program is not in this source catalog'
+            )
+
+        item = json.loads(row['record'])
+
+        item.update(
+            source=source,
+            last_seen=row['observed'],
+            source_url=row['url'],
+            source_sha256=row['sha256'],
+            run_id=row['run'],
+            run_status=row['status'],
+            seen_in_latest_run=bool(
+                latest
+                and row['run'] == latest['id']
+            ),
+            stale=(
+                time.time() - row['observed']
+                > 86400
+            ),
+            review_status=(
+                'rules_and_scope_unreviewed'
+            ),
+            testing_authorized=False,
+        )
+
+        return item
+
+
     def proposal(self, handle, source='hackerone-api'):
         candidates = [x for x in self.list(source=source)['programs'] if x['handle'] == handle]
         if not candidates:

@@ -902,3 +902,123 @@
 .knowledge-chat-thread::-webkit-scrollbar-track {
     background: transparent;
 }
+\n
+/* JARVIS_KALI_R852_LAYOUT
+   Kali-only responsive intelligence/conversation layout.
+   Do not apply to Ubuntu or Windows.
+*/
+
+@media (min-width: 1100px) {
+  body.jarvis-platform-kali .knowledge-workspace {
+    max-width: 1600px;
+    display: grid;
+    grid-template-columns:
+      minmax(340px, 0.95fr)
+      minmax(0, 1.45fr);
+    align-items: start;
+    gap: 1.25rem;
+  }
+
+  body.jarvis-platform-kali .knowledge-sitrep {
+    min-width: 0;
+    margin-bottom: 0;
+  }
+
+  body.jarvis-platform-kali .knowledge-conversation {
+    min-width: 0;
+  }
+}
+
+/* More usable bulletin */
+body.jarvis-platform-kali .knowledge-sitrep-feed {
+  height: clamp(340px, 55vh, 680px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: auto;
+  scrollbar-width: auto;
+}
+
+body.jarvis-platform-kali .knowledge-sitrep-item {
+  grid-template-columns: 4.6rem minmax(0, 1fr);
+  align-items: start;
+  padding: 0.8rem 0;
+  min-height: 0;
+}
+
+body.jarvis-platform-kali .knowledge-sitrep-item time {
+  grid-column: 1;
+  grid-row: 2;
+  padding-top: 0.3rem;
+}
+
+body.jarvis-platform-kali .knowledge-sitrep-event {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  padding: 0 0.8rem 0 0;
+}
+
+body.jarvis-platform-kali .knowledge-sitrep-event strong {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+body.jarvis-platform-kali .knowledge-sitrep-event span {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+body.jarvis-platform-kali .knowledge-sitrep-metrics span {
+  font-size: 0.7rem;
+}
+
+body.jarvis-platform-kali .knowledge-sitrep-footer {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1099px) {
+  body.jarvis-platform-kali .knowledge-workspace {
+    display: block;
+  }
+
+  body.jarvis-platform-kali .knowledge-sitrep-feed {
+    height: clamp(260px, 38vh, 450px);
+  }
+}
+
+@media (max-width: 680px) {
+  body.jarvis-platform-kali .knowledge-sitrep-item {
+    grid-template-columns: 4.1rem minmax(0, 1fr);
+  }
+
+  body.jarvis-platform-kali .knowledge-sitrep-item time {
+    display: block;
+  }
+}
+
+/* Global 3D link matches the existing Kali navigation controls */
+.jarvis-kali-r8-bar .jk8-nav a.jk8-global3d {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 8px;
+  color: inherit;
+  background: rgba(255,255,255,0.06);
+  text-decoration: none;
+  font: inherit;
+  font-size: 0.74rem;
+}
+
+.jarvis-kali-r8-bar .jk8-nav a.jk8-global3d:hover,
+.jarvis-kali-r8-bar .jk8-nav a.jk8-global3d:focus-visible {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.35);
+}
+\n

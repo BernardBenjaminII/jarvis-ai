@@ -20,7 +20,7 @@ def main():
 
     q = sub.add_parser("queue")
     q.add_argument("mission")
-    q.add_argument("capability", choices=["subfinder", "httpx"])
+    q.add_argument("capability", choices=["subfinder", "dnsx", "httpx"])
     q.add_argument("target")
 
     r = sub.add_parser("run")

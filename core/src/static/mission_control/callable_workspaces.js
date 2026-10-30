@@ -27,12 +27,64 @@
     const tabs=host.querySelector(".jarvis-system-tabs");
     Object.entries(diagnostics).forEach(([name,item])=>{const b=document.createElement("button");b.type="button";b.dataset.diagnostic=name;b.textContent=item.label;b.setAttribute("aria-selected","false");b.onclick=()=>showDiagnostic(name);tabs.append(b)});
   }
-  function open(name){restore();current=name;host.hidden=false;document.body.classList.add("jarvis-workspace-active");launcher?.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.workspace===name)));if(name==="sitrep")window.JARVIS_SITREP?.mount(host);else systemMarkup()}
+  async function open(name){
+    restore();
+    current=name;
+    host.hidden=false;
+    document.body.classList.add("jarvis-workspace-active");
+
+    launcher?.querySelectorAll("button").forEach(
+      b=>b.setAttribute(
+        "aria-pressed",
+        String(b.dataset.workspace===name)
+      )
+    );
+
+    if(name==="sitrep"){
+      window.JARVIS_SITREP?.mount(host);
+      return;
+    }
+
+    if(name==="bounty-agent"){
+      window.JARVIS_BOUNTY_AGENT?.mount(host);
+      return;
+    }
+
+    if(name==="arsenal"){
+      document.dispatchEvent(
+        new CustomEvent(
+          "jarvis:workspace-open",
+          {detail:{workspace:"arsenal"}}
+        )
+      );
+
+      if(window.JarvisKaliArsenalWorkspace?.render){
+        await window.JarvisKaliArsenalWorkspace.render(host);
+      }else{
+        host.innerHTML=
+          '<button class="jarvis-workspace-close" type="button">← Return to chat</button>' +
+          '<main class="jarvis-kali-arsenal">' +
+          '<p>Kali Arsenal workspace module unavailable.</p>' +
+          '</main>';
+
+        host.querySelector(".jarvis-workspace-close").onclick=close;
+      }
+
+      return;
+    }
+
+    systemMarkup();
+  }
   function installLauncher(){
     const status=document.querySelector("#jarvis-r32-status");if(!status)return false;
     if(mountTimer)clearInterval(mountTimer);
     launcher=document.createElement("nav");launcher.id="jarvis-workspace-launcher";launcher.setAttribute("aria-label","JARVIS workspaces");
-    [["sitrep","SITREP"],["system","System"]].forEach(([name,label])=>{const b=document.createElement("button");b.type="button";b.dataset.workspace=name;b.textContent=label;b.setAttribute("aria-pressed","false");b.onclick=()=>open(name);launcher.append(b)});
+    [
+      ["sitrep","SITREP"],
+      ["bounty-agent","Bug Bounty"],
+      ["arsenal","Arsenal"],
+      ["system","System"]
+    ].forEach(([name,label])=>{const b=document.createElement("button");b.type="button";b.dataset.workspace=name;b.textContent=label;b.setAttribute("aria-pressed","false");b.onclick=()=>open(name);launcher.append(b)});
     status.append(launcher);
     const details=status.querySelector(".r322-status-details");if(details){details.textContent="System";details.addEventListener("click",event=>{event.preventDefault();event.stopImmediatePropagation();open("system")},{capture:true})}
     return true;

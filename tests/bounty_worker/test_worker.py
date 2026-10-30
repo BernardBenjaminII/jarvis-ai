@@ -96,3 +96,36 @@ class WorkerTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+def test_run_bounded_stdin_text():
+    result = run_bounded(
+        [
+            sys.executable,
+            "-I",
+            "-c",
+            (
+                "import sys;"
+                "data=sys.stdin.read();"
+                "print(data.upper(), end='')"
+            ),
+        ],
+        stdin_text="hello\n",
+    )
+
+    assert result["state"] == "completed"
+    assert result["returncode"] == 0
+    assert result["output"] == "HELLO\n"
+
+
+def test_run_bounded_rejects_large_stdin():
+    with unittest.TestCase().assertRaises(ValueError):
+        run_bounded(
+            [
+                sys.executable,
+                "-I",
+                "-c",
+                "pass",
+            ],
+            stdin_text="x" * 4097,
+        )

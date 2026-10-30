@@ -1,0 +1,157 @@
+.jarvis-kali-r8-bar {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  margin: 16px auto;
+  padding: 14px 16px;
+
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+
+  background: rgba(10, 14, 18, 0.78);
+  backdrop-filter: blur(14px);
+
+  position: relative;
+  z-index: 20;
+}
+
+.jk8-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: max-content;
+}
+
+.jk8-identity > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.jk8-identity small {
+  opacity: 0.55;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+}
+
+.jk8-identity strong {
+  font-size: 0.86rem;
+  letter-spacing: 0.025em;
+}
+
+.jk8-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.85;
+}
+
+.jk8-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+
+  font-size: 0.70rem;
+  white-space: nowrap;
+  opacity: 0.75;
+}
+
+.jk8-status {
+  font-weight: 700;
+}
+
+.jk8-profile {
+  font-family: monospace;
+}
+
+.jk8-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.jk8-nav button {
+  appearance: none;
+
+  padding: 7px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.045);
+  color: inherit;
+
+  font: inherit;
+  font-size: 0.74rem;
+
+  cursor: pointer;
+
+  transition:
+    background 120ms ease,
+    border-color 120ms ease,
+    opacity 120ms ease;
+}
+
+.jk8-nav button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.jk8-nav button[data-execution="true"]:not(:disabled) {
+  font-weight: 700;
+}
+
+.jk8-nav button:disabled {
+  cursor: default;
+  opacity: 0.28;
+}
+
+.jk8-nav button.jk8-unbound {
+  border-style: dashed;
+}
+
+body.jarvis-platform-kali
+  [data-workspace="bounty-agent"] {
+  font-weight: 700;
+}
+
+@media (max-width: 1250px) {
+  .jarvis-kali-r8-bar {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .jk8-meta {
+    white-space: normal;
+  }
+
+  .jk8-nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .jarvis-kali-r8-bar {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 12px;
+  }
+
+  .jk8-nav {
+    gap: 5px;
+  }
+
+  .jk8-nav button {
+    padding: 6px 8px;
+    font-size: 0.70rem;
+  }
+}
