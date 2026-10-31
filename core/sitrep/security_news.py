@@ -3,6 +3,8 @@ from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from hashlib import sha256
 from html import unescape
+import gzip
+import io
 import json
 import math
 import re
@@ -256,6 +258,31 @@ def group_reports(records, now=None):
     # balanced subset from this collection.
     return events[:500]
 
+
+def decode_feed_body(raw, content_encoding=''):
+    """Decode GZIP feeds with a bounded decompressed size."""
+    encoding = str(content_encoding or '').lower()
+    is_gzip = raw[:2] == bytes.fromhex("1f8b")
+
+    if 'gzip' in encoding or is_gzip:
+        try:
+            with gzip.GzipFile(fileobj=io.BytesIO(raw)) as stream:
+                decoded = stream.read(MAX_BYTES + 1)
+        except (OSError, EOFError, ValueError) as exc:
+            raise ValueError("Invalid GZIP security feed") from exc
+
+        if len(decoded) > MAX_BYTES:
+            raise ValueError(
+                "Decompressed security feed exceeds size limit"
+            )
+
+        return decoded
+
+    if len(raw) > MAX_BYTES:
+        raise ValueError("Security feed exceeds size limit")
+
+    return raw
+
 class SecurityFeed:
     def __init__(self, provider_id, publisher, url, category, *, opener=urlopen, clock=None):
         self.provider_id, self.publisher, self.url, self.category = provider_id, publisher, url, category
@@ -266,7 +293,9 @@ class SecurityFeed:
         request = Request(self.url, headers={'User-Agent':'JARVIS-SITREP/6.0', 'Accept':'application/rss+xml,application/xml,application/json'})
         with self._opener(request, timeout=12) as response:
             raw = response.read(MAX_BYTES+1)
+            encoding = response.headers.get('Content-Encoding', '') if hasattr(response, 'headers') else ''
         if len(raw)>MAX_BYTES: raise ValueError('Security feed exceeds size limit')
+        raw = decode_feed_body(raw, encoding)
         return self.parse(raw)
 
     def result(self, items):
