@@ -1,7 +1,10 @@
 """SITREP with per-source last-good data and nonblocking UI refresh."""
 import copy
+import json
+import os
 import threading
 import time
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from .state_department import StateDepartmentTravelAdvisoryProvider
@@ -22,7 +25,53 @@ class SitrepService:
         self._snapshot=None
         self._expires_at=0.0
         self._last_good={}
+        self._restore_nuclear_cache()
         self._refreshing=False
+
+
+    def _nuclear_cache_path(self):
+        return Path.home() / ".local/state/jarvis/sitrep_nuclear_sites.json"
+
+    def _restore_nuclear_cache(self):
+        path = self._nuclear_cache_path()
+        try:
+            payload = json.loads(path.read_text())
+            if (
+                payload.get("provider_id") != "openstreetmap_nuclear_sites"
+                or not isinstance(payload.get("sites"), list)
+                or not payload["sites"]
+                or not isinstance(payload.get("retrieved_at"), str)
+            ):
+                return
+
+            for index, provider in enumerate(self._providers):
+                if getattr(provider, "provider_id", "") == "openstreetmap_nuclear_sites":
+                    self._last_good[index] = payload
+                    break
+        except (OSError, ValueError, TypeError, AttributeError):
+            pass
+
+    def _save_nuclear_cache(self, result):
+        if (
+            result.get("provider_id") != "openstreetmap_nuclear_sites"
+            or not isinstance(result.get("sites"), list)
+            or not result["sites"]
+            or not isinstance(result.get("retrieved_at"), str)
+        ):
+            return
+
+        path = self._nuclear_cache_path()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = path.with_suffix(".tmp")
+        try:
+            with temporary.open("w") as stream:
+                os.fchmod(stream.fileno(), 0o600)
+                json.dump(result, stream)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(temporary, path)
+        finally:
+            temporary.unlink(missing_ok=True)
 
     def _empty(self):
         return dict(operational_state='UNAVAILABLE', generated_at=datetime.now(timezone.utc).isoformat(),
@@ -42,7 +91,13 @@ class SitrepService:
                 for future in as_completed(futures):
                     index=futures[future]
                     result,error=future.result()
-                    if error is None: self._last_good[index]=copy.deepcopy(result)
+                    if error is None:
+                        self._last_good[index]=copy.deepcopy(result)
+                        if getattr(self._providers[index], 'provider_id', '') == 'openstreetmap_nuclear_sites':
+                            try:
+                                self._save_nuclear_cache(result)
+                            except (OSError, TypeError, ValueError):
+                                pass
                     completed[index]=(result,error)
                     # Publish each result immediately; slow providers must not hide fast feeds.
                     with self._lock:
