@@ -54,3 +54,56 @@ def runtime_answer(snapshot):
         + "This describes the Jarvis server, rather than the device displaying the chat. "
         + "I can still help with other subjects."
     )
+
+
+
+# JARVIS_CONVERSATION_R1
+# Experimental classifier. Not connected to the live orchestrator.
+
+_GENERAL_QUESTION = re.compile(
+    r"^(?:what|why|how|who|when|where|"
+    r"can you explain|could you explain|tell me about)\b",
+    re.I,
+)
+
+_GROUNDED_CONTEXT = re.compile(
+    r"\b(?:knowledge\s+catalog|catalog|documents?|"
+    r"sources?|citations?|research|latest|current|live|"
+    r"security|vulnerabilit\w*|cves?|"
+    r"system status|sensor|telemetry|"
+    r"mission|operations|according to|"
+    r"based on|verify|prove)\b",
+    re.I,
+)
+
+_OPERATIONAL_INTELLIGENCE = re.compile(
+    r"\b(?:security|threat|military|operational|"
+    r"enemy|surveillance|reconnaissance)\s+intelligence\b",
+    re.I,
+)
+
+_JARVIS_CONTEXT = re.compile(
+    r"\bjarvis\b", re.I,
+)
+
+def conversational_route(question: str) -> str:
+    """Classify general versus evidence-dependent questions."""
+    text = " ".join(str(question or "").split())
+
+    if not text:
+        return "knowledge"
+
+    # Questions about JARVIS itself should use its own documentation.
+    if _JARVIS_CONTEXT.search(text):
+        return "knowledge"
+
+    if _GROUNDED_CONTEXT.search(text):
+        return "knowledge"
+
+    if _OPERATIONAL_INTELLIGENCE.search(text):
+        return "knowledge"
+
+    if _GENERAL_QUESTION.match(text):
+        return "general"
+
+    return "knowledge"

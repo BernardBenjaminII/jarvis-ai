@@ -165,6 +165,30 @@ class ExecutiveConversationOrchestrator:
             from core.src.cognition.platform_status import snapshot
             state = snapshot()
             return self._direct_result(runtime_answer(state), route, {"runtime": state})
+        # JARVIS_CONVERSATION_R11_GENERAL_ROUTE
+        # General questions use the language model without claiming
+        # catalog grounding. Evidence-dependent requests retain the
+        # existing qualification and citation enforcement pipeline.
+        from core.conversation.request_routing import conversational_route
+
+        if route == "knowledge" and conversational_route(context.operator_input) == "general":
+            handler = self.creative_handler or self.synthesis_handler
+            answer = self._normalize_answer(handler(context.operator_input))
+
+            if not answer.strip() or "[LLM ERROR]" in answer:
+                raise RuntimeError(
+                    "General conversation model unavailable or returned an error."
+                )
+
+            return self._direct_result(
+                answer,
+                "general",
+                {
+                    "source_kind": "model_general_knowledge",
+                    "catalog_grounded": False,
+                },
+            )
+
         if route in {"creative", "social"} and self.creative_handler is not None:
             answer = self._normalize_answer(self.creative_handler(context.operator_input))
             if not answer.strip() or "[LLM ERROR]" in answer:
