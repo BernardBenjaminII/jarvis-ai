@@ -228,6 +228,35 @@ class ExecutiveConversationOrchestrator:
                 technical_details={"catalog_inventory": inventory},
             )
 
+        # JARVIS_R12A_CATALOG_INVENTORY
+        from core.conversation.catalog_inventory_r12 import (
+            inventory_request,
+            inspect_inventory,
+            render_inventory,
+        )
+
+        if inventory_request(context.operator_input):
+            if self.grounding_service is None:
+                return self._direct_result(
+                    "Knowledge Catalog is not configured.",
+                    "catalog_inventory",
+                    {"catalog_grounded": False},
+                )
+
+            inventory = inspect_inventory(
+                self.grounding_service.database_path
+            )
+
+            return self._direct_result(
+                render_inventory(inventory),
+                "catalog_inventory",
+                {
+                    "catalog_inventory": inventory,
+                    "source_kind": "catalog_metadata",
+                    "catalog_grounded": False,
+                },
+            )
+
         if catalog_status_request(context.operator_input) and self.grounding_service is not None:
             inspection = inspect_catalog(self.grounding_service.database_path)
             return OrchestrationResult(
