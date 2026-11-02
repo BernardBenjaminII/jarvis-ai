@@ -56,7 +56,7 @@ class RFManager:
 
         requirements = {
             "adsb": (
-                "rtl_adsb",
+                "readsb",
                 False,
             ),
             "fm": (

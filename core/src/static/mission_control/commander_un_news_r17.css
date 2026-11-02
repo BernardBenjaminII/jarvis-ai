@@ -1,0 +1,187 @@
+
+/* JARVIS R1.7 — Commander UN Intelligence */
+
+#jarvis-un-news-r17 {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 18px 20px;
+  border: 1px solid #d8e0e8;
+  border-radius: 14px;
+  background: #fff;
+  color: #263548;
+  font-family: inherit;
+}
+
+#jarvis-un-news-r17 * {
+  box-sizing: border-box;
+}
+
+#jarvis-un-news-r17 .un-header,
+#jarvis-un-news-r17 .un-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#jarvis-un-news-r17 .un-header small {
+  color: #73869a;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+}
+
+#jarvis-un-news-r17 h3 {
+  margin: 5px 0 0;
+  font-size: 17px;
+  color: #263548;
+}
+
+#jarvis-un-news-r17 .un-status {
+  padding: 6px 10px;
+  border-radius: 30px;
+  font-size: 10px;
+  font-weight: 700;
+  background: #f2f4f6;
+  color: #667789;
+}
+
+#jarvis-un-news-r17 .un-status[data-state="live"] {
+  background: #eaf7ef;
+  color: #287553;
+}
+
+#jarvis-un-news-r17 .un-count {
+  margin: 12px 0;
+  color: #708293;
+  font-size: 12px;
+}
+
+#jarvis-un-news-r17 .un-item {
+  padding: 14px 0;
+  border-top: 1px solid #e8edf2;
+}
+
+#jarvis-un-news-r17 .un-item h4 {
+  margin: 0 0 7px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#jarvis-un-news-r17 .un-item a {
+  color: #205d87;
+  text-decoration: none;
+}
+
+#jarvis-un-news-r17 .un-item a:hover {
+  text-decoration: underline;
+}
+
+#jarvis-un-news-r17 .un-summary {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #536678;
+}
+
+#jarvis-un-news-r17 .un-meta,
+#jarvis-un-news-r17 .un-updated {
+  margin: 0;
+  font-size: 10px;
+  color: #8190a0;
+}
+
+#jarvis-un-news-r17 .un-footer {
+  padding-top: 12px;
+  border-top: 1px solid #e8edf2;
+}
+
+#jarvis-un-news-r17 button {
+  padding: 8px 13px;
+  background: #f5f8fb;
+  color: #315b7d;
+  border: 1px solid #d8e0e8;
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+}
+
+#jarvis-un-news-r17 button:focus-visible {
+  outline: 2px solid #217db8;
+  outline-offset: 2px;
+}
+
+@media(max-width: 480px) {
+  #jarvis-un-news-r17 {
+    padding: 14px;
+  }
+}
+
+
+/* JARVIS R1.7A — SLATE THEME */
+
+#jarvis-un-news-r17 {
+    background: #17232f;
+    border-color: #35485b;
+    color: #e7edf5;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, .12);
+}
+
+#jarvis-un-news-r17 h3,
+#jarvis-un-news-r17 .un-item h4 {
+    color: #edf3f9;
+}
+
+#jarvis-un-news-r17 .un-header small,
+#jarvis-un-news-r17 .un-count,
+#jarvis-un-news-r17 .un-meta,
+#jarvis-un-news-r17 .un-updated {
+    color: #b1c2d2;
+}
+
+#jarvis-un-news-r17 .un-summary,
+#jarvis-un-news-r17 .un-empty {
+    color: #c4d0dc;
+}
+
+#jarvis-un-news-r17 .un-item,
+#jarvis-un-news-r17 .un-footer {
+    border-color: #35485b;
+}
+
+#jarvis-un-news-r17 .un-item a {
+    color: #90cef5;
+}
+
+#jarvis-un-news-r17 .un-item a:hover {
+    color: #c1e7ff;
+    text-decoration: underline;
+}
+
+#jarvis-un-news-r17 .un-status {
+    background: #29394a;
+    color: #c4d0dc;
+}
+
+#jarvis-un-news-r17 .un-status[data-state="live"] {
+    background: #1d3a35;
+    color: #80e2b5;
+}
+
+#jarvis-un-news-r17 button {
+    background: #253444;
+    border-color: #405368;
+    color: #e4edf6;
+}
+
+#jarvis-un-news-r17 button:hover {
+    background: #344c61;
+}
+
+#jarvis-un-news-r17 button:focus-visible {
+    outline: 2px solid #8dcfff;
+    outline-offset: 2px;
+}

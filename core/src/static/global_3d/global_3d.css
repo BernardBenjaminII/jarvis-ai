@@ -1661,3 +1661,197 @@ button {
 }
 
 /* JARVIS_GLOBAL3D_SIDEBAR_SCROLL_R1_END */
+
+
+/* JARVIS_ADSB_R5_CSS_START */
+
+.adsb-tracker {
+    margin-top: 7px;
+    font-size: 10px;
+}
+
+.adsb-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    margin-bottom: 5px;
+}
+
+.adsb-metrics > div {
+    min-width: 0;
+    padding: 4px 3px;
+    border: 1px solid rgba(120, 230, 210, .22);
+    background: rgba(0, 0, 0, .18);
+    text-align: center;
+}
+
+.adsb-metrics span {
+    display: block;
+    opacity: .68;
+    font-size: 8px;
+    letter-spacing: .08em;
+}
+
+.adsb-metrics strong {
+    display: block;
+    margin-top: 1px;
+    font-size: 13px;
+    line-height: 1.1;
+}
+
+#adsbAlertMetric.active {
+    border-color: rgba(255, 90, 90, .75);
+    background: rgba(150, 20, 20, .18);
+}
+
+.adsb-receiver-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 3px 0 5px;
+    opacity: .74;
+    font-size: 9px;
+}
+
+.adsb-table-wrap {
+    max-height: 250px;
+    overflow: auto;
+    border: 1px solid rgba(120, 230, 210, .18);
+}
+
+.adsb-table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: 9px;
+    font-variant-numeric: tabular-nums;
+}
+
+.adsb-table th,
+.adsb-table td {
+    padding: 4px 5px;
+    border-bottom: 1px solid rgba(120, 230, 210, .10);
+    text-align: left;
+}
+
+.adsb-table th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: rgba(5, 12, 16, .97);
+    font-size: 8px;
+    letter-spacing: .05em;
+}
+
+.adsb-table tbody tr {
+    cursor: pointer;
+}
+
+.adsb-table tbody tr:hover,
+.adsb-table tbody tr.selected {
+    background: rgba(120, 230, 210, .11);
+}
+
+.adsb-table tbody tr.adsb-alert-row {
+    outline: 1px solid rgba(255, 90, 90, .7);
+    background: rgba(150, 20, 20, .12);
+}
+
+.adsb-empty {
+    padding: 12px !important;
+    text-align: center !important;
+    opacity: .60;
+}
+
+.adsb-detail-card {
+    margin-top: 5px;
+    padding: 6px;
+    border: 1px solid rgba(120, 230, 210, .17);
+    background: rgba(0, 0, 0, .20);
+}
+
+.adsb-detail-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.adsb-detail-heading > div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.adsb-detail-heading strong {
+    font-size: 13px;
+}
+
+.adsb-detail-heading span,
+.adsb-detail-icao {
+    opacity: .72;
+}
+
+.adsb-detail-description {
+    margin: 3px 0 6px;
+    opacity: .68;
+    font-size: 9px;
+}
+
+.adsb-detail-grid {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 3px 7px;
+}
+
+.adsb-detail-grid span {
+    opacity: .57;
+    font-size: 8px;
+}
+
+.adsb-detail-grid strong {
+    font-size: 9px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.adsb-emergency-banner {
+    margin: -6px -6px 6px;
+    padding: 5px;
+    border-bottom: 1px solid rgba(255, 90, 90, .75);
+    background: rgba(160, 20, 20, .25);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .05em;
+}
+
+.adsb-raw-toggle {
+    width: 100%;
+    margin-top: 5px;
+    padding: 4px 6px;
+    border: 1px solid rgba(120, 230, 210, .17);
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 8px;
+    letter-spacing: .07em;
+    cursor: pointer;
+}
+
+/* JARVIS_ADSB_R5_CSS_END */
+
+/* JARVIS_RF_DUAL_R2A_CSS_START: informational dual-SDR status only */
+.rf-dual-r2a { margin: 8px 0 12px; font-size: 11px; }
+.rf-dual-r2a-heading { display:flex; flex-wrap:wrap; gap:8px; justify-content:space-between; font-size:11px; letter-spacing:.06em; font-weight:700; margin-bottom:8px; }
+#rfDualUpdatedR2A { font-weight:400; opacity:.7; letter-spacing:normal; }
+.rf-dual-r2a-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.rf-dual-r2a-card { background:rgba(0,0,0,.3); border:1px solid rgba(120,230,200,.22); border-radius:6px; padding:9px; min-width:0; }
+.rf-dual-r2a-top { display:flex; align-items:start; flex-wrap:wrap; justify-content:space-between; gap:6px; font-size:10px; }
+.rf-dual-r2a-state { color:#b6c7cd; font-size:10px; font-weight:700; }
+.rf-dual-r2a-state[data-state="running"] { color:#68e6aa; }
+.rf-dual-r2a-state[data-state="idle"] { color:#a9bec7; }
+.rf-dual-r2a-state[data-state="error"], .rf-dual-r2a-state[data-state="offline"] { color:#ff9f93; }
+.rf-dual-r2a-mission { margin-top:9px; font-size:12px; font-weight:600; overflow-wrap:anywhere; }
+.rf-dual-r2a-detail { margin-top:4px; opacity:.78; line-height:1.45; overflow-wrap:anywhere; }
+.rf-dual-r2a-note { margin-top:7px; opacity:.74; line-height:1.45; }
+@media (max-width:600px) { .rf-dual-r2a-grid { grid-template-columns:1fr; } }
+/* JARVIS_RF_DUAL_R2A_CSS_END */

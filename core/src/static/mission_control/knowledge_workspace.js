@@ -1284,7 +1284,9 @@
             return;
         }
 
-        const items = [...feed.querySelectorAll(".knowledge-sitrep-item")];
+        const items = [
+            ...feed.querySelectorAll(".knowledge-sitrep-item")
+        ];
 
         if (items.length < 2) {
             return;
@@ -1298,13 +1300,42 @@
                 return;
             }
 
-            state.sitrepScrollIndex =
+            // Never move the page while the user interacts.
+            if (
+                feed.matches(":hover") ||
+                feed.contains(document.activeElement) ||
+                document.hidden
+            ) {
+                return;
+            }
+
+            const next =
                 (state.sitrepScrollIndex + 1) % items.length;
 
-            items[state.sitrepScrollIndex].scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
+            const item = items[next];
+
+            // Scroll ONLY the internal SITREP container.
+            // Never use scrollIntoView here.
+            const feedRect = feed.getBoundingClientRect();
+            const itemRect = item.getBoundingClientRect();
+
+            const target =
+                feed.scrollTop +
+                (itemRect.top - feedRect.top);
+
+            const maxScroll = Math.max(
+                0,
+                feed.scrollHeight - feed.clientHeight
+            );
+
+            feed.scrollTo({
+                top: Math.max(0, Math.min(target, maxScroll)),
+                behavior: window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches ? "instant" : "smooth"
             });
+
+            state.sitrepScrollIndex = next;
         }, 4200);
     }
 

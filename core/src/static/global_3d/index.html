@@ -10,6 +10,9 @@
 
     <link rel="stylesheet"
           href="/static/global_3d/global_3d.css?v=22">
+    <!-- JARVIS_MOBILE_SENSOR_R3D_CSS -->
+    <link rel="stylesheet" href="/static/global_3d/mobile_sensor_panel.css?v=1">
+<link rel="stylesheet" href="/static/global_3d/wireless_intelligence_r25.css?v=26">
 </head>
 
 <body>
@@ -223,6 +226,24 @@
                 <!-- JARVIS_LOCAL_SENSORS_R1_UI_END -->
 
                 <!-- JARVIS_RF_R2_UI_START -->
+                <!-- JARVIS_RF_DUAL_R2A_START -->
+                <div class="rf-dual-r2a" id="rfDualReceiversR2A" aria-label="Receiver inventory">
+                  <div class="rf-dual-r2a-heading">RECEIVER OPERATIONS <span id="rfDualUpdatedR2A">Connecting…</span></div>
+                  <div class="rf-dual-r2a-grid">
+                    <article class="rf-dual-r2a-card" data-rf-serial="86182997">
+                      <div class="rf-dual-r2a-top"><strong>SDR-A · ADS-B PRIMARY</strong><span class="rf-dual-r2a-state">CHECKING</span></div>
+                      <div class="rf-dual-r2a-mission">Checking receiver</div>
+                      <div class="rf-dual-r2a-detail">1090 MHz · 86182997</div>
+                    </article>
+                    <article class="rf-dual-r2a-card" data-rf-serial="05370246">
+                      <div class="rf-dual-r2a-top"><strong>SDR-B · MULTI-MISSION</strong><span class="rf-dual-r2a-state">CHECKING</span></div>
+                      <div class="rf-dual-r2a-mission">Checking receiver</div>
+                      <div class="rf-dual-r2a-detail">LoRa planned · 05370246</div>
+                    </article>
+                  </div>
+                  <div class="rf-dual-r2a-note">Status monitoring for both receivers. Existing controls below operate SDR-A only; SDR-B controls are not enabled in this release.</div>
+                </div>
+                <!-- JARVIS_RF_DUAL_R2A_END -->
                 <section
                     id="rfSwitchboard"
                     class="rf-switchboard">
@@ -476,6 +497,7 @@
 
                 </section>
                 <!-- JARVIS_RF_R2_UI_END -->
+                <script src="/static/global_3d/rf_dual_receivers_r2a.js" defer></script>
 
 
                 <!-- JARVIS_SPACE_R89B_UI_END -->
@@ -625,5 +647,9 @@
 <script src="/static/global_3d/rf_fm_tuner.js?v=6"></script>
 <script src="/static/global_3d/rf_radio_mode_switch.js?v=1"></script>
 <script src="/static/global_3d/rf_panel_layout.js?v=1"></script>
+<script src="/static/global_3d/rf_adsb_tracks.js?v=1"></script>
+<!-- JARVIS_MOBILE_SENSOR_R3D_JS -->
+<script src="/static/global_3d/mobile_sensor_panel.js?v=1"></script>
+<script src="/static/global_3d/wireless_intelligence_r25.js?v=26"></script>
 </body>
 </html>

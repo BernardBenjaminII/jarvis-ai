@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JARVIS | Dynamic Network Topology R2.13</title>
+<style>
+:root {
+ color-scheme:dark;
+ font:14px system-ui,sans-serif;
+ background:#07121d;
+ color:#dce9f4;
+}
+* {box-sizing:border-box}
+body {margin:0;padding:18px}
+header {
+ display:flex;align-items:center;justify-content:space-between;
+ gap:16px;flex-wrap:wrap;margin-bottom:15px
+}
+h1 {margin:0;font-size:23px}
+small,.muted {color:#9ab0c1}
+a {color:#7ee5c3}
+button {
+ background:#152d40;color:#dce9f4;
+ border:1px solid #42657a;border-radius:7px;
+ padding:9px 12px;cursor:pointer
+}
+button:hover {border-color:#81ddbc}
+.controls {display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.layout {
+ display:grid;grid-template-columns:minmax(0,3fr) minmax(275px,1fr);
+ gap:14px
+}
+.panel {
+ background:#0d1f2e;border:1px solid #29465b;
+ border-radius:12px;min-width:0;padding:15px
+}
+#graph {
+ display:block;width:100%;height:680px;
+ background:radial-gradient(ellipse at center,#11283a,#081723);
+ border-radius:9px;touch-action:none
+}
+.edge {fill:none;stroke-width:2}
+.association {stroke:#5de2af}
+.route {stroke:#6aaef4}
+.observation {stroke:#8395a4;stroke-dasharray:5 7}
+.node {cursor:grab;outline:none}
+.node:active {cursor:grabbing}
+.node rect {
+ fill:#163348;stroke:#5b8ca6;stroke-width:1.6
+}
+.node.host rect,.node.ap-current rect {stroke:#5de2af}
+.node.gateway rect {stroke:#6aaef4}
+.node.ap-other rect {stroke:#d3aa64}
+.node.historical rect {
+ stroke:#718290;stroke-dasharray:5 5;opacity:.75
+}
+.node:focus rect,.node.selected rect {
+ stroke:#fff;stroke-width:2.8
+}
+.node text {fill:#ebf6ff;font-size:12px;pointer-events:none}
+.node .sub {fill:#a9c0d1;font-size:10px}
+#inspector {
+ white-space:pre-wrap;overflow-wrap:anywhere;
+ font:12px/1.65 ui-monospace,monospace
+}
+#status {font-size:12px;color:#a8c2d1}
+.legend {font-size:12px;line-height:1.8;color:#9eb7c9}
+#graph-title {margin:0 0 12px;font-size:15px}
+@media(max-width:850px){
+ .layout {grid-template-columns:1fr}
+ #graph {height:520px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div>
+  <h1>JARVIS // DYNAMIC NETWORK TOPOLOGY</h1>
+  <small>R2.13 · Evidence-based network intelligence</small>
+ </div>
+ <div class="controls">
+  <a href="/static/global_3d/wireless_workspace.html">
+   Wireless Intelligence
+  </a>
+  <label><input type="checkbox" id="allaps"> Other APs</label>
+  <button id="layout">Reset layout</button>
+  <button id="refresh">Refresh</button>
+ </div>
+</header>
+
+<p id="status">Loading network data...</p>
+
+<div class="layout">
+ <section class="panel">
+  <h2 id="graph-title">Local Network Graph</h2>
+  <svg id="graph" viewBox="0 0 1100 700"
+   role="group" aria-label="Interactive network topology">
+  </svg>
+  <p class="legend">
+   Green: verified Wi-Fi association.
+   Blue: host-to-gateway route.
+   Dashed gray: observation grouping, not a verified physical link.
+   Gold: separately observed Wi-Fi access point.
+   Dashed node border: historical registry observation.
+   Drag nodes to rearrange. Click a node to inspect it.
+  </p>
+ </section>
+ <aside class="panel">
+  <h2 id="graph-title-inspector">DEVICE INSPECTOR</h2>
+  <div id="inspector">Select a device or access point.</div>
+ </aside>
+</div>
+
+<script>
+/* JARVIS_R213_DYNAMIC_GRAPH */
+(() => {
+"use strict";
+
+const NS="http://www.w3.org/2000/svg";
+const $=id=>document.getElementById(id);
+const W=174,H=64;
+const positions=new Map();
+let nodes=[],links=[],selected=null,drag=null;
+let snapshot=null;
+
+function element(tag,attributes={},value){
+ const item=document.createElementNS(NS,tag);
+ for(const [key,val] of Object.entries(attributes))
+  item.setAttribute(key,String(val));
+ if(value!==undefined)item.textContent=String(value);
+ return item;
+}
+function trim(value,max=24){
+ const s=String(value??"");
+ return s.length>max?s.slice(0,max-1)+"…":s;
+}
+function freshness(device){
+ if(!device?.last_seen)return "unknown";
+ const age=Date.now()-Date.parse(device.last_seen);
+ if(!Number.isFinite(age)||age<0)return "unknown";
+ return age<=15*60*1000?"recent":"historical";
+}
+function hexName(ap){
+ if(!ap)return null;
+ const raw=ap.ssid_hex;
+ if(typeof raw!=="string"||!/^(?:[0-9a-f]{2})+$/i.test(raw))
+  return null;
+ try{
+  const bytes=Uint8Array.from(raw.match(/../g)
+   .map(b=>parseInt(b,16)));
+  const s=new TextDecoder("utf-8",{fatal:true}).decode(bytes);
+  return s.trim()&&!/[\x00-\x1f\x7f]/.test(s)?s:null;
+ }catch{return null;}
+}
+function node(id,label,sub,type,data,x,y,status="unknown"){
+ return {id,label,sub,type,data,x,y,status};
+}
+function build(topology,inventory,registry,showOther){
+ const result=[],edges=[];
+ const aps=Array.isArray(inventory.networks)?inventory.networks:[];
+ const devices=Array.isArray(registry.devices)?registry.devices:[];
+ const neighbors=Array.isArray(topology.neighbors)?topology.neighbors:[];
+ const byIP=new Map();
+ for(const d of devices){
+  if(d.ip&&!d.ip.startsWith("127.")){
+   const prior=byIP.get(d.ip);
+   if(!prior || Date.parse(d.last_seen||0)>
+                Date.parse(prior.last_seen||0))
+    byIP.set(d.ip,d);
+  }
+ }
+ const assoc=topology.association||{};
+ const associated=aps.find(a=>a.bssid===assoc.bssid);
+
+ result.push(node("host","xperionx",
+  topology.host_ip||"Unknown address","host",
+  {kind:"Local host",topology},455,45,"recent"));
+
+ if(assoc.bssid){
+  const label=assoc.ssid||hexName(associated)||"Associated AP";
+  result.push(node("ap-current",label,
+   assoc.bssid,"ap-current",
+   {kind:"Confirmed association",association:assoc,
+    access_point:associated||null},455,170,"recent"));
+  edges.push({a:"host",b:"ap-current",type:"association"});
+ }
+
+ const gateway=neighbors.find(n=>n.ip===topology.gateway_ip);
+ if(topology.gateway_ip){
+  result.push(node("gateway","Default gateway",
+   topology.gateway_ip,"gateway",
+   {kind:"Kernel default gateway",neighbor:gateway||null,
+    note:"Router and AP may be the same hardware; unverified"},
+   745,170,"recent"));
+  edges.push({a:"host",b:"gateway",type:"route"});
+ }
+
+ const peers=neighbors.filter(n=>n.ip!==topology.gateway_ip);
+ peers.forEach((peer,i)=>{
+  const d=byIP.get(peer.ip);
+  const known=d?.display_name &&
+   d.display_name!=="Unidentified LAN device";
+  const label=known?d.display_name:peer.ip;
+  const id="peer:"+peer.ip;
+  result.push(node(id,label,
+   known?peer.ip:peer.mac,
+   "peer",{kind:"Cached LAN neighbor",neighbor:peer,
+    identity:d||null,
+    caveat:"LAN association is not proven by neighbor cache"},
+   45+(i%4)*230,360+Math.floor(i/4)*100,
+   d?freshness(d):"unknown"));
+  edges.push({a:"host",b:id,type:"observation"});
+ });
+
+ const peerIPs=new Set(peers.map(p=>p.ip));
+ const extras=devices.filter(d=>
+  d.ip&&d.ip!=="127.0.0.1" &&
+  d.ip!==topology.host_ip &&
+  d.ip!==topology.gateway_ip &&
+  !peerIPs.has(d.ip) &&
+  d.hostname
+ );
+
+ extras.forEach((d,i)=>{
+  const id="mdns:"+d.device_key;
+  result.push(node(id,d.display_name||d.hostname,d.ip,
+   "mdns",{kind:"mDNS device observation",identity:d,
+    caveat:"Current physical connection unknown"},
+   45+(i%4)*230,480+Math.floor(i/4)*100,
+   freshness(d)));
+  edges.push({a:"host",b:id,type:"observation"});
+ });
+
+ const fritz=aps.filter(a=>
+  a.bssid==="74:42:7f:0d:75:c0" ||
+  hexName(a)==="FRITZ!Box 7530 UU"
+ );
+ for(const [i,a] of fritz.entries()){
+  result.push(node("fritz:"+a.bssid,
+   hexName(a)||"FRITZ!Box 7530 UU",
+   a.bssid,"ap-other",
+   {kind:"Independent Wi-Fi observation",access_point:a},
+   845,55+i*90,"unknown"));
+ }
+
+ if(showOther){
+  const excluded=new Set([
+   assoc.bssid,...fritz.map(a=>a.bssid)
+  ]);
+  const unique=new Map();
+  for(const ap of aps)
+   if(ap.bssid&&!excluded.has(ap.bssid))
+    unique.set(ap.bssid,ap);
+  let index=0;
+  for(const ap of unique.values()){
+   result.push(node("other:"+ap.bssid,
+    hexName(ap)||"Unidentified Wi-Fi AP",
+    ap.bssid,"ap-other",
+    {kind:"Observed wireless BSSID",access_point:ap,
+     caveat:"BSSID does not necessarily mean distinct router"},
+    15+(index%5)*210,585+Math.floor(index/5)*90,
+    "unknown"));
+   index++;
+  }
+ }
+ return {nodes:result,links:edges};
+}
+function svgPoint(event){
+ const svg=$("graph"),point=svg.createSVGPoint();
+ point.x=event.clientX;point.y=event.clientY;
+ const transform=svg.getScreenCTM();
+ return transform?point.matrixTransform(transform.inverse()):
+  {x:point.x,y:point.y};
+}
+function inspect(n){
+ selected=n.id;
+ $("inspector").textContent=JSON.stringify({
+  name:n.label,
+  address:n.sub,
+  observation_status:n.status,
+  evidence:n.data
+ },null,2);
+ paint();
+}
+function paint(){
+ const graph=$("graph");
+ graph.replaceChildren();
+ const lookup=new Map(nodes.map(n=>[n.id,n]));
+ const pos=n=>positions.get(n.id)||{x:n.x,y:n.y};
+
+ for(const link of links){
+  const a=lookup.get(link.a),b=lookup.get(link.b);
+  if(!a||!b)continue;
+  const p=pos(a),q=pos(b);
+  graph.append(element("path",{
+   d:`M ${p.x+W/2} ${p.y+H/2} L ${q.x+W/2} ${q.y+H/2}`,
+   class:"edge "+link.type
+  }));
+ }
+
+ for(const n of nodes){
+  const p=pos(n);
+  const group=element("g",{
+   class:"node "+n.type+
+    (n.status==="historical"?" historical":"")+
+    (selected===n.id?" selected":""),
+   role:"button",tabindex:"0",
+   "aria-label":n.label+" "+n.sub
+  });
+  group.append(
+   element("rect",{x:p.x,y:p.y,width:W,height:H,rx:9}),
+   element("text",{x:p.x+10,y:p.y+24},trim(n.label)),
+   element("text",{class:"sub",x:p.x+10,y:p.y+44},trim(n.sub,27)),
+   element("title",{},n.label+" | "+n.sub)
+  );
+  group.addEventListener("pointerdown",event=>{
+   if(event.button!==0)return;
+   const point=svgPoint(event);
+   drag={id:n.id,dx:point.x-p.x,dy:point.y-p.y,
+    pointer:event.pointerId};
+   group.setPointerCapture(event.pointerId);
+   inspect(n);
+  });
+  group.addEventListener("keydown",event=>{
+   if(event.key==="Enter"||event.key===" "){
+    event.preventDefault();inspect(n);
+   }
+  });
+  graph.append(group);
+ }
+}
+$("graph").addEventListener("pointermove",event=>{
+ if(!drag)return;
+ const point=svgPoint(event);
+ positions.set(drag.id,{
+  x:Math.max(0,point.x-drag.dx),
+  y:Math.max(0,point.y-drag.dy)
+ });
+ // Keep capture on SVG during repaint.
+ $("graph").setPointerCapture(event.pointerId);
+ paint();
+});
+function endDrag(){drag=null;}
+$("graph").addEventListener("pointerup",endDrag);
+$("graph").addEventListener("pointercancel",endDrag);
+
+async function fetchJSON(url){
+ const response=await fetch(url,{cache:"no-store"});
+ if(!response.ok)throw Error(url+" HTTP "+response.status);
+ return response.json();
+}
+function render(){
+ if(!snapshot)return;
+ const built=build(...snapshot,$("allaps").checked);
+ nodes=built.nodes;links=built.links;
+ $("graph").setAttribute("viewBox",
+  "0 0 1100 "+Math.max(700,
+   ...nodes.map(n=>(positions.get(n.id)?.y??n.y)+100)));
+ paint();
+}
+async function refresh(){
+ $("refresh").disabled=true;
+ $("status").textContent="Reading JARVIS network evidence...";
+ try{
+  snapshot=await Promise.all([
+   fetchJSON("/api/sensors/wifi/topology"),
+   fetchJSON("/api/sensors/wifi/networks"),
+   fetchJSON("/api/sensors/wifi/lan-identities")
+  ]);
+  render();
+  const [t,w,r]=snapshot;
+  $("status").textContent=
+   `${(w.networks||[]).length} stored BSSIDs · `+
+   `${(t.neighbors||[]).length} LAN neighbor entries · `+
+   `${(r.devices||[]).length} identity records · `+
+   `Updated ${new Date().toLocaleTimeString()}`;
+ }catch(err){
+  $("status").textContent="Data error: "+err.message;
+ }finally{
+  $("refresh").disabled=false;
+ }
+}
+$("layout").addEventListener("click",()=>{
+ positions.clear();render();
+});
+$("refresh").addEventListener("click",refresh);
+$("allaps").addEventListener("change",render);
+refresh();
+setInterval(refresh,30000);
+})();
+</script>
+</body>
+</html>

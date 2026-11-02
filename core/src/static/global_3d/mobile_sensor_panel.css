@@ -1,0 +1,157 @@
+/* JARVIS MOBILE SENSOR R3E — GLOBAL 3D */
+
+.mobile-sensor-r3d {
+    margin: 8px 0 7px;
+    padding: 8px;
+    border: 1px solid rgba(100, 220, 200, .24);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, .22);
+    font-size: 9.5px;
+    line-height: 1.2;
+}
+
+.mobile-sensor-r3d-head,
+.mobile-sensor-r3d-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.mobile-sensor-r3d-head {
+    margin-bottom: 3px;
+    letter-spacing: .08em;
+}
+
+.mobile-sensor-r3d-head > span {
+    opacity: .74;
+}
+
+.mobile-sensor-r3d-head strong {
+    font-size: 10px;
+}
+
+.mobile-sensor-r3d[data-state="live"]
+.mobile-sensor-r3d-head strong {
+    color: #65f2c3;
+}
+
+.mobile-sensor-r3d[data-state="warn"]
+.mobile-sensor-r3d-head strong {
+    color: #f0bf63;
+}
+
+.mobile-sensor-r3d[data-state="off"]
+.mobile-sensor-r3d-head strong {
+    color: #d38181;
+}
+
+.mobile-sensor-r3d-node {
+    margin-bottom: 6px;
+    opacity: .68;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mobile-sensor-r3d-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 8px;
+}
+
+.mobile-sensor-r3d-grid > div {
+    min-width: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 2px 0;
+    border-top: 1px solid rgba(255, 255, 255, .04);
+}
+
+.mobile-sensor-r3d-grid span {
+    opacity: .56;
+}
+
+.mobile-sensor-r3d-grid strong {
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+    font-size: 9.5px;
+}
+
+.mobile-sensor-r3d-foot {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid rgba(100, 220, 200, .13);
+    opacity: .75;
+    font-size: 9px;
+}
+
+
+/* JARVIS_R16_GLOBAL_STYLE */
+.mobile-r16-detail {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(100, 220, 200, .22);
+}
+.mobile-r16-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 7px;
+    font-size: 9px;
+    letter-spacing: .06em;
+}
+.mobile-r16-heading strong {
+    color: #65f2c3;
+}
+.mobile-r16-rows {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+}
+.mobile-r16-rows > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+}
+.mobile-r16-rows span {
+    opacity: .62;
+    font-size: 9px;
+}
+.mobile-r16-rows strong {
+    font-size: 10px;
+    text-align: right;
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* JARVIS_R16A_COLLAPSIBLE_SENSOR */
+.mobile-r16-detail {
+    margin-top: 8px;
+    padding: 7px 0 0;
+    border-top: 1px solid rgba(100, 220, 200, .22);
+}
+
+.mobile-r16-detail > summary {
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: .06em;
+    color: #9ee7db;
+    padding: 4px 0;
+}
+
+.mobile-r16-detail[open] > summary {
+    margin-bottom: 8px;
+}
+
+.mobile-r16-detail .mobile-r16-rows {
+    padding-bottom: 7px;
+}

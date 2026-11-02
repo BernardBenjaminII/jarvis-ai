@@ -35,7 +35,7 @@
       #jarvis-group-activity .ga-detail{white-space:pre-wrap;border-top:1px solid #48617a;padding-top:4px;max-height:74px;overflow:auto;font-size:9px;line-height:1.2}#jarvis-group-activity .ga-detail p{margin:3px 0}
       #jarvis-group-activity a{color:#7bddff}
       </style>
-      <details open><summary>GROUP ACTIVITY · HISTORICAL REPLAY</summary><div class="ga-body">
+      <details><summary>GROUP ACTIVITY · HISTORICAL REPLAY</summary><div class="ga-body">
       <div class="ga-status" role="status">Loading evidence…</div>
       <div class="ga-row"><label><input data-ga="enabled" type="checkbox" checked>Show layer</label>
       <label>Group <select data-ga="group"><option value="">All imported groups</option></select></label>

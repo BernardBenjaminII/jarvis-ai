@@ -1,0 +1,175 @@
+
+/*
+ * JARVIS R1.8 — PORTRAIT COMMAND MODE
+ * Layout-only overrides. Existing component themes remain intact.
+ */
+
+@media (max-width: 600px) and (orientation: portrait) {
+
+  /* ROOT: remove the desktop minimum-width restriction */
+  html,
+  body {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: clip !important;
+  }
+
+  #executive-application,
+  .executive-application,
+  .executive-shell,
+  #executive-main,
+  .executive-main {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  #executive-application,
+  .executive-shell {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /* EXECUTIVE WORKSPACE: eliminate forced narrow tracks */
+  #jarvis-r32-shell,
+  #jarvis-r32-conversation,
+  #progressive-workspace,
+  #progressive-workspace-content,
+  .knowledge-workspace,
+  #knowledge-sitrep {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  #jarvis-r32-shell,
+  #jarvis-r32-conversation {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  #progressive-workspace {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* SECURITY PICTURE: metrics become a compact 2-column grid */
+  .knowledge-sitrep-metrics {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  .knowledge-sitrep-metrics > * {
+    min-width: 0 !important;
+    width: auto !important;
+  }
+
+  /* COUNTERS: allow category labels and totals to wrap */
+  .knowledge-sitrep-corpus,
+  .knowledge-sitrep-corpus * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere;
+  }
+
+  .knowledge-sitrep-corpus {
+    height: auto !important;
+    white-space: normal !important;
+  }
+
+  /* FEED: preserve vertical scrolling, remove horizontal compression */
+  .knowledge-sitrep-feed {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    max-height: 380px !important;
+  }
+
+  /* SECURITY EVENTS: one readable column instead of three tiny tracks */
+  .knowledge-sitrep-item {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 5px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    align-items: start !important;
+    padding: 10px 8px !important;
+  }
+
+  .knowledge-sitrep-item > *,
+  .knowledge-sitrep-event,
+  .knowledge-sitrep-item a,
+  .knowledge-sitrep-item p,
+  .knowledge-sitrep-item span {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere;
+  }
+
+  .knowledge-sitrep-event {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  /* RADIO: preserve functional controls and improve touch targets */
+  #jarvis-radio,
+  #jarvis-un-news-r17 {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 12px !important;
+  }
+
+  #jarvis-radio button {
+    min-height: 40px;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* UN NEWS: compact articles, retaining original report links */
+  #jarvis-un-news-r17 .un-header {
+    align-items: flex-start;
+  }
+
+  #jarvis-un-news-r17 h3 {
+    font-size: 15px !important;
+    overflow-wrap: anywhere;
+  }
+
+  #jarvis-un-news-r17 .un-item {
+    padding: 10px 0 !important;
+  }
+
+  #jarvis-un-news-r17 .un-item h4 {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    overflow-wrap: anywhere;
+  }
+
+  #jarvis-un-news-r17 .un-summary {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden !important;
+    line-height: 1.45 !important;
+  }
+
+  #jarvis-un-news-r17 .un-meta {
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+    overflow-wrap: anywhere;
+  }
+}

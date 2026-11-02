@@ -1,0 +1,181 @@
+
+/* JARVIS WIRELESS INTELLIGENCE R2.5A */
+.wi-panel {
+    margin-top: 16px;
+    padding: 12px;
+    border: 1px solid rgba(110, 180, 200, .28);
+    border-radius: 8px;
+    color: #dcecf1;
+    background: rgba(7, 18, 29, .55);
+    font-size: 12px;
+}
+.wi-panel h3 {
+    margin: 0 0 9px;
+    font-size: 13px;
+    letter-spacing: .08em;
+}
+.wi-panel h4 {
+    margin: 12px 0 8px;
+    font-size: 11px;
+    letter-spacing: .06em;
+}
+.wi-summary, .wi-detail, .wi-device-meta, .wi-footer {
+    color: #a9b9c3;
+    font-size: 11px;
+}
+.wi-sensors {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+    margin-top: 12px;
+}
+.wi-sensor, .wi-device {
+    min-width: 0;
+    padding: 9px;
+    border: 1px solid rgba(150, 190, 200, .15);
+    border-radius: 5px;
+    background: rgba(255,255,255,.035);
+}
+.wi-sensor strong {
+    display: inline-block;
+    margin-right: 8px;
+}
+.wi-status {
+    font-size: 10px;
+    font-weight: 700;
+}
+.wi-online { color: #6add9b; }
+.wi-stale { color: #eabb68; }
+.wi-offline { color: #e18b8b; }
+.wi-field {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 4px;
+}
+.wi-value {
+    color: #e4f4f8;
+    text-align: right;
+}
+.wi-devices {
+    max-height: 320px;
+    overflow-y: auto;
+    display: grid;
+    gap: 5px;
+}
+.wi-device-name {
+    display: block;
+    overflow-wrap: anywhere;
+}
+.wi-address {
+    font-family: monospace;
+    overflow-wrap: anywhere;
+    color: #9fd8e4;
+    font-size: 11px;
+    margin: 3px 0;
+}
+.wi-footer { margin-top: 9px; }
+.wi-empty { padding: 10px 0; color: #a9b9c3; }
+
+
+/* JARVIS WIRELESS R2.5B COMPACT LAYOUT */
+
+.wi-panel {
+    padding: 7px;
+    margin-top: 10px;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.wi-panel h3 {
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.wi-summary {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.wi-sensors {
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.wi-sensor {
+    padding: 6px;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+.wi-sensor strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.wi-status {
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+.wi-field {
+    display: block;
+    padding-top: 2px;
+}
+
+.wi-field .wi-label {
+    margin-right: 5px;
+}
+
+.wi-detail,
+.wi-device-meta {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.wi-devices {
+    max-height: 190px;
+    overflow-y: auto;
+    gap: 4px;
+}
+
+.wi-device {
+    padding: 6px;
+}
+
+.wi-device-name {
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+.wi-address {
+    font-size: 10px;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+}
+
+.wi-footer {
+    font-size: 9px;
+}
+
+/* JARVIS WIRELESS R2.6 SIDEBAR SUMMARY */
+#jarvisWirelessR25 .wi-devices,
+#jarvisWirelessR25 h4 {
+    display: none;
+}
+
+.wi-workspace-link {
+    display: block;
+    padding: 9px 5px;
+    margin: 12px 0;
+    color: #76dfbb;
+    font-size: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid rgba(118, 223, 187, .28);
+    border-radius: 5px;
+    text-align: center;
+}
+.wi-workspace-link:hover {
+    background: rgba(118, 223, 187, .08);
+}

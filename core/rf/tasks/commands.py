@@ -10,6 +10,13 @@ def executable(name: str) -> str | None:
     return shutil.which(name)
 
 
+
+def device_args(config: dict[str, Any]) -> list[str]:
+    """Select RTL-SDR by serial number when provided."""
+    serial = config.get("device_serial")
+    return ["-d", str(serial)] if serial else []
+
+
 def gain_args(
     gain: str | float,
 ) -> list[str]:
@@ -29,18 +36,63 @@ def gain_args(
 def build_adsb(
     config: dict[str, Any],
 ) -> tuple[str, list[str]]:
+    """Run structured ADS-B decoding through readsb."""
 
-    exe = executable("rtl_adsb")
+    from pathlib import Path
+
+    exe = executable("readsb")
 
     if not exe:
         raise RuntimeError(
-            "rtl_adsb is not installed"
+            "readsb is not installed"
         )
+
+    output_dir = Path(
+        "/tmp/jarvis-readsb"
+    )
+
+    output_dir.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    gain = config.get(
+        "gain",
+        49.6,
+    )
+
+    if (
+        isinstance(gain, str)
+        and gain.lower() == "auto"
+    ):
+        gain_value = "49.6"
+    else:
+        gain_value = str(gain)
+
+    database = (
+        "/usr/local/share/jarvis/"
+        "adsb/aircraft.csv.gz"
+    )
 
     args = [
         exe,
-        "-V",
+        "--device-type",
+        "rtlsdr",
+        "--device",
+        str(config.get("device_serial", "0")),
+        "--gain",
+        gain_value,
+        "--quiet",
+        "--write-json=/tmp/jarvis-readsb",
+        "--write-json-every=0.5",
     ]
+
+    if Path(database).exists():
+        args.extend([
+            "--db-file",
+            database,
+            "--db-file-lt",
+        ])
 
     return exe, args
 
@@ -74,6 +126,8 @@ def build_fm(
         "wbfm",
         "-",
     ]
+
+    args[1:1] = device_args(config)
 
     args[1:1] = gain_args(
         config.get("gain", "auto")
@@ -116,6 +170,8 @@ def build_am(
         "direct2",
         "-",
     ]
+
+    args[1:1] = device_args(config)
 
     args[1:1] = gain_args(
         config.get("gain", "auto")
@@ -168,6 +224,8 @@ def build_manual(
         "-",
     ]
 
+    args[1:1] = device_args(config)
+
     args[1:1] = gain_args(
         config.get("gain", "auto")
     )
@@ -217,6 +275,8 @@ def build_scan(
         "-i",
         "2",
     ]
+
+    args[1:1] = device_args(config)
 
     gain = config.get(
         "gain",

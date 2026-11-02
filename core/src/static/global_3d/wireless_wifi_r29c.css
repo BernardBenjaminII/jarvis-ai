@@ -1,0 +1,180 @@
+
+/* JARVIS_WIFI_R29C_DASHBOARD */
+.wifi-networks-panel { margin-top: 20px; }
+.wifi-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.wifi-actions button,
+.wifi-detail-header button {
+  background: #102c39;
+  border: 1px solid #294653;
+  border-radius: 6px;
+  color: #6ce3a4;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.wifi-actions button:disabled { opacity: .55; }
+.wifi-summary {
+  color: #8da9b4;
+  padding-bottom: 16px;
+}
+.wifi-network-row { cursor: pointer; }
+.wifi-network-row:hover,
+.wifi-network-row:focus {
+  background: #19313e;
+  outline: 1px solid #497b88;
+}
+.wifi-table td { overflow-wrap: anywhere; }
+.wifi-detail {
+  margin-top: 20px;
+  border: 1px solid #294653;
+  border-radius: 8px;
+  background: #0a1821;
+  padding: 20px;
+}
+.wifi-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.wifi-detail-header h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #6ce3a4;
+}
+.wifi-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.wifi-field { overflow-wrap: anywhere; }
+.wifi-field span {
+  display: block;
+  font-size: 11px;
+  color: #8da9b4;
+  margin-bottom: 5px;
+}
+.wifi-field strong { font-weight: 500; }
+.wifi-caution {
+  color: #8da9b4;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+.wifi-timestamp {
+  color: #8da9b4;
+  font-size: 11px;
+  margin-top: 14px;
+}
+@media(max-width:650px) {
+  .wifi-detail-grid { grid-template-columns: 1fr; }
+}
+
+/* JARVIS_WIFI_R29E_FRESHNESS */
+.wifi-networks-panel .table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.wifi-networks-panel .wifi-table {
+  width: 100%;
+  min-width: 1050px;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+.wifi-networks-panel .wifi-table th,
+.wifi-networks-panel .wifi-table td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.wifi-networks-panel .wifi-table th:nth-child(2),
+.wifi-networks-panel .wifi-table td:nth-child(2) {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+}
+
+.wifi-networks-panel .wifi-table th:nth-child(4),
+.wifi-networks-panel .wifi-table td:nth-child(4),
+.wifi-networks-panel .wifi-table th:nth-child(5),
+.wifi-networks-panel .wifi-table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+.wifi-networks-panel .wifi-table td:nth-child(6) {
+  min-width: 185px;
+}
+
+.wifi-networks-panel .wifi-table td:nth-child(7) {
+  white-space: nowrap;
+}
+
+.wifi-status {
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px 8px;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.wifi-status-recent {
+  color: #6ce3a4;
+  border-color: #306d56;
+  background: #102b23;
+}
+
+.wifi-status-stale {
+  color: #f1cc80;
+  border-color: #81652d;
+  background: #302613;
+}
+
+.wifi-status-historical,
+.wifi-status-unknown {
+  color: #abb6c2;
+  border-color: #52616c;
+  background: #1c2933;
+}
+
+.wifi-detail-grid .wifi-field strong {
+  overflow-wrap: anywhere;
+}
+
+/* JARVIS_WIFI_R29E1_SSID_DISPLAY */
+.wifi-networks-panel .wifi-table {
+  min-width: 940px;
+  font-size: 12px;
+}
+
+.wifi-networks-panel .wifi-table th,
+.wifi-networks-panel .wifi-table td {
+  padding: 10px 9px;
+}
+
+.wifi-networks-panel .wifi-table td:nth-child(6) {
+  min-width: 150px;
+}
+
+.wifi-networks-panel .wifi-table td:nth-child(7) {
+  min-width: 135px;
+}
+
+.wifi-networks-panel .wifi-table td:nth-child(8) {
+  min-width: 130px;
+}
+
+.wifi-networks-panel .wifi-status {
+  font-size: 10px;
+  padding: 4px 6px;
+}

@@ -31,6 +31,7 @@ from core.src.routes.operations import router as operations_router
 from core.src.routes.platform_status import router as platform_status_router
 from core.src.routes.sensors import router as sensors_router
 from core.src.routes.rf import router as rf_router
+from core.src.routes.radio import router as radio_router
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -96,6 +97,7 @@ app.include_router(marine_router)
 app.include_router(platform_status_router)
 app.include_router(sensors_router)
 app.include_router(rf_router)
+app.include_router(radio_router)
 app.include_router(executive_event_runtime_router)
 app.include_router(executive_operations_router)
 app.include_router(api_router)

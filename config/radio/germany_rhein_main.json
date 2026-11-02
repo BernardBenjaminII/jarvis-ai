@@ -1,0 +1,31 @@
+{
+  "schema_id": "jarvis.radio.presets.v1",
+  "region": "Germany / Rhein-Main",
+  "receiver_serial": "05370246",
+  "presets": [
+    {
+      "id": "hr_info",
+      "name": "hr INFO",
+      "frequency_hz": 103900000,
+      "modulation": "fm"
+    },
+    {
+      "id": "hr3",
+      "name": "hr3",
+      "frequency_hz": 89300000,
+      "modulation": "fm"
+    },
+    {
+      "id": "hr1",
+      "name": "hr1",
+      "frequency_hz": 94400000,
+      "modulation": "fm"
+    },
+    {
+      "id": "hr4",
+      "name": "hr4",
+      "frequency_hz": 102500000,
+      "modulation": "fm"
+    }
+  ]
+}

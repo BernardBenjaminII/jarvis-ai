@@ -18,6 +18,10 @@ RFTaskName = Literal[
 
 class RFTaskRequest(BaseModel):
     task: RFTaskName
+    device_serial: str | None = Field(
+        default=None,
+        pattern=r"^[0-9A-Za-z_-]{1,64}$",
+    )
 
     frequency_hz: int | None = None
 

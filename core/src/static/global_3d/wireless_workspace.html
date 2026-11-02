@@ -1,0 +1,171 @@
+<!-- JARVIS_WIRELESS_R27A_FRONTEND -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JARVIS · Wireless Intelligence</title>
+<link rel="stylesheet" href="/static/global_3d/wireless_workspace.css?v=1">
+<script defer src="/static/global_3d/wireless_workspace.js?v=27"></script>
+<link rel="stylesheet" href="/static/global_3d/wireless_wifi_r29c.css?v=1">
+<script defer src="/static/global_3d/wireless_wifi_r29c.js?v=1"></script>
+</head>
+<body>
+<header>
+  <div>
+    <div class="eyebrow">JARVIS // GLOBAL SENSORS</div>
+    <h1>WIRELESS INTELLIGENCE</h1>
+  </div>
+  <a class="back" href="/global-3d">← GLOBAL 3D</a>
+</header>
+
+<main>
+  <section class="cards">
+    <article class="card">
+      <h2>ESP32-C6 · IOT-01</h2>
+      <div id="iotState" class="state">CHECKING</div>
+      <p id="iotDetail">Connecting to sensor API...</p>
+    </article>
+    <article class="card">
+      <h2>AR9271 · WIFI-01</h2>
+      <div id="wifi1State" class="state">CHECKING</div>
+      <p id="wifi1Detail">Checking hardware...</p>
+    </article>
+    <article class="card">
+      <h2>RTL8814AU · WIFI-02</h2>
+      <div id="wifi2State" class="state">CHECKING</div>
+      <p id="wifi2Detail">Checking hardware...</p>
+    </article>
+  </section>
+
+  <section class="statistics">
+    <article><span>STORED OBSERVATIONS</span><strong id="count">—</strong></article>
+    <article><span>RETAINED ADDRESSES</span><strong id="addresses">—</strong></article>
+    <article><span>AVERAGE RSSI</span><strong id="rssi">—</strong></article>
+    <article><span>RECENT ADDRESSES</span><strong id="recent">—</strong></article>
+  </section>
+
+  <!-- JARVIS_R211B_TOPOLOGY_NAV -->
+<section class="panel" style="margin-top:20px;padding:20px">
+  <div class="eyebrow">JARVIS // NETWORK INTELLIGENCE</div>
+  <h2>LOCAL NETWORK TOPOLOGY</h2>
+  <p>
+    Explore DeepWater, FRITZ!Box 7530 UU,
+    your gateway, and observed LAN devices.
+  </p>
+  <a
+    href="/static/global_3d/wireless_topology_r211b.html"
+    style="
+      display:inline-block;
+      padding:12px 18px;
+      background:#153045;
+      border:1px solid #41647b;
+      border-radius:8px;
+      color:#7de0c2;
+      text-decoration:none;
+      font-weight:600;
+    "
+  >
+    OPEN NETWORK TOPOLOGY →
+  </a>
+</section>
+
+<section class="panel">
+    <div class="panel-title">
+      <div>
+        <h2>BLE DEVICE INTELLIGENCE</h2>
+        <p>BLE advertisements observed by IOT-01 · Active scanning</p>
+      </div>
+      <div class="filters">
+        <input id="search" type="search"
+               placeholder="Search addresses, names or manufacturers"
+               aria-label="Search BLE observations">
+        <select id="window" aria-label="Observation time window">
+          <option value="1">Last minute</option>
+          <option value="5" selected>Last 5 minutes</option>
+          <option value="15">Last 15 minutes</option>
+          <option value="60">Last hour</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr>
+          <th>ADVERTISED NAME</th>
+          <th>BLE ADDRESS</th><th>MANUFACTURER</th>
+          <th>TYPE</th>
+          <th>RSSI</th>
+          <th>SIGHTINGS</th>
+          <th>LAST SEEN</th>
+        </tr></thead>
+        <tbody id="deviceRows">
+          <tr><td colspan="6">Loading observations...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <footer id="updated">Initializing wireless intelligence...</footer>
+
+  <!-- JARVIS_WIFI_R29C_DASHBOARD -->
+  <section class="panel wifi-networks-panel">
+    <div class="panel-title">
+      <div>
+        <div class="eyebrow">JARVIS // WIFI INTELLIGENCE</div>
+        <h2>WIFI NETWORK INVENTORY</h2>
+        <p>Stored access-point observations · Automatic passive collection</p>
+      </div>
+      <div class="wifi-actions">
+        <input id="wifiSearch" type="search"
+               placeholder="Search SSID, BSSID or security"
+               aria-label="Search Wi-Fi networks">
+        <button id="wifiRefresh" type="button">
+          REFRESH INVENTORY
+        </button>
+      </div>
+    </div>
+
+    <div class="wifi-summary" id="wifiSummary">
+      Loading stored Wi-Fi networks...
+    </div>
+
+    <div class="table-scroll">
+      <table class="wifi-table">
+        <thead>
+          <tr>
+            <th>NETWORK</th>
+            <th>BSSID</th>
+            <th>SENSOR</th>
+            <th>CHANNEL</th>
+            <th>RSSI</th>
+            <th>SECURITY</th>
+            <th>LAST OBSERVED</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody id="wifiRows">
+          <tr>
+            <td colspan="8">Loading networks...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section id="wifiDetail" class="wifi-detail" hidden>
+      <div class="wifi-detail-header">
+        <h3 id="wifiDetailTitle">NETWORK INSPECTOR</h3>
+        <button id="wifiDetailClose" type="button">
+          CLOSE
+        </button>
+      </div>
+      <div id="wifiDetailBody"></div>
+    </section>
+
+    <p class="wifi-timestamp" id="wifiUpdated"></p>
+  </section>
+
+
+
+
+</main>
+</body>
+</html>
