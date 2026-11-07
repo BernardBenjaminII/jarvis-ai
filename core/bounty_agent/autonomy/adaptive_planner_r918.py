@@ -53,6 +53,61 @@ def plan_next(
             "stop", "Request budget exhausted", None
         )
 
+    # R9.18B.1: complete-history planning.
+    # Legacy R9.18A observations remain supported below.
+    if any("capability" in item for item in observations):
+        completed = {
+            item["capability"]
+            for item in observations
+            if item.get("state") == "completed"
+            and item.get("capability") in CAPABILITIES
+        }
+
+        sequence = (
+            "baseline_http",
+            "sql_syntax_diagnostic",
+            "boolean_comparison",
+            "reproducibility_check",
+        )
+
+        baseline = next(
+            (
+                item for item in observations
+                if item.get("capability") == "baseline_http"
+                and item.get("state") == "completed"
+            ),
+            None,
+        )
+
+        if baseline is not None and not baseline.get(
+            "valid_product_response", False
+        ):
+            return InvestigationDecision(
+                "stop", "Invalid baseline response", None
+            )
+
+        for candidate in sequence:
+            if candidate in completed:
+                continue
+
+            if candidate not in allowed_capabilities:
+                return InvestigationDecision(
+                    "stop",
+                    f"Required capability unavailable: {candidate}",
+                    None,
+                )
+
+            return InvestigationDecision(
+                action="propose_test",
+                rationale=f"Next bounded diagnostic: {candidate}",
+                capability=candidate,
+                execution_allowed=False,
+            )
+
+        return InvestigationDecision(
+            "stop", "Investigation catalog completed", None
+        )
+
     if not observations:
         candidate = "baseline_http"
         reason = "No baseline observation exists"
