@@ -22,6 +22,7 @@ from core.bounty_agent.autonomy.adaptive_integration_r918c3 import (
     SYNTAX_REPEAT,
     run_integrated,
 )
+from core.bounty_agent.autonomy.execution_boundary_r918d3 import BoundaryError, execute_verified
 from core.bounty_agent.autonomy.hypothesis_ranker_r918d1 import (
     CAPABILITIES,
     IDENTITIES,
@@ -92,84 +93,32 @@ def run_ranked(
         }
         observations.append(entry)
 
-        execution_capability = (
-            "sql_syntax_diagnostic"
-            if capability == SYNTAX_REPEAT
-            else capability
-        )
-
+        # Ranked selection is advisory. Execution and evidence
+        # verification use the same boundary as legacy C.3.
         try:
-            result = runner(execution_capability)
-
-            if not isinstance(result, dict):
-                raise RankedIntegrationError("Invalid executor result")
-
-            if result.get("capability") != execution_capability:
-                raise RankedIntegrationError(
-                    "Executor capability mismatch"
-                )
-
-            query_hash = result.get("query_sha256")
-            canonical_query = CATALOG[execution_capability][1]
-            expected_hash = hashlib.sha256(
-                canonical_query.encode("utf-8")
-            ).hexdigest()
-
-            if (
-                not isinstance(query_hash, str)
-                or query_hash != expected_hash
-            ):
-                raise RankedIntegrationError(
-                    "Executor query differs from approved catalog"
-                )
-
-            if capability == SYNTAX_REPEAT:
-                original = next(
-                    (
-                        item for item in observations[:-1]
-                        if item["capability"] == "sql_syntax_diagnostic"
-                        and item["state"] == "completed"
-                    ),
-                    None,
-                )
-
-                if (
-                    original is None
-                    or original.get("http_status") != 500
-                    or not original.get("sqlite_error")
-                    or original.get("query_sha256") != query_hash
-                ):
-                    raise RankedIntegrationError(
-                        "Syntax repetition prerequisite failed"
-                    )
-
-            # Preserve controller-owned metadata.
-            entry.update(result)
-            entry["capability"] = capability
-            entry["experiment_identity"] = identity
-            entry["rationale"] = decision.rationale
-            entry["state"] = "completed"
-
-            if capability == SYNTAX_REPEAT:
-                entry["reproduces_syntax_error"] = bool(
-                    result.get("http_status") == 500
-                    and result.get("sqlite_error")
-                )
-
-            if capability == "baseline_http" and (
-                result.get("valid_product_response") is not True
-            ):
-                stop_reason = "invalid_baseline"
-                break
-
-        except Exception as exc:
-            entry["state"] = "failed"
-            entry["failure_category"] = (
-                "evidence_integrity_failure"
-                if isinstance(exc, RankedIntegrationError)
-                else "executor_failure"
+            verified = execute_verified(
+                capability=capability,
+                runner=runner,
+                observations=observations[:-1],
+                rationale=decision.rationale,
             )
+        except BoundaryError:
+            entry["state"] = "failed"
+            entry["failure_category"] = "evidence_integrity_failure"
             stop_reason = "execution_or_evidence_failure"
+            break
+
+        entry.clear()
+        entry.update(verified)
+
+        if entry["state"] == "failed":
+            stop_reason = "execution_or_evidence_failure"
+            break
+
+        if capability == "baseline_http" and (
+            entry.get("valid_product_response") is not True
+        ):
+            stop_reason = "invalid_baseline"
             break
 
     return IntegratedResult(

@@ -17,6 +17,7 @@ from core.bounty_agent.autonomy.adaptive_executor_r918 import (
     execute_capability,
     validate_mission,
 )
+from core.bounty_agent.autonomy.execution_boundary_r918d3 import execute_verified
 from core.bounty_agent.autonomy.experiment_planner_r918c2 import (
     EXPERIMENTS,
     select_next,
@@ -124,78 +125,27 @@ def run_integrated(
         }
         observations.append(entry)
 
-        # Only the existing fixed-catalog capability is executed.
-        execution_capability = (
-            "sql_syntax_diagnostic"
-            if capability == SYNTAX_REPEAT
-            else capability
+        # Execute through the shared verified boundary.
+        # The current entry has already been recorded as attempted;
+        # pass only preceding observations to duplicate detection.
+        verified = execute_verified(
+            capability=capability,
+            runner=runner,
+            observations=observations[:-1],
+            rationale=rationale,
         )
 
-        try:
-            result = runner(execution_capability)
+        entry.clear()
+        entry.update(verified)
 
-            if not isinstance(result, dict):
-                raise IntegrationError("Invalid executor result")
-
-            if result.get("capability") != execution_capability:
-                raise IntegrationError("Executor capability mismatch")
-
-            query_hash = result.get("query_sha256")
-            if (
-                not isinstance(query_hash, str)
-                or len(query_hash) != 64
-                or any(c not in "0123456789abcdef" for c in query_hash)
-            ):
-                raise IntegrationError("Invalid query hash")
-
-            canonical_query = CATALOG[
-                execution_capability
-            ][1]
-
-            expected_hash = hashlib.sha256(
-                canonical_query.encode("utf-8")
-            ).hexdigest()
-
-            if query_hash != expected_hash:
-                raise IntegrationError(
-                    "Executor query differs from approved catalog"
-                )
-
-            if capability == SYNTAX_REPEAT:
-                if query_hash != syntax.get("query_sha256"):
-                    raise IntegrationError(
-                        "Syntax repetition query mismatch"
-                    )
-
-            entry.update(result)
-            entry["capability"] = capability
-            entry["experiment_identity"] = identity
-            entry["state"] = "completed"
-
-            if capability == "baseline_http" and (
-                result.get("valid_product_response") is not True
-            ):
-                stop_reason = "invalid_baseline"
-                break
-
-            if capability == SYNTAX_REPEAT:
-                entry["reproduces_syntax_error"] = bool(
-                    repeated is None
-                    and syntax_signal
-                    and result.get("http_status") == syntax.get(
-                        "http_status"
-                    )
-                    and bool(result.get("sqlite_error"))
-                )
-
-        except Exception as exc:
-            entry["state"] = "failed"
-            entry["failure_category"] = (
-                "evidence_integrity_failure"
-                if isinstance(exc, IntegrationError)
-                else "executor_failure"
-            )
+        if entry["state"] == "failed":
             stop_reason = "execution_or_evidence_failure"
+            break
+
+        if capability == "baseline_http" and (
+            entry.get("valid_product_response") is not True
+        ):
+            stop_reason = "invalid_baseline"
             break
 
     else:
