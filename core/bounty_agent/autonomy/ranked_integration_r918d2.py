@@ -23,6 +23,7 @@ from core.bounty_agent.autonomy.adaptive_integration_r918c3 import (
     run_integrated,
 )
 from core.bounty_agent.autonomy.execution_boundary_r918d3 import BoundaryError, execute_verified
+from core.bounty_agent.autonomy.investigation_planner_r918e1 import plan
 from core.bounty_agent.autonomy.hypothesis_ranker_r918d1 import (
     CAPABILITIES,
     IDENTITIES,
@@ -40,11 +41,20 @@ def run_ranked(
     mission: LocalMission,
     runner: Callable[[str], dict] = execute_capability,
     ranked_mode: bool = False,
+    planner_mode: bool = False,
 ) -> IntegratedResult:
     """Run fixed-catalog experiments with optional ranked selection."""
 
     if type(ranked_mode) is not bool:
         raise RankedIntegrationError("Invalid ranked-mode flag")
+
+    if type(planner_mode) is not bool:
+        raise RankedIntegrationError("Invalid planner-mode flag")
+
+    if planner_mode and not ranked_mode:
+        raise RankedIntegrationError(
+            "Planner mode requires ranked mode"
+        )
 
     if not ranked_mode:
         return run_integrated(mission=mission, runner=runner)
@@ -60,25 +70,80 @@ def run_ranked(
 
     for _ in range(mission.max_requests):
         try:
-            decision = rank(
-                observations=observations,
-                allowed_capabilities=CAPABILITIES - attempted,
-                remaining_budget=(
-                    mission.max_requests - len(observations)
-                ),
+            if planner_mode:
+                decision = plan(
+                    observations=observations,
+                    allowed_capabilities=CAPABILITIES - attempted,
+                    remaining_budget=(
+                        mission.max_requests - len(observations)
+                    ),
+                )
+
+                # Advisory output must never grant execution authority.
+                if (
+                    decision.execution_allowed is not False
+                    or decision.validated_vulnerability is not False
+                    or decision.human_review_required is not True
+                    or decision.submission_authorized is not False
+                ):
+                    stop_reason = "invalid_planner_safety_flags"
+                    break
+
+                capability = decision.next_capability
+                rationale = (
+                    next(
+                        (
+                            candidate.rationale
+                            for candidate in decision.candidates
+                            if candidate.capability == capability
+                        ),
+                        None,
+                    )
+                    if capability is not None
+                    else None
+                )
+
+                if capability is not None and rationale is None:
+                    stop_reason = "invalid_planner_recommendation"
+                    break
+            else:
+                decision = rank(
+                    observations=observations,
+                    allowed_capabilities=CAPABILITIES - attempted,
+                    remaining_budget=(
+                        mission.max_requests - len(observations)
+                    ),
+                )
+                capability = decision.next_capability
+                rationale = decision.rationale
+
+        except RankingError:
+            stop_reason = (
+                "planner_evidence_failure"
+                if planner_mode
+                else "ranking_evidence_failure"
             )
-        except RankingError as exc:
-            stop_reason = "ranking_evidence_failure"
+            break
+        except Exception:
+            if not planner_mode:
+                raise
+            stop_reason = "planner_failure"
             break
 
-        capability = decision.next_capability
-
         if capability is None:
-            stop_reason = decision.rationale
+            stop_reason = (
+                decision.stop_reason
+                if planner_mode
+                else decision.rationale
+            ) or "no_permitted_experiment"
             break
 
         if capability not in CAPABILITIES or capability in attempted:
-            stop_reason = "invalid_ranked_recommendation"
+            stop_reason = (
+                "invalid_planner_recommendation"
+                if planner_mode
+                else "invalid_ranked_recommendation"
+            )
             break
 
         attempted.add(capability)
@@ -88,7 +153,7 @@ def run_ranked(
         entry = {
             "capability": capability,
             "experiment_identity": identity,
-            "rationale": decision.rationale,
+            "rationale": rationale,
             "state": "attempted",
         }
         observations.append(entry)
@@ -100,7 +165,7 @@ def run_ranked(
                 capability=capability,
                 runner=runner,
                 observations=observations[:-1],
-                rationale=decision.rationale,
+                rationale=rationale,
             )
         except BoundaryError:
             entry["state"] = "failed"
