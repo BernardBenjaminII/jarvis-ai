@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import AsyncIterator
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -29,6 +29,8 @@ from core.src.routes.mission_control import (
 )
 from core.src.routes.operations import router as operations_router
 from core.src.routes.bounty_agent import router as bounty_agent_router
+from core.src.routes.bounty_proposals import router as bounty_proposals_router
+from core.bounty_agent.http_access import require_bounty_access
 from core.src.routes.platform_status import router as platform_status_router
 from core.src.routes.platform_workspace import router as platform_workspace_router
 from core.src.routes.kali_arsenal import router as kali_arsenal_router
@@ -99,7 +101,11 @@ app.include_router(marine_router)
 app.include_router(platform_status_router)
 app.include_router(platform_workspace_router)
 app.include_router(kali_arsenal_router)
-app.include_router(bounty_agent_router)
+app.include_router(
+    bounty_agent_router,
+    dependencies=[Depends(require_bounty_access)],
+)
+app.include_router(bounty_proposals_router)
 app.include_router(sensors_router)
 app.include_router(rf_router)
 app.include_router(executive_event_runtime_router)

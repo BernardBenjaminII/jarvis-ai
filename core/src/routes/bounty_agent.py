@@ -1,10 +1,15 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException, Query
+import hmac
+import os
+from fastapi import APIRouter, HTTPException, Query, Depends, Header
+from fastapi.responses import Response
+from core.bounty_agent.report_export import export_json, export_markdown
 from pydantic import BaseModel, Field
 from core.bootstrap.discovery.platform import detect_platform_details
 
 from core.bounty_agent import BountyAgent
+from core.bounty_agent.operations_status import build_operations_status
 
 router = APIRouter(prefix="/api/bounty-agent", tags=["Bounty Agent"])
 
@@ -95,18 +100,40 @@ def sessions(limit: int = Query(50, ge=1, le=200)):
 
 @router.post("/sessions")
 def create_session(request: CreateRequest):
-    try:
-        return {"session_id": _agent().create(request.authorization_id, request.root_target, budget=request.budget)}
-    except Exception as exc:
-        raise HTTPException(409, str(exc)) from exc
+    raise HTTPException(
+        status_code=403,
+        detail=(
+            "Direct session creation disabled: "
+            "durable human approval and coordinated "
+            "mission creation are required"
+        ),
+    )
 
 
 @router.post("/sessions/{session_id}/run")
 def run_session(session_id: str):
+    raise HTTPException(
+        status_code=403,
+        detail=(
+            "Recon execution disabled pending "
+            "execution-time authorization enforcement"
+        ),
+    )
+
+
+
+@router.get("/sessions/{session_id}/operations-status")
+def session_operations_status(session_id: str):
     try:
-        return _agent().run_recon(session_id)
-    except Exception as exc:
-        raise HTTPException(409, str(exc)) from exc
+        return build_operations_status(
+            _agent(),
+            session_id,
+        )
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=404,
+            detail="Operations status unavailable",
+        ) from exc
 
 
 @router.get("/sessions/{session_id}")
@@ -275,6 +302,70 @@ def decide_investigation_action(
         ) from exc
 
 
+
+def require_bounty_export_access(
+    export_token: str | None = Header(
+        default=None,
+        alias="X-JARVIS-Export-Token",
+    ),
+):
+    """Fail-closed authentication for investigation exports."""
+    expected = os.environ.get(
+        "JARVIS_BOUNTY_EXPORT_TOKEN", ""
+    )
+
+    if len(expected) < 32:
+        raise HTTPException(
+            503, "Report export is not configured"
+        )
+
+    if not export_token or not hmac.compare_digest(
+        export_token, expected
+    ):
+        raise HTTPException(
+            401, "Report export authentication required",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+
+@router.get("/sessions/{session_id}/export/json", dependencies=[Depends(require_bounty_export_access)])
+def export_session_json(session_id: str):
+    try:
+        report = _agent().report(session_id)
+        content = export_json(report)
+    except Exception as exc:
+        raise HTTPException(404, "Report unavailable") from exc
+
+    return Response(
+        content=content,
+        media_type="application/json",
+        headers={
+            "Content-Disposition":
+                'attachment; filename="jarvis-bounty-report.json"',
+            "Cache-Control": "no-store",
+        },
+    )
+
+
+@router.get("/sessions/{session_id}/export/markdown", dependencies=[Depends(require_bounty_export_access)])
+def export_session_markdown(session_id: str):
+    try:
+        report = _agent().report(session_id)
+        content = export_markdown(report)
+    except Exception as exc:
+        raise HTTPException(404, "Report unavailable") from exc
+
+    return Response(
+        content=content,
+        media_type="text/markdown",
+        headers={
+            "Content-Disposition":
+                'attachment; filename="jarvis-bounty-report.md"',
+            "Cache-Control": "no-store",
+        },
+    )
+
+
 @router.get("/platform")
 def bounty_agent_platform() -> dict:
     details = detect_platform_details()
@@ -286,3 +377,104 @@ def bounty_agent_platform() -> dict:
         "live_bounty_enabled": environment == "kali",
         "workspace": "kali-security" if environment == "kali" else "shared-review",
     }
+
+
+# JARVIS_R920B_WORKSTATION_ADVISORY
+@router.get("/workstation-advisory")
+def get_workstation_advisory():
+    """Return advisory tool mappings; never execute tools."""
+
+    from core.bootstrap.discovery.platform import detect_platform
+    from core.bounty_agent.autonomy.workstation_advisory_r920a import (
+        workstation_advisory,
+    )
+
+    if detect_platform() != "kali":
+        raise HTTPException(
+            status_code=404,
+            detail="Kali workstation advisory unavailable",
+        )
+
+    result = workstation_advisory()
+
+    if (
+        result.get("execution_authorized") is not False
+        or result.get("submission_authorized") is not False
+        or result.get("mode") != "advisory_only"
+        or any(
+            entry.get("execution_allowed") is not False
+            or entry.get("human_review_required") is not True
+            for entry in result.get("activities", {}).values()
+        )
+        or any(
+            entry.get("execution_allowed") is not False
+            for entry in result.get(
+                "legacy_lab_experiments", {}
+            ).values()
+        )
+    ):
+        raise HTTPException(
+            status_code=500,
+            detail="Invalid workstation advisory safety flags",
+        )
+
+    return result
+
+
+# JARVIS_R920E_SESSION_ADVISORY
+@router.get("/sessions/{session_id}/mission-advisory")
+def get_session_mission_advisory(session_id: str):
+    """Inspect an existing session; no execution or mutation."""
+
+    from core.bootstrap.discovery.platform import detect_platform
+    from core.bounty_agent.autonomy.session_advisory_r920e import (
+        SessionAdvisoryError,
+        build_session_advisory,
+    )
+    from core.bounty_agent.autonomy.recon_planner import (
+        ReconPlanningError,
+    )
+    from core.bounty_authorization import AuthorizationDenied
+
+    if detect_platform() != "kali":
+        raise HTTPException(status_code=404)
+
+    try:
+        result = build_session_advisory(
+            _agent(),
+            session_id,
+        )
+    except SessionAdvisoryError as exc:
+        raise HTTPException(
+            status_code=404,
+            detail="Session advisory unavailable",
+        ) from exc
+    except (ReconPlanningError, AuthorizationDenied, ValueError) as exc:
+        raise HTTPException(
+            status_code=409,
+            detail="Mission is not eligible for advisory planning",
+        ) from exc
+
+    if (
+        result.get("execution_authorized") is not False
+        or result.get("automatic_execution_allowed") is not False
+        or result.get("execution_started") is not False
+        or result.get("submission_authorized") is not False
+        or result.get("human_review_required") is not True
+    ):
+        raise HTTPException(
+            status_code=500,
+            detail="Invalid advisory safety contract",
+        )
+
+    return result
+
+
+# JARVIS_R921D2_SCOPE_API
+# Inherits authentication from the parent Bounty router in main.py.
+# Contains no execution, reviewer-approval, or session routes.
+from core.src.routes.program_scopes_r921d import (
+    router as program_scopes_router,
+)
+
+router.include_router(program_scopes_router)
