@@ -52,6 +52,7 @@ class BountyAgent:
             authorization_store=self.authorization_store
         )
         self._init()
+        self._migrate_operation_id()
         try:
             os.chmod(self.path, 0o600)
         except OSError:
@@ -119,13 +120,34 @@ class BountyAgent:
                 ON investigation_plans(session);
             """)
 
+    def _migrate_operation_id(self):
+        """R9.14D.3: backward-compatible session correlation."""
+        with self.db() as db:
+            columns = {
+                row["name"]
+                for row in db.execute(
+                    "PRAGMA table_info(sessions)"
+                )
+            }
+            if "operation_id" not in columns:
+                db.execute(
+                    "ALTER TABLE sessions "
+                    "ADD COLUMN operation_id TEXT"
+                )
+            db.execute(
+                "CREATE UNIQUE INDEX IF NOT EXISTS "
+                "session_operation_unique "
+                "ON sessions(operation_id) "
+                "WHERE operation_id IS NOT NULL"
+            )
+
     def _event(self, db, session, kind, detail=""):
         db.execute(
             "INSERT INTO events(session,at,kind,detail) VALUES(?,?,?,?)",
             (session, time.time(), kind, detail),
         )
 
-    def create(self, authorization, root_target, *, budget=100):
+    def create(self, authorization, root_target, *, budget=100, operation_id=None):
         if detect_platform() != "kali":
             raise BountyAgentError(
                 "Live bounty-agent recon is enabled only on Kali. "
@@ -210,19 +232,101 @@ class BountyAgent:
                 "resolution"
             )
 
-        mission = self.live_store.create(authorization, budget=budget)
-        session = str(uuid.uuid4())
-        now = time.time()
+        if operation_id is None:
+            # Preserve the legacy creation path.
+            mission = self.live_store.create(
+                authorization, budget=budget
+            )
+            session = str(uuid.uuid4())
+            now = time.time()
+
+            with self.db() as db:
+                db.execute(
+                    """INSERT INTO sessions(
+                        id,authorization,mission,program,root_target,
+                        state,created,updated,error
+                    ) VALUES(?,?,?,?,?,'authorized',?,?,NULL)""",
+                    (
+                        session, authorization, mission,
+                        scope.program, root_target, now, now,
+                    ),
+                )
+                self._event(
+                    db, session, "authorized",
+                    f"Program={scope.program} "
+                    f"target={root_target} mission={mission}",
+                )
+
+            return session
+
+        if (
+            not isinstance(operation_id, str)
+            or not operation_id.strip()
+            or len(operation_id) > 128
+        ):
+            raise BountyAgentError("Invalid operation ID")
+
+        # Live mission creation is independently idempotent.
+        # This also recovers a mission created before a crash.
+        mission = self.live_store.create(
+            authorization,
+            budget=budget,
+            operation_id=operation_id,
+        )
 
         with self.db() as db:
-            db.execute(
-                """INSERT INTO sessions(
-                    id,authorization,mission,program,root_target,
-                    state,created,updated,error
-                ) VALUES(?,?,?,?,?,'authorized',?,?,NULL)""",
-                (session, authorization, mission, scope.program, root_target, now, now),
-            )
-            self._event(db, session, "authorized", f"Program={scope.program} target={root_target} mission={mission}")
+            db.execute("BEGIN IMMEDIATE")
+            try:
+                existing = db.execute(
+                    """
+                    SELECT * FROM sessions
+                    WHERE operation_id=?
+                    """,
+                    (operation_id,),
+                ).fetchone()
+
+                if existing:
+                    if (
+                        existing["authorization"] != authorization
+                        or existing["program"] != scope.program
+                        or existing["root_target"] != root_target
+                        or existing["mission"] != mission
+                    ):
+                        raise BountyAgentError(
+                            "Operation ID session ownership mismatch"
+                        )
+
+                    session = existing["id"]
+
+                else:
+                    session = str(uuid.uuid4())
+                    now = time.time()
+
+                    db.execute(
+                        """
+                        INSERT INTO sessions(
+                            id,authorization,mission,program,
+                            root_target,state,created,updated,
+                            error,operation_id
+                        ) VALUES(?,?,?,?,?,'authorized',?,?,NULL,?)
+                        """,
+                        (
+                            session, authorization, mission,
+                            scope.program, root_target,
+                            now, now, operation_id,
+                        ),
+                    )
+
+                    self._event(
+                        db, session, "authorized",
+                        f"Program={scope.program} "
+                        f"target={root_target} mission={mission}",
+                    )
+
+                db.commit()
+            except BaseException:
+                db.rollback()
+                raise
 
         return session
 

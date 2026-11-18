@@ -103,6 +103,25 @@ class LiveMissionStore:
             );
             """)
 
+            # R9.14D.3: nullable scheduler correlation.
+            mission_columns = {
+                row["name"]
+                for row in db.execute(
+                    "PRAGMA table_info(missions)"
+                )
+            }
+            if "operation_id" not in mission_columns:
+                db.execute(
+                    "ALTER TABLE missions "
+                    "ADD COLUMN operation_id TEXT"
+                )
+            db.execute(
+                "CREATE UNIQUE INDEX IF NOT EXISTS "
+                "mission_operation_unique "
+                "ON missions(operation_id) "
+                "WHERE operation_id IS NOT NULL"
+            )
+
             # R9.11F.2: backward-compatible ownership schema.
             existing = {
                 row["name"]
@@ -164,36 +183,96 @@ class LiveMissionStore:
         )
 
 
-    def create(self, authorization, *, budget=100):
+    def create(
+        self,
+        authorization,
+        *,
+        budget=100,
+        operation_id=None,
+    ):
         if type(budget) is not int or not 1 <= budget <= 1000:
             raise ValueError("Budget must be 1..1000")
 
+        if operation_id is not None:
+            if (
+                not isinstance(operation_id, str)
+                or not operation_id.strip()
+                or len(operation_id) > 128
+            ):
+                raise ValueError("Invalid operation ID")
+
         scope = self.authorization_store.live_scope(authorization)
 
-        mission = str(uuid.uuid4())
+        if operation_id is None:
+            # Preserve legacy mission creation behavior.
+            mission = str(uuid.uuid4())
+            with self.db() as db:
+                db.execute(
+                    """
+                    INSERT INTO missions(
+                        id,authorization,program,state,
+                        created,budget,used
+                    ) VALUES(?,?,?,?,?,?,0)
+                    """,
+                    (
+                        mission, authorization, scope.program,
+                        "ready", time.time(), budget,
+                    ),
+                )
+                self._event(
+                    db, mission, "created",
+                    f"Authorization {authorization}",
+                )
+            return mission
 
+        # Correlated creation must be serialized across processes.
         with self.db() as db:
-            db.execute(
-                """
-                INSERT INTO missions(id,authorization,program,state,created,budget,used)
-                VALUES(?,?,?,?,?,?,0)
-                """,
-                (
-                    mission,
-                    authorization,
-                    scope.program,
-                    "ready",
-                    time.time(),
-                    budget,
-                ),
-            )
+            db.execute("BEGIN IMMEDIATE")
+            try:
+                existing = db.execute(
+                    """
+                    SELECT * FROM missions
+                    WHERE operation_id=?
+                    """,
+                    (operation_id,),
+                ).fetchone()
 
-            self._event(
-                db,
-                mission,
-                "created",
-                f"Authorization {authorization}",
-            )
+                if existing:
+                    if (
+                        existing["authorization"] != authorization
+                        or existing["program"] != scope.program
+                        or existing["budget"] != budget
+                    ):
+                        raise ValueError(
+                            "Operation ID ownership or budget mismatch"
+                        )
+
+                    mission = existing["id"]
+
+                else:
+                    mission = str(uuid.uuid4())
+                    db.execute(
+                        """
+                        INSERT INTO missions(
+                            id,authorization,program,state,
+                            created,budget,used,operation_id
+                        ) VALUES(?,?,?,?,?,?,0,?)
+                        """,
+                        (
+                            mission, authorization, scope.program,
+                            "ready", time.time(), budget,
+                            operation_id,
+                        ),
+                    )
+                    self._event(
+                        db, mission, "created",
+                        f"Authorization {authorization}",
+                    )
+
+                db.commit()
+            except BaseException:
+                db.rollback()
+                raise
 
         return mission
 

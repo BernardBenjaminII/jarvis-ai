@@ -59,48 +59,128 @@ def run_bounded(
         close_fds=True,
     )
 
-    if stdin_bytes is not None:
-        try:
-            process.stdin.write(stdin_bytes)
-            process.stdin.flush()
-        except BrokenPipeError:
-            pass
-        finally:
-            process.stdin.close()
     output = bytearray()
     state = 'completed'
-    selector = selectors.DefaultSelector()
-    selector.register(process.stdout, selectors.EVENT_READ)
+    selector = None
+    input_offset = 0
+
     try:
+        selector = selectors.DefaultSelector()
+
+        os.set_blocking(process.stdout.fileno(), False)
+        selector.register(
+            process.stdout,
+            selectors.EVENT_READ,
+        )
+
+        if stdin_bytes is not None:
+            os.set_blocking(process.stdin.fileno(), False)
+
+            if stdin_bytes:
+                selector.register(
+                    process.stdin,
+                    selectors.EVENT_WRITE,
+                )
+            else:
+                process.stdin.close()
+
         while True:
             if cancel is not None and cancel.is_set():
-                state = 'cancelled'; break
+                state = 'cancelled'
+                break
+
             remaining = deadline - time.monotonic()
+
             if remaining <= 0:
-                state = 'timeout'; break
-            for key, _ in selector.select(min(.05, remaining)):
-                chunk = os.read(key.fileobj.fileno(), min(65536, output_limit - len(output) + 1))
-                if not chunk:
-                    selector.unregister(key.fileobj)
-                elif len(output) + len(chunk) > output_limit:
-                    output.extend(chunk[:output_limit-len(output)])
-                    state = 'output_limit'; break
-                else:
-                    output.extend(chunk)
+                state = 'timeout'
+                break
+
+            events = selector.select(min(0.05, remaining))
+
+            for key, mask in events:
+                if (
+                    process.stdin is not None
+                    and key.fileobj is process.stdin
+                ):
+                    try:
+                        written = os.write(
+                            process.stdin.fileno(),
+                            stdin_bytes[input_offset:],
+                        )
+                    except BlockingIOError:
+                        continue
+                    except BrokenPipeError:
+                        selector.unregister(process.stdin)
+                        process.stdin.close()
+                        continue
+
+                    input_offset += written
+
+                    if input_offset >= len(stdin_bytes):
+                        selector.unregister(process.stdin)
+                        process.stdin.close()
+
+                elif mask & selectors.EVENT_READ:
+                    try:
+                        chunk = os.read(
+                            key.fileobj.fileno(),
+                            min(
+                                65536,
+                                output_limit - len(output) + 1,
+                            ),
+                        )
+                    except BlockingIOError:
+                        continue
+
+                    if not chunk:
+                        selector.unregister(key.fileobj)
+                    elif len(output) + len(chunk) > output_limit:
+                        output.extend(
+                            chunk[:output_limit - len(output)]
+                        )
+                        state = 'output_limit'
+                        break
+                    else:
+                        output.extend(chunk)
+
             if state != 'completed':
                 break
-            if not selector.get_map() and process.poll() is not None:
-                if process.returncode:
-                    state = 'failed'
-                break
+
+            if process.poll() is not None:
+                if (
+                    process.stdin is not None
+                    and not process.stdin.closed
+                ):
+                    try:
+                        selector.unregister(process.stdin)
+                    except KeyError:
+                        pass
+                    process.stdin.close()
+
+                if not selector.get_map():
+                    if process.returncode:
+                        state = 'failed'
+                    break
+
     finally:
-        # Also remove descendants that outlive the parent, including pipe holders.
+        # Always clean up the isolated process group.
         try:
             os.killpg(process.pid, signal.SIGKILL)
         except ProcessLookupError:
             pass
-        process.wait()
-        selector.close()
-        process.stdout.close()
+        finally:
+            try:
+                process.wait()
+            finally:
+                if selector is not None:
+                    selector.close()
+
+                process.stdout.close()
+
+                if (
+                    process.stdin is not None
+                    and not process.stdin.closed
+                ):
+                    process.stdin.close()
     return {'state': state, 'output': output.decode('utf-8', errors='replace'),
             'bytes': len(output), 'returncode': process.returncode}
