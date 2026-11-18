@@ -15,11 +15,581 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
     return payload;
   }
   function shell() {
-    host.innerHTML = `<button class="jarvis-workspace-close" type="button">← Return to chat</button><main class="jarvis-bounty-agent"><header class="jba-header"><div><small>KALI · HUMAN-GATED AUTONOMOUS RECON</small><h1>Bug Bounty Agent</h1></div><button id="jba-refresh" type="button">Refresh</button></header><section class="jba-safety"><strong>Operating rule:</strong> Jarvis may automate only capabilities already authorized by the active R5 scope. Deeper investigation, validation and submission remain human-gated.</section><section class="jba-start"><h2>Start Authorized Recon</h2><div class="jba-start-grid"><label>Authorization ID<input id="jba-auth" autocomplete="off"></label><label>Root target<input id="jba-target" placeholder="example.com" autocomplete="off"></label><label>Budget<input id="jba-budget" type="number" min="1" max="1000" value="100"></label><button id="jba-create" type="button">Create Mission</button></div><p class="jba-help">This accepts only an existing live R5 authorization. Creating a mission does not expand scope.</p></section><section><div class="jba-section-head"><h2>Sessions</h2><span id="jba-status"></span></div><div id="jba-sessions"></div></section><section id="jba-detail" hidden></section></main>`;
+    host.innerHTML = `<button class="jarvis-workspace-close" type="button">← Return to chat</button><main class="jarvis-bounty-agent"><header class="jba-header"><div><small>KALI · HUMAN-GATED AUTONOMOUS RECON</small><h1>Bug Bounty Agent</h1></div><button id="jba-refresh" type="button">Refresh</button></header><section class="jba-safety"><strong>Operating rule:</strong> Jarvis may automate only capabilities already authorized by the active R5 scope. Deeper investigation, validation and submission remain human-gated.</section><section class="jba-proposals"><div class="jba-section-head"><h2>Autonomous Mission Proposals</h2><span>Planning only · Human approval required</span><button id="jba-generate-proposal" type="button">Generate Proposal</button></div><div id="jba-proposal-queue" aria-live="polite">Loading proposals…</div></section><section class="jba-start"><h2>Start Authorized Recon</h2><div class="jba-start-grid"><label>Authorization ID<input id="jba-auth" autocomplete="off"></label><label>Root target<input id="jba-target" placeholder="example.com" autocomplete="off"></label><label>Budget<input id="jba-budget" type="number" min="1" max="1000" value="100"></label><button id="jba-create" type="button">Create Mission</button></div><p class="jba-help">This accepts only an existing live R5 authorization. Creating a mission does not expand scope.</p></section><section><div class="jba-section-head"><h2>Sessions</h2><span id="jba-status"></span></div><section class="jba-operations-overview"><h2>Mission Operations</h2><div class="jba-overview-grid"><div><small>Loaded Sessions</small><strong id="jba-total">—</strong></div><div><small>Running</small><strong id="jba-running">—</strong></div><div><small>Ready for Review</small><strong id="jba-review">—</strong></div><div><small>Failed</small><strong id="jba-failed">—</strong></div></div><p class="jba-muted">Counts reflect loaded sessions.</p></section><div id="jba-sessions"></div></section><section id="jba-detail" hidden></section></main>`;
+
+    // JARVIS_R920C_WORKSTATION_ADVISORY
+    const advisory = document.createElement("section");
+    advisory.className = "jba-workstation-advisory";
+    advisory.innerHTML = `
+      <div class="jba-section-head">
+        <div>
+          <small>R9.20C · READ-ONLY INTELLIGENCE</small>
+          <h2>Workstation Advisory</h2>
+        </div>
+        <span id="jba-wa-state">Loading</span>
+      </div>
+      <div id="jba-wa-content" aria-live="polite">
+        Checking workstation capabilities…
+      </div>
+    `;
+    host.querySelector(".jba-safety")
+      .insertAdjacentElement("afterend", advisory);
+
+    // JARVIS_R921D3A_POLICY_BROWSER
+    const policyPanel = document.createElement("section");
+    policyPanel.className = "jba-policy-browser";
+    policyPanel.innerHTML = `
+      <div class="jba-section-head">
+        <div>
+          <small>R9.21D3a · READ-ONLY POLICY INTELLIGENCE</small>
+          <h2>Program Scope Intelligence</h2>
+        </div>
+        <span id="jba-policy-state">Loading</span>
+      </div>
+      <p class="jba-muted">
+        Imported policies are unverified. No testing,
+        reconnaissance, or submission permission is granted.
+      </p>
+
+      <!-- JARVIS_R921D3B_POLICY_IMPORT -->
+      <form id="jba-policy-import" class="jba-policy-import">
+        <h3>Import Program Policy</h3>
+        <p class="jba-muted">
+          Manually transcribed policy draft.
+          Importing does not verify scope or authorize testing.
+        </p>
+
+        <label>
+          Platform
+          <select name="platform" required>
+            <option value="hackerone">HackerOne</option>
+            <option value="bugcrowd">Bugcrowd</option>\n            <option value="intigriti">Intigriti</option>
+          </select>
+        </label>
+
+        <label>
+          Program name
+          <input name="program" maxlength="200"
+                 required autocomplete="off">
+        </label>
+
+        <label>
+          Official policy URL
+          <input name="policy_url" type="url"
+                 maxlength="1000" required
+                 placeholder="https://hackerone.com/...">
+        </label>
+
+        <label>
+          In-scope hostnames — one per line
+          <textarea name="in_scope" rows="4" required
+                    placeholder="api.example.com"></textarea>
+        </label>
+
+        <label>
+          Explicit exclusions — one per line
+          <textarea name="out_of_scope" rows="3"></textarea>
+        </label>
+
+        <label>
+          Testing restrictions — one per line
+          <textarea name="restrictions" rows="4" required
+                    placeholder="Record the program's actual restrictions"></textarea>
+        </label>
+
+        <button type="submit">Import Unverified Draft</button>
+        <p id="jba-policy-import-state"
+           role="status" aria-live="polite"></p>
+      </form>
+      <div id="jba-policy-list" aria-live="polite"></div>
+      <div id="jba-policy-detail"></div>
+    `;
+    advisory.insertAdjacentElement("afterend", policyPanel);
+
+    policyPanel.querySelector("#jba-policy-import")
+      .addEventListener("submit", submitProgramScope);
+
     host.querySelector(".jarvis-workspace-close").onclick=()=>window.JARVIS_WORKSPACES?.close();
-    host.querySelector("#jba-refresh").onclick=loadSessions;
+    host.querySelector("#jba-refresh").onclick=()=>{loadSessions();loadProposals();loadWorkstationAdvisory();loadProgramScopes();};
     host.querySelector("#jba-create").onclick=createSession;
+    host.querySelector("#jba-generate-proposal").onclick=generateProposal;
+    loadProposals();
+    loadWorkstationAdvisory();
+    loadProgramScopes();
   }
+
+
+
+
+  // R9.21D3a: informational data only; never grants permissions.
+
+  // JARVIS_R921D3B_POLICY_IMPORT
+  async function submitProgramScope(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const panel = form.closest(".jba-policy-browser");
+    const status = form.querySelector(
+      "#jba-policy-import-state"
+    );
+    const button = form.querySelector(
+      'button[type="submit"]'
+    );
+
+    if (!panel || !status || !button || button.disabled) {
+      return;
+    }
+
+    const lines = value => String(value ?? "")
+      .split(/\\r?\\n/)
+      .map(item => item.trim())
+      .filter(Boolean);
+
+    const data = new FormData(form);
+
+    const payload = {
+      platform: String(data.get("platform") || ""),
+      program: String(data.get("program") || "").trim(),
+      policy_url: String(data.get("policy_url") || "").trim(),
+      in_scope: lines(data.get("in_scope")),
+      out_of_scope: lines(data.get("out_of_scope")),
+      restrictions: lines(data.get("restrictions")),
+    };
+
+    if (
+      !payload.program ||
+      !payload.policy_url ||
+      !payload.in_scope.length ||
+      !payload.restrictions.length
+    ) {
+      status.textContent =
+        "Program, source, included hosts, and restrictions are required.";
+      return;
+    }
+
+    if (
+      [...payload.in_scope, ...payload.out_of_scope]
+        .some(hostname => hostname.includes("*"))
+    ) {
+      status.textContent =
+        "Wildcard assets are not supported in this version.";
+      return;
+    }
+
+    button.disabled = true;
+    status.textContent = "Importing unverified draft…";
+
+    try {
+      const result = await api(
+        "/api/bounty-agent/program-scopes",
+        {
+          method: "POST",
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (
+        result.review_status !== "unverified" ||
+        result.scope_verified !== false ||
+        result.execution_authorized !== false ||
+        result.submission_authorized !== false ||
+        typeof result.id !== "string"
+      ) {
+        throw new Error("Invalid import safety contract");
+      }
+
+      if (!form.isConnected) return;
+
+      status.textContent =
+        "Unverified draft imported successfully. " +
+        "No testing authorization granted.";
+
+      form.reset();
+
+      await loadProgramScopes();
+
+      if (panel.isConnected) {
+        await inspectProgramScope(result.id, panel);
+      }
+
+    } catch (error) {
+      if (form.isConnected) {
+        status.textContent =
+          "Import failed: " + error.message;
+      }
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  async function loadProgramScopes() {
+    const panel = host?.querySelector(".jba-policy-browser");
+    if (!panel) return;
+
+    const state = panel.querySelector("#jba-policy-state");
+    const list = panel.querySelector("#jba-policy-list");
+    const detail = panel.querySelector("#jba-policy-detail");
+
+    state.textContent = "Loading";
+    list.textContent = "Retrieving imported policies…";
+    detail.replaceChildren();
+
+    try {
+      const result = await api(
+        "/api/bounty-agent/program-scopes"
+      );
+
+      if (
+        result.execution_authorized !== false ||
+        !Array.isArray(result.drafts)
+      ) {
+        throw new Error("Invalid policy-list safety contract");
+      }
+
+      if (!panel.isConnected) return;
+
+      list.replaceChildren();
+
+      if (!result.drafts.length) {
+        list.textContent =
+          "No policies imported yet. The import form will be " +
+          "added in R9.21D3b.";
+      }
+
+      for (const record of result.drafts) {
+        if (
+          record.review_status !== "unverified" ||
+          record.execution_authorized !== false ||
+          typeof record.id !== "string" ||
+          typeof record.program !== "string"
+        ) {
+          throw new Error("Invalid imported policy record");
+        }
+
+        const row = document.createElement("div");
+        row.className = "jba-policy-row";
+
+        const label = document.createElement("div");
+        const name = document.createElement("strong");
+        name.textContent = record.program;
+
+        const meta = document.createElement("small");
+        meta.textContent =
+          `${record.platform} · unverified`;
+
+        label.append(name, meta);
+
+        const inspect = document.createElement("button");
+        inspect.type = "button";
+        inspect.textContent = "Inspect";
+        inspect.onclick = () =>
+          void inspectProgramScope(record.id, panel);
+
+        row.append(label, inspect);
+        list.append(row);
+      }
+
+      state.textContent =
+        `${result.drafts.length} unverified drafts`;
+    } catch (error) {
+      if (!panel.isConnected) return;
+      state.textContent = "Unavailable";
+      list.textContent =
+        `Unable to load program policies: ${error.message}`;
+    }
+  }
+
+  async function inspectProgramScope(id, panel) {
+    const detail = panel.querySelector("#jba-policy-detail");
+    if (!detail) return;
+
+    detail.textContent = "Retrieving policy…";
+
+    try {
+      const result = await api(
+        `/api/bounty-agent/program-scopes/${
+          encodeURIComponent(id)
+        }`
+      );
+
+      const draft = result.draft;
+
+      if (
+        result.execution_authorized !== false ||
+        result.submission_authorized !== false ||
+        result.review_status !== "unverified" ||
+        !draft ||
+        draft.scope_verified !== false ||
+        draft.execution_authorized !== false ||
+        draft.submission_authorized !== false ||
+        !Array.isArray(draft.in_scope) ||
+        !Array.isArray(draft.out_of_scope) ||
+        !Array.isArray(draft.restrictions)
+      ) {
+        throw new Error("Invalid policy-detail safety contract");
+      }
+
+      if (!panel.isConnected) return;
+
+      detail.replaceChildren();
+
+      const heading = document.createElement("h3");
+      heading.textContent = draft.program;
+
+      const source = document.createElement("p");
+      source.textContent =
+        `Source URL: ${draft.policy_url}`;
+
+      const digest = document.createElement("p");
+      digest.className = "jba-policy-digest";
+      digest.textContent =
+        `Imported record SHA-256: ${draft.policy_sha256}`;
+
+      detail.append(heading, source, digest);
+
+      const collections = [
+        ["Listed in-scope hosts", draft.in_scope],
+        ["Explicit exclusions", draft.out_of_scope],
+        ["Recorded restrictions", draft.restrictions],
+      ];
+
+      for (const [title, items] of collections) {
+        const section = document.createElement("section");
+        const header = document.createElement("h4");
+        header.textContent = title;
+
+        const ul = document.createElement("ul");
+
+        for (const value of items) {
+          const li = document.createElement("li");
+          li.textContent = String(value);
+          ul.append(li);
+        }
+
+        if (!items.length) {
+          const li = document.createElement("li");
+          li.textContent = "None recorded";
+          ul.append(li);
+        }
+
+        section.append(header, ul);
+        detail.append(section);
+      }
+
+      const warning = document.createElement("p");
+      warning.className = "jba-muted";
+      warning.textContent =
+        "Unverified import. No testing or execution authorized.";
+      detail.append(warning);
+
+    } catch (error) {
+      if (!panel.isConnected) return;
+      detail.textContent =
+        `Policy inspection unavailable: ${error.message}`;
+    }
+  }
+
+  async function loadWorkstationAdvisory() {
+    const panel = host?.querySelector(
+      ".jba-workstation-advisory"
+    );
+    if (!panel) return;
+
+    const state = panel.querySelector("#jba-wa-state");
+    const content = panel.querySelector("#jba-wa-content");
+
+    state.textContent = "Checking";
+    content.textContent = "Loading capability advisory…";
+
+    try {
+      const data = await api(
+        "/api/bounty-agent/workstation-advisory"
+      );
+
+      if (
+        data.mode !== "advisory_only" ||
+        data.execution_authorized !== false ||
+        data.submission_authorized !== false ||
+        !data.activities ||
+        typeof data.activities !== "object" ||
+        Array.isArray(data.activities)
+      ) {
+        throw new Error("Invalid advisory safety contract");
+      }
+
+      if (!panel.isConnected) return;
+
+      const activities = Object.entries(data.activities);
+      const grid = document.createElement("div");
+      grid.className = "jba-wa-grid";
+
+      for (const [name, activity] of activities) {
+        if (
+          activity.execution_allowed !== false ||
+          activity.human_review_required !== true ||
+          !Array.isArray(activity.tools)
+        ) {
+          throw new Error("Unsafe activity response");
+        }
+
+        const card = document.createElement("article");
+        card.className = "jba-wa-card";
+
+        const title = document.createElement("strong");
+        title.textContent = name.replaceAll("_", " ");
+
+        const tools = document.createElement("p");
+        tools.textContent = activity.tools
+          .filter(item => item.installed === true)
+          .map(item => item.tool)
+          .join(", ") || "No verified tools available";
+
+        const status = document.createElement("small");
+        status.textContent =
+          activity.state === "available_for_review"
+            ? "Available for review"
+            : "Unavailable";
+
+        card.append(title, tools, status);
+        grid.appendChild(card);
+      }
+
+      content.replaceChildren();
+
+      const notice = document.createElement("p");
+      notice.className = "jba-wa-notice";
+      notice.textContent =
+        "Execution locked · Human approval required · " +
+        "Tool availability does not authorize scanning.";
+
+      const summary = document.createElement("p");
+      summary.className = "jba-muted";
+      summary.textContent =
+        activities.length + " activity categories · " +
+        "Arsenal: " + String(data.arsenal_state ?? "unknown");
+
+      content.append(notice, summary, grid);
+      state.textContent = "Review only";
+
+    } catch (error) {
+      if (!panel.isConnected) return;
+
+      state.textContent = "Unavailable";
+      content.textContent =
+        "Workstation advisory unavailable: " +
+        String(error.message ?? error);
+    }
+  }
+
+  async function generateProposal() {
+    const button = host?.querySelector(
+      "#jba-generate-proposal"
+    );
+
+    if (!button || button.disabled) return;
+
+    button.disabled = true;
+    button.textContent = "Planning…";
+
+    try {
+      const result = await api(
+        "/api/bounty-agent/proposals/plan",
+        { method: "POST" }
+      );
+
+      await loadProposals();
+
+      if (result.status === "no_authorized_candidate") {
+        alert(
+          "No eligible authorized catalog candidate found."
+        );
+      } else if (result.status !== "proposal_queued") {
+        alert(
+          "Unexpected planning status: " +
+          String(result.status)
+        );
+      }
+    } catch (error) {
+      alert(
+        "Proposal planning failed: " +
+        String(error.message ?? error)
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = "Generate Proposal";
+    }
+  }
+
+  async function loadProposals() {
+    const target = host?.querySelector(
+      "#jba-proposal-queue"
+    );
+    if (!target) return;
+
+    target.replaceChildren();
+    target.textContent = "Loading proposals…";
+
+    try {
+      const payload = await api(
+        "/api/bounty-agent/proposals"
+      );
+
+      if (!host || !target.isConnected) return;
+
+      const proposals = Array.isArray(
+        payload.proposals
+      ) ? payload.proposals : [];
+
+      target.replaceChildren();
+
+      if (!proposals.length) {
+        target.textContent =
+          "No pending mission proposals.";
+        return;
+      }
+
+      for (const proposal of proposals) {
+        const card = document.createElement("article");
+        card.className = "jba-proposal-card";
+
+        const title = document.createElement("strong");
+        title.textContent =
+          String(proposal.program ?? "Unknown program");
+
+        const fields = [
+          ["Target", proposal.target],
+          ["Authorization", proposal.authorization_id],
+          ["Budget", proposal.budget],
+          ["Status", proposal.status],
+          ["Expires", Number.isFinite(Number(proposal.expires)) ? new Date(Number(proposal.expires) * 1000).toLocaleString() : "—"],
+        ];
+
+        card.appendChild(title);
+
+        for (const [label, value] of fields) {
+          const line = document.createElement("p");
+          const heading = document.createElement("b");
+
+          heading.textContent = label + ": ";
+          line.appendChild(heading);
+          line.appendChild(
+            document.createTextNode(
+              String(value ?? "—")
+            )
+          );
+          card.appendChild(line);
+        }
+
+        target.appendChild(card);
+      }
+    } catch (error) {
+      if (!host || !target.isConnected) return;
+      target.textContent =
+        "Proposal queue unavailable: " +
+        String(error.message ?? error);
+    }
+  }
+
   async function createSession() {
     const button=host.querySelector("#jba-create"), authorization_id=host.querySelector("#jba-auth").value.trim(), root_target=host.querySelector("#jba-target").value.trim(), budget=Number(host.querySelector("#jba-budget").value||100);
     if(!authorization_id||!root_target){alert("Authorization ID and root target are required.");return;}
@@ -296,6 +866,21 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
     const reviewer=window.prompt("Reviewer name for audit trail:","abdullah");if(!reviewer)return;
     try{await api(`/api/bounty-agent/options/${encodeURIComponent(optionId)}/decision`,{method:"POST",body:JSON.stringify({decision:value,reviewer})});await showSession(sessionId);await loadSessions();}catch(error){alert(error.message);}
   }
+
+  function updateOperationsOverview(sessions) {
+    const counts = {
+      total: sessions.length,
+      running: sessions.filter(s => s.state === "running").length,
+      review: sessions.filter(s => s.state === "options_ready").length,
+      failed: sessions.filter(s => s.state === "failed").length
+    };
+
+    for (const [name, value] of Object.entries(counts)) {
+      const element = host.querySelector(`#jba-${name}`);
+      if (element) element.textContent = String(value);
+    }
+  }
+
   async function loadSessions() {
     const target = host.querySelector("#jba-sessions");
 
@@ -306,6 +891,12 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
       const payload = await api(
         "/api/bounty-agent/sessions"
       );
+
+      if (!Array.isArray(payload.sessions)) {
+        throw new Error("Invalid sessions response");
+      }
+
+      updateOperationsOverview(payload.sessions);
 
       if (!payload.sessions.length) {
         target.innerHTML =
@@ -351,10 +942,12 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
                   s.state === "failed"
                     ? `
                       <button
-                        data-run="${esc(s.id)}"
                         type="button"
+                        disabled
+                        title="Execution disabled pending authorization enforcement"
+                        aria-disabled="true"
                       >
-                        Run Recon
+                        Recon Locked
                       </button>
                     `
                     : ""
@@ -394,6 +987,115 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
         `<p class="jba-error">${
           esc(error.message)
         }</p>`;
+    }
+  }
+
+
+  // JARVIS_R920F_MISSION_ADVISORY
+  async function loadSessionMissionAdvisory(id, section, generation) {
+    const isCurrent = () =>
+      host?.querySelector("#jba-detail") === section &&
+      section.isConnected &&
+      selectedSessionId === id &&
+      reviewRequestGeneration === generation;
+
+    if (!isCurrent()) return;
+
+    const panel = document.createElement("section");
+    panel.className = "jba-mission-advisory";
+
+    const heading = document.createElement("h3");
+    heading.textContent = "Mission Advisory";
+
+    const status = document.createElement("p");
+    status.textContent = "Checking mission eligibility…";
+
+    panel.append(heading, status);
+    section.prepend(panel);
+
+    try {
+      const data = await api(
+        "/api/bounty-agent/sessions/" +
+        encodeURIComponent(id) +
+        "/mission-advisory"
+      );
+
+      if (!isCurrent() || !panel.isConnected) return;
+
+      if (
+        data.session_id !== id ||
+        data.mode !== "offline_planning" ||
+        data.authorization_checked !== true ||
+        data.execution_authorized !== false ||
+        data.execution_started !== false ||
+        data.automatic_execution_allowed !== false ||
+        data.submission_authorized !== false ||
+        data.human_review_required !== true ||
+        !Array.isArray(data.recommended_tasks) ||
+        !Array.isArray(data.blocked_tasks) ||
+        data.recommended_tasks.some(
+          task => task.execution_allowed !== false
+        )
+      ) {
+        throw new Error("Invalid advisory safety contract");
+      }
+
+      status.textContent =
+        "Offline planning · Execution locked · " +
+        data.recommended_tasks.length + " recommended · " +
+        data.blocked_tasks.length + " blocked";
+
+      function addTasks(title, tasks, blocked) {
+        const h = document.createElement("h4");
+        h.textContent = title;
+        panel.appendChild(h);
+
+        if (!tasks.length) {
+          const empty = document.createElement("p");
+          empty.textContent = "None";
+          panel.appendChild(empty);
+          return;
+        }
+
+        const list = document.createElement("ol");
+
+        for (const task of tasks) {
+          const item = document.createElement("li");
+          const capability = document.createElement("strong");
+          capability.textContent =
+            String(task.capability ?? "Unknown");
+
+          const detail = document.createElement("span");
+          detail.textContent = blocked
+            ? " — " + String(task.reason ?? "Blocked")
+            : " — " + String(task.tool ?? "Unknown") +
+              " — Review required";
+
+          item.append(capability, detail);
+          list.appendChild(item);
+        }
+
+        panel.appendChild(list);
+      }
+
+      addTasks("Recommended activities", data.recommended_tasks, false);
+      addTasks("Blocked activities", data.blocked_tasks, true);
+
+      const notice = document.createElement("p");
+      notice.textContent =
+        "Planning only. Execution and submission remain disabled.";
+      panel.appendChild(notice);
+
+    } catch (error) {
+      if (!isCurrent() || !panel.isConnected) return;
+
+      const message = String(error.message ?? error);
+
+      status.textContent = message.includes(
+        "Mission is not eligible for advisory planning"
+      )
+        ? "This session is not eligible for synthetic-target planning."
+        : "Advisory unavailable: " + message;
     }
   }
 
@@ -492,6 +1194,40 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
 
       const missionTasks =
         report.mission?.tasks || [];
+
+
+      // R9.13B.2 — Read-only execution monitoring.
+      const taskStates = [
+        "queued",
+        "running",
+        "completed",
+        "failed",
+        "interrupted"
+      ];
+
+      const executionCounts = Object.fromEntries(
+        taskStates.map(state => [
+          state,
+          missionTasks.filter(
+            task => task.state === state
+          ).length
+        ])
+      );
+
+      const executionBudget =
+        report.mission?.mission || {};
+
+      const targetBudget =
+        Number.isFinite(Number(executionBudget.budget))
+          && executionBudget.budget != null
+          ? executionBudget.budget
+          : "—";
+
+      const executionUsed =
+        Number.isFinite(Number(executionBudget.used))
+          && executionBudget.used != null
+          ? executionBudget.used
+          : "—";
 
       const taskGroups = new Map();
 
@@ -1620,6 +2356,53 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
           </span>
         </div>
 
+
+        <section class="jba-execution-monitor"
+                 aria-label="Mission execution monitor">
+          <h3>Mission Execution Monitor</h3>
+
+          <div class="jba-execution-grid">
+            ${[
+              ["Queued", executionCounts.queued],
+              ["Running", executionCounts.running],
+              ["Completed", executionCounts.completed],
+              ["Failed", executionCounts.failed],
+              ["Interrupted", executionCounts.interrupted],
+              ["Awaiting Review", counts.awaiting]
+            ].map(([label, value]) => `
+              <div class="jba-execution-stat">
+                <small>${esc(label)}</small>
+                <strong>${esc(value)}</strong>
+              </div>
+            `).join("")}
+          </div>
+
+          <div class="jba-execution-budget">
+            <div>
+              <span>Approved target budget</span>
+              <strong>${esc(targetBudget)}</strong>
+            </div>
+            <div>
+              <span>Consumed execution units</span>
+              <strong>${esc(executionUsed)}</strong>
+            </div>
+          </div>
+
+          ${
+            executionCounts.interrupted > 0
+              ? `<p class="jba-execution-warning"
+                    role="status">
+                   Interrupted tasks require operator review.
+                   No automatic retries are permitted.
+                 </p>`
+              : ""
+          }
+
+          <p class="jba-muted">
+            Task states reflect the latest retrieved
+            mission report. Refresh to update.
+          </p>
+        </section>
         <div class="jba-metrics">
           <div>
             <small>OPTIONS</small>
@@ -1909,6 +2692,7 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
        * list first, which could move #jba-detail hundreds of
        * pixels and make Review appear to flash/disappear.
        */
+      void loadSessionMissionAdvisory(id, section, generation);
       section.scrollIntoView({
         behavior: "smooth",
         block: "start",
