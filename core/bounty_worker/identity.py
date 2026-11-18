@@ -4,7 +4,10 @@ import os
 import shutil
 from pathlib import Path
 
-NAMES = ('nmap', 'amass', 'httpx', 'subfinder', 'katana', 'nuclei', 'docker', 'ollama')
+NAMES = (
+    'nmap', 'amass', 'httpx', 'subfinder',
+    'dnsx', 'katana', 'nuclei', 'docker', 'ollama',
+)
 MARKER = b'github.com/projectdiscovery/httpx'
 
 

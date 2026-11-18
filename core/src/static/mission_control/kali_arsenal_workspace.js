@@ -262,6 +262,274 @@
       `;
     }
 
+
+    // JARVIS_EXTERNAL_ARSENAL_R1
+    const originalLoad = load;
+
+    async function loadWithExternal() {
+      await originalLoad();
+
+      // Do not attach a panel if the inventory failed.
+      if (body.classList.contains("jka-error")) return;
+
+      const section = document.createElement("section");
+      section.className = "jka-section";
+      section.innerHTML = `
+        <div class="jka-section-head">
+          <div>
+            <small>EXTERNAL REFERENCE LIBRARIES</small>
+            <h2>Payload Arsenal</h2>
+          </div>
+          <span id="jka-external-state">Checking…</span>
+        </div>
+        <p id="jka-external-libraries"></p>
+        <form id="jka-external-form">
+          <input id="jka-external-query"
+            type="search"
+            maxlength="100"
+            placeholder="Search SQL, XSS, SSRF, admin…"
+            aria-label="Search payload reference filenames"
+            required />
+          <button type="submit">Search references</button>
+        </form>
+        <div id="jka-external-results"
+          aria-live="polite"></div>
+      `;
+
+      body.appendChild(section);
+
+      const state = section.querySelector(
+        "#jka-external-state"
+      );
+      const libraries = section.querySelector(
+        "#jka-external-libraries"
+      );
+      const form = section.querySelector(
+        "#jka-external-form"
+      );
+      const query = section.querySelector(
+        "#jka-external-query"
+      );
+      const results = section.querySelector(
+        "#jka-external-results"
+      );
+
+      let ready = false;
+
+      try {
+        const response = await fetch(
+          "/api/kali/arsenal/external",
+          {cache: "no-store", credentials: "same-origin"}
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        ready = data.state === "ready";
+
+        state.textContent = String(
+          data.state || "unknown"
+        ).toUpperCase();
+
+        libraries.textContent = (
+          data.libraries || []
+        ).map((item) =>
+          `${item.id}: ${item.available ? "available" : "missing"}`
+        ).join(" | ");
+
+      } catch (error) {
+        state.textContent = "UNAVAILABLE";
+        libraries.textContent = String(error.message);
+      }
+
+      query.disabled = !ready;
+      form.querySelector("button").disabled = !ready;
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const term = query.value.trim();
+        if (!term || !ready) return;
+
+        results.textContent = "Searching references…";
+
+        try {
+          const url =
+            "/api/kali/arsenal/external/search?q=" +
+            encodeURIComponent(term) + "&limit=30";
+
+          const response = await fetch(url, {
+            cache: "no-store",
+            credentials: "same-origin"
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          if (data.state !== "ready") {
+            results.textContent =
+              "External arsenal is no longer available.";
+            return;
+          }
+
+          const entries = data.results || [];
+
+          if (!entries.length) {
+            results.textContent = "No matching filenames.";
+            return;
+          }
+
+          results.innerHTML = `
+            <p>${entries.length} matching references
+            ${data.truncated ? "(more may exist)" : ""}</p>
+            <div class="jka-capability-list">
+              ${entries.map((item) => `
+                <article class="jka-capability available">
+                  <div>
+                    <strong>${esc(item.name)}</strong>
+                    <small>${esc(item.library)}</small>
+                    <code>${esc(item.path)}</code>
+                  </div>
+                </article>
+              `).join("")}
+            </div>
+          `;
+
+        } catch (error) {
+          results.textContent =
+            "Search failed: " + String(error.message);
+        }
+      });
+    }
+
+    load = loadWithExternal;
+
+
+    // JARVIS_WORKSTATION_READINESS_R919R4
+    const previousLoad = load;
+
+    load = async function loadWithWorkstation() {
+      await previousLoad();
+
+      if (body.classList.contains("jka-error")) return;
+
+      const panel = document.createElement("section");
+      panel.className = "jka-section";
+
+      panel.innerHTML = `
+        <div class="jka-section-head">
+          <div>
+            <small>LIVE WORKSTATION INVENTORY</small>
+            <h2>Workstation Readiness</h2>
+          </div>
+          <span id="jka-workstation-state">Checking…</span>
+        </div>
+        <div id="jka-workstation-content"
+             aria-live="polite">Loading…</div>
+      `;
+
+      body.appendChild(panel);
+
+      const state = panel.querySelector(
+        "#jka-workstation-state"
+      );
+      const content = panel.querySelector(
+        "#jka-workstation-content"
+      );
+
+      try {
+        const response = await fetch(
+          "/api/kali/arsenal/workstation",
+          {
+            cache: "no-store",
+            credentials: "same-origin",
+            headers: { Accept: "application/json" }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!data || !data.tools || !data.arsenal) {
+          throw new Error("Invalid inventory response");
+        }
+
+        const libraries = Array.isArray(
+          data.arsenal.libraries
+        ) ? data.arsenal.libraries : [];
+
+        const readyLibraries = libraries.filter(
+          item => item.available === true
+        ).length;
+
+        state.textContent = String(
+          data.state || "unknown"
+        ).toUpperCase();
+
+        const toolRows = Object.entries(data.tools)
+          .map(([name, tool]) => `
+            <article class="jka-capability">
+              <div class="jka-capability-status">
+                ${tool.installed ? "✓" : "×"}
+              </div>
+              <div>
+                <strong>${esc(name)}</strong>
+                <small>
+                  ${tool.installed ? "Installed" : "Missing"}
+                </small>
+              </div>
+              <code>${esc(tool.path || "—")}</code>
+            </article>
+          `).join("");
+
+        content.innerHTML = `
+          <section class="jka-summary">
+            <article>
+              <small>INSTALLED TOOLS</small>
+              <strong>${esc(data.installed_count)} /
+                ${esc(data.tool_count)}</strong>
+            </article>
+            <article>
+              <small>ARSENAL LIBRARIES</small>
+              <strong>${readyLibraries} /
+                ${libraries.length}</strong>
+            </article>
+            <article>
+              <small>ARSENAL STATE</small>
+              <strong>${esc(data.arsenal.state)}</strong>
+            </article>
+            <article>
+              <small>EXECUTION</small>
+              <strong>
+                ${data.execution_authorized === true
+                  ? "AUTHORIZED"
+                  : "LOCKED"}
+              </strong>
+            </article>
+          </section>
+          <p>
+            Inventory only. Tool installation does not
+            authorize target scanning or payload execution.
+          </p>
+          <div class="jka-capability-list">
+            ${toolRows}
+          </div>
+        `;
+      } catch (error) {
+        state.textContent = "UNAVAILABLE";
+        content.textContent =
+          "Live inventory unavailable: " + error.message;
+      }
+    };
+
     refresh.addEventListener("click", load);
 
     await load();
