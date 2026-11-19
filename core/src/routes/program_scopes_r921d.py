@@ -143,3 +143,12 @@ def import_program_scope(request: ImportScopeRequest):
         "execution_authorized": False,
         "submission_authorized": False,
     }
+
+
+# JARVIS_R921E4_REVIEW_ROUTER
+# Inherits the authenticated parent Bounty Agent router.
+from core.src.routes.program_scope_reviews_r921e4 import (
+    router as review_router_r921e4,
+)
+
+router.include_router(review_router_r921e4)

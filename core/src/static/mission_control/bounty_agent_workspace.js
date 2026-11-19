@@ -252,8 +252,7 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
 
       if (!result.drafts.length) {
         list.textContent =
-          "No policies imported yet. The import form will be " +
-          "added in R9.21D3b.";
+          "No policies imported yet. Use the import form above.";
       }
 
       for (const record of result.drafts) {
@@ -297,6 +296,234 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
       list.textContent =
         `Unable to load program policies: ${error.message}`;
     }
+  }
+
+
+  // JARVIS_R921E5_REVIEW_CONTROLS
+  // Advisory-only: never creates missions or execution authorization.
+  function renderR921E5Controls(detail, draftId, draft) {
+    const section = document.createElement("section");
+    section.className = "jba-r921e5";
+
+    // Static markup only. No policy data is interpolated as HTML.
+    section.innerHTML = `
+      <h4>Human Policy Review</h4>
+      <p class="jba-muted">
+        Compare the imported hosts, exclusions and restrictions
+        against the platform's current published rules.
+        This records your attestation, not independent verification.
+      </p>
+
+      <form class="jba-r921e5-review">
+        <label class="jba-r921e5-confirm">
+          <input type="checkbox" name="confirmed" required>
+          I personally checked the published policy and confirm
+          that the imported information matches it.
+        </label>
+        <button type="submit">Record Policy Attestation</button>
+      </form>
+
+      <p class="jba-r921e5-review-status"
+         role="status" aria-live="polite">
+        No attestation recorded in this view.
+      </p>
+
+      <h4>Existing Authorization Assessment</h4>
+      <p class="jba-muted">
+        Requires a stored review and separately issued authorization.
+        This check does not create permissions or start reconnaissance.
+      </p>
+
+      <form class="jba-r921e5-assess">
+        <label>
+          Exact hostname
+          <input name="hostname" required maxlength="253"
+                 autocomplete="off" placeholder="api.example.com">
+        </label>
+        <label>
+          Existing authorization ID
+          <input name="authorization_id" required maxlength="100"
+                 autocomplete="off">
+        </label>
+        <button type="submit" disabled>
+          Assess Existing Authorization
+        </button>
+      </form>
+
+      <p class="jba-r921e5-assess-status"
+         role="status" aria-live="polite">
+        Assessment locked until an attestation is recorded.
+      </p>
+
+      <p class="jba-muted">
+        Execution remains human-gated. No scanning or mission
+        creation is performed by these controls.
+      </p>
+    `;
+
+    detail.append(section);
+
+    const reviewForm = section.querySelector(
+      ".jba-r921e5-review"
+    );
+    const assessForm = section.querySelector(
+      ".jba-r921e5-assess"
+    );
+    const reviewStatus = section.querySelector(
+      ".jba-r921e5-review-status"
+    );
+    const assessStatus = section.querySelector(
+      ".jba-r921e5-assess-status"
+    );
+    const assessButton = assessForm.querySelector(
+      'button[type="submit"]'
+    );
+
+    let reviewId = null;
+
+    reviewForm.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      const confirmed = reviewForm.elements.confirmed.checked;
+      if (!confirmed) return;
+
+      const button = reviewForm.querySelector(
+        'button[type="submit"]'
+      );
+
+      button.disabled = true;
+      assessButton.disabled = true;
+      reviewId = null;
+
+      reviewStatus.textContent = "Recording attestation…";
+      assessStatus.textContent =
+        "Assessment locked until review is recorded.";
+
+      try {
+        const result = await api(
+          `/api/bounty-agent/program-scopes/${
+            encodeURIComponent(draftId)
+          }/reviews`,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              source_checked_at: new Date().toISOString(),
+              source_matches: true
+            })
+          }
+        );
+
+        if (
+          typeof result.id !== "string" ||
+          result.review_status !== "operator_attested" ||
+          result.execution_authorized !== false ||
+          result.submission_authorized !== false
+        ) {
+          throw new Error("Invalid review safety contract");
+        }
+
+        if (!section.isConnected) return;
+
+        reviewId = result.id;
+        reviewStatus.textContent =
+          "Operator attestation saved. Review ID: " +
+          reviewId +
+          ". This does not authorize testing.";
+
+        assessButton.disabled = false;
+        assessStatus.textContent =
+          "Ready to check an existing authorization.";
+
+      } catch (error) {
+        if (section.isConnected) {
+          reviewStatus.textContent =
+            "Review failed: " + error.message;
+        }
+      } finally {
+        if (section.isConnected) button.disabled = false;
+      }
+    });
+
+    assessForm.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      if (!reviewId || assessButton.disabled) return;
+
+      const data = new FormData(assessForm);
+      const hostname = String(
+        data.get("hostname") || ""
+      ).trim();
+      const authorizationId = String(
+        data.get("authorization_id") || ""
+      ).trim();
+
+      if (
+        !/^[a-z0-9.-]+$/.test(hostname) ||
+        hostname.includes("..") ||
+        hostname.includes("*") ||
+        !authorizationId
+      ) {
+        assessStatus.textContent =
+          "An exact lowercase hostname and authorization ID are required.";
+        return;
+      }
+
+      assessButton.disabled = true;
+      assessStatus.textContent =
+        "Checking existing authorization…";
+
+      try {
+        const result = await api(
+          `/api/bounty-agent/program-scopes/${
+            encodeURIComponent(draftId)
+          }/authorization-assessment`,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              review_id: reviewId,
+              hostname,
+              authorization_id: authorizationId
+            })
+          }
+        );
+
+        if (
+          result.execution_started !== false ||
+          result.execution_authorized !== false ||
+          result.submission_authorized !== false ||
+          result.proposal_ready !== false
+        ) {
+          throw new Error(
+            "Unexpected execution-permission response"
+          );
+        }
+
+        if (!section.isConnected) return;
+
+        if (
+          result.status === "existing_authorization_matched" &&
+          result.authorization_match === true
+        ) {
+          assessStatus.textContent =
+            "Existing authorization matched for " +
+            hostname +
+            ". No mission created or executed.";
+        } else {
+          assessStatus.textContent =
+            "Not authorized: " +
+            String(result.reason || "No matching authorization") +
+            ". No execution permitted.";
+        }
+
+      } catch (error) {
+        if (section.isConnected) {
+          assessStatus.textContent =
+            "Assessment unavailable: " + error.message;
+        }
+      } finally {
+        if (section.isConnected) assessButton.disabled = !reviewId;
+      }
+    });
   }
 
   async function inspectProgramScope(id, panel) {
@@ -381,6 +608,7 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
       warning.textContent =
         "Unverified import. No testing or execution authorized.";
       detail.append(warning);
+      renderR921E5Controls(detail, id, draft);
 
     } catch (error) {
       if (!panel.isConnected) return;

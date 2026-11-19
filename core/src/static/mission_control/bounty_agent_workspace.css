@@ -870,3 +870,62 @@
     grid-column: 1 / -1;
   }
 }
+
+
+/* JARVIS_R921E5_REVIEW_CONTROLS */
+.jba-r921e5 {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 8px;
+}
+
+.jba-r921e5-review,
+.jba-r921e5-assess {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.jba-r921e5 label {
+  display: block;
+  font-size: 13px;
+}
+
+.jba-r921e5-confirm {
+  display: flex !important;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.jba-r921e5 input:not([type="checkbox"]) {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  background: rgba(0,0,0,.15);
+  color: inherit;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 4px;
+}
+
+.jba-r921e5 button {
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 4px;
+  background: rgba(255,255,255,.07);
+  color: inherit;
+  cursor: pointer;
+}
+
+.jba-r921e5 button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.jba-r921e5-review-status,
+.jba-r921e5-assess-status {
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
