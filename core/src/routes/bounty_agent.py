@@ -478,3 +478,9 @@ from core.src.routes.program_scopes_r921d import (
 )
 
 router.include_router(program_scopes_router)
+
+# JARVIS_R922D1_OPPORTUNITY_INTELLIGENCE
+from core.src.routes.bounty_opportunities_r922d1 import (
+    router as opportunity_router_r922d1,
+)
+router.include_router(opportunity_router_r922d1)
