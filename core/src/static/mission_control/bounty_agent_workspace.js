@@ -35,6 +35,39 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
     host.querySelector(".jba-safety")
       .insertAdjacentElement("afterend", advisory);
 
+
+    // JARVIS_R922D2_OPPORTUNITY_PANEL
+    const opportunityPanel = document.createElement("section");
+    opportunityPanel.className = "jba-opportunity-intelligence";
+    opportunityPanel.innerHTML = `
+      <div class="jba-section-head">
+        <div>
+          <small>R9.22D2 · READ-ONLY INTELLIGENCE</small>
+          <h2>Opportunity Intelligence</h2>
+        </div>
+        <span id="jba-oi-status">Loading</span>
+        <button id="jba-oi-refresh" type="button">
+          Refresh Opportunities
+        </button>
+      </div>
+      <p class="jba-muted">
+        Stored program rankings are advisory.
+        Discovery does not authorize reconnaissance,
+        testing, or submission.
+      </p>
+      <div id="jba-oi-content" aria-live="polite">
+        Loading opportunity intelligence…
+      </div>
+    `;
+
+    host.querySelector(".jba-proposals")
+      .insertAdjacentElement("beforebegin", opportunityPanel);
+
+    opportunityPanel.querySelector("#jba-oi-refresh")
+      .addEventListener("click", () => {
+        void loadOpportunityIntelligence();
+      });
+
     // JARVIS_R921D3A_POLICY_BROWSER
     const policyPanel = document.createElement("section");
     policyPanel.className = "jba-policy-browser";
@@ -2956,6 +2989,128 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
     }
   }
 
+
+  // JARVIS_R922D2_OPPORTUNITY_RENDER
+  async function loadOpportunityIntelligence() {
+    const content = host?.querySelector("#jba-oi-content");
+    const status = host?.querySelector("#jba-oi-status");
+    if (!content) return;
+
+    content.textContent = "Loading opportunity intelligence…";
+    if (status) status.textContent = "Loading";
+
+    try {
+      const data = await api(
+        "/api/bounty-agent/opportunity-intelligence"
+      );
+
+      if (!content.isConnected) return;
+
+      if (
+        data.schema !==
+          "jarvis.bounty.program_capability_fit.r922c1" ||
+        data.network_requests !== 0 ||
+        data.testing_authorized !== false ||
+        data.automatic_execution_allowed !== false ||
+        data.mission_creation_allowed !== false ||
+        data.submission_authorized !== false ||
+        !Array.isArray(data.opportunities) ||
+        data.opportunity_count !== data.opportunities.length
+      ) {
+        throw new Error("Invalid opportunity safety contract");
+      }
+
+      const records = data.opportunities;
+      const catalog = data.sources?.hackerone_catalog || {};
+      const workstation = data.workstation || {};
+      const installed = workstation.installed_tools || [];
+
+      const catalogState = String(catalog.status || "unknown");
+      const catalogMessage = catalogState === "fresh"
+        ? "HackerOne catalog snapshot: fresh"
+        : "HackerOne catalog: " + catalogState +
+          ". Catalog opportunities may be unavailable.";
+
+      const rows = records.slice(0, 30).map(item => {
+        const score = Number.isInteger(
+          item.existing_manual_viability_score
+        )
+          ? item.existing_manual_viability_score + "/100"
+          : "Not scored";
+
+        return `
+          <article class="jba-oi-record">
+            <strong>${esc(item.program)}</strong>
+            <p class="jba-muted">
+              ${esc(item.platform)} ·
+              ${esc(item.source)} ·
+              ${esc(item.review_lane)}
+            </p>
+            <p>Existing manual viability: ${esc(score)}</p>
+            <p>Program-specific tool fit: Unknown</p>
+            <p>Next action: ${esc(item.next_action)}</p>
+            <small>
+              Human policy review required.
+              Testing authorization not granted.
+            </small>
+          </article>
+        `;
+      }).join("");
+
+      content.innerHTML = `
+        <section class="jba-operations-overview">
+          <div class="jba-overview-grid">
+            <div>
+              <small>Stored opportunities</small>
+              <strong>${records.length}</strong>
+            </div>
+            <div>
+              <small>Imported policies</small>
+              <strong>${Number(data.imported_policy_count) || 0}</strong>
+            </div>
+            <div>
+              <small>Kali tools installed</small>
+              <strong>${Array.isArray(installed) ? installed.length : 0}</strong>
+            </div>
+          </div>
+        </section>
+        <p class="jba-muted">${esc(catalogMessage)}</p>
+        <div class="jba-oi-records">
+          ${rows || `
+            <p class="jba-muted">
+              No rankable stored opportunities are available.
+              Check catalog freshness and imported policies.
+            </p>
+          `}
+        </div>
+        ${records.length > 30 ? `
+          <p class="jba-muted">
+            Displaying the first 30 of ${records.length} records.
+          </p>
+        ` : ""}
+        <p class="jba-muted">
+          Execution locked · Separate authorization required
+        </p>
+      `;
+
+      if (status) {
+        status.textContent =
+          records.length + (
+            records.length === 1
+              ? " stored record"
+              : " stored records"
+          );
+      }
+
+    } catch (error) {
+      if (!content.isConnected) return;
+      content.innerHTML = `
+        <p class="jba-error">${esc(error.message)}</p>
+      `;
+      if (status) status.textContent = "Unavailable";
+    }
+  }
+
   async function mount(target) {
     host = target;
 
@@ -2963,6 +3118,7 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
     reviewRequestGeneration += 1;
 
     shell();
+    void loadOpportunityIntelligence();
     await loadSessions();
   }
   window.JARVIS_BOUNTY_AGENT=Object.freeze({mount});

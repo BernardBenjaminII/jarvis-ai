@@ -929,3 +929,109 @@
   overflow-wrap: anywhere;
   font-size: 13px;
 }
+
+/* JARVIS_R922D2_OPPORTUNITY_STYLES */
+
+.jba-opportunity-intelligence {
+  margin: 20px 0;
+  padding: 20px;
+  color: inherit;
+  background: linear-gradient(
+    145deg,
+    rgba(20, 38, 51, .78),
+    rgba(11, 21, 32, .72)
+  );
+  border: 1px solid rgba(111, 206, 231, .28);
+  border-radius: 10px;
+}
+
+.jba-opportunity-intelligence .jba-section-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.jba-opportunity-intelligence .jba-section-head > div {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.jba-opportunity-intelligence #jba-oi-status {
+  font-size: 12px;
+  color: #a9d9e7;
+  overflow-wrap: anywhere;
+}
+
+.jba-opportunity-intelligence #jba-oi-refresh {
+  padding: 9px 14px;
+  color: inherit;
+  background: rgba(111, 206, 231, .10);
+  border: 1px solid rgba(111, 206, 231, .35);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.jba-opportunity-intelligence #jba-oi-refresh:hover {
+  background: rgba(111, 206, 231, .19);
+}
+
+.jba-opportunity-intelligence #jba-oi-refresh:focus-visible {
+  outline: 2px solid #a9d9e7;
+  outline-offset: 3px;
+}
+
+.jba-opportunity-intelligence .jba-operations-overview {
+  margin: 16px 0;
+}
+
+.jba-oi-records {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.jba-oi-record {
+  min-width: 0;
+  padding: 16px;
+  background: rgba(0, 0, 0, .20);
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-left: 3px solid rgba(111, 206, 231, .7);
+  border-radius: 7px;
+  overflow-wrap: anywhere;
+}
+
+.jba-oi-record strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.jba-oi-record p {
+  margin: 7px 0;
+  line-height: 1.5;
+}
+
+.jba-oi-record small {
+  display: block;
+  margin-top: 12px;
+  color: #e2c98c;
+  line-height: 1.5;
+}
+
+.jba-opportunity-intelligence .jba-error {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .jba-opportunity-intelligence {
+    padding: 14px;
+  }
+
+  .jba-opportunity-intelligence #jba-oi-refresh {
+    width: 100%;
+  }
+}
