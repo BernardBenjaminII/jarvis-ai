@@ -484,3 +484,9 @@ from core.src.routes.bounty_opportunities_r922d1 import (
     router as opportunity_router_r922d1,
 )
 router.include_router(opportunity_router_r922d1)
+
+# JARVIS_R100B_OPPORTUNITY_REVIEWS
+from core.src.routes.bounty_reviews_r100b import (
+    router as opportunity_reviews_router_r100b,
+)
+router.include_router(opportunity_reviews_router_r100b)
