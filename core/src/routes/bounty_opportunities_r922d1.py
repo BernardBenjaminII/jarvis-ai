@@ -172,3 +172,144 @@ def get_opportunity_intelligence(
             status_code=503,
             detail="Opportunity intelligence unavailable",
         ) from exc
+
+
+# JARVIS_R100C1_SEARCH
+# Reuse the established authenticated, offline ranking pipeline.
+from typing import Literal
+
+
+@router.get("/opportunities")
+def browse_opportunities(
+    search: str = Query(default="", max_length=120),
+    source: Literal[
+        "all",
+        "hackerone_api_snapshot",
+        "manual_policy_import",
+    ] = Query(default="all"),
+    lane: Literal[
+        "all",
+        "POLICY_REVIEW",
+        "MANUAL_A",
+        "MANUAL_B",
+        "SKIP",
+        "IMPORTED_POLICY",
+    ] = Query(default="all"),
+    limit: int = Query(default=25, ge=1, le=50),
+    offset: int = Query(default=0, ge=0, le=5000),
+):
+    """Search and page validated opportunities without writes."""
+
+    # Reuse all existing catalog, policy, and ranking validation.
+    # The underlying imported-policy reader currently caps at 200.
+    data = get_opportunity_intelligence(limit=200)
+    records = data.get("opportunities")
+
+    unsafe = (
+        data.get("schema")
+        != "jarvis.bounty.program_capability_fit.r922c1"
+        or data.get("network_requests") != 0
+        or data.get("testing_authorized") is not False
+        or data.get("automatic_execution_allowed") is not False
+        or data.get("mission_creation_allowed") is not False
+        or data.get("submission_authorized") is not False
+        or not isinstance(records, list)
+        or len(records) > 5000
+        or type(data.get("opportunity_count")) is not int
+        or data["opportunity_count"] != len(records)
+        or not isinstance(data.get("sources"), dict)
+    )
+
+    if unsafe:
+        raise HTTPException(
+            status_code=503,
+            detail="Opportunity browser safety validation failed",
+        )
+
+    for record in records:
+        if (
+            not isinstance(record, dict)
+            or record.get("human_review_required") is not True
+            or record.get("testing_authorized") is not False
+            or record.get("execution_enabled") is not False
+            or record.get("automatic_execution_ready") is not False
+            or record.get("submission_authorized") is not False
+            or not all(
+                isinstance(record.get(field), str)
+                for field in (
+                    "program",
+                    "platform",
+                    "source",
+                    "source_identifier",
+                    "review_lane",
+                )
+            )
+        ):
+            raise HTTPException(
+                status_code=503,
+                detail="Unsafe opportunity record",
+            )
+
+    needle = search.strip().casefold()
+
+    def matches(record):
+        if source != "all" and record["source"] != source:
+            return False
+
+        if lane != "all" and record["review_lane"] != lane:
+            return False
+
+        if needle:
+            searchable = (
+                record["program"],
+                record["platform"],
+                record["source_identifier"],
+                record["review_lane"],
+            )
+
+            if not any(
+                needle in value.casefold()
+                for value in searchable
+            ):
+                return False
+
+        return True
+
+    selected = [record for record in records if matches(record)]
+    page = selected[offset:offset + limit]
+
+    catalog = data["sources"].get("hackerone_catalog", {})
+
+    if not isinstance(catalog, dict):
+        raise HTTPException(
+            status_code=503,
+            detail="Invalid catalog provenance",
+        )
+
+    return {
+        "schema": "jarvis.bounty.opportunity_browser.r10c1",
+        "mode": "offline_read_only",
+        "search": search.strip(),
+        "source_filter": source,
+        "lane_filter": lane,
+        "limit": limit,
+        "offset": offset,
+        "total_opportunities": len(records),
+        "total_matched": len(selected),
+        "returned_count": len(page),
+        "has_more": offset + len(page) < len(selected),
+        "catalog_status": catalog.get("status", "unknown"),
+        "imported_policy_count": data.get(
+            "imported_policy_count", 0
+        ),
+        "imported_policy_limit": 200,
+        "results": page,
+        "workstation": data.get("workstation", {}),
+        "network_requests": 0,
+        "human_review_required": True,
+        "independent_policy_verification": False,
+        "testing_authorized": False,
+        "automatic_execution_allowed": False,
+        "mission_creation_allowed": False,
+        "submission_authorized": False,
+    }
