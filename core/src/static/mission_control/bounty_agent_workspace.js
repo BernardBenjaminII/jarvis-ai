@@ -156,6 +156,82 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
       void loadOpportunityBrowser();
     });
 
+    // JARVIS_R100C3_REVIEW_QUEUE
+    const reviewPanel = document.createElement("section");
+    reviewPanel.className = "jba-opportunity-reviews";
+    reviewPanel.innerHTML = `
+      <div class="jba-section-head">
+        <div>
+          <small>R10.0C3 · HUMAN-GATED CHANGE REVIEWS</small>
+          <h2>Opportunity Review Queue</h2>
+        </div>
+        <span id="jba-or-status">Loading</span>
+        <button type="button" id="jba-or-refresh">Refresh Reviews</button>
+      </div>
+      <p class="jba-muted">
+        Catalog changes require review. Review decisions never authorize
+        testing, reconnaissance, mission creation, or submission.
+      </p>
+      <div class="jba-or-toolbar">
+        <label>Review state
+          <select id="jba-or-filter">
+            <option value="pending">Pending</option>
+            <option value="all">All states</option>
+            <option value="acknowledged">Acknowledged</option>
+            <option value="deferred">Deferred</option>
+            <option value="resolved">Resolved</option>
+          </select>
+        </label>
+        <span id="jba-or-counts" class="jba-muted"></span>
+      </div>
+      <div id="jba-or-records" aria-live="polite">Loading review events…</div>
+      <nav class="jba-or-navigation" aria-label="Review queue pages">
+        <button type="button" id="jba-or-prev" disabled>Previous</button>
+        <span id="jba-or-page">Page 1</span>
+        <button type="button" id="jba-or-next" disabled>Next</button>
+      </nav>
+      <p class="jba-muted">Review-only decisions · Audit history retained</p>
+    `;
+    commandPanel.insertAdjacentElement("afterend", reviewPanel);
+
+    reviewPanel.querySelector("#jba-or-filter").addEventListener("change", event => {
+      opportunityReviewState.filter = event.target.value;
+      opportunityReviewState.offset = 0;
+      void loadOpportunityReviews();
+    });
+    reviewPanel.querySelector("#jba-or-refresh").addEventListener("click", () => {
+      void loadOpportunityReviews();
+    });
+    reviewPanel.querySelector("#jba-or-prev").addEventListener("click", () => {
+      if (!opportunityReviewState.offset) return;
+      opportunityReviewState.offset = Math.max(
+        0, opportunityReviewState.offset - opportunityReviewState.limit
+      );
+      void loadOpportunityReviews();
+    });
+    reviewPanel.querySelector("#jba-or-next").addEventListener("click", () => {
+      if (!opportunityReviewState.hasMore) return;
+      opportunityReviewState.offset += opportunityReviewState.limit;
+      void loadOpportunityReviews();
+    });
+    reviewPanel.querySelector("#jba-or-records").addEventListener("click", event => {
+      const button = event.target.closest("button[data-review-action]");
+      if (!button || !reviewPanel.contains(button) || button.disabled) return;
+      const eventId = Number(button.dataset.eventId);
+      if (!Number.isSafeInteger(eventId) || !opportunityReviewState.records.has(eventId)) return;
+      if (button.dataset.reviewAction === "history") {
+        void loadOpportunityReviewHistory(eventId);
+        return;
+      }
+      if (button.dataset.reviewAction !== "apply") return;
+      const next = reviewPanel.querySelector(`select[data-review-next="${eventId}"]`);
+      const note = reviewPanel.querySelector(`input[data-review-note="${eventId}"]`);
+      if (!next || !note) return;
+      button.disabled = true;
+      void applyOpportunityReviewDecision(eventId, next.value, note.value)
+        .finally(() => { if (button.isConnected) button.disabled = false; });
+    });
+
     // JARVIS_R921D3A_POLICY_BROWSER
     const policyPanel = document.createElement("section");
     policyPanel.className = "jba-policy-browser";
@@ -3202,6 +3278,264 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
     }
   }
 
+  const opportunityReviewState = {
+    filter: "pending", limit: 10, offset: 0, hasMore: false,
+    request: 0, records: new Map(), pendingKeys: new Map()
+  };
+  const reviewStates = ["pending", "acknowledged", "deferred", "resolved"];
+  const reviewTransitions = {
+    pending: ["acknowledged", "deferred", "resolved"],
+    acknowledged: ["deferred", "resolved"],
+    deferred: ["acknowledged", "resolved"],
+    resolved: ["pending"]
+  };
+
+  function reviewSafety(data) {
+    return data &&
+      data.schema === "jarvis.bounty.review_queue.r10b" &&
+      data.network_requests === 0 &&
+      data.human_review_only === true &&
+      data.testing_authorized === false &&
+      data.execution_authorized === false &&
+      data.submission_authorized === false &&
+      data.notification_authorized === false &&
+      data.alerts_issued === 0;
+  }
+
+  function safeReviewRecord(item) {
+    return item &&
+      Number.isSafeInteger(item.id) && item.id > 0 &&
+      typeof item.program === "string" &&
+      typeof item.handle === "string" &&
+      typeof item.run_id === "string" &&
+      (item.previous_run_id === null || typeof item.previous_run_id === "string") &&
+      ["new_listing", "listing_changed", "no_longer_listed"].includes(item.event_type) &&
+      reviewStates.includes(item.review_state) &&
+      item.human_review_required === true &&
+      item.testing_authorized === false &&
+      Array.isArray(item.changed_fields) &&
+      item.changed_fields.every(field => typeof field === "string");
+  }
+
+  async function loadOpportunityReviews() {
+    const panel = host?.querySelector(".jba-opportunity-reviews");
+    const recordsNode = panel?.querySelector("#jba-or-records");
+    const status = panel?.querySelector("#jba-or-status");
+    const countsNode = panel?.querySelector("#jba-or-counts");
+    const pageNode = panel?.querySelector("#jba-or-page");
+    const prev = panel?.querySelector("#jba-or-prev");
+    const next = panel?.querySelector("#jba-or-next");
+    if (!recordsNode) return;
+
+    const request = ++opportunityReviewState.request;
+    const filter = opportunityReviewState.filter;
+    const offset = opportunityReviewState.offset;
+    opportunityReviewState.records = new Map();
+    opportunityReviewState.hasMore = false;
+    recordsNode.textContent = "Loading review events…";
+    if (status) status.textContent = "Loading";
+    if (prev) prev.disabled = true;
+    if (next) next.disabled = true;
+
+    const params = new URLSearchParams({
+      limit: String(opportunityReviewState.limit),
+      offset: String(offset)
+    });
+    if (filter !== "all") params.set("state", filter);
+
+    try {
+      const data = await api("/api/bounty-agent/opportunity-reviews?" + params);
+      if (
+        request !== opportunityReviewState.request ||
+        !recordsNode.isConnected ||
+        host?.querySelector("#jba-or-records") !== recordsNode
+      ) return;
+
+      const counts = data.counts;
+      const validCounts = counts && reviewStates.every(
+        value => Number.isSafeInteger(counts[value]) && counts[value] >= 0
+      );
+      if (
+        !reviewSafety(data) ||
+        !["ready", "ledger_missing"].includes(data.status) ||
+        !validCounts ||
+        !Number.isSafeInteger(data.total_events) ||
+        data.total_events !== reviewStates.reduce((sum, key) => sum + counts[key], 0) ||
+        !Array.isArray(data.records) ||
+        data.records.length > opportunityReviewState.limit ||
+        (data.status === "ledger_missing" && (data.total_events !== 0 || data.records.length)) ||
+        (data.status === "ready" &&
+          (data.limit !== opportunityReviewState.limit || data.offset !== offset)) ||
+        data.records.some(item => !safeReviewRecord(item) ||
+          (filter !== "all" && item.review_state !== filter)) ||
+        new Set(data.records.map(item => item.id)).size !== data.records.length
+      ) throw new Error("Unsafe review queue response");
+
+      const matching = filter === "all" ? data.total_events : counts[filter];
+      const optionsFor = item => reviewTransitions[item.review_state]
+        .map(value => `<option value="${value}">${value}</option>`).join("");
+      const rows = data.records.map(item => `
+        <article class="jba-or-record">
+          <div class="jba-or-record-head">
+            <strong>${esc(item.program)}</strong>
+            <span>${esc(item.review_state)} · ${esc(item.event_type)}</span>
+          </div>
+          <p class="jba-muted">${esc(item.handle)} · Event #${item.id}</p>
+          <p>Changed fields: ${esc(item.changed_fields.join(", ") || "New listing / membership")}</p>
+          <details><summary>Catalog evidence identifiers</summary>
+            <p>Snapshot: ${esc(item.run_id)}</p>
+            <p>Previous: ${esc(item.previous_run_id || "Initial")}</p>
+          </details>
+          <div class="jba-or-controls">
+            <button type="button" data-review-action="history" data-event-id="${item.id}">
+              View audit history
+            </button>
+            <label>New review state
+              <select data-review-next="${item.id}">${optionsFor(item)}</select>
+            </label>
+            <label>Review note (optional)
+              <input type="text" data-review-note="${item.id}" maxlength="400"
+                placeholder="Why this review decision?">
+            </label>
+            <button type="button" data-review-action="apply" data-event-id="${item.id}">
+              Confirm review decision
+            </button>
+          </div>
+          <div class="jba-or-history" data-review-history="${item.id}"></div>
+          <small>Review status only. Testing authorization unchanged.</small>
+        </article>`).join("");
+
+      opportunityReviewState.records = new Map(data.records.map(item => [item.id, item]));
+      opportunityReviewState.hasMore =
+        data.records.length > 0 && offset + data.records.length < matching;
+      recordsNode.innerHTML = rows || '<p class="jba-muted">No reviews in this state.</p>';
+      if (status) status.textContent = `${counts.pending} pending`;
+      if (countsNode) countsNode.textContent =
+        `${data.total_events} total · ${counts.pending} pending · ` +
+        `${counts.acknowledged} acknowledged · ${counts.deferred} deferred · ` +
+        `${counts.resolved} resolved`;
+      if (pageNode) pageNode.textContent = `Page ${Math.floor(offset / opportunityReviewState.limit) + 1} ` +
+        `of ${Math.max(1, Math.ceil(matching / opportunityReviewState.limit))}`;
+      if (prev) prev.disabled = offset === 0;
+      if (next) next.disabled = !opportunityReviewState.hasMore;
+    } catch (error) {
+      if (
+        request !== opportunityReviewState.request ||
+        !recordsNode.isConnected ||
+        host?.querySelector("#jba-or-records") !== recordsNode
+      ) return;
+      opportunityReviewState.records = new Map();
+      recordsNode.textContent = "Review queue unavailable: " + error.message;
+      if (status) status.textContent = "Unavailable";
+      if (countsNode) countsNode.textContent = "";
+      if (pageNode) pageNode.textContent = "No page loaded";
+      if (prev) prev.disabled = true;
+      if (next) next.disabled = true;
+    }
+  }
+
+  async function loadOpportunityReviewHistory(eventId) {
+    const item = opportunityReviewState.records.get(eventId);
+    const panel = host?.querySelector(".jba-opportunity-reviews");
+    const area = panel?.querySelector(`[data-review-history="${eventId}"]`);
+    if (!item || !area) return;
+    const currentRequest = opportunityReviewState.request;
+    area.textContent = "Loading audit history…";
+    try {
+      const data = await api(
+        `/api/bounty-agent/opportunity-reviews/${eventId}/history?limit=25`
+      );
+      if (
+        currentRequest !== opportunityReviewState.request || !area.isConnected ||
+        host?.querySelector(`[data-review-history="${eventId}"]`) !== area
+      ) return;
+      if (
+        !reviewSafety(data) || data.status !== "ready" ||
+        data.event_id !== eventId || !reviewStates.includes(data.review_state) ||
+        !Number.isSafeInteger(data.total_history) || data.total_history < 0 ||
+        !Array.isArray(data.records) || data.records.length > 25 ||
+        data.records.some(row =>
+          !reviewStates.includes(row.from_state) ||
+          !reviewStates.includes(row.to_state) ||
+          typeof row.actor !== "string" || typeof row.note !== "string" ||
+          typeof row.request_id !== "string" ||
+          typeof row.changed_at !== "number" || !Number.isFinite(row.changed_at)
+        )
+      ) throw new Error("Unsafe review history response");
+      area.innerHTML = `
+        <p>Audit entries: ${data.total_history}</p>
+        ${data.records.map(row => `<p>
+          ${esc(row.from_state)} → ${esc(row.to_state)} · ${esc(row.actor)} ·
+          ${esc(new Date(row.changed_at * 1000).toLocaleString())}
+          ${row.note ? " · " + esc(row.note) : ""}
+        </p>`).join("") || '<p class="jba-muted">No recorded decisions yet.</p>'}
+        ${data.total_history > 25 ? '<p class="jba-muted">Showing latest 25 decisions.</p>' : ""}`;
+    } catch (error) {
+      if (area.isConnected && currentRequest === opportunityReviewState.request)
+        area.textContent = "Audit history unavailable: " + error.message;
+    }
+  }
+
+  async function applyOpportunityReviewDecision(eventId, nextState, note) {
+    const item = opportunityReviewState.records.get(eventId);
+    const panel = host?.querySelector(".jba-opportunity-reviews");
+    const status = panel?.querySelector("#jba-or-status");
+    if (!item || !panel) return false;
+    if (!reviewTransitions[item.review_state].includes(nextState)) return false;
+    if (typeof note !== "string" || note.length > 400 || /[\x00-\x1f\x7f]/.test(note)) {
+      if (status) status.textContent = "Invalid review note";
+      return false;
+    }
+    const trimmed = note.trim();
+    if (!window.confirm(
+      `Set ${item.program} from ${item.review_state} to ${nextState}? ` +
+      "This changes review status only; it does not authorize testing."
+    )) return false;
+
+    const identity = `${eventId}:${item.review_state}:${nextState}:${trimmed}`;
+    let requestId = opportunityReviewState.pendingKeys.get(identity);
+    if (!requestId) {
+      if (!globalThis.crypto?.randomUUID) {
+        if (status) status.textContent = "Secure request IDs unavailable";
+        return false;
+      }
+      requestId = globalThis.crypto.randomUUID();
+      opportunityReviewState.pendingKeys.set(identity, requestId);
+    }
+    if (status) status.textContent = "Recording decision…";
+    try {
+      const result = await api(
+        `/api/bounty-agent/opportunity-reviews/${eventId}/decisions`, {
+          method: "POST",
+          headers: {"X-Jarvis-Review-Intent": "review-state-only"},
+          body: JSON.stringify({
+            expected_state: item.review_state,
+            new_state: nextState,
+            request_id: requestId,
+            note: trimmed
+          })
+        }
+      );
+      if (
+        !reviewSafety(result) ||
+        !["updated", "already_applied"].includes(result.status) ||
+        result.event_id !== eventId ||
+        result.review_state !== nextState ||
+        result.request_id !== requestId
+      ) throw new Error("Unsafe review decision response");
+      opportunityReviewState.pendingKeys.delete(identity);
+      if (panel.isConnected && host?.querySelector(".jba-opportunity-reviews") === panel) {
+        await loadOpportunityReviews();
+      }
+      return true;
+    } catch (error) {
+      if (status && panel.isConnected) {
+        status.textContent = "Decision not confirmed; refresh/retry: " + error.message;
+      }
+      return false;
+    }
+  }
+
   // JARVIS_R922D2_OPPORTUNITY_RENDER
   async function loadOpportunityIntelligence() {
     const content = host?.querySelector("#jba-oi-content");
@@ -3335,6 +3669,10 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
     opportunityBrowserState.lane = "all";
     opportunityBrowserState.offset = 0;
     opportunityBrowserState.hasMore = false;
+    opportunityReviewState.filter = "pending";
+    opportunityReviewState.offset = 0;
+    opportunityReviewState.hasMore = false;
+    void loadOpportunityReviews();
     void loadOpportunityBrowser();
     void loadOpportunityIntelligence();
     await loadSessions();
