@@ -1,0 +1,14 @@
+[Unit]
+Description=JARVIS R10 metadata-only bounty catalog monitoring
+ConditionPathExists=/mnt/jarvis_data/Projects/jarvis-ai/core/bounty_catalog/scheduled_monitor_r100d2.py
+
+[Service]
+Type=oneshot
+WorkingDirectory=/mnt/jarvis_data/Projects/jarvis-ai
+ExecStart=/mnt/jarvis_runtime/venvs/kali/bin/python -m core.bounty_catalog.scheduled_monitor_r100d2 --run
+TimeoutStartSec=1200
+UMask=0077
+NoNewPrivileges=true
+Environment=PYTHONUNBUFFERED=1
+# Desktop notification is best-effort; catalog events persist without a GUI.
+# This is NOT the launcher.py / port 8000 service.

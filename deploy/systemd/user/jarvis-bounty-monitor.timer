@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily JARVIS public HackerOne catalog monitor
+
+[Timer]
+OnCalendar=*-*-* 09:00:00 Europe/Berlin
+Persistent=true
+AccuracySec=1min
+Unit=jarvis-bounty-monitor.service
+
+[Install]
+WantedBy=timers.target
