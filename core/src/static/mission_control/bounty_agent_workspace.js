@@ -68,6 +68,94 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
         void loadOpportunityIntelligence();
       });
 
+
+    // JARVIS_R100C2_COMMAND_CENTER
+    const commandPanel = document.createElement("section");
+    commandPanel.className = "jba-opportunity-command";
+    commandPanel.innerHTML = `
+      <div class="jba-section-head">
+        <div>
+          <small>R10.0C2 · OFFLINE OPPORTUNITY BROWSER</small>
+          <h2>Opportunity Command Center</h2>
+        </div>
+        <span id="jba-oc-status">Loading</span>
+      </div>
+      <p class="jba-muted">
+        Search stored program intelligence. A listing is not authorization to test.
+      </p>
+      <form id="jba-oc-form" class="jba-oc-form" role="search">
+        <label>Search
+          <input name="search" type="search" maxlength="120"
+                 autocomplete="off" placeholder="Program or handle">
+        </label>
+        <label>Source
+          <select name="source">
+            <option value="all">All sources</option>
+            <option value="hackerone_api_snapshot">HackerOne catalog</option>
+            <option value="manual_policy_import">Imported policies</option>
+          </select>
+        </label>
+        <label>Review lane
+          <select name="lane">
+            <option value="all">All lanes</option>
+            <option value="POLICY_REVIEW">Policy review</option>
+            <option value="MANUAL_A">Manual A</option>
+            <option value="MANUAL_B">Manual B</option>
+            <option value="SKIP">Skip</option>
+            <option value="IMPORTED_POLICY">Imported policy</option>
+          </select>
+        </label>
+        <div class="jba-oc-actions">
+          <button type="submit">Search</button>
+          <button type="button" id="jba-oc-reset">Reset</button>
+        </div>
+      </form>
+      <div id="jba-oc-summary" class="jba-muted"></div>
+      <div id="jba-oc-content" aria-live="polite">Loading saved opportunities…</div>
+      <nav class="jba-oc-navigation" aria-label="Opportunity results pages">
+        <button type="button" id="jba-oc-prev" disabled>Previous</button>
+        <span id="jba-oc-page">Page 1</span>
+        <button type="button" id="jba-oc-next" disabled>Next</button>
+      </nav>
+      <p class="jba-muted">
+        Read-only browsing · Human policy verification required · Execution disabled
+      </p>
+    `;
+    opportunityPanel.insertAdjacentElement("afterend", commandPanel);
+
+    const commandForm = commandPanel.querySelector("#jba-oc-form");
+    commandForm.addEventListener("submit", event => {
+      event.preventDefault();
+      opportunityBrowserState.search =
+        commandForm.elements.namedItem("search").value.trim();
+      opportunityBrowserState.source =
+        commandForm.elements.namedItem("source").value;
+      opportunityBrowserState.lane =
+        commandForm.elements.namedItem("lane").value;
+      opportunityBrowserState.offset = 0;
+      void loadOpportunityBrowser();
+    });
+    commandPanel.querySelector("#jba-oc-reset").addEventListener("click", () => {
+      commandForm.reset();
+      opportunityBrowserState.search = "";
+      opportunityBrowserState.source = "all";
+      opportunityBrowserState.lane = "all";
+      opportunityBrowserState.offset = 0;
+      void loadOpportunityBrowser();
+    });
+    commandPanel.querySelector("#jba-oc-prev").addEventListener("click", () => {
+      if (!opportunityBrowserState.offset) return;
+      opportunityBrowserState.offset = Math.max(
+        0, opportunityBrowserState.offset - opportunityBrowserState.limit
+      );
+      void loadOpportunityBrowser();
+    });
+    commandPanel.querySelector("#jba-oc-next").addEventListener("click", () => {
+      if (!opportunityBrowserState.hasMore) return;
+      opportunityBrowserState.offset += opportunityBrowserState.limit;
+      void loadOpportunityBrowser();
+    });
+
     // JARVIS_R921D3A_POLICY_BROWSER
     const policyPanel = document.createElement("section");
     policyPanel.className = "jba-policy-browser";
@@ -2990,6 +3078,130 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
   }
 
 
+
+  const opportunityBrowserState = {
+    search: "", source: "all", lane: "all", limit: 25,
+    offset: 0, hasMore: false, request: 0
+  };
+
+  async function loadOpportunityBrowser() {
+    const panel = host?.querySelector(".jba-opportunity-command");
+    const content = panel?.querySelector("#jba-oc-content");
+    const status = panel?.querySelector("#jba-oc-status");
+    const summary = panel?.querySelector("#jba-oc-summary");
+    const page = panel?.querySelector("#jba-oc-page");
+    const prev = panel?.querySelector("#jba-oc-prev");
+    const next = panel?.querySelector("#jba-oc-next");
+    if (!content) return;
+
+    const request = ++opportunityBrowserState.request;
+    opportunityBrowserState.hasMore = false;
+    content.textContent = "Loading stored opportunities…";
+    if (status) status.textContent = "Loading";
+    if (prev) prev.disabled = true;
+    if (next) next.disabled = true;
+
+    const params = new URLSearchParams({
+      search: opportunityBrowserState.search,
+      source: opportunityBrowserState.source,
+      lane: opportunityBrowserState.lane,
+      limit: String(opportunityBrowserState.limit),
+      offset: String(opportunityBrowserState.offset)
+    });
+
+    try {
+      const data = await api("/api/bounty-agent/opportunities?" + params.toString());
+      if (
+        request !== opportunityBrowserState.request ||
+        !content.isConnected ||
+        host?.querySelector("#jba-oc-content") !== content
+      ) return;
+      if (
+        data.schema !== "jarvis.bounty.opportunity_browser.r10c1" ||
+        data.mode !== "offline_read_only" ||
+        data.network_requests !== 0 ||
+        data.human_review_required !== true ||
+        data.testing_authorized !== false ||
+        data.automatic_execution_allowed !== false ||
+        data.mission_creation_allowed !== false ||
+        data.submission_authorized !== false ||
+        !Array.isArray(data.results) ||
+        !Number.isInteger(data.total_matched) ||
+        data.total_matched < 0 ||
+        !Number.isInteger(data.total_opportunities) ||
+        data.total_opportunities < data.total_matched ||
+        !Number.isInteger(data.returned_count) ||
+        data.returned_count !== data.results.length ||
+        data.results.length > opportunityBrowserState.limit ||
+        data.offset !== opportunityBrowserState.offset ||
+        data.limit !== opportunityBrowserState.limit ||
+        typeof data.has_more !== "boolean" ||
+        data.results.some(item =>
+          !item ||
+          item.human_review_required !== true ||
+          item.testing_authorized !== false ||
+          item.execution_enabled !== false ||
+          item.automatic_execution_ready !== false ||
+          item.submission_authorized !== false ||
+          typeof item.program !== "string" ||
+          typeof item.platform !== "string" ||
+          typeof item.source !== "string" ||
+          typeof item.review_lane !== "string"
+        )
+      ) throw new Error("Unsafe opportunity browser response");
+
+      opportunityBrowserState.hasMore = data.has_more;
+      const rows = data.results.map(item => {
+        const score = Number.isInteger(item.existing_manual_viability_score)
+          ? item.existing_manual_viability_score + "/100"
+          : "Not scored";
+        return `
+          <article class="jba-oc-record">
+            <div class="jba-oc-record-head">
+              <strong>${esc(item.program)}</strong>
+              <span>${esc(item.review_lane)}</span>
+            </div>
+            <p class="jba-muted">${esc(item.platform)} · ${esc(item.source)}</p>
+            <p><small>Identifier:</small> ${esc(item.source_identifier || "Unknown")}</p>
+            <p>Manual viability: ${esc(score)}</p>
+            <p>Next review step: ${esc(item.next_action || "Review program policy")}</p>
+            <small>Policy not independently verified. Testing is not authorized.</small>
+          </article>`;
+      }).join("");
+      content.innerHTML = rows ||
+        '<p class="jba-muted">No opportunities match these filters.</p>';
+
+      const total = data.total_matched;
+      const start = total ? opportunityBrowserState.offset + 1 : 0;
+      const end = Math.min(
+        opportunityBrowserState.offset + data.returned_count, total
+      );
+      if (summary) summary.textContent =
+        `Showing ${start}–${end} of ${total} matching records ` +
+        `(${data.total_opportunities} stored). Catalog: ${data.catalog_status}.`;
+      if (status) status.textContent = total + " matches";
+      if (page) {
+        const currentPage = Math.floor(
+          opportunityBrowserState.offset / opportunityBrowserState.limit
+        ) + 1;
+        const pageCount = Math.max(1, Math.ceil(total / opportunityBrowserState.limit));
+        page.textContent = `Page ${currentPage} of ${pageCount}`;
+      }
+      if (prev) prev.disabled = opportunityBrowserState.offset === 0;
+      if (next) next.disabled = !data.has_more;
+    } catch (error) {
+      if (
+        request !== opportunityBrowserState.request ||
+        !content.isConnected ||
+        host?.querySelector("#jba-oc-content") !== content
+      ) return;
+      content.textContent = "Opportunity browser unavailable: " + error.message;
+      if (status) status.textContent = "Unavailable";
+      if (summary) summary.textContent = "";
+      if (page) page.textContent = "No page loaded";
+    }
+  }
+
   // JARVIS_R922D2_OPPORTUNITY_RENDER
   async function loadOpportunityIntelligence() {
     const content = host?.querySelector("#jba-oi-content");
@@ -3118,6 +3330,12 @@ window.__JARVIS_BOUNTY_UI_VERSION__ = "R9.6C-runtime-1";
     reviewRequestGeneration += 1;
 
     shell();
+    opportunityBrowserState.search = "";
+    opportunityBrowserState.source = "all";
+    opportunityBrowserState.lane = "all";
+    opportunityBrowserState.offset = 0;
+    opportunityBrowserState.hasMore = false;
+    void loadOpportunityBrowser();
     void loadOpportunityIntelligence();
     await loadSessions();
   }

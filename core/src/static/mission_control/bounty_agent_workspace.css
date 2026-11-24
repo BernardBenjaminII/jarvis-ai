@@ -1035,3 +1035,76 @@
     width: 100%;
   }
 }
+
+/* JARVIS_R100C2_COMMAND_CENTER */
+.jba-opportunity-command {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  border-radius: 12px;
+  min-width: 0;
+}
+.jba-oc-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: .75rem;
+  align-items: end;
+  margin: 1rem 0;
+}
+.jba-oc-form label {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  min-width: 0;
+}
+.jba-oc-form input, .jba-oc-form select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: .55rem;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  border-radius: 6px;
+}
+.jba-oc-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.jba-oc-form button, .jba-oc-navigation button {
+  cursor: pointer;
+  font: inherit;
+  padding: .55rem .75rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  border-radius: 6px;
+}
+.jba-oc-navigation button:disabled { opacity: .45; cursor: not-allowed; }
+.jba-oc-record {
+  padding: .85rem;
+  margin: .6rem 0;
+  border: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+.jba-oc-record p { margin: .4rem 0; }
+.jba-oc-record-head {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.jba-oc-record-head span { font-size: .8rem; opacity: .8; }
+.jba-oc-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+@media (max-width: 850px) {
+  .jba-oc-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 540px) {
+  .jba-oc-form { grid-template-columns: minmax(0, 1fr); }
+}
